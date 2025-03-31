@@ -1,0 +1,25 @@
+[general]
+name=ELAN
+about=Modules de traitement des données : Procédés, Hydraulique, ACV, Économique, Réseau, Réutilisation.
+category=None
+hasProcessingProvider=yes
+description=Modules de traitement des données : Procédés, Hydraulique, ACV, Économique, Réseau, Réutilisation.
+icon=resources/images/ELAN-LOGO-02_IDT.png
+tags=réseau, coût
+
+# credits and contact
+author=REVERSAAL et Oslandia
+email=info@oslandia.com
+homepage=https://gitlab.com/elan7835313/elan
+repository=https://gitlab.com/elan7835313/elan
+tracker=https://gitlab.com/elan7835313/elan/-/issues
+
+# experimental flag
+deprecated=False
+experimental=True
+qgisMinimumVersion=3.36.0
+qgisMaximumVersion=3.99
+
+# versionnement
+version=2025.3.27
+changelog=

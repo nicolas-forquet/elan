@@ -1,0 +1,179 @@
+stages:
+  - 🐍 lint
+  - 🤞 test
+  - 📦 build
+  - 🚀 deploy
+
+# Change pip's cache directory to be inside the project directory since we can
+# only cache local items.
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_FOLDER/.cache/pip"
+  PROJECT_FOLDER: "ELAN"
+  PYTHON_VERSION: "3.12"
+  PACKAGE_REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PROJECT_FOLDER}"
+
+# Pip's cache doesn't store the python packages
+# https://pip.pypa.io/en/stable/reference/pip_install/#caching
+#
+# If you want to also cache the installed packages, you have to install
+# them in a virtualenv and cache it as well.
+cache:
+  key:
+    files:
+      - requirements/*.txt
+  paths:
+    - .cache/pip
+
+# -- LINT JOBS -------------------------------------------------------------------------
+
+pylint:
+  stage: 🐍 lint
+  image: python:${PYTHON_VERSION}-slim
+  rules:
+    - changes:
+      - ${PROJECT_FOLDER}/**/*
+      - tests/**/*
+      # if the following files change, the documentation job is launched, which needs pylint job
+      - CHANGELOG.md
+      - docs/**/*
+  before_script:
+    - rm -rf target/badges target/lint
+    - mkdir -p target/badges target/lint
+    - echo undefined > target/badges/$CI_JOB_NAME.score
+    - python -m pip install -U -r requirements/development.txt
+    - python -m pip install -U pylint_gitlab
+  script:
+    - pylint --ignore=resources.py --exit-zero --output-format=text $(find . -type f -path "./ELAN/*.py" -o -path "./tests/*.py" ! -path "**/.venv/**") | tee /tmp/pylint.txt
+    - sed -n 's/^Your code has been rated at \([-0-9.]*\)\/.*/\1/p' /tmp/pylint.txt > target/badges/$CI_JOB_NAME.score
+    - pylint --ignore=resources.py --exit-zero --output-format=pylint_gitlab.GitlabCodeClimateReporter $(find . -type f -name "*.py" ! -path "**/.venv/**") > codeclimate.json
+    - pylint --ignore=resources.py --exit-zero --output-format=pylint_gitlab.GitlabPagesHtmlReporter $(find . -type f -name "*.py" ! -path "**/.venv/**") > target/lint/index.html
+  after_script:
+    - anybadge --overwrite --label $CI_JOB_NAME --value=$(cat target/badges/$CI_JOB_NAME.score) --file=target/badges/$CI_JOB_NAME.svg 4=red 6=orange 8=yellow 10=green
+    - |
+      echo "Your score is: $(cat target/badges/$CI_JOB_NAME.score)"
+  artifacts:
+    name: lint
+    expose_as: "Lint report"
+    paths:
+      - target/badges
+      - target/lint
+    reports:
+      codequality: codeclimate.json
+    when: always
+
+# -- TEST JOBS --------------------------------------------------------------------------
+
+test:
+  image: qgis/qgis:release-3_36
+  stage: 🤞 test
+  rules:
+    - changes:
+      - ${PROJECT_FOLDER}/**/*
+      - tests/**/*
+  before_script:
+    - python3 -m pip install -U -r requirements/testing.txt
+  script:
+    - PYTHONPATH=/usr/share/qgis/python:./ pytest
+  artifacts:
+    when: always
+    reports:
+      junit: junit/test-results.xml
+
+# -- BUILD JOBS -------------------------------------------------------------------------
+
+builder:
+  image: python:${PYTHON_VERSION}
+  stage: 📦 build
+  rules:
+    - changes:
+      - ${PROJECT_FOLDER}/**/*
+      - CHANGELOG.md
+  before_script:
+    - apt install git
+    - python -m pip install -U -r requirements/packaging.txt
+  script:
+    - qgis-plugin-ci package latest --plugin-repo-url ${PACKAGE_REGISTRY_URL}/${CI_COMMIT_TAG}/
+    - ls ${PROJECT_FOLDER}.*.zip
+    - echo "PACKAGE_NAME=$(ls ${PROJECT_FOLDER}.*.zip)" >> release.env
+    - cat release.env
+
+    # FIXME qgis-plugin-ci don't handle triple level headers for sub-sections yet,
+    # we are waiting for issue https://github.com/opengisch/qgis-plugin-ci/issues/56 to be fixed.
+    - sed -i -E 's/^### (Added|Changed|Removed|Fixed)$/\U\1/' CHANGELOG.md  # change the specified tripple level headers into upper case words
+    - qgis-plugin-ci changelog latest >> RELEASE_DESCRIPTION.md  # get the changelog
+    # back to three level headers
+    - awk '{if ($0 ~ /^(FIXED|CHANGED|REMOVED|ADDED)$/) print "### " toupper(substr($0, 1, 1)) tolower(substr($0, 2)); else print $0}' RELEASE_DESCRIPTION.md > RELEASE_DESCRIPTION.md.tmp
+    - mv RELEASE_DESCRIPTION.md.tmp RELEASE_DESCRIPTION.md
+
+  artifacts:
+    name: "$PROJECT_FOLDER_b$CI_COMMIT_REF_NAME-c$CI_COMMIT_SHORT_SHA-j$CI_JOB_ID"
+    paths:
+      - ${PROJECT_FOLDER}.*.zip
+      - plugins.xml
+      - RELEASE_DESCRIPTION.md
+    reports:
+      dotenv: release.env
+
+documentation:
+  stage: 📦 build
+  image: python:${PYTHON_VERSION}-slim
+  rules:
+    - changes:
+      - docs/**/*
+      - CHANGELOG.md
+  before_script:
+    - python -m pip install -U -r requirements/documentation.txt
+  script:
+    - sphinx-build -b html docs target/docs
+  artifacts:
+    name: documentation
+    expose_as: "Built documentation static website"
+    paths:
+      - target/docs
+    when: always
+
+# -- DEPLOYMENT JOBS -------------------------------------------------------------------
+
+upload-plugin:
+  stage: 🚀 deploy
+  image: curlimages/curl:latest
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - |
+      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
+           --upload-file ${PACKAGE_NAME} \
+           ${PACKAGE_REGISTRY_URL}/${CI_COMMIT_TAG}/${PACKAGE_NAME}
+
+release-from-tag:
+  stage: 🚀 deploy
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - echo "Creating release from $CI_COMMIT_TAG"
+    - sed -i "1s/^/# $CI_COMMIT_TAG\n\n/" RELEASE_DESCRIPTION.md
+  release:
+    description: RELEASE_DESCRIPTION.md
+    tag_name: $CI_COMMIT_TAG
+    name: Version $CI_COMMIT_TAG
+    assets:
+      links:
+        - name: $PACKAGE_NAME
+          url: ${PACKAGE_REGISTRY_URL}/${CI_COMMIT_TAG}/${PACKAGE_NAME}
+          link_type: package
+
+pages:
+  stage: 🚀 deploy
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - mkdir -p public/lint
+    - cp -rf target/docs/* public/  # artifact from documentation job
+    - cp -rf target/badges/* public/lint/  # artifact from pylint job
+    - cp -rf target/lint/* public/lint/  # artifact from pylint job
+    - cp plugins.xml public/  # artifact from builder job
+  artifacts:
+    paths:
+      - public
+    when: always
