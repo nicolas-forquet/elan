@@ -4,7 +4,7 @@ about=Modules de traitement des données : Procédés, Hydraulique, ACV, Économ
 category=None
 hasProcessingProvider=yes
 description=Modules de traitement des données : Procédés, Hydraulique, ACV, Économique, Réseau, Réutilisation.
-icon=resources/images/ELAN-LOGO-02_IDT.png
+icon=resources/images/ELAN-LOGO-02_ICONE.png
 tags=réseau, coût
 
 # credits and contact
