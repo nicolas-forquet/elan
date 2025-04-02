@@ -39,9 +39,7 @@ Plugin is linted, tested and packaged with GitLab.
 
 The documentation is generated using Sphinx and is automatically generated through the CI and published on Pages.
 
-- repository=https://git.oslandia.net/Client-projects/2010_09_inrae_assainissement
-- tracker=https://git.oslandia.net/Client-projects/2010_09_inrae_assainissement/./issues
-- documentation=https://client-projects.pages.oslandia.io/2010_09_inrae_assainissement/
+- documentation=https://elan7835313.gitlab.io/elan/
 
 ----
 
