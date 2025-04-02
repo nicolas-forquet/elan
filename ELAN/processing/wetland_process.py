@@ -362,10 +362,21 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
                         break
 
             # Get objectives
+            obj_none = []
             TSS_obj = wwtp_feature[TSS_obj_field_name]
+            if TSS_obj == NULL:
+                obj_none.append(self.tr("TSS"))
             BOD5_obj = wwtp_feature[BOD5_obj_field_name]
+            if BOD5_obj == NULL:
+                obj_none.append(self.tr("BOD5"))
             TKN_obj = wwtp_feature[TKN_obj_field_name]
+            if TKN_obj == NULL:
+                obj_none.append(self.tr("TKN"))
             COD_obj = wwtp_feature[COD_obj_field_name]
+            if COD_obj == NULL:
+                obj_none.append(self.tr("COD"))
+            if len(obj_none) > 0:
+                raise QgsProcessingException(self.tr("These values can't be NULL:") + " " + ", ".join(obj_none))
             NO3_obj = wwtp_feature[NO3_obj_field_name]
             TN_obj = wwtp_feature[TN_obj_field_name]
             Q = wwtp_feature[Q_obj_field_name]

@@ -1222,20 +1222,45 @@ La surface disponible influence le formatage de la table attributaire, par rappo
         <translation>Climat</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="391"/>
+        <location filename="../../processing/wetland_process.py" line="402"/>
         <source>Python not found for multiprocessing</source>
         <translation>Python introuvable pour multiprocessing</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="393"/>
+        <location filename="../../processing/wetland_process.py" line="404"/>
         <source>Unexpected error to set python path for multiprocessing:</source>
         <translation>Erreur inattendue pour affecter le chemin de Python pour multiprocessing:</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="368"/>
+        <source>TSS</source>
+        <translation>MES</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="371"/>
+        <source>BOD5</source>
+        <translation>DBO5</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="374"/>
+        <source>TKN</source>
+        <translation>NTK</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="377"/>
+        <source>COD</source>
+        <translation>DCO</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="379"/>
+        <source>These values can&apos;t be NULL:</source>
+        <translation>Ces valeurs ne doivent pas être NULL :</translation>
     </message>
 </context>
 <context>
     <name>WetlandProcessPostProcessor</name>
     <message>
-        <location filename="../../processing/wetland_process.py" line="496"/>
+        <location filename="../../processing/wetland_process.py" line="507"/>
         <source>No layer styles found</source>
         <translation>Aucun style de couche trouvé</translation>
     </message>
