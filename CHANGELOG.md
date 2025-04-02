@@ -27,6 +27,17 @@ Unreleased
 - and that other one too
 -->
 
+## 2025.4.2 - 2025-04-02
+
+### Added
+
+- Official ELAN logo!
+
+### Fixed
+
+- Processes module: fix table column orders
+- Processes module: better error message when an objective is NULL
+
 ## 2025.3.27 - 2025-03-27
 
 ### Fixed
