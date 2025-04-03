@@ -24,6 +24,16 @@ cache:
   paths:
     - .cache/pip
 
+# -- WORKFLOW --------------------------------------------------------------------------
+
+# Only launch CI/CD pipelines on merge requests, tags, and default branch
+# see https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Workflows/MergeRequest-Pipelines.gitlab-ci.yml
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
 # -- LINT JOBS -------------------------------------------------------------------------
 
 pylint:
@@ -93,9 +103,7 @@ builder:
     - python -m pip install -U -r requirements/packaging.txt
   script:
     - qgis-plugin-ci package latest --plugin-repo-url ${PACKAGE_REGISTRY_URL}/${CI_COMMIT_TAG}/
-    - ls ${PROJECT_FOLDER}.*.zip
     - echo "PACKAGE_NAME=$(ls ${PROJECT_FOLDER}.*.zip)" >> release.env
-    - cat release.env
 
     # FIXME qgis-plugin-ci don't handle triple level headers for sub-sections yet,
     # we are waiting for issue https://github.com/opengisch/qgis-plugin-ci/issues/56 to be fixed.
