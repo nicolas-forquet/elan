@@ -33,8 +33,6 @@ workflow:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: $CI_COMMIT_TAG
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - changes:
-      - .gitlab-ci.yml
 
 # -- LINT JOBS -------------------------------------------------------------------------
 
@@ -43,6 +41,7 @@ pylint:
   image: python:${PYTHON_VERSION}-slim
   rules:
     - changes:
+      - .gitlab-ci.yml
       - ${PROJECT_FOLDER}/**/*
       - tests/**/*
       # if the following files change, the documentation job is launched, which needs pylint job
@@ -80,6 +79,7 @@ test:
   stage: 🤞 test
   rules:
     - changes:
+      - .gitlab-ci.yml
       - ${PROJECT_FOLDER}/**/*
       - tests/**/*
   before_script:
@@ -98,6 +98,7 @@ builder:
   stage: 📦 build
   rules:
     - changes:
+      - .gitlab-ci.yml
       - ${PROJECT_FOLDER}/**/*
       - CHANGELOG.md
   before_script:
@@ -129,6 +130,7 @@ documentation:
   image: python:${PYTHON_VERSION}-slim
   rules:
     - changes:
+      - .gitlab-ci.yml
       - docs/**/*
       - CHANGELOG.md
   before_script:
