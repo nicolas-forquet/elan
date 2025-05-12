@@ -96,4 +96,4 @@ dmypy.json
 # -- CUSTOM ----
 .vscode/
 .qm
-ELAN/external_dependencies/*
+ELAN/external_dependencies/
