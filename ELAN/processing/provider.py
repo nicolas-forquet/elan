@@ -16,6 +16,7 @@ from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
 from ELAN.processing.sewer_network import SewerNetworkAlgorithm
 from ELAN.processing.trench_profile import TrenchProfileAlgorithm
 from ELAN.processing.wetland_process import WetlandProcessAlgorithm
+from ELAN.processing.scenario import ScenarioAlgorithm
 from ELAN.utils.tr import Translatable
 
 
@@ -32,6 +33,7 @@ class ELANProvider(QgsProcessingProvider, Translatable):
         self.addAlgorithm(SewerNetworkAlgorithm())
         self.addAlgorithm(LcaAlgorithm())
         self.addAlgorithm(TrenchProfileAlgorithm())
+        self.addAlgorithm(ScenarioAlgorithm())
 
     def id(self) -> str:
         """Unique provider id, used for identifying it. This string should be a unique, short, character only
