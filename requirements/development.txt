@@ -1,6 +1,7 @@
 # Develoment dependencies
 # -----------------------
 
+numba==0.60.0
 pandas>=2.2.1,<2.3
 pysheds==0.3.5
 black>=24.2,<24.3
