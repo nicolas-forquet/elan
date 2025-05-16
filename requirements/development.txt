@@ -1,12 +1,8 @@
 # Develoment dependencies
 # -----------------------
 
-numba==0.60.0
-pandas>=2.2.1,<2.3
-pysheds==0.3.5
 black>=24.2,<24.3
 pylint>=3.1,<3.2
 semver>=3.0,<3.1
 isort>=5.13,<5.14
 pre-commit>=3.6,<3.7
-geopandas==1.0.1

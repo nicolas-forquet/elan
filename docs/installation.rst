@@ -4,6 +4,20 @@ Installation
 Préalable
 ----------
 
+Sur Linux
+^^^^^^^^^
+
+* Avoir créé un environnement virtuel Python
+
+* L'activer
+
+* Installer les dépendances de :download:`ce fichier <https://gitlab.com/elan7835313/elan/-/raw/main/requirements/elan.txt?ref_type=heads&inline=false>`
+
+* Ouvrir QGIS via la console, dans l'environnement virtuel Python
+
+Sur Windows
+^^^^^^^^^^^
+
 * Avoir téléchargé et installé `QGIS <https://qgis.org/download/>`_.
 
 * Ouvrir QGIS.
@@ -31,8 +45,8 @@ Installation de l'extension
 Installation des dépendances
 ----------------------------
 
-ELAN utilise des codes développés dans le cadre de différents projets de recherche (voir :ref:`introduction <projets-recherche>`). 
-Cette section explique comment procéder à leur installation. 
+ELAN utilise des codes développés dans le cadre de différents projets de recherche (voir :ref:`introduction <projets-recherche>`).
+Cette section explique comment procéder à leur installation.
 Selon le code, son installation se fait soit via les paramètres de l'extension, soit directement en ligne de commande.
 
 Question du centralisé/décentralisé : pysewer et wetlandoptimizer
@@ -44,7 +58,7 @@ Elle permet d'effectuer le tracé et le pré-dimensionnement d'un réseau d'assa
 
     Sanne et al., (2024). Pysewer: A Python Library for Sewer Network Generation in Data Scarce Regions. Journal of Open Source Software, 9(104), 6430, https://doi.org/10.21105/joss.06430
 
-Son installation se fait via l'extension. 
+Son installation se fait via l'extension.
 
 .. important::
     **pysewer est nécessaire pour pouvoir utiliser le module** ``Réseau``.
@@ -64,7 +78,7 @@ Son installation se fait via l'extension.
 * **wetlandoptimizer** est un package Python développé par `REVERSAAL (INRAE) <https://reversaal.lyon-grenoble.hub.inrae.fr/>`_ dans le cadre du projet `CARIBSAN <https://caribsan.eu/>`_.
 
 Il permet un pré-dimensionnement optimisé pour des filières de type filtres plantés de végétaux. Ces filières peuvent être mono ou multi-étages et composées de différents procédés.
-Son installation se fait via ELAN. 
+Son installation se fait via ELAN.
 
 .. important::
     **wetlandoptimizer est nécessaire au fonctionnement du module** ``Procédés``.
@@ -92,8 +106,8 @@ Question des déversements par temps de pluie : pysheds
 
 * **pysheds** est une bibliothèque open-source Python développée par `l'UT Austin <https://www.utexas.edu/>`_, une université américaine (Texas).
 
-Elle permet de délimiter rapidement des bassins versants topographiques par analyse du modèle numérique de terrain (MNT). 
-Son installation se fait directement en ligne de commande. 
+Elle permet de délimiter rapidement des bassins versants topographiques par analyse du modèle numérique de terrain (MNT).
+Son installation se fait directement en ligne de commande.
 
 .. important::
     **pysheds doit avoir été installé pour pouvoir utiliser le module** ``Bassins versants urbains``.
