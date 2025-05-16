@@ -11,11 +11,13 @@ from qgis.PyQt.QtCore import Qt
 from qgis.PyQt.QtWidgets import QAction, QDockWidget
 
 # project
-from ELAN.__about__ import __title__
+from ELAN.__about__ import __experimental__, __title__
 from ELAN.gui.dlg_settings import PlgOptionsFactory
-from ELAN.permeability_panel import PermeabilityWidget
 from ELAN.processing.provider import ELANProvider
 from ELAN.utils.tr import Translatable
+
+if __experimental__:
+    from ELAN.permeability_panel import PermeabilityWidget
 
 
 class ELANPlugin(Translatable):
@@ -51,13 +53,14 @@ class ELANPlugin(Translatable):
         # -- Menu
         self.iface.addPluginToMenu(__title__, self.action_settings)
 
-        # Perméabilité
-        self.permeabilite_panneau = QDockWidget()
-        self.permeabilite_panneau.setWindowTitle("Seuil de perméabilité")
-        self.permeabilite_panneau.setObjectName("SeuilPermeabilite")
-        self.permeabilite_panneau.setWidget(PermeabilityWidget())
-        self.iface.addTabifiedDockWidget(Qt.DockWidgetArea.RightDockWidgetArea, self.permeabilite_panneau)
-        self.permeabilite_panneau.setVisible(False)
+        # -- Permeability
+        if __experimental__:
+            self.permeabilite_panneau = QDockWidget()
+            self.permeabilite_panneau.setWindowTitle("Seuil de perméabilité")
+            self.permeabilite_panneau.setObjectName("SeuilPermeabilite")
+            self.permeabilite_panneau.setWidget(PermeabilityWidget())
+            self.iface.addTabifiedDockWidget(Qt.DockWidgetArea.RightDockWidgetArea, self.permeabilite_panneau)
+            self.permeabilite_panneau.setVisible(False)
 
         # -- Processing
         self.provider = ELANProvider()
@@ -69,15 +72,16 @@ class ELANPlugin(Translatable):
         """Cleans up when plugin is disabled/uninstalled."""
         # -- Clean up menu
         self.iface.removePluginMenu(__title__, self.action_settings)
-        self.iface.removeDockWidget(self.permeabilite_panneau)
+
+        if __experimental__:
+            self.iface.removeDockWidget(self.permeabilite_panneau)
+            del self.permeabilite_panneau
 
         # -- Clean up preferences panel in QGIS settings
         self.iface.unregisterOptionsWidgetFactory(self.options_factory)
 
         del self.action_settings
-        del self.permeabilite_panneau
 
         # -- Unregister processing
-        if (registry := QgsApplication.processingRegistry()) is None:
-            return
-        registry.removeProvider(self.provider)
+        if (registry := QgsApplication.processingRegistry()) is not None:
+            registry.removeProvider(self.provider)

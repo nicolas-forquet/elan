@@ -105,16 +105,17 @@ builder:
     - apt install git
     - python -m pip install -U -r requirements/packaging.txt
   script:
-    - qgis-plugin-ci package latest --plugin-repo-url ${PACKAGE_REGISTRY_URL}/${CI_COMMIT_TAG}/
-    - echo "PACKAGE_NAME=$(ls ${PROJECT_FOLDER}.*.zip)" >> release.env
-
     # FIXME qgis-plugin-ci don't handle triple level headers for sub-sections yet,
     # we are waiting for issue https://github.com/opengisch/qgis-plugin-ci/issues/56 to be fixed.
     - sed -i -E 's/^### (Added|Changed|Removed|Fixed)$/\U\1/' CHANGELOG.md  # change the specified tripple level headers into upper case words
-    - qgis-plugin-ci changelog latest >> RELEASE_DESCRIPTION.md  # get the changelog
+
+    - qgis-plugin-ci package latest --allow-uncommitted-changes --plugin-repo-url ${PACKAGE_REGISTRY_URL}/${CI_COMMIT_TAG}/
+    - qgis-plugin-ci changelog latest > RELEASE_DESCRIPTION.md  # get the changelog
+
     # back to three level headers
     - awk '{if ($0 ~ /^(FIXED|CHANGED|REMOVED|ADDED)$/) print "### " toupper(substr($0, 1, 1)) tolower(substr($0, 2)); else print $0}' RELEASE_DESCRIPTION.md > RELEASE_DESCRIPTION.md.tmp
     - mv RELEASE_DESCRIPTION.md.tmp RELEASE_DESCRIPTION.md
+    - echo "PACKAGE_NAME=$(ls ${PROJECT_FOLDER}.*.zip)" > release.env
 
   artifacts:
     name: "$PROJECT_FOLDER_b$CI_COMMIT_REF_NAME-c$CI_COMMIT_SHORT_SHA-j$CI_JOB_ID"

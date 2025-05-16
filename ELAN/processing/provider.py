@@ -7,7 +7,7 @@ from qgis.core import QgsProcessingProvider
 from qgis.PyQt.QtGui import QIcon
 
 # project
-from ELAN.__about__ import DIR_PLUGIN_ROOT, __version__
+from ELAN.__about__ import DIR_PLUGIN_ROOT, __experimental__, __version__
 from ELAN.processing.economical import EconomicalAlgorithm
 from ELAN.processing.hydraulic import HydraulicAlgorithm, HydraulicUrbanCatchmentAlgorithm
 from ELAN.processing.lca import LcaAlgorithm
@@ -25,13 +25,15 @@ class ELANProvider(QgsProcessingProvider, Translatable):
 
         self.addAlgorithm(PopulationAlgorithm())
         self.addAlgorithm(RoadsBuildingsAlgorithm())
-        self.addAlgorithm(HydraulicAlgorithm())
-        self.addAlgorithm(HydraulicUrbanCatchmentAlgorithm())
         self.addAlgorithm(WetlandProcessAlgorithm())
-        self.addAlgorithm(EconomicalAlgorithm())
         self.addAlgorithm(SewerNetworkAlgorithm())
-        self.addAlgorithm(LcaAlgorithm())
         self.addAlgorithm(TrenchProfileAlgorithm())
+
+        if __experimental__:
+            self.addAlgorithm(LcaAlgorithm())
+            self.addAlgorithm(EconomicalAlgorithm())
+            self.addAlgorithm(HydraulicAlgorithm())
+            self.addAlgorithm(HydraulicUrbanCatchmentAlgorithm())
 
     def id(self) -> str:
         """Unique provider id, used for identifying it. This string should be a unique, short, character only
