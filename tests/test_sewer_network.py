@@ -30,10 +30,10 @@ def test_sewer_network(qgis_processing, mocker):
         raise RuntimeError("Processing registry not found")
     registry.addProvider(provider)
 
-    sinks_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_steu_input.gpkg"
+    sinks_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_steu_input.gpkg.zip"
     dem_file_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_mnt_input.tif"
-    roads_input_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_roads_input.gpkg"
-    buildings_input_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_input_buildings_pop_input.gpkg"
+    roads_input_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_roads_input.gpkg.zip"
+    buildings_input_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_buildings_population_input.gpkg.zip"
     sewer_network_param = {
         "SINKS": sinks_path,
         "OUTPUT_LAYER": f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_generated_output.gpkg",
@@ -59,7 +59,7 @@ def test_sewer_network(qgis_processing, mocker):
 
     processing.run("elan:elansewernetwork", sewer_network_param)
 
-    ref_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_reference_output.gpkg"
+    ref_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_reference_output.gpkg.zip"
     gen_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_generated_output.gpkg"
 
     layers = ["pumping_stations", "lifting_stations", "sewer_pipes", "info_network"]
