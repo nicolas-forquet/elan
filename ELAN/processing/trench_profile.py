@@ -16,25 +16,26 @@ from qgis.core import (
     Qgis,
     QgsFeature,
     QgsFields,
-    QgsProject,
     QgsGeometry,
     QgsPoint,
     QgsProcessingAlgorithm,
     QgsProcessingException,
     QgsProcessingMultiStepFeedback,
     QgsProcessingParameterFeatureSource,
+    QgsProcessingParameterFileDestination,
     QgsProcessingUtils,
+    QgsProject,
     QgsProviderRegistry,
 )
 
-from ELAN.processing.utils import GpkgVectorDestination, LoadGpkgStylesPostProcessor, getLocalizedStylesDirectory
+from ELAN.processing.utils import LoadGpkgStylesPostProcessor, getLocalizedStylesDirectory
 from ELAN.utils.tr import Translatable
 
 
 class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
 
     INPUT_LAYER = "INPUT_LAYER"
-    OUTPUT_LAYER = "OUTPUT_LAYER"
+    OUTPUT_GPKG = "OUTPUT_GPKG"
 
     def __init__(self):
         super().__init__()
@@ -109,7 +110,11 @@ class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
             )
         )
 
-        self.addParameter(GpkgVectorDestination(self.OUTPUT_LAYER, self.tr("Result layers (.gpkg)")))
+        self.addParameter(
+            QgsProcessingParameterFileDestination(
+                self.OUTPUT_GPKG, self.tr("Result layers (.gpkg)"), self.tr("Geopackage files (*.gpkg)")
+            )
+        )
 
     def processAlgorithm(self, parameters, context, feedback):
 
@@ -145,7 +150,7 @@ class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
             raise QgsProcessingException(self.tr("Unable to create temporary output layer"))
 
         # Get output geopackage path
-        output_layer_path = self.parameterAsOutputLayer(parameters, self.OUTPUT_LAYER, context)
+        output_layer_path = self.parameterAsString(parameters, self.OUTPUT_GPKG, context)
 
         multistep_feedback = QgsProcessingMultiStepFeedback(2, feedback)
         multistep_feedback.setCurrentStep(0)

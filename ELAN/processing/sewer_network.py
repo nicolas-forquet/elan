@@ -32,6 +32,7 @@ from qgis.core import (
     QgsProcessingParameterEnum,
     QgsProcessingParameterFeatureSource,
     QgsProcessingParameterField,
+    QgsProcessingParameterFileDestination,
     QgsProcessingParameterNumber,
     QgsProcessingParameterRasterLayer,
     QgsProcessingParameterString,
@@ -46,7 +47,7 @@ from qgis.gui import QgsCategorizedSymbolRendererWidget
 from qgis.PyQt.QtXml import QDomDocument
 
 from ELAN.__about__ import DIR_PLUGIN_ROOT
-from ELAN.processing.utils import GpkgVectorDestination, LoadGpkgStylesPostProcessor, getLocalizedStylesDirectory
+from ELAN.processing.utils import LoadGpkgStylesPostProcessor, getLocalizedStylesDirectory
 from ELAN.utils.qgis_utils import getInterpreterPath
 from ELAN.utils.tr import Translatable
 
@@ -73,7 +74,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
     ROUGHNESS = "ROUGHNESS"
     PRESSURIZED_DIAMETER = "PRESSURIZED_DIAMETER"
     DIAMETERS = "DIAMETERS"
-    OUTPUT_LAYER = "OUTPUT_LAYER"
+    OUTPUT_GPKG = "OUTPUT_GPKG"
     SINKS = "SINKS"
     DIAMETERS_VALUE = ["0.1", "0.15", "0.2", " 0.25", "0.3", "0.4"]
 
@@ -171,8 +172,8 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         )
 
         self.addParameter(
-            GpkgVectorDestination(
-                self.OUTPUT_LAYER, self.tr("Result layers (.gpkg)"), Qgis.ProcessingSourceType.VectorLine
+            QgsProcessingParameterFileDestination(
+                self.OUTPUT_GPKG, self.tr("Result layers (.gpkg)"), self.tr("Geopackage files (*.gpkg)")
             )
         )
 
@@ -308,7 +309,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
 
         # load custom settings from the example settings file
         sinks_source = self.parameterAsSource(parameters, self.SINKS, context)
-        output_layer_path = self.parameterAsOutputLayer(parameters, self.OUTPUT_LAYER, context)
+        output_layer_path = self.parameterAsString(parameters, self.OUTPUT_GPKG, context)
         dem_layer = self.parameterAsRasterLayer(parameters, self.DEM_FILE_PATH, context)
         roads_source = self.parameterAsSource(parameters, self.ROADS_INPUT_DATA, context)
         buildings_source = self.parameterAsSource(parameters, self.BUILDINGS_INPUT_DATA, context)
@@ -522,7 +523,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         except Exception as e:
             raise QgsProcessingException(self.tr("Unexpected error while saving styles: {}").format(str(e))) from e
 
-        return {}
+        return {self.OUTPUT_GPKG: output_layer_path}
 
     def saveStyles(self, output_layer_path):
         """

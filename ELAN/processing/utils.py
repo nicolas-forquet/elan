@@ -2,16 +2,10 @@ from processing import QgsVectorLayer
 from qgis.core import (
     QgsMapLayerStyle,
     QgsProcessingLayerPostProcessorInterface,
-    QgsProcessingParameterVectorDestination,
 )
 
 from ELAN.__about__ import DIR_PLUGIN_ROOT, LOCALE
 from ELAN.utils.tr import Translatable
-
-
-class GpkgVectorDestination(QgsProcessingParameterVectorDestination):
-    def supportedOutputVectorLayerExtensions(self):
-        return ["gpkg"]
 
 
 def getLocalizedStylesDirectory():
