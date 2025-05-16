@@ -4,43 +4,33 @@ test_trench_profile
 
 from pathlib import Path
 
-from qgis.core import QgsApplication, QgsVectorLayer
-from qgis.gui import QgisInterface
-
-DIR_PLUGIN_ROOT = Path(__file__).parent
+from ELAN.__about__ import DIR_PLUGIN_ROOT
+from ELAN.processing.trench_profile import TrenchProfileAlgorithm
+from tests.utils import assert_same_layers, load_layer
 
 
 def test_trench_profile(qgis_processing, mocker):
-    mocker.patch("ELAN.toolbelt.log_handler.iface", spec=QgisInterface)
     import processing
 
-    from ELAN.processing.provider import ELANProvider
+    mocker.patch("ELAN.utils.tr.PlgLogger")  # don't care about logging anything from translations
 
-    provider = ELANProvider()
-    if (registry := QgsApplication.processingRegistry()) is None:
-        raise RuntimeError("Processing registry not found")
-    registry.addProvider(provider)
+    test_data_dir = Path(DIR_PLUGIN_ROOT).parent / "tests" / "data_test" / "trench_profile"
+
+    trench_profile_alg = TrenchProfileAlgorithm()
+    assert trench_profile_alg.name() == "elantrenchprofile"
+    assert trench_profile_alg.groupId() == "results_exploration"
 
     trench_profile_param = {
-        "INPUT_LAYER": f"{DIR_PLUGIN_ROOT}/data_test/trench_profile/trench_profile_input.gpkg.zip",
-        "OUTPUT_LAYER": f"{DIR_PLUGIN_ROOT}/data_test/trench_profile/trench_profile_generated_output.gpkg",
+        "INPUT_LAYER": str(test_data_dir / "trench_profile_input.gpkg.zip"),
+        "OUTPUT_LAYER": str(test_data_dir / "trench_profile_generated_output.gpkg"),
     }
 
-    processing.run("elan:elantrenchprofile", trench_profile_param)
-    ref_path = f"{DIR_PLUGIN_ROOT}/data_test/trench_profile/trench_profile_reference_output.gpkg.zip"
-    gen_path = f"{DIR_PLUGIN_ROOT}/data_test/trench_profile/trench_profile_generated_output.gpkg"
+    res = processing.run(trench_profile_alg, trench_profile_param)
+    assert res == {}
+
+    ref_path = str(test_data_dir / "trench_profile_reference_output.gpkg.zip")
+    gen_path = str(test_data_dir / "trench_profile_generated_output.gpkg")
     layers = ["sewer_profile", "land_profile", "3D_pipes"]
 
     for name in layers:
-        ref_layer = load_layer(ref_path, name)
-        generated_layer = load_layer(gen_path, name)
-
-        assert ref_layer.featureCount() == generated_layer.featureCount()
-        assert [field.name() for field in ref_layer.fields()] == [field.name() for field in generated_layer.fields()]
-
-
-def load_layer(gpkg_path, layer_name):
-    uri = f"{gpkg_path}|layername={layer_name}"
-    layer = QgsVectorLayer(uri, layer_name, "ogr")
-    assert layer.isValid()
-    return layer
+        assert_same_layers(load_layer(ref_path, name), load_layer(gen_path, name))
