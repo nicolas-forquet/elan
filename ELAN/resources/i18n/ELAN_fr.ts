@@ -640,6 +640,93 @@
     </message>
 </context>
 <context>
+    <name>ScenarioAlgorithm</name>
+    <message>
+        <location filename="../../processing/scenario.py" line="63"/>
+        <source>Create a scenario</source>
+        <translation>Créer un scénario</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="70"/>
+        <source>Processings</source>
+        <translation>Processus</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="88"/>
+        <source>
+            Create a scenario GeoPackage file contining all informations
+            required for further analysis and evaluation.
+            </source>
+        <translation>Créer un fichier GeoPackage de scénario contenant toutes les informations
+requises pour une future analyse et évaluation.</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="97"/>
+        <source>Scenario geopackage</source>
+        <translation>Geopackage de scénario</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="97"/>
+        <source>Geopackage files (*.gpkg)</source>
+        <translation>Fichiers Geopackage (*.gpkg)</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="103"/>
+        <source>Sewer network geopackage</source>
+        <translation>Geopackage du réseau</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="106"/>
+        <source>Processes (one per WWTP)</source>
+        <translation>Procédés (un par STEU)</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="134"/>
+        <source>There is more than one process per WWTP</source>
+        <translation>Il y a plus d&apos;un procédé par STEU</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="150"/>
+        <source>Could not create metadata scenario layer</source>
+        <translation>Impossible de créer la couche de métadonnées de scenario</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="152"/>
+        <source>Error when editing metadata for scenario</source>
+        <translation>Erreur à l&apos;édition des métadonnées pour le scénario</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="158"/>
+        <source>Error when creating metadata for scernario</source>
+        <translation>Erreur à la création des métadonnées pour le scénario</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="160"/>
+        <source>Error when saving metadata for scenario</source>
+        <translation>Erreur à la sauvegarde des métadonnées pour le scénario</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="164"/>
+        <source>No styles directory found</source>
+        <translation>Aucun répertoire de styles trouvé</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="167"/>
+        <source>Error when loading metadata style: {}</source>
+        <translation>Erreur au chargement du style des métadonnées : {}</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="193"/>
+        <source>Unexpected error while saving styles</source>
+        <translation>Erreur inattendue à la sauvegarde des styles</translation>
+    </message>
+    <message>
+        <location filename="../../processing/scenario.py" line="209"/>
+        <source>Error while saving {} style</source>
+        <translation>Erreur à la sauvegarde du style {}</translation>
+    </message>
+</context>
+<context>
     <name>SewerNetworkAlgorithm</name>
     <message>
         <location filename="../../processing/sewer_network.py" line="108"/>

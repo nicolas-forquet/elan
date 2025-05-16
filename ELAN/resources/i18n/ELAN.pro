@@ -10,6 +10,7 @@ SOURCES= ../../plugin_main.py \
     ../../processing/lca.py \
     ../../processing/population.py \
     ../../processing/trench_profile.py \
+    ../../processing/scenario.py \
     ../../processing/utils.py
 
 TRANSLATIONS = ELAN_fr.ts
