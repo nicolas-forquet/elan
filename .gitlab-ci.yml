@@ -84,6 +84,7 @@ test:
       - tests/**/*
   before_script:
     - python3 -m pip install -U -r requirements/testing.txt
+    - python3 -m pip install -U -r requirements/elan.txt
   script:
     - pytest --qgis_disable_gui
   artifacts:
