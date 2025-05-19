@@ -75,7 +75,7 @@ pylint:
 # -- TEST JOBS --------------------------------------------------------------------------
 
 test:
-  image: qgis/qgis:release-3_36
+  image: qgis/qgis:3.40.6
   stage: 🤞 test
   rules:
     - changes:
@@ -83,10 +83,12 @@ test:
       - ${PROJECT_FOLDER}/**/*
       - tests/**/*
   before_script:
-    - python3 -m pip install -U -r requirements/testing.txt
-    - python3 -m pip install -U -r requirements/elan.txt
+    - python3 -m venv --system-site-packages venv
+    - source venv/bin/activate
+    - pip install -r requirements/testing.txt
+    - pip install -r requirements/elan.txt
   script:
-    - pytest --qgis_disable_gui
+    - python3 -m pytest --qgis_disable_gui
   artifacts:
     when: always
     reports:
