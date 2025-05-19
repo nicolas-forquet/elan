@@ -23,7 +23,7 @@ def test_trench_profile(qgis_processing, mocker, tmp_path):
 
     trench_profile_param = {
         "INPUT_LAYER": str(test_data_dir / "trench_profile_input.gpkg.zip"),
-        "OUTPUT_LAYER": str(tmp_path / "trench_profile_generated_output.gpkg"),
+        "OUTPUT_GPKG": str(tmp_path / "trench_profile_generated_output.gpkg"),
     }
 
     res = processing.run(trench_profile_alg, trench_profile_param)
