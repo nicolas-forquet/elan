@@ -29,6 +29,7 @@ def load_layer(gpkg_path: str | Path, layer_name: str) -> QgsVectorLayer:
     Return layer from a geopackage
     """
 
+    assert Path(gpkg_path).exists()
     uri = str(gpkg_path) + f"|layername={layer_name}"
     layer = QgsVectorLayer(uri, layer_name, "ogr")
     assert layer.isValid()
