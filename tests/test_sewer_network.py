@@ -33,10 +33,12 @@ def test_sewer_network(qgis_processing, mocker):
     sinks_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_steu_input.gpkg.zip"
     dem_file_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_mnt_input.tif"
     roads_input_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_roads_input.gpkg.zip"
-    buildings_input_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_buildings_population_input.gpkg.zip"
+    buildings_input_path = (
+        f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_buildings_population_input.gpkg.zip"
+    )
     sewer_network_param = {
         "SINKS": sinks_path,
-        "OUTPUT_LAYER": f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_generated_output.gpkg",
+        "OUTPUT_GPKG": f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_generated_output.gpkg",
         "DEM_FILE_PATH": dem_file_path,
         "ROADS_INPUT_DATA": roads_input_path,
         "BUILDINGS_INPUT_DATA": buildings_input_path,
