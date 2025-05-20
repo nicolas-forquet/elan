@@ -204,12 +204,12 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         self.addParameter(
             QgsProcessingParameterNumber(
                 self.STAGES_MAX,
-                self.tr("Maximum stages number"),
+                self.tr("Maximum stages number (between 1 and 3)"),
                 Qgis.ProcessingNumberParameterType.Integer,
                 defaultValue=3,
                 optional=False,
-                minValue=0,
-                maxValue=4,
+                minValue=1,
+                maxValue=3,
             )
         )
         self.addParameter(

@@ -1295,8 +1295,8 @@ La surface disponible influence le formatage de la table attributaire, par rappo
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="204"/>
-        <source>Maximum stages number</source>
-        <translation>Nombre d&apos;étages maximum</translation>
+        <source>Maximum stages number (between 1 and 3)</source>
+        <translation>Nombre d&apos;étages maximum (entre 1 et 3)</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="255"/>
@@ -1324,12 +1324,12 @@ La surface disponible influence le formatage de la table attributaire, par rappo
         <translation>Climat</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="402"/>
+        <location filename="../../processing/wetland_process.py" line="400"/>
         <source>Python not found for multiprocessing</source>
         <translation>Python introuvable pour multiprocessing</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="404"/>
+        <location filename="../../processing/wetland_process.py" line="402"/>
         <source>Unexpected error to set python path for multiprocessing:</source>
         <translation>Erreur inattendue pour affecter le chemin de Python pour multiprocessing:</translation>
     </message>
@@ -1345,16 +1345,11 @@ La surface disponible influence le formatage de la table attributaire, par rappo
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="374"/>
-        <source>TKN</source>
-        <translation>NTK</translation>
-    </message>
-    <message>
-        <location filename="../../processing/wetland_process.py" line="377"/>
         <source>COD</source>
         <translation>DCO</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="379"/>
+        <location filename="../../processing/wetland_process.py" line="376"/>
         <source>These values can&apos;t be NULL:</source>
         <translation>Ces valeurs ne doivent pas être NULL :</translation>
     </message>
@@ -1362,7 +1357,7 @@ La surface disponible influence le formatage de la table attributaire, par rappo
 <context>
     <name>WetlandProcessPostProcessor</name>
     <message>
-        <location filename="../../processing/wetland_process.py" line="507"/>
+        <location filename="../../processing/wetland_process.py" line="505"/>
         <source>No layer styles found</source>
         <translation>Aucun style de couche trouvé</translation>
     </message>
