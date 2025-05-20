@@ -89,7 +89,7 @@ test:
     - pip install -r requirements/elan.txt
     - QT_QPA_PLATFORM="offscreen" python3 -c "from qgis.core import QgsApplication;from ELAN.utils.dependencies_utils import installPysewer;app = QgsApplication([], False);app.initQgis();installPysewer()"
   script:
-    - python3 -m pytest --qgis_disable_gui
+    - pytest --qgis_disable_gui
   artifacts:
     when: always
     reports:
