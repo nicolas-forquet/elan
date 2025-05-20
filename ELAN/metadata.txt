@@ -5,7 +5,7 @@ category=None
 hasProcessingProvider=yes
 description=Modules de traitement des données : Procédés, Hydraulique, ACV, Économique, Réseau, Réutilisation.
 icon=resources/images/ELAN-LOGO-02_ICONE.png
-tags=réseau, coût
+tags=urban water,integrated management,NBS,decentralization,disconnection,decision-support
 
 # credits and contact
 author=REVERSAAL et Oslandia
