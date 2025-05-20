@@ -528,7 +528,7 @@
     <alias field="name_stages" index="2" name="descriptif filière"/>
     <alias field="surface_stages" index="3" name="surface par étape de traitement"/>
     <alias field="depth_stages_sat" index="4" name="profondeur saturée par étage"/>
-    <alias field="depth_stages_unsat" index="5" name="profondeur désaturée par étage"/>
+    <alias field="depth_stages_unsat" index="5" name="profondeur non saturée par étage"/>
     <alias field="TSS_loading_stages" index="6" name="taux de charge MES par étape de traitement"/>
     <alias field="BOD5_loading_stages" index="7" name="taux de charge DBO5 par étape de traitement"/>
     <alias field="TKN_loading_stages" index="8" name="taux de charge NTK par étape de traitement"/>
