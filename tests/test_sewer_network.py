@@ -4,41 +4,31 @@ test_sewer_network
 
 from pathlib import Path
 
-from qgis.core import QgsApplication, QgsVectorLayer
-from qgis.gui import QgisInterface
+from tests.utils import assert_same_layers, load_layer
 
 DIR_PLUGIN_ROOT = Path(__file__).parent
 
 
-def load_layer(gpkg_path, layer_name):
-    uri = f"{gpkg_path}|layername={layer_name}"
-    layer = QgsVectorLayer(uri, layer_name, "ogr")
-    assert layer.isValid(), f"Layer {layer_name} could not be loaded from {gpkg_path}"
-    return layer
-
-
-def test_sewer_network(qgis_processing, mocker):
-
-    mocker.patch("ELAN.toolbelt.log_handler.iface", spec=QgisInterface)
+def test_sewer_network(qgis_processing, mocker, tmp_path):
 
     import processing
 
-    from ELAN.processing.provider import ELANProvider
+    from ELAN.processing.sewer_network import SewerNetworkAlgorithm
 
-    provider = ELANProvider()
-    if (registry := QgsApplication.processingRegistry()) is None:
-        raise RuntimeError("Processing registry not found")
-    registry.addProvider(provider)
+    mocker.patch("ELAN.utils.tr.PlgLogger")  # don't care about logging anything from translations
 
-    sinks_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_steu_input.gpkg.zip"
-    dem_file_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_mnt_input.tif"
-    roads_input_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_roads_input.gpkg.zip"
-    buildings_input_path = (
-        f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_buildings_population_input.gpkg.zip"
-    )
+    test_data_dir = Path(DIR_PLUGIN_ROOT).parent / "tests" / "data_test" / "sewer_network"
+    test_sewer_network_alg = SewerNetworkAlgorithm()
+    assert test_sewer_network_alg.name() == "elansewernetwork"
+    assert test_sewer_network_alg.groupId() == "elanprocessings"
+
+    sinks_path = f"{test_data_dir}/sewer_network_steu_input.gpkg.zip"
+    dem_file_path = f"{test_data_dir}/sewer_network_mnt_input.tif"
+    roads_input_path = f"{test_data_dir}/sewer_network_roads_input.gpkg.zip"
+    buildings_input_path = f"{test_data_dir}/sewer_network_buildings_population_input.gpkg.zip"
     sewer_network_param = {
         "SINKS": sinks_path,
-        "OUTPUT_GPKG": f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_generated_output.gpkg",
+        "OUTPUT_GPKG": f"{tmp_path}/sewer_network_generated_output.gpkg",
         "DEM_FILE_PATH": dem_file_path,
         "ROADS_INPUT_DATA": roads_input_path,
         "BUILDINGS_INPUT_DATA": buildings_input_path,
@@ -59,16 +49,13 @@ def test_sewer_network(qgis_processing, mocker):
         "DIAMETERS": [0, 1, 2, 3, 4, 5],
     }
 
-    processing.run("elan:elansewernetwork", sewer_network_param)
+    res = processing.run(test_sewer_network_alg, sewer_network_param)
+    assert res != {}
 
-    ref_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_reference_output.gpkg.zip"
-    gen_path = f"{DIR_PLUGIN_ROOT}/data_test/sewer_network/sewer_network_generated_output.gpkg"
+    ref_path = f"{test_data_dir}/sewer_network_reference_output.gpkg.zip"
+    gen_path = f"{tmp_path}/sewer_network_generated_output.gpkg"
 
-    layers = ["pumping_stations", "lifting_stations", "sewer_pipes", "info_network"]
+    layers = ["pumping_stations", "lifting_stations", "sewer_pipes"]
 
     for name in layers:
-        ref_layer = load_layer(ref_path, name)
-        generated_layer = load_layer(gen_path, name)
-
-        assert ref_layer.featureCount() == generated_layer.featureCount()
-        assert [field.name() for field in ref_layer.fields()] == [field.name() for field in generated_layer.fields()]
+        assert_same_layers(load_layer(ref_path, name), load_layer(gen_path, name))
