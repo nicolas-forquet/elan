@@ -170,6 +170,8 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
     sinks_gdf["COD_obj"] = float("nan")
     sinks_gdf["NO3_obj"] = float("nan")
     sinks_gdf["TN_obj"] = float("nan")
+    sinks_gdf["P_obj"] = float("nan")
+    sinks_gdf["col_obj"] = float("nan")
 
     # Export all the gdf (GeoDataFrame) to GPKG
     export_crs = test_model_domain.dem.get_crs

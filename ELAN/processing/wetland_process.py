@@ -53,6 +53,8 @@ BOD5_IN = 265
 TKN_IN = 67
 COD_IN = 646
 NO3_IN = 3
+P_IN = 9.4
+COL_IN = 0
 
 
 class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
@@ -66,6 +68,8 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
     COD_OBJ = "COD_OBJ"
     NO3_OBJ = "NO3_OBJ"
     TN_OBJ = "TN_OBJ"
+    P_OBJ = "P_OBJ"
+    COL_OBJ = "COL_OBJ"
     SINKS = "SINKS"
     TREATMENT = "TREATMENT"
     Q_FIELD = "Q_FIELD"
@@ -129,11 +133,15 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             "Sizing of treatment systems according to user defined discharge levels."
             "\n"
             """
-            <u>Glossary :</u>
-            [TSS] : TSS outflow concentration target [g/m3]
-            [BOD5] : BOD5 outflow concentration target [g/m3]
-            [TKN] :TKN outflow concentration target [g/m3]
-            [COD] : COD outflow concentration target [g/m3]
+            <u>Glossary:</u>
+            [TSS]: TSS outflow concentration target [g/m3]
+            [BOD5]: BOD5 outflow concentration target [g/m3]
+            [TKN]:TKN outflow concentration target [g/m3]
+            [COD]: COD outflow concentration target [g/m3]
+            [NO3]: NO3 outflow concentration target [g/m3]
+            [TN]: TN3 outflow concentration target [g/m3]
+            [P]: P outflow concentration target [g/m3]
+            [col]: coliforms outflow concentration target [g/m3]
             """
             "\n"
             "The input concentrations used are:"
@@ -143,6 +151,8 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             "<li>TKN: {} g/m3</li>"
             "<li>COD: {} g/m3</li>"
             "<li>NO3: {} g/m3</li>"
+            "<li>P: {} g/m3</li>"
+            "<li>col: {} g/m3</li>"
             "</ul>"
             "\n"
             "The available surface layer is optional. If present, each input WWTP feature "
@@ -152,7 +162,7 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             "The surface layer will be reprojected to the WWTP CRS.\n"
             "The available area influences the formatting of the attribute table, compared "
             "with the treatment system total needed surface. "
-        ).format(TSS_IN, BOD5_IN, TKN_IN, COD_IN, NO3_IN)
+        ).format(TSS_IN, BOD5_IN, TKN_IN, COD_IN, NO3_IN, P_IN, COL_IN)
 
     def initAlgorithm(self, configuration=None):  # pylint: disable=unused-argument
         """
@@ -274,6 +284,26 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
 
         self.addParameter(
             QgsProcessingParameterField(
+                self.P_OBJ,
+                self.tr("P outflow concentration target [g/m3]"),
+                parentLayerParameterName=self.SINKS,
+                type=Qgis.ProcessingFieldParameterDataType.Numeric,
+                defaultValue="P_obj",
+            )
+        )
+
+        self.addParameter(
+            QgsProcessingParameterField(
+                self.COL_OBJ,
+                self.tr("Coliforms outflow concentration target [g/m3]"),
+                parentLayerParameterName=self.SINKS,
+                type=Qgis.ProcessingFieldParameterDataType.Numeric,
+                defaultValue="col_obj",
+            )
+        )
+
+        self.addParameter(
+            QgsProcessingParameterField(
                 self.Q_FIELD,
                 self.tr("Daily inflow [m3/d]"),
                 parentLayerParameterName=self.SINKS,
@@ -333,13 +363,15 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         COD_obj_field_name = self.parameterAsString(parameters, self.COD_OBJ, context)
         NO3_obj_field_name = self.parameterAsString(parameters, self.NO3_OBJ, context)
         TN_obj_field_name = self.parameterAsString(parameters, self.TN_OBJ, context)
+        P_obj_field_name = self.parameterAsString(parameters, self.P_OBJ, context)
+        col_obj_field_name = self.parameterAsString(parameters, self.COL_OBJ, context)
         Q_obj_field_name = self.parameterAsString(parameters, self.Q_FIELD, context)
         sink_coords_field_name = self.parameterAsString(parameters, self.SINK_COORDS, context)
         stages_max = self.parameterAsInt(parameters, self.STAGES_MAX, context)
         climate = self.climates[self.parameterAsInt(parameters, self.CLIMATE, context)][1]
 
         # Hard coded (see the constants at the top of the module)
-        Cin = COD_Fractionation([TSS_IN, BOD5_IN, TKN_IN, COD_IN, NO3_IN])
+        Cin = COD_Fractionation([TSS_IN, BOD5_IN, TKN_IN, COD_IN, NO3_IN, P_IN, COL_IN])
 
         # Loop on WWTP and run wetlandoptimizer on each one
         assigned_surfaces_ids = []
@@ -377,8 +409,10 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             TKN_obj = wwtp_feature[TKN_obj_field_name]
             NO3_obj = wwtp_feature[NO3_obj_field_name]
             TN_obj = wwtp_feature[TN_obj_field_name]
+            P_obj = wwtp_feature[P_obj_field_name]
+            col_obj = wwtp_feature[col_obj_field_name]
             Q = wwtp_feature[Q_obj_field_name]
-            Cobj = [TSS_obj, BOD5_obj, TKN_obj, COD_obj, NO3_obj, TN_obj]
+            Cobj = [TSS_obj, BOD5_obj, TKN_obj, COD_obj, NO3_obj, TN_obj, P_obj, col_obj]
             Cobj = [None if param == NULL else param for param in Cobj]
 
             optimizations_parameters.append(
@@ -386,7 +420,6 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             )
 
         # Set multiprocess path on Windows
-        python_path = None
         if sys.platform.startswith("win"):
             try:
                 python_path = Path(sys.exec_prefix).absolute() / "pythonw.exe"
@@ -435,15 +468,19 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
                 output_feature["COD_concentration"] = pathway_result.COD_concentration
                 output_feature["NO3_concentration"] = pathway_result.NO3_concentration
                 output_feature["TN_concentration"] = pathway_result.TN_concentration
+                output_feature["P_concentration"] = pathway_result.P_concentration
+                output_feature["col_concentration"] = pathway_result.col_concentration
                 output_feature["TSS_deviation"] = pathway_result.TSS_deviation
                 output_feature["BOD5_deviation"] = pathway_result.BOD5_deviation
                 output_feature["TKN_deviation"] = pathway_result.TKN_deviation
                 output_feature["COD_deviation"] = pathway_result.COD_deviation
                 output_feature["NO3_deviation"] = pathway_result.NO3_deviation
                 output_feature["TN_deviation"] = pathway_result.TN_deviation
+                output_feature["P_deviation"] = pathway_result.P_deviation
+                output_feature["col_deviation"] = pathway_result.col_deviation
 
                 # Normalized concentration values
-                TSS_obj, BOD5_obj, TKN_obj, COD_obj, NO3_obj, TN_obj = optimization_result.Cobj
+                TSS_obj, BOD5_obj, TKN_obj, COD_obj, NO3_obj, TN_obj, P_obj, col_obj = optimization_result.Cobj
                 output_feature["TSS_norm"] = round(pathway_result.TSS_concentration / TSS_obj, 2)
                 output_feature["BOD5_norm"] = round(pathway_result.BOD5_concentration / BOD5_obj, 2)
                 output_feature["COD_norm"] = round(pathway_result.COD_concentration / COD_obj, 2)
@@ -453,6 +490,10 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
                     output_feature["NO3_norm"] = round(pathway_result.NO3_concentration / NO3_obj, 2)
                 if TN_obj is not None:
                     output_feature["TN_norm"] = round(pathway_result.TN_concentration / TN_obj, 2)
+                if P_obj is not None:
+                    output_feature["P_norm"] = round(pathway_result.P_concentration / P_obj, 2)
+                if col_obj is not None:
+                    output_feature["col_norm"] = round(pathway_result.col_concentration / col_obj, 2)
 
                 if optimization_result.available_surface > 0:
                     output_feature["surface_norm"] = round(
@@ -496,6 +537,8 @@ def outputFields() -> QgsFields:
         ("COD_concentration", QMetaType.Type.Double),
         ("NO3_concentration", QMetaType.Type.Double),
         ("TN_concentration", QMetaType.Type.Double),
+        ("P_concentration", QMetaType.Type.Double),
+        ("col_concentration", QMetaType.Type.Double),
         # Deviations
         ("TSS_deviation", QMetaType.Type.Double),
         ("BOD5_deviation", QMetaType.Type.Double),
@@ -503,6 +546,8 @@ def outputFields() -> QgsFields:
         ("COD_deviation", QMetaType.Type.Double),
         ("NO3_deviation", QMetaType.Type.Double),
         ("TN_deviation", QMetaType.Type.Double),
+        ("P_deviation", QMetaType.Type.Double),
+        ("col_deviation", QMetaType.Type.Double),
         # Normalized concentrations
         ("TSS_norm", QMetaType.Type.Double),
         ("BOD5_norm", QMetaType.Type.Double),
@@ -510,6 +555,8 @@ def outputFields() -> QgsFields:
         ("COD_norm", QMetaType.Type.Double),
         ("NO3_norm", QMetaType.Type.Double),
         ("TN_norm", QMetaType.Type.Double),
+        ("P_norm", QMetaType.Type.Double),
+        ("col_norm", QMetaType.Type.Double),
     ]
 
     return QgsFields([QgsField(field_name, field_type) for field_name, field_type in fields])
