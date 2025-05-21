@@ -481,18 +481,21 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
 
                 # Normalized concentration values
                 TSS_obj, BOD5_obj, TKN_obj, COD_obj, NO3_obj, TN_obj, P_obj, col_obj = optimization_result.Cobj
-                output_feature["TSS_norm"] = round(pathway_result.TSS_concentration / TSS_obj, 2)
-                output_feature["BOD5_norm"] = round(pathway_result.BOD5_concentration / BOD5_obj, 2)
-                output_feature["COD_norm"] = round(pathway_result.COD_concentration / COD_obj, 2)
-                if TKN_obj is not None:
+                if TSS_obj > 0:
+                    output_feature["TSS_norm"] = round(pathway_result.TSS_concentration / TSS_obj, 2)
+                if BOD5_obj > 0:
+                    output_feature["BOD5_norm"] = round(pathway_result.BOD5_concentration / BOD5_obj, 2)
+                if COD_obj > 0:
+                    output_feature["COD_norm"] = round(pathway_result.COD_concentration / COD_obj, 2)
+                if TKN_obj is not None and TKN_obj > 0:
                     output_feature["TKN_norm"] = round(pathway_result.TKN_concentration / TKN_obj, 2)
-                if NO3_obj is not None:
+                if NO3_obj is not None and NO3_obj > 0:
                     output_feature["NO3_norm"] = round(pathway_result.NO3_concentration / NO3_obj, 2)
-                if TN_obj is not None:
+                if TN_obj is not None and TN_obj > 0:
                     output_feature["TN_norm"] = round(pathway_result.TN_concentration / TN_obj, 2)
-                if P_obj is not None:
+                if P_obj is not None and P_obj > 0:
                     output_feature["P_norm"] = round(pathway_result.P_concentration / P_obj, 2)
-                if col_obj is not None:
+                if col_obj is not None and col_obj > 0:
                     output_feature["col_norm"] = round(pathway_result.col_concentration / col_obj, 2)
 
                 if optimization_result.available_surface > 0:
