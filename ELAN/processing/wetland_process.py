@@ -629,9 +629,9 @@ def run_optimization(optimization_parameters: OptimizationParameters):
     """
     Independant optimization call to wetlandoptimizer library
     """
-    from wetlandoptimizer.main import Results_Global_Generation
+    from wetlandoptimizer.main import Results_Global_Generation_All
 
-    optimization_parameters.pathway_results = Results_Global_Generation(
+    optimization_parameters.pathway_results = Results_Global_Generation_All(
         optimization_parameters.Cin,
         optimization_parameters.Cobj,
         optimization_parameters.Q,
