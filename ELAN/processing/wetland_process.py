@@ -441,6 +441,24 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
                 output_feature["COD_deviation"] = pathway_result.COD_deviation
                 output_feature["NO3_deviation"] = pathway_result.NO3_deviation
                 output_feature["TN_deviation"] = pathway_result.TN_deviation
+
+                # Normalized concentration values
+                TSS_obj, BOD5_obj, TKN_obj, COD_obj, NO3_obj, TN_obj = optimization_result.Cobj
+                output_feature["TSS_norm"] = round(pathway_result.TSS_concentration / TSS_obj, 2)
+                output_feature["BOD5_norm"] = round(pathway_result.BOD5_concentration / BOD5_obj, 2)
+                output_feature["COD_norm"] = round(pathway_result.COD_concentration / COD_obj, 2)
+                if TKN_obj is not None:
+                    output_feature["TKN_norm"] = round(pathway_result.TKN_concentration / TKN_obj, 2)
+                if NO3_obj is not None:
+                    output_feature["NO3_norm"] = round(pathway_result.NO3_concentration / NO3_obj, 2)
+                if TN_obj is not None:
+                    output_feature["TN_norm"] = round(pathway_result.TN_concentration / TN_obj, 2)
+
+                if optimization_result.available_surface > 0:
+                    output_feature["surface_norm"] = round(
+                        pathway_result.total_surface / optimization_result.available_surface, 2
+                    )
+
                 treatment_sink.addFeature(output_feature)
 
         context.layerToLoadOnCompletionDetails(treatment_dest).setPostProcessor(self.post_processor)
@@ -448,45 +466,53 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
 
 
 def outputFields() -> QgsFields:
-    output_fields = QgsFields()
 
-    # String field containing the sink coordinate
-    output_fields.append(QgsField("sink_coords", QMetaType.Type.QString))
+    fields = [
+        # String field containing the sink coordinate
+        ("sink_coords", QMetaType.Type.QString),
+        # Pathway identifier
+        ("pathway_id", QMetaType.Type.QString),
+        # String field containing the names and materials of the stages
+        ("name_stages", QMetaType.Type.QString),
+        # String fields containing JSON list with size values for each stage
+        ("surface_stages", QMetaType.Type.QString),
+        ("depth_stages_sat", QMetaType.Type.QString),
+        ("depth_stages_unsat", QMetaType.Type.QString),
+        # String fields containing JSON list with loading values for each stage
+        ("TSS_loading_stages", QMetaType.Type.QString),
+        ("BOD5_loading_stages", QMetaType.Type.QString),
+        ("TKN_loading_stages", QMetaType.Type.QString),
+        ("COD_loading_stages", QMetaType.Type.QString),
+        ("hydraulic_loading_rate_stages", QMetaType.Type.QString),
+        # Dimensions
+        ("available_surface", QMetaType.Type.Double),
+        ("surface_norm", QMetaType.Type.Double),
+        ("total_surface", QMetaType.Type.Double),
+        ("total_volume", QMetaType.Type.Double),
+        # Concentrations
+        ("TSS_concentration", QMetaType.Type.Double),
+        ("BOD5_concentration", QMetaType.Type.Double),
+        ("TKN_concentration", QMetaType.Type.Double),
+        ("COD_concentration", QMetaType.Type.Double),
+        ("NO3_concentration", QMetaType.Type.Double),
+        ("TN_concentration", QMetaType.Type.Double),
+        # Deviations
+        ("TSS_deviation", QMetaType.Type.Double),
+        ("BOD5_deviation", QMetaType.Type.Double),
+        ("TKN_deviation", QMetaType.Type.Double),
+        ("COD_deviation", QMetaType.Type.Double),
+        ("NO3_deviation", QMetaType.Type.Double),
+        ("TN_deviation", QMetaType.Type.Double),
+        # Normalized concentrations
+        ("TSS_norm", QMetaType.Type.Double),
+        ("BOD5_norm", QMetaType.Type.Double),
+        ("TKN_norm", QMetaType.Type.Double),
+        ("COD_norm", QMetaType.Type.Double),
+        ("NO3_norm", QMetaType.Type.Double),
+        ("TN_norm", QMetaType.Type.Double),
+    ]
 
-    # Pathway identifier
-    output_fields.append(QgsField("pathway_id", QMetaType.Type.QString))
-
-    # String field containing the names and materials of the stages
-    output_fields.append(QgsField("name_stages", QMetaType.Type.QString))
-
-    # String fields containing JSON list with size values for each stage
-    output_fields.append(QgsField("surface_stages", QMetaType.Type.QString))
-    output_fields.append(QgsField("depth_stages_sat", QMetaType.Type.QString))
-    output_fields.append(QgsField("depth_stages_unsat", QMetaType.Type.QString))
-
-    # String fields containing JSON list with loading values for each stage
-    output_fields.append(QgsField("TSS_loading_stages", QMetaType.Type.QString))
-    output_fields.append(QgsField("BOD5_loading_stages", QMetaType.Type.QString))
-    output_fields.append(QgsField("TKN_loading_stages", QMetaType.Type.QString))
-    output_fields.append(QgsField("COD_loading_stages", QMetaType.Type.QString))
-    output_fields.append(QgsField("hydraulic_loading_rate_stages", QMetaType.Type.QString))
-
-    output_fields.append(QgsField("available_surface", QMetaType.Type.Double))
-    output_fields.append(QgsField("total_surface", QMetaType.Type.Double))
-    output_fields.append(QgsField("total_volume", QMetaType.Type.Double))
-    output_fields.append(QgsField("TSS_concentration", QMetaType.Type.Double))
-    output_fields.append(QgsField("BOD5_concentration", QMetaType.Type.Double))
-    output_fields.append(QgsField("TKN_concentration", QMetaType.Type.Double))
-    output_fields.append(QgsField("COD_concentration", QMetaType.Type.Double))
-    output_fields.append(QgsField("NO3_concentration", QMetaType.Type.Double))
-    output_fields.append(QgsField("TN_concentration", QMetaType.Type.Double))
-    output_fields.append(QgsField("TSS_deviation", QMetaType.Type.Double))
-    output_fields.append(QgsField("BOD5_deviation", QMetaType.Type.Double))
-    output_fields.append(QgsField("TKN_deviation", QMetaType.Type.Double))
-    output_fields.append(QgsField("COD_deviation", QMetaType.Type.Double))
-    output_fields.append(QgsField("NO3_deviation", QMetaType.Type.Double))
-    output_fields.append(QgsField("TN_deviation", QMetaType.Type.Double))
-    return output_fields
+    return QgsFields([QgsField(field_name, field_type) for field_name, field_type in fields])
 
 
 class WetlandProcessPostProcessor(QgsProcessingLayerPostProcessorInterface, Translatable):
