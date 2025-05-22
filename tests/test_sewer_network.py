@@ -2,6 +2,7 @@
 test_sewer_network
 """
 
+import re
 from pathlib import Path
 
 import pytest
@@ -72,7 +73,7 @@ def test_sewer_network(qgis_processing, mocker, tmp_path):
         assert_same_layers(load_layer(ref_path, name), load_layer(gen_path, name))
 
 
-def test_error_raised_sewer_network(qgis_processing, mocker, tmp_path):
+def test_error_NULL_population_fields(qgis_processing, mocker, tmp_path):
     """
     Verify the raised errors:
 
@@ -88,15 +89,11 @@ def test_error_raised_sewer_network(qgis_processing, mocker, tmp_path):
 
     context = QgsProcessingContext()
     feedback = QgsProcessingFeedback()
-    ##################################### NULL population fields  #####################################
 
-    # mock DEM_layer with crs and band value
+    # # mock DEM_layer with crs and band value
     mock_layer_dem = mocker.Mock(spec=QgsRasterLayer)
     mock_layer_dem.bandCount.return_value = 1
     mock_layer_dem.crs.return_value = "32620"
-
-    mock_layer_road = mocker.Mock()
-    mock_layer_road.crs.return_value = "32620"
 
     # mock buildings_layer with crs and field "population"
     mock_layer_buildings_source = mocker.Mock()
@@ -113,20 +110,49 @@ def test_error_raised_sewer_network(qgis_processing, mocker, tmp_path):
     parameters = {
         "BUILDINGS_INPUT_DATA": mock_layer_buildings_source,
         "DEM_FILE_PATH": mock_layer_dem,
-        "ROADS_INPUT_DATA": mock_layer_road,
         "INHABITANTS_DWELLING_ATTRIBUTE_NAME": "population",
         "OUTPUT_GPKG": "memory:",
     }
 
-    with pytest.raises(QgsProcessingException, match="There is one or more NULL values in the field."):
+    with pytest.raises(QgsProcessingException, match=re.compile("There is one or more NULL values in the field")):
         test_sewer_network_alg.processAlgorithm(parameters, context, feedback)
 
-    ##################################### DEM with 2 bands #####################################
+
+def test_error_2bands_dem(qgis_processing, mocker, tmp_path):
+    """
+    Verify the raised errors:
+
+    - Building layer : population fields NULL
+    - DEM layer : File with 2 bands
+
+    """
+    from ELAN.processing.sewer_network import SewerNetworkAlgorithm
+
+    mocker.patch("ELAN.utils.tr.PlgLogger")
+
+    test_sewer_network_alg = SewerNetworkAlgorithm()
+
+    context = QgsProcessingContext()
+    feedback = QgsProcessingFeedback()
 
     mock_layer_dem = mocker.Mock(spec=QgsRasterLayer)
     mock_layer_dem.bandCount.return_value = 2
     mock_layer_dem.crs.return_value = "32620"
-    mocker.patch.object(test_sewer_network_alg, "parameterAsRasterLayer", return_value=mock_layer_dem)
 
-    with pytest.raises(QgsProcessingException, match="The DEM must have a single band \(2 band\(s\) found\)"):
+    # mock buildings_layer with crs and field "population"
+    mock_layer_buildings_source = mocker.Mock()
+    mock_layer_buildings_source.crs.return_value = "32620"
+    mocker.patch.object(test_sewer_network_alg, "parameterAsSource", return_value=mock_layer_buildings_source)
+
+    mocker.patch.object(test_sewer_network_alg, "parameterAsRasterLayer", return_value=mock_layer_dem)
+    parameters = {
+        "BUILDINGS_INPUT_DATA": mock_layer_buildings_source,
+        "DEM_FILE_PATH": mock_layer_dem,
+        "INHABITANTS_DWELLING_ATTRIBUTE_NAME": "population",
+        "OUTPUT_GPKG": "memory:",
+    }
+
+    with pytest.raises(
+        QgsProcessingException, match=re.compile(r"The DEM must have a single band \(2 band\(s\) found\)")
+    ):
         test_sewer_network_alg.processAlgorithm(parameters, context, feedback)
