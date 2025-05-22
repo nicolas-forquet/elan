@@ -52,7 +52,7 @@ TKN_IN = 67
 COD_IN = 646
 NO3_IN = 3
 P_IN = 9.4
-COL_IN = 0
+COL_IN = 0  # [UFC/mL]
 
 
 class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
@@ -139,7 +139,7 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             [NO3]: NO3 outflow concentration target [g/m3]
             [TN]: TN3 outflow concentration target [g/m3]
             [P]: P outflow concentration target [g/m3]
-            [col]: coliforms outflow concentration target [g/m3]
+            [col]: coliforms outflow concentration target [UFC/mL]
             """
             "\n"
             "The input concentrations used are:"
@@ -159,7 +159,9 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             "within the same surface, only one station will be matched with the surface).\n"
             "The surface layer will be reprojected to the WWTP CRS.\n"
             "The available area influences the formatting of the attribute table, compared "
-            "with the treatment system total needed surface. "
+            "with the treatment system total needed surface.\n\n"
+            "<em>Warning</em>\n"
+            "P and coliforms are not completely ready for this version of ELAN."
         ).format(TSS_IN, BOD5_IN, TKN_IN, COD_IN, NO3_IN, P_IN, COL_IN)
 
     def initAlgorithm(self, configuration=None):  # pylint: disable=unused-argument
@@ -293,7 +295,7 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         self.addParameter(
             QgsProcessingParameterField(
                 self.COL_OBJ,
-                self.tr("Coliforms outflow concentration target [g/m3]"),
+                self.tr("Coliforms outflow concentration target [UFC/mL]"),
                 parentLayerParameterName=self.SINKS,
                 type=Qgis.ProcessingFieldParameterDataType.Numeric,
                 defaultValue="col_obj",
