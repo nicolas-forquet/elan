@@ -93,7 +93,7 @@
         <translation>wetlandoptimizer est déjà installé</translation>
     </message>
     <message>
-        <location filename="../../gui/dlg_settings.py" line="128"/>
+        <location filename="../../gui/dlg_settings.py" line="138"/>
         <source>Reset dependencies</source>
         <translation>Réinitialiser les dépendances</translation>
     </message>
@@ -121,6 +121,11 @@
         <location filename="../../gui/dlg_settings.py" line="64"/>
         <source>pysewer is not installed</source>
         <translation>pysewer n&apos;est pas installé</translation>
+    </message>
+    <message>
+        <location filename="../../gui/dlg_settings.py" line="138"/>
+        <source>Unable to reset dependencies:</source>
+        <translation>Impossible de réinitialiser les dépendances :</translation>
     </message>
 </context>
 <context>
@@ -734,17 +739,17 @@ requises pour une future analyse et évaluation.</translation>
 <context>
     <name>SewerNetworkAlgorithm</name>
     <message>
-        <location filename="../../processing/sewer_network.py" line="109"/>
+        <location filename="../../processing/sewer_network.py" line="110"/>
         <source>Sewer network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="116"/>
+        <location filename="../../processing/sewer_network.py" line="117"/>
         <source>Processings</source>
         <translation>Processus</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="134"/>
+        <location filename="../../processing/sewer_network.py" line="135"/>
         <source>This module generates a sewer pipe network based on the input building layer following the roads and the DEM input. The path is determined by the lowest altitude points or the points provided in the optional input layer: WWTP.&lt;h2&gt;Restriction:&lt;/h2&gt;The input layers must have the same CRS.&lt;h2&gt;Prerequisites:&lt;/h2&gt;This sewer pipe module uses Pysewer. It must be installed either locally or through the ELAN plugin settings.&lt;h2&gt;Outputs:&lt;/h2&gt;4 geographic layers are created:
 &lt;ul&gt;    &lt;li&gt;WWTP: treatment stations used in the sewer pipe way&lt;/li&gt;    &lt;li&gt;Lifting stations: lifting stations&lt;/li&gt;    &lt;li&gt;Pumping stations: pumping stations&lt;/li&gt;    &lt;li&gt;Sewer pipes: sewer pipe&lt;/li&gt;&lt;/ul&gt;One additional layer without geometry is also created:&lt;ul&gt;&lt;li&gt;Network information: statistics such as the total number of buildings, date, etc.&lt;/li&gt;&lt;/ul&gt;The sewer pipe layer includes 6 styles.&lt;h2&gt;Options:&lt;/h2&gt;If the input building layer has a population number field, it is possible to select it. If no such field exists, the module uses the parameter &apos;mean inhabitants per household&apos;.</source>
         <translation>Ce module trace un réseau de canalisations partant des bâtiments donnés en entrée, qui suit les routes et le modèle numérique de terrain donnés en entrée, et se dirige vers le point d&apos;altitude le plus bas ou les points présents dans la couche d&apos;entrée STEU optionnelle.
@@ -770,319 +775,319 @@ Si la couche de bâtiments en entrée possède un champ qui donne le nombre d&ap
 Si aucun champ n&apos;est sélectionné, le module prendra en compte le paramètre &quot;Nombre moyen de personnes par foyer&quot;.</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="168"/>
+        <location filename="../../processing/sewer_network.py" line="169"/>
         <source>WWTP layer</source>
         <translation>Couche STEU</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="174"/>
+        <location filename="../../processing/sewer_network.py" line="175"/>
         <source>Result layers (.gpkg)</source>
         <translation>Couches de résultats (.gpkg)</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="180"/>
+        <location filename="../../processing/sewer_network.py" line="181"/>
         <source>DEM layer</source>
         <translation>Couche MNT</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="182"/>
+        <location filename="../../processing/sewer_network.py" line="183"/>
         <source>Road layer</source>
         <translation>Couche routes</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="188"/>
+        <location filename="../../processing/sewer_network.py" line="189"/>
         <source>Building layer</source>
         <translation>Couche de bâtiments</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="193"/>
+        <location filename="../../processing/sewer_network.py" line="194"/>
         <source>Number of inhabitants (field)</source>
         <translation>Nombre d&apos;habitants (champ)</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="203"/>
+        <location filename="../../processing/sewer_network.py" line="204"/>
         <source>Penalty factor for pumping</source>
         <translation>Terme de pénalité pour le refoulement</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="207"/>
+        <location filename="../../processing/sewer_network.py" line="208"/>
         <source>Maximum connection lengh [m]</source>
         <translation>seuil pour le regroupement des sources</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="213"/>
+        <location filename="../../processing/sewer_network.py" line="214"/>
         <source>Source clustering</source>
         <translation>regroupement des sources</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="217"/>
+        <location filename="../../processing/sewer_network.py" line="218"/>
         <source>Mean inhabitants per household
 (used by default if no inhabitant field is selected, or if a field error is detected)</source>
         <translation>nombre moyen de personnes par foyer
 (utilisé par défaut si aucun champ de nombre d&apos;habitant est sélectionné, ou si une erreur de champ est détectée)</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="229"/>
+        <location filename="../../processing/sewer_network.py" line="230"/>
         <source>Average daily production of wastewater per person [m3]</source>
         <translation>volume moyen d’eaux usées produit par jour par personne</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="237"/>
+        <location filename="../../processing/sewer_network.py" line="238"/>
         <source>Peak load coefficient</source>
         <translation>coefficient de pointe journalier</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="245"/>
+        <location filename="../../processing/sewer_network.py" line="246"/>
         <source>Minimum slope for sewer self-cleaning [m/m]</source>
         <translation>pente minimale permettant l’autocurrage [m/m]</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="254"/>
+        <location filename="../../processing/sewer_network.py" line="255"/>
         <source>Maximum sewer depth [m]</source>
         <translation>Profondeur max autorisée canalisation [m]</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="262"/>
+        <location filename="../../processing/sewer_network.py" line="263"/>
         <source>Minimum sewer depth [m]</source>
         <translation>Profondeur min autorisée canalisation [m]</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="271"/>
+        <location filename="../../processing/sewer_network.py" line="272"/>
         <source>Inflow trench depth [m]</source>
         <translation>Profondeur canalisations les plus en amont [m]</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="275"/>
+        <location filename="../../processing/sewer_network.py" line="276"/>
         <source>Lowest possible trench depth [m]</source>
         <translation>Profondeur min physique canalisation [m]</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="281"/>
+        <location filename="../../processing/sewer_network.py" line="282"/>
         <source>Pipe roughness [µm]</source>
         <translation>Rugosité canalisation</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="290"/>
+        <location filename="../../processing/sewer_network.py" line="291"/>
         <source>Pressurized diameter [m]</source>
         <translation>Diamètre autorisé sous pression [m]</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="299"/>
+        <location filename="../../processing/sewer_network.py" line="300"/>
         <source>Gravity diameters [m]</source>
         <translation>Diamètres autorisés en gravitaire [m]</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="344"/>
+        <location filename="../../processing/sewer_network.py" line="345"/>
         <source>The DEM must have a single band ({} band(s) found)</source>
         <translation>Le MNT doit être à bande unique ({} bande(s) trouvées)</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="352"/>
+        <location filename="../../processing/sewer_network.py" line="353"/>
         <source>There is one or more NULL values in the field.</source>
         <translation>Il y a une ou plusieurs valeurs NULL dans le champ </translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="361"/>
+        <location filename="../../processing/sewer_network.py" line="362"/>
         <source>All input layers must have the same CRS.</source>
         <translation>Toutes les couches d&apos;entrée doivent avoir le même SCR.</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="385"/>
+        <location filename="../../processing/sewer_network.py" line="386"/>
         <source>Unexpected error while processing DEM raster layer</source>
         <translation>Erreur inattendue lors du traitement du raster MNT</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="392"/>
+        <location filename="../../processing/sewer_network.py" line="393"/>
         <source>DEM pre-processing...</source>
         <translation>Pré-traitement du MNT...</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="399"/>
+        <location filename="../../processing/sewer_network.py" line="400"/>
         <source>Error during DEM pre-processing.</source>
         <translation>Erreur pendant le pré-traitement du MNT.</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="472"/>
+        <location filename="../../processing/sewer_network.py" line="473"/>
         <source>Launching pysewer...</source>
         <translation>Lancement de pysewer...</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="480"/>
+        <location filename="../../processing/sewer_network.py" line="481"/>
         <source>Processing stopped by user</source>
         <translation>Processus stoppé par l&apos;utilisateur</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="486"/>
+        <location filename="../../processing/sewer_network.py" line="487"/>
         <source>pysewer is not installed, go to ELAN settings to check/install.</source>
         <translation>pysewer n&apos;est pas installé, aller dans les paramètres ELAN pour vérifier/installer.</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="492"/>
+        <location filename="../../processing/sewer_network.py" line="493"/>
         <source>Unexpected error while running pysewer</source>
         <translation>Erreur inattendue lors de l&apos;exécution de pysewer</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="495"/>
+        <location filename="../../processing/sewer_network.py" line="496"/>
         <source>Post-processing and layer styles creation...</source>
         <translation>Post-traitement et création des styles de couches...</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="524"/>
+        <location filename="../../processing/sewer_network.py" line="525"/>
         <source>Unexpected error while saving styles: {}</source>
         <translation>Erreur inattendue lors de la sauvegarde des styles : {}</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="539"/>
+        <location filename="../../processing/sewer_network.py" line="540"/>
         <source>Unexpected error while saving styles</source>
         <translation>Erreur inattendue lors de la sauvegarde des styles.</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="543"/>
+        <location filename="../../processing/sewer_network.py" line="544"/>
         <source>No styles directory found</source>
         <translation>Aucun répertoire de styles trouvé</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="547"/>
+        <location filename="../../processing/sewer_network.py" line="548"/>
         <source>Diameters</source>
         <translation>Diamètres</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="547"/>
+        <location filename="../../processing/sewer_network.py" line="548"/>
         <source>Width based on diameter</source>
         <translation>Largeur selon le diametre</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="557"/>
+        <location filename="../../processing/sewer_network.py" line="558"/>
         <source>Error with diameters style</source>
         <translation>Erreur avec le style diamètres</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="560"/>
+        <location filename="../../processing/sewer_network.py" line="561"/>
         <source>Gravity-driven</source>
         <translation>Gravitaire</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="560"/>
+        <location filename="../../processing/sewer_network.py" line="561"/>
         <source>Color based on slope</source>
         <translation>Couleur selon la pente</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="570"/>
+        <location filename="../../processing/sewer_network.py" line="571"/>
         <source>Error with gravity-driven style</source>
         <translation>Erreur avec le style gravitaire</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="573"/>
+        <location filename="../../processing/sewer_network.py" line="574"/>
         <source>Flow direction</source>
         <translation>Sens d&apos;écoulement</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="573"/>
+        <location filename="../../processing/sewer_network.py" line="574"/>
         <source>Arrow based on trench flow direction</source>
         <translation>Flèche selon le sens d&apos;&apos;écoulement de la tranchée</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="583"/>
+        <location filename="../../processing/sewer_network.py" line="584"/>
         <source>Error with flow direction style</source>
         <translation>Erreur avec le style sens d&apos;écoulement</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="586"/>
+        <location filename="../../processing/sewer_network.py" line="587"/>
         <source>Depth</source>
         <translation>Profondeur</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="586"/>
+        <location filename="../../processing/sewer_network.py" line="587"/>
         <source>Color based on trench depth</source>
         <translation>Couleur selon la profondeur de la tranchée</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="596"/>
+        <location filename="../../processing/sewer_network.py" line="597"/>
         <source>Error with depth style</source>
         <translation>Erreur avec le style profondeur</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="599"/>
+        <location filename="../../processing/sewer_network.py" line="600"/>
         <source>Pumping stations</source>
         <translation>Stations de pompage</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="609"/>
+        <location filename="../../processing/sewer_network.py" line="610"/>
         <source>Error with pumping stations style</source>
         <translation>Erreur avec le style stations de pompage</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="612"/>
+        <location filename="../../processing/sewer_network.py" line="613"/>
         <source>Lifting stations</source>
         <translation>Stations de relevage</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="622"/>
+        <location filename="../../processing/sewer_network.py" line="623"/>
         <source>Error with lifting stations style</source>
         <translation>Erreur avec le style stations de relevage</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="625"/>
+        <location filename="../../processing/sewer_network.py" line="626"/>
         <source>Network informations</source>
         <translation>Informations sur le réseau</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="635"/>
+        <location filename="../../processing/sewer_network.py" line="636"/>
         <source>Error with network information style</source>
         <translation>Erreur avec le style informations sur le réseau</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="638"/>
+        <location filename="../../processing/sewer_network.py" line="639"/>
         <source>WWTP</source>
         <translation>STEU</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="648"/>
+        <location filename="../../processing/sewer_network.py" line="649"/>
         <source>Error with WWTP style</source>
         <translation>Erreur avec le style STEU</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="662"/>
+        <location filename="../../processing/sewer_network.py" line="663"/>
         <source>Unexpected error while creating the peak flow style</source>
         <translation>Erreur inattendue lors de la création du style de flux de pointe</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="666"/>
+        <location filename="../../processing/sewer_network.py" line="667"/>
         <source>Peak flow</source>
         <translation>Débit de pointe</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="666"/>
+        <location filename="../../processing/sewer_network.py" line="667"/>
         <source>Color based on peak flow </source>
         <translation>Couleur selon le flux</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="676"/>
+        <location filename="../../processing/sewer_network.py" line="677"/>
         <source>Error with peak flow style</source>
         <translation>Erreur avec le style flux de pointe</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="699"/>
+        <location filename="../../processing/sewer_network.py" line="700"/>
         <source>Color based on sub-network</source>
         <translation>Couleur basée sur le sous-réseau</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="711"/>
+        <location filename="../../processing/sewer_network.py" line="712"/>
         <source>Error with sub-networks style</source>
         <translation>Erreur avec le style sous-réseaux</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="502"/>
+        <location filename="../../processing/sewer_network.py" line="503"/>
         <source>Sewer pipes</source>
         <translation>Canalisations</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="699"/>
+        <location filename="../../processing/sewer_network.py" line="700"/>
         <source>Sub-networks</source>
         <translation>Sous-réseaux</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="174"/>
+        <location filename="../../processing/sewer_network.py" line="175"/>
         <source>Geopackage files (*.gpkg)</source>
         <translation>Fichiers Geopackage (*.gpkg)</translation>
     </message>
@@ -1203,166 +1208,185 @@ Si aucun champ n&apos;est sélectionné, le module prendra en compte le paramèt
 <context>
     <name>WetlandProcessAlgorithm</name>
     <message>
-        <location filename="../../processing/wetland_process.py" line="103"/>
+        <location filename="../../processing/wetland_process.py" line="105"/>
         <source>Processes</source>
         <translation>Procédés</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="110"/>
+        <location filename="../../processing/wetland_process.py" line="112"/>
         <source>Processings</source>
         <translation>Processus</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="179"/>
+        <location filename="../../processing/wetland_process.py" line="189"/>
         <source>WWTP layer</source>
         <translation>Couche STEU</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="173"/>
+        <location filename="../../processing/wetland_process.py" line="183"/>
         <source>Treatment trains layer</source>
         <translation>Couche de filières</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="215"/>
+        <location filename="../../processing/wetland_process.py" line="225"/>
         <source>TSS outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en MES [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="225"/>
+        <location filename="../../processing/wetland_process.py" line="235"/>
         <source>BOD5 outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en DBO5 [g/m3] (champ)</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="235"/>
+        <location filename="../../processing/wetland_process.py" line="245"/>
         <source>TKN outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en NTK [g/m3] (champ)</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="245"/>
+        <location filename="../../processing/wetland_process.py" line="255"/>
         <source>COD outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en DCO [g/m3] (champ)</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="185"/>
+        <location filename="../../processing/wetland_process.py" line="195"/>
         <source>Available area</source>
         <translation>Surface disponible</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="275"/>
+        <location filename="../../processing/wetland_process.py" line="305"/>
         <source>Daily inflow [m3/d]</source>
         <translation>débit journalier entrant [m3/j] (champ)</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="300"/>
+        <location filename="../../processing/wetland_process.py" line="326"/>
         <source>The wetlandoptimizer library is not installed.
 Go to ELAN settings to install it.</source>
         <translation>Wetlandoptimizer n&apos;est pas installé.
 Aller dans les paramètres ELAN pour l&apos;installer.</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="194"/>
+        <location filename="../../processing/wetland_process.py" line="204"/>
         <source>Sink coordinates</source>
         <translation>Coordonnées GPS</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="128"/>
-        <source>Sizing of treatment systems according to user defined discharge levels.
-
-            &lt;u&gt;Glossary :&lt;/u&gt;
-            [TSS] : TSS outflow concentration target [g/m3]
-            [BOD5] : BOD5 outflow concentration target [g/m3]
-            [TKN] :TKN outflow concentration target [g/m3]
-            [COD] : COD outflow concentration target [g/m3]
-            
-The input concentrations used are:&lt;ul&gt;&lt;li&gt;TSS: {} g/m3&lt;/li&gt;&lt;li&gt;BOD5: {} g/m3&lt;/li&gt;&lt;li&gt;TKN: {} g/m3&lt;/li&gt;&lt;li&gt;COD: {} g/m3&lt;/li&gt;&lt;li&gt;NO3: {} g/m3&lt;/li&gt;&lt;/ul&gt;
-The available surface layer is optional. If present, each input WWTP feature will be matched only once with a corresponding surface.
-One surface will be affected to only one WWTP (if 2 WWTP are within the same surface, only one station will be matched with the surface).
-The surface layer will be reprojected to the WWTP CRS.
-The available area influences the formatting of the attribute table, compared with the treatment system total needed surface. </source>
-        <translation>Dimensionnement de filières de traitements selon les niveaux de rejet définis par l&apos;utilisateur
-
-&lt;u&gt;Glossaire :&lt;/u&gt;
-[TSS] : objectif de concentration TSS effluent [g/m3]
-[BOD5] : objectif de concentration BOD5 effluent [g/m3]
-[TKN] :objectif de concentration TKN effluent [g/m3]
-[COD] : objectif de concentration COD effluent [g/m3]
-
-Les concentrations en entrées utilisées sont :&lt;ul&gt;&lt;li&gt;TSS: {} g/m3&lt;/li&gt;&lt;li&gt;BOD5: {} g/m3&lt;/li&gt;&lt;li&gt;TKN: {} g/m3&lt;/li&gt;&lt;li&gt;COD: {} g/m3&lt;/li&gt;&lt;li&gt;NO3: {} g/m3&lt;/li&gt;&lt;/ul&gt;
-La couche de surface disponible est optionnelle. Si elle est présente, chaque entité de STEU en entrée ne sera associée qu&apos;une seule fois à sa surface correspondante.
-Une surface sera affectée à une seule STEU (si 2 stations se trouvent dans la même surface, une seule station sera affectée à cette surface).
-La ​​couche de surface sera reprojetée sur le SCR de la couche STEU.
-La surface disponible influence le formatage de la table attributaire, par rapport à la surface totale nécessaire au procédé.</translation>
+        <location filename="../../processing/wetland_process.py" line="214"/>
+        <source>Maximum stages number (between 1 and 3)</source>
+        <translation>Nombre d&apos;étages maximum (entre 1 et 3)</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="204"/>
-        <source>Maximum stages number</source>
-        <translation>Nombre d&apos;étages maximum</translation>
-    </message>
-    <message>
-        <location filename="../../processing/wetland_process.py" line="255"/>
+        <location filename="../../processing/wetland_process.py" line="265"/>
         <source>NO3 outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en NO3 [g/m3] (champ)</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="265"/>
+        <location filename="../../processing/wetland_process.py" line="275"/>
         <source>TN outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en NT [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="81"/>
+        <location filename="../../processing/wetland_process.py" line="83"/>
         <source>Temperate</source>
         <translation>Tempéré</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="82"/>
+        <location filename="../../processing/wetland_process.py" line="84"/>
         <source>Tropical</source>
         <translation>Tropical</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="163"/>
+        <location filename="../../processing/wetland_process.py" line="173"/>
         <source>Climate</source>
         <translation>Climat</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="402"/>
+        <location filename="../../processing/wetland_process.py" line="426"/>
         <source>Python not found for multiprocessing</source>
         <translation>Python introuvable pour multiprocessing</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="404"/>
+        <location filename="../../processing/wetland_process.py" line="428"/>
         <source>Unexpected error to set python path for multiprocessing:</source>
         <translation>Erreur inattendue pour affecter le chemin de Python pour multiprocessing:</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="368"/>
+        <location filename="../../processing/wetland_process.py" line="393"/>
         <source>TSS</source>
         <translation>MES</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="371"/>
+        <location filename="../../processing/wetland_process.py" line="396"/>
         <source>BOD5</source>
         <translation>DBO5</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="374"/>
-        <source>TKN</source>
-        <translation>NTK</translation>
-    </message>
-    <message>
-        <location filename="../../processing/wetland_process.py" line="377"/>
+        <location filename="../../processing/wetland_process.py" line="399"/>
         <source>COD</source>
         <translation>DCO</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="379"/>
+        <location filename="../../processing/wetland_process.py" line="401"/>
         <source>These values can&apos;t be NULL:</source>
         <translation>Ces valeurs ne doivent pas être NULL :</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="130"/>
+        <source>Sizing of treatment systems according to user defined discharge levels.
+
+            &lt;u&gt;Glossary:&lt;/u&gt;
+            [TSS]: TSS outflow concentration target [g/m3]
+            [BOD5]: BOD5 outflow concentration target [g/m3]
+            [TKN]:TKN outflow concentration target [g/m3]
+            [COD]: COD outflow concentration target [g/m3]
+            [NO3]: NO3 outflow concentration target [g/m3]
+            [TN]: TN3 outflow concentration target [g/m3]
+            [P]: P outflow concentration target [g/m3]
+            [col]: coliforms outflow concentration target [UFC/mL]
+            
+The input concentrations used are:&lt;ul&gt;&lt;li&gt;TSS: {} g/m3&lt;/li&gt;&lt;li&gt;BOD5: {} g/m3&lt;/li&gt;&lt;li&gt;TKN: {} g/m3&lt;/li&gt;&lt;li&gt;COD: {} g/m3&lt;/li&gt;&lt;li&gt;NO3: {} g/m3&lt;/li&gt;&lt;li&gt;P: {} g/m3&lt;/li&gt;&lt;li&gt;col: {} g/m3&lt;/li&gt;&lt;/ul&gt;
+The available surface layer is optional. If present, each input WWTP feature will be matched only once with a corresponding surface.
+One surface will be affected to only one WWTP (if 2 WWTP are within the same surface, only one station will be matched with the surface).
+The surface layer will be reprojected to the WWTP CRS.
+The available area influences the formatting of the attribute table, compared with the treatment system total needed surface.
+
+&lt;em&gt;Warning&lt;/em&gt;
+P and coliforms are not completely ready for this version of ELAN.</source>
+        <translation>Dimensionnement de filières de traitements selon les niveaux de rejet définis par l&apos;utilisateur
+
+&lt;u&gt;Glossaire :&lt;/u&gt;
+[MES] : objectif de concentration MES effluent [g/m3]
+[DBO5] : objectif de concentration DBO5 effluent [g/m3]
+[NTK] :objectif de concentration NTK effluent [g/m3]
+[DCO] : objectif de concentration DCO effluent [g/m3]
+[NO3] : objectif de concentration NO3 effluent [g/m3]
+[NT] : objectif de concentration NT effluent [g/m3]
+[P] : objectif de concentration P effluent [g/m3]
+[col] : objectif de concentration coliformes effluent [UFC/100mL]
+
+Les concentrations en entrées utilisées sont :&lt;ul&gt;&lt;li&gt;MES: {} g/m3&lt;/li&gt;&lt;li&gt;DBO5: {} g/m3&lt;/li&gt;&lt;li&gt;NTK: {} g/m3&lt;/li&gt;&lt;li&gt;DCO: {} g/m3&lt;/li&gt;&lt;li&gt;NO3: {} g/m3&lt;/li&gt;&lt;li&gt;P: {} g/m3&lt;/li&gt;&lt;li&gt;col : {} UFC/100mL&lt;/li&gt;&lt;/ul&gt;
+La couche de surface disponible est optionnelle. Si elle est présente, chaque entité de STEU en entrée ne sera associée qu&apos;une seule fois à sa surface correspondante.
+Une surface sera affectée à une seule STEU (si 2 stations se trouvent dans la même surface, une seule station sera affectée à cette surface).
+La ​​couche de surface sera reprojetée sur le SCR de la couche STEU.
+La surface disponible influence le formatage de la table attributaire, par rapport à la surface totale nécessaire au procédé.
+
+&lt;em&gt;Attention&lt;/em&gt;
+La prise en compte des phosphores (P) et des coliformes n&apos;est pas pleinement mâtures dans cette version de ELAN.</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="285"/>
+        <source>P outflow concentration target [g/m3]</source>
+        <translation>niveau de rejet en P [g/m3] (champ)</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="295"/>
+        <source>Coliforms outflow concentration target [UFC/mL]</source>
+        <translation>niveau de rejet en coliformes [UFC/mL] (champ)</translation>
     </message>
 </context>
 <context>
     <name>WetlandProcessPostProcessor</name>
     <message>
-        <location filename="../../processing/wetland_process.py" line="507"/>
+        <location filename="../../processing/wetland_process.py" line="574"/>
         <source>No layer styles found</source>
         <translation>Aucun style de couche trouvé</translation>
     </message>

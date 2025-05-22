@@ -16,13 +16,13 @@ def main():
     parser = argparse.ArgumentParser(description="pysewer")
     parser.add_argument("--yaml", type=str, help="filename")
     parser.add_argument("--check-installed", help="check if pysewer is installed", action="store_true")
-    parser.add_argument("--external-deps", type=str, help="optional external dependencies directory")
+    parser.add_argument("--external-libs", type=str, help="optional external libraries directory")
     parser.add_argument("--output-path", type=str, help="output layer path (must be a geopackage)")
     parser.add_argument("--sinks-path", type=str, help="optional sink file path (must be a shapefile)")
     args = parser.parse_args()
 
-    if args.external_deps is not None:
-        site.addsitedir(args.external_deps)
+    if args.external_libs is not None:
+        site.addsitedir(args.external_libs)
 
     if args.check_installed:
         if module_spec := importlib.util.find_spec("pysewer"):
@@ -170,6 +170,8 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
     sinks_gdf["COD_obj"] = float("nan")
     sinks_gdf["NO3_obj"] = float("nan")
     sinks_gdf["TN_obj"] = float("nan")
+    sinks_gdf["P_obj"] = float("nan")
+    sinks_gdf["col_obj"] = float("nan")
 
     # Export all the gdf (GeoDataFrame) to GPKG
     export_crs = test_model_domain.dem.get_crs

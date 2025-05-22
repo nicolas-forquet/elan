@@ -13,9 +13,7 @@
 
 import json
 import multiprocessing
-import site
 import sys
-from importlib import util as importutil
 from pathlib import Path
 from typing import Optional
 
@@ -43,8 +41,8 @@ from qgis.core import (
 from qgis.PyQt.QtCore import QMetaType
 from qgis.PyQt.QtGui import QColor
 
-from ELAN.__about__ import DIR_PLUGIN_ROOT
 from ELAN.processing.utils import getLocalizedStylesDirectory
+from ELAN.utils.dependencies_utils import wetlandoptimizerInstalled
 from ELAN.utils.tr import Translatable
 
 # Hard-coded concentrations values arriving at the WWTP in g/m3
@@ -53,6 +51,8 @@ BOD5_IN = 265
 TKN_IN = 67
 COD_IN = 646
 NO3_IN = 3
+P_IN = 9.4
+COL_IN = 0  # [UFC/mL]
 
 
 class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
@@ -66,6 +66,8 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
     COD_OBJ = "COD_OBJ"
     NO3_OBJ = "NO3_OBJ"
     TN_OBJ = "TN_OBJ"
+    P_OBJ = "P_OBJ"
+    COL_OBJ = "COL_OBJ"
     SINKS = "SINKS"
     TREATMENT = "TREATMENT"
     Q_FIELD = "Q_FIELD"
@@ -129,11 +131,15 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             "Sizing of treatment systems according to user defined discharge levels."
             "\n"
             """
-            <u>Glossary :</u>
-            [TSS] : TSS outflow concentration target [g/m3]
-            [BOD5] : BOD5 outflow concentration target [g/m3]
-            [TKN] :TKN outflow concentration target [g/m3]
-            [COD] : COD outflow concentration target [g/m3]
+            <u>Glossary:</u>
+            [TSS]: TSS outflow concentration target [g/m3]
+            [BOD5]: BOD5 outflow concentration target [g/m3]
+            [TKN]:TKN outflow concentration target [g/m3]
+            [COD]: COD outflow concentration target [g/m3]
+            [NO3]: NO3 outflow concentration target [g/m3]
+            [TN]: TN3 outflow concentration target [g/m3]
+            [P]: P outflow concentration target [g/m3]
+            [col]: coliforms outflow concentration target [UFC/mL]
             """
             "\n"
             "The input concentrations used are:"
@@ -143,6 +149,8 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             "<li>TKN: {} g/m3</li>"
             "<li>COD: {} g/m3</li>"
             "<li>NO3: {} g/m3</li>"
+            "<li>P: {} g/m3</li>"
+            "<li>col: {} g/m3</li>"
             "</ul>"
             "\n"
             "The available surface layer is optional. If present, each input WWTP feature "
@@ -151,8 +159,10 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             "within the same surface, only one station will be matched with the surface).\n"
             "The surface layer will be reprojected to the WWTP CRS.\n"
             "The available area influences the formatting of the attribute table, compared "
-            "with the treatment system total needed surface. "
-        ).format(TSS_IN, BOD5_IN, TKN_IN, COD_IN, NO3_IN)
+            "with the treatment system total needed surface.\n\n"
+            "<em>Warning</em>\n"
+            "P and coliforms are not completely ready for this version of ELAN."
+        ).format(TSS_IN, BOD5_IN, TKN_IN, COD_IN, NO3_IN, P_IN, COL_IN)
 
     def initAlgorithm(self, configuration=None):  # pylint: disable=unused-argument
         """
@@ -204,12 +214,12 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         self.addParameter(
             QgsProcessingParameterNumber(
                 self.STAGES_MAX,
-                self.tr("Maximum stages number"),
+                self.tr("Maximum stages number (between 1 and 3)"),
                 Qgis.ProcessingNumberParameterType.Integer,
                 defaultValue=3,
                 optional=False,
-                minValue=0,
-                maxValue=4,
+                minValue=1,
+                maxValue=3,
             )
         )
         self.addParameter(
@@ -274,6 +284,26 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
 
         self.addParameter(
             QgsProcessingParameterField(
+                self.P_OBJ,
+                self.tr("P outflow concentration target [g/m3]"),
+                parentLayerParameterName=self.SINKS,
+                type=Qgis.ProcessingFieldParameterDataType.Numeric,
+                defaultValue="P_obj",
+            )
+        )
+
+        self.addParameter(
+            QgsProcessingParameterField(
+                self.COL_OBJ,
+                self.tr("Coliforms outflow concentration target [UFC/mL]"),
+                parentLayerParameterName=self.SINKS,
+                type=Qgis.ProcessingFieldParameterDataType.Numeric,
+                defaultValue="col_obj",
+            )
+        )
+
+        self.addParameter(
+            QgsProcessingParameterField(
                 self.Q_FIELD,
                 self.tr("Daily inflow [m3/d]"),
                 parentLayerParameterName=self.SINKS,
@@ -291,19 +321,12 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         Here is where the processing itself takes place.
         """
 
-        # Add external_dependencies directory if not already in site directory
-        external_dependencies_dir = DIR_PLUGIN_ROOT / "external_dependencies"
-        if str(external_dependencies_dir) not in sys.path:
-            site.addsitedir(str(external_dependencies_dir))
-
-        if (wetlandoptimizer_spec := importutil.find_spec("wetlandoptimizer")) is None:
+        # Add EXTERNAL_LIRBARIES_DIR if not already in site directory
+        if not wetlandoptimizerInstalled():
             raise QgsProcessingException(
                 self.tr("The wetlandoptimizer library is not installed.\nGo to ELAN settings to install it.")
             )
         from wetlandoptimizer.main import COD_Fractionation
-
-        if wetlandoptimizer_spec.origin is None:
-            raise QgsProcessingException("Error with wetlandoptimizer installation")
 
         sinks_source = self.parameterAsSource(parameters, self.SINKS, context)
         if sinks_source is None:
@@ -333,13 +356,15 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         COD_obj_field_name = self.parameterAsString(parameters, self.COD_OBJ, context)
         NO3_obj_field_name = self.parameterAsString(parameters, self.NO3_OBJ, context)
         TN_obj_field_name = self.parameterAsString(parameters, self.TN_OBJ, context)
+        P_obj_field_name = self.parameterAsString(parameters, self.P_OBJ, context)
+        col_obj_field_name = self.parameterAsString(parameters, self.COL_OBJ, context)
         Q_obj_field_name = self.parameterAsString(parameters, self.Q_FIELD, context)
         sink_coords_field_name = self.parameterAsString(parameters, self.SINK_COORDS, context)
         stages_max = self.parameterAsInt(parameters, self.STAGES_MAX, context)
         climate = self.climates[self.parameterAsInt(parameters, self.CLIMATE, context)][1]
 
         # Hard coded (see the constants at the top of the module)
-        Cin = COD_Fractionation([TSS_IN, BOD5_IN, TKN_IN, COD_IN, NO3_IN])
+        Cin = COD_Fractionation([TSS_IN, BOD5_IN, TKN_IN, COD_IN, NO3_IN, P_IN, COL_IN])
 
         # Loop on WWTP and run wetlandoptimizer on each one
         assigned_surfaces_ids = []
@@ -369,18 +394,18 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             BOD5_obj = wwtp_feature[BOD5_obj_field_name]
             if BOD5_obj == NULL:
                 obj_none.append(self.tr("BOD5"))
-            TKN_obj = wwtp_feature[TKN_obj_field_name]
-            if TKN_obj == NULL:
-                obj_none.append(self.tr("TKN"))
             COD_obj = wwtp_feature[COD_obj_field_name]
             if COD_obj == NULL:
                 obj_none.append(self.tr("COD"))
             if len(obj_none) > 0:
                 raise QgsProcessingException(self.tr("These values can't be NULL:") + " " + ", ".join(obj_none))
+            TKN_obj = wwtp_feature[TKN_obj_field_name]
             NO3_obj = wwtp_feature[NO3_obj_field_name]
             TN_obj = wwtp_feature[TN_obj_field_name]
+            P_obj = wwtp_feature[P_obj_field_name]
+            col_obj = wwtp_feature[col_obj_field_name]
             Q = wwtp_feature[Q_obj_field_name]
-            Cobj = [TSS_obj, BOD5_obj, TKN_obj, COD_obj, NO3_obj, TN_obj]
+            Cobj = [TSS_obj, BOD5_obj, TKN_obj, COD_obj, NO3_obj, TN_obj, P_obj, col_obj]
             Cobj = [None if param == NULL else param for param in Cobj]
 
             optimizations_parameters.append(
@@ -388,7 +413,6 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             )
 
         # Set multiprocess path on Windows
-        python_path = None
         if sys.platform.startswith("win"):
             try:
                 python_path = Path(sys.exec_prefix).absolute() / "pythonw.exe"
@@ -437,12 +461,41 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
                 output_feature["COD_concentration"] = pathway_result.COD_concentration
                 output_feature["NO3_concentration"] = pathway_result.NO3_concentration
                 output_feature["TN_concentration"] = pathway_result.TN_concentration
+                output_feature["P_concentration"] = pathway_result.P_concentration
+                output_feature["col_concentration"] = pathway_result.col_concentration
                 output_feature["TSS_deviation"] = pathway_result.TSS_deviation
                 output_feature["BOD5_deviation"] = pathway_result.BOD5_deviation
                 output_feature["TKN_deviation"] = pathway_result.TKN_deviation
                 output_feature["COD_deviation"] = pathway_result.COD_deviation
                 output_feature["NO3_deviation"] = pathway_result.NO3_deviation
                 output_feature["TN_deviation"] = pathway_result.TN_deviation
+                output_feature["P_deviation"] = pathway_result.P_deviation
+                output_feature["col_deviation"] = pathway_result.col_deviation
+
+                # Normalized concentration values
+                TSS_obj, BOD5_obj, TKN_obj, COD_obj, NO3_obj, TN_obj, P_obj, col_obj = optimization_result.Cobj
+                if TSS_obj > 0:
+                    output_feature["TSS_norm"] = round(pathway_result.TSS_concentration / TSS_obj, 2)
+                if BOD5_obj > 0:
+                    output_feature["BOD5_norm"] = round(pathway_result.BOD5_concentration / BOD5_obj, 2)
+                if COD_obj > 0:
+                    output_feature["COD_norm"] = round(pathway_result.COD_concentration / COD_obj, 2)
+                if TKN_obj is not None and TKN_obj > 0:
+                    output_feature["TKN_norm"] = round(pathway_result.TKN_concentration / TKN_obj, 2)
+                if NO3_obj is not None and NO3_obj > 0:
+                    output_feature["NO3_norm"] = round(pathway_result.NO3_concentration / NO3_obj, 2)
+                if TN_obj is not None and TN_obj > 0:
+                    output_feature["TN_norm"] = round(pathway_result.TN_concentration / TN_obj, 2)
+                if P_obj is not None and P_obj > 0:
+                    output_feature["P_norm"] = round(pathway_result.P_concentration / P_obj, 2)
+                if col_obj is not None and col_obj > 0:
+                    output_feature["col_norm"] = round(pathway_result.col_concentration / col_obj, 2)
+
+                if optimization_result.available_surface > 0:
+                    output_feature["surface_norm"] = round(
+                        pathway_result.total_surface / optimization_result.available_surface, 2
+                    )
+
                 treatment_sink.addFeature(output_feature)
 
         context.layerToLoadOnCompletionDetails(treatment_dest).setPostProcessor(self.post_processor)
@@ -450,45 +503,59 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
 
 
 def outputFields() -> QgsFields:
-    output_fields = QgsFields()
 
-    # String field containing the sink coordinate
-    output_fields.append(QgsField("sink_coords", QMetaType.Type.QString))
+    fields = [
+        # String field containing the sink coordinate
+        ("sink_coords", QMetaType.Type.QString),
+        # Pathway identifier
+        ("pathway_id", QMetaType.Type.QString),
+        # String field containing the names and materials of the stages
+        ("name_stages", QMetaType.Type.QString),
+        # String fields containing JSON list with size values for each stage
+        ("surface_stages", QMetaType.Type.QString),
+        ("depth_stages_sat", QMetaType.Type.QString),
+        ("depth_stages_unsat", QMetaType.Type.QString),
+        # String fields containing JSON list with loading values for each stage
+        ("TSS_loading_stages", QMetaType.Type.QString),
+        ("BOD5_loading_stages", QMetaType.Type.QString),
+        ("TKN_loading_stages", QMetaType.Type.QString),
+        ("COD_loading_stages", QMetaType.Type.QString),
+        ("hydraulic_loading_rate_stages", QMetaType.Type.QString),
+        # Dimensions
+        ("available_surface", QMetaType.Type.Double),
+        ("surface_norm", QMetaType.Type.Double),
+        ("total_surface", QMetaType.Type.Double),
+        ("total_volume", QMetaType.Type.Double),
+        # Concentrations
+        ("TSS_concentration", QMetaType.Type.Double),
+        ("BOD5_concentration", QMetaType.Type.Double),
+        ("TKN_concentration", QMetaType.Type.Double),
+        ("COD_concentration", QMetaType.Type.Double),
+        ("NO3_concentration", QMetaType.Type.Double),
+        ("TN_concentration", QMetaType.Type.Double),
+        ("P_concentration", QMetaType.Type.Double),
+        ("col_concentration", QMetaType.Type.Double),
+        # Deviations
+        ("TSS_deviation", QMetaType.Type.Double),
+        ("BOD5_deviation", QMetaType.Type.Double),
+        ("TKN_deviation", QMetaType.Type.Double),
+        ("COD_deviation", QMetaType.Type.Double),
+        ("NO3_deviation", QMetaType.Type.Double),
+        ("TN_deviation", QMetaType.Type.Double),
+        ("P_deviation", QMetaType.Type.Double),
+        ("col_deviation", QMetaType.Type.Double),
+        # Normalized concentrations
+        ("TSS_norm", QMetaType.Type.Double),
+        ("BOD5_norm", QMetaType.Type.Double),
+        ("TKN_norm", QMetaType.Type.Double),
+        ("COD_norm", QMetaType.Type.Double),
+        ("NO3_norm", QMetaType.Type.Double),
+        ("TN_norm", QMetaType.Type.Double),
+        ("P_norm", QMetaType.Type.Double),
+        ("col_norm", QMetaType.Type.Double),
+    ]
 
-    # Pathway identifier
-    output_fields.append(QgsField("pathway_id", QMetaType.Type.QString))
-
-    # String field containing the names and materials of the stages
-    output_fields.append(QgsField("name_stages", QMetaType.Type.QString))
-
-    # String fields containing JSON list with size values for each stage
-    output_fields.append(QgsField("surface_stages", QMetaType.Type.QString))
-    output_fields.append(QgsField("depth_stages_sat", QMetaType.Type.QString))
-    output_fields.append(QgsField("depth_stages_unsat", QMetaType.Type.QString))
-
-    # String fields containing JSON list with loading values for each stage
-    output_fields.append(QgsField("TSS_loading_stages", QMetaType.Type.QString))
-    output_fields.append(QgsField("BOD5_loading_stages", QMetaType.Type.QString))
-    output_fields.append(QgsField("TKN_loading_stages", QMetaType.Type.QString))
-    output_fields.append(QgsField("COD_loading_stages", QMetaType.Type.QString))
-    output_fields.append(QgsField("hydraulic_loading_rate_stages", QMetaType.Type.QString))
-
-    output_fields.append(QgsField("available_surface", QMetaType.Type.Double))
-    output_fields.append(QgsField("total_surface", QMetaType.Type.Double))
-    output_fields.append(QgsField("total_volume", QMetaType.Type.Double))
-    output_fields.append(QgsField("TSS_concentration", QMetaType.Type.Double))
-    output_fields.append(QgsField("BOD5_concentration", QMetaType.Type.Double))
-    output_fields.append(QgsField("TKN_concentration", QMetaType.Type.Double))
-    output_fields.append(QgsField("COD_concentration", QMetaType.Type.Double))
-    output_fields.append(QgsField("NO3_concentration", QMetaType.Type.Double))
-    output_fields.append(QgsField("TN_concentration", QMetaType.Type.Double))
-    output_fields.append(QgsField("TSS_deviation", QMetaType.Type.Double))
-    output_fields.append(QgsField("BOD5_deviation", QMetaType.Type.Double))
-    output_fields.append(QgsField("TKN_deviation", QMetaType.Type.Double))
-    output_fields.append(QgsField("COD_deviation", QMetaType.Type.Double))
-    output_fields.append(QgsField("NO3_deviation", QMetaType.Type.Double))
-    output_fields.append(QgsField("TN_deviation", QMetaType.Type.Double))
-    return output_fields
+    return QgsFields([QgsField(field_name, field_type) for field_name, field_type in fields])
 
 
 class WetlandProcessPostProcessor(QgsProcessingLayerPostProcessorInterface, Translatable):
@@ -558,9 +625,9 @@ def run_optimization(optimization_parameters: OptimizationParameters):
     """
     Independant optimization call to wetlandoptimizer library
     """
-    from wetlandoptimizer.main import Results_Global_Generation
+    from wetlandoptimizer.main import Results_Global_Generation_All
 
-    optimization_parameters.pathway_results = Results_Global_Generation(
+    optimization_parameters.pathway_results = Results_Global_Generation_All(
         optimization_parameters.Cin,
         optimization_parameters.Cobj,
         optimization_parameters.Q,

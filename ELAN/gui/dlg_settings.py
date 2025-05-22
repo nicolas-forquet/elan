@@ -82,7 +82,7 @@ class DlgSettings(QWidget, FORM_CLASS, Translatable):
         try:
             with OverrideCursor(Qt.CursorShape.WaitCursor):
                 dependencies_utils.installPysewer()
-        except RuntimeError as e:
+        except Exception as e:
             QMessageBox.critical(self, self.tr("Install pysewer"), str(e))
             return
 
@@ -118,7 +118,7 @@ class DlgSettings(QWidget, FORM_CLASS, Translatable):
         try:
             with OverrideCursor(Qt.CursorShape.WaitCursor):
                 dependencies_utils.installWetlandoptimizer()
-        except RuntimeError as e:
+        except Exception as e:
             QMessageBox.critical(self, self.tr("Install wetlandoptimizer"), str(e))
             return
 
@@ -132,7 +132,12 @@ class DlgSettings(QWidget, FORM_CLASS, Translatable):
             == QMessageBox.StandardButton.No
         ):
             return
-        dependencies_utils.removeDependencies()
+        try:
+            dependencies_utils.removeDependencies()
+        except Exception as e:
+            QMessageBox.critical(
+                self, self.tr("Reset dependencies"), self.tr("Unable to reset dependencies:") + "\n" + str(e)
+            )
 
     def closeEvent(self, event):
         """Map on plugin close.

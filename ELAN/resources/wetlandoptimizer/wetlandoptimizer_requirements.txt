@@ -1,2 +1,1 @@
-cma==4.0.0
-whatthepatch==1.0.5
+cma

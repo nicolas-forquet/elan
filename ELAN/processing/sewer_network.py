@@ -48,6 +48,7 @@ from qgis.PyQt.QtXml import QDomDocument
 
 from ELAN.__about__ import DIR_PLUGIN_ROOT
 from ELAN.processing.utils import LoadGpkgStylesPostProcessor, getLocalizedStylesDirectory
+from ELAN.utils.dependencies_utils import EXTERNAL_LIRBARIES_DIR
 from ELAN.utils.qgis_utils import getInterpreterPath
 from ELAN.utils.tr import Translatable
 
@@ -448,8 +449,8 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 tmp_name_file,
                 "--output-path",
                 output_layer_path,
-                "--external-deps",
-                DIR_PLUGIN_ROOT / "external_dependencies",
+                "--external-libs",
+                EXTERNAL_LIRBARIES_DIR,
             ],
             "text": True,
             "stderr": subprocess.PIPE,
