@@ -13,9 +13,7 @@
 
 import json
 import multiprocessing
-import site
 import sys
-from importlib import util as importutil
 from pathlib import Path
 from typing import Optional
 
@@ -43,8 +41,8 @@ from qgis.core import (
 from qgis.PyQt.QtCore import QMetaType
 from qgis.PyQt.QtGui import QColor
 
-from ELAN.__about__ import DIR_PLUGIN_ROOT
 from ELAN.processing.utils import getLocalizedStylesDirectory
+from ELAN.utils.dependencies_utils import wetlandoptimizerInstalled
 from ELAN.utils.tr import Translatable
 
 # Hard-coded concentrations values arriving at the WWTP in g/m3
@@ -321,19 +319,12 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         Here is where the processing itself takes place.
         """
 
-        # Add external_dependencies directory if not already in site directory
-        external_dependencies_dir = DIR_PLUGIN_ROOT / "external_dependencies"
-        if str(external_dependencies_dir) not in sys.path:
-            site.addsitedir(str(external_dependencies_dir))
-
-        if (wetlandoptimizer_spec := importutil.find_spec("wetlandoptimizer")) is None:
+        # Add EXTERNAL_LIRBARIES_DIR if not already in site directory
+        if not wetlandoptimizerInstalled():
             raise QgsProcessingException(
                 self.tr("The wetlandoptimizer library is not installed.\nGo to ELAN settings to install it.")
             )
         from wetlandoptimizer.main import COD_Fractionation
-
-        if wetlandoptimizer_spec.origin is None:
-            raise QgsProcessingException("Error with wetlandoptimizer installation")
 
         sinks_source = self.parameterAsSource(parameters, self.SINKS, context)
         if sinks_source is None:
