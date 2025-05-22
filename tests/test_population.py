@@ -12,7 +12,6 @@ def test_population(qgis_processing, mocker, tmp_path):
     import processing
 
     from ELAN.processing.population import PopulationAlgorithm
-    from ELAN.processing.provider import ELANProvider
 
     mocker.patch("ELAN.utils.tr.PlgLogger")  # don't care about logging anything from translations
     test_data_dir = Path(DIR_PLUGIN_ROOT).parent / "tests" / "data_test" / "population"
