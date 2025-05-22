@@ -2,6 +2,8 @@
 test_roads_buildings
 """
 
+import json
+import re
 from pathlib import Path
 
 import pytest
@@ -63,23 +65,18 @@ def test_roads_buildings(qgis_processing, mocker, tmp_path):
         assert_same_layers(layer_ref, layer_gen)
 
 
-def test_error_roads_buildings(qgis_processing, mocker, tmp_path):
+def test_error_big_polygon(qgis_processing, mocker):
     """
     Verify the error raised :
     - To big polygon input
-    - Empty polygon input
     """
 
-    mocker.patch("ELAN.utils.tr.PlgLogger")  # don't care about logging anything from translations
+    mocker.patch("ELAN.utils.tr.PlgLogger")
     import processing
 
     from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
 
-    test_data_dir = Path(DIR_PLUGIN_ROOT).parent / "tests" / "data_test" / "roads_buildings"
     roads_buildings_alg = RoadsBuildingsAlgorithm()
-
-    ##################################### test big polygon #####################################
-
     layer = QgsVectorLayer("Polygon?crs=EPSG:4326", "test_big_rect", "memory")
     provider = layer.dataProvider()
 
@@ -95,14 +92,21 @@ def test_error_roads_buildings(qgis_processing, mocker, tmp_path):
     context = QgsProcessingContext()
     feedback = QgsProcessingFeedback()
 
-    with pytest.raises(QgsProcessingException, match="The extent of the extraction area is too big"):
+    with pytest.raises(QgsProcessingException, match=re.compile("The extent of the extraction area is too big")):
         roads_buildings_alg.processAlgorithm(parameters, context, feedback)
 
-    ##################################### test null polygon #####################################
+
+def test_error_empty_polygon(qgis_processing, mocker):
+
+    mocker.patch("ELAN.utils.tr.PlgLogger")
+    import processing
+
+    from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
+
+    roads_buildings_alg = RoadsBuildingsAlgorithm()
 
     layer = QgsVectorLayer("Polygon?crs=EPSG:4326", "test_null", "memory")
     provider = layer.dataProvider()
-
     feat = QgsFeature()
     geom = QgsGeometry.fromWkt("POLYGON(()")
     feat.setGeometry(geom)
