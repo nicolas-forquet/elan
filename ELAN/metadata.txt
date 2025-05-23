@@ -1,9 +1,9 @@
 [general]
 name=ELAN
-about=QGIS decision-support plugin for integrated urban water management by nature-based solutions
+about=Processing modules : Roads and buildings, Population, Sewer network, Longitudinal sewer profile, Processes, Scenario creation, Assessment, Comparison (+ Urban catchment, Hydraulic for alpha version)
 category=Water management
 hasProcessingProvider=yes
-description=Processing modules : Roads and buildings, Population, Sewer network, Longitudinal sewer profile, Processes, Scenario creation, Assessment, Comparison (+ Urban catchment, Hydraulic for alpha version)
+description=QGIS decision-support plugin for integrated urban water management by nature-based solutions
 icon=resources/images/ELAN-LOGO-02_ICONE.png
 tags=urban water,integrated management,NBS,decentralization,disconnection,decision-support
 
