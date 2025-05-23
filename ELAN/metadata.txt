@@ -1,9 +1,9 @@
 [general]
 name=ELAN
-about=Modules de traitement des données : Procédés, Hydraulique, ACV, Économique, Réseau, Réutilisation.
-category=None
+about=QGIS decision-support plugin for integrated urban water management by nature-based solutions
+category=Water management
 hasProcessingProvider=yes
-description=Modules de traitement des données : Procédés, Hydraulique, ACV, Économique, Réseau, Réutilisation.
+description=Processing modules : Roads and buildings, Population, Sewer network, Longitudinal sewer profile, Processes, Scenario creation, Assessment, Comparison (+ Urban catchment, Hydraulic for alpha version)
 icon=resources/images/ELAN-LOGO-02_ICONE.png
 tags=urban water,integrated management,NBS,decentralization,disconnection,decision-support
 
