@@ -83,11 +83,11 @@ test:
       - ${PROJECT_FOLDER}/**/*
       - tests/**/*
   before_script:
-    - python3 -m venv --system-site-packages venv
-    - source venv/bin/activate
+    - python3 -m venv --system-site-packages .venv
+    - source .venv/bin/activate
     - pip install -r requirements/testing.txt
     - pip install -r requirements/elan.txt
-    - QT_QPA_PLATFORM="offscreen" python3 -c "from qgis.core import QgsApplication;from ELAN.utils.dependencies_utils import installPysewer;app = QgsApplication([], False);app.initQgis();installPysewer()"
+    - QT_QPA_PLATFORM=offscreen PYTHONPATH=. python ${PROJECT_FOLDER}/utils/dependencies_utils.py --install-all
   script:
     - pytest --qgis_disable_gui
   artifacts:

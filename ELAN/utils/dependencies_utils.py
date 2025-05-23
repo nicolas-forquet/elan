@@ -4,6 +4,7 @@
 Utils functions for managing pysewer and wetlandoptimizer install and its dependencies
 """
 
+import argparse
 import shutil
 import site
 import subprocess
@@ -182,3 +183,61 @@ def removeDependencies():
     # "unload" modules
     if "wetlandoptimizer" in sys.modules:
         sys.modules.pop("wetlandoptimizer")
+
+
+if __name__ == "__main__":
+    """
+    If this file is exectuted, this is a CLI to install ELAN dependencies.
+    Useful in CI/CD to be called before executing tests.
+    """
+
+    parser = argparse.ArgumentParser(description="install libraries")
+    parser.add_argument(
+        "--install-pysewer",
+        help=f"install pysewer and its dependencies in {EXTERNAL_LIRBARIES_DIR} directory",
+        action="store_true",
+    )
+    parser.add_argument(
+        "--install-wetlandoptimizer",
+        help=f"install wetlandoptimizer and its dependencies in {EXTERNAL_LIRBARIES_DIR} directory",
+        action="store_true",
+    )
+    parser.add_argument(
+        "--install-all",
+        help=f"install all libraries and their dependencies in {EXTERNAL_LIRBARIES_DIR} directory",
+        action="store_true",
+    )
+    parser.add_argument(
+        "--delete-libraries",
+        help=f"delete external libraries directory {EXTERNAL_LIRBARIES_DIR}",
+        action="store_true",
+    )
+    args = parser.parse_args()
+
+    if not any(
+        [
+            args.install_pysewer,
+            args.install_wetlandoptimizer,
+            args.install_all,
+            args.delete_libraries,
+        ]
+    ):
+        print("Nothing to do.")
+        sys.exit(0)
+
+    app = QgsApplication([], False)
+    app.initQgis()
+
+    if args.delete_libraries:
+        removeDependencies()
+
+    if EXTERNAL_LIRBARIES_DIR.exists():
+        raise RuntimeError(f"{EXTERNAL_LIRBARIES_DIR} already exists, not overwriting")
+
+    if args.install_pysewer or args.install_all:
+        installPysewer()
+        print(f"pysewer and its dependencies are now installed in {EXTERNAL_LIRBARIES_DIR} directory")
+
+    if args.install_wetlandoptimizer or args.install_all:
+        installWetlandoptimizer()
+        print(f"wetlandoptimizer and its dependencies are now installed in {EXTERNAL_LIRBARIES_DIR} directory")
