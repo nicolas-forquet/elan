@@ -54,7 +54,7 @@ def test_roads_buildings(qgis_processing, mocker, tmp_path):
 
     mock_response = mocker.Mock()
     mock_response.json.return_value = json.loads(json_osm_text)
-    mocker.patch("requests.get", return_value=mock_response)
+    mocker.patch("ELAN.processing.roads_buildings.requests.get", return_value=mock_response)
     res = processing.run(roads_buildings_alg, roads_buildings_param)
 
     assert res != {}
