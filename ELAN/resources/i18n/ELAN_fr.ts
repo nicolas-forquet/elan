@@ -682,8 +682,8 @@ requises pour une future analyse et évaluation.</translation>
     </message>
     <message>
         <location filename="../../processing/scenario.py" line="103"/>
-        <source>Processes (one per WWTP)</source>
-        <translation>Procédés (un par STEU)</translation>
+        <source>Treatment trains (one per WWTP)</source>
+        <translation>Filières (une par STEU)</translation>
     </message>
     <message>
         <location filename="../../processing/scenario.py" line="142"/>

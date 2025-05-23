@@ -41,7 +41,7 @@ class ScenarioAlgorithm(QgsProcessingAlgorithm, Translatable):
 
     SCENARIO_NAME = "SCENARIO_NAME"
     SEWER_NETWORK = "SEWER_NETWORK"
-    WETLAND_PROCESSES = "WETLAND_PROCESSES"
+    TREATMENT_TRAINS = "WETLAND_PROCESSES"
     SCENARIO_GPKG = "SCENARIO_GPKG"
 
     def createInstance(self):
@@ -101,7 +101,7 @@ class ScenarioAlgorithm(QgsProcessingAlgorithm, Translatable):
             QgsProcessingParameterFile(self.SEWER_NETWORK, self.tr("Sewer network geopackage"), extension="gpkg")
         )
         self.addParameter(
-            QgsProcessingParameterFeatureSource(self.WETLAND_PROCESSES, self.tr("Processes (one per WWTP)"))
+            QgsProcessingParameterFeatureSource(self.TREATMENT_TRAINS, self.tr("Treatment trains (one per WWTP)"))
         )
 
         self.addParameter(
@@ -131,10 +131,10 @@ class ScenarioAlgorithm(QgsProcessingAlgorithm, Translatable):
         ]
 
         # Load wetland process layer and check that there is only one feature per WWTP
-        if (processes_source := self.parameterAsSource(parameters, self.WETLAND_PROCESSES, context)) is None or (
+        if (processes_source := self.parameterAsSource(parameters, self.TREATMENT_TRAINS, context)) is None or (
             processes_layer := processes_source.materialize(QgsFeatureRequest())
         ) is None:
-            raise QgsProcessingException(self.invalidSourceError(parameters, self.WETLAND_PROCESSES))
+            raise QgsProcessingException(self.invalidSourceError(parameters, self.TREATMENT_TRAINS))
         if (
             len(processes_layer.uniqueValues(processes_layer.fields().indexFromName("sink_coords")))
             != processes_layer.featureCount()
