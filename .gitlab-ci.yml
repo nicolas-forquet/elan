@@ -90,10 +90,14 @@ test:
     - QT_QPA_PLATFORM=offscreen PYTHONPATH=. python ${PROJECT_FOLDER}/utils/dependencies_utils.py --install-all
   script:
     - pytest --qgis_disable_gui
+  coverage: '/(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
   artifacts:
     when: always
     reports:
       junit: junit/test-results.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
 
 # -- BUILD JOBS -------------------------------------------------------------------------
 
