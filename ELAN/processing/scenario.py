@@ -121,6 +121,8 @@ class ScenarioAlgorithm(QgsProcessingAlgorithm, Translatable):
             "pumping_stations",
             "lifting_stations",
             "sewer_pipes",
+            "roads",
+            "buildings",
             "info_network",
         ]
         layers = [

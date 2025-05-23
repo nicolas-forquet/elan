@@ -81,7 +81,11 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
 
     def __init__(self):
         super().__init__()
+
+        # One post processor for each output layer to open after the processing
         self.post_processors = [
+            LoadGpkgStylesPostProcessor(),
+            LoadGpkgStylesPostProcessor(),
             LoadGpkgStylesPostProcessor(),
             LoadGpkgStylesPostProcessor(),
             LoadGpkgStylesPostProcessor(),
@@ -361,14 +365,19 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         if not same_crs:
             raise QgsProcessingException(self.tr("All input layers must have the same CRS."))
 
-        temp_input_dir = Path(tempfile.mkdtemp())
-        buildings_layer = buildings_source.materialize(QgsFeatureRequest())
-        roads_layer = roads_source.materialize(QgsFeatureRequest())
+        # Create temporary layers with buildings and roads input features
+        if (buildings_layer := buildings_source.materialize(QgsFeatureRequest())) is None:
+            raise QgsProcessingException(self.tr("Error when creating buildings layer"))
+        if (roads_layer := roads_source.materialize(QgsFeatureRequest())) is None:
+            raise QgsProcessingException(self.tr("Error when creating roads layer"))
+        roads_layer.setName("roads")
+        buildings_layer.setName("buildings")
 
         # Save input layers to temporary shapefiles because pysewer only accepts shapefile format
         save_options = QgsVectorFileWriter.SaveVectorOptions()
         save_options.driverName = QgsVectorFileWriter.driverForExtension("shp")
 
+        temp_input_dir = Path(tempfile.mkdtemp())
         roads_layer_source = str(temp_input_dir / "roads.shp")
         QgsVectorFileWriter.writeAsVectorFormatV3(
             roads_layer, roads_layer_source, QgsCoordinateTransformContext(), save_options
@@ -504,8 +513,10 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             [
                 ("sinks_layer", self.tr("WWTP")),
                 ("pumping_stations", self.tr("Pumping stations")),
+                ("buildings", self.tr("Buildings")),
                 ("lifting_stations", self.tr("Lifting stations")),
                 ("sewer_pipes", self.tr("Sewer pipes")),
+                ("roads", self.tr("Roads")),
                 ("info_network", self.tr("Network informations")),
             ]
         ):
@@ -523,6 +534,23 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             self.saveStyles(output_layer_path)
         except Exception as e:
             raise QgsProcessingException(self.tr("Unexpected error while saving styles: {}").format(str(e))) from e
+
+        # Save input layers in the output geopackage file
+        processing.run(
+            "native:package",
+            {
+                "LAYERS": [roads_layer, buildings_layer],
+                "OUTPUT": output_layer_path,
+                "OVERWRITE": False,
+                "SAVE_STYLES": False,
+                "SAVE_METADATA": False,
+                "SELECTED_FEATURES_ONLY": False,
+                "EXPORT_RELATED_LAYERS": False,
+            },
+            context=context,
+            is_child_algorithm=True,
+            feedback=feedback,
+        )
 
         return {self.OUTPUT_GPKG: output_layer_path}
 
