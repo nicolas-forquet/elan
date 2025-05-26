@@ -68,13 +68,13 @@ def test_all_processings(elan_processing, mocker, tmp_path):
     test_sewer_network_alg = SewerNetworkAlgorithm()
 
     sinks_path = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "processings" / "sewer_network_steu.gpkg"
-    dem_file_path = f"{test_data_dir}/sewer_network_mnt_input.tif"
-    roads_input_path = f"{tmp_path}/roads_generated_output.gpkg"
-    buildings_input_path = f"{tmp_path}/population_generated_output.gpkg"
+    dem_file_path = str(test_data_dir / "sewer_network_mnt_input.tif")
+    roads_input_path = str(tmp_path / "roads_generated_output.gpkg")
+    buildings_input_path = str(tmp_path / "population_generated_output.gpkg")
 
     sewer_network_param = {
         "SINKS": sinks_path,
-        "OUTPUT_GPKG": f"{tmp_path}/sewer_network_generated_output.gpkg",
+        "OUTPUT_GPKG": str(tmp_path / "sewer_network_generated_output.gpkg"),
         "DEM_FILE_PATH": dem_file_path,
         "ROADS_INPUT_DATA": roads_input_path,
         "BUILDINGS_INPUT_DATA": buildings_input_path,

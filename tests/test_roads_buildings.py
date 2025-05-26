@@ -68,8 +68,8 @@ def test_roads_buildings(elan_processing, mocker, tmp_path):
     ]
 
     for layer_reference, layer_generated in zip(layers_reference, layers_generated):
-        layer_ref = load_layer(f"{test_data_dir}/roads_buildings_output.gpkg.zip", layer_reference)
-        layer_gen = load_layer(f"{tmp_path}/{layer_generated}.gpkg", layer_generated)
+        layer_ref = load_layer(test_data_dir / "roads_buildings_output.gpkg.zip", layer_reference)
+        layer_gen = load_layer((tmp_path / layer_generated).with_suffix(".gpkg"), layer_generated)
         assert_same_layers(layer_ref, layer_gen)
 
 
