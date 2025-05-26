@@ -2,8 +2,6 @@
 test_trench_profile
 """
 
-from pathlib import Path
-
 from ELAN.__about__ import DIR_PLUGIN_ROOT
 from tests.utils import assert_same_layers, load_layer
 
@@ -15,7 +13,7 @@ def test_trench_profile(qgis_processing, mocker, tmp_path):
 
     mocker.patch("ELAN.utils.tr.PlgLogger")  # don't care about logging anything from translations
 
-    test_data_dir = Path(DIR_PLUGIN_ROOT).parent / "tests" / "data_test" / "trench_profile"
+    test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "trench_profile"
 
     trench_profile_alg = TrenchProfileAlgorithm()
     assert trench_profile_alg.name() == "elantrenchprofile"

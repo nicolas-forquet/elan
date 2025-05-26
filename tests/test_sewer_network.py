@@ -3,22 +3,21 @@ test_sewer_network
 """
 
 import re
-from pathlib import Path
 
 import pytest
 from qgis.core import (
     NULL,
-    QgsField,
-    QgsFields,
+    QgsGeometry,
     QgsProcessingContext,
     QgsProcessingException,
     QgsProcessingFeedback,
     QgsRasterLayer,
+    QgsVectorLayer,
+    QgsVectorLayerUtils,
 )
 
+from ELAN.__about__ import DIR_PLUGIN_ROOT
 from tests.utils import assert_same_layers, load_layer
-
-DIR_PLUGIN_ROOT = Path(__file__).parent
 
 
 def test_sewer_network(qgis_processing, mocker, tmp_path):
@@ -29,21 +28,17 @@ def test_sewer_network(qgis_processing, mocker, tmp_path):
 
     mocker.patch("ELAN.utils.tr.PlgLogger")  # don't care about logging anything from translations
 
-    test_data_dir = Path(DIR_PLUGIN_ROOT).parent / "tests" / "data_test" / "sewer_network"
+    test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "sewer_network"
     test_sewer_network_alg = SewerNetworkAlgorithm()
     assert test_sewer_network_alg.name() == "elansewernetwork"
     assert test_sewer_network_alg.groupId() == "elanprocessings"
 
-    sinks_path = f"{test_data_dir}/sewer_network_steu_input.gpkg.zip"
-    dem_file_path = f"{test_data_dir}/sewer_network_mnt_input.tif"
-    roads_input_path = f"{test_data_dir}/sewer_network_roads_input.gpkg.zip"
-    buildings_input_path = f"{test_data_dir}/sewer_network_buildings_population_input.gpkg.zip"
     sewer_network_param = {
-        "SINKS": sinks_path,
-        "OUTPUT_GPKG": f"{tmp_path}/sewer_network_generated_output.gpkg",
-        "DEM_FILE_PATH": dem_file_path,
-        "ROADS_INPUT_DATA": roads_input_path,
-        "BUILDINGS_INPUT_DATA": buildings_input_path,
+        "SINKS": str(test_data_dir / "sewer_network_steu_input.gpkg.zip"),
+        "OUTPUT_GPKG": str(tmp_path / "sewer_network_generated_output.gpkg"),
+        "DEM_FILE_PATH": str(test_data_dir / "sewer_network_mnt_input.tif"),
+        "ROADS_INPUT_DATA": str(test_data_dir / "sewer_network_roads_input.gpkg.zip"),
+        "BUILDINGS_INPUT_DATA": str(test_data_dir / "sewer_network_buildings_population_input.gpkg.zip"),
         "INHABITANTS_DWELLING_ATTRIBUTE_NAME": "population",
         "PUMP_PENALTY": 1000,
         "MAX_CONNECTION_LENGTH": 30,
@@ -62,10 +57,10 @@ def test_sewer_network(qgis_processing, mocker, tmp_path):
     }
 
     res = processing.run(test_sewer_network_alg, sewer_network_param)
-    assert res != {}
+    assert list(res.keys()) == ["OUTPUT_GPKG"]
 
-    ref_path = f"{test_data_dir}/sewer_network_reference_output.gpkg.zip"
-    gen_path = f"{tmp_path}/sewer_network_generated_output.gpkg"
+    ref_path = test_data_dir / "sewer_network_reference_output.gpkg.zip"
+    gen_path = tmp_path / "sewer_network_generated_output.gpkg"
 
     layers = ["pumping_stations", "lifting_stations", "sewer_pipes"]
 
@@ -73,86 +68,69 @@ def test_sewer_network(qgis_processing, mocker, tmp_path):
         assert_same_layers(load_layer(ref_path, name), load_layer(gen_path, name))
 
 
-def test_error_NULL_population_fields(qgis_processing, mocker, tmp_path):
+def test_error_null_population_fields(qgis_processing, mocker):
     """
-    Verify the raised errors:
-
-    - Building layer : population fields NULL
-    - DEM layer : File with 2 bands
-
+    Verify the raised error:
+    - Building layer : population field with a NULL value
     """
+    import processing
+
     from ELAN.processing.sewer_network import SewerNetworkAlgorithm
 
     mocker.patch("ELAN.utils.tr.PlgLogger")  # don't care about logging anything from translations
 
     test_sewer_network_alg = SewerNetworkAlgorithm()
 
-    context = QgsProcessingContext()
-    feedback = QgsProcessingFeedback()
-
-    # # mock DEM_layer with crs and band value
-    mock_layer_dem = mocker.Mock(spec=QgsRasterLayer)
-    mock_layer_dem.bandCount.return_value = 1
-    mock_layer_dem.crs.return_value = "32620"
-
-    # mock buildings_layer with crs and field "population"
-    mock_layer_buildings_source = mocker.Mock()
-    mock_layer_buildings_source.crs.return_value = "32620"
-
-    fields = QgsFields()
-    fields.append(QgsField("population", 0))
-    mock_layer_buildings_source.fields.return_value = fields
-    mock_layer_buildings_source.uniqueValues.return_value = {NULL}  # return QgsFeature.attributes() NULL
-
-    mocker.patch.object(test_sewer_network_alg, "parameterAsSource", return_value=mock_layer_buildings_source)
-    mocker.patch.object(test_sewer_network_alg, "parameterAsRasterLayer", return_value=mock_layer_dem)
+    # Create buildings layer
+    buildings_layer = QgsVectorLayer(
+        "Polygon?crs=EPSG:4326&field=population:double", "test_null_population_fields", "memory"
+    )
+    if (provider := buildings_layer.dataProvider()) is None:
+        raise RuntimeError("Unexpected error: layer provider is None")
+    # Add 2 features, one with NULL population value
+    provider.addFeatures(
+        [
+            QgsVectorLayerUtils.createFeature(buildings_layer, QgsGeometry(), {0: NULL}),
+            QgsVectorLayerUtils.createFeature(buildings_layer, QgsGeometry(), {0: 4.56}),
+        ]
+    )
 
     parameters = {
-        "BUILDINGS_INPUT_DATA": mock_layer_buildings_source,
-        "DEM_FILE_PATH": mock_layer_dem,
+        "BUILDINGS_INPUT_DATA": buildings_layer,
+        "ROADS_INPUT_DATA": QgsVectorLayer("Line?crs=EPSG:32620", "roads", "memory"),
+        "DEM_FILE_PATH": str(
+            DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "sewer_network" / "sewer_network_mnt_input.tif"
+        ),
         "INHABITANTS_DWELLING_ATTRIBUTE_NAME": "population",
         "OUTPUT_GPKG": "memory:",
     }
 
-    with pytest.raises(QgsProcessingException, match=re.compile("There is one or more NULL values in the field")):
-        test_sewer_network_alg.processAlgorithm(parameters, context, feedback)
+    with pytest.raises(
+        QgsProcessingException, match=re.compile("There is one or more NULL values in the field population")
+    ):
+        processing.run(test_sewer_network_alg, parameters)
 
 
-def test_error_2bands_dem(qgis_processing, mocker, tmp_path):
+def test_error_2bands_dem(mocker):
     """
-    Verify the raised errors:
-
-    - Building layer : population fields NULL
+    Verify the raised error:
     - DEM layer : File with 2 bands
-
     """
+
     from ELAN.processing.sewer_network import SewerNetworkAlgorithm
 
     mocker.patch("ELAN.utils.tr.PlgLogger")
 
     test_sewer_network_alg = SewerNetworkAlgorithm()
 
-    context = QgsProcessingContext()
-    feedback = QgsProcessingFeedback()
-
     mock_layer_dem = mocker.Mock(spec=QgsRasterLayer)
     mock_layer_dem.bandCount.return_value = 2
-    mock_layer_dem.crs.return_value = "32620"
 
     # mock buildings_layer with crs and field "population"
-    mock_layer_buildings_source = mocker.Mock()
-    mock_layer_buildings_source.crs.return_value = "32620"
-    mocker.patch.object(test_sewer_network_alg, "parameterAsSource", return_value=mock_layer_buildings_source)
-
+    mocker.patch.object(test_sewer_network_alg, "parameterAsSource")
     mocker.patch.object(test_sewer_network_alg, "parameterAsRasterLayer", return_value=mock_layer_dem)
-    parameters = {
-        "BUILDINGS_INPUT_DATA": mock_layer_buildings_source,
-        "DEM_FILE_PATH": mock_layer_dem,
-        "INHABITANTS_DWELLING_ATTRIBUTE_NAME": "population",
-        "OUTPUT_GPKG": "memory:",
-    }
 
     with pytest.raises(
         QgsProcessingException, match=re.compile(r"The DEM must have a single band \(2 band\(s\) found\)")
     ):
-        test_sewer_network_alg.processAlgorithm(parameters, context, feedback)
+        test_sewer_network_alg.processAlgorithm({}, QgsProcessingContext(), QgsProcessingFeedback())

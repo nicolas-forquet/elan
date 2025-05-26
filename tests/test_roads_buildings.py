@@ -4,19 +4,14 @@ test_roads_buildings
 
 import json
 import re
-import tempfile
-from pathlib import Path
 from zipfile import ZipFile
 
 import pytest
 from qgis.core import (
     QgsFeature,
     QgsGeometry,
-    QgsProcessingContext,
     QgsProcessingException,
-    QgsProcessingFeedback,
     QgsVectorLayer,
-    QgsZipUtils,
 )
 
 from ELAN.__about__ import DIR_PLUGIN_ROOT
@@ -29,7 +24,7 @@ def test_roads_buildings(qgis_processing, mocker, tmp_path):
 
     from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
 
-    test_data_dir = Path(DIR_PLUGIN_ROOT).parent / "tests" / "data_test" / "roads_buildings"
+    test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "roads_buildings"
     roads_buildings_alg = RoadsBuildingsAlgorithm()
     assert roads_buildings_alg.name() == "elanroadsbuildings"
     assert roads_buildings_alg.groupId() == "elanpreprocessings"
@@ -44,7 +39,7 @@ def test_roads_buildings(qgis_processing, mocker, tmp_path):
         "PROJ": False,
     }
 
-    osm_zip_path = Path(test_data_dir) / "osm_roads_buildings.zip"
+    osm_zip_path = test_data_dir / "osm_roads_buildings.zip"
     assert osm_zip_path.exists()
     assert tmp_path.exists()
     json_osm_text = ""
@@ -93,22 +88,17 @@ def test_error_big_polygon(qgis_processing, mocker):
 
     roads_buildings_alg = RoadsBuildingsAlgorithm()
     layer = QgsVectorLayer("Polygon?crs=EPSG:4326", "test_big_rect", "memory")
-    provider = layer.dataProvider()
+    if (provider := layer.dataProvider()) is None:
+        raise RuntimeError("Unexpected error: layer provider is None")
 
     feat = QgsFeature()
     geom = QgsGeometry.fromWkt("POLYGON((0 0, 20 0, 20 20, 0 20, 0 0))")
     feat.setGeometry(geom)
-    provider.addFeatures([feat])
+    provider.addFeature(feat)
     layer.updateExtents()
 
-    mocker.patch.object(roads_buildings_alg, "parameterAsSource", return_value=layer)
-
-    parameters = {"POLYGON": "test_big_rect"}
-    context = QgsProcessingContext()
-    feedback = QgsProcessingFeedback()
-
     with pytest.raises(QgsProcessingException, match=re.compile("The extent of the extraction area is too big")):
-        roads_buildings_alg.processAlgorithm(parameters, context, feedback)
+        processing.run(roads_buildings_alg, {"POLYGON": layer})
 
 
 def test_error_empty_polygon(qgis_processing, mocker):
@@ -120,20 +110,5 @@ def test_error_empty_polygon(qgis_processing, mocker):
 
     roads_buildings_alg = RoadsBuildingsAlgorithm()
 
-    layer = QgsVectorLayer("Polygon?crs=EPSG:4326", "test_null", "memory")
-    provider = layer.dataProvider()
-    feat = QgsFeature()
-    geom = QgsGeometry.fromWkt("POLYGON(()")
-    feat.setGeometry(geom)
-    provider.addFeatures([feat])
-    layer.updateExtents()
-
-    mocker.patch.object(roads_buildings_alg, "parameterAsSource", return_value=layer)
-
-    parameters = {"POLYGON": "test_null"}
-    context = QgsProcessingContext()
-    feedback = QgsProcessingFeedback()
-
     with pytest.raises(QgsProcessingException, match=re.compile("The extent of the extraction area is null")):
-
-        roads_buildings_alg.processAlgorithm(parameters, context, feedback)
+        processing.run(roads_buildings_alg, {"POLYGON": QgsVectorLayer("Polygon?crs=EPSG:4326", "test_null", "memory")})
