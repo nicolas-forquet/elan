@@ -6,12 +6,9 @@ from ELAN.__about__ import DIR_PLUGIN_ROOT
 from tests.utils import assert_same_layers, load_layer
 
 
-def test_population(qgis_processing, mocker, tmp_path):
-    import processing
-
+def test_population(elan_processing, tmp_path):
     from ELAN.processing.population import PopulationAlgorithm
 
-    mocker.patch("ELAN.utils.tr.PlgLogger")  # don't care about logging anything from translations
     test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "population"
 
     test_population_alg = PopulationAlgorithm()
@@ -23,7 +20,7 @@ def test_population(qgis_processing, mocker, tmp_path):
         "INPUT_POLYGON_LAYER": str(test_data_dir / "population_input.gpkg.zip"),
         "OUTPUT_CENTROIDES_LAYER": str(tmp_path / "population_generated_output.gpkg"),
     }
-    res = processing.run(test_population_alg, population_param)
+    res = elan_processing.run(test_population_alg, population_param)
     assert list(res.keys()) == ["OUTPUT_CENTROIDES_LAYER"]
 
     ref_path = str(test_data_dir / "population_reference_output.gpkg.zip")

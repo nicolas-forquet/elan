@@ -20,13 +20,9 @@ from ELAN.__about__ import DIR_PLUGIN_ROOT
 from tests.utils import assert_same_layers, load_layer
 
 
-def test_sewer_network(qgis_processing, mocker, tmp_path):
-
-    import processing
+def test_sewer_network(elan_processing, tmp_path):
 
     from ELAN.processing.sewer_network import SewerNetworkAlgorithm
-
-    mocker.patch("ELAN.utils.tr.PlgLogger")  # don't care about logging anything from translations
 
     test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "sewer_network"
     test_sewer_network_alg = SewerNetworkAlgorithm()
@@ -56,7 +52,7 @@ def test_sewer_network(qgis_processing, mocker, tmp_path):
         "DIAMETERS": [0, 1, 2, 3, 4, 5],
     }
 
-    res = processing.run(test_sewer_network_alg, sewer_network_param)
+    res = elan_processing.run(test_sewer_network_alg, sewer_network_param)
     assert list(res.keys()) == ["OUTPUT_GPKG"]
 
     ref_path = test_data_dir / "sewer_network_reference_output.gpkg.zip"
@@ -68,16 +64,13 @@ def test_sewer_network(qgis_processing, mocker, tmp_path):
         assert_same_layers(load_layer(ref_path, name), load_layer(gen_path, name))
 
 
-def test_error_null_population_fields(qgis_processing, mocker):
+def test_error_null_population_fields(elan_processing):
     """
     Verify the raised error:
     - Building layer : population field with a NULL value
     """
-    import processing
 
     from ELAN.processing.sewer_network import SewerNetworkAlgorithm
-
-    mocker.patch("ELAN.utils.tr.PlgLogger")  # don't care about logging anything from translations
 
     test_sewer_network_alg = SewerNetworkAlgorithm()
 
@@ -108,7 +101,7 @@ def test_error_null_population_fields(qgis_processing, mocker):
     with pytest.raises(
         QgsProcessingException, match=re.compile("There is one or more NULL values in the field population")
     ):
-        processing.run(test_sewer_network_alg, parameters)
+        elan_processing.run(test_sewer_network_alg, parameters)
 
 
 def test_error_2bands_dem(mocker):

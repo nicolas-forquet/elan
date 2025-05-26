@@ -10,9 +10,7 @@ from qgis.core import QgsCoordinateReferenceSystem
 from ELAN.__about__ import DIR_PLUGIN_ROOT
 
 
-def test_all_processings(qgis_processing, mocker, tmp_path):
-
-    import processing
+def test_all_processings(elan_processing, mocker, tmp_path):
 
     from ELAN.processing.provider import (
         PopulationAlgorithm,
@@ -20,8 +18,6 @@ def test_all_processings(qgis_processing, mocker, tmp_path):
         SewerNetworkAlgorithm,
         TrenchProfileAlgorithm,
     )
-
-    mocker.patch("ELAN.utils.tr.PlgLogger")  # don't care about logging anything from translations
 
     ########################## Roads and Buildings #####################################################
 
@@ -51,7 +47,7 @@ def test_all_processings(qgis_processing, mocker, tmp_path):
         "PROJ": True,
     }
 
-    res = processing.run(roads_buildings_alg, roads_buildings_param)
+    res = elan_processing.run(roads_buildings_alg, roads_buildings_param)
     assert res != {}
 
     ########################## Population #####################################################
@@ -64,7 +60,7 @@ def test_all_processings(qgis_processing, mocker, tmp_path):
         "INPUT_POLYGON_LAYER": str(tmp_path / "buildings_merged_generated_output.gpkg"),  # from previous module
         "OUTPUT_CENTROIDES_LAYER": str(tmp_path / "population_generated_output.gpkg"),
     }
-    res = processing.run(test_population_alg, population_param)
+    res = elan_processing.run(test_population_alg, population_param)
 
     ########################## Sewer Network #####################################################
 
@@ -98,7 +94,7 @@ def test_all_processings(qgis_processing, mocker, tmp_path):
         "PRESSURIZED_DIAMETER": 0.2,
         "DIAMETERS": [0, 1, 2, 3, 4, 5],
     }
-    res = processing.run(test_sewer_network_alg, sewer_network_param)
+    res = elan_processing.run(test_sewer_network_alg, sewer_network_param)
 
     ########################## Trench Profile #####################################################
 
@@ -109,4 +105,4 @@ def test_all_processings(qgis_processing, mocker, tmp_path):
         "INPUT_LAYER": str(tmp_path / "sewer_network_generated_output.gpkg|layername=sewer_pipes"),
         "OUTPUT_GPKG": str(tmp_path / "trench_profile_generated_output.gpkg"),
     }
-    res = processing.run(trench_profile_alg, trench_profile_param)
+    res = elan_processing.run(trench_profile_alg, trench_profile_param)

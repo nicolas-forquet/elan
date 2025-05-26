@@ -18,9 +18,7 @@ from ELAN.__about__ import DIR_PLUGIN_ROOT
 from tests.utils import assert_same_layers, load_layer
 
 
-def test_roads_buildings(qgis_processing, mocker, tmp_path):
-    mocker.patch("ELAN.utils.tr.PlgLogger")  # don't care about logging anything from translations
-    import processing
+def test_roads_buildings(elan_processing, mocker, tmp_path):
 
     from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
 
@@ -50,7 +48,7 @@ def test_roads_buildings(qgis_processing, mocker, tmp_path):
     mock_response = mocker.Mock()
     mock_response.json.return_value = json.loads(json_osm_text)
     mocker.patch("ELAN.processing.roads_buildings.requests.get", return_value=mock_response)
-    res = processing.run(roads_buildings_alg, roads_buildings_param)
+    res = elan_processing.run(roads_buildings_alg, roads_buildings_param)
 
     assert res != {}
 
@@ -75,14 +73,11 @@ def test_roads_buildings(qgis_processing, mocker, tmp_path):
         assert_same_layers(layer_ref, layer_gen)
 
 
-def test_error_big_polygon(qgis_processing, mocker):
+def test_error_big_polygon(elan_processing):
     """
-    Verify the error raised :
+    Verify the error raised:
     - To big polygon input
     """
-
-    mocker.patch("ELAN.utils.tr.PlgLogger")
-    import processing
 
     from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
 
@@ -98,17 +93,20 @@ def test_error_big_polygon(qgis_processing, mocker):
     layer.updateExtents()
 
     with pytest.raises(QgsProcessingException, match=re.compile("The extent of the extraction area is too big")):
-        processing.run(roads_buildings_alg, {"POLYGON": layer})
+        elan_processing.run(roads_buildings_alg, {"POLYGON": layer})
 
 
-def test_error_empty_polygon(qgis_processing, mocker):
-
-    mocker.patch("ELAN.utils.tr.PlgLogger")
-    import processing
+def test_error_empty_polygon(elan_processing):
+    """
+    Verify the error raised:
+    - empty polygon input
+    """
 
     from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
 
     roads_buildings_alg = RoadsBuildingsAlgorithm()
 
     with pytest.raises(QgsProcessingException, match=re.compile("The extent of the extraction area is null")):
-        processing.run(roads_buildings_alg, {"POLYGON": QgsVectorLayer("Polygon?crs=EPSG:4326", "test_null", "memory")})
+        elan_processing.run(
+            roads_buildings_alg, {"POLYGON": QgsVectorLayer("Polygon?crs=EPSG:4326", "test_null", "memory")}
+        )

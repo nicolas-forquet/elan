@@ -6,12 +6,9 @@ from ELAN.__about__ import DIR_PLUGIN_ROOT
 from tests.utils import assert_same_layers, load_layer
 
 
-def test_trench_profile(qgis_processing, mocker, tmp_path):
-    import processing
+def test_trench_profile(elan_processing, tmp_path):
 
     from ELAN.processing.trench_profile import TrenchProfileAlgorithm
-
-    mocker.patch("ELAN.utils.tr.PlgLogger")  # don't care about logging anything from translations
 
     test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "trench_profile"
 
@@ -24,7 +21,7 @@ def test_trench_profile(qgis_processing, mocker, tmp_path):
         "OUTPUT_GPKG": str(tmp_path / "trench_profile_generated_output.gpkg"),
     }
 
-    res = processing.run(trench_profile_alg, trench_profile_param)
+    res = elan_processing.run(trench_profile_alg, trench_profile_param)
     assert res == {}
 
     ref_path = str(test_data_dir / "trench_profile_reference_output.gpkg.zip")
