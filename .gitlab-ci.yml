@@ -75,7 +75,7 @@ pylint:
 # -- TEST JOBS --------------------------------------------------------------------------
 
 test:
-  image: qgis/qgis:release-3_36
+  image: qgis/qgis:3.40.6
   stage: 🤞 test
   rules:
     - changes:
@@ -83,13 +83,21 @@ test:
       - ${PROJECT_FOLDER}/**/*
       - tests/**/*
   before_script:
-    - python3 -m pip install -U -r requirements/testing.txt
+    - python3 -m venv --system-site-packages .venv
+    - source .venv/bin/activate
+    - pip install -r requirements/testing.txt
+    - pip install -r requirements/elan.txt
+    - QT_QPA_PLATFORM=offscreen PYTHONPATH=. python ${PROJECT_FOLDER}/utils/dependencies_utils.py --install-all
   script:
-    - PYTHONPATH=/usr/share/qgis/python:./ pytest
+    - pytest --qgis_disable_gui
+  coverage: '/(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
   artifacts:
     when: always
     reports:
       junit: junit/test-results.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
 
 # -- BUILD JOBS -------------------------------------------------------------------------
 

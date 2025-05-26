@@ -32,7 +32,7 @@ class PopulationAlgorithm(QgsProcessingAlgorithm, Translatable):
 
     INPUT_POPULATION_TOT = "INPUT_POPULATION_TOT"
     INPUT_POLYGON_LAYER = "INPUT_POLYGON_LAYER"
-    OUTPUT_CENTROIDES_LAYER = "OUPUT_CENTROIDES_LAYER"
+    OUTPUT_CENTROIDES_LAYER = "OUTPUT_CENTROIDES_LAYER"
 
     def createInstance(self):
         return PopulationAlgorithm()

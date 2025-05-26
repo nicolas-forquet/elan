@@ -7,6 +7,7 @@ import importlib.util
 import pathlib
 import site
 import sqlite3
+from pathlib import Path
 from typing import Optional
 
 
@@ -22,7 +23,10 @@ def main():
     args = parser.parse_args()
 
     if args.external_libs is not None:
-        site.addsitedir(args.external_libs)
+        if Path(args.external_libs).exists():
+            site.addsitedir(args.external_libs)
+        else:
+            raise ValueError(f"Path to external libraries {args.external_libs} does not exist")
 
     if args.check_installed:
         if module_spec := importlib.util.find_spec("pysewer"):
