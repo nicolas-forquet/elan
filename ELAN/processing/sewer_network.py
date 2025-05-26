@@ -355,7 +355,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             buildings_source.fields().indexFromName(inhabitants_dwelling_attribute_name)
         ):
             raise QgsProcessingException(
-                self.tr("There is one or more NULL values in the field.") + inhabitants_dwelling_attribute_name
+                self.tr("There is one or more NULL values in the field ") + inhabitants_dwelling_attribute_name
             )
 
         # Check CRSs
