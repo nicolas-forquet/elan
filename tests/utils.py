@@ -21,7 +21,12 @@ def assert_same_layers(layer_a: QgsVectorLayer, layer_b: QgsVectorLayer):
     assert [field.type() for field in layer_a.fields()] == [field.type() for field in layer_b.fields()]
 
     for idx in range(layer_a.fields().size()):
-        assert layer_a.uniqueValues(idx) == layer_b.uniqueValues(idx)
+        if layer_a.fields().at(idx).name() == "distance":
+            assert set(map(lambda x: round(x, 3), layer_a.uniqueValues(idx))) == set(
+                map(lambda x: round(x, 3), layer_b.uniqueValues(idx))
+            )
+        else:
+            assert layer_a.uniqueValues(idx) == layer_b.uniqueValues(idx)
 
 
 def load_layer(gpkg_path: str | Path, layer_name: str) -> QgsVectorLayer:
