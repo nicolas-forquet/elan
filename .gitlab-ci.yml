@@ -184,10 +184,14 @@ release-from-tag:
           url: ${PACKAGE_REGISTRY_URL}/${CI_COMMIT_TAG}/${PACKAGE_NAME}
           link_type: package
 
+# Documentation and plugins.xml repository file are deployed for
+# experimental versions only, as long as we have 2 versions in parallel.
+# So that the gitlab plugin repository contains the experimental version,
+# and qgis.plugins.org repository contains the stable version.
 pages:
   stage: 🚀 deploy
   rules:
-    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_TAG =~ /^\d\d\d\d\.\d\d?\.\d\d?-[a-z]+$/
   script:
     - mkdir -p public/lint
     - cp -rf target/docs/* public/  # artifact from documentation job
