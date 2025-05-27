@@ -77,7 +77,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
     DIAMETERS = "DIAMETERS"
     OUTPUT_GPKG = "OUTPUT_GPKG"
     SINKS = "SINKS"
-    DIAMETERS_VALUE = ["0.1", "0.15", "0.2", " 0.25", "0.3", "0.4"]
+    DIAMETERS_VALUE = ["0.1", "0.15", "0.2", " 0.25", "0.3", "0.4", "0.6", "0.8", "1"]
 
     def __init__(self):
         super().__init__()
