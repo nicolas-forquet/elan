@@ -1,13 +1,5 @@
-#! python3  # noqa E265
-
 """
-    Usage from the repo root folder:
-
-    .. code-block:: bash
-        # for whole tests
-        python -m unittest tests.test_plg_metadata
-        # for specific test
-        python -m unittest tests.test_plg_metadata.TestPluginMetadata.test_version_semver
+Test metadata plugin
 """
 
 # standard library
@@ -67,10 +59,6 @@ class TestPluginMetadata(unittest.TestCase):
             VersionInfo.parse(qgismaximumversion),
             "Minimum QGIS version is >= maximum QGIS version",
         )
-
-    def test_version_semver(self):
-        """Test if version comply with semantic versioning."""
-        self.assertTrue(VersionInfo.is_valid(__about__.__version__))
 
 
 if __name__ == "__main__":

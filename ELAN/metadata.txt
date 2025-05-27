@@ -15,11 +15,10 @@ repository=https://gitlab.com/elan7835313/elan
 tracker=https://gitlab.com/elan7835313/elan/-/issues
 
 # experimental flag
-deprecated=False
-experimental=True
+experimental=False
 qgisMinimumVersion=3.36.0
 qgisMaximumVersion=3.99
 
-# versionnement
-version=2025.4.2
+# versionning
+version=
 changelog=
