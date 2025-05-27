@@ -70,8 +70,6 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
     MIN_SLOPE = "MIN_SLOPE"
     TMIN = "TMIN"
     TMAX = "TMAX"
-    INFLOW_TRENCH_DEPTH = "INFLOW_TRENCH_DEPTH"
-    MIN_TRENCH_DEPTH = "MIN_TRENCH_DEPTH"
     ROUGHNESS = "ROUGHNESS"
     PRESSURIZED_DIAMETER = "PRESSURIZED_DIAMETER"
     DIAMETERS = "DIAMETERS"
@@ -274,16 +272,6 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         )
 
         self.addParameter(
-            QgsProcessingParameterNumber(self.INFLOW_TRENCH_DEPTH, self.tr("Inflow trench depth [m]"), defaultValue=-0)
-        )
-
-        self.addParameter(
-            QgsProcessingParameterNumber(
-                self.MIN_TRENCH_DEPTH, self.tr("Lowest possible trench depth [m]"), defaultValue=-0
-            )
-        )
-
-        self.addParameter(
             QgsProcessingParameterNumber(
                 self.ROUGHNESS,
                 self.tr("Pipe roughness [µm]"),
@@ -332,8 +320,6 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         min_slope = self.parameterAsDouble(parameters, self.MIN_SLOPE, context)
         tmin = self.parameterAsDouble(parameters, self.TMIN, context)
         tmax = self.parameterAsDouble(parameters, self.TMAX, context)
-        inflow_trench_depth = self.parameterAsDouble(parameters, self.INFLOW_TRENCH_DEPTH, context)
-        min_trench_depth = self.parameterAsDouble(parameters, self.MIN_TRENCH_DEPTH, context)
         roughness = self.parameterAsDouble(parameters, self.ROUGHNESS, context)
         pressurized_diameter = self.parameterAsDouble(parameters, self.PRESSURIZED_DIAMETER, context)
         diameters_index = self.parameterAsEnums(parameters, self.DIAMETERS, context)
@@ -432,8 +418,6 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 "min_slope": min_slope,
                 "tmax": tmax,
                 "tmin": tmin,
-                "inflow_trench_depth": inflow_trench_depth,
-                "min_trench_depth": min_trench_depth,
                 "diameters": diameters_value,
                 "roughness": roughness,
                 "pressurized_diameter": pressurized_diameter,

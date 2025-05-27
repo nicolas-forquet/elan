@@ -739,17 +739,17 @@ requises pour une future analyse et évaluation.</translation>
 <context>
     <name>SewerNetworkAlgorithm</name>
     <message>
-        <location filename="../../processing/sewer_network.py" line="114"/>
+        <location filename="../../processing/sewer_network.py" line="112"/>
         <source>Sewer network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="121"/>
+        <location filename="../../processing/sewer_network.py" line="119"/>
         <source>Processings</source>
         <translation>Processus</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="139"/>
+        <location filename="../../processing/sewer_network.py" line="137"/>
         <source>This module generates a sewer pipe network based on the input building layer following the roads and the DEM input. The path is determined by the lowest altitude points or the points provided in the optional input layer: WWTP.&lt;h2&gt;Restriction:&lt;/h2&gt;The input layers must have the same CRS.&lt;h2&gt;Prerequisites:&lt;/h2&gt;This sewer pipe module uses Pysewer. It must be installed either locally or through the ELAN plugin settings.&lt;h2&gt;Outputs:&lt;/h2&gt;4 geographic layers are created:
 &lt;ul&gt;    &lt;li&gt;WWTP: treatment stations used in the sewer pipe way&lt;/li&gt;    &lt;li&gt;Lifting stations: lifting stations&lt;/li&gt;    &lt;li&gt;Pumping stations: pumping stations&lt;/li&gt;    &lt;li&gt;Sewer pipes: sewer pipe&lt;/li&gt;&lt;/ul&gt;One additional layer without geometry is also created:&lt;ul&gt;&lt;li&gt;Network information: statistics such as the total number of buildings, date, etc.&lt;/li&gt;&lt;/ul&gt;The sewer pipe layer includes 6 styles.&lt;h2&gt;Options:&lt;/h2&gt;If the input building layer has a population number field, it is possible to select it. If no such field exists, the module uses the parameter &apos;mean inhabitants per household&apos;.</source>
         <translation>Ce module trace un réseau de canalisations partant des bâtiments donnés en entrée, qui suit les routes et le modèle numérique de terrain donnés en entrée, et se dirige vers le point d&apos;altitude le plus bas ou les points présents dans la couche d&apos;entrée STEU optionnelle.
@@ -775,341 +775,331 @@ Si la couche de bâtiments en entrée possède un champ qui donne le nombre d&ap
 Si aucun champ n&apos;est sélectionné, le module prendra en compte le paramètre &quot;Nombre moyen de personnes par foyer&quot;.</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="173"/>
+        <location filename="../../processing/sewer_network.py" line="171"/>
         <source>WWTP layer</source>
         <translation>Couche STEU</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="179"/>
+        <location filename="../../processing/sewer_network.py" line="177"/>
         <source>Result layers (.gpkg)</source>
         <translation>Couches de résultats (.gpkg)</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="185"/>
+        <location filename="../../processing/sewer_network.py" line="183"/>
         <source>DEM layer</source>
         <translation>Couche MNT</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="187"/>
+        <location filename="../../processing/sewer_network.py" line="185"/>
         <source>Road layer</source>
         <translation>Couche routes</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="193"/>
+        <location filename="../../processing/sewer_network.py" line="191"/>
         <source>Building layer</source>
         <translation>Couche de bâtiments</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="198"/>
+        <location filename="../../processing/sewer_network.py" line="196"/>
         <source>Number of inhabitants (field)</source>
         <translation>Nombre d&apos;habitants (champ)</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="208"/>
+        <location filename="../../processing/sewer_network.py" line="206"/>
         <source>Penalty factor for pumping</source>
         <translation>Terme de pénalité pour le refoulement</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="212"/>
+        <location filename="../../processing/sewer_network.py" line="210"/>
         <source>Maximum connection lengh [m]</source>
         <translation>seuil pour le regroupement des sources</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="218"/>
+        <location filename="../../processing/sewer_network.py" line="216"/>
         <source>Source clustering</source>
         <translation>regroupement des sources</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="222"/>
+        <location filename="../../processing/sewer_network.py" line="220"/>
         <source>Mean inhabitants per household
 (used by default if no inhabitant field is selected, or if a field error is detected)</source>
         <translation>nombre moyen de personnes par foyer
 (utilisé par défaut si aucun champ de nombre d&apos;habitant est sélectionné, ou si une erreur de champ est détectée)</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="234"/>
+        <location filename="../../processing/sewer_network.py" line="232"/>
         <source>Average daily production of wastewater per person [m3]</source>
         <translation>volume moyen d’eaux usées produit par jour par personne</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="242"/>
+        <location filename="../../processing/sewer_network.py" line="240"/>
         <source>Peak load coefficient</source>
         <translation>coefficient de pointe journalier</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="250"/>
+        <location filename="../../processing/sewer_network.py" line="248"/>
         <source>Minimum slope for sewer self-cleaning [m/m]</source>
         <translation>pente minimale permettant l’autocurrage [m/m]</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="259"/>
+        <location filename="../../processing/sewer_network.py" line="257"/>
         <source>Maximum sewer depth [m]</source>
         <translation>Profondeur max autorisée canalisation [m]</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="267"/>
+        <location filename="../../processing/sewer_network.py" line="265"/>
         <source>Minimum sewer depth [m]</source>
         <translation>Profondeur min autorisée canalisation [m]</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="276"/>
-        <source>Inflow trench depth [m]</source>
-        <translation>Profondeur canalisations les plus en amont [m]</translation>
-    </message>
-    <message>
-        <location filename="../../processing/sewer_network.py" line="280"/>
-        <source>Lowest possible trench depth [m]</source>
-        <translation>Profondeur min physique canalisation [m]</translation>
-    </message>
-    <message>
-        <location filename="../../processing/sewer_network.py" line="286"/>
+        <location filename="../../processing/sewer_network.py" line="274"/>
         <source>Pipe roughness [µm]</source>
         <translation>Rugosité canalisation</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="295"/>
+        <location filename="../../processing/sewer_network.py" line="283"/>
         <source>Pressurized diameter [m]</source>
         <translation>Diamètre autorisé sous pression [m]</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="304"/>
+        <location filename="../../processing/sewer_network.py" line="292"/>
         <source>Gravity diameters [m]</source>
         <translation>Diamètres autorisés en gravitaire [m]</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="349"/>
+        <location filename="../../processing/sewer_network.py" line="335"/>
         <source>The DEM must have a single band ({} band(s) found)</source>
         <translation>Le MNT doit être à bande unique ({} bande(s) trouvées)</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="357"/>
-        <source>There is one or more NULL values in the field.</source>
-        <translation>Il y a une ou plusieurs valeurs NULL dans le champ </translation>
-    </message>
-    <message>
-        <location filename="../../processing/sewer_network.py" line="366"/>
+        <location filename="../../processing/sewer_network.py" line="352"/>
         <source>All input layers must have the same CRS.</source>
         <translation>Toutes les couches d&apos;entrée doivent avoir le même SCR.</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="395"/>
+        <location filename="../../processing/sewer_network.py" line="381"/>
         <source>Unexpected error while processing DEM raster layer</source>
         <translation>Erreur inattendue lors du traitement du raster MNT</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="402"/>
+        <location filename="../../processing/sewer_network.py" line="388"/>
         <source>DEM pre-processing...</source>
         <translation>Pré-traitement du MNT...</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="409"/>
+        <location filename="../../processing/sewer_network.py" line="395"/>
         <source>Error during DEM pre-processing.</source>
         <translation>Erreur pendant le pré-traitement du MNT.</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="482"/>
+        <location filename="../../processing/sewer_network.py" line="466"/>
         <source>Launching pysewer...</source>
         <translation>Lancement de pysewer...</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="490"/>
+        <location filename="../../processing/sewer_network.py" line="474"/>
         <source>Processing stopped by user</source>
         <translation>Processus stoppé par l&apos;utilisateur</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="496"/>
+        <location filename="../../processing/sewer_network.py" line="480"/>
         <source>pysewer is not installed, go to ELAN settings to check/install.</source>
         <translation>pysewer n&apos;est pas installé, aller dans les paramètres ELAN pour vérifier/installer.</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="502"/>
+        <location filename="../../processing/sewer_network.py" line="486"/>
         <source>Unexpected error while running pysewer</source>
         <translation>Erreur inattendue lors de l&apos;exécution de pysewer</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="505"/>
+        <location filename="../../processing/sewer_network.py" line="489"/>
         <source>Post-processing and layer styles creation...</source>
         <translation>Post-traitement et création des styles de couches...</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="536"/>
+        <location filename="../../processing/sewer_network.py" line="520"/>
         <source>Unexpected error while saving styles: {}</source>
         <translation>Erreur inattendue lors de la sauvegarde des styles : {}</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="568"/>
+        <location filename="../../processing/sewer_network.py" line="552"/>
         <source>Unexpected error while saving styles</source>
         <translation>Erreur inattendue lors de la sauvegarde des styles.</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="572"/>
+        <location filename="../../processing/sewer_network.py" line="556"/>
         <source>No styles directory found</source>
         <translation>Aucun répertoire de styles trouvé</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="576"/>
+        <location filename="../../processing/sewer_network.py" line="560"/>
         <source>Diameters</source>
         <translation>Diamètres</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="576"/>
+        <location filename="../../processing/sewer_network.py" line="560"/>
         <source>Width based on diameter</source>
         <translation>Largeur selon le diametre</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="586"/>
+        <location filename="../../processing/sewer_network.py" line="570"/>
         <source>Error with diameters style</source>
         <translation>Erreur avec le style diamètres</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="589"/>
+        <location filename="../../processing/sewer_network.py" line="573"/>
         <source>Gravity-driven</source>
         <translation>Gravitaire</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="589"/>
+        <location filename="../../processing/sewer_network.py" line="573"/>
         <source>Color based on slope</source>
         <translation>Couleur selon la pente</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="599"/>
+        <location filename="../../processing/sewer_network.py" line="583"/>
         <source>Error with gravity-driven style</source>
         <translation>Erreur avec le style gravitaire</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="602"/>
+        <location filename="../../processing/sewer_network.py" line="586"/>
         <source>Flow direction</source>
         <translation>Sens d&apos;écoulement</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="602"/>
+        <location filename="../../processing/sewer_network.py" line="586"/>
         <source>Arrow based on trench flow direction</source>
         <translation>Flèche selon le sens d&apos;&apos;écoulement de la tranchée</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="612"/>
+        <location filename="../../processing/sewer_network.py" line="596"/>
         <source>Error with flow direction style</source>
         <translation>Erreur avec le style sens d&apos;écoulement</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="615"/>
+        <location filename="../../processing/sewer_network.py" line="599"/>
         <source>Depth</source>
         <translation>Profondeur</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="615"/>
+        <location filename="../../processing/sewer_network.py" line="599"/>
         <source>Color based on trench depth</source>
         <translation>Couleur selon la profondeur de la tranchée</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="625"/>
+        <location filename="../../processing/sewer_network.py" line="609"/>
         <source>Error with depth style</source>
         <translation>Erreur avec le style profondeur</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="628"/>
+        <location filename="../../processing/sewer_network.py" line="612"/>
         <source>Pumping stations</source>
         <translation>Stations de pompage</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="638"/>
+        <location filename="../../processing/sewer_network.py" line="622"/>
         <source>Error with pumping stations style</source>
         <translation>Erreur avec le style stations de pompage</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="641"/>
+        <location filename="../../processing/sewer_network.py" line="625"/>
         <source>Lifting stations</source>
         <translation>Stations de relevage</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="651"/>
+        <location filename="../../processing/sewer_network.py" line="635"/>
         <source>Error with lifting stations style</source>
         <translation>Erreur avec le style stations de relevage</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="654"/>
+        <location filename="../../processing/sewer_network.py" line="638"/>
         <source>Network informations</source>
         <translation>Informations sur le réseau</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="664"/>
+        <location filename="../../processing/sewer_network.py" line="648"/>
         <source>Error with network information style</source>
         <translation>Erreur avec le style informations sur le réseau</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="667"/>
+        <location filename="../../processing/sewer_network.py" line="651"/>
         <source>WWTP</source>
         <translation>STEU</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="677"/>
+        <location filename="../../processing/sewer_network.py" line="661"/>
         <source>Error with WWTP style</source>
         <translation>Erreur avec le style STEU</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="691"/>
+        <location filename="../../processing/sewer_network.py" line="675"/>
         <source>Unexpected error while creating the peak flow style</source>
         <translation>Erreur inattendue lors de la création du style de flux de pointe</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="695"/>
+        <location filename="../../processing/sewer_network.py" line="679"/>
         <source>Peak flow</source>
         <translation>Débit de pointe</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="695"/>
+        <location filename="../../processing/sewer_network.py" line="679"/>
         <source>Color based on peak flow </source>
         <translation>Couleur selon le flux</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="705"/>
+        <location filename="../../processing/sewer_network.py" line="689"/>
         <source>Error with peak flow style</source>
         <translation>Erreur avec le style flux de pointe</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="728"/>
+        <location filename="../../processing/sewer_network.py" line="712"/>
         <source>Color based on sub-network</source>
         <translation>Couleur basée sur le sous-réseau</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="740"/>
+        <location filename="../../processing/sewer_network.py" line="724"/>
         <source>Error with sub-networks style</source>
         <translation>Erreur avec le style sous-réseaux</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="512"/>
+        <location filename="../../processing/sewer_network.py" line="496"/>
         <source>Sewer pipes</source>
         <translation>Canalisations</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="728"/>
+        <location filename="../../processing/sewer_network.py" line="712"/>
         <source>Sub-networks</source>
         <translation>Sous-réseaux</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="179"/>
+        <location filename="../../processing/sewer_network.py" line="177"/>
         <source>Geopackage files (*.gpkg)</source>
         <translation>Fichiers Geopackage (*.gpkg)</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="370"/>
+        <location filename="../../processing/sewer_network.py" line="356"/>
         <source>Error when creating buildings layer</source>
         <translation>Erreur à la création de la couche bâtiments</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="372"/>
+        <location filename="../../processing/sewer_network.py" line="358"/>
         <source>Error when creating roads layer</source>
         <translation>Erreur à la création de la couche routes</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="512"/>
+        <location filename="../../processing/sewer_network.py" line="496"/>
         <source>Buildings</source>
         <translation>Bâtiments</translation>
     </message>
     <message>
-        <location filename="../../processing/sewer_network.py" line="512"/>
+        <location filename="../../processing/sewer_network.py" line="496"/>
         <source>Roads</source>
         <translation>Routes</translation>
+    </message>
+    <message>
+        <location filename="../../processing/sewer_network.py" line="343"/>
+        <source>There is one or more NULL values in the field </source>
+        <translation>Il y a une ou plusieurs valeurs NULL dans le champ </translation>
     </message>
 </context>
 <context>
