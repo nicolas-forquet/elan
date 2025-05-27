@@ -27,6 +27,33 @@ Unreleased
 - and that other one too
 -->
 
+## 2025.5.27 - 2025-05-27
+
+### Added
+
+- New module: Create scenario
+- Processes module: add normalized concentrations
+- Processes module: add phosphor and coliforms (not mature yet)
+- Sewer network module: add roads and buildings to output GeoPackage
+- Sewer network module: add 3 new diameters (0.6 m, 0.8 m, 1 m)
+- Functional and unit tests
+
+### Changed
+
+- Experimental features are shown only in experimental version
+- Updated plugin tags and description
+- Processes module: maximum stages number between 1 and 3
+- Processes module: keep all treatment chains even if they don't conform to requirements
+- Refactorization of how external libraries are installed
+
+### Removed
+
+- Sewer network module: removed inflow trench depth and min trench depth
+
+### Fixed
+
+- Processes module: TKN can be None
+
 ## 2025.4.2 - 2025-04-02
 
 ### Added
