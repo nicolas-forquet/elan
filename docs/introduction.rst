@@ -66,12 +66,12 @@ ELAN est structuré en **plusieurs groupement de modules**.
     * ``Bassins versants urbains`` pour **identifier les différents bassins versants urbains** drainés par un réseau unitaire connu. 
 
 .. note::
-    L'utilisation de ces modules est facultative. Elle permet, si l'utilisateur en a besoin, de préparer les données SIG requises en entrées des module de type "Processus" : 
+    L'utilisation de ces modules est facultative. Elle permet, si l'utilisateur en a besoin, de préparer les données SIG requises en entrées des modules de type "Processus" : 
     ``Routes et bâtiments`` et ``Population`` pour le module ``Réseau``, ``Bassins versants urbains`` pour le module ``Hydraulique``.
 
 * **Processus**
-    * ``Réseau`` pour **tracer un réseau d'assainissement** strict dans une zone sans réseau à l'aide de **pysewer**.
-    * ``Procédés`` qui permet de **pré-dimensionner des filières de traitement** des eaux usées de type filtres plantés de végétaux à l'aide de **wetlandoptimizer**.
+    * ``Réseau`` pour **tracer un réseau d'assainissement** strict (réseau séparatif, eaux usées uniquement) dans une zone sans réseau à l'aide de :ref:`pysewer <pysewer>`.
+    * ``Procédés`` qui permet de **pré-dimensionner des filières de traitement** des eaux usées de type filtres plantés de végétaux à l'aide de :ref:`wetlandoptimizer <wetlandoptimizer>`.
     * ``Hydraulique`` qui intervient dans **l'estimation des volumes produits** par les différents bassins versants urbains d'une zone.
 
 .. note::

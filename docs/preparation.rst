@@ -58,12 +58,15 @@ En contexte international
 .. note::
     Plus le MNT est précis, plus les sorties du module ``Réseau`` seront pertinentes. 
     **Nous vous recommandons donc de regarder si des données MNT à 10 m ou 5 m sont disponibles dans votre contexte national**. 
-    A défaut, utilisez le MNT à 30 m, mais gardez en tête que la précision du MNT impacte les résultats du module ``Réseau``. 
+    A défaut, utilisez le MNT à 30 m, mais gardez en tête que la précision du MNT impacte les résultats du module ``Réseau`` (surestimation du nombre de stations de pompage). 
 
 * ``routes`` et ``bâtiments``: le module :ref:`Routes et bâtiments <routes>` d'ELAN vous permet d'extraire les données Open Street Map sur une zone définie.
 
 .. attention::
     La couche ``bâtiments`` obtenue sera de type *polygone* et non *point*. Elle devra donc être transformée via le module :ref:`Population <population>` intégré à ELAN ou le module ``Centroïdes`` qui est natif de QGIS.
+
+.. note::
+     Si votre zone d'étude est située dans l'hémisphère Sud, Open Buildings peut constituer une alternative intéressante à Open Street Map. Pour plus d'informations : https://sites.research.google/gr/open-buildings/.
 
 Application à l'exemple de :ref:`Petite-Anse <petite-anse>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -94,27 +97,40 @@ Pour identifier la zone, afficher le fond de carte `Open Street Map <https://www
 
 .. note::
      Pour aller plus loin sur le sujet des fonds de carte dans QGIS, nous vous conseillons ce :download:`tutoriel <_static/tutoqgis_03_recherche_donnees.pdf>` réalisé par `UMR 6554 LETG <https://letg.cnrs.fr/>`_ / `UMR 5319 Passages <https://www.passages.cnrs.fr/>`_ (CNRS). 
-     Il s'agit d'un export PDF du chapitre 3 du tutoriel QGIS 3.22 'Białowieża' disponible à cette adresse : https://ouvrir.passages.cnrs.fr/tutoqgis/.
+     Il s'agit d'un export PDF du chapitre 3 du tutoriel QGIS 3.22 'Białowieża' disponible à cette adresse : https://tutoqgis.cnrs.fr/.
 
 **Modèle Numérique de Terrain (MNT)**
 
-1. Télécharger le `MNT à 5 m de la Martinique <https://data.geopf.fr/telechargement/download/RGEALTI/RGEALTI_2-0_1M_ASC_WGS84UTM20-MART87_D972_2015-10-21/RGEALTI_2-0_1M_ASC_WGS84UTM20-MART87_D972_2015-10-21.7z>`_ sur RGE ALTI®.
+**1.** Télécharger le `MNT à 5 m de la Martinique <https://data.geopf.fr/telechargement/download/RGEALTI/RGEALTI_2-0_1M_ASC_WGS84UTM20-MART87_D972_2015-10-21/RGEALTI_2-0_1M_ASC_WGS84UTM20-MART87_D972_2015-10-21.7z>`_ sur RGE ALTI®.
 
 .. image:: _static/mnt972.png
       :width: 700
 
-2. Identifier les dalles de MNT qui coïncident avec notre zone d'intérêt. Cette étape passe par le chargement des différentes dalles dans votre projet QGIS (via le panneau *Explorateur*). 
+**2.** Identifier les dalles de MNT qui coïncident avec notre zone d'intérêt. Cette étape passe par le chargement des différentes dalles dans votre projet QGIS (via le panneau *Explorateur*). 
 
-Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART87, RGEALTI_MTQ_0710_1600_MNT_WGS84UTM20_MART87, RGEALTI_MTQ_0710_1605_MNT_WGS84UTM20_MART87 et RGEALTI_MTQ_0710_1605_MNT_WGS84UTM20_MART87.
+.. tip::
+     Ici la grille associée aux dalles de MNT est disponible (dalles.shp dans 3_SUPPLEMENTS_LIVRAISON), chargez-la dans QGIS via le panneau *Explorateur* (bulle 1). Elle vous permettra une identification plus rapide des
+     dalles concernées.
+
+     Il vous suffit en effet de sélectionner les dalles coïncidant avec votre zone (bulles 2 et 3) puis de faire ``Ouvrir la table attributaire (entités sélectionnées uniquement)`` (bulle 4) pour accéder direcement aux
+     noms des dalles d'intérêt (attribut NOM DALLE).
+
+          .. image:: _static/grille_mnt.png
+               :width: 700
+
+          .. image:: _static/4dalles_table.png
+               :width: 455
+
+Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART87, RGEALTI_MTQ_0710_1600_MNT_WGS84UTM20_MART87, RGEALTI_MTQ_0705_1605_MNT_WGS84UTM20_MART87 et RGEALTI_MTQ_0710_1605_MNT_WGS84UTM20_MART87.
 
 .. image:: _static/4dalles.png
      :width: 500
 
-3. Identifier le SCR (système de coordonnées de référence) associé. Il est indiqué dans l'appellation des fichiers : ici WGS184UTM20, soit EPSG:32620- WGS 84/UTM zone 20N dans QGIS.
+**3.** Identifier le SCR (système de coordonnées de référence) associé. Il est indiqué dans l'appellation des fichiers : ici WGS184UTM20, soit EPSG:32620- WGS 84/UTM zone 20N dans QGIS.
 
 .. _set-SCR:
 
-4. Géoréférencer les 4 dalles dans ce SCR (pas de détection automatique).
+**4.** Géoréférencer les 4 dalles dans ce SCR (pas de détection automatique).
 
 .. image:: _static/set_SCR.png
       :width: 700
@@ -125,7 +141,7 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 .. image:: _static/SCR_projet.png
       :width: 700
 
-5. Pour fusionner les 4 dalles, utiliser l'outil ``Fusion`` de GDAL. 
+**5.** Pour fusionner les 4 dalles, utiliser l'outil ``Fusion`` de GDAL. 
 
 .. image:: _static/fusion.png
       :width: 270
@@ -136,17 +152,17 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 .. image:: _static/boite-outils.png
      :width: 633
      
-6. Renseigner les entrées (bulle 1) et enregistrer la sortie dans un fichier de type .tif (bulle 2) avant d'exécuter (bulle 3).
+**6.** Renseigner les entrées (bulle 1) et enregistrer la sortie dans un fichier de type .tif (bulle 2) avant d'exécuter (bulle 3).
 
 .. image:: _static/fusion2.png
       :width: 700
 
-7. Ce processing vous permet d'obtenir une seule dalle de MNT en sortie.
+**7.** Ce processing vous permet d'obtenir une seule dalle de MNT en sortie.
 
 .. image:: _static/dalle_fusionnee.png
      :width: 500
 
-8. Cette dalle n'est pas géoréférencée. Pour lui assigner un SCR de manière durable :
+**8.** Cette dalle n'est pas géoréférencée. Pour lui assigner un SCR de manière durable :
 
 * Chercher l'outil ``Assigner une projection`` de GDAL dans la boite à outils de traitements (bulles 1 et 2).
 
@@ -178,19 +194,19 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 
 **Exutoires possibles (STEU)**
 
-1. Créer une nouvelle couche (.shp ou .gpkg).
+**1.** Créer une nouvelle couche (.shp ou .gpkg).
 
 .. image:: _static/nouvelle-couche.png
      :width: 700
 
-2. Nommer cette couche (bulle 1) et renseigner son type : *Point* (bulle 2).
+**2.** Choisir un emplacement de sauvegarde et un nom pour cette couche (bulle 1), puis renseigner son type : *Point* (bulle 2).
 
-3. Pour le SCR, choisir le SCR du projet (ici EPSG:32620- WGS 84/UTM zone 20N) puis exécuter (bulles 3 et 4).
+**3.** Pour le SCR, choisir le SCR du projet (ici EPSG:32620- WGS 84/UTM zone 20N) puis exécuter (bulles 3 et 4).
 
 .. image:: _static/couche-steu.png
       :width: 508
 
-4. Ajouter les 4 emplacements possibles tour à tour en suivant les bulles 1 à 5 indiquées sur la capture.
+**4.** Ajouter les 4 emplacements possibles tour à tour en suivant les bulles 1 à 5 indiquées sur la capture.
 
 .. image:: _static/add-steu.png
       :width: 700
@@ -198,7 +214,7 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 .. image:: _static/4steu.png
      :width: 550
 
-5. Bien enregistrer et désactiver le mode édition une fois les 4 emplacements ajoutés.
+**5.** Bien enregistrer et désactiver le mode édition une fois les 4 emplacements ajoutés.
 
 .. image:: _static/save.png
       :width: 196
@@ -206,6 +222,10 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 **Routes et bâtiments**
 
 * **Préalable :** Installer l'extension `BD TOPO® Extractor <https://plugins.qgis.org/plugins/bd_topo_extractor/>`_ via le gestionnaire d'extensions QGIS.
+
+.. note:: 
+     Vous pouvez également télécharger manuellement les données sur le site Géoservices de l'IGN `BD TOPO® <https://geoservices.ign.fr/bdtopo>`_, mais vous devrez vraisemblablement les
+     post-traiter pour les réduire à votre zone d'étude (données mises à disposition à l'échelle du Département).
 
 .. image:: _static/extensions.png
      :width: 317
@@ -218,7 +238,7 @@ qui permettent d'accéder aux deux stations existantes** (voir :ref:`introductio
 
 * **Récupération des bâtiments**
 
-1. Créer une nouvelle couche de type *polygone* dans le SCR du projet.
+**1.** Créer une nouvelle couche de type *polygone* dans le SCR du projet.
 
 .. image:: _static/nouvelle-couche.png
      :width: 700
@@ -228,22 +248,22 @@ qui permettent d'accéder aux deux stations existantes** (voir :ref:`introductio
 
 .. _zone:
 
-2. L'éditer et délimiter la zone d'intérêt.
+**2.** L'éditer et délimiter la zone d'intérêt.
 
 .. image:: _static/edit-zone.png
      :width: 700
 
-3. Enregistrer et sortir du mode édition.
+**3.** Enregistrer et sortir du mode édition.
 
 .. image:: _static/save.png
      :width: 196
 
-4. Lancer le plugin.
+**4.** Lancer le plugin.
 
 .. image:: _static/start_bd_topo.png
      :width: 505
 
-5. Indiquer la couche d'intérêt (bulle 1), cocher ``Batiment`` (bulle 2) et indiquer le dossier d'enregistrement (bulles 3 et 4) avant de cliquer sur ``OK`` (bulle 5).
+**5.** Indiquer la couche d'intérêt (bulle 1), cocher ``Batiment`` (bulle 2) et indiquer le dossier d'enregistrement (bulles 3 et 4) avant de cliquer sur ``OK`` (bulle 5).
 
 .. image:: _static/extraction-batiments.png
      :width: 465
@@ -253,12 +273,12 @@ Vous obtenez une sortie de ce type :
 .. image:: _static/sortie-batiments.png
      :width: 400
 
-6. Editer la couche (icône crayon), sélectionner (bulles 1 puis 2) puis supprimer les quelques entités situées hors de la zone (bulle 3). Enregistrer avant de sortir du mode édition.
+**6.** Editer la couche (icône crayon), sélectionner (bulles 1 puis 2) puis supprimer les quelques entités situées hors de la zone (bulle 3). Enregistrer avant de sortir du mode édition.
 
 .. image:: _static/suppr-batiments.png
      :width: 683
 
-7. Pour obtenir des points à partir des polygones obtenus (contrainte liée module ``Réseau`` ), utiliser l'outil ``Centroïdes`` de QGIS.
+**7.** Pour obtenir des points à partir des polygones obtenus (contrainte liée module ``Réseau`` ), utiliser l'outil ``Centroïdes`` de QGIS.
 
 .. image:: _static/centroides.png
      :width: 700
@@ -270,12 +290,12 @@ Vous obtenez une sortie de ce type :
 
 * **Récupération des routes**
 
-1. Lancer le plugin BD TOPO® Extractor.
+**1.** Lancer le plugin BD TOPO® Extractor.
 
 .. image:: _static/start_bd_topo.png
       :width: 505
 
-2. Délimiter la zone à extraire sur la carte (bulles 1 et 2), cocher ``Tronçon de route`` (bulle 3) et indiquer le dossier d'enregistrement (bulles 4 et 5) avant de cliquer sur ``OK`` (bulle 6).
+**2.** Délimiter la zone à extraire sur la carte (bulles 1 et 2), cocher ``Tronçon de route`` (bulle 3) et indiquer le dossier d'enregistrement (bulles 4 et 5) avant de cliquer sur ``OK`` (bulle 6).
 
 .. image:: _static/extraction_routes.png
       :width: 700
@@ -304,19 +324,27 @@ Le module ``Routes et bâtiments`` permet l'extraction des entités routes et b�
 L'extraction se fait à partir `d'Open Street Map <https://www.openstreetmap.org>`_ qui rassemble des données cartographiques à l'échelle mondiale. 
 Open Street Map est un outil ouvert et collaboratif.
 
+.. note::
+     La qualité des données Open Street Map est variable selon les zones du globe : elle peut être d'une qualité moindre par 
+     rapport à des données nationales (moins de bâtiments reportés par exemple) comme de qualité équivalente. Dans 
+     le dernier cas, l'utilisation du module ``Routes et bâtiments`` peut parfois s'avérer plus simple que l'usage des 
+     données nationales (téléchargement, post-traitement).
+
+     Bon à savoir : un très léger décalage en termes de georéférencement peut caractériser les données extraites à partir d'Open Street Map.
+
 **Utilisation du module**
 
-1. Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Routes et bâtiments``.
+**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Routes et bâtiments``.
 
 .. image:: _static/start-r+b.png
       :width: 250
 
-2. Indiquer la couche *polygone* qui délimite la zone à extraire (bulle 1), cocher *Reprojection des couches dans le SCR du projet* (bulle 2) puis exécuter (bulle 3).
+**2.** Indiquer la couche *polygone* qui délimite la zone à extraire (bulle 1), cocher *Reprojection des couches dans le SCR du projet* (bulle 2) puis exécuter (bulle 3).
 
 .. image:: _static/r+b.png
       :width: 700
 
-3. Après exécution du module, vous disposez de **cinq sorties** :
+**3.** Après exécution du module, vous disposez de **cinq sorties** :
 
 * ``Bâtiments`` : couche de type *polygone* avec les bâtiments tels que définis dans Open Street Map
 
@@ -337,8 +365,9 @@ Les couches **centroïdes et routes** peuvent être utilisées en entrée du **m
     avez besoin / celles qui vous donnent le plus satisfaction au regard de votre connaissance du terrain et de la problématique.
 
     Par exemple : 
-.. image:: _static/save-temp.png
-      :width: 700
+
+          .. image:: _static/save-temp.png
+               :width: 700
 
 **Application à l'exemple de** :ref:`Petite-Anse <petite-anse>`
 
@@ -373,7 +402,8 @@ La répartition se fait **en appliquant la méthode surfacique** qui considère 
 bâtiment occupe une surface importante, plus le nombre d'individus associé sera lui aussi important.
 
 Pour plus d'informations sur la méthode de répartition utilisée :
-    Lwin et al., (2009). A GIS Approach to Estimation of Building Population for Micro-spatial Analysis. Transactions in GIS, 13(4):401-414, doi: 10.1111/j.1467-9671.2009.01171.x
+
+    *Lwin et al., (2009). A GIS Approach to Estimation of Building Population for Micro-spatial Analysis. Transactions in GIS, 13(4):401-414, doi: 10.1111/j.1467-9671.2009.01171.x*
 
 .. note::
     Si vous souhaitez considérer un **nombre moyen d'individus par bâtiment** identique pour chacun d'entre eux, 
@@ -384,12 +414,12 @@ Pour plus d'informations sur la méthode de répartition utilisée :
 
 .. _start-pop:
 
-1. Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Population``.
+**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Population``.
 
 .. image:: _static/start-pop.png
     :width: 254
 
-2. Indiquer une valeur de population (bulle 1), renseigner la couche de bâtiments (bulle 2), enregistrer dans
+**2.** Indiquer une valeur de population (bulle 1), renseigner la couche de bâtiments (bulle 2), enregistrer dans
 un fichier (bulle 3) puis exécuter (bulle 4).
 
 .. attention::
@@ -398,15 +428,15 @@ un fichier (bulle 3) puis exécuter (bulle 4).
 .. image:: _static/use-pop.png
     :width: 700
 
-3. Après exécution du module, vous disposez **d'une couche de type point** avec les **centroïdes des bâtiments** de la zone.
+**3.** Après exécution du module, vous disposez **d'une couche de type point** avec les **centroïdes des bâtiments** de la zone.
 A chaque centroïde est associé un nombre d'individus (**attribut population**) auquel vous pouvez accéder en ouvrant la table 
 attributaire de la couche.
 
 .. tip::
-    Pour **répartir plus finement la population** (par exemple par quartiers), sélectionnez les entités d'un quartier avant de lancer
+    Pour **répartir plus finement la population** (par exemple par quartiers), sélectionner les entités d'un quartier avant de lancer
     le module ``Population`` et après avoir indiqué la couche, cocher **Entités sélectionnés uniquement**. 
     
-    Répétez autant de fois que de quartiers de la zone. Puis utiliser l'outil ``Fusionner des couches vecteur`` de QGIS pour obtenir une seule et unique 
+    Répéter autant de fois que de quartiers de la zone. Puis utiliser l'outil ``Fusionner des couches vecteur`` de QGIS pour obtenir une seule et unique 
     couche (entrée du module ``Réseau``).
 
 **Application à l'exemple de** :ref:`Petite-Anse <petite-anse>`
@@ -418,38 +448,40 @@ et post-traitée (suppression/ajout de certains bâtiments selon la connaissance
 
 * **Répartition de la population sur la zone haute**
 
-1. Sélectionner les bâtiments de la zone haute (bulles 1 à 3).
-2. Lancer le module ``Population`` comme expliqué :ref:`plus haut <start-pop>`.
-3. Indiquer *150* pour le *Total d'habitants* de la zone (bulle 4), cocher *Entités sélectionnées* une fois la couche de bâtiments sélectionnée (bulle 5) puis *Exécuter* (bulle 6).
+**1.** Sélectionner les bâtiments de la zone haute (bulles 1 à 3).
+
+**2.** Lancer le module ``Population`` comme expliqué :ref:`plus haut <start-pop>`.
+
+**3.** Indiquer *150* pour le *Total d'habitants* de la zone (bulle 4), cocher *Entités sélectionnées* une fois la couche de bâtiments sélectionnée (bulle 5) puis *Exécuter* (bulle 6).
 
 .. image:: _static/pop-haut.png
     :width: 700
 
-4. Vous obtenez la couche suivante.
+**4.** Vous obtenez la couche suivante.
 
 .. image:: _static/sortie-haut.png
      :width: 300
 
 * **Répartition de la population sur la zone basse**
 
-1. Répéter la même procédure en sélectionnant cette fois la zone basse et en indiquant *950* pour le *Total d'habitants* de la zone.
+**1.** Répéter la même procédure en sélectionnant cette fois la zone basse et en indiquant *950* pour le *Total d'habitants* de la zone.
 
 .. image:: _static/pop-bas.png
     :width: 700
 
-2. Vous obtenez la couche suivante.
+**2.** Vous obtenez la couche suivante.
 
 .. image:: _static/sortie-bas.png
      :width: 300
 
 * **Fusion des deux couches obtenues**
 
-1. Pour fusionner les 2 couches obtenues, chercher l'outil *Fusionner des couches vecteur* dans la boîte à outils de traitements QGIS.
+**1.** Pour fusionner les 2 couches obtenues, chercher l'outil *Fusionner des couches vecteur* dans la boîte à outils de traitements QGIS.
 
 .. image:: _static/start-fusion-vecteurs.png
       :width: 346
 
-2. Sélectionner les deux couches (bulle 1), choisir pour SCR le SCR du projet (bulle 2) puis enregistrer le fichier (bulle 3) avant d'exécuter (bulle 4).
+**2.** Sélectionner les deux couches (bulle 1), choisir pour SCR le SCR du projet (bulle 2) puis enregistrer le fichier (bulle 3) avant d'exécuter (bulle 4).
 
 .. image:: _static/use-fusion-vecteurs.png
     :width: 700
@@ -462,13 +494,26 @@ Sélectionner la couche (bulle 1) et ouvrir la table attributaire (bulle 2).
     :width: 700
 
 La couche obtenue contient bien les centroides des bâtiments de la zone haute et de la zone basse et pour chaque centroïde, l'attribut *population* est renseigné.
-Cette couche peut être utilisée en entrée de module ``Réseau``
+Cette couche peut être utilisée en entrée de module ``Réseau``.
+
+.. _couches_prb1: 
 
 .. note::
-    La couche *bati_avec_pop.gpkg* mise à disposition à la page :ref:`Création d'un scénario pour la question du centralisé / décentralisé <prb1>` a été générée à partir du module ``Routes et bâtiments`` suivie du module ``Population``. 
+    Au sein de la couche *entrees_reseau.gpkg* mise à disposition à la page :ref:`Création d'un scénario pour la question du centralisé / décentralisé <prb1>`, vous trouverez plusieurs couches :
     
-    La couche *shape1_batiments.shp* a été obtenue avec le plugin BD TOPO® Extractor. Le module ``Population`` aurait pu lui être appliqué
-    comme cela a été fait pour la couche en sortie de ``Routes et bâtiments``.
+     - *batiments_osm_population* a été générée en suivant le processus suivant : module ``Routes et bâtiments``, post-traitement manuel (sélection plus fine des bâtiments à raccorder), module ``Population``;
+     - *batiments_ign_population* a été obtenue en utilisant le plugin BD TOPO® Extractor suivi d'un post-traitement manuel puis d'une utilisation du module ``Population``;
+
+     Les deux couches peuvent être utilisées en entrées du module ``Réseau``. La couche se basant sur les données IGN contient plus de 
+     bâtiments (meilleure qualité de données) et fournira donc des résultats a priori plus pertinents.
+
+     - *routes_zone_reduite* a été générée à l'aide du module ``Routes et bâtiments`` appliqué à la couche *zone _reduite* (dans *zones.gpkg*) suivi d'un post-traitement manuel (suppression de routes impraticables);
+     - *routes_zone_elargie* a été obtenue à l'aide du module ``Routes et bâtiments`` appliqué à la couche *zone _elargie* (dans *zones.gpkg*) suivi d'un post-traitement manuel (suppression de routes non empruntables);
+     - *steu* qui contient les 4 emplacements de envisageables pour des stations de traitement des eaux usées.
+
+     Le geopackage *couches_intermediaires.gpkg* contient les couches intermédiaires qui ont été nécessaires à l'obtention de ces couches.
+    
+
 
 Entrées du module ``Hydraulique``
 ----------------------------------
