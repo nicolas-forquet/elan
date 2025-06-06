@@ -112,7 +112,7 @@ Pour identifier la zone, afficher le fond de carte `Open Street Map <https://www
      Ici la grille associée aux dalles de MNT est disponible (dalles.shp dans 3_SUPPLEMENTS_LIVRAISON), chargez-la dans QGIS via le panneau *Explorateur* (bulle 1). Elle vous permettra une identification plus rapide des
      dalles concernées.
 
-     Il vous suffit en effet de sélectionner les dalles coïncidant avec votre zone (bulles 2 et 3) puis de faire ``Ouvrir la table attributaire (entités sélectionnées uniquement)`` (bulle 4) pour accéder direcement aux
+     Il vous suffit en effet de sélectionner les dalles coïncidant avec votre zone (bulles 2 et 3) puis de faire ``Ouvrir la table attributaire (entités sélectionnées uniquement)`` (bulle 4) pour accéder directement aux
      noms des dalles d'intérêt (attribut NOM DALLE).
 
           .. image:: _static/grille_mnt.png
@@ -225,7 +225,7 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 
 .. note:: 
      Vous pouvez également télécharger manuellement les données sur le site Géoservices de l'IGN `BD TOPO® <https://geoservices.ign.fr/bdtopo>`_, mais vous devrez vraisemblablement les
-     post-traiter pour les réduire à votre zone d'étude (données mises à disposition à l'échelle du Département).
+     post-traiter pour les réduire à votre zone d'étude (données mises à disposition à l'échelle du département).
 
 .. image:: _static/extensions.png
      :width: 317

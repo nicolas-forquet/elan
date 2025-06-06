@@ -3,13 +3,15 @@
 Création d'un scénario pour la question du centralisé / décentralisé
 =====================================================================
 
-La création d'un scénario pour la question du centralisé / décentralisé implique trois temps :
+La création d'un scénario pour la question du centralisé / décentralisé implique quatre temps :
 
 **1. Tracer un réseau d'assainissement.**
 
 **2. Pré-dimensionner les filières de traitement pour les stations.**
 
-**3. Pré-sélectionner une filière pour chaque station et créer un objet scénario.**
+**3. Pré-sélectionner une filière pour chaque station**
+
+**4. Créer un objet scénario.**
 
 Pour une même zone, vous pouvez créer successivement autant de scénarios que vous le souhaitez.
 
@@ -34,7 +36,7 @@ Préalable
 .. attention::
    **Les 4 couches doivent être dans le même SCR (système de coordonnées de référence).**
 
-Si vous ne disposez pas de ces couches, vous pouvez vous rendre à la page :ref:`Obtention et préparation des données géographiques <preparation>`
+Si vous ne disposez pas de ces couches pour votre zone d'étude, vous pouvez vous rendre à la page :ref:`Obtention et préparation des données géographiques <preparation>`
 pour quelques astuces et explications.
 
 Utilisation du module
@@ -247,6 +249,8 @@ D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y accéd
 
                 .. image:: _static/afficher_entites.png
                     :width: 162
+
+    Cette astuce peut être appliquée à n'importe quelle couche vecteur.
 
 **Style débit de pointe**
 
@@ -470,7 +474,7 @@ Pour plus d'informations sur la bonne prise en compte du climat tropical lors du
 
 **3.** Renseigner la couche STEU (bulle 2) et éventuellement la couche de surfaces disponibles (bulle 3).
 
-**4.** Assurer vous que les champs détectés pour les 10 attributs sont bien corrects : coordonnées GPS, niveaux de rejet et débit journalier (encart 4). 
+**4.** Assurez vous que les champs détectés pour les 10 attributs sont bien corrects : coordonnées GPS, niveaux de rejet et débit journalier (encart 4). 
 
 **5.** Pour le nombre d'étages maximum, nous vous conseillons de laisser la valeur 3 qui est la valeur par défaut.
 
@@ -531,7 +535,7 @@ Chaque entité possède de nombreux attributs :
     * **NT normalisé** [-] : valeur normalisée de la concentration en NT dans l'effluent par rapport au niveau de rejet exigé.
     * **NO3 normalisé** [-] : valeur normalisée de la concentration en NO3 dans l'effluent par rapport au niveau de rejet exigé.
     * **PT normalisé** [-] : valeur normalisée de la concentration en PT dans l'effluent par rapport au niveau de rejet exigé.
-    * **coliformes normalisé** [-] : valeur normalisée de la concentration en coliformes dans l'effluent par rapport au niveau de rejet exigé.
+    * **coliformes normalisés** [-] : valeur normalisée de la concentration en coliformes dans l'effluent par rapport au niveau de rejet exigé.
     * **surface normalisée** [-] : valeur normalisée de la surface totale de la filière par rapport à la surface disponible.
 
     Si la valeur normalisée est inférieure ou égale à 1, alors elle respecte la contrainte indiquée (niveau de rejet ou surface disponible). Sinon, elle l'excède.
@@ -601,7 +605,7 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 
 **3. Utilisation du module** ``Procédés``
 
-* Cherche ``ELAN`` dans la Boîte à outils de traitements et sélectionner ``Procédés`` (bulles 1 et 2).
+* Cherche ``ELAN`` dans la *Boîte à outils de traitements* et sélectionner ``Procédés`` (bulles 1 et 2).
 
 * Choisir *Tropical* pour le climat (bulle 3).
 
@@ -612,7 +616,7 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 
 * Vérifier que les champs identifiés pour les niveaux de rejets et le débit journalier sont corrects.
 
-* Indiquer un nom et un emplacement pour l'enregistrement du fichier de sortie (bulle 6), pusi exécuter (bulle 7).
+* Indiquer un nom et un emplacement pour l'enregistrement du fichier de sortie (bulle 6), puis exécuter (bulle 7).
 
 .. image:: _static/ex-procedes-suite.png
      :width: 600
@@ -635,7 +639,8 @@ Pour consulter les attributs de cette couche :
 .. image:: _static/attributs-procedes-ex.png
      :width: 700
 
-**5. Pré-sélection d'une filière de traitement**
+Étape 3 : Pré-sélectionner une filière par exutoire
+-----------------------------------------------------
 
 Ici, 6 filières permettent d'atteindre les niveaux de rejets imposés (déviations en vert) :
     
@@ -655,14 +660,12 @@ pourraient constituer deux filières de traitement intéressantes.
 Un premier scénario pourrait donc être : le réseau d'assainissement obtenu à l'étape 1 couplé à une filière VdNS1. Le couplage avec une filière 
 VdNSS pourrait constituer un second scénario.
 
-Cette étape de pré-sélection d'une filière de traitement correspond au troisième temps de la création d'un scénario.
-
 .. note::
    Des représentations graphiques (bar plot et radar plot) pour mieux visualiser les attributs des différentes filières retenues seront bientôt disponibles
    en sortie de module ``Procédés``. Il sera ainsi plus simple d'identifier leurs points forts et leurs points faibles respectifs.
 
-Étape 3 : Pré-sélectionner une filière et créer un objet scénario (module ``Créer un scénario``)
--------------------------------------------------------------------------------------------------
+Étape 4 : Créer un objet scénario (module ``Créer un scénario``)
+-----------------------------------------------------------------
 
 Le module ``Créer un scénario`` vous permet de créer un objet scénario contenant à la fois le pré-dimensionnement d'un réseau et celui des filières associées (1 par exutoire).
 
@@ -688,7 +691,7 @@ Utilisation du module
 **2.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Créer un scénario``.
 
 .. image:: _static/start-scenario.png
-    :width: 300
+    :width: 250
 
 
 **3.** Nommer votre scénario (bulle 1), indiquer la couche ``Canalisations`` à considérer (bulle 2), renseigner la couche ``Couche de filières`` et 
@@ -724,7 +727,8 @@ Les niveaux de rejet pour l'emplacement au Nord de la zone sont moins contraigna
     * DCO : 125 mg/L
 
 .. important::
-    L'aspect itératif de la définition d'un scénario est brièvement mentionné mais n'est pas détaillé dans ce pas à pas. Il s'agit d'une pratique possible (voire recommandée).
+    L'aspect itératif de la définition d'un scénario est brièvement mentionné mais n'est pas détaillé dans ce pas à pas. Il s'agit d'une pratique possible (voire inévitable).
+    
     Par exemple : si vous jugez que certains bâtiments sont trop "coûteux" à raccorder (plus de 40 mètre linéaire pour un bâtiment), 
     vous pouvez éditer la couche bâtiment et supprimer ces bâtiments pour voir quel serait l'impact de leur maintien en assainissement 
     non collectif sur le pré-dimensionnement du réseau proposé. De même vous pouvez redéfinir les chemins empruntables en supprimant certains et/ou en en ajoutant d'autres.
