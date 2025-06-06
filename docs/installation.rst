@@ -70,7 +70,7 @@ Son installation se fait via l'extension.
 
 2. Vérifier si pysewer est déjà installé ou non en cliquant sur ``Vérifier si pysewer est installé``.
 
-3. Si non, procéder à l'installation grâce au bouton ``Installer pysewer dans ELAN`` (nécessite une connection internet).
+3. Si non, procéder à l'installation grâce au bouton ``Installer pysewer dans ELAN`` (nécessite une connexion internet).
 
 .. image:: _static/pysewer.png
       :width: 453
@@ -90,7 +90,7 @@ Son installation se fait via ELAN.
 
 2. Vérifier si pysewer est déjà installé ou non en cliquant sur ``Vérifier si wetlandoptimizer est installé``.
 
-3. Si non, procéder à l'installation grâce au bouton ``Installer wetlandoptimizer dans ELAN`` (nécessite une connection internet).
+3. Si non, procéder à l'installation grâce au bouton ``Installer wetlandoptimizer dans ELAN`` (nécessite une connexion internet).
 
 .. image:: _static/wetlandoptimizer.png
     :width: 449
