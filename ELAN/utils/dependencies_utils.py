@@ -42,6 +42,10 @@ def downloadError(err_msg):
 
 
 def installPysewer():
+    """
+    Install pysewer in EXTERNAL_LIRBARIES_DIR
+    """
+
     installLibrary(
         "pysewer",
         f"https://github.com/Djedouas/pysewer/archive/{PYSEWER_COMMIT_HASH}.zip",
@@ -49,6 +53,10 @@ def installPysewer():
 
 
 def installWetlandoptimizer():
+    """
+    Install wetlandoptimizer in EXTERNAL_LIRBARIES_DIR
+    """
+
     installLibrary(
         "wetlandoptimizer",
         f"https://github.com/Djedouas/wetlandoptimizer/archive/{WETLANDOPTIMIZER_COMMIT_HASH}.zip",
