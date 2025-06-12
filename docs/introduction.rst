@@ -4,7 +4,7 @@ Introduction
 L'appellation ELAN a été choisie pour **"urban watEr pLanning scenArios for sustaiNable cities"**.
 Il s'agit d'un **outil d'aide à la décision pour une gestion intégrée des eaux urbaines (usées et pluviales) par des solutions fondées sur la nature**.
 ELAN s'inscrit dans un objectif global de transformer la ville de demain pour la rendre résiliente au changement global. 
-Le défi est donc territorial, d'où la pertinence du recours au système d'information géographique (SIG).
+Cette transformation constitue un véritable défi territorial, ce qui rend particulièrement pertinent le recours au système d'information géographique (SIG).
 
 Un outil, deux problématiques
 ---------------------------------
@@ -14,7 +14,7 @@ l'autre impliquant les eaux urbaines dans leur ensemble (**"question des dévers
 Pour la problématique du centralisé/décentralisé, la question qui se pose est : 
 **comment connecter une zone dépourvue de réseau d'assainissement (nouveau quartier, zone historiquement en assainissement non collectif) ?**
 
-Dans le cas de déversements d'un réseau unitaire en temps de pluie, l'utilisateur est confronté à la question :
+Dans le cas de déversements d'un réseau unitaire par temps de pluie, l'utilisateur est confronté à la question :
 **comment limiter les déversements d'eaux non traitées au niveau des déversoirs d'orage ?**
 
 Illustration par des exemples
@@ -58,7 +58,7 @@ Structure de l'outil
 ELAN est structuré en **plusieurs groupement de modules**. 
 
 .. image:: _static/elan_prb1+2.png
-    :width: 650
+    :width: 500
 
 * **Préparation des données** 
     * ``Routes et bâtiments`` qui permet **d'extraire les données** `Open Street Map <https://www.openstreetmap.org>`_ de la zone d'intérêt définie par l'utilisateur.
@@ -66,18 +66,23 @@ ELAN est structuré en **plusieurs groupement de modules**.
     * ``Bassins versants urbains`` pour **identifier les différents bassins versants urbains** drainés par un réseau unitaire connu. 
 
 .. note::
-    L'utilisation de ces modules est facultative. Elle permet, si l'utilisateur en a besoin, de préparer les données SIG requises en entrées des module de type "Processus" : 
+    L'utilisation de ces modules est facultative. Elle permet, si l'utilisateur en a besoin, de préparer les données SIG requises en entrées des modules de type "Processus" : 
     ``Routes et bâtiments`` et ``Population`` pour le module ``Réseau``, ``Bassins versants urbains`` pour le module ``Hydraulique``.
 
 * **Processus**
-    * ``Réseau`` pour **tracer un réseau d'assainissement** strict dans une zone sans réseau à l'aide de **pysewer**.
-    * ``Procédés`` qui permet de **pré-dimensionner des filières de traitement** des eaux usées de type filtres plantés de végétaux à l'aide de **wetlandoptimizer**.
+    * ``Réseau`` pour **tracer un réseau d'assainissement** strict (réseau séparatif, eaux usées uniquement) dans une zone sans réseau à l'aide de :ref:`pysewer <pysewer>`.
+    * ``Procédés`` qui permet de **pré-dimensionner des filières de traitement** des eaux usées de type filtres plantés de végétaux à l'aide de :ref:`wetlandoptimizer <wetlandoptimizer>`.
     * ``Hydraulique`` qui intervient dans **l'estimation des volumes produits** par les différents bassins versants urbains d'une zone.
 
 .. note::
+
     Le module ``Réseau`` est utilisé pour la question du centralisé/décentralisé. 
+
     Le module ``Hydraulique`` pour celle des déversements par temps de pluie.
+
     Le module ``Procédés`` peut être sollicité pour les deux problématiques.
+
+* ``Créer un scénario`` qui est à l'interface des modules de types *Processus* et *Analyse* et permet de créer des objets scénarios qui pourront ensuite être évalués et comparés.
 
 * **Exploration des résultats**
     * ``Profils de canalisations`` qui permet de **visualiser le profil souterrain des canalisations (vue longitudinale)**.
@@ -87,7 +92,7 @@ ELAN est structuré en **plusieurs groupement de modules**.
 
 * **Analyse**
     * ``Évaluation`` qui permet **d'évaluer un scénario sur plusieurs paramètres** (économique, technicité, robustesse).
-    * ``Comparaison`` pour **mener une analyse multicritère sur un ensemble de scénarios** et les comparer selon différents critères sur la base de poids définis par l'utilisateur.
+    * ``Comparaison`` pour **mener une analyse multicritère sur un ensemble de scénarios** et les comparer selon différents critères priorisés par l'utilisateur.
 
 .. _projets-recherche:
 
