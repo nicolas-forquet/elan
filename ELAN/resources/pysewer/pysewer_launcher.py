@@ -25,7 +25,7 @@ def main():
     if args.external_libs is not None:
         if Path(args.external_libs).exists():
             site.addsitedir(args.external_libs)
-        else:
+        elif not args.check_installed:
             raise ValueError(f"Path to external libraries {args.external_libs} does not exist")
 
     if args.check_installed:

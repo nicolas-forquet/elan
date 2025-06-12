@@ -498,7 +498,8 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
 
                 treatment_sink.addFeature(output_feature)
 
-        context.layerToLoadOnCompletionDetails(treatment_dest).setPostProcessor(self.post_processor)
+        if context.willLoadLayerOnCompletion(treatment_dest):
+            context.layerToLoadOnCompletionDetails(treatment_dest).setPostProcessor(self.post_processor)
         return {"OUTPUT": treatment_dest}
 
 

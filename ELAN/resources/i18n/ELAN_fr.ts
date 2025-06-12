@@ -28,7 +28,7 @@
         <source>Install pysewer in ELAN specific environment
 (need an internet connection)</source>
         <translation>Installer pysewer dans ELAN
-(nécessite une connection internet)</translation>
+(nécessite une connexion internet)</translation>
     </message>
     <message>
         <location filename="../../gui/dlg_settings.ui" line="63"/>
@@ -45,7 +45,7 @@
         <source>Install wetlandoptimizer in ELAN specific environment
 (need an internet connection)</source>
         <translation>Installer wetlandoptimizer dans ELAN
-(nécessite une connection internet)</translation>
+(nécessite une connexion internet)</translation>
     </message>
     <message>
         <location filename="../../gui/dlg_settings.ui" line="87"/>
