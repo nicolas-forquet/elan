@@ -18,11 +18,11 @@ ELAN
 
    **Licence** : `GNU General Public License v2.0 or later <https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html>`_
 
-   **Version minimum de QGIS requise** : 3.36.0
+   **Version minimum de QGIS requise** : |qgis_version_min|
 
-   **Dernière mise à jour de la documentation** : 03-2025
+   **Dernière mise à jour de la documentation** : |date_update|
 
-   **Version du plugin** : 2025.3.27
+   **Version du plugin** : |version|
 
    .. image:: _static/logo.png
       :width: 175

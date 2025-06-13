@@ -6,22 +6,35 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import re
 import sys
-from babel.dates import format_date
 from datetime import datetime
 from os import path
+
+from babel.dates import format_date
 
 sys.path.insert(0, path.abspath(".."))
 
 from ELAN import __about__
 
+# Get latest version of ELAN
+CHANGELOG_REGEXP = r"(?<=##)\s*\[*(v?0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)\]?(\(.*\))?(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?\]*\s-\s*([\d\-/]{10})(.*?)(?=##|\Z)"
+match = re.search(
+    pattern=CHANGELOG_REGEXP,
+    string=(__about__.DIR_PLUGIN_ROOT.parent / "CHANGELOG.md").read_text(),
+    flags=re.MULTILINE | re.DOTALL,
+)
+if match is None:
+    release = version = "ELAN VERSION NOT FOUND"
+else:
+    release = version = match[0].split(" - ")[0].strip()
+
 language = "fr"
 project = "ELAN"
 copyright = datetime.now().strftime("%Y") + ", REVERSAAL et Oslandia"
 author = "REVERSAAL (INRAE) et Oslandia"
-version = release = __about__.__version__
 
-date_update = format_date(datetime.now(), format='long', locale=language)
+date_update = format_date(datetime.now(), format="long", locale=language)
 qgis_version_min = __about__.__plugin_md__.get("general").get("qgisminimumversion")
 
 # -- General configuration ---------------------------------------------------
