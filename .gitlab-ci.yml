@@ -191,7 +191,7 @@ release-from-tag:
 pages:
   stage: 🚀 deploy
   rules:
-    - if: $CI_COMMIT_TAG =~ /^\d\d\d\d\.\d\d?\.\d\d?-[a-z]+$/
+    - if: $CI_COMMIT_TAG =~ /^\d\d\d\d\.\d\d?\.\d\d\d?-[a-z]+$/
   script:
     - mkdir -p public/lint
     - cp -rf target/docs/* public/  # artifact from documentation job
