@@ -27,6 +27,21 @@ Unreleased
 - and that other one too
 -->
 
+## 2025.6.13 - 2025-06-13
+
+### Added
+
+- CI: Stable versions are uploaded to QGIS official plugin repository
+
+### Changed
+
+- Documentation update
+
+### Fixed
+
+- Only load layers that the user wants to load
+- Fixed error on pysewer installation about directory not found
+
 ## 2025.5.27 - 2025-05-27
 
 ### Added
