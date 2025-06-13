@@ -202,3 +202,19 @@ pages:
     paths:
       - public
     when: always
+
+# Only for stable versions
+upload-plugin-to-qgis-repository:
+  image: python:${PYTHON_VERSION}
+  stage: 🚀 deploy
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^\d\d\d\d\.\d\d?\.\d\d?$/
+  before_script:
+    - apt install git
+    - python -m pip install -U -r requirements/packaging.txt
+  script:
+    - echo "Deploying the version ${CI_COMMIT_TAG} to QGIS Plugins Repository with the user ${REVERSAAL_OSGEO_USERNAME}"
+    - python ${PROJECT_FOLDER}/__about__.py
+    - qgis-plugin-ci release ${CI_COMMIT_TAG}
+        --osgeo-username $REVERSAAL_OSGEO_USERNAME
+        --osgeo-password $REVERSAAL_OSGEO_PASSWORD
