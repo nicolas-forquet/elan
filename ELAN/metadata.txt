@@ -16,7 +16,7 @@ tracker=https://gitlab.com/elan7835313/elan/-/issues
 
 # experimental flag
 experimental=False
-qgisMinimumVersion=3.36.0
+qgisMinimumVersion=3.40.0
 qgisMaximumVersion=3.99
 
 # versionning
