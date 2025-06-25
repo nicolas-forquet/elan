@@ -27,7 +27,7 @@ Unreleased
 - and that other one too
 -->
 
-## 2025.6.25 - 2025-06-25
+## 2025.6.925-beta - 2025-06-25
 
 ### Changed
 
