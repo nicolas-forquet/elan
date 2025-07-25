@@ -62,6 +62,53 @@ def test_sewer_network(elan_processing, tmp_path):
         assert_same_layers(load_layer(ref_path, name), load_layer(gen_path, name))
 
 
+def test_sewer_network_with_empty_outputs(elan_processing, tmp_path):
+    """
+    We don't put any building feature in the input buildings layer
+    so that no sewer and no pump are created and we must have
+    no error but empty output layers with their structure (fields)
+    """
+
+    from ELAN.processing.sewer_network import SewerNetworkAlgorithm
+
+    test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "sewer_network"
+    test_sewer_network_alg = SewerNetworkAlgorithm()
+    assert test_sewer_network_alg.name() == "elansewernetwork"
+    assert test_sewer_network_alg.groupId() == "elanprocessings"
+
+    sewer_network_param = {
+        "SINKS": None,
+        "OUTPUT_GPKG": str(tmp_path / "sewer_network_generated_output.gpkg"),
+        "DEM_FILE_PATH": str(test_data_dir / "sewer_network_mnt_no_output.tif"),
+        "ROADS_INPUT_DATA": str(test_data_dir / "sewer_network_roads_no_output.gpkg.zip"),
+        "BUILDINGS_INPUT_DATA": str(test_data_dir / "sewer_network_buildings_empty.gpkg.zip"),
+        "INHABITANTS_DWELLING_ATTRIBUTE_NAME": "population",
+        "PUMP_PENALTY": 1000,
+        "MAX_CONNECTION_LENGTH": 30,
+        "CLUSTERING": "None",
+        "DEFAULT_INHABITANTS_DWELLING": 3,
+        "DAILY_WASTEWATER_PERSON": 0.164,
+        "PEAK_FACTOR": 2.3,
+        "MIN_SLOPE": -0.01,
+        "TMAX": 8,
+        "TMIN": 0.25,
+        "ROUGHNESS": 0.13,
+        "PRESSURIZED_DIAMETER": 0.2,
+        "DIAMETERS": [0, 1, 2, 3, 4, 5],
+    }
+
+    res = elan_processing.run(test_sewer_network_alg, sewer_network_param)
+    assert list(res.keys()) == ["OUTPUT_GPKG"]
+
+    ref_path = test_data_dir / "sewer_network_reference_output_with_empty_outputs.gpkg.zip"
+    gen_path = tmp_path / "sewer_network_generated_output.gpkg"
+
+    layers = ["pumping_stations", "lifting_stations", "sewer_pipes", "roads", "buildings"]
+
+    for name in layers:
+        assert_same_layers(load_layer(ref_path, name), load_layer(gen_path, name))
+
+
 def test_error_null_population_fields(elan_processing):
     """
     Verify the raised error:
