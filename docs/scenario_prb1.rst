@@ -49,9 +49,13 @@ Utilisation du module
 
 .. tip::
     Pour afficher le panneau ``Boîte à outils de traitements`` s'il n'apparaît pas dans votre espace de travail : *Vue* - *Panneaux* - *Boîte à outils de traitements*.
+    Ou plus simplement : cliquez sur l'icône engrenage à côté de l'icône sigma (en haut à droite *a priori*).
 
 .. image:: _static/boite-outils.png
      :width: 633
+
+.. image:: _static/boite-outils-icone.png
+     :width: 193
 
 **2.** **Renseigner les 4 couches géographiques**. 
 
@@ -69,7 +73,7 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 .. image:: _static/couches-reseau.png
     :width: 677
 
-**3.** Faire coulisser l'ascenseur et **ajuster les différents paramètres** (encart 5) afin que le pré-dimensionnement du réseau soit le plus adapté à votre contexte : 
+**3.** Faire coulisser l'ascenseur à l'aide de la souris (et non de la molette, cela risque de changer les valeurs des paramètres à votre insu) et **ajuster les différents paramètres** (encart 5) afin que le pré-dimensionnement du réseau soit le plus adapté à votre contexte : 
 
 * ``nombre moyen de personnes par foyer`` : à renseigner dans le cas où la population n'est pas discrétisée à l'échelle du bâtiment.
 

@@ -50,15 +50,25 @@ En contexte français (Hexagone et Outre-Mer)
 En contexte international
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* ``MNT`` : le MNT ou DEM (Digital Elevation Model) en anglais, est *a priori* disponible sur l'ensemble des territoires du monde à une maille de 30 m via différentes plateformes.
-
-.. tip::
-    Le plugin `OpenTopography DEM Downloader <https://plugins.qgis.org/plugins/OpenTopography-DEM-Downloader/#plugin-about>`_ permet, après création d'un `API Key <https://opentopography.org/blog/introducing-api-keys-access-opentopography-global-datasets>`_, de télécharger le MNT de votre zone d'étude.
+* ``MNT`` : le MNT ou DEM en anglais (Digital Elevation Model), est *a priori* disponible sur l'ensemble des territoires du monde à une maille de 30 m via différentes plateformes.
 
 .. note::
     Plus le MNT est précis, plus les sorties du module ``Réseau`` seront pertinentes. 
     **Nous vous recommandons donc de regarder si des données MNT à 10 m ou 5 m sont disponibles dans votre contexte national**. 
     A défaut, utilisez le MNT à 30 m, mais gardez en tête que la précision du MNT impacte les résultats du module ``Réseau`` (surestimation du nombre de stations de pompage). 
+
+.. tip::
+    Si vous ne disposez pas de données locales de MNT à une maille inférieure à 30 m, vous pouvez consulter le site ASF Data Search à l'adresse suivante : https://search.asf.alaska.edu/#/ et suivre les étapes indiquées pour essayer de trouver une tuile de MNT à rune maille de 12.5 m sur votre zone.
+
+    * Sélectionner Geographic Search pour Search type (bulle 1).
+    * Sélectionner ALOS PALSAR pour Data Set (bulle 2).
+    * Indiquer votre zone sur la carte (bulle 3, carré jaune).
+    * Cliquer sur SEARCH (bulle 4).
+    * Regarder si parmi les tuiles proposées à gauche, il y en a une où un fichier High-Res Terrain Corrected est proposé au téléchargement (bulle 5).
+    * Si oui, il vous faudra créer un compte (email et mot de passe) pour pouvoir télécharger le fichier.
+
+.. image:: _static/alaska-edu.png
+      :width: 700
 
 * ``routes`` et ``bâtiments``: le module :ref:`Routes et bâtiments <routes>` d'ELAN vous permet d'extraire les données Open Street Map sur une zone définie.
 
@@ -66,7 +76,7 @@ En contexte international
     La couche ``bâtiments`` obtenue sera de type *polygone* et non *point*. Elle devra donc être transformée via le module :ref:`Population <population>` intégré à ELAN ou le module ``Centroïdes`` qui est natif de QGIS.
 
 .. note::
-     Si votre zone d'étude est située dans l'hémisphère Sud, Open Buildings peut constituer une alternative intéressante à Open Street Map. Pour plus d'informations : https://sites.research.google/gr/open-buildings/.
+     Si votre zone d'étude est située dans l'hémisphère Sud, Open Buildings peut constituer une alternative intéressante à Open Street Map pour les bâtiments. Pour plus d'informations : https://sites.research.google/gr/open-buildings/.
 
 Application à l'exemple de :ref:`Petite-Anse <petite-anse>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -147,10 +157,14 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
       :width: 270
 
 .. tip::
-    Pour afficher le panneau ``Boîte à outils de traitements`` s'il n'apparaît pas dans votre espace de travail : *Vue - Panneaux - Boîte à outils de traitements*.
+    Pour afficher le panneau ``Boîte à outils de traitements`` s'il n'apparaît pas dans votre espace de travail : *Vue - Panneaux - Boîte à outils de traitements*. 
+    Ou plus simplement : cliquez sur l'icône engrenage à côté de l'icône sigma (en haut à droite *a priori*).
 
 .. image:: _static/boite-outils.png
      :width: 633
+
+.. image:: _static/boite-outils-icone.png
+     :width: 193
      
 **6.** Renseigner les entrées (bulle 1) et enregistrer la sortie dans un fichier de type .tif (bulle 2) avant d'exécuter (bulle 3).
 
