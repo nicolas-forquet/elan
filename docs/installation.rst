@@ -57,37 +57,17 @@ Sur Linux
     $ source elan-test/bin/activate
     $ qgis
 
-Ajout du dépôt
---------------
-.. important::
-    **L'ajout du dépôt se fait uniquement la première fois.** Il n'y a pas de mise à jour ou de réinstallation nécessaire contrairement à :ref:`l'extension <extension>` et aux :ref:`dépendances <dependances>`.
+.. _extension:
+
+Installation de l'extension
+---------------------------
 
 **1.** Ouvrir le gestionnaire d'extensions.
 
 .. image:: _static/extensions-gestionnaire.png
      :width: 314
 
-**2.** Sélectionner `Paramètres` (bulle 1). Cocher ``Afficher les extensions expérimentales`` (bulle 2) puis cliquer sur ``Ajouter...`` (bulle 3).
-
-.. image:: _static/ajout_depot.png
-    :width: 700
-
-**3.** Nommer le dépôt "elan" (bulle 1) et coller l'adresse suivante comme URL : ``https://elan7835313.gitlab.io/elan/plugins.xml`` (bulle 2). Cliquer sur ``OK`` (bulle 3).
-
-.. image:: _static/detail_depot.png
-     :width: 487
-
-.. _extension:
-
-Installation de l'extension
----------------------------
-
-**1.** Ouvrir (ou rester dans) le gestionnaire d'extensions.
-
-.. image:: _static/extensions-gestionnaire.png
-     :width: 314
-
-**2.** Dans `Toutes` (bulle 1), chercher "elan" (bulle 2). Sélectionner le plugin (bulle 3) puis cliquer sur ``Installer l'extension expérimentale`` en bas du descriptif de l'extension (bulle 4).
+**2.** Dans `Toutes` (bulle 1), chercher "elan" (bulle 2). Sélectionner le plugin (bulle 3) puis cliquer sur ``Installer l'extension`` en bas du descriptif de l'extension (bulle 4).
 
 .. image:: _static/installation_elan.png
     :width: 700
