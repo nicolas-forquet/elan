@@ -7,6 +7,7 @@ import importlib.util
 import pathlib
 import site
 import sqlite3
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
@@ -56,6 +57,7 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
     """Launch pysewer computation"""
 
     # pylint:disable=import-outside-toplevel,import-error
+    import fiona
     import geopandas as gpd
     import pandas as pd
     from pysewer import ModelDomain
@@ -64,6 +66,120 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
     from pysewer.helper import get_edge_gdf, get_node_gdf, get_sewer_info
     from pysewer.optimization import calculate_hydraulic_parameters, estimate_peakflow
     from pysewer.routing import rsph_tree
+    from rasterio.crs import CRS
+
+    # Class to transform the GeoDataFrame to our needs for ELAN:
+    #   - remove unwanted columns
+    #   - still create a layer even if the GeoDataFrame is empty
+    #   - handle fid specific field
+    class PysewerToGpkgSpecs:
+        layer_name = ""
+        geometry = ""
+        fields = {}
+
+        def __init__(self, gdf: gpd.GeoDataFrame, crs: CRS):
+            self.gdf = gdf
+            self.crs = crs
+
+        def write_to_gpkg(self, output_path: str):
+            # If no feature in the data frame, export with fiona to export the schema only
+            if self.gdf.size == 0:
+                properties = self.fields
+                properties.update({"fid": "int"})
+                with fiona.open(
+                    output_path,
+                    mode="w",
+                    driver="GPKG",
+                    layer=self.layer_name,
+                    crs=self.crs,
+                    schema={"geometry": self.geometry, "properties": properties},
+                ):
+                    return  # no feature to save, only the schema is saved
+
+            # Keep only selected fields
+            self.gdf = self.gdf.drop(
+                columns=[
+                    name for name in self.gdf.columns if name not in ["geometry", "fid"] + list(self.fields.keys())
+                ]
+            )
+
+            # FID is a specific GPKG column id. If already present, it must be an integer.
+            if "fid" in self.gdf.columns:
+                try:
+                    self.gdf["fid"] = self.gdf["fid"].astype("int64")
+                except ValueError:
+                    self.gdf = self.gdf.drop(columns=["fid"])
+
+            # Export to gpkg using pysewer export function
+            write_gdf_to_gpkg(self.gdf, output_path, layer=self.layer_name, crs=self.crs)
+
+    class StationsSpecs(PysewerToGpkgSpecs):
+        layer_name = ""
+        geometry = "Point"
+        fields = {
+            "elevation": "float",
+            "peak_flow": "float",
+            "average_daily_flow": "float",
+            "upstream_pe": "int",
+            "inflow_trench_depths": "str",
+            "total_static_head": "float",
+        }
+
+    class PumpingStationsSpecs(StationsSpecs):
+        layer_name = "pumping_stations"
+
+    class LiftingStationsSpecs(StationsSpecs):
+        layer_name = "lifting_stations"
+
+    class SewerNetworkSpecs(PysewerToGpkgSpecs):
+        layer_name = "sewer_pipes"
+        geometry = "LineString"
+        fields = {
+            "distance": "float",
+            "profile": "str",
+            "needs_pump": "bool",
+            "pressurized": "bool",
+            "trench_depth_profile": "str",
+            "mean_td": "float",
+            "diameter": "float",
+            "peak_flow": "float",
+            "sink_coords": "str",
+        }
+
+    class SinksSpecs(PysewerToGpkgSpecs):
+        layer_name = "sinks_layer"
+        geometry = "Point"
+        fields = {
+            "elevation": "float",
+            "sink_coords": "str",
+            "upstream_pe": "int",
+            "trench_depth": "float",
+            "peak_flow": "float",
+            "average_daily_flow": "float",
+            "inflow_trench_depths": "str",
+            "inflow_diameters": "str",
+            "TSS_obj": "float",
+            "BOD5_obj": "float",
+            "TKN_obj": "float",
+            "COD_obj": "float",
+            "NO3_obj": "float",
+            "TN_obj": "float",
+            "P_obj": "float",
+            "col_obj": "float",
+        }
+
+        def __init__(self, gdf: gpd.GeoDataFrame, crs: CRS):
+            super().__init__(gdf, crs)
+
+            # Add columns for desired concentrations
+            self.gdf["TSS_obj"] = float("nan")
+            self.gdf["BOD5_obj"] = float("nan")
+            self.gdf["TKN_obj"] = float("nan")
+            self.gdf["COD_obj"] = float("nan")
+            self.gdf["NO3_obj"] = float("nan")
+            self.gdf["TN_obj"] = float("nan")
+            self.gdf["P_obj"] = float("nan")
+            self.gdf["col_obj"] = float("nan")
 
     custom_config = load_config(filename)
     # Instantiate the model domain
@@ -103,97 +219,23 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
         include_private_sewer=True,
         roughness=custom_config.optimization.roughness,
     )
-    sewer_network_gdf = get_edge_gdf(g, detailed=True)
-    pumping_network_gdf = get_node_gdf(g, field="pumping_station", value=True)
-    lifting_network_gdf = get_node_gdf(g, field="lifting_station", value=True)
-    sinks_gdf = get_node_gdf(
-        g, field=custom_config.preprocessing.field_get_sinks, value=custom_config.preprocessing.value_get_sinks
-    )
-
-    # Keep only specific columns
-    sewer_network_gdf = sewer_network_gdf.drop(
-        columns=[
-            name
-            for name in sewer_network_gdf.columns
-            if name
-            not in [
-                "fid",
-                "distance",
-                "profile",
-                "needs_pump",
-                "pressurized",
-                "trench_depth_profile",
-                "mean_td",
-                "diameter",
-                "peak_flow",
-                "sink_coords",
-                "geometry",
-            ]
-        ]
-    )
-    stations_columns_to_keep = [
-        "fid",
-        "elevation",
-        "peak_flow",
-        "average_daily_flow",
-        "upstream_pe",
-        "inflow_trench_depths",
-        "total_static_head",
-        "geometry",
-    ]
-    pumping_network_gdf = pumping_network_gdf.drop(
-        columns=[name for name in pumping_network_gdf.columns if name not in stations_columns_to_keep]
-    )
-    lifting_network_gdf = lifting_network_gdf.drop(
-        columns=[name for name in lifting_network_gdf.columns if name not in stations_columns_to_keep]
-    )
-    sinks_gdf = sinks_gdf.drop(
-        columns=[
-            name
-            for name in sinks_gdf.columns
-            if name
-            not in [
-                "fid",
-                "elevation",
-                "sink_coords",
-                "upstream_pe",
-                "trench_depth",
-                "peak_flow",
-                "average_daily_flow",
-                "inflow_trench_depths",
-                "inflow_diameters",
-                "geometry",
-            ]
-        ]
-    )
-
-    # Add columns for desired concentrations
-    sinks_gdf["TSS_obj"] = float("nan")
-    sinks_gdf["BOD5_obj"] = float("nan")
-    sinks_gdf["TKN_obj"] = float("nan")
-    sinks_gdf["COD_obj"] = float("nan")
-    sinks_gdf["NO3_obj"] = float("nan")
-    sinks_gdf["TN_obj"] = float("nan")
-    sinks_gdf["P_obj"] = float("nan")
-    sinks_gdf["col_obj"] = float("nan")
 
     # Export all the gdf (GeoDataFrame) to GPKG
     export_crs = test_model_domain.dem.get_crs
-    for gdf, layer_name in [
-        (lifting_network_gdf, "lifting_stations"),
-        (pumping_network_gdf, "pumping_stations"),
-        (sinks_gdf, "sinks_layer"),
-        (sewer_network_gdf, "sewer_pipes"),
+    for spec in [
+        LiftingStationsSpecs(get_node_gdf(g, field="lifting_station", value=True), export_crs),
+        PumpingStationsSpecs(get_node_gdf(g, field="pumping_station", value=True), export_crs),
+        SinksSpecs(
+            get_node_gdf(
+                g, field=custom_config.preprocessing.field_get_sinks, value=custom_config.preprocessing.value_get_sinks
+            ),
+            export_crs,
+        ),
+        SewerNetworkSpecs(get_edge_gdf(g, detailed=True), export_crs),
     ]:
-        # FID is a specific GPKG column id. If already present, it must be an integer.
-        if "fid" in gdf.columns:
-            try:
-                gdf["fid"] = gdf["fid"].astype("int64")
-            except ValueError:
-                gdf = gdf.drop(columns=["fid"])
+        spec.write_to_gpkg(str(output_path))
 
-        write_gdf_to_gpkg(gdf, str(output_path), layer=layer_name, crs=export_crs)
-
+    # Create and fill info_network layer
     conn = sqlite3.connect(str(output_path))
     info_network = get_sewer_info(g)
     info_network["Pumping Stations"] = info_network["Pumping Stations"] + info_network["Private Pumps"]
