@@ -27,7 +27,18 @@ Unreleased
 - and that other one too
 -->
 
-## 2025.6.925-beta - 2025-06-25
+## 2025.7.25 - 2025-06-25
+
+### Changed
+
+- update documentation: installation page
+- miscellaneous tips
+
+### Fixed
+
+- Sewer network module: fix crash when there is no station in the output network
+
+## 2025.6.25 - 2025-06-25
 
 ### Changed
 
