@@ -38,7 +38,7 @@
     <message>
         <location filename="../../gui/dlg_settings.ui" line="69"/>
         <source>Check if wetlandoptimizer is installed</source>
-        <translation>Vérifer si wetlandoptimizer est installé </translation>
+        <translation>Vérifier si wetlandoptimizer est installé </translation>
     </message>
     <message>
         <location filename="../../gui/dlg_settings.ui" line="76"/>
