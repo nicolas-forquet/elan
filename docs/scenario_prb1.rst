@@ -283,7 +283,7 @@ D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y accéd
                 .. image:: _static/vue_2_reseaux.png
                     :width: 200
 
-.. astuce::
+.. tip::
     Pour organiser votre espace avec les différentes couches, vous pouvez créer des groupes (ici *Préparation de données*, *Données mises à disposition* et *STEU Sud*.)
     
     Pour cela, il vous suffit de cliquer sur l'icône *Ajouter un groupe* et d'y glisser les couches que vous souhaitez rassembler.
