@@ -1,0 +1,21 @@
+<div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Global TOC</span></p>
+  {{ toctree(includehidden=theme_globaltoc_includehidden, collapse=theme_globaltoc_collapse, titles_only=True, maxdepth=theme_globaltoc_maxdepth) }}
+  <p class="caption" role="heading"><span class="caption-text">Available languages for the guide</span></p>
+  <ul>
+    <li class="toctree-l1"><a id="fr-link" class="reference internal" href="#">Français</a></li>
+    <li class="toctree-l1"><a id="en-link" class="reference internal" href="#">English</a></li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+  var pathArray = window.location.pathname.split('/');
+  var prefixArray = "{{prefix}}".split('/');
+  var newPath= "";
+  for (i = 1 + prefixArray.length; i < pathArray.length; i++) {
+    newPath+= "/" + pathArray[i];
+  }
+  document.getElementById('fr-link').href = "{{prefix}}/fr" + newPath;
+  document.getElementById('en-link').href = "{{prefix}}/en" + newPath;
+</script>
+
