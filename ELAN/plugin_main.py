@@ -4,6 +4,8 @@
 Main plugin module.
 """
 
+import site
+
 # PyQGIS
 from qgis.core import QgsApplication
 from qgis.gui import QgisInterface
@@ -14,10 +16,14 @@ from qgis.PyQt.QtWidgets import QAction, QDockWidget
 from ELAN.__about__ import __experimental__, __title__
 from ELAN.gui.dlg_settings import PlgOptionsFactory
 from ELAN.processing.provider import ELANProvider
+from ELAN.utils.dependencies_utils import EXTERNAL_LIRBARIES_DIR
 from ELAN.utils.tr import Translatable
 
 if __experimental__:
     from ELAN.permeability_panel import PermeabilityWidget
+
+
+site.addsitedir(str(EXTERNAL_LIRBARIES_DIR))
 
 
 class ELANPlugin(Translatable):

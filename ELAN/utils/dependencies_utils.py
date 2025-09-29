@@ -61,7 +61,6 @@ def installWetlandoptimizer():
         "wetlandoptimizer",
         f"https://github.com/Djedouas/wetlandoptimizer/archive/{WETLANDOPTIMIZER_COMMIT_HASH}.zip",
     )
-    site.addsitedir(str(EXTERNAL_LIRBARIES_DIR))
 
 
 def pysewerInstalled(external_libs=False):

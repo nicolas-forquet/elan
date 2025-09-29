@@ -2,6 +2,7 @@
 Tests for dependencies_utils module
 """
 
+import site
 from pathlib import Path
 
 import pytest
@@ -21,15 +22,16 @@ def external_libs_test(mocker, tmp_path):
     """
 
     # Temporary external library directory
-    external_libs_test: Path = tmp_path / "external_libs_test"
-    mocker.patch("ELAN.utils.dependencies_utils.EXTERNAL_LIRBARIES_DIR", new=external_libs_test)
+    external_libs_test_path: Path = tmp_path / "external_libs_test"
+    mocker.patch("ELAN.utils.dependencies_utils.EXTERNAL_LIRBARIES_DIR", new=external_libs_test_path)
 
     # We mock installLibrary function: don't use the real function that downloads and unzip everything.
-    # Only create empty directories when it is called.
-    installLibraryMock = mocker.patch(
-        "ELAN.utils.dependencies_utils.installLibrary",
-        side_effect=lambda library_name, _: (external_libs_test / library_name).mkdir(parents=True),
-    )
+    # Only create empty directories when it is called, and add it to sitedir.
+    def side_effect(library_name, _):
+        (external_libs_test_path / library_name).mkdir(parents=True)
+        site.addsitedir(str(external_libs_test_path))
+
+    installLibraryMock = mocker.patch("ELAN.utils.dependencies_utils.installLibrary", side_effect=side_effect)
 
     yield  # executes the test
 
@@ -44,7 +46,6 @@ def test_pysewer_installed():
 
 
 def test_wetlandoptimizer_installed():
-
     assert not wetlandoptimizerInstalled()
     installWetlandoptimizer()
     assert wetlandoptimizerInstalled()
