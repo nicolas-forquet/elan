@@ -6,7 +6,7 @@ Main plugin module.
 
 import site
 
-# PyQGIS
+# PyQGIS and PyQt
 from qgis.core import QgsApplication
 from qgis.gui import QgisInterface
 from qgis.PyQt.QtCore import Qt
@@ -43,7 +43,7 @@ class ELANPlugin(Translatable):
     def __init__(self, iface: QgisInterface):
         """Constructor.
 
-        :param iface: An interface instance that will be passed to this class which \
+        :param iface: An interface instance that will be passed to this class which
         provides the hook by which you can manipulate the QGIS application at run time.
         :type iface: QgsInterface
         """
@@ -92,6 +92,11 @@ class ELANPlugin(Translatable):
             QIcon(str(DIR_PLUGIN_ROOT / "resources" / "images" / "bar_plot.jpeg")),
             self.tr("Show bar plot for treatment train layer"),
             lambda: ProcessPlots().barPlot(),
+        )
+        self.toolbar.addAction(
+            QIcon(str(DIR_PLUGIN_ROOT / "resources" / "images" / "radar_plot.jpeg")),
+            self.tr("Show radar plot for treatment train layer"),
+            lambda: ProcessPlots().radarPlot(),
         )
         self.iface.addToolBar(self.toolbar)
 

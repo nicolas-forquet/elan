@@ -1,8 +1,9 @@
 import json
 from typing import Optional, cast
 
-from qgis.core import QgsVectorLayer
+from qgis.core import NULL, QgsVectorLayer
 from qgis.gui import QgisInterface
+from qgis.PyQt.QtCore import Qt
 from qgis.PyQt.QtGui import QColor
 from qgis.PyQt.QtWidgets import QMessageBox
 from qgis.utils import iface, plugins
@@ -13,6 +14,7 @@ from ELAN.utils.tr import Translatable
 class ProcessPlots(Translatable):
 
     normalized_fields = [
+        "surface_norm",
         "TSS_norm",
         "BOD5_norm",
         "TKN_norm",
@@ -89,7 +91,7 @@ class ProcessPlots(Translatable):
             )
         QMessageBox.warning(None, self.tr("Warning"), err_msg)
 
-    def validateAndGetMetadata(self, layer: QgsVectorLayer) -> tuple[bool, int]:
+    def validateAndGetMetadata(self, layer: QgsVectorLayer) -> tuple[bool, int, list[str]]:
         """
         Verify that in the layer, the features have
             - different treatment trains
@@ -110,11 +112,20 @@ class ProcessPlots(Translatable):
 
         unique_name_stages = []
         unique_sink_coords = []
+        fields_to_remove = []
+        normalized_fields_without_null_values = self.normalized_fields.copy()
         max_stages_nb = -1
         for feature in features:
             unique_name_stages.append(feature["name_stages"])
             unique_sink_coords.append(feature["sink_coords"])
             max_stages_nb = max(max_stages_nb, len(json.loads(feature[self.loading_fields[0]])))
+
+            for field in normalized_fields_without_null_values:
+                if feature[field] == NULL and field not in fields_to_remove:
+                    fields_to_remove.append(field)
+
+        for field_to_remove in fields_to_remove:
+            normalized_fields_without_null_values.remove(field_to_remove)
 
         if len(set(unique_sink_coords)) > 1:
             field_alias = layer.fields().at(layer.fields().indexFromName("sink_coords")).alias()
@@ -125,7 +136,7 @@ class ProcessPlots(Translatable):
                     field_alias, field_alias
                 ),
             )
-            return (False, max_stages_nb)
+            return (False, max_stages_nb, normalized_fields_without_null_values)
 
         if len(set(unique_name_stages)) < len(unique_name_stages):
             field_alias = layer.fields().at(layer.fields().indexFromName("name_stages")).alias()
@@ -136,12 +147,19 @@ class ProcessPlots(Translatable):
                     field_alias, field_alias
                 ),
             )
-            return (False, max_stages_nb)
+            return (False, max_stages_nb, normalized_fields_without_null_values)
 
         if max_stages_nb <= 0:
             QMessageBox.warning(None, self.tr("Warning"), self.tr("The features don't have any stage"))
+            return (False, max_stages_nb, normalized_fields_without_null_values)
 
-        return (True, max_stages_nb)
+        if len(normalized_fields_without_null_values) == 0:
+            QMessageBox.warning(
+                None, self.tr("Warning"), self.tr("The features don't have any normalized fields value.")
+            )
+            return (False, max_stages_nb, normalized_fields_without_null_values)
+
+        return (True, max_stages_nb, normalized_fields_without_null_values)
 
     def barPlot(self):
         """
@@ -151,7 +169,7 @@ class ProcessPlots(Translatable):
         if (layer := self.getActiveLayer()) is None:
             return
 
-        layer_valid, max_stages_nb = self.validateAndGetMetadata(layer)
+        layer_valid, max_stages_nb, _ = self.validateAndGetMetadata(layer)
         if not layer_valid:
             return
 
@@ -173,8 +191,8 @@ class ProcessPlots(Translatable):
 
         main_panel = plugins["DataPlotly"].dock_manager.getDock("DataPlotly").main_panel
         main_panel.clearPlotView()
+        main_panel.layer_combo.setLayer(layer)
         main_panel.plot_combo.setCurrentIndex(main_panel.plot_combo.findData("bar"))
-        main_panel.plot_title_line.setText(self.tr("Hydraulic and pollutant loading rates"))
         main_panel.selected_feature_check.setChecked(layer.selectedFeatureCount() > 0)
         main_panel.x_combo.setField('"name_stages"')
         main_panel.out_color_combo.setColor(QColor("#FFFFFF"))
@@ -202,7 +220,8 @@ class ProcessPlots(Translatable):
         # that is why we set them only at the end, before the very last call
         # to create_plot, which plots the last bar
 
-        # Plot title font
+        # Plot title and font
+        main_panel.plot_title_line.setText(self.tr("Hydraulic and pollutant loading rates"))
         title_font = main_panel.font_title_style.currentFont()
         title_font.setPointSize(20)
         main_panel.font_title_style.setCurrentFont(title_font)
@@ -218,6 +237,44 @@ class ProcessPlots(Translatable):
         y_axis_font = main_panel.font_ylabel_style.currentFont()
         y_axis_font.setPointSize(15)
         main_panel.font_ylabel_style.setCurrentFont(y_axis_font)
+
+        # Create last bar plot
+        main_panel.create_plot()
+
+    def radarPlot(self):
+        """
+        Control DataPlotly interface to create a radar plot of all normalized data.
+        """
+
+        if (layer := self.getActiveLayer()) is None:
+            return
+
+        layer_valid, _, normalized_fields_without_null_values = self.validateAndGetMetadata(layer)
+        if not layer_valid:
+            return
+
+        main_panel = plugins["DataPlotly"].dock_manager.getDock("DataPlotly").main_panel
+        main_panel.clearPlotView()
+        main_panel.layer_combo.setLayer(layer)
+        main_panel.plot_combo.setCurrentIndex(main_panel.plot_combo.findData("radar"))
+        main_panel.selected_feature_check.setChecked(layer.selectedFeatureCount() > 0)
+        main_panel.y_combo_radar_label.setField('"name_stages"')
+        for normalized_field in normalized_fields_without_null_values:
+            main_panel.y_fields_combo.setItemCheckState(
+                main_panel.y_fields_combo.findText(normalized_field), Qt.CheckState.Checked
+            )
+        main_panel.marker_type_combo.setCurrentIndex(main_panel.marker_type_combo.findData("lines+markers"))
+        main_panel.line_combo_threshold.setCurrentText("Dash Line")
+        main_panel.marker_size.setValue(5.0)
+
+        # Color scale BlueYellowRed
+        main_panel.color_scale_combo.setCurrentIndex(main_panel.color_scale_combo.findData("Portland"))
+
+        # Plot title and font
+        main_panel.plot_title_line.setText(self.tr("Treatment trains multicriteria analysis"))
+        title_font = main_panel.font_title_style.currentFont()
+        title_font.setPointSize(20)
+        main_panel.font_title_style.setCurrentFont(title_font)
 
         # Create last bar plot
         main_panel.create_plot()
