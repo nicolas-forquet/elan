@@ -4,10 +4,10 @@ from tempfile import NamedTemporaryFile
 import processing
 from qgis.analysis import QgsRasterCalculator, QgsRasterCalculatorEntry
 from qgis.core import (
+    Qgis,
     QgsCoordinateTransformContext,
     QgsExpressionContextUtils,
     QgsFillSymbol,
-    QgsMapLayerProxyModel,
     QgsProcessingFeatureSourceDefinition,
     QgsProject,
     QgsRuleBasedRenderer,
@@ -34,11 +34,11 @@ class PermeabilityWidget(QWidget):
 
         self.final_polys = None
         self.layer_nir_widget = QgsMapLayerComboBox()
-        self.layer_nir_widget.setFilters(QgsMapLayerProxyModel.RasterLayer)
+        self.layer_nir_widget.setFilters(Qgis.LayerFilter.RasterLayer)
         self.layer_red_widget = QgsMapLayerComboBox()
-        self.layer_red_widget.setFilters(QgsMapLayerProxyModel.RasterLayer)
+        self.layer_red_widget.setFilters(Qgis.LayerFilter.RasterLayer)
         self.layer_zones_influence_widget = QgsMapLayerComboBox()
-        self.layer_zones_influence_widget.setFilters(QgsMapLayerProxyModel.PolygonLayer)
+        self.layer_zones_influence_widget.setFilters(Qgis.LayerFilter.PolygonLayer)
         self.zone_influence_widget = QgsFeaturePickerWidget()
         self.seuil_widget = QDoubleSpinBox()
         self.seuil_widget.setMinimum(-1)
@@ -115,7 +115,7 @@ class PermeabilityWidget(QWidget):
         self.zone_influence_widget.setDisplayExpression(''' 'Zone ' || "id" || ' - point ' || "avaloir_id"''')
 
     def launchComputePermeability(self):
-        with OverrideCursor(Qt.WaitCursor):
+        with OverrideCursor(Qt.CursorShape.WaitCursor):
             self.computePermeability()
 
     def computePermeability(self):
@@ -139,7 +139,7 @@ class PermeabilityWidget(QWidget):
             QgsRasterCalculatorEntry.rasterEntries(),
             QgsCoordinateTransformContext(),
         )
-        if raster_calc.processCalculation() != QgsRasterCalculator.Success:
+        if raster_calc.processCalculation() != QgsRasterCalculator.Result.Success:
             raise ValueError(raster_calc.lastError())
 
         # Calcul du NDVI

@@ -1,4 +1,4 @@
-from PyQt5.QtCore import QCoreApplication, QTranslator
+from qgis.PyQt.QtCore import QCoreApplication, QTranslator
 
 from ELAN.__about__ import DIR_PLUGIN_ROOT, LOCALE
 from ELAN.toolbelt.log_handler import PlgLogger
