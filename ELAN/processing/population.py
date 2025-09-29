@@ -151,7 +151,7 @@ class PopulationAlgorithm(QgsProcessingAlgorithm, Translatable):
                 nb_zero_hab += 1
             output_feature.setAttribute(population_per_building.name(), nb_hab)
             output_feature.setGeometry(input_feature.geometry().centroid())
-            output_sink.addFeature(output_feature, QgsFeatureSink.FastInsert)
+            output_sink.addFeature(output_feature, QgsFeatureSink.Flag.FastInsert)
 
         if feedback is not None and nb_zero_hab > 0:
             feedback.pushWarning(self.tr("Warning! {} building(s) with 0 inhabitants").format(nb_zero_hab))
