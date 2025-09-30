@@ -162,10 +162,10 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
             "BOD5_obj": "float",
             "TKN_obj": "float",
             "COD_obj": "float",
-            "NO3_obj": "float",
+            "NO3N_obj": "float",
             "TN_obj": "float",
-            "P_obj": "float",
-            "col_obj": "float",
+            "TP_obj": "float",
+            "ecoli_obj": "float",
         }
 
         def __init__(self, gdf: gpd.GeoDataFrame, crs: CRS):
@@ -176,10 +176,10 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
             self.gdf["BOD5_obj"] = float("nan")
             self.gdf["TKN_obj"] = float("nan")
             self.gdf["COD_obj"] = float("nan")
-            self.gdf["NO3_obj"] = float("nan")
+            self.gdf["NO3N_obj"] = float("nan")
             self.gdf["TN_obj"] = float("nan")
-            self.gdf["P_obj"] = float("nan")
-            self.gdf["col_obj"] = float("nan")
+            self.gdf["TP_obj"] = float("nan")
+            self.gdf["ecoli_obj"] = float("nan")
 
     custom_config = load_config(filename)
     # Instantiate the model domain

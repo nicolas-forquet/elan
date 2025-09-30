@@ -1,186 +1,186 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis autoRefreshTime="0" simplifyDrawingHints="0" symbologyReferenceScale="-1" minScale="100000000" autoRefreshMode="Disabled" maxScale="0" simplifyLocal="1" version="3.42.2-Münster" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" simplifyAlgorithm="0" simplifyMaxScale="1" labelsEnabled="0" simplifyDrawingTol="1" readOnly="0">
+<qgis autoRefreshMode="Disabled" autoRefreshTime="0" hasScaleBasedVisibilityFlag="0" labelsEnabled="0" maxScale="0" minScale="100000000" readOnly="0" simplifyAlgorithm="0" simplifyDrawingHints="0" simplifyDrawingTol="1" simplifyLocal="1" simplifyMaxScale="1" styleCategories="AllStyleCategories" symbologyReferenceScale="-1" version="3.44.1-Solothurn">
   <flags>
     <Identifiable>1</Identifiable>
     <Removable>1</Removable>
     <Searchable>1</Searchable>
     <Private>0</Private>
   </flags>
-  <temporal mode="0" accumulate="0" startField="" endExpression="" limitMode="0" endField="" fixedDuration="0" durationField="available_surface" startExpression="" durationUnit="min" enabled="0">
+  <temporal accumulate="0" durationField="available_surface" durationUnit="min" enabled="0" endExpression="" endField="" fixedDuration="0" limitMode="0" mode="0" startExpression="" startField="">
     <fixedRange>
       <start></start>
       <end></end>
     </fixedRange>
   </temporal>
-  <elevation extrusion="0" extrusionEnabled="0" customToleranceEnabled="0" respectLayerSymbol="1" showMarkerSymbolInSurfacePlots="0" symbology="Line" zscale="1" binding="Centroid" type="IndividualFeatures" zoffset="0" clamping="Terrain">
+  <elevation binding="Centroid" clamping="Terrain" customToleranceEnabled="0" extrusion="0" extrusionEnabled="0" respectLayerSymbol="1" showMarkerSymbolInSurfacePlots="0" symbology="Line" type="IndividualFeatures" zoffset="0" zscale="1">
     <data-defined-properties>
       <Option type="Map">
-        <Option type="QString" value="" name="name"/>
+        <Option name="name" type="QString" value=""/>
         <Option name="properties"/>
-        <Option type="QString" value="collection" name="type"/>
+        <Option name="type" type="QString" value="collection"/>
       </Option>
     </data-defined-properties>
     <profileLineSymbol>
-      <symbol force_rhr="0" type="line" name="" is_animated="0" clip_to_extent="1" alpha="1" frame_rate="10">
+      <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="" type="line">
         <data_defined_properties>
           <Option type="Map">
-            <Option type="QString" value="" name="name"/>
+            <Option name="name" type="QString" value=""/>
             <Option name="properties"/>
-            <Option type="QString" value="collection" name="type"/>
+            <Option name="type" type="QString" value="collection"/>
           </Option>
         </data_defined_properties>
-        <layer locked="0" id="{10f7d712-4fe8-4596-8425-006722e086c1}" pass="0" class="SimpleLine" enabled="1">
+        <layer class="SimpleLine" enabled="1" id="{10f7d712-4fe8-4596-8425-006722e086c1}" locked="0" pass="0">
           <Option type="Map">
-            <Option type="QString" value="0" name="align_dash_pattern"/>
-            <Option type="QString" value="square" name="capstyle"/>
-            <Option type="QString" value="5;2" name="customdash"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale"/>
-            <Option type="QString" value="MM" name="customdash_unit"/>
-            <Option type="QString" value="0" name="dash_pattern_offset"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale"/>
-            <Option type="QString" value="MM" name="dash_pattern_offset_unit"/>
-            <Option type="QString" value="0" name="draw_inside_polygon"/>
-            <Option type="QString" value="bevel" name="joinstyle"/>
-            <Option type="QString" value="133,182,111,255,rgb:0.52156862745098043,0.71372549019607845,0.43529411764705883,1" name="line_color"/>
-            <Option type="QString" value="solid" name="line_style"/>
-            <Option type="QString" value="0.6" name="line_width"/>
-            <Option type="QString" value="MM" name="line_width_unit"/>
-            <Option type="QString" value="0" name="offset"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="offset_map_unit_scale"/>
-            <Option type="QString" value="MM" name="offset_unit"/>
-            <Option type="QString" value="0" name="ring_filter"/>
-            <Option type="QString" value="0" name="trim_distance_end"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale"/>
-            <Option type="QString" value="MM" name="trim_distance_end_unit"/>
-            <Option type="QString" value="0" name="trim_distance_start"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale"/>
-            <Option type="QString" value="MM" name="trim_distance_start_unit"/>
-            <Option type="QString" value="0" name="tweak_dash_pattern_on_corners"/>
-            <Option type="QString" value="0" name="use_custom_dash"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="width_map_unit_scale"/>
+            <Option name="align_dash_pattern" type="QString" value="0"/>
+            <Option name="capstyle" type="QString" value="square"/>
+            <Option name="customdash" type="QString" value="5;2"/>
+            <Option name="customdash_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="customdash_unit" type="QString" value="MM"/>
+            <Option name="dash_pattern_offset" type="QString" value="0"/>
+            <Option name="dash_pattern_offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="dash_pattern_offset_unit" type="QString" value="MM"/>
+            <Option name="draw_inside_polygon" type="QString" value="0"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="line_color" type="QString" value="133,182,111,255,rgb:0.5215687,0.7137255,0.4352941,1"/>
+            <Option name="line_style" type="QString" value="solid"/>
+            <Option name="line_width" type="QString" value="0.6"/>
+            <Option name="line_width_unit" type="QString" value="MM"/>
+            <Option name="offset" type="QString" value="0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="ring_filter" type="QString" value="0"/>
+            <Option name="trim_distance_end" type="QString" value="0"/>
+            <Option name="trim_distance_end_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_end_unit" type="QString" value="MM"/>
+            <Option name="trim_distance_start" type="QString" value="0"/>
+            <Option name="trim_distance_start_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_start_unit" type="QString" value="MM"/>
+            <Option name="tweak_dash_pattern_on_corners" type="QString" value="0"/>
+            <Option name="use_custom_dash" type="QString" value="0"/>
+            <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
           </Option>
           <data_defined_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option name="name" type="QString" value=""/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option name="type" type="QString" value="collection"/>
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
     </profileLineSymbol>
     <profileFillSymbol>
-      <symbol force_rhr="0" type="fill" name="" is_animated="0" clip_to_extent="1" alpha="1" frame_rate="10">
+      <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="" type="fill">
         <data_defined_properties>
           <Option type="Map">
-            <Option type="QString" value="" name="name"/>
+            <Option name="name" type="QString" value=""/>
             <Option name="properties"/>
-            <Option type="QString" value="collection" name="type"/>
+            <Option name="type" type="QString" value="collection"/>
           </Option>
         </data_defined_properties>
-        <layer locked="0" id="{a3f7e1af-1f9f-4210-b1d1-55b0972e84e5}" pass="0" class="SimpleFill" enabled="1">
+        <layer class="SimpleFill" enabled="1" id="{a3f7e1af-1f9f-4210-b1d1-55b0972e84e5}" locked="0" pass="0">
           <Option type="Map">
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale"/>
-            <Option type="QString" value="133,182,111,255,rgb:0.52156862745098043,0.71372549019607845,0.43529411764705883,1" name="color"/>
-            <Option type="QString" value="bevel" name="joinstyle"/>
-            <Option type="QString" value="0,0" name="offset"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="offset_map_unit_scale"/>
-            <Option type="QString" value="MM" name="offset_unit"/>
-            <Option type="QString" value="95,130,79,255,rgb:0.37254901960784315,0.50980392156862742,0.3109178301670863,1" name="outline_color"/>
-            <Option type="QString" value="solid" name="outline_style"/>
-            <Option type="QString" value="0.2" name="outline_width"/>
-            <Option type="QString" value="MM" name="outline_width_unit"/>
-            <Option type="QString" value="solid" name="style"/>
+            <Option name="border_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="color" type="QString" value="133,182,111,255,rgb:0.5215687,0.7137255,0.4352941,1"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="offset" type="QString" value="0,0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="outline_color" type="QString" value="95,130,79,255,rgb:0.372549,0.509804,0.3109178,1"/>
+            <Option name="outline_style" type="QString" value="solid"/>
+            <Option name="outline_width" type="QString" value="0.2"/>
+            <Option name="outline_width_unit" type="QString" value="MM"/>
+            <Option name="style" type="QString" value="solid"/>
           </Option>
           <data_defined_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option name="name" type="QString" value=""/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option name="type" type="QString" value="collection"/>
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
     </profileFillSymbol>
     <profileMarkerSymbol>
-      <symbol force_rhr="0" type="marker" name="" is_animated="0" clip_to_extent="1" alpha="1" frame_rate="10">
+      <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="" type="marker">
         <data_defined_properties>
           <Option type="Map">
-            <Option type="QString" value="" name="name"/>
+            <Option name="name" type="QString" value=""/>
             <Option name="properties"/>
-            <Option type="QString" value="collection" name="type"/>
+            <Option name="type" type="QString" value="collection"/>
           </Option>
         </data_defined_properties>
-        <layer locked="0" id="{0f57569e-5cb8-47e0-af79-8e56b5d4c34c}" pass="0" class="SimpleMarker" enabled="1">
+        <layer class="SimpleMarker" enabled="1" id="{0f57569e-5cb8-47e0-af79-8e56b5d4c34c}" locked="0" pass="0">
           <Option type="Map">
-            <Option type="QString" value="0" name="angle"/>
-            <Option type="QString" value="square" name="cap_style"/>
-            <Option type="QString" value="133,182,111,255,rgb:0.52156862745098043,0.71372549019607845,0.43529411764705883,1" name="color"/>
-            <Option type="QString" value="1" name="horizontal_anchor_point"/>
-            <Option type="QString" value="bevel" name="joinstyle"/>
-            <Option type="QString" value="diamond" name="name"/>
-            <Option type="QString" value="0,0" name="offset"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="offset_map_unit_scale"/>
-            <Option type="QString" value="MM" name="offset_unit"/>
-            <Option type="QString" value="95,130,79,255,rgb:0.37254901960784315,0.50980392156862742,0.3109178301670863,1" name="outline_color"/>
-            <Option type="QString" value="solid" name="outline_style"/>
-            <Option type="QString" value="0.2" name="outline_width"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale"/>
-            <Option type="QString" value="MM" name="outline_width_unit"/>
-            <Option type="QString" value="diameter" name="scale_method"/>
-            <Option type="QString" value="3" name="size"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="size_map_unit_scale"/>
-            <Option type="QString" value="MM" name="size_unit"/>
-            <Option type="QString" value="1" name="vertical_anchor_point"/>
+            <Option name="angle" type="QString" value="0"/>
+            <Option name="cap_style" type="QString" value="square"/>
+            <Option name="color" type="QString" value="133,182,111,255,rgb:0.5215687,0.7137255,0.4352941,1"/>
+            <Option name="horizontal_anchor_point" type="QString" value="1"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="name" type="QString" value="diamond"/>
+            <Option name="offset" type="QString" value="0,0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="outline_color" type="QString" value="95,130,79,255,rgb:0.372549,0.509804,0.3109178,1"/>
+            <Option name="outline_style" type="QString" value="solid"/>
+            <Option name="outline_width" type="QString" value="0.2"/>
+            <Option name="outline_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="outline_width_unit" type="QString" value="MM"/>
+            <Option name="scale_method" type="QString" value="diameter"/>
+            <Option name="size" type="QString" value="3"/>
+            <Option name="size_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="size_unit" type="QString" value="MM"/>
+            <Option name="vertical_anchor_point" type="QString" value="1"/>
           </Option>
           <data_defined_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option name="name" type="QString" value=""/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option name="type" type="QString" value="collection"/>
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
     </profileMarkerSymbol>
   </elevation>
-  <renderer-v2 symbollevels="0" forceraster="0" type="singleSymbol" enableorderby="0" referencescale="-1">
+  <renderer-v2 enableorderby="0" forceraster="0" referencescale="-1" symbollevels="0" type="singleSymbol">
     <symbols>
-      <symbol force_rhr="0" type="marker" name="0" is_animated="0" clip_to_extent="1" alpha="1" frame_rate="10">
+      <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="0" type="marker">
         <data_defined_properties>
           <Option type="Map">
-            <Option type="QString" value="" name="name"/>
+            <Option name="name" type="QString" value=""/>
             <Option name="properties"/>
-            <Option type="QString" value="collection" name="type"/>
+            <Option name="type" type="QString" value="collection"/>
           </Option>
         </data_defined_properties>
-        <layer locked="0" id="{e2cc17ee-8e7f-4cfa-a796-4386c2968238}" pass="0" class="SimpleMarker" enabled="1">
+        <layer class="SimpleMarker" enabled="1" id="{e2cc17ee-8e7f-4cfa-a796-4386c2968238}" locked="0" pass="0">
           <Option type="Map">
-            <Option type="QString" value="0" name="angle"/>
-            <Option type="QString" value="square" name="cap_style"/>
-            <Option type="QString" value="125,139,143,255,rgb:0.49019607843137253,0.54509803921568623,0.5607843137254902,1" name="color"/>
-            <Option type="QString" value="1" name="horizontal_anchor_point"/>
-            <Option type="QString" value="bevel" name="joinstyle"/>
-            <Option type="QString" value="circle" name="name"/>
-            <Option type="QString" value="0,0" name="offset"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="offset_map_unit_scale"/>
-            <Option type="QString" value="MM" name="offset_unit"/>
-            <Option type="QString" value="35,35,35,255,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,1" name="outline_color"/>
-            <Option type="QString" value="solid" name="outline_style"/>
-            <Option type="QString" value="0" name="outline_width"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale"/>
-            <Option type="QString" value="MM" name="outline_width_unit"/>
-            <Option type="QString" value="diameter" name="scale_method"/>
-            <Option type="QString" value="2" name="size"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="size_map_unit_scale"/>
-            <Option type="QString" value="MM" name="size_unit"/>
-            <Option type="QString" value="1" name="vertical_anchor_point"/>
+            <Option name="angle" type="QString" value="0"/>
+            <Option name="cap_style" type="QString" value="square"/>
+            <Option name="color" type="QString" value="125,139,143,255,rgb:0.4901961,0.5450981,0.5607843,1"/>
+            <Option name="horizontal_anchor_point" type="QString" value="1"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="name" type="QString" value="circle"/>
+            <Option name="offset" type="QString" value="0,0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="outline_color" type="QString" value="35,35,35,255,rgb:0.1372549,0.1372549,0.1372549,1"/>
+            <Option name="outline_style" type="QString" value="solid"/>
+            <Option name="outline_width" type="QString" value="0"/>
+            <Option name="outline_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="outline_width_unit" type="QString" value="MM"/>
+            <Option name="scale_method" type="QString" value="diameter"/>
+            <Option name="size" type="QString" value="2"/>
+            <Option name="size_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="size_unit" type="QString" value="MM"/>
+            <Option name="vertical_anchor_point" type="QString" value="1"/>
           </Option>
           <data_defined_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option name="name" type="QString" value=""/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option name="type" type="QString" value="collection"/>
             </Option>
           </data_defined_properties>
         </layer>
@@ -190,50 +190,50 @@
     <sizescale/>
     <data-defined-properties>
       <Option type="Map">
-        <Option type="QString" value="" name="name"/>
+        <Option name="name" type="QString" value=""/>
         <Option name="properties"/>
-        <Option type="QString" value="collection" name="type"/>
+        <Option name="type" type="QString" value="collection"/>
       </Option>
     </data-defined-properties>
   </renderer-v2>
   <selection mode="Default">
     <selectionColor invalid="1"/>
     <selectionSymbol>
-      <symbol force_rhr="0" type="marker" name="" is_animated="0" clip_to_extent="1" alpha="1" frame_rate="10">
+      <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="" type="marker">
         <data_defined_properties>
           <Option type="Map">
-            <Option type="QString" value="" name="name"/>
+            <Option name="name" type="QString" value=""/>
             <Option name="properties"/>
-            <Option type="QString" value="collection" name="type"/>
+            <Option name="type" type="QString" value="collection"/>
           </Option>
         </data_defined_properties>
-        <layer locked="0" id="{3f3b8ac3-c499-40d3-b306-b8bde10c3ed0}" pass="0" class="SimpleMarker" enabled="1">
+        <layer class="SimpleMarker" enabled="1" id="{3f3b8ac3-c499-40d3-b306-b8bde10c3ed0}" locked="0" pass="0">
           <Option type="Map">
-            <Option type="QString" value="0" name="angle"/>
-            <Option type="QString" value="square" name="cap_style"/>
-            <Option type="QString" value="255,0,0,255,rgb:1,0,0,1" name="color"/>
-            <Option type="QString" value="1" name="horizontal_anchor_point"/>
-            <Option type="QString" value="bevel" name="joinstyle"/>
-            <Option type="QString" value="circle" name="name"/>
-            <Option type="QString" value="0,0" name="offset"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="offset_map_unit_scale"/>
-            <Option type="QString" value="MM" name="offset_unit"/>
-            <Option type="QString" value="35,35,35,255,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,1" name="outline_color"/>
-            <Option type="QString" value="solid" name="outline_style"/>
-            <Option type="QString" value="0" name="outline_width"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale"/>
-            <Option type="QString" value="MM" name="outline_width_unit"/>
-            <Option type="QString" value="diameter" name="scale_method"/>
-            <Option type="QString" value="2" name="size"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="size_map_unit_scale"/>
-            <Option type="QString" value="MM" name="size_unit"/>
-            <Option type="QString" value="1" name="vertical_anchor_point"/>
+            <Option name="angle" type="QString" value="0"/>
+            <Option name="cap_style" type="QString" value="square"/>
+            <Option name="color" type="QString" value="255,0,0,255,rgb:1,0,0,1"/>
+            <Option name="horizontal_anchor_point" type="QString" value="1"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="name" type="QString" value="circle"/>
+            <Option name="offset" type="QString" value="0,0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="outline_color" type="QString" value="35,35,35,255,rgb:0.1372549,0.1372549,0.1372549,1"/>
+            <Option name="outline_style" type="QString" value="solid"/>
+            <Option name="outline_width" type="QString" value="0"/>
+            <Option name="outline_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="outline_width_unit" type="QString" value="MM"/>
+            <Option name="scale_method" type="QString" value="diameter"/>
+            <Option name="size" type="QString" value="2"/>
+            <Option name="size_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="size_unit" type="QString" value="MM"/>
+            <Option name="vertical_anchor_point" type="QString" value="1"/>
           </Option>
           <data_defined_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option name="name" type="QString" value=""/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option name="type" type="QString" value="collection"/>
             </Option>
           </data_defined_properties>
         </layer>
@@ -242,11 +242,11 @@
   </selection>
   <customproperties>
     <Option type="Map">
-      <Option type="bool" value="false" name="OnConvertFormatRegeneratePrimaryKey"/>
-      <Option type="List" name="dualview/previewExpressions">
+      <Option name="OnConvertFormatRegeneratePrimaryKey" type="bool" value="false"/>
+      <Option name="dualview/previewExpressions" type="List">
         <Option type="QString" value="&quot;name_material_stages&quot;"/>
       </Option>
-      <Option type="int" value="0" name="embeddedWidgets/count"/>
+      <Option name="embeddedWidgets/count" type="int" value="0"/>
       <Option name="variableNames"/>
       <Option name="variableValues"/>
     </Option>
@@ -261,601 +261,560 @@
   <legend showLabelLegend="0" type="default-vector"/>
   <referencedLayers/>
   <fieldConfiguration>
-    <field name="sink_coords" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="sink_coords">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="pathway_id" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="pathway_id">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="name_stages" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="name_stages">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="surface_stages" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="surface_stages">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="depth_stages_sat" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="depth_stages_sat">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="depth_stages_unsat" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="depth_stages_unsat">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="TSS_loading_stages" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TSS_loading_stages">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="BOD5_loading_stages" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="BOD5_loading_stages">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="TKN_loading_stages" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TKN_loading_stages">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="COD_loading_stages" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="COD_loading_stages">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="hydraulic_loading_rate_stages" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="hydraulic_loading_rate_stages">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="available_surface" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="available_surface">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="surface_norm" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="surface_norm">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="total_surface" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="total_surface">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="total_volume" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="total_volume">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="TSS_concentration" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TSS_concentration">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="BOD5_concentration" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="BOD5_concentration">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="TKN_concentration" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TKN_concentration">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="COD_concentration" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="COD_concentration">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="NO3_concentration" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="NO3N_concentration">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="TN_concentration" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TN_concentration">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="P_concentration" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TP_concentration">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="col_concentration" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="ecoli_concentration">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="TSS_deviation" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TSS_deviation">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="BOD5_deviation" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="BOD5_deviation">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="TKN_deviation" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TKN_deviation">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="COD_deviation" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="COD_deviation">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="NO3_deviation" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="NO3N_deviation">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="TN_deviation" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TN_deviation">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="P_deviation" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TP_deviation">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="col_deviation" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="ecoli_deviation">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="TSS_norm" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TSS_norm">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="BOD5_norm" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="BOD5_norm">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="TKN_norm" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TKN_norm">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="COD_norm" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="COD_norm">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="NO3_norm" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="NO3N_norm">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="TN_norm" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TN_norm">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="P_norm" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="TP_norm">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="col_norm" configurationFlags="NoFlag">
+    <field configurationFlags="NoFlag" name="ecoli_norm">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option type="bool" value="false" name="IsMultiline"/>
-            <Option type="bool" value="false" name="UseHtml"/>
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
           </Option>
         </config>
       </editWidget>
     </field>
   </fieldConfiguration>
   <aliases>
-    <alias index="0" name="gps coordinates" field="sink_coords"/>
-    <alias index="1" name="pathway id" field="pathway_id"/>
-    <alias index="2" name="stages names" field="name_stages"/>
-    <alias index="3" name="surface per treatment stage" field="surface_stages"/>
-    <alias index="4" name="saturated depth per stage" field="depth_stages_sat"/>
-    <alias index="5" name="unsaturated depth per stage" field="depth_stages_unsat"/>
-    <alias index="6" name="TSS loading per treatment stage" field="TSS_loading_stages"/>
-    <alias index="7" name="BOD5 loading per treatment stage" field="BOD5_loading_stages"/>
-    <alias index="8" name="TKN loading per treatment stage" field="TKN_loading_stages"/>
-    <alias index="9" name="COD loading per treatment stage" field="COD_loading_stages"/>
-    <alias index="10" name="hydraulic loading rate" field="hydraulic_loading_rate_stages"/>
-    <alias index="11" name="available surface" field="available_surface"/>
-    <alias index="12" name="surface normalized" field="surface_norm"/>
-    <alias index="13" name="total surface" field="total_surface"/>
-    <alias index="14" name="total volume" field="total_volume"/>
-    <alias index="15" name="TSS outflow concentration" field="TSS_concentration"/>
-    <alias index="16" name="BOD5 outflow concentration" field="BOD5_concentration"/>
-    <alias index="17" name="TKN outflow concentration" field="TKN_concentration"/>
-    <alias index="18" name="COD outflow concentration" field="COD_concentration"/>
-    <alias index="19" name="NO3 outflow concentration" field="NO3_concentration"/>
-    <alias index="20" name="TN outflow concentration" field="TN_concentration"/>
-    <alias index="21" name="P outflow concentration" field="P_concentration"/>
-    <alias index="22" name="coliforms outflow concentration" field="col_concentration"/>
-    <alias index="23" name="TSS deviation" field="TSS_deviation"/>
-    <alias index="24" name="BOD5 deviation" field="BOD5_deviation"/>
-    <alias index="25" name="TKN deviation" field="TKN_deviation"/>
-    <alias index="26" name="COD deviation" field="COD_deviation"/>
-    <alias index="27" name="NO3 deviation" field="NO3_deviation"/>
-    <alias index="28" name="TN deviation" field="TN_deviation"/>
-    <alias index="29" name="P deviation" field="P_deviation"/>
-    <alias index="30" name="coliforms deviation" field="col_deviation"/>
-    <alias index="31" name="TSS normalized" field="TSS_norm"/>
-    <alias index="32" name="BOD5 normalized" field="BOD5_norm"/>
-    <alias index="33" name="TNK normalized" field="TKN_norm"/>
-    <alias index="34" name="COD normalized" field="COD_norm"/>
-    <alias index="35" name="NO3 normalized" field="NO3_norm"/>
-    <alias index="36" name="TN normalized" field="TN_norm"/>
-    <alias index="37" name="P normalized" field="P_norm"/>
-    <alias index="38" name="coliforms normalized" field="col_norm"/>
+    <alias field="sink_coords" index="0" name="gps coordinates"/>
+    <alias field="pathway_id" index="1" name="pathway id"/>
+    <alias field="name_stages" index="2" name="stages names"/>
+    <alias field="surface_stages" index="3" name="surface per treatment stage"/>
+    <alias field="depth_stages_sat" index="4" name="saturated depth per stage"/>
+    <alias field="depth_stages_unsat" index="5" name="unsaturated depth per stage"/>
+    <alias field="TSS_loading_stages" index="6" name="TSS loading per treatment stage"/>
+    <alias field="BOD5_loading_stages" index="7" name="BOD5 loading per treatment stage"/>
+    <alias field="TKN_loading_stages" index="8" name="TKN loading per treatment stage"/>
+    <alias field="COD_loading_stages" index="9" name="COD loading per treatment stage"/>
+    <alias field="hydraulic_loading_rate_stages" index="10" name="hydraulic loading rate"/>
+    <alias field="available_surface" index="11" name="available surface"/>
+    <alias field="surface_norm" index="12" name="surface normalized"/>
+    <alias field="total_surface" index="13" name="total surface"/>
+    <alias field="total_volume" index="14" name="total volume"/>
+    <alias field="TSS_concentration" index="15" name="TSS outflow concentration"/>
+    <alias field="BOD5_concentration" index="16" name="BOD5 outflow concentration"/>
+    <alias field="TKN_concentration" index="17" name="TKN outflow concentration"/>
+    <alias field="COD_concentration" index="18" name="COD outflow concentration"/>
+    <alias field="NO3N_concentration" index="19" name="NO3-N outflow concentration"/>
+    <alias field="TN_concentration" index="20" name="TN outflow concentration"/>
+    <alias field="TP_concentration" index="21" name="TP outflow concentration"/>
+    <alias field="ecoli_concentration" index="22" name="e.coli outflow concentration"/>
+    <alias field="TSS_deviation" index="23" name="TSS deviation"/>
+    <alias field="BOD5_deviation" index="24" name="BOD5 deviation"/>
+    <alias field="TKN_deviation" index="25" name="TKN deviation"/>
+    <alias field="COD_deviation" index="26" name="COD deviation"/>
+    <alias field="NO3N_deviation" index="27" name="NO3-N deviation"/>
+    <alias field="TN_deviation" index="28" name="TN deviation"/>
+    <alias field="TP_deviation" index="29" name="TP deviation"/>
+    <alias field="ecoli_deviation" index="30" name="e.coli deviation"/>
+    <alias field="TSS_norm" index="31" name="TSS normalized"/>
+    <alias field="BOD5_norm" index="32" name="BOD5 normalized"/>
+    <alias field="TKN_norm" index="33" name="TNK normalized"/>
+    <alias field="COD_norm" index="34" name="COD normalized"/>
+    <alias field="NO3N_norm" index="35" name="NO3-N normalized"/>
+    <alias field="TN_norm" index="36" name="TN normalized"/>
+    <alias field="TP_norm" index="37" name="TP normalized"/>
+    <alias field="ecoli_norm" index="38" name="e.coli normalized"/>
   </aliases>
   <splitPolicies>
-    <policy policy="DefaultValue" field="sink_coords"/>
-    <policy policy="DefaultValue" field="pathway_id"/>
-    <policy policy="DefaultValue" field="name_stages"/>
-    <policy policy="DefaultValue" field="surface_stages"/>
-    <policy policy="DefaultValue" field="depth_stages_sat"/>
-    <policy policy="DefaultValue" field="depth_stages_unsat"/>
-    <policy policy="DefaultValue" field="TSS_loading_stages"/>
-    <policy policy="DefaultValue" field="BOD5_loading_stages"/>
-    <policy policy="DefaultValue" field="TKN_loading_stages"/>
-    <policy policy="DefaultValue" field="COD_loading_stages"/>
-    <policy policy="DefaultValue" field="hydraulic_loading_rate_stages"/>
-    <policy policy="DefaultValue" field="available_surface"/>
-    <policy policy="DefaultValue" field="surface_norm"/>
-    <policy policy="DefaultValue" field="total_surface"/>
-    <policy policy="DefaultValue" field="total_volume"/>
-    <policy policy="DefaultValue" field="TSS_concentration"/>
-    <policy policy="DefaultValue" field="BOD5_concentration"/>
-    <policy policy="DefaultValue" field="TKN_concentration"/>
-    <policy policy="DefaultValue" field="COD_concentration"/>
-    <policy policy="DefaultValue" field="NO3_concentration"/>
-    <policy policy="DefaultValue" field="TN_concentration"/>
-    <policy policy="DefaultValue" field="P_concentration"/>
-    <policy policy="DefaultValue" field="col_concentration"/>
-    <policy policy="DefaultValue" field="TSS_deviation"/>
-    <policy policy="DefaultValue" field="BOD5_deviation"/>
-    <policy policy="DefaultValue" field="TKN_deviation"/>
-    <policy policy="DefaultValue" field="COD_deviation"/>
-    <policy policy="DefaultValue" field="NO3_deviation"/>
-    <policy policy="DefaultValue" field="TN_deviation"/>
-    <policy policy="DefaultValue" field="P_deviation"/>
-    <policy policy="DefaultValue" field="col_deviation"/>
-    <policy policy="DefaultValue" field="TSS_norm"/>
-    <policy policy="DefaultValue" field="BOD5_norm"/>
-    <policy policy="DefaultValue" field="TKN_norm"/>
-    <policy policy="DefaultValue" field="COD_norm"/>
-    <policy policy="DefaultValue" field="NO3_norm"/>
-    <policy policy="DefaultValue" field="TN_norm"/>
-    <policy policy="DefaultValue" field="P_norm"/>
-    <policy policy="DefaultValue" field="col_norm"/>
+    <policy field="sink_coords" policy="DefaultValue"/>
+    <policy field="pathway_id" policy="DefaultValue"/>
+    <policy field="name_stages" policy="DefaultValue"/>
+    <policy field="surface_stages" policy="DefaultValue"/>
+    <policy field="depth_stages_sat" policy="DefaultValue"/>
+    <policy field="depth_stages_unsat" policy="DefaultValue"/>
+    <policy field="TSS_loading_stages" policy="DefaultValue"/>
+    <policy field="BOD5_loading_stages" policy="DefaultValue"/>
+    <policy field="TKN_loading_stages" policy="DefaultValue"/>
+    <policy field="COD_loading_stages" policy="DefaultValue"/>
+    <policy field="hydraulic_loading_rate_stages" policy="DefaultValue"/>
+    <policy field="available_surface" policy="DefaultValue"/>
+    <policy field="surface_norm" policy="DefaultValue"/>
+    <policy field="total_surface" policy="DefaultValue"/>
+    <policy field="total_volume" policy="DefaultValue"/>
+    <policy field="TSS_concentration" policy="DefaultValue"/>
+    <policy field="BOD5_concentration" policy="DefaultValue"/>
+    <policy field="TKN_concentration" policy="DefaultValue"/>
+    <policy field="COD_concentration" policy="DefaultValue"/>
+    <policy field="NO3N_concentration" policy="DefaultValue"/>
+    <policy field="TN_concentration" policy="DefaultValue"/>
+    <policy field="TP_concentration" policy="DefaultValue"/>
+    <policy field="ecoli_concentration" policy="DefaultValue"/>
+    <policy field="TSS_deviation" policy="DefaultValue"/>
+    <policy field="BOD5_deviation" policy="DefaultValue"/>
+    <policy field="TKN_deviation" policy="DefaultValue"/>
+    <policy field="COD_deviation" policy="DefaultValue"/>
+    <policy field="NO3N_deviation" policy="DefaultValue"/>
+    <policy field="TN_deviation" policy="DefaultValue"/>
+    <policy field="TP_deviation" policy="DefaultValue"/>
+    <policy field="ecoli_deviation" policy="DefaultValue"/>
+    <policy field="TSS_norm" policy="DefaultValue"/>
+    <policy field="BOD5_norm" policy="DefaultValue"/>
+    <policy field="TKN_norm" policy="DefaultValue"/>
+    <policy field="COD_norm" policy="DefaultValue"/>
+    <policy field="NO3N_norm" policy="DefaultValue"/>
+    <policy field="TN_norm" policy="DefaultValue"/>
+    <policy field="TP_norm" policy="DefaultValue"/>
+    <policy field="ecoli_norm" policy="DefaultValue"/>
   </splitPolicies>
-  <duplicatePolicies>
-    <policy policy="Duplicate" field="sink_coords"/>
-    <policy policy="Duplicate" field="pathway_id"/>
-    <policy policy="Duplicate" field="name_stages"/>
-    <policy policy="Duplicate" field="surface_stages"/>
-    <policy policy="Duplicate" field="depth_stages_sat"/>
-    <policy policy="Duplicate" field="depth_stages_unsat"/>
-    <policy policy="Duplicate" field="TSS_loading_stages"/>
-    <policy policy="Duplicate" field="BOD5_loading_stages"/>
-    <policy policy="Duplicate" field="TKN_loading_stages"/>
-    <policy policy="Duplicate" field="COD_loading_stages"/>
-    <policy policy="Duplicate" field="hydraulic_loading_rate_stages"/>
-    <policy policy="Duplicate" field="available_surface"/>
-    <policy policy="Duplicate" field="surface_norm"/>
-    <policy policy="Duplicate" field="total_surface"/>
-    <policy policy="Duplicate" field="total_volume"/>
-    <policy policy="Duplicate" field="TSS_concentration"/>
-    <policy policy="Duplicate" field="BOD5_concentration"/>
-    <policy policy="Duplicate" field="TKN_concentration"/>
-    <policy policy="Duplicate" field="COD_concentration"/>
-    <policy policy="Duplicate" field="NO3_concentration"/>
-    <policy policy="Duplicate" field="TN_concentration"/>
-    <policy policy="Duplicate" field="P_concentration"/>
-    <policy policy="Duplicate" field="col_concentration"/>
-    <policy policy="Duplicate" field="TSS_deviation"/>
-    <policy policy="Duplicate" field="BOD5_deviation"/>
-    <policy policy="Duplicate" field="TKN_deviation"/>
-    <policy policy="Duplicate" field="COD_deviation"/>
-    <policy policy="Duplicate" field="NO3_deviation"/>
-    <policy policy="Duplicate" field="TN_deviation"/>
-    <policy policy="Duplicate" field="P_deviation"/>
-    <policy policy="Duplicate" field="col_deviation"/>
-    <policy policy="Duplicate" field="TSS_norm"/>
-    <policy policy="Duplicate" field="BOD5_norm"/>
-    <policy policy="Duplicate" field="TKN_norm"/>
-    <policy policy="Duplicate" field="COD_norm"/>
-    <policy policy="Duplicate" field="NO3_norm"/>
-    <policy policy="Duplicate" field="TN_norm"/>
-    <policy policy="Duplicate" field="P_norm"/>
-    <policy policy="Duplicate" field="col_norm"/>
-  </duplicatePolicies>
   <defaults>
-    <default applyOnUpdate="0" field="sink_coords" expression=""/>
-    <default applyOnUpdate="0" field="pathway_id" expression=""/>
-    <default applyOnUpdate="0" field="name_stages" expression=""/>
-    <default applyOnUpdate="0" field="surface_stages" expression=""/>
-    <default applyOnUpdate="0" field="depth_stages_sat" expression=""/>
-    <default applyOnUpdate="0" field="depth_stages_unsat" expression=""/>
-    <default applyOnUpdate="0" field="TSS_loading_stages" expression=""/>
-    <default applyOnUpdate="0" field="BOD5_loading_stages" expression=""/>
-    <default applyOnUpdate="0" field="TKN_loading_stages" expression=""/>
-    <default applyOnUpdate="0" field="COD_loading_stages" expression=""/>
-    <default applyOnUpdate="0" field="hydraulic_loading_rate_stages" expression=""/>
-    <default applyOnUpdate="0" field="available_surface" expression=""/>
-    <default applyOnUpdate="0" field="surface_norm" expression=""/>
-    <default applyOnUpdate="0" field="total_surface" expression=""/>
-    <default applyOnUpdate="0" field="total_volume" expression=""/>
-    <default applyOnUpdate="0" field="TSS_concentration" expression=""/>
-    <default applyOnUpdate="0" field="BOD5_concentration" expression=""/>
-    <default applyOnUpdate="0" field="TKN_concentration" expression=""/>
-    <default applyOnUpdate="0" field="COD_concentration" expression=""/>
-    <default applyOnUpdate="0" field="NO3_concentration" expression=""/>
-    <default applyOnUpdate="0" field="TN_concentration" expression=""/>
-    <default applyOnUpdate="0" field="P_concentration" expression=""/>
-    <default applyOnUpdate="0" field="col_concentration" expression=""/>
-    <default applyOnUpdate="0" field="TSS_deviation" expression=""/>
-    <default applyOnUpdate="0" field="BOD5_deviation" expression=""/>
-    <default applyOnUpdate="0" field="TKN_deviation" expression=""/>
-    <default applyOnUpdate="0" field="COD_deviation" expression=""/>
-    <default applyOnUpdate="0" field="NO3_deviation" expression=""/>
-    <default applyOnUpdate="0" field="TN_deviation" expression=""/>
-    <default applyOnUpdate="0" field="P_deviation" expression=""/>
-    <default applyOnUpdate="0" field="col_deviation" expression=""/>
-    <default applyOnUpdate="0" field="TSS_norm" expression=""/>
-    <default applyOnUpdate="0" field="BOD5_norm" expression=""/>
-    <default applyOnUpdate="0" field="TKN_norm" expression=""/>
-    <default applyOnUpdate="0" field="COD_norm" expression=""/>
-    <default applyOnUpdate="0" field="NO3_norm" expression=""/>
-    <default applyOnUpdate="0" field="TN_norm" expression=""/>
-    <default applyOnUpdate="0" field="P_norm" expression=""/>
-    <default applyOnUpdate="0" field="col_norm" expression=""/>
+    <default applyOnUpdate="0" expression="" field="sink_coords"/>
+    <default applyOnUpdate="0" expression="" field="pathway_id"/>
+    <default applyOnUpdate="0" expression="" field="name_stages"/>
+    <default applyOnUpdate="0" expression="" field="surface_stages"/>
+    <default applyOnUpdate="0" expression="" field="depth_stages_sat"/>
+    <default applyOnUpdate="0" expression="" field="depth_stages_unsat"/>
+    <default applyOnUpdate="0" expression="" field="TSS_loading_stages"/>
+    <default applyOnUpdate="0" expression="" field="BOD5_loading_stages"/>
+    <default applyOnUpdate="0" expression="" field="TKN_loading_stages"/>
+    <default applyOnUpdate="0" expression="" field="COD_loading_stages"/>
+    <default applyOnUpdate="0" expression="" field="hydraulic_loading_rate_stages"/>
+    <default applyOnUpdate="0" expression="" field="available_surface"/>
+    <default applyOnUpdate="0" expression="" field="surface_norm"/>
+    <default applyOnUpdate="0" expression="" field="total_surface"/>
+    <default applyOnUpdate="0" expression="" field="total_volume"/>
+    <default applyOnUpdate="0" expression="" field="TSS_concentration"/>
+    <default applyOnUpdate="0" expression="" field="BOD5_concentration"/>
+    <default applyOnUpdate="0" expression="" field="TKN_concentration"/>
+    <default applyOnUpdate="0" expression="" field="COD_concentration"/>
+    <default applyOnUpdate="0" expression="" field="NO3N_concentration"/>
+    <default applyOnUpdate="0" expression="" field="TN_concentration"/>
+    <default applyOnUpdate="0" expression="" field="TP_concentration"/>
+    <default applyOnUpdate="0" expression="" field="ecoli_concentration"/>
+    <default applyOnUpdate="0" expression="" field="TSS_deviation"/>
+    <default applyOnUpdate="0" expression="" field="BOD5_deviation"/>
+    <default applyOnUpdate="0" expression="" field="TKN_deviation"/>
+    <default applyOnUpdate="0" expression="" field="COD_deviation"/>
+    <default applyOnUpdate="0" expression="" field="NO3N_deviation"/>
+    <default applyOnUpdate="0" expression="" field="TN_deviation"/>
+    <default applyOnUpdate="0" expression="" field="TP_deviation"/>
+    <default applyOnUpdate="0" expression="" field="ecoli_deviation"/>
+    <default applyOnUpdate="0" expression="" field="TSS_norm"/>
+    <default applyOnUpdate="0" expression="" field="BOD5_norm"/>
+    <default applyOnUpdate="0" expression="" field="TKN_norm"/>
+    <default applyOnUpdate="0" expression="" field="COD_norm"/>
+    <default applyOnUpdate="0" expression="" field="NO3N_norm"/>
+    <default applyOnUpdate="0" expression="" field="TN_norm"/>
+    <default applyOnUpdate="0" expression="" field="TP_norm"/>
+    <default applyOnUpdate="0" expression="" field="ecoli_norm"/>
   </defaults>
   <constraints>
-    <constraint exp_strength="0" notnull_strength="0" field="sink_coords" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="pathway_id" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="name_stages" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="surface_stages" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="depth_stages_sat" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="depth_stages_unsat" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="TSS_loading_stages" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="BOD5_loading_stages" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="TKN_loading_stages" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="COD_loading_stages" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="hydraulic_loading_rate_stages" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="available_surface" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="surface_norm" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="total_surface" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="total_volume" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="TSS_concentration" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="BOD5_concentration" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="TKN_concentration" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="COD_concentration" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="NO3_concentration" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="TN_concentration" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="P_concentration" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="col_concentration" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="TSS_deviation" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="BOD5_deviation" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="TKN_deviation" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="COD_deviation" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="NO3_deviation" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="TN_deviation" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="P_deviation" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="col_deviation" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="TSS_norm" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="BOD5_norm" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="TKN_norm" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="COD_norm" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="NO3_norm" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="TN_norm" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="P_norm" constraints="0" unique_strength="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="col_norm" constraints="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="sink_coords" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="pathway_id" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="name_stages" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="surface_stages" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="depth_stages_sat" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="depth_stages_unsat" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TSS_loading_stages" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="BOD5_loading_stages" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TKN_loading_stages" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="COD_loading_stages" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="hydraulic_loading_rate_stages" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="available_surface" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="surface_norm" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="total_surface" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="total_volume" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TSS_concentration" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="BOD5_concentration" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TKN_concentration" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="COD_concentration" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="NO3N_concentration" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TN_concentration" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TP_concentration" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="ecoli_concentration" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TSS_deviation" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="BOD5_deviation" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TKN_deviation" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="COD_deviation" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="NO3N_deviation" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TN_deviation" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TP_deviation" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="ecoli_deviation" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TSS_norm" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="BOD5_norm" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TKN_norm" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="COD_norm" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="NO3N_norm" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TN_norm" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TP_norm" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="ecoli_norm" notnull_strength="0" unique_strength="0"/>
   </constraints>
   <constraintExpressions>
     <constraint desc="" exp="" field="sink_coords"/>
@@ -877,116 +836,148 @@
     <constraint desc="" exp="" field="BOD5_concentration"/>
     <constraint desc="" exp="" field="TKN_concentration"/>
     <constraint desc="" exp="" field="COD_concentration"/>
-    <constraint desc="" exp="" field="NO3_concentration"/>
+    <constraint desc="" exp="" field="NO3N_concentration"/>
     <constraint desc="" exp="" field="TN_concentration"/>
-    <constraint desc="" exp="" field="P_concentration"/>
-    <constraint desc="" exp="" field="col_concentration"/>
+    <constraint desc="" exp="" field="TP_concentration"/>
+    <constraint desc="" exp="" field="ecoli_concentration"/>
     <constraint desc="" exp="" field="TSS_deviation"/>
     <constraint desc="" exp="" field="BOD5_deviation"/>
     <constraint desc="" exp="" field="TKN_deviation"/>
     <constraint desc="" exp="" field="COD_deviation"/>
-    <constraint desc="" exp="" field="NO3_deviation"/>
+    <constraint desc="" exp="" field="NO3N_deviation"/>
     <constraint desc="" exp="" field="TN_deviation"/>
-    <constraint desc="" exp="" field="P_deviation"/>
-    <constraint desc="" exp="" field="col_deviation"/>
+    <constraint desc="" exp="" field="TP_deviation"/>
+    <constraint desc="" exp="" field="ecoli_deviation"/>
     <constraint desc="" exp="" field="TSS_norm"/>
     <constraint desc="" exp="" field="BOD5_norm"/>
     <constraint desc="" exp="" field="TKN_norm"/>
     <constraint desc="" exp="" field="COD_norm"/>
-    <constraint desc="" exp="" field="NO3_norm"/>
+    <constraint desc="" exp="" field="NO3N_norm"/>
     <constraint desc="" exp="" field="TN_norm"/>
-    <constraint desc="" exp="" field="P_norm"/>
-    <constraint desc="" exp="" field="col_norm"/>
+    <constraint desc="" exp="" field="TP_norm"/>
+    <constraint desc="" exp="" field="ecoli_norm"/>
   </constraintExpressions>
   <expressionfields/>
   <attributeactions>
     <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
   </attributeactions>
-  <attributetableconfig sortExpression="" actionWidgetStyle="dropDown" sortOrder="0">
+  <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
     <columns>
-      <column width="-1" type="field" name="pathway_id" hidden="0"/>
-      <column width="102" type="field" name="name_stages" hidden="0"/>
-      <column width="102" type="field" name="sink_coords" hidden="0"/>
-      <column width="186" type="field" name="TSS_loading_stages" hidden="0"/>
-      <column width="175" type="field" name="BOD5_loading_stages" hidden="0"/>
-      <column width="196" type="field" name="TKN_loading_stages" hidden="0"/>
-      <column width="102" type="field" name="COD_loading_stages" hidden="0"/>
-      <column width="172" type="field" name="hydraulic_loading_rate_stages" hidden="0"/>
-      <column width="-1" type="field" name="available_surface" hidden="0"/>
-      <column width="-1" type="field" name="total_surface" hidden="0"/>
-      <column width="100" type="field" name="surface_norm" hidden="0"/>
-      <column width="211" type="field" name="surface_stages" hidden="0"/>
-      <column width="-1" type="field" name="total_volume" hidden="0"/>
-      <column width="102" type="field" name="depth_stages_sat" hidden="0"/>
-      <column width="102" type="field" name="depth_stages_unsat" hidden="0"/>
-      <column width="102" type="field" name="TSS_concentration" hidden="0"/>
-      <column width="102" type="field" name="BOD5_concentration" hidden="0"/>
-      <column width="166" type="field" name="TKN_concentration" hidden="0"/>
-      <column width="204" type="field" name="COD_concentration" hidden="0"/>
-      <column width="-1" type="field" name="TN_concentration" hidden="0"/>
-      <column width="-1" type="field" name="NO3_concentration" hidden="0"/>
-      <column width="136" type="field" name="P_concentration" hidden="0"/>
-      <column width="-1" type="field" name="col_concentration" hidden="0"/>
-      <column width="-1" type="field" name="TSS_deviation" hidden="0"/>
-      <column width="-1" type="field" name="BOD5_deviation" hidden="0"/>
-      <column width="-1" type="field" name="TKN_deviation" hidden="0"/>
-      <column width="-1" type="field" name="COD_deviation" hidden="0"/>
-      <column width="-1" type="field" name="NO3_deviation" hidden="0"/>
-      <column width="-1" type="field" name="TN_deviation" hidden="0"/>
-      <column width="-1" type="field" name="P_deviation" hidden="0"/>
-      <column width="-1" type="field" name="col_deviation" hidden="0"/>
-      <column width="-1" type="field" name="TSS_norm" hidden="0"/>
-      <column width="-1" type="field" name="BOD5_norm" hidden="0"/>
-      <column width="-1" type="field" name="TKN_norm" hidden="0"/>
-      <column width="-1" type="field" name="COD_norm" hidden="0"/>
-      <column width="-1" type="field" name="NO3_norm" hidden="0"/>
-      <column width="-1" type="field" name="TN_norm" hidden="0"/>
-      <column width="-1" type="field" name="P_norm" hidden="0"/>
-      <column width="-1" type="field" name="col_norm" hidden="0"/>
-      <column width="-1" type="actions" hidden="1"/>
+      <column hidden="0" name="pathway_id" type="field" width="-1"/>
+      <column hidden="0" name="name_stages" type="field" width="102"/>
+      <column hidden="0" name="sink_coords" type="field" width="349"/>
+      <column hidden="0" name="TSS_loading_stages" type="field" width="186"/>
+      <column hidden="0" name="BOD5_loading_stages" type="field" width="175"/>
+      <column hidden="0" name="TKN_loading_stages" type="field" width="196"/>
+      <column hidden="0" name="COD_loading_stages" type="field" width="102"/>
+      <column hidden="0" name="hydraulic_loading_rate_stages" type="field" width="172"/>
+      <column hidden="0" name="available_surface" type="field" width="-1"/>
+      <column hidden="0" name="total_surface" type="field" width="-1"/>
+      <column hidden="0" name="surface_norm" type="field" width="100"/>
+      <column hidden="0" name="surface_stages" type="field" width="211"/>
+      <column hidden="0" name="total_volume" type="field" width="-1"/>
+      <column hidden="0" name="depth_stages_sat" type="field" width="102"/>
+      <column hidden="0" name="depth_stages_unsat" type="field" width="102"/>
+      <column hidden="0" name="TSS_concentration" type="field" width="102"/>
+      <column hidden="0" name="BOD5_concentration" type="field" width="102"/>
+      <column hidden="0" name="TKN_concentration" type="field" width="166"/>
+      <column hidden="0" name="COD_concentration" type="field" width="204"/>
+      <column hidden="0" name="NO3N_concentration" type="field" width="178"/>
+      <column hidden="0" name="TN_concentration" type="field" width="100"/>
+      <column hidden="0" name="TP_concentration" type="field" width="142"/>
+      <column hidden="0" name="ecoli_concentration" type="field" width="157"/>
+      <column hidden="0" name="TSS_deviation" type="field" width="-1"/>
+      <column hidden="0" name="BOD5_deviation" type="field" width="-1"/>
+      <column hidden="0" name="TKN_deviation" type="field" width="-1"/>
+      <column hidden="0" name="COD_deviation" type="field" width="-1"/>
+      <column hidden="0" name="NO3N_deviation" type="field" width="151"/>
+      <column hidden="0" name="TN_deviation" type="field" width="-1"/>
+      <column hidden="0" name="TP_deviation" type="field" width="-1"/>
+      <column hidden="0" name="ecoli_deviation" type="field" width="128"/>
+      <column hidden="0" name="TSS_norm" type="field" width="-1"/>
+      <column hidden="0" name="BOD5_norm" type="field" width="-1"/>
+      <column hidden="0" name="TKN_norm" type="field" width="100"/>
+      <column hidden="0" name="COD_norm" type="field" width="100"/>
+      <column hidden="0" name="NO3N_norm" type="field" width="100"/>
+      <column hidden="0" name="TN_norm" type="field" width="100"/>
+      <column hidden="0" name="TP_norm" type="field" width="-1"/>
+      <column hidden="0" name="ecoli_norm" type="field" width="-1"/>
+      <column hidden="1" type="actions" width="-1"/>
     </columns>
   </attributetableconfig>
   <conditionalstyles>
     <rowstyles/>
     <fieldstyles>
-      <fieldstyle fieldname="BOD5_deviation">
-        <style background_color_alpha="255" name="NOK" rule="@value &lt;= 0" background_color="#9ad871">
-          <font style="" description="Noto Sans,10,-1,0,50,0,0,0,0,0" underline="0" strikethrough="0" italic="0" bold="0"/>
+      <fieldstyle fieldname="COD_deviation">
+        <style background_color="#9ad871" background_color_alpha="255" name="NOK" rule="@value &lt;= 0">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
         </style>
-        <style text_color_alpha="255" background_color_alpha="255" name="" text_color="#ffffff" rule="@value > 0" background_color="#fb3232">
-          <font style="" description="Noto Sans,10,-1,0,50,0,0,0,0,0" underline="0" strikethrough="0" italic="0" bold="0"/>
-        </style>
-      </fieldstyle>
-      <fieldstyle fieldname="TSS_deviation">
-        <style background_color_alpha="255" name="NOK" rule="@value &lt;= 0" background_color="#9ad871">
-          <font style="" description="Noto Sans,10,-1,0,50,0,0,0,0,0" underline="0" strikethrough="0" italic="0" bold="0"/>
-        </style>
-        <style text_color_alpha="255" background_color_alpha="255" name="" text_color="#ffffff" rule="@value > 0" background_color="#fb3232">
-          <font style="" description="Noto Sans,10,-1,0,50,0,0,0,0,0" underline="0" strikethrough="0" italic="0" bold="0"/>
+        <style background_color="#fb3232" background_color_alpha="255" name="" rule="@value > 0" text_color="#ffffff" text_color_alpha="255">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
         </style>
       </fieldstyle>
       <fieldstyle fieldname="total_surface">
-        <style background_color_alpha="255" name="NOK" rule="@value &lt;= &quot;available_surface&quot; and &quot;available_surface&quot; > 0" background_color="#9ad871">
-          <font style="" description="Noto Sans,10,-1,0,50,0,0,0,0,0" underline="0" strikethrough="0" italic="0" bold="0"/>
+        <style background_color="#9ad871" background_color_alpha="255" name="NOK" rule="@value &lt;= &quot;available_surface&quot; and &quot;available_surface&quot; > 0">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
         </style>
-        <style text_color_alpha="255" background_color_alpha="255" name="" text_color="#ffffff" rule="@value > &quot;available_surface&quot; and &quot;available_surface&quot; > 0" background_color="#fb3232">
-          <font style="" description="Noto Sans,10,-1,0,50,0,0,0,0,0" underline="0" strikethrough="0" italic="0" bold="0"/>
+        <style background_color="#fb3232" background_color_alpha="255" name="" rule="@value > &quot;available_surface&quot; and &quot;available_surface&quot; > 0" text_color="#ffffff" text_color_alpha="255">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
         </style>
       </fieldstyle>
-      <fieldstyle fieldname="COD_deviation">
-        <style background_color_alpha="255" name="NOK" rule="@value &lt;= 0" background_color="#9ad871">
-          <font style="" description="Noto Sans,10,-1,0,50,0,0,0,0,0" underline="0" strikethrough="0" italic="0" bold="0"/>
+      <fieldstyle fieldname="TN_deviation">
+        <style background_color="#9ad871" background_color_alpha="255" name="NOK" rule="@value &lt;= 0">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
         </style>
-        <style text_color_alpha="255" background_color_alpha="255" name="" text_color="#ffffff" rule="@value > 0" background_color="#fb3232">
-          <font style="" description="Noto Sans,10,-1,0,50,0,0,0,0,0" underline="0" strikethrough="0" italic="0" bold="0"/>
+        <style background_color="#fb3232" background_color_alpha="255" name="" rule="@value > 0" text_color="#ffffff" text_color_alpha="255">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
+        </style>
+      </fieldstyle>
+      <fieldstyle fieldname="TP_deviation">
+        <style background_color="#9ad871" background_color_alpha="255" name="NOK" rule="@value &lt;= 0">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
+        </style>
+        <style background_color="#fb3232" background_color_alpha="255" name="" rule="@value > 0" text_color="#ffffff" text_color_alpha="255">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
+        </style>
+      </fieldstyle>
+      <fieldstyle fieldname="ecoli_deviation">
+        <style background_color="#9ad871" background_color_alpha="255" name="NOK" rule="@value &lt;= 0">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
+        </style>
+        <style background_color="#fb3232" background_color_alpha="255" name="" rule="@value > 0" text_color="#ffffff" text_color_alpha="255">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
+        </style>
+      </fieldstyle>
+      <fieldstyle fieldname="TSS_deviation">
+        <style background_color="#9ad871" background_color_alpha="255" name="NOK" rule="@value &lt;= 0">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
+        </style>
+        <style background_color="#fb3232" background_color_alpha="255" name="" rule="@value > 0" text_color="#ffffff" text_color_alpha="255">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
+        </style>
+      </fieldstyle>
+      <fieldstyle fieldname="BOD5_deviation">
+        <style background_color="#9ad871" background_color_alpha="255" name="NOK" rule="@value &lt;= 0">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
+        </style>
+        <style background_color="#fb3232" background_color_alpha="255" name="" rule="@value > 0" text_color="#ffffff" text_color_alpha="255">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
         </style>
       </fieldstyle>
       <fieldstyle fieldname="TKN_deviation">
-        <style background_color_alpha="255" name="NOK" rule="@value &lt;= 0" background_color="#9ad871">
-          <font style="" description="Noto Sans,10,-1,0,50,0,0,0,0,0" underline="0" strikethrough="0" italic="0" bold="0"/>
+        <style background_color="#9ad871" background_color_alpha="255" name="NOK" rule="@value &lt;= 0">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
         </style>
-        <style text_color_alpha="255" background_color_alpha="255" name="" text_color="#ffffff" rule="@value > 0" background_color="#fb3232">
-          <font style="" description="Noto Sans,10,-1,0,50,0,0,0,0,0" underline="0" strikethrough="0" italic="0" bold="0"/>
+        <style background_color="#fb3232" background_color_alpha="255" name="" rule="@value > 0" text_color="#ffffff" text_color_alpha="255">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
+        </style>
+      </fieldstyle>
+      <fieldstyle fieldname="NO3N_deviation">
+        <style background_color="#9ad871" background_color_alpha="255" name="NOK" rule="@value &lt;= 0">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
+        </style>
+        <style background_color="#fb3232" background_color_alpha="255" name="" rule="@value > 0" text_color="#ffffff" text_color_alpha="255">
+          <font bold="0" description="Noto Sans,10,-1,0,400,0,0,0,0,0,0,0,0,0,0,1" italic="0" strikethrough="0" style="" underline="0"/>
         </style>
       </fieldstyle>
     </fieldstyles>
@@ -1024,6 +1015,9 @@ def my_form_open(dialog, layer, feature):
     <field editable="1" name="COD_deviation"/>
     <field editable="1" name="COD_loading_stages"/>
     <field editable="1" name="COD_norm"/>
+    <field editable="1" name="NO3N_concentration"/>
+    <field editable="1" name="NO3N_deviation"/>
+    <field editable="1" name="NO3N_norm"/>
     <field editable="1" name="NO3_concentration"/>
     <field editable="1" name="NO3_deviation"/>
     <field editable="1" name="NO3_norm"/>
@@ -1037,6 +1031,9 @@ def my_form_open(dialog, layer, feature):
     <field editable="1" name="TN_concentration"/>
     <field editable="1" name="TN_deviation"/>
     <field editable="1" name="TN_norm"/>
+    <field editable="1" name="TP_concentration"/>
+    <field editable="1" name="TP_deviation"/>
+    <field editable="1" name="TP_norm"/>
     <field editable="1" name="TSS_concentration"/>
     <field editable="1" name="TSS_deviation"/>
     <field editable="1" name="TSS_loading_stages"/>
@@ -1048,6 +1045,9 @@ def my_form_open(dialog, layer, feature):
     <field editable="1" name="depth_stages"/>
     <field editable="1" name="depth_stages_sat"/>
     <field editable="1" name="depth_stages_unsat"/>
+    <field editable="1" name="ecoli_concentration"/>
+    <field editable="1" name="ecoli_deviation"/>
+    <field editable="1" name="ecoli_norm"/>
     <field editable="1" name="hydraulic_loading_rate_stages"/>
     <field editable="1" name="name_material_stages"/>
     <field editable="1" name="name_stages"/>
@@ -1067,6 +1067,9 @@ def my_form_open(dialog, layer, feature):
     <field labelOnTop="0" name="COD_deviation"/>
     <field labelOnTop="0" name="COD_loading_stages"/>
     <field labelOnTop="0" name="COD_norm"/>
+    <field labelOnTop="0" name="NO3N_concentration"/>
+    <field labelOnTop="0" name="NO3N_deviation"/>
+    <field labelOnTop="0" name="NO3N_norm"/>
     <field labelOnTop="0" name="NO3_concentration"/>
     <field labelOnTop="0" name="NO3_deviation"/>
     <field labelOnTop="0" name="NO3_norm"/>
@@ -1080,6 +1083,9 @@ def my_form_open(dialog, layer, feature):
     <field labelOnTop="0" name="TN_concentration"/>
     <field labelOnTop="0" name="TN_deviation"/>
     <field labelOnTop="0" name="TN_norm"/>
+    <field labelOnTop="0" name="TP_concentration"/>
+    <field labelOnTop="0" name="TP_deviation"/>
+    <field labelOnTop="0" name="TP_norm"/>
     <field labelOnTop="0" name="TSS_concentration"/>
     <field labelOnTop="0" name="TSS_deviation"/>
     <field labelOnTop="0" name="TSS_loading_stages"/>
@@ -1091,6 +1097,9 @@ def my_form_open(dialog, layer, feature):
     <field labelOnTop="0" name="depth_stages"/>
     <field labelOnTop="0" name="depth_stages_sat"/>
     <field labelOnTop="0" name="depth_stages_unsat"/>
+    <field labelOnTop="0" name="ecoli_concentration"/>
+    <field labelOnTop="0" name="ecoli_deviation"/>
+    <field labelOnTop="0" name="ecoli_norm"/>
     <field labelOnTop="0" name="hydraulic_loading_rate_stages"/>
     <field labelOnTop="0" name="name_material_stages"/>
     <field labelOnTop="0" name="name_stages"/>
@@ -1102,47 +1111,56 @@ def my_form_open(dialog, layer, feature):
     <field labelOnTop="0" name="total_volume"/>
   </labelOnTop>
   <reuseLastValue>
-    <field reuseLastValue="0" name="BOD5_concentration"/>
-    <field reuseLastValue="0" name="BOD5_deviation"/>
-    <field reuseLastValue="0" name="BOD5_loading_stages"/>
-    <field reuseLastValue="0" name="BOD5_norm"/>
-    <field reuseLastValue="0" name="COD_concentration"/>
-    <field reuseLastValue="0" name="COD_deviation"/>
-    <field reuseLastValue="0" name="COD_loading_stages"/>
-    <field reuseLastValue="0" name="COD_norm"/>
-    <field reuseLastValue="0" name="NO3_concentration"/>
-    <field reuseLastValue="0" name="NO3_deviation"/>
-    <field reuseLastValue="0" name="NO3_norm"/>
-    <field reuseLastValue="0" name="P_concentration"/>
-    <field reuseLastValue="0" name="P_deviation"/>
-    <field reuseLastValue="0" name="P_norm"/>
-    <field reuseLastValue="0" name="TKN_concentration"/>
-    <field reuseLastValue="0" name="TKN_deviation"/>
-    <field reuseLastValue="0" name="TKN_loading_stages"/>
-    <field reuseLastValue="0" name="TKN_norm"/>
-    <field reuseLastValue="0" name="TN_concentration"/>
-    <field reuseLastValue="0" name="TN_deviation"/>
-    <field reuseLastValue="0" name="TN_norm"/>
-    <field reuseLastValue="0" name="TSS_concentration"/>
-    <field reuseLastValue="0" name="TSS_deviation"/>
-    <field reuseLastValue="0" name="TSS_loading_stages"/>
-    <field reuseLastValue="0" name="TSS_norm"/>
-    <field reuseLastValue="0" name="available_surface"/>
-    <field reuseLastValue="0" name="col_concentration"/>
-    <field reuseLastValue="0" name="col_deviation"/>
-    <field reuseLastValue="0" name="col_norm"/>
-    <field reuseLastValue="0" name="depth_stages"/>
-    <field reuseLastValue="0" name="depth_stages_sat"/>
-    <field reuseLastValue="0" name="depth_stages_unsat"/>
-    <field reuseLastValue="0" name="hydraulic_loading_rate_stages"/>
-    <field reuseLastValue="0" name="name_material_stages"/>
-    <field reuseLastValue="0" name="name_stages"/>
-    <field reuseLastValue="0" name="pathway_id"/>
-    <field reuseLastValue="0" name="sink_coords"/>
-    <field reuseLastValue="0" name="surface_norm"/>
-    <field reuseLastValue="0" name="surface_stages"/>
-    <field reuseLastValue="0" name="total_surface"/>
-    <field reuseLastValue="0" name="total_volume"/>
+    <field name="BOD5_concentration" reuseLastValue="0"/>
+    <field name="BOD5_deviation" reuseLastValue="0"/>
+    <field name="BOD5_loading_stages" reuseLastValue="0"/>
+    <field name="BOD5_norm" reuseLastValue="0"/>
+    <field name="COD_concentration" reuseLastValue="0"/>
+    <field name="COD_deviation" reuseLastValue="0"/>
+    <field name="COD_loading_stages" reuseLastValue="0"/>
+    <field name="COD_norm" reuseLastValue="0"/>
+    <field name="NO3N_concentration" reuseLastValue="0"/>
+    <field name="NO3N_deviation" reuseLastValue="0"/>
+    <field name="NO3N_norm" reuseLastValue="0"/>
+    <field name="NO3_concentration" reuseLastValue="0"/>
+    <field name="NO3_deviation" reuseLastValue="0"/>
+    <field name="NO3_norm" reuseLastValue="0"/>
+    <field name="P_concentration" reuseLastValue="0"/>
+    <field name="P_deviation" reuseLastValue="0"/>
+    <field name="P_norm" reuseLastValue="0"/>
+    <field name="TKN_concentration" reuseLastValue="0"/>
+    <field name="TKN_deviation" reuseLastValue="0"/>
+    <field name="TKN_loading_stages" reuseLastValue="0"/>
+    <field name="TKN_norm" reuseLastValue="0"/>
+    <field name="TN_concentration" reuseLastValue="0"/>
+    <field name="TN_deviation" reuseLastValue="0"/>
+    <field name="TN_norm" reuseLastValue="0"/>
+    <field name="TP_concentration" reuseLastValue="0"/>
+    <field name="TP_deviation" reuseLastValue="0"/>
+    <field name="TP_norm" reuseLastValue="0"/>
+    <field name="TSS_concentration" reuseLastValue="0"/>
+    <field name="TSS_deviation" reuseLastValue="0"/>
+    <field name="TSS_loading_stages" reuseLastValue="0"/>
+    <field name="TSS_norm" reuseLastValue="0"/>
+    <field name="available_surface" reuseLastValue="0"/>
+    <field name="col_concentration" reuseLastValue="0"/>
+    <field name="col_deviation" reuseLastValue="0"/>
+    <field name="col_norm" reuseLastValue="0"/>
+    <field name="depth_stages" reuseLastValue="0"/>
+    <field name="depth_stages_sat" reuseLastValue="0"/>
+    <field name="depth_stages_unsat" reuseLastValue="0"/>
+    <field name="ecoli_concentration" reuseLastValue="0"/>
+    <field name="ecoli_deviation" reuseLastValue="0"/>
+    <field name="ecoli_norm" reuseLastValue="0"/>
+    <field name="hydraulic_loading_rate_stages" reuseLastValue="0"/>
+    <field name="name_material_stages" reuseLastValue="0"/>
+    <field name="name_stages" reuseLastValue="0"/>
+    <field name="pathway_id" reuseLastValue="0"/>
+    <field name="sink_coords" reuseLastValue="0"/>
+    <field name="surface_norm" reuseLastValue="0"/>
+    <field name="surface_stages" reuseLastValue="0"/>
+    <field name="total_surface" reuseLastValue="0"/>
+    <field name="total_volume" reuseLastValue="0"/>
   </reuseLastValue>
   <dataDefinedFieldProperties/>
   <widgets/>
