@@ -8,7 +8,7 @@ icon=resources/images/ELAN-LOGO-02_ICONE.png
 tags=urban water,integrated management,NBS,decentralization,disconnection,decision-support
 
 # credits and contact
-author=REVERSAAL et Oslandia
+author=REVERSAAL, Oslandia
 email=elan.support@listes.inrae.fr
 homepage=https://elan7835313.gitlab.io/elan/
 repository=https://gitlab.com/elan7835313/elan
