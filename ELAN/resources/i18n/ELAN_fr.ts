@@ -131,9 +131,24 @@
 <context>
     <name>ELANPlugin</name>
     <message>
-        <location filename="../../plugin_main.py" line="44"/>
+        <location filename="../../plugin_main.py" line="59"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
+    </message>
+    <message>
+        <location filename="../../plugin_main.py" line="67"/>
+        <source>Documentation</source>
+        <translation>Documentation</translation>
+    </message>
+    <message>
+        <location filename="../../plugin_main.py" line="94"/>
+        <source>Error importing dependencies. ELAN processing modules are disabled.</source>
+        <translation>Erreur à l&apos;import des dépendances. Les modules de traitement d&apos;ELAN ont été désactivés.</translation>
+    </message>
+    <message>
+        <location filename="../../plugin_main.py" line="94"/>
+        <source>How to fix it...</source>
+        <translation>Réparer...</translation>
     </message>
 </context>
 <context>
@@ -579,27 +594,27 @@
         <translation>Erreur lors de la récupération de la couche</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="292"/>
+        <location filename="../../processing/roads_buildings.py" line="293"/>
         <source>Buildings</source>
         <translation>Bâtiments</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="306"/>
+        <location filename="../../processing/roads_buildings.py" line="308"/>
         <source>Roads</source>
         <translation>Routes</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="320"/>
+        <location filename="../../processing/roads_buildings.py" line="323"/>
         <source>Buildings centroids</source>
         <translation>Centroïdes de bâtiments</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="338"/>
+        <location filename="../../processing/roads_buildings.py" line="342"/>
         <source>Merged buidings</source>
         <translation>Bâtiments fusionnés</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="352"/>
+        <location filename="../../processing/roads_buildings.py" line="357"/>
         <source>Merged buildings centroids</source>
         <translation>Centroïdes des bâtiments fusionnés</translation>
     </message>
@@ -619,22 +634,22 @@
         <translation>Découpage des bâtiments...</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="297"/>
+        <location filename="../../processing/roads_buildings.py" line="298"/>
         <source>Clipping roads...</source>
         <translation>Découpage des routes...</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="311"/>
+        <location filename="../../processing/roads_buildings.py" line="313"/>
         <source>Creating buildings centroids...</source>
         <translation>Création des centroïdes de bâtiments...</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="343"/>
+        <location filename="../../processing/roads_buildings.py" line="347"/>
         <source>Creating merged buildings centroids...</source>
         <translation>Création des centroïdes des bâtiments fusionnés...</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="325"/>
+        <location filename="../../processing/roads_buildings.py" line="328"/>
         <source>Merging buildings...</source>
         <translation>Fusion des bâtiments...</translation>
     </message>
@@ -1396,7 +1411,7 @@ La prise en compte des phosphores (P) et des coliformes n&apos;est pas pleinemen
 <context>
     <name>WetlandProcessPostProcessor</name>
     <message>
-        <location filename="../../processing/wetland_process.py" line="574"/>
+        <location filename="../../processing/wetland_process.py" line="575"/>
         <source>No layer styles found</source>
         <translation>Aucun style de couche trouvé</translation>
     </message>

@@ -5,22 +5,31 @@ Main plugin module.
 """
 
 import site
+from functools import partial
 
 # PyQGIS
 from qgis.core import QgsApplication
 from qgis.gui import QgisInterface
 from qgis.PyQt.QtCore import Qt
 from qgis.PyQt.QtWidgets import QAction, QDockWidget
+from qgis.utils import QDesktopServices, QUrl
 
 # project
-from ELAN.__about__ import __experimental__, __title__
+from ELAN.__about__ import __experimental__, __title__, __uri_homepage__
 from ELAN.gui.dlg_settings import PlgOptionsFactory
-from ELAN.processing.provider import ELANProvider
+from ELAN.toolbelt.log_handler import PlgLogger
 from ELAN.utils.dependencies_utils import EXTERNAL_LIRBARIES_DIR
 from ELAN.utils.tr import Translatable
 
 if __experimental__:
     from ELAN.permeability_panel import PermeabilityWidget
+
+try:
+    from ELAN.processing.provider import ELANProvider
+
+    PROCESSINGS_AVAILABLE = True
+except ImportError:
+    PROCESSINGS_AVAILABLE = False
 
 
 site.addsitedir(str(EXTERNAL_LIRBARIES_DIR))
@@ -55,9 +64,16 @@ class ELANPlugin(Translatable):
         self.action_settings.triggered.connect(
             lambda: self.iface.showOptionsDialog(currentPage=f"mOptionsPage{__title__}")
         )
+        self.action_help = QAction(
+            QgsApplication.getThemeIcon("mActionHelpContents.svg"),
+            self.tr("Documentation"),
+            self.iface.mainWindow(),
+        )
+        self.action_help.triggered.connect(self.showDocumentation)
 
         # -- Menu
         self.iface.addPluginToMenu(__title__, self.action_settings)
+        self.iface.addPluginToMenu(__title__, self.action_help)
 
         # -- Permeability
         if __experimental__:
@@ -69,15 +85,36 @@ class ELANPlugin(Translatable):
             self.permeabilite_panneau.setVisible(False)
 
         # -- Processing
-        self.provider = ELANProvider()
-        if (registry := QgsApplication.processingRegistry()) is None:
-            raise RuntimeError("Processing registry not found")
-        registry.addProvider(self.provider)
+        if PROCESSINGS_AVAILABLE:
+            self.provider = ELANProvider()
+            if (registry := QgsApplication.processingRegistry()) is None:
+                raise RuntimeError("Processing registry not found")
+            registry.addProvider(self.provider)
+        else:
+            PlgLogger.log(
+                message=self.tr("Error importing dependencies. ELAN processing modules are disabled."),
+                log_level=2,
+                push=True,
+                duration=60,
+                button=True,
+                button_text=self.tr("How to fix it..."),
+                button_connect=self.showDocumentation,
+            )
+            self.provider = None
+
+    @staticmethod
+    def showDocumentation():
+        """
+        Shows the plugin documentation in the default web browser
+        """
+
+        QDesktopServices.openUrl(QUrl(f"{__uri_homepage__}installation.html"))
 
     def unload(self):
         """Cleans up when plugin is disabled/uninstalled."""
         # -- Clean up menu
         self.iface.removePluginMenu(__title__, self.action_settings)
+        self.iface.removePluginMenu(__title__, self.action_help)
 
         if __experimental__:
             self.iface.removeDockWidget(self.permeabilite_panneau)
@@ -89,5 +126,5 @@ class ELANPlugin(Translatable):
         del self.action_settings
 
         # -- Unregister processing
-        if (registry := QgsApplication.processingRegistry()) is not None:
+        if (registry := QgsApplication.processingRegistry()) is not None and self.provider is not None:
             registry.removeProvider(self.provider)
