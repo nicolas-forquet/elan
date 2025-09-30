@@ -39,13 +39,27 @@ class ProcessPlots(Translatable):
         """
 
         try:
-            return plugins["DataPlotly"].dock_manager.getDock("DataPlotly").main_panel
+            data_plotly_plugin = plugins["DataPlotly"]
         except KeyError:
             QMessageBox.warning(
                 None,
                 self.tr("Warning"),
                 self.tr("DataPlotly plugin not found!\nIt must be installed and activated (see the plugin manager)."),
             )
+            return
+
+        if (main_dock := data_plotly_plugin.dock_manager.getDock("DataPlotly")) is None:
+            QMessageBox.warning(
+                None,
+                self.tr("Warning"),
+                self.tr("Main dock from DataPlotly can't be found. Please check your DataPlotly configuration."),
+            )
+            return
+
+        if not main_dock.isUserVisible():
+            main_dock.setUserVisible(True)
+
+        return main_dock.main_panel
 
     @staticmethod
     def generate_gradient(base_color: str, steps: int):
