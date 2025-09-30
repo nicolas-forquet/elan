@@ -3,17 +3,23 @@ Utils functions for tests
 """
 
 from pathlib import Path
+from typing import Optional
 
 from qgis.core import QgsProject, QgsVectorLayer
 
 
-def assert_same_layers(layer_a: QgsVectorLayer, layer_b: QgsVectorLayer):
+def assert_same_layers(
+    layer_a: QgsVectorLayer, layer_b: QgsVectorLayer, check_values_only_on_fields: Optional[list[str]] = None
+):
     """
     Verify that layer_a and layer_b are the same.
     - feature count
     - field names
     - field types
     - unique values for each attribute
+
+    If check_values_only_on_fields is provided (list of field names), the assertion for
+    the uniqueValues is made only on these fields.
     """
 
     assert layer_a.featureCount() == layer_b.featureCount()
@@ -21,7 +27,12 @@ def assert_same_layers(layer_a: QgsVectorLayer, layer_b: QgsVectorLayer):
     assert [field.type() for field in layer_a.fields()] == [field.type() for field in layer_b.fields()]
 
     for idx in range(layer_a.fields().size()):
-        if layer_a.fields().at(idx).name() == "distance":
+        field_name = layer_a.fields().at(idx).name()
+
+        if check_values_only_on_fields is not None and field_name not in check_values_only_on_fields:
+            continue
+
+        if field_name == "distance":
             assert set(map(lambda x: round(x, 3), layer_a.uniqueValues(idx))) == set(
                 map(lambda x: round(x, 3), layer_b.uniqueValues(idx))
             )

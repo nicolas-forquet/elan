@@ -500,7 +500,7 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
 
         if context.willLoadLayerOnCompletion(treatment_dest):
             context.layerToLoadOnCompletionDetails(treatment_dest).setPostProcessor(self.post_processor)
-        return {"OUTPUT": treatment_dest}
+        return {self.TREATMENT: treatment_dest}
 
 
 def outputFields() -> QgsFields:
