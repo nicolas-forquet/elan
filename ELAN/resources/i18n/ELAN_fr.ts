@@ -514,84 +514,91 @@
 <context>
     <name>ProcessPlots</name>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="87"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="102"/>
         <source>The active layer is not a treatment train layer.</source>
         <translation>La couche active n&apos;est pas une couche de filières.</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="89"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="104"/>
         <source>
 Missing fields: {}</source>
         <translation>Champs manquants : {}</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="157"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="172"/>
         <source>Warning</source>
         <translation>Attention</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="132"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="147"/>
         <source>Features have different {}.
 Select only features with the same {}.</source>
         <translation>Des entités ont des {} différentes.
 Ne sélectionner que des entités avec les mêmes {}</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="143"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="158"/>
         <source>More than 1 feature with the same {}.
 Select only features with different {}.</source>
         <translation>Plus d&apos;une entité avec le même {}.
 Ne sélectionner que des entités avec des {} différents.</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="153"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="168"/>
         <source>The features don&apos;t have any stage</source>
         <translation>Les entités n&apos;ont pas d&apos;étage de traitement</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="157"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="172"/>
         <source>The features don&apos;t have any normalized fields value.</source>
         <translation>Les entités ont tout leurs champs normalisés sans valeur.</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="184"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="202"/>
         <source>TSS</source>
         <translation>MES</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="184"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="202"/>
         <source>BOD5</source>
         <translation>DBO5</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="184"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="202"/>
         <source>TKN</source>
         <translation>NTK</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="184"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="202"/>
         <source>COD</source>
         <translation>DCO</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="224"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="241"/>
         <source>Hydraulic and pollutant loading rates</source>
         <translation>Taux de charge hydraulique et des polluants</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="230"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="247"/>
         <source>Loading rate (%)</source>
         <translation>Taux de charge (%)</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="236"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="253"/>
         <source>Treatment trains</source>
         <translation>Filières</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="274"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="293"/>
         <source>Treatment trains multicriteria analysis</source>
         <translation>Analyse multicritère des filières de traitement</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="44"/>
+        <source>DataPlotly plugin not found!
+It must be installed and activated (see the plugin manager).</source>
+        <translation>DataPlotly est introuvable !
+Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</translation>
     </message>
 </context>
 <context>

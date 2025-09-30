@@ -32,6 +32,21 @@ class ProcessPlots(Translatable):
         "COD_loading_stages",
     ]
 
+    def get_dataplotly_panel(self):
+        """
+        Get DataPlotly main dock panel.
+        Returns None if not found.
+        """
+
+        try:
+            return plugins["DataPlotly"].dock_manager.getDock("DataPlotly").main_panel
+        except KeyError:
+            QMessageBox.warning(
+                None,
+                self.tr("Warning"),
+                self.tr("DataPlotly plugin not found!\nIt must be installed and activated (see the plugin manager)."),
+            )
+
     @staticmethod
     def generate_gradient(base_color: str, steps: int):
         """
@@ -169,6 +184,9 @@ class ProcessPlots(Translatable):
         if (layer := self.getActiveLayer()) is None:
             return
 
+        if (main_panel := self.get_dataplotly_panel()) is None:
+            return
+
         layer_valid, max_stages_nb, _ = self.validateAndGetMetadata(layer)
         if not layer_valid:
             return
@@ -189,7 +207,6 @@ class ProcessPlots(Translatable):
         if len(bar_legend_labels) > nb_pollutant:
             raise RuntimeError("Missing a color for a field!")
 
-        main_panel = plugins["DataPlotly"].dock_manager.getDock("DataPlotly").main_panel
         main_panel.clearPlotView()
         main_panel.layer_combo.setLayer(layer)
         main_panel.plot_combo.setCurrentIndex(main_panel.plot_combo.findData("bar"))
@@ -249,11 +266,13 @@ class ProcessPlots(Translatable):
         if (layer := self.getActiveLayer()) is None:
             return
 
+        if (main_panel := self.get_dataplotly_panel()) is None:
+            return
+
         layer_valid, _, normalized_fields_without_null_values = self.validateAndGetMetadata(layer)
         if not layer_valid:
             return
 
-        main_panel = plugins["DataPlotly"].dock_manager.getDock("DataPlotly").main_panel
         main_panel.clearPlotView()
         main_panel.layer_combo.setLayer(layer)
         main_panel.plot_combo.setCurrentIndex(main_panel.plot_combo.findData("radar"))
