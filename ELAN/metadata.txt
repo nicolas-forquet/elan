@@ -9,7 +9,7 @@ tags=urban water,integrated management,NBS,decentralization,disconnection,decisi
 
 # credits and contact
 author=REVERSAAL et Oslandia
-email=info@oslandia.com
+email=elan.support@listes.inrae.fr
 homepage=https://gitlab.com/elan7835313/elan
 repository=https://gitlab.com/elan7835313/elan
 tracker=https://gitlab.com/elan7835313/elan/-/issues
