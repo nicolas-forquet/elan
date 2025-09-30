@@ -56,7 +56,7 @@ def test_sewer_network(elan_processing, tmp_path):
     ref_path = test_data_dir / "sewer_network_reference_output.gpkg.zip"
     gen_path = tmp_path / "sewer_network_generated_output.gpkg"
 
-    layers = ["pumping_stations", "lifting_stations", "sewer_pipes", "roads", "buildings"]
+    layers = ["pumping_stations", "lifting_stations", "sewer_pipes", "roads", "buildings", "sinks_layer"]
 
     for name in layers:
         assert_same_layers(load_layer(ref_path, name), load_layer(gen_path, name))
@@ -103,7 +103,7 @@ def test_sewer_network_with_empty_outputs(elan_processing, tmp_path):
     ref_path = test_data_dir / "sewer_network_reference_output_with_empty_outputs.gpkg.zip"
     gen_path = tmp_path / "sewer_network_generated_output.gpkg"
 
-    layers = ["pumping_stations", "lifting_stations", "sewer_pipes", "roads", "buildings"]
+    layers = ["pumping_stations", "lifting_stations", "sewer_pipes", "roads", "buildings", "sinks_layer"]
 
     for name in layers:
         assert_same_layers(load_layer(ref_path, name), load_layer(gen_path, name))

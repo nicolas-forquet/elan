@@ -4,7 +4,7 @@ Utils functions for tests
 
 from pathlib import Path
 
-from qgis.core import QgsVectorLayer
+from qgis.core import QgsProject, QgsVectorLayer
 
 
 def assert_same_layers(layer_a: QgsVectorLayer, layer_b: QgsVectorLayer):
@@ -31,11 +31,17 @@ def assert_same_layers(layer_a: QgsVectorLayer, layer_b: QgsVectorLayer):
 
 def load_layer(gpkg_path: str | Path, layer_name: str) -> QgsVectorLayer:
     """
-    Return layer from a geopackage
+    Returns a QgsVectorLayer from a geopackage and a layer name
     """
 
     assert Path(gpkg_path).exists()
     uri = str(gpkg_path) + f"|layername={layer_name}"
     layer = QgsVectorLayer(uri, layer_name, "ogr")
     assert layer.isValid()
+
+    # Give ownership of the layer to the project.
+    # The project will take care of deleting the layer to avoid segfaults.
+    if (project := QgsProject.instance()) is not None:
+        project.addMapLayer(layer)
+
     return layer
