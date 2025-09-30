@@ -64,9 +64,16 @@ class ELANPlugin(Translatable):
         self.action_settings.triggered.connect(
             lambda: self.iface.showOptionsDialog(currentPage=f"mOptionsPage{__title__}")
         )
+        self.action_help = QAction(
+            QgsApplication.getThemeIcon("mActionHelpContents.svg"),
+            self.tr("Documentation"),
+            self.iface.mainWindow(),
+        )
+        self.action_help.triggered.connect(self.showDocumentation)
 
         # -- Menu
         self.iface.addPluginToMenu(__title__, self.action_settings)
+        self.iface.addPluginToMenu(__title__, self.action_help)
 
         # -- Permeability
         if __experimental__:
@@ -91,17 +98,23 @@ class ELANPlugin(Translatable):
                 duration=60,
                 button=True,
                 button_text=self.tr("How to fix it..."),
-                button_connect=partial(
-                    QDesktopServices.openUrl,
-                    QUrl(f"{__uri_homepage__}/installation.html"),
-                ),
+                button_connect=self.showDocumentation,
             )
             self.provider = None
+
+    @staticmethod
+    def showDocumentation():
+        """
+        Shows the plugin documentation in the default web browser
+        """
+
+        QDesktopServices.openUrl(QUrl(f"{__uri_homepage__}installation.html"))
 
     def unload(self):
         """Cleans up when plugin is disabled/uninstalled."""
         # -- Clean up menu
         self.iface.removePluginMenu(__title__, self.action_settings)
+        self.iface.removePluginMenu(__title__, self.action_help)
 
         if __experimental__:
             self.iface.removeDockWidget(self.permeabilite_panneau)
