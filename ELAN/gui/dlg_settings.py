@@ -170,7 +170,7 @@ class DlgSettings(QWidget, FORM_CLASS, Translatable):
 
 class PlgOptionsFactory(QgsOptionsWidgetFactory):
     def icon(self):
-        return QIcon(str(DIR_PLUGIN_ROOT / "resources/images/ELAN-LOGO-02_ICONE.png"))
+        return QIcon(str(DIR_PLUGIN_ROOT / "resources" / "images" / "ELAN-LOGO-02_ICONE.png"))
 
     def createWidget(self, parent):
         return ConfigOptionsPage(parent)
