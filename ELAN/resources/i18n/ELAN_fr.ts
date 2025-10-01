@@ -131,24 +131,34 @@
 <context>
     <name>ELANPlugin</name>
     <message>
-        <location filename="../../plugin_main.py" line="59"/>
+        <location filename="../../plugin_main.py" line="61"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../../plugin_main.py" line="67"/>
+        <location filename="../../plugin_main.py" line="69"/>
         <source>Documentation</source>
         <translation>Documentation</translation>
     </message>
     <message>
-        <location filename="../../plugin_main.py" line="94"/>
+        <location filename="../../plugin_main.py" line="110"/>
         <source>Error importing dependencies. ELAN processing modules are disabled.</source>
         <translation>Erreur à l&apos;import des dépendances. Les modules de traitement d&apos;ELAN ont été désactivés.</translation>
     </message>
     <message>
-        <location filename="../../plugin_main.py" line="94"/>
+        <location filename="../../plugin_main.py" line="110"/>
         <source>How to fix it...</source>
         <translation>Réparer...</translation>
+    </message>
+    <message>
+        <location filename="../../plugin_main.py" line="91"/>
+        <source>Show bar plot for treatment train layer</source>
+        <translation>Afficher le graphique en barres des filières possibles de la STEU</translation>
+    </message>
+    <message>
+        <location filename="../../plugin_main.py" line="96"/>
+        <source>Show radar plot for treatment train layer</source>
+        <translation>Afficher le graphique en radar des filières possibles de la STEU</translation>
     </message>
 </context>
 <context>
@@ -499,6 +509,101 @@
         <location filename="../../processing/population.py" line="101"/>
         <source>Buildings with population</source>
         <translation>Bâtiments avec population</translation>
+    </message>
+</context>
+<context>
+    <name>ProcessPlots</name>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="116"/>
+        <source>The active layer is not a treatment train layer.</source>
+        <translation>La couche active n&apos;est pas une couche de filières.</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="118"/>
+        <source>
+Missing fields: {}</source>
+        <translation>Champs manquants : {}</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="186"/>
+        <source>Warning</source>
+        <translation>Attention</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="161"/>
+        <source>Features have different {}.
+Select only features with the same {}.</source>
+        <translation>Des entités ont des {} différentes.
+Ne sélectionner que des entités avec les mêmes {}</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="172"/>
+        <source>More than 1 feature with the same {}.
+Select only features with different {}.</source>
+        <translation>Plus d&apos;une entité avec le même {}.
+Ne sélectionner que des entités avec des {} différents.</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="182"/>
+        <source>The features don&apos;t have any stage</source>
+        <translation>Les entités n&apos;ont pas d&apos;étage de traitement</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="186"/>
+        <source>The features don&apos;t have any normalized fields value.</source>
+        <translation>Les entités ont tout leurs champs normalisés sans valeur.</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="216"/>
+        <source>TSS</source>
+        <translation>MES</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="216"/>
+        <source>BOD5</source>
+        <translation>DBO5</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="216"/>
+        <source>TKN</source>
+        <translation>NTK</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="216"/>
+        <source>COD</source>
+        <translation>DCO</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="255"/>
+        <source>Hydraulic and pollutant loading rates</source>
+        <translation>Taux de charge hydraulique et des polluants</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="261"/>
+        <source>Loading rate (%)</source>
+        <translation>Taux de charge (%)</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="267"/>
+        <source>Treatment trains</source>
+        <translation>Filières</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="307"/>
+        <source>Treatment trains multicriteria analysis</source>
+        <translation>Analyse multicritère des filières de traitement</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="44"/>
+        <source>DataPlotly plugin not found!
+It must be installed and activated (see the plugin manager).</source>
+        <translation>DataPlotly est introuvable !
+Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</translation>
+    </message>
+    <message>
+        <location filename="../../scripts/treatment_train_plot.py" line="52"/>
+        <source>Main dock from DataPlotly can&apos;t be found. Please check your DataPlotly configuration.</source>
+        <translation>Le paneau principal de DataPlotly est introuvable. Veuillez vérifier la configuration de DataPlotly.</translation>
     </message>
 </context>
 <context>

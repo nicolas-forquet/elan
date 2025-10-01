@@ -11,6 +11,7 @@ SOURCES= ../../plugin_main.py \
     ../../processing/population.py \
     ../../processing/trench_profile.py \
     ../../processing/scenario.py \
-    ../../processing/utils.py
+    ../../processing/utils.py \
+    ../../scripts/treatment_train_plot.py
 
 TRANSLATIONS = ELAN_fr.ts
