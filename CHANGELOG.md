@@ -27,7 +27,7 @@ Unreleased
 - and that other one too
 -->
 
-## 2025.10.2 - 2025-10-02
+## 2025.10.92-beta - 2025-10-02
 
 ### Added
 
@@ -48,7 +48,7 @@ Unreleased
 - wetlandoptimizer don't need to be re-installed on every startup
 - Proper error message if other ELAN dependencies are not found at startup
 
-## 2025.7.925-beta - 2025-07-25
+## 2025.7.25 - 2025-07-25
 
 ### Changed
 
