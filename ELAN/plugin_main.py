@@ -17,7 +17,6 @@ from qgis.utils import QDesktopServices, QUrl
 # project
 from ELAN.__about__ import DIR_PLUGIN_ROOT, __experimental__, __title__, __uri_homepage__
 from ELAN.gui.dlg_settings import PlgOptionsFactory
-from ELAN.processing.provider import ELANProvider
 from ELAN.scripts.treatment_train_plot import ProcessPlots
 from ELAN.toolbelt.log_handler import PlgLogger
 from ELAN.utils.dependencies_utils import EXTERNAL_LIRBARIES_DIR
