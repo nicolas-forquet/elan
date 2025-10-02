@@ -30,6 +30,7 @@ class ProcessPlots(Translatable):
         "BOD5_loading_stages",
         "TKN_loading_stages",
         "COD_loading_stages",
+        "hydraulic_loading_rate_stages",
     ]
 
     def get_dataplotly_panel(self):
@@ -213,10 +214,17 @@ class ProcessPlots(Translatable):
         bar_color_gradients = [
             g
             for g in [
-                self.generate_gradient(c, max_stages_nb + 1) for c in ["#70ad47", "#5a9bd5", "#ffc000", "#43682b"]
+                self.generate_gradient(c, max_stages_nb + 1)
+                for c in ["#70ad47", "#5a9bd5", "#ffc000", "#43682b", "#555555"]
             ]
         ]
-        bar_legend_labels = [self.tr("TSS"), self.tr("BOD5"), self.tr("TKN"), self.tr("COD")]
+        bar_legend_labels = [
+            self.tr("TSS"),
+            self.tr("BOD5"),
+            self.tr("TKN"),
+            self.tr("COD"),
+            self.tr("Hydraulic loading rate"),
+        ]
 
         # Following conditions should not appear (implementation problem from above lists)
         if len(bar_legend_labels) > nb_pollutant:
@@ -243,7 +251,7 @@ class ProcessPlots(Translatable):
             # plot a bar for each pollutant
             for j in range(nb_pollutant):
                 main_panel.y_combo.setField(f'from_json("{self.loading_fields[j]}")[{i}]')
-                main_panel.legend_title.setText(f"{bar_legend_labels[j]} {self.tr("stage")} {i+1}")
+                main_panel.legend_title.setText(bar_legend_labels[j] + " " + self.tr("stage") + f" {i + 1}")
                 main_panel.in_color_combo.setColor(QColor(bar_color_gradients[j][i]))
 
                 # Create the plot only if this is not the very last bar
@@ -291,10 +299,17 @@ class ProcessPlots(Translatable):
             return
 
         main_panel.clearPlotView()
+
+        # Clear y_combo because if it is not empty, DataPlotly will read it when rendering the radar plot
+        # and if a feature gives a NULL value on this evaluation, it will be skipped, even if there is a
+        # value for the radar fields.
+        main_panel.y_combo.setExpression("")
+
         main_panel.layer_combo.setLayer(layer)
         main_panel.plot_combo.setCurrentIndex(main_panel.plot_combo.findData("radar"))
         main_panel.selected_feature_check.setChecked(layer.selectedFeatureCount() > 0)
         main_panel.y_combo_radar_label.setField('"name_stages"')
+        main_panel.y_fields_combo.deselectAllOptions()
         for normalized_field in normalized_fields_without_null_values:
             main_panel.y_fields_combo.setItemCheckState(
                 main_panel.y_fields_combo.findText(normalized_field), Qt.CheckState.Checked
