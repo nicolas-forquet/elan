@@ -50,7 +50,8 @@ def test_get_active_layer(mocker):
         None,
         "Warning",
         "The active layer is not a treatment train layer.\n"
-        "Missing fields: 'BOD5_loading_stages', 'BOD5_norm', 'COD_loading_stages', 'COD_norm', 'NO3N_norm', 'TKN_norm', 'TP_norm', 'TSS_norm', 'surface_norm'",
+        "Missing fields: 'BOD5_loading_stages', 'BOD5_norm', 'COD_loading_stages', 'COD_norm', "
+        "'NO3N_norm', 'TKN_norm', 'TP_norm', 'TSS_norm', 'hydraulic_loading_rate_stages', 'surface_norm'",
     )
 
 

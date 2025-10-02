@@ -30,6 +30,7 @@ class ProcessPlots(Translatable):
         "BOD5_loading_stages",
         "TKN_loading_stages",
         "COD_loading_stages",
+        "hydraulic_loading_rate_stages",
     ]
 
     def get_dataplotly_panel(self):
@@ -213,10 +214,17 @@ class ProcessPlots(Translatable):
         bar_color_gradients = [
             g
             for g in [
-                self.generate_gradient(c, max_stages_nb + 1) for c in ["#70ad47", "#5a9bd5", "#ffc000", "#43682b"]
+                self.generate_gradient(c, max_stages_nb + 1)
+                for c in ["#70ad47", "#5a9bd5", "#ffc000", "#43682b", "#555555"]
             ]
         ]
-        bar_legend_labels = [self.tr("TSS"), self.tr("BOD5"), self.tr("TKN"), self.tr("COD")]
+        bar_legend_labels = [
+            self.tr("TSS"),
+            self.tr("BOD5"),
+            self.tr("TKN"),
+            self.tr("COD"),
+            self.tr("Hydraulic loading rate"),
+        ]
 
         # Following conditions should not appear (implementation problem from above lists)
         if len(bar_legend_labels) > nb_pollutant:
