@@ -19,10 +19,10 @@ class ProcessPlots(Translatable):
         "BOD5_norm",
         "TKN_norm",
         "COD_norm",
-        "NO3_norm",
+        "NO3N_norm",
         "TN_norm",
-        "P_norm",
-        "col_norm",
+        "TP_norm",
+        "ecoli_norm",
     ]
 
     loading_fields = [
