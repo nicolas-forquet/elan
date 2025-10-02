@@ -124,7 +124,7 @@ class ELANPlugin(Translatable):
         Shows the plugin documentation in the default web browser
         """
 
-        QDesktopServices.openUrl(QUrl(f"{__uri_homepage__}installation.html"))
+        QDesktopServices.openUrl(QUrl(__uri_homepage__))
 
     def unload(self):
         """Cleans up when plugin is disabled/uninstalled."""
