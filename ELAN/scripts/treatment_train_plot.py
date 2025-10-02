@@ -116,7 +116,7 @@ class ProcessPlots(Translatable):
         err_msg = self.tr("The active layer is not a treatment train layer.")
         if missing_fields != "":
             err_msg += self.tr("\nMissing fields: {}").format(
-                str(missing_fields)[1:-1]  # remove starting and ending braces
+                str(sorted(missing_fields))[1:-1]  # remove starting and ending braces
             )
         QMessageBox.warning(None, self.tr("Warning"), err_msg)
 
@@ -128,7 +128,10 @@ class ProcessPlots(Translatable):
             - more than one stage
 
         Because this function iterates on the features, we get some information, and we return
-        metadata about the layer (maximum number of stages).
+        metadata tuple about the layer:
+            - boolean to say if the layer is valid
+            - maximum number of stages
+            - list of normalized fields without null values
 
         If the layer has selected features, the verification si performed on the selected features,
         else, the verification is performed on all its features.
