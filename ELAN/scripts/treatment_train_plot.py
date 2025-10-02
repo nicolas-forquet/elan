@@ -299,10 +299,17 @@ class ProcessPlots(Translatable):
             return
 
         main_panel.clearPlotView()
+
+        # Clear y_combo because if it is not empty, DataPlotly will read it when rendering the radar plot
+        # and if a feature gives a NULL value on this evaluation, it will be skipped, even if there is a
+        # value for the radar fields.
+        main_panel.y_combo.setExpression("")
+
         main_panel.layer_combo.setLayer(layer)
         main_panel.plot_combo.setCurrentIndex(main_panel.plot_combo.findData("radar"))
         main_panel.selected_feature_check.setChecked(layer.selectedFeatureCount() > 0)
         main_panel.y_combo_radar_label.setField('"name_stages"')
+        main_panel.y_fields_combo.deselectAllOptions()
         for normalized_field in normalized_fields_without_null_values:
             main_panel.y_fields_combo.setItemCheckState(
                 main_panel.y_fields_combo.findText(normalized_field), Qt.CheckState.Checked
