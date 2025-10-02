@@ -90,12 +90,12 @@ class ELANPlugin(Translatable):
         self.toolbar.addAction(
             QIcon(str(DIR_PLUGIN_ROOT / "resources" / "images" / "bar_plot.jpeg")),
             self.tr("Show bar plot for treatment train layer"),
-            lambda: ProcessPlots().barPlot(),
+            lambda: ProcessPlots().bar_plot(),
         )
         self.toolbar.addAction(
             QIcon(str(DIR_PLUGIN_ROOT / "resources" / "images" / "radar_plot.jpeg")),
             self.tr("Show radar plot for treatment train layer"),
-            lambda: ProcessPlots().radarPlot(),
+            lambda: ProcessPlots().radar_plot(),
         )
         self.iface.addToolBar(self.toolbar)
 

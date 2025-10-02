@@ -95,7 +95,7 @@ class ProcessPlots(Translatable):
 
         return gradient
 
-    def getActiveLayer(self) -> Optional[QgsVectorLayer]:
+    def get_active_layer(self) -> Optional[QgsVectorLayer]:
         """
         Get the active layer and return it if it is a treatment train layer.
         (based on the layer fields)
@@ -120,7 +120,7 @@ class ProcessPlots(Translatable):
             )
         QMessageBox.warning(None, self.tr("Warning"), err_msg)
 
-    def validateAndGetMetadata(self, layer: QgsVectorLayer) -> tuple[bool, int, list[str]]:
+    def validate_and_get_metadata(self, layer: QgsVectorLayer) -> tuple[bool, int, list[str]]:
         """
         Verify that in the layer, the features have
             - different treatment trains
@@ -190,18 +190,18 @@ class ProcessPlots(Translatable):
 
         return (True, max_stages_nb, normalized_fields_without_null_values)
 
-    def barPlot(self):
+    def bar_plot(self):
         """
         Control DataPlotly interface to create a bar plot of all polluants in the active treatment train layer.
         """
 
-        if (layer := self.getActiveLayer()) is None:
+        if (layer := self.get_active_layer()) is None:
             return
 
         if (main_panel := self.get_dataplotly_panel()) is None:
             return
 
-        layer_valid, max_stages_nb, _ = self.validateAndGetMetadata(layer)
+        layer_valid, max_stages_nb, _ = self.validate_and_get_metadata(layer)
         if not layer_valid:
             return
 
@@ -272,18 +272,18 @@ class ProcessPlots(Translatable):
         # Create last bar plot
         main_panel.create_plot()
 
-    def radarPlot(self):
+    def radar_plot(self):
         """
         Control DataPlotly interface to create a radar plot of all normalized data.
         """
 
-        if (layer := self.getActiveLayer()) is None:
+        if (layer := self.get_active_layer()) is None:
             return
 
         if (main_panel := self.get_dataplotly_panel()) is None:
             return
 
-        layer_valid, _, normalized_fields_without_null_values = self.validateAndGetMetadata(layer)
+        layer_valid, _, normalized_fields_without_null_values = self.validate_and_get_metadata(layer)
         if not layer_valid:
             return
 
