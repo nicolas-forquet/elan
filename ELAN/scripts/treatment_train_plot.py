@@ -251,7 +251,7 @@ class ProcessPlots(Translatable):
             # plot a bar for each pollutant
             for j in range(nb_pollutant):
                 main_panel.y_combo.setField(f'from_json("{self.loading_fields[j]}")[{i}]')
-                main_panel.legend_title.setText(f"{bar_legend_labels[j]} {self.tr("stage")} {i+1}")
+                main_panel.legend_title.setText(bar_legend_labels[j] + " " + self.tr("stage") + f" {i + 1}")
                 main_panel.in_color_combo.setColor(QColor(bar_color_gradients[j][i]))
 
                 # Create the plot only if this is not the very last bar
