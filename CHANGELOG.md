@@ -27,7 +27,28 @@ Unreleased
 - and that other one too
 -->
 
-## 2025.7.925-beta - 2025-06-25
+## 2025.10.2 - 2025-10-02
+
+### Added
+
+- Plot visualization for treatment train layer: toolbar with 2 buttons (bar & radar plot)
+- PyQt6 compatibility (ready for QGIS 4!)
+- Processes module: new test
+- Documentation menu
+
+### Changed
+
+- Processes module: renamed attributes (P -> TP, coliforms -> e.coli, NO3 -> NO3-N)
+- Update translations
+- Update metadata: contact email and home page
+
+### Fixed
+
+- Typos
+- wetlandoptimizer don't need to be re-installed on every startup
+- Proper error message if other ELAN dependencies are not found at startup
+
+## 2025.7.925-beta - 2025-07-25
 
 ### Changed
 
