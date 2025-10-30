@@ -9,245 +9,306 @@ msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-25 14:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
+"PO-Revision-Date: 2025-10-29 09:27+0100\n"
+"Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.17.0\n"
+"X-Generator: Poedit 3.8\n"
 
 #: ../../introduction.rst:2
 msgid "Introduction"
-msgstr ""
+msgstr "Introduction"
 
 #: ../../introduction.rst:4
 msgid ""
-"L'appellation ELAN a été choisie pour **\"urban watEr pLanning scenArios "
-"for sustaiNable cities\"**. Il s'agit d'un **outil d'aide à la décision "
-"pour une gestion intégrée des eaux urbaines (usées et pluviales) par des "
-"solutions fondées sur la nature**. ELAN s'inscrit dans un objectif global"
-" de transformer la ville de demain pour la rendre résiliente au "
-"changement global. Cette transformation constitue un véritable défi "
-"territorial, ce qui rend particulièrement pertinent le recours au système"
-" d'information géographique (SIG)."
+"L'appellation ELAN a été choisie pour **\"urban watEr pLanning scenArios for "
+"sustaiNable cities\"**. Il s'agit d'un **outil d'aide à la décision pour une "
+"gestion intégrée des eaux urbaines (usées et pluviales) par des solutions "
+"fondées sur la nature**. ELAN s'inscrit dans un objectif global de transformer "
+"la ville de demain pour la rendre résiliente au changement global. Cette "
+"transformation constitue un véritable défi territorial, ce qui rend "
+"particulièrement pertinent le recours au système d'information géographique "
+"(SIG)."
 msgstr ""
+"The name ELAN was chosen for **\"urban watEr pLanning scenArios for "
+"sustaiNable cities\"**. It is a **decision-support tool for the integrated "
+"management of urban waters (wastewater and stormwater) through nature-based "
+"solutions**. ELAN is part of a broader objective to transform the cities of "
+"tomorrow, making them resilient to climate change. The challenge is therefore "
+"territorial, hence the relevance of resorting to a Geographic Information "
+"System (GIS)."
 
 #: ../../introduction.rst:10
 msgid "Un outil, deux problématiques"
-msgstr ""
+msgstr "One tool, two issues"
 
 #: ../../introduction.rst:11
 msgid ""
 "ELAN permet d'aider à la décision face à **deux problématiques** : l'une "
-"mettant en jeu spécifiquement les eaux usées (**\"question du "
-"centralisé/décentralisé\"**), l'autre impliquant les eaux urbaines dans "
-"leur ensemble (**\"question des déversements par temps de pluie\"**)."
+"mettant en jeu spécifiquement les eaux usées (**\"question du centralisé/"
+"décentralisé\"**), l'autre impliquant les eaux urbaines dans leur ensemble "
+"(**\"question des déversements par temps de pluie\"**)."
 msgstr ""
+"ELAN helps decision-making in relation to **two issues**: one specifically "
+"concerning wastewater (the **centralized/decentralized question**), the other "
+"involving urban water as a whole (the **stormwater overflows question**)."
 
 #: ../../introduction.rst:14
 msgid ""
-"Pour la problématique du centralisé/décentralisé, la question qui se pose"
-" est : **comment connecter une zone dépourvue de réseau d'assainissement "
-"(nouveau quartier, zone historiquement en assainissement non collectif) "
-"?**"
+"Pour la problématique du centralisé/décentralisé, la question qui se pose "
+"est : **comment connecter une zone dépourvue de réseau d'assainissement "
+"(nouveau quartier, zone historiquement en assainissement non collectif) ?**"
 msgstr ""
+"For the centralized/decentralized issue, the question is: **how to connect an "
+"area without a sewer network (new neighborhood, area historically served by on-"
+"site sanitation)?**"
 
 #: ../../introduction.rst:17
 msgid ""
 "Dans le cas de déversements d'un réseau unitaire par temps de pluie, "
-"l'utilisateur est confronté à la question : **comment limiter les "
-"déversements d'eaux non traitées au niveau des déversoirs d'orage ?**"
+"l'utilisateur est confronté à la question : **comment limiter les déversements "
+"d'eaux non traitées au niveau des déversoirs d'orage ?**"
 msgstr ""
+"For stormwater overflows from a combined sewer system during rainfall, the "
+"user is faced with the question: **how to limit the discharges of untreated "
+"water at stormwater overflows?**"
 
 #: ../../introduction.rst:21
 msgid "Illustration par des exemples"
-msgstr ""
+msgstr "Illustrative examples"
 
 #: ../../introduction.rst:26
 msgid "Question du centralisé/décentralisé : Petite Anse (Martinique)"
-msgstr ""
+msgstr "Centralized/decentralized question: Petite Anse (Martinique)"
 
 #: ../../introduction.rst:27
 msgid ""
-"Petite Anse est un **quartier sans réseau d'assainissement** : "
-"historiquement le choix de l'assainissement non collectif s'est en effet "
-"imposé, notamment au regard des contraintes géographiques (relief "
-"marqué)."
+"Petite Anse est un **quartier sans réseau d'assainissement** : historiquement "
+"le choix de l'assainissement non collectif s'est en effet imposé, notamment au "
+"regard des contraintes géographiques (relief marqué)."
 msgstr ""
+"Petite Anse is a **neighborhood with no sewer network**: historically on-site "
+"sanitation was the chosen solution, largely due to geographic constraints "
+"(steep terrain)."
 
 #: ../../introduction.rst:30
 msgid ""
-"L'image ci-dessous permet d'expliquer la problématique. Le quartier de "
-"Petite Anse se trouve dans l'ellipse. Il est constitué de deux zones (une"
-" basse et une sur les hauteurs) interconnectées entre elles par une "
-"route. La collectivité en charge de ce quartier souhaite **étudier la "
-"possibilité d'implémenter un réseau d'assainissement collectif**."
+"L'image ci-dessous permet d'expliquer la problématique. Le quartier de Petite "
+"Anse se trouve dans l'ellipse. Il est constitué de deux zones (une basse et "
+"une sur les hauteurs) interconnectées entre elles par une route. La "
+"collectivité en charge de ce quartier souhaite **étudier la possibilité "
+"d'implémenter un réseau d'assainissement collectif**."
 msgstr ""
+"The figure below illustrates the problem. Petite Anse (shown in the ellipse) "
+"consists of two interconnected zones (one low-lying and one on higher ground) "
+"connected by a road. The local authority responsible for this area wishes to "
+"*study the feasibility of implementing a collective sewer system**."
 
 #: ../../introduction.rst:33
 msgid "**Plusieurs exutoires** sont envisageables :"
-msgstr ""
+msgstr "**Several discharge points** are possible:"
 
 #: ../../introduction.rst:35
 msgid ""
-"l'une des deux stations existantes (points verts encerclés de pointillés)"
-" ;"
+"l'une des deux stations existantes (points verts encerclés de pointillés) ;"
 msgstr ""
+"one of the two existing wastewater treatment plants (green dots with dashed "
+"circles);"
 
 #: ../../introduction.rst:37
 msgid ""
 "une nouvelle station dans le quartier à l'un des deux emplacements "
-"identifiés : sur les hauteurs (point orange encerclé de pointillés) ou "
-"sur le littoral (point bordeau encerclé de pointillés) ;"
+"identifiés : sur les hauteurs (point orange encerclé de pointillés) ou sur le "
+"littoral (point bordeau encerclé de pointillés) ;"
 msgstr ""
+"a new plant located in the neighborhood, either on the high ground (orange dot "
+"with dashed circle) or on the coast (burgundy dot with dashed circle);"
 
 #: ../../introduction.rst:39
 msgid ""
-"une combinaison de ces exutoires possibles (1 nouvelle et 1 station "
-"existante, 2 nouvelles)."
+"une combinaison de ces exutoires possibles (1 nouvelle et 1 station existante, "
+"2 nouvelles)."
 msgstr ""
+"a combination of these options (one new plant plus an existing one, or two new "
+"plants)."
 
 #: ../../introduction.rst:41
 msgid ""
-"Si toutes les eaux usées générées par ce quartier sont évacuées et "
-"traitées en **un point**, la gestion sera **centralisée**. Si **deux "
-"exutoires (ou plus)** sont retenus, la gestion sera **décentralisée**."
+"Si toutes les eaux usées générées par ce quartier sont évacuées et traitées en "
+"**un point**, la gestion sera **centralisée**. Si **deux exutoires (ou plus)** "
+"sont retenus, la gestion sera **décentralisée**."
 msgstr ""
+"If all wastewater generated in this neighborhood is conveyed and treated at "
+"**a single point**, the management is **centralized**. If **two (or more) "
+"outlets** are used, the management is decentralized."
 
 #: ../../introduction.rst:46
 msgid ""
 "ELAN permet d'aider à la prise de décision en permettant à l'utilisateur "
 "**d'explorer de multiples scénarios et de les évaluer**."
 msgstr ""
+"ELAN helps the decision-making process by allowing users to **explore and "
+"assess multiple scenarios**."
 
 #: ../../introduction.rst:48
 msgid ""
 "Le cas de Petite Anse servira d'exemple tout au long des explications "
 "relatives à la question du centralisé/décentralisé."
 msgstr ""
+"The Petite Anse case is used as an example throughout the explanations related "
+"to the centralized/decentralized question."
 
 #: ../../introduction.rst:51
 msgid "Question des déversements par temps de pluie : Écully (Rhône)"
-msgstr ""
+msgstr "Stormwater overflows question: Écully (Rhône)"
 
 #: ../../introduction.rst:54
 msgid "Cette section est en cours de construction."
-msgstr ""
+msgstr "This section is under construction."
 
 #: ../../introduction.rst:57
 msgid "Structure de l'outil"
-msgstr ""
+msgstr "Structure of the tool"
 
 #: ../../introduction.rst:58
 msgid "ELAN est structuré en **plusieurs groupement de modules**."
-msgstr ""
+msgstr "ELAN is structured into **several groups of modules**."
 
 #: ../../introduction.rst:63
 msgid "**Préparation des données**"
-msgstr ""
+msgstr "**Data pre-processing**"
 
 #: ../../introduction.rst:64
 msgid ""
-"``Routes et bâtiments`` qui permet **d'extraire les données** `Open "
-"Street Map <https://www.openstreetmap.org>`_ de la zone d'intérêt définie"
-" par l'utilisateur."
+"``Routes et bâtiments`` qui permet **d'extraire les données** `Open Street Map "
+"<https://www.openstreetmap.org>`_ de la zone d'intérêt définie par "
+"l'utilisateur."
 msgstr ""
+"``Roads and buildings`` that allows **the extraction of** `OpenStreetMap "
+"<https://www.openstreetmap.org>`_ **data** for the user-defined area of "
+"interest."
 
 #: ../../introduction.rst:65
 msgid ""
 "``Population`` qui est utilisable pour **répartir un nombre connu "
 "d'habitants** au sein d'un ensemble de bâtiments."
 msgstr ""
+"``Population`` that **distributes a known number of inhabitants** among a set "
+"of buildings."
 
 #: ../../introduction.rst:66
 msgid ""
-"``Bassins versants urbains`` pour **identifier les différents bassins "
-"versants urbains** drainés par un réseau unitaire connu."
+"``Bassins versants urbains`` pour **identifier les différents bassins versants "
+"urbains** drainés par un réseau unitaire connu."
 msgstr ""
+"``Urban Catchment`` that **identifies the various urban catchment areas** "
+"drained by a known combined sewer network."
 
 #: ../../introduction.rst:69
 msgid ""
-"L'utilisation de ces modules est facultative. Elle permet, si "
-"l'utilisateur en a besoin, de préparer les données SIG requises en "
-"entrées des modules de type \"Processus\" : ``Routes et bâtiments`` et "
-"``Population`` pour le module ``Réseau``, ``Bassins versants urbains`` "
-"pour le module ``Hydraulique``."
+"L'utilisation de ces modules est facultative. Elle permet, si l'utilisateur en "
+"a besoin, de préparer les données SIG requises en entrées des modules de type "
+"\"Processus\" : ``Routes et bâtiments`` et ``Population`` pour le module "
+"``Réseau``, ``Bassins versants urbains`` pour le module ``Hydraulique``."
 msgstr ""
+"The use of these modules is optional. It allows, if the user needs it, the "
+"preparation of the GIS data required as inputs for the “Processings” type "
+"modules: ``Roads and Buildings`` and ``Population`` for the ``Sewer network`` "
+"module, ``Urban Catchment`` for the ``Hydraulic`` module."
 
 #: ../../introduction.rst:72
 msgid "**Processus**"
-msgstr ""
+msgstr "**Processings**"
 
 #: ../../introduction.rst:73
 msgid ""
 "``Réseau`` pour **tracer un réseau d'assainissement** strict (réseau "
-"séparatif, eaux usées uniquement) dans une zone sans réseau à l'aide de "
-":ref:`pysewer <pysewer>`."
+"séparatif, eaux usées uniquement) dans une zone sans réseau à l'aide "
+"de :ref:`pysewer <pysewer>`."
 msgstr ""
+"``Sewer network`` for **pre-designing a sanitation sewer network** (separate "
+"sewer system, wastewater only) in an area without an existing network, "
+"using :ref:`pysewer <pysewer>`."
 
 #: ../../introduction.rst:74
 msgid ""
-"``Procédés`` qui permet de **pré-dimensionner des filières de "
-"traitement** des eaux usées de type filtres plantés de végétaux à l'aide "
+"``Procédés`` qui permet de **pré-dimensionner des filières de traitement** des "
+"eaux usées de type filtres plantés de végétaux à l'aide "
 "de :ref:`wetlandoptimizer <wetlandoptimizer>`."
 msgstr ""
+"``Processes`` for **preliminary sizing of wastewater treatment systems** of "
+"the constructed wetlands type, using :ref:`wetlandoptimizer "
+"<wetlandoptimizer>`."
 
 #: ../../introduction.rst:75
 msgid ""
-"``Hydraulique`` qui intervient dans **l'estimation des volumes produits**"
-" par les différents bassins versants urbains d'une zone."
+"``Hydraulique`` qui intervient dans **l'estimation des volumes produits** par "
+"les différents bassins versants urbains d'une zone."
 msgstr ""
+"``Hydraulic`` for **estimating the volumes generated** by the different urban "
+"catchments in an area."
 
 #: ../../introduction.rst:79
 msgid ""
-"Le module ``Réseau`` est utilisé pour la question du "
-"centralisé/décentralisé."
+"Le module ``Réseau`` est utilisé pour la question du centralisé/décentralisé."
 msgstr ""
+"The ``Sewer network`` module is used for the centralized/decentralized "
+"question."
 
 #: ../../introduction.rst:81
 msgid "Le module ``Hydraulique`` pour celle des déversements par temps de pluie."
-msgstr ""
+msgstr "The ``Hydraulic`` module for the stormwater overflows one."
 
 #: ../../introduction.rst:83
 msgid "Le module ``Procédés`` peut être sollicité pour les deux problématiques."
-msgstr ""
+msgstr "The ``Processes`` module can be used for both issues."
 
 #: ../../introduction.rst:85
 msgid ""
-"``Créer un scénario`` qui est à l'interface des modules de types "
-"*Processus* et *Analyse* et permet de créer des objets scénarios qui "
-"pourront ensuite être évalués et comparés."
+"``Créer un scénario`` qui est à l'interface des modules de types *Processus* "
+"et *Analyse* et permet de créer des objets scénarios qui pourront ensuite être "
+"évalués et comparés."
 msgstr ""
+"``Create a scenario`` that interfaces with the *Processings* and *Analysis* "
+"modules type and allows you to create scenario objects that can then be "
+"assessed and compared."
 
 #: ../../introduction.rst:87
 msgid "**Exploration des résultats**"
-msgstr ""
+msgstr "**Results Exploration**"
 
 #: ../../introduction.rst:88
 msgid ""
-"``Profils de canalisations`` qui permet de **visualiser le profil "
-"souterrain des canalisations (vue longitudinale)**."
+"``Profils de canalisations`` qui permet de **visualiser le profil souterrain "
+"des canalisations (vue longitudinale)**."
 msgstr ""
+"``Longitudinal sewer profile`` for **visualizing the underground profile of "
+"pipes (longitudinal view)**."
 
 #: ../../introduction.rst:91
 msgid ""
-"L'utilisation de ce module est facultative. Elle permet, si l'utilisateur"
-" le souhaite, d'approfondir les résultats obtenus en sortie de module "
-"``Réseau``."
+"L'utilisation de ce module est facultative. Elle permet, si l'utilisateur le "
+"souhaite, d'approfondir les résultats obtenus en sortie de module ``Réseau``."
 msgstr ""
+"The use of this module is optional. It allows, if the user wishes, a more in-"
+"depth examination of the results obtained from the ``Sewer network`` module."
 
 #: ../../introduction.rst:93
 msgid "**Analyse**"
-msgstr ""
+msgstr "**Analysis**"
 
 #: ../../introduction.rst:94
 msgid ""
-"``Évaluation`` qui permet **d'évaluer un scénario sur plusieurs "
-"paramètres** (économique, technicité, robustesse)."
+"``Évaluation`` qui permet **d'évaluer un scénario sur plusieurs paramètres** "
+"(économique, technicité, robustesse)."
 msgstr ""
+"``Assessment`` that **assesses a scenario according to several parameters** "
+"(economic, technical feasibility, robustness)."
 
 #: ../../introduction.rst:95
 msgid ""
@@ -255,36 +316,46 @@ msgid ""
 "scénarios** et les comparer selon différents critères priorisés par "
 "l'utilisateur."
 msgstr ""
+"``Comparison`` for **carrying out a multi-criteria analysis on a set of "
+"scenarios** and comparing them according to different criteria, based on user-"
+"defined prioritization."
 
 #: ../../introduction.rst:100
 msgid "Un outil qui mutualise différents travaux de recherche"
-msgstr ""
+msgstr "A tool that combines different research projects"
 
 #: ../../introduction.rst:102
 msgid ""
-"ELAN vise à **rendre plus largement accessible les résultats de travaux "
-"de recherche** menés indépendamment sur un aspect spécifique des "
-"problématiques adressées et de **les combiner entre eux pour envisager "
-"ces problématiques dans leur globalité et leur complexité**."
+"ELAN vise à **rendre plus largement accessible les résultats de travaux de "
+"recherche** menés indépendamment sur un aspect spécifique des problématiques "
+"adressées et de **les combiner entre eux pour envisager ces problématiques "
+"dans leur globalité et leur complexité**."
 msgstr ""
+"ELAN aims to **make the results of research conducted on the subject more "
+"widely accessible**. As research projects are mainly focusing on a specific "
+"aspect of the issues addressed, ELAN allows to combine them to consider these "
+"two urban water management issues in their entirety and complexity."
 
 #: ../../introduction.rst:105
 msgid ""
 "Les travaux de recherche identifiés et intégrés à la version actuelle de "
 "l'outil ont été développés par :"
 msgstr ""
+"The research identified and integrated into the current version of the tool "
+"has been developed by:"
 
 #: ../../introduction.rst:115
 msgid ""
 "Parmi les futures intégrations à ELAN, ont été identifiés les travaux "
 "d'hydrologie urbaine menés conjointement par :"
 msgstr ""
+"Among the future integrations into ELAN is the urban hydrology research "
+"conducted jointly by:"
 
 #: ../../introduction.rst:125
 msgid "Le développement de l'outil en lui-même mobilise deux acteurs :"
-msgstr ""
+msgstr "The development of the tool itself involves:"
 
 #: ../../introduction.rst:135
 msgid "Ce projet est développé grâce aux financements de :"
-msgstr ""
-
+msgstr "This project is made possible through funding from:"

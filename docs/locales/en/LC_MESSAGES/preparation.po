@@ -9,69 +9,86 @@ msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-25 14:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
+"PO-Revision-Date: 2025-10-29 16:14+0100\n"
+"Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.17.0\n"
+"X-Generator: Poedit 3.8\n"
 
 #: ../../preparation.rst:4
 msgid "Obtention et préparation des données géographiques"
-msgstr ""
+msgstr "Obtaining and preparing geographic data"
 
 #: ../../preparation.rst:7
 msgid "Entrées du module ``Réseau``"
-msgstr ""
+msgstr "Inputs for the ``Sewer network`` module"
 
 #: ../../preparation.rst:9
 msgid ""
-"Pour pouvoir utiliser le module ``Réseau``, **4 couches géographiques** "
-"sont nécessaires :"
+"Pour pouvoir utiliser le module ``Réseau``, **4 couches géographiques** sont "
+"nécessaires :"
 msgstr ""
+"To be able to use the ``Sewer network`` module, **4 geographic layers** are "
+"required:"
 
 #: ../../preparation.rst:11
 msgid ""
-"``STEU`` : couche vecteur qui contient l'ensemble des **emplacements "
-"envisagés comme exutoires** (station de traitement des eaux usées "
-"existante ou projet possible), type : *point*."
+"``STEU`` : couche vecteur qui contient l'ensemble des **emplacements envisagés "
+"comme exutoires** (station de traitement des eaux usées existante ou projet "
+"possible), type : *point*."
 msgstr ""
+"`` WWTP``: vector layer containing all **locations considered as potential "
+"discharge points** (existing wastewater treatment plant or possible project "
+"location), type: *point*."
 
 #: ../../preparation.rst:13
 msgid ""
-"``bâtiments`` : couche vecteur qui rassemble les **bâtiments à "
-"raccorder**, type : *point* (centroïdes des bâtiments). Si l'occupation "
-"est différente selon les bâtiments, le nombre d'habitants par bâtiment "
-"peut être indiqué via un attribut (*population* par exemple)."
+"``bâtiments`` : couche vecteur qui rassemble les **bâtiments à raccorder**, "
+"type : *point* (centroïdes des bâtiments). Si l'occupation est différente selon "
+"les bâtiments, le nombre d'habitants par bâtiment peut être indiqué via un "
+"attribut (*population* par exemple)."
 msgstr ""
+"``buildings``: vector layer containing the **buildings to be connected**, type: "
+"*point* (building centroids). If occupancy differs between buildings, the "
+"number of inhabitants per building can be indicated via an attribute (e.g., "
+"*population*)."
 
 #: ../../preparation.rst:15
 msgid ""
-"``routes`` : couche vecteur indiquant les **routes empruntables** pour le"
-" raccordement, type : *ligne*."
+"``routes`` : couche vecteur indiquant les **routes empruntables** pour le "
+"raccordement, type : *ligne*."
 msgstr ""
+"``roads``: vector layer indicating the **roads that can be used** for "
+"connection, type: *line*."
 
 #: ../../preparation.rst:17
 msgid ""
-"``MNT`` : couche raster (.tif, .asc, .vrt) du **modèle numérique de "
-"terrain** pour la zone d'intérêt."
+"``MNT`` : couche raster (.tif, .asc, .vrt) du **modèle numérique de terrain** "
+"pour la zone d'intérêt."
 msgstr ""
+"``DEM``: raster layer (.tif, .asc, .vrt) of the **digital elevation model** for "
+"the area of interest."
 
 #: ../../preparation.rst:20
 msgid "Les couches vecteur peuvent être des .shp ou des .gpkg."
-msgstr ""
+msgstr "Vector layers can be .shp or .gpkg."
 
 #: ../../preparation.rst:22
 msgid ""
-"Si vous disposez de ces 4 couches, vous pouvez vous rendre directement à "
-"la page :ref:`Création d'un scénario pour la question du centralisé / "
-"décentralisé <prb1>`. Sinon, poursuivez ici pour quelques astuces et "
-"explications sur l'obtention et la préparation des données géographiques "
-"requises."
+"Si vous disposez de ces 4 couches, vous pouvez vous rendre directement à la "
+"page :ref:`Création d'un scénario pour la question du centralisé / décentralisé "
+"<prb1>`. Sinon, poursuivez ici pour quelques astuces et explications sur "
+"l'obtention et la préparation des données géographiques requises."
 msgstr ""
+"If you already have these 4 layers, you can go directly to the "
+"page :ref:`Creating a scenario for the centralized/decentralized question "
+"<prb1>`. If not, continue here for some tips and explanations on obtaining and "
+"preparing the required geographic data."
 
 #: ../../preparation.rst:25
 msgid ""
@@ -79,231 +96,278 @@ msgid ""
 "couche`` de type *point* et de l'éditer de sorte à indiquer tous les "
 "emplacements possibles comme exutoires (1 point = 1 exutoire possible)."
 msgstr ""
+"**For the** ``WWTP`` **layer**, the simplest way is to ``Create a new layer``, "
+"*point* type, and edit it to indicate all possible discharge point locations (1 "
+"point = 1 possible discharge point)."
 
 #: ../../preparation.rst:27
 msgid "**Pour les autres couches** :"
-msgstr ""
+msgstr "**For the other layers**:"
 
 #: ../../preparation.rst:30
 msgid "En contexte français (Hexagone et Outre-Mer)"
-msgstr ""
+msgstr "In a French context (mainland and overseas territories)"
 
 #: ../../preparation.rst:32
 msgid ""
-"``MNT``: raster téléchargeable par département sur le site `Géoservices "
-"de l'IGN <https://geoservices.ign.fr/>`_"
+"``MNT``: raster téléchargeable par département sur le site `Géoservices de "
+"l'IGN <https://geoservices.ign.fr/>`_"
 msgstr ""
+"``DEM``: raster downloadable by department from the `IGN Geoservices website "
+"<https://geoservices.ign.fr/>`_"
 
 #: ../../preparation.rst:33
 msgid "MNT à 25 m : `BD ALTI® 25M <https://geoservices.ign.fr/bdalti>`_"
-msgstr ""
+msgstr "25 m DEM: `BD ALTI® 25M <https://geoservices.ign.fr/bdalti>`_"
 
 #: ../../preparation.rst:34
 msgid "MNT à 5 m voire 1 m : `RGE ALTI® <https://geoservices.ign.fr/rgealti>`_"
-msgstr ""
+msgstr "5 m or even 1 m DEM: `RGE ALTI® <https://geoservices.ign.fr/rgealti>`_"
 
 #: ../../preparation.rst:36
 msgid ""
-"``routes`` et ``bâtiments``: couches téléchargeables par département sur "
-"le site Géoservices de l'IGN `BD TOPO® "
-"<https://geoservices.ign.fr/bdtopo>`_."
+"``routes`` et ``bâtiments``: couches téléchargeables par département sur le "
+"site Géoservices de l'IGN `BD TOPO® <https://geoservices.ign.fr/bdtopo>`_."
 msgstr ""
+"``roads`` et ``buildings``: layers downloadable by department from the IGN "
+"Geoservices website `BD TOPO® <https://geoservices.ign.fr/bdtopo>`_."
 
 #: ../../preparation.rst:39
 msgid ""
-"Pour accéder aux routes et bâtiments à l'échelle de votre zone d'étude et"
-" non du département, vous pouvez installer et utiliser le plugin `BD "
-"TOPO® Extractor <https://plugins.qgis.org/plugins/bd_topo_extractor/>`_."
+"Pour accéder aux routes et bâtiments à l'échelle de votre zone d'étude et non "
+"du département, vous pouvez installer et utiliser le plugin `BD TOPO® Extractor "
+"<https://plugins.qgis.org/plugins/bd_topo_extractor/>`_."
 msgstr ""
+"To access roads and buildings at the scale of your study area (**in French "
+"context**) rather than the entire department, you can install and use the `BD "
+"TOPO® Extractor <https://plugins.qgis.org/plugins/bd_topo_extractor/>`_."
 
 #: ../../preparation.rst:41
 msgid "Il vous suffit de :"
-msgstr ""
+msgstr "Steps:"
 
 #: ../../preparation.rst:43
 msgid "Installer l'extension via le gestionnaire d'extensions."
-msgstr ""
+msgstr "Install the plugin via the QGIS plugin manager."
 
 #: ../../preparation.rst:44
 msgid "Dessiner sur la carte la zone rectangulaire à extraire."
-msgstr ""
+msgstr "Draw a rectangular area on the map to extract."
 
 #: ../../preparation.rst:45
 msgid "Choisir les couches ``Bâtiment`` et ``Tronçon de route``."
-msgstr ""
+msgstr "Select the ``Bâtiment`` and ``Tronçon de route`` layers."
 
 #: ../../preparation.rst:48
 msgid ""
-"La couche ``bâtiments`` obtenue est de type *polygone* et non *point*. "
-"Elle doit donc être transformée via le module :ref:`Population "
-"<population>` intégré à ELAN ou le module ``Centroïdes`` qui est natif de"
-" QGIS."
+"La couche ``bâtiments`` obtenue est de type *polygone* et non *point*. Elle "
+"doit donc être transformée via le module :ref:`Population <population>` intégré "
+"à ELAN ou le module ``Centroïdes`` qui est natif de QGIS."
 msgstr ""
+"The ``building`` layer obtained will be *polygon* type, not *point* type. It "
+"must therefore be converted using the :ref:`Population <population>` module "
+"integrated in ELAN or the ``Centroids`` tool native to QGIS."
 
 #: ../../preparation.rst:51
 msgid "En contexte international"
-msgstr ""
+msgstr "In an international context"
 
 #: ../../preparation.rst:53
 msgid ""
-"``MNT`` : le MNT ou DEM en anglais (Digital Elevation Model), est *a "
-"priori* disponible sur l'ensemble des territoires du monde à une maille "
-"de 30 m via différentes plateformes."
+"``MNT`` : le MNT ou DEM en anglais (Digital Elevation Model), est *a priori* "
+"disponible sur l'ensemble des territoires du monde à une maille de 30 m via "
+"différentes plateformes."
 msgstr ""
+"``DEM``: the DEM (Digital Elevation Model) is generally available worldwide at "
+"30 m resolution via various platforms."
 
 #: ../../preparation.rst:56
 msgid ""
 "Plus le MNT est précis, plus les sorties du module ``Réseau`` seront "
-"pertinentes. **Nous vous recommandons donc de regarder si des données MNT"
-" à 10 m ou 5 m sont disponibles dans votre contexte national**. A défaut,"
-" utilisez le MNT à 30 m, mais gardez en tête que la précision du MNT "
-"impacte les résultats du module ``Réseau`` (surestimation du nombre de "
-"stations de pompage)."
+"pertinentes. **Nous vous recommandons donc de regarder si des données MNT à 10 "
+"m ou 5 m sont disponibles dans votre contexte national**. A défaut, utilisez le "
+"MNT à 30 m, mais gardez en tête que la précision du MNT impacte les résultats "
+"du module ``Réseau`` (surestimation du nombre de stations de pompage)."
 msgstr ""
+"Relevance of ``Sewer network`` module outputs is partially conditioned by DEM "
+"resolution. Therefore, **we highly suggest to check if 10m or 5m DEM data are "
+"available in you local context**. If not, use a 30m DEM but keep in mind that "
+"it will impact the outputs of the ``Sewer network`` module (overestimation of "
+"pumping stations)."
 
 #: ../../preparation.rst:61
 msgid ""
-"Si vous ne disposez pas de données locales de MNT à une maille inférieure"
-" à 30 m, vous pouvez consulter le site ASF Data Search à l'adresse "
-"suivante : https://search.asf.alaska.edu/#/ et suivre les étapes "
-"indiquées pour essayer de trouver une tuile de MNT à rune maille de 12.5 "
-"m sur votre zone."
+"Si vous ne disposez pas de données locales de MNT à une maille inférieure à 30 "
+"m, vous pouvez consulter le site ASF Data Search à l'adresse suivante : https://"
+"search.asf.alaska.edu/#/ et suivre les étapes indiquées pour essayer de trouver "
+"une tuile de MNT à rune maille de 12.5 m sur votre zone."
 msgstr ""
+"If you do not have access to DEM finer than 30m, you can check the ASF Data "
+"Search website at the following address : https://search.asf.alaska.edu/#/ and "
+"follow the indicated steps to try to find a 12.5 m DEM tile covering your area."
 
 #: ../../preparation.rst:63
 msgid "Sélectionner Geographic Search pour Search type (bulle 1)."
-msgstr ""
+msgstr "Select Geographic Search for the Search type (marker 1)."
 
 #: ../../preparation.rst:64
 msgid "Sélectionner ALOS PALSAR pour Data Set (bulle 2)."
-msgstr ""
+msgstr "Select ALOS PALSAR for the Data Set (marker 2)."
 
 #: ../../preparation.rst:65
 msgid "Indiquer votre zone sur la carte (bulle 3, carré jaune)."
-msgstr ""
+msgstr "Indicate your area location on the map (marker 3, yellow square)."
 
 #: ../../preparation.rst:66
 msgid "Cliquer sur SEARCH (bulle 4)."
-msgstr ""
+msgstr "Click on SEARCH (marker 4)."
 
 #: ../../preparation.rst:67
 msgid ""
-"Regarder si parmi les tuiles proposées à gauche, il y en a une où un "
-"fichier High-Res Terrain Corrected est proposé au téléchargement (bulle "
-"5)."
+"Regarder si parmi les tuiles proposées à gauche, il y en a une où un fichier "
+"High-Res Terrain Corrected est proposé au téléchargement (bulle 5)."
 msgstr ""
+"Among the suggested tiles on the left, check if there is one where a file High-"
+"Res Terrain Corrected can be downloaded (marker 5)."
 
 #: ../../preparation.rst:68
 msgid ""
-"Si oui, il vous faudra créer un compte (email et mot de passe) pour "
-"pouvoir télécharger le fichier."
+"Si oui, il vous faudra créer un compte (email et mot de passe) pour pouvoir "
+"télécharger le fichier."
 msgstr ""
+"If that is the case, you will have to create an account (email and password) to "
+"download the tile."
 
 #: ../../preparation.rst:73
 msgid ""
-"``routes`` et ``bâtiments``: le module :ref:`Routes et bâtiments "
-"<routes>` d'ELAN vous permet d'extraire les données Open Street Map sur "
-"une zone définie."
+"``routes`` et ``bâtiments``: le module :ref:`Routes et bâtiments <routes>` "
+"d'ELAN vous permet d'extraire les données Open Street Map sur une zone définie."
 msgstr ""
+"``roads`` et ``buildings``: the ELAN :ref:`Roads and buildings <routes>` module "
+"allows you to extract OpenStreetMap data for a defined area."
 
 #: ../../preparation.rst:76
 msgid ""
-"La couche ``bâtiments`` obtenue sera de type *polygone* et non *point*. "
-"Elle devra donc être transformée via le module :ref:`Population "
-"<population>` intégré à ELAN ou le module ``Centroïdes`` qui est natif de"
-" QGIS."
+"La couche ``bâtiments`` obtenue sera de type *polygone* et non *point*. Elle "
+"devra donc être transformée via le module :ref:`Population <population>` "
+"intégré à ELAN ou le module ``Centroïdes`` qui est natif de QGIS."
 msgstr ""
+"The ``buildings`` layer obtained will be *polygon* type, not *point* type. To "
+"use the ``Sewer network`` module, you will need to convert it to *point* type "
+"using the ELAN :ref:`Population module <population>` or the ``Centroids`` tool "
+"native to QGIS."
 
 #: ../../preparation.rst:79
 msgid ""
-"Si votre zone d'étude est située dans l'hémisphère Sud, Open Buildings "
-"peut constituer une alternative intéressante à Open Street Map pour les "
-"bâtiments. Pour plus d'informations : https://sites.research.google/gr"
-"/open-buildings/."
+"Si votre zone d'étude est située dans l'hémisphère Sud, Open Buildings peut "
+"constituer une alternative intéressante à Open Street Map pour les bâtiments. "
+"Pour plus d'informations : https://sites.research.google/gr/open-buildings/."
 msgstr ""
+"If your area of interest is located in the Southern Hemisphere, Open Buildings "
+"can be an interesting alternative to Open Street Map for the buildings. For "
+"more details: https://sites.research.google/gr/open-buildings/."
 
 #: ../../preparation.rst:82
 msgid "Application à l'exemple de :ref:`Petite-Anse <petite-anse>`"
 msgstr ""
+"Application to the :ref:`Petite-Anse<petite-anse>` example (French context)"
 
 #: ../../preparation.rst:84
 msgid "**Fond de carte Open Street Map**"
-msgstr ""
+msgstr "**Open Street Map basemap**"
 
 #: ../../preparation.rst:86
 msgid ""
-"Pour identifier la zone, afficher le fond de carte `Open Street Map "
-"<https://www.openstreetmap.org>`_ :"
+"Pour identifier la zone, afficher le fond de carte `Open Street Map <https://"
+"www.openstreetmap.org>`_ :"
 msgstr ""
+"To locate the area, display the `Open Street Map <https://"
+"www.openstreetmap.org>`_ basemap:"
 
 #: ../../preparation.rst:88
 msgid "Aller dans le panneau *Explorateur*."
-msgstr ""
+msgstr "Go to the *Browser* panel."
 
 #: ../../preparation.rst:91
 msgid ""
 "Si *Explorateur* n'est pas visible : activez-le via *Vue - Panneaux - "
 "Explorateur*."
 msgstr ""
+"If the *Browser* panel is not visible: enable it via *View → Panels → Browser*."
 
 #: ../../preparation.rst:96
 msgid "Chercher la catégorie **Tuiles XYZ** (bulle 1)."
-msgstr ""
+msgstr "Search for the **XYZ Tiles** category (marker 1)."
 
 #: ../../preparation.rst:98
 msgid "Dérouler et double-cliquer sur **OpenStreetMap** (bulle 2)."
-msgstr ""
+msgstr "Expand and double-click on **OpenStreetMap** (marker 2)."
 
 #: ../../preparation.rst:103
 msgid ""
-"Localiser la zone sur le fond Open Street Map qui s'est affiché dans "
-"votre vue cartographique."
+"Localiser la zone sur le fond Open Street Map qui s'est affiché dans votre vue "
+"cartographique."
 msgstr ""
+"Locate the area on the Open Street Map basemap displayed in your map view."
 
 #: ../../preparation.rst:109
 msgid ""
-"Pour aller plus loin sur le sujet des fonds de carte dans QGIS, nous vous"
-" conseillons ce :download:`tutoriel "
-"<_static/tutoqgis_03_recherche_donnees.pdf>` réalisé par `UMR 6554 LETG "
-"<https://letg.cnrs.fr/>`_ / `UMR 5319 Passages "
-"<https://www.passages.cnrs.fr/>`_ (CNRS). Il s'agit d'un export PDF du "
-"chapitre 3 du tutoriel QGIS 3.22 'Białowieża' disponible à cette adresse "
-": https://tutoqgis.cnrs.fr/."
+"Pour aller plus loin sur le sujet des fonds de carte dans QGIS, nous vous "
+"conseillons ce :download:`tutoriel <_static/tutoqgis_03_recherche_donnees.pdf>` "
+"réalisé par `UMR 6554 LETG <https://letg.cnrs.fr/>`_ / `UMR 5319 Passages "
+"<https://www.passages.cnrs.fr/>`_ (CNRS). Il s'agit d'un export PDF du chapitre "
+"3 du tutoriel QGIS 3.22 'Białowieża' disponible à cette adresse : https://"
+"tutoqgis.cnrs.fr/."
 msgstr ""
+"For more details on available basemaps in QGIS, refer to `QGIS documentation "
+"<https://docs.qgis.org/3.40/en/docs/index.html>` (`For users` section)."
 
 #: ../../preparation.rst:112
 msgid "**Modèle Numérique de Terrain (MNT)**"
-msgstr ""
+msgstr "**Digital Elevation Model (DEM)**"
 
 #: ../../preparation.rst:114
 msgid ""
-"**1.** Télécharger le `MNT à 5 m de la Martinique "
-"<https://data.geopf.fr/telechargement/download/RGEALTI/RGEALTI_2-0_1M_ASC_WGS84UTM20-MART87_D972_2015-10-21/RGEALTI_2-0_1M_ASC_WGS84UTM20-MART87_D972_2015-10-21.7z>`_"
-" sur RGE ALTI®."
+"**1.** Télécharger le `MNT à 5 m de la Martinique <https://data.geopf.fr/"
+"telechargement/download/RGEALTI/RGEALTI_2-0_1M_ASC_WGS84UTM20-"
+"MART87_D972_2015-10-21/RGEALTI_2-0_1M_ASC_WGS84UTM20-"
+"MART87_D972_2015-10-21.7z>`_ sur RGE ALTI®."
 msgstr ""
+"**1.** Download the `5 m DEM for Martinique  <https://data.geopf.fr/"
+"telechargement/download/RGEALTI/RGEALTI_2-0_1M_ASC_WGS84UTM20-"
+"MART87_D972_2015-10-21/RGEALTI_2-0_1M_ASC_WGS84UTM20-"
+"MART87_D972_2015-10-21.7z>`_ from RGE ALTI®."
 
 #: ../../preparation.rst:119
 msgid ""
-"**2.** Identifier les dalles de MNT qui coïncident avec notre zone "
-"d'intérêt. Cette étape passe par le chargement des différentes dalles "
-"dans votre projet QGIS (via le panneau *Explorateur*)."
+"**2.** Identifier les dalles de MNT qui coïncident avec notre zone d'intérêt. "
+"Cette étape passe par le chargement des différentes dalles dans votre projet "
+"QGIS (via le panneau *Explorateur*)."
 msgstr ""
+"**2.** Identify the DEM tiles covering your area of interest by loading them "
+"into your QGIS project (via the *Browser* panel)."
 
 #: ../../preparation.rst:122
 msgid ""
 "Ici la grille associée aux dalles de MNT est disponible (dalles.shp dans "
-"3_SUPPLEMENTS_LIVRAISON), chargez-la dans QGIS via le panneau "
-"*Explorateur* (bulle 1). Elle vous permettra une identification plus "
-"rapide des dalles concernées."
+"3_SUPPLEMENTS_LIVRAISON), chargez-la dans QGIS via le panneau *Explorateur* "
+"(bulle 1). Elle vous permettra une identification plus rapide des dalles "
+"concernées."
 msgstr ""
+"Here a grid associated to the DEM tiles is available (dalles.shp in "
+"3_SUPPLEMENTS_LIVRAISON). Loading it into QGIS via the *Browser* panel (marker "
+"1) allows you a quicker identification of the tiles of interest."
 
 #: ../../preparation.rst:125
 msgid ""
-"Il vous suffit en effet de sélectionner les dalles coïncidant avec votre "
-"zone (bulles 2 et 3) puis de faire ``Ouvrir la table attributaire "
-"(entités sélectionnées uniquement)`` (bulle 4) pour accéder directement "
-"aux noms des dalles d'intérêt (attribut NOM DALLE)."
+"Il vous suffit en effet de sélectionner les dalles coïncidant avec votre zone "
+"(bulles 2 et 3) puis de faire ``Ouvrir la table attributaire (entités "
+"sélectionnées uniquement)`` (bulle 4) pour accéder directement aux noms des "
+"dalles d'intérêt (attribut NOM DALLE)."
 msgstr ""
+"All you have to do is to select the tiles covering your area (landmarks 2 and "
+"3) and do ``Open Attribute Table (Selected Features)`` (marker 4) to access "
+"directly their names (attribute NOM DALLE)."
 
 #: ../../preparation.rst:134
 msgid ""
@@ -313,595 +377,732 @@ msgid ""
 "RGEALTI_MTQ_0705_1605_MNT_WGS84UTM20_MART87 et "
 "RGEALTI_MTQ_0710_1605_MNT_WGS84UTM20_MART87."
 msgstr ""
+"In this case, four tiles cover the area: "
+"RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART87, "
+"RGEALTI_MTQ_0710_1600_MNT_WGS84UTM20_MART87, "
+"RGEALTI_MTQ_0705_1605_MNT_WGS84UTM20_MART87 and "
+"RGEALTI_MTQ_0710_1605_MNT_WGS84UTM20_MART87."
 
 #: ../../preparation.rst:139
 msgid ""
-"**3.** Identifier le SCR (système de coordonnées de référence) associé. "
-"Il est indiqué dans l'appellation des fichiers : ici WGS184UTM20, soit "
-"EPSG:32620- WGS 84/UTM zone 20N dans QGIS."
+"**3.** Identifier le SCR (système de coordonnées de référence) associé. Il est "
+"indiqué dans l'appellation des fichiers : ici WGS184UTM20, soit EPSG:32620- WGS "
+"84/UTM zone 20N dans QGIS."
 msgstr ""
+"**3.** Identify the associated CRS (Coordinate Reference System). It is usually "
+"indicated in the file names: here WGS184UTM20, i.e., EPSG:32620 – WGS 84 / UTM "
+"zone 20N in QGIS."
 
 #: ../../preparation.rst:143
 msgid ""
-"**4.** Géoréférencer les 4 dalles dans ce SCR (pas de détection "
-"automatique)."
-msgstr ""
+"**4.** Géoréférencer les 4 dalles dans ce SCR (pas de détection automatique)."
+msgstr "**4.** Assign this CRS to the 4 tiles (no automatic detection)."
 
 #: ../../preparation.rst:149
 msgid ""
-"Faire du SCR du MNT le SCR de votre projet : opter pour ce SCR lorsque "
-"vous créez de nouvelles couches, et reprojeter les couches vecteur que "
-"vous importez dans ce SCR avec l'outil natif de QGIS ``Reprojeter une "
-"couche``."
+"Faire du SCR du MNT le SCR de votre projet : opter pour ce SCR lorsque vous "
+"créez de nouvelles couches, et reprojeter les couches vecteur que vous importez "
+"dans ce SCR avec l'outil natif de QGIS ``Reprojeter une couche``."
 msgstr ""
+"Make the DEM’s CRS your project CRS: choose it when creating new layers and "
+"reproject imported vector layers into this CRS using QGIS’s ``Reproject layer`` "
+"tool."
 
 #: ../../preparation.rst:154
 msgid "**5.** Pour fusionner les 4 dalles, utiliser l'outil ``Fusion`` de GDAL."
-msgstr ""
+msgstr "**5.** Merge the 4 tiles using the GDAL ``Merge`` tool."
 
 #: ../../preparation.rst:160
 msgid ""
-"Pour afficher le panneau ``Boîte à outils de traitements`` s'il "
-"n'apparaît pas dans votre espace de travail : *Vue - Panneaux - Boîte à "
-"outils de traitements*. Ou plus simplement : cliquez sur l'icône "
-"engrenage à côté de l'icône sigma (en haut à droite *a priori*)."
+"Pour afficher le panneau ``Boîte à outils de traitements`` s'il n'apparaît pas "
+"dans votre espace de travail : *Vue - Panneaux - Boîte à outils de "
+"traitements*. Ou plus simplement : cliquez sur l'icône engrenage à côté de "
+"l'icône sigma (en haut à droite *a priori*)."
 msgstr ""
+"To display the ``Processing Toolbox panel`` if it does not appear in your "
+"workspace: *View → Panels → Processing Toolbox*. Or even easier: click on the "
+"gear icon just next to the sigma icon (top right *a priori*)."
 
 #: ../../preparation.rst:169
 msgid ""
 "**6.** Renseigner les entrées (bulle 1) et enregistrer la sortie dans un "
 "fichier de type .tif (bulle 2) avant d'exécuter (bulle 3)."
 msgstr ""
+"**6.** Fill in the inputs (marker 1) and save the output to a .tif file (marker "
+"2) before running (marker 3)."
 
 #: ../../preparation.rst:174
 msgid ""
-"**7.** Ce processing vous permet d'obtenir une seule dalle de MNT en "
-"sortie."
-msgstr ""
+"**7.** Ce processing vous permet d'obtenir une seule dalle de MNT en sortie."
+msgstr "**7.** This process allows you to obtain a single DEM tile as output."
 
 #: ../../preparation.rst:179
 msgid ""
-"**8.** Cette dalle n'est pas géoréférencée. Pour lui assigner un SCR de "
-"manière durable :"
-msgstr ""
+"**8.** Cette dalle n'est pas géoréférencée. Pour lui assigner un SCR de manière "
+"durable :"
+msgstr "**8.** This tile is not georeferenced. To assign it a CRS permanently:"
 
 #: ../../preparation.rst:181
 msgid ""
-"Chercher l'outil ``Assigner une projection`` de GDAL dans la boite à "
-"outils de traitements (bulles 1 et 2)."
+"Chercher l'outil ``Assigner une projection`` de GDAL dans la boite à outils de "
+"traitements (bulles 1 et 2)."
 msgstr ""
+"Search for the ``Assign projection`` tool from GDAL in the Processing Toolbox "
+"(landmarks 1 and 2)."
 
 #: ../../preparation.rst:186
 msgid ""
 "Renseigner la couche (bulle 1) et le SCR de destination (bulle 2), puis "
 "Exécuter (bulle 3)."
 msgstr ""
+"Fill in the layer (marker 1) and the target CRS (marker 2), then Run (marker 3)."
 
 #: ../../preparation.rst:191
 msgid ""
-"Votre couche initiale est désormais géoréférencée (pas de nouvelle couche"
-" créée)."
-msgstr ""
+"Votre couche initiale est désormais géoréférencée (pas de nouvelle couche "
+"créée)."
+msgstr "Your initial layer is now georeferenced (no new layer created)."
 
 #: ../../preparation.rst:194
 msgid ""
-"Pour que l'échelle du MNT s'ajuste automatiquement lorsque vous zommez "
-"sur la carte :"
-msgstr ""
+"Pour que l'échelle du MNT s'ajuste automatiquement lorsque vous zommez sur la "
+"carte :"
+msgstr "To have the DEM scale adjust automatically when you zoom in on the map:"
 
 #: ../../preparation.rst:196
 msgid "Double cliquer sur votre couche raster dans le panneau *Couches*."
-msgstr ""
+msgstr "Double-click your raster layer in the *Layers* panel."
 
 #: ../../preparation.rst:198
 msgid "Choisir *Symbologie* dans la fenêtre qui s'ouvre (bulle 1)."
-msgstr ""
+msgstr "Choose *Symbology* in the window that opens (marker 1)."
 
 #: ../../preparation.rst:200
 msgid ""
 "Dans *Paramètres de valeurs Min/Max* (bulle 2), changer le paramètre "
-"*Statistiques de l'emprise* à *Emprise actualisée* au lieu de *Raster "
-"entier* par défaut (bulle 3)."
+"*Statistiques de l'emprise* à *Emprise actualisée* au lieu de *Raster entier* "
+"par défaut (bulle 3)."
 msgstr ""
+"In *Min/Max Value Settings* (marker 2), change the *Statistics extent* setting "
+"to *Updated Canvas* instead of the default *Whole raster* (marker 3)."
 
 #: ../../preparation.rst:209
 msgid "**Exutoires possibles (STEU)**"
-msgstr ""
+msgstr "**Possible discharge points (WWTP)**"
 
 #: ../../preparation.rst:211
 msgid "**1.** Créer une nouvelle couche (.shp ou .gpkg)."
-msgstr ""
+msgstr "**1.** Create a new .shp or .gpkg layer."
 
 #: ../../preparation.rst:216
 msgid ""
-"**2.** Choisir un emplacement de sauvegarde et un nom pour cette couche "
-"(bulle 1), puis renseigner son type : *Point* (bulle 2)."
+"**2.** Choisir un emplacement de sauvegarde et un nom pour cette couche (bulle "
+"1), puis renseigner son type : *Point* (bulle 2)."
 msgstr ""
+"**2.** Chose a storage location and name the layer (marker 1), then set its "
+"type to *Point* (marker 2)."
 
 #: ../../preparation.rst:218
 msgid ""
-"**3.** Pour le SCR, choisir le SCR du projet (ici EPSG:32620- WGS 84/UTM "
-"zone 20N) puis exécuter (bulles 3 et 4)."
+"**3.** Pour le SCR, choisir le SCR du projet (ici EPSG:32620- WGS 84/UTM zone "
+"20N) puis exécuter (bulles 3 et 4)."
 msgstr ""
+"**3.** For the CRS, choose the project CRS (here EPSG:32620 – WGS 84 / UTM zone "
+"20N), then run (landmarks 3 and 4)."
 
 #: ../../preparation.rst:223
 msgid ""
-"**4.** Ajouter les 4 emplacements possibles tour à tour en suivant les "
-"bulles 1 à 5 indiquées sur la capture."
+"**4.** Ajouter les 4 emplacements possibles tour à tour en suivant les bulles 1 "
+"à 5 indiquées sur la capture."
 msgstr ""
+"**4.** Add the 4 possible locations one by one, following landmarks 1 to 5 "
+"shown in the screenshot."
 
 #: ../../preparation.rst:231
 msgid ""
 "**5.** Bien enregistrer et désactiver le mode édition une fois les 4 "
 "emplacements ajoutés."
 msgstr ""
+"**5.** Be sure to save and disable edit mode once the 4 locations have been "
+"added."
 
 #: ../../preparation.rst:236
 msgid "**Routes et bâtiments**"
-msgstr ""
+msgstr "**Roads and buildings**"
 
 #: ../../preparation.rst:238
 msgid ""
-"**Préalable :** Installer l'extension `BD TOPO® Extractor "
-"<https://plugins.qgis.org/plugins/bd_topo_extractor/>`_ via le "
-"gestionnaire d'extensions QGIS."
+"**Préalable :** Installer l'extension `BD TOPO® Extractor <https://"
+"plugins.qgis.org/plugins/bd_topo_extractor/>`_ via le gestionnaire d'extensions "
+"QGIS."
 msgstr ""
+"**Prerequisite**: Install the `BD TOPO® Extractor <https://plugins.qgis.org/"
+"plugins/bd_topo_extractor/>`_ plugin via the QGIS Plugin Manager."
 
 #: ../../preparation.rst:241
 msgid ""
 "Vous pouvez également télécharger manuellement les données sur le site "
-"Géoservices de l'IGN `BD TOPO® <https://geoservices.ign.fr/bdtopo>`_, "
-"mais vous devrez vraisemblablement les post-traiter pour les réduire à "
-"votre zone d'étude (données mises à disposition à l'échelle du "
-"département)."
+"Géoservices de l'IGN `BD TOPO® <https://geoservices.ign.fr/bdtopo>`_, mais vous "
+"devrez vraisemblablement les post-traiter pour les réduire à votre zone d'étude "
+"(données mises à disposition à l'échelle du département)."
 msgstr ""
+"Data can also be downloaded directly from the IGN Geoservices website `BD TOPO® "
+"<https://geoservices.ign.fr/bdtopo>`_, but a post-processing is then likely to "
+"be needed (data given at a department scale)."
 
 #: ../../preparation.rst:250
 msgid ""
 "Pour les **bâtiments**, il nous faut **uniquement ceux de la zone à "
-"connecter**. Pour les **routes empruntables**, nous avons besoin de "
-"**celles de la zone**, mais également de **celles qui permettent "
-"d'accéder aux deux stations existantes** (voir :ref:`introduction "
-"<petite-anse>`)."
+"connecter**. Pour les **routes empruntables**, nous avons besoin de **celles de "
+"la zone**, mais également de **celles qui permettent d'accéder aux deux "
+"stations existantes** (voir :ref:`introduction <petite-anse>`)."
 msgstr ""
+"For **buildings**, **only those in the area to be connected** are needed. For "
+"** possible roads**, include **those in the area** plus **those that connect to "
+"the two existing plants** (see :ref:`introduction <petite-anse>`)."
 
 #: ../../preparation.rst:253 ../../preparation.rst:388
 msgid "**Récupération des bâtiments**"
-msgstr ""
+msgstr "**Building retrieval**"
 
 #: ../../preparation.rst:255
 msgid "**1.** Créer une nouvelle couche de type *polygone* dans le SCR du projet."
-msgstr ""
+msgstr "**1.** Create a new *polygon* layer in the project CRS."
 
 #: ../../preparation.rst:265
 msgid "**2.** L'éditer et délimiter la zone d'intérêt."
-msgstr ""
+msgstr "**2.** Edit this layer and draw the area of interest."
 
 #: ../../preparation.rst:270
 msgid "**3.** Enregistrer et sortir du mode édition."
-msgstr ""
+msgstr "**3.** Save and exit edit mode."
 
 #: ../../preparation.rst:275
 msgid "**4.** Lancer le plugin."
-msgstr ""
+msgstr "**4.** Launch the plugin."
 
 #: ../../preparation.rst:280
 msgid ""
-"**5.** Indiquer la couche d'intérêt (bulle 1), cocher ``Batiment`` (bulle"
-" 2) et indiquer le dossier d'enregistrement (bulles 3 et 4) avant de "
-"cliquer sur ``OK`` (bulle 5)."
+"**5.** Indiquer la couche d'intérêt (bulle 1), cocher ``Batiment`` (bulle 2) et "
+"indiquer le dossier d'enregistrement (bulles 3 et 4) avant de cliquer sur "
+"``OK`` (bulle 5)."
 msgstr ""
+"**5.** Specify the layer of interest (marker 1), tick ``Building`` (marker 2), "
+"and specify the output folder (landmarks 3 and 4) before clicking ``OK`` "
+"(marker 5)."
 
 #: ../../preparation.rst:285 ../../preparation.rst:300
 msgid "Vous obtenez une sortie de ce type :"
-msgstr ""
+msgstr "You will obtain an output like this:"
 
 #: ../../preparation.rst:290
 msgid ""
-"**6.** Editer la couche (icône crayon), sélectionner (bulles 1 puis 2) "
-"puis supprimer les quelques entités situées hors de la zone (bulle 3). "
-"Enregistrer avant de sortir du mode édition."
+"**6.** Editer la couche (icône crayon), sélectionner (bulles 1 puis 2) puis "
+"supprimer les quelques entités situées hors de la zone (bulle 3). Enregistrer "
+"avant de sortir du mode édition."
 msgstr ""
+"**6.** Edit the layer (pencil icon), select (landmarks 1 and 2), then delete "
+"the few entities located outside the area (marker 3). Save before exiting edit "
+"mode."
 
 #: ../../preparation.rst:295
 msgid ""
-"**7.** Pour obtenir des points à partir des polygones obtenus (contrainte"
-" liée module ``Réseau`` ), utiliser l'outil ``Centroïdes`` de QGIS."
+"**7.** Pour obtenir des points à partir des polygones obtenus (contrainte liée "
+"module ``Réseau`` ), utiliser l'outil ``Centroïdes`` de QGIS."
 msgstr ""
+"**7.** To obtain points from the resulting polygons (requirement for the "
+"``Sewer network`` module), use the ``Centroids`` tool native to QGIS."
 
 #: ../../preparation.rst:305 ../../preparation.rst:397
 msgid "**Récupération des routes**"
-msgstr ""
+msgstr "**Road retrieval**"
 
 #: ../../preparation.rst:307
 msgid "**1.** Lancer le plugin BD TOPO® Extractor."
-msgstr ""
+msgstr "**1.** Launch the BD TOPO® Extractor plugin."
 
 #: ../../preparation.rst:312
 msgid ""
 "**2.** Délimiter la zone à extraire sur la carte (bulles 1 et 2), cocher "
-"``Tronçon de route`` (bulle 3) et indiquer le dossier d'enregistrement "
-"(bulles 4 et 5) avant de cliquer sur ``OK`` (bulle 6)."
+"``Tronçon de route`` (bulle 3) et indiquer le dossier d'enregistrement (bulles "
+"4 et 5) avant de cliquer sur ``OK`` (bulle 6)."
 msgstr ""
+"**2.** Delimit the area to extract on the map (landmarks 1 and 2), tick "
+"``Tronçon de route`` (marker 3), and specify the output folder (landmarks 4 and "
+"5) before clicking ``OK`` (marker 6)."
 
 #: ../../preparation.rst:317
 msgid "La sortie obtenue est de ce type :"
-msgstr ""
+msgstr "You will obtain an output like this:"
 
 #: ../../preparation.rst:322 ../../preparation.rst:404
 msgid "**Post-traitement des couches**"
-msgstr ""
+msgstr "**Post-processing of layers**"
 
 #: ../../preparation.rst:324
 msgid ""
 "Les couches peuvent ensuite être éditées au besoin. Par exemple ici, "
 "restreindre les routes empruntables en supprimant les sentiers."
 msgstr ""
+"The layers can then be edited as needed. For example, in this case, restrict "
+"usable roads by removing footpaths."
 
 #: ../../preparation.rst:326
 msgid ""
-"**L'édition permet à l'utilisateur de retranscrire sa connaissance du "
-"terrain** (routes non empruntables ou au contraire, ajout de chemins "
-"envisageables, sélection fine des bâtiments à raccorder ou non) et "
-"**contribue donc à obtenir des résultats plus pertinents**."
+"**L'édition permet à l'utilisateur de retranscrire sa connaissance du terrain** "
+"(routes non empruntables ou au contraire, ajout de chemins envisageables, "
+"sélection fine des bâtiments à raccorder ou non) et **contribue donc à obtenir "
+"des résultats plus pertinents**."
 msgstr ""
+"**Editing allows the user to transcribe its field knowledge** (roads that "
+"cannot be used, or conversely, adding possible paths, fine selection of "
+"buildings to connect or not) and **therefore contributes to obtain more "
+"relevant results**."
 
 #: ../../preparation.rst:330
 msgid "Utilisation des modules ``Routes et bâtiments`` et ``Population``"
-msgstr ""
+msgstr "Using the ``Roads and Buildings`` and ``Population`` modules"
 
 #: ../../preparation.rst:335
 msgid "Module ``Routes et bâtiments``"
-msgstr ""
+msgstr "``Roads and Buildings`` module"
 
 #: ../../preparation.rst:337
 msgid ""
-"Le module ``Routes et bâtiments`` permet l'extraction des entités routes "
-"et bâtiments se trouvant dans une zone définie par l'utilisateur (couche "
-"de type *polygone*). L'extraction se fait à partir `d'Open Street Map "
-"<https://www.openstreetmap.org>`_ qui rassemble des données "
-"cartographiques à l'échelle mondiale. Open Street Map est un outil ouvert"
-" et collaboratif."
+"Le module ``Routes et bâtiments`` permet l'extraction des entités routes et "
+"bâtiments se trouvant dans une zone définie par l'utilisateur (couche de type "
+"*polygone*). L'extraction se fait à partir `d'Open Street Map <https://"
+"www.openstreetmap.org>`_ qui rassemble des données cartographiques à l'échelle "
+"mondiale. Open Street Map est un outil ouvert et collaboratif."
 msgstr ""
+"The ``Roads and Buildings`` module allows extraction of road and building "
+"entities located within a user-defined area (*polygon* layer). The extraction "
+"is performed from `Open Street Map <https://www.openstreetmap.org>`_ , which "
+"contains cartographic data on a global scale. Open Street Map is an open, "
+"collaborative tool."
 
 #: ../../preparation.rst:342
 msgid ""
-"La qualité des données Open Street Map est variable selon les zones du "
-"globe : elle peut être d'une qualité moindre par rapport à des données "
-"nationales (moins de bâtiments reportés par exemple) comme de qualité "
-"équivalente. Dans le dernier cas, l'utilisation du module ``Routes et "
-"bâtiments`` peut parfois s'avérer plus simple que l'usage des données "
-"nationales (téléchargement, post-traitement)."
+"La qualité des données Open Street Map est variable selon les zones du globe : "
+"elle peut être d'une qualité moindre par rapport à des données nationales "
+"(moins de bâtiments reportés par exemple) comme de qualité équivalente. Dans le "
+"dernier cas, l'utilisation du module ``Routes et bâtiments`` peut parfois "
+"s'avérer plus simple que l'usage des données nationales (téléchargement, post-"
+"traitement)."
 msgstr ""
+"The quality of Open Street Map data is not uniform all over the world : it may "
+"be lower quality compared to national GIS data (less buildings reported for "
+"example) as well as equivalent quality. In the last case, the use of the "
+"``Roads and buildings`` module can sometimes be a save of time compared to "
+"national data (download, post-processing)."
 
 #: ../../preparation.rst:347
 msgid ""
 "Bon à savoir : un très léger décalage en termes de georéférencement peut "
 "caractériser les données extraites à partir d'Open Street Map."
 msgstr ""
+"Good to know : a very slight discrepancy in terms of georeferencing can "
+"characterize data extracted from Open Street Map."
 
 #: ../../preparation.rst:349 ../../preparation.rst:427
 msgid "**Utilisation du module**"
-msgstr ""
+msgstr "**Using the module**"
 
 #: ../../preparation.rst:351
 msgid ""
-"**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et "
-"sélectionner ``Routes et bâtiments``."
+"**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner "
+"``Routes et bâtiments``."
 msgstr ""
+"**1.** Search for ``ELAN`` in the Processing Toolbox and select ``Roads and "
+"Buildings``."
 
 #: ../../preparation.rst:356
 msgid ""
-"**2.** Indiquer la couche *polygone* qui délimite la zone à extraire "
-"(bulle 1), cocher *Reprojection des couches dans le SCR du projet* (bulle"
-" 2) puis exécuter (bulle 3)."
+"**2.** Indiquer la couche *polygone* qui délimite la zone à extraire (bulle 1), "
+"cocher *Reprojection des couches dans le SCR du projet* (bulle 2) puis exécuter "
+"(bulle 3)."
 msgstr ""
+"**2.** Specify the *polygon* layer that defines the extraction area (marker 1), "
+"tick *Reproject layers to the project's CRS* (marker 2), then run (marker 3)."
 
 #: ../../preparation.rst:361
 msgid "**3.** Après exécution du module, vous disposez de **cinq sorties** :"
-msgstr ""
+msgstr "**3.** After executing the module, you will have **five outputs**:"
 
 #: ../../preparation.rst:363
 msgid ""
-"``Bâtiments`` : couche de type *polygone* avec les bâtiments tels que "
-"définis dans Open Street Map"
+"``Bâtiments`` : couche de type *polygone* avec les bâtiments tels que définis "
+"dans Open Street Map"
 msgstr ""
+"``Buildings``: *polygon* layer with the buildings as defined in Open Street Map"
 
 #: ../../preparation.rst:365
 msgid ""
-"``Bâtiments fusionnés`` : couche de type *polygone* obtenue après fusion "
-"des bâtiments adjacents"
+"``Bâtiments fusionnés`` : couche de type *polygone* obtenue après fusion des "
+"bâtiments adjacents"
 msgstr ""
+"``Merged Buildings``: *polygon* layer obtained after merging adjacent buildings"
 
 #: ../../preparation.rst:367
 msgid ""
 "``Centroïdes des bâtiments`` : couche de type *point* qui contient les "
 "centroïdes de la couche ``Bâtiments``"
 msgstr ""
+"``Building Centroids``: *point* layer containing the centroids of the "
+"``Buildings`` layer"
 
 #: ../../preparation.rst:369
 msgid ""
-"``Centroïdes des bâtiments fusionnés`` : couche de type *point* qui "
-"contient les centroïdes de la couche ``Bâtiments fusionnés``"
+"``Centroïdes des bâtiments fusionnés`` : couche de type *point* qui contient "
+"les centroïdes de la couche ``Bâtiments fusionnés``"
 msgstr ""
+"``Merged Building Centroids``: *point* layer containing the centroids of the "
+"``Merged Buildings`` layer"
 
 #: ../../preparation.rst:371
 msgid ""
-"``Routes`` : couche de type *ligne* avec les routes telles que définies "
-"Open Street Map"
+"``Routes`` : couche de type *ligne* avec les routes telles que définies Open "
+"Street Map"
 msgstr ""
+"``Roads``: *line string* layer with the roads as defined in Open Street Map"
 
 #: ../../preparation.rst:373
 msgid ""
-"Les couches **bâtiments** peuvent constituer des entrées pour le "
-"**module** ``Population``."
+"Les couches **bâtiments** peuvent constituer des entrées pour le **module** "
+"``Population``."
 msgstr ""
+"**Building** layers can be used as inputs for the ``Population`` **module**."
 
 #: ../../preparation.rst:375
 msgid ""
 "Les couches **centroïdes et routes** peuvent être utilisées en entrée du "
 "**module** ``Réseau``."
 msgstr ""
+"**Centroid and road** layers can be used as inputs for the ``Sewer network`` "
+"**module**."
 
 #: ../../preparation.rst:378
 msgid ""
-"Lorsque vous lancez le module, vous pouvez laisser l'option par défaut de"
-" *Créer une couche temporaire* pour les cinq sorties et n'enregistrer que"
-" celles dont vous avez besoin / celles qui vous donnent le plus "
-"satisfaction au regard de votre connaissance du terrain et de la "
-"problématique."
+"Lorsque vous lancez le module, vous pouvez laisser l'option par défaut de "
+"*Créer une couche temporaire* pour les cinq sorties et n'enregistrer que celles "
+"dont vous avez besoin / celles qui vous donnent le plus satisfaction au regard "
+"de votre connaissance du terrain et de la problématique."
 msgstr ""
+"When you run the module, you can keep the default option *Create temporary "
+"layer* for the five outputs and only save those you need or those that best "
+"match your knowledge of the field and the issue involved."
 
 #: ../../preparation.rst:381
 msgid "Par exemple :"
-msgstr ""
+msgstr "For example:"
 
 #: ../../preparation.rst:386 ../../preparation.rst:456
 msgid "**Application à l'exemple de** :ref:`Petite-Anse <petite-anse>`"
 msgstr ""
+"Application to the :ref:`Petite-Anse<petite-anse>` example (French context)"
 
 #: ../../preparation.rst:390
 msgid ""
 "En appliquant ``Routes et bâtiments`` à la zone définie :ref:`plus haut "
 "<zone>`, voici les sorties obtenues pour les bâtiments :"
 msgstr ""
+"By applying the ``Roads and Buildings`` module to the area "
+"defined :ref:`earlier <zone>`, the following outputs are obtained for buildings:"
 
 #: ../../preparation.rst:399
 msgid ""
 "En appliquant le module à une zone élargie pour inclure les possibles "
 "connexions aux stations existantes, vous obtiendrez une sortie de type :"
 msgstr ""
+"By applying the module to an expanded area to include possible connections to "
+"the existing treatment plants, you will obtain an output of this type:"
 
 #: ../../preparation.rst:406
 msgid ""
-"Les couches peuvent ensuite être éditées ce qui vous permet de "
-"retranscrire votre connaissance du terrain (routes non empruntables ou au"
-" contraire, ajout de chemins envisageables, sélection fine des bâtiments "
-"à raccorder ou non). Cette étape contribue à améliorer la pertinence des "
-"résultats obtenus en sortie de module ``Réseau``."
+"Les couches peuvent ensuite être éditées ce qui vous permet de retranscrire "
+"votre connaissance du terrain (routes non empruntables ou au contraire, ajout "
+"de chemins envisageables, sélection fine des bâtiments à raccorder ou non). "
+"Cette étape contribue à améliorer la pertinence des résultats obtenus en sortie "
+"de module ``Réseau``."
 msgstr ""
+"The layers can then be edited to reflect your field knowledge (roads that "
+"cannot be used or, conversely, adding possible paths, fine selection of which "
+"buildings to connect). This step helps improve the relevance of the results "
+"obtained from the ``Sewer network`` module."
 
 #: ../../preparation.rst:412
 msgid "Module ``Population``"
-msgstr ""
+msgstr "``Population`` module"
 
 #: ../../preparation.rst:414
 msgid ""
-"Le module ``Population`` permet de **répartir un nombre connu d'individus"
-" au sein des bâtiments de la zone**. La répartition se fait **en "
-"appliquant la méthode surfacique** qui considère l'emprise des bâtiments "
-": plus un bâtiment occupe une surface importante, plus le nombre "
-"d'individus associé sera lui aussi important."
+"Le module ``Population`` permet de **répartir un nombre connu d'individus au "
+"sein des bâtiments de la zone**. La répartition se fait **en appliquant la "
+"méthode surfacique** qui considère l'emprise des bâtiments : plus un bâtiment "
+"occupe une surface importante, plus le nombre d'individus associé sera lui "
+"aussi important."
 msgstr ""
+"The ``Population`` module allows the **distribution of a known number of "
+"individuals among the buildings of the area**. The distribution is done **using "
+"the surface method**, which takes into account building footprint: the larger "
+"the building footprint, the greater the number of individuals assigned."
 
 #: ../../preparation.rst:418
 msgid "Pour plus d'informations sur la méthode de répartition utilisée :"
-msgstr ""
+msgstr "For more information on the distribution method used:"
 
 #: ../../preparation.rst:420
 msgid ""
-"*Lwin et al., (2009). A GIS Approach to Estimation of Building Population"
-" for Micro-spatial Analysis. Transactions in GIS, 13(4):401-414, doi: "
-"10.1111/j.1467-9671.2009.01171.x*"
+"*Lwin et al., (2009). A GIS Approach to Estimation of Building Population for "
+"Micro-spatial Analysis. Transactions in GIS, 13(4):401-414, doi: 10.1111/"
+"j.1467-9671.2009.01171.x*"
 msgstr ""
+"*Lwin et al., (2009). A GIS Approach to Estimation of Building Population for "
+"Micro-spatial Analysis. Transactions in GIS, 13(4):401-414, doi: 10.1111/"
+"j.1467-9671.2009.01171.x*"
 
 #: ../../preparation.rst:423
 msgid ""
-"Si vous souhaitez considérer un **nombre moyen d'individus par bâtiment**"
-" identique pour chacun d'entre eux, **utilisez directement le module** "
-"``Réseau`` où vous préciserez le nombre moyen d'individus par bâtiment "
-"qui est à considérer."
+"Si vous souhaitez considérer un **nombre moyen d'individus par bâtiment** "
+"identique pour chacun d'entre eux, **utilisez directement le module** "
+"``Réseau`` où vous préciserez le nombre moyen d'individus par bâtiment qui est "
+"à considérer."
 msgstr ""
+"If you wish to assign the **same average number of individuals per building** "
+"for all, use the ``Sewer network`` module directly: there you can specify the "
+"average number to be considered."
 
 #: ../../preparation.rst:431
 msgid ""
-"**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et "
-"sélectionner ``Population``."
+"**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner "
+"``Population``."
 msgstr ""
+"**1.** Search for ``ELAN`` in the Processing Toolbox and select ``Population``."
 
 #: ../../preparation.rst:436
 msgid ""
-"**2.** Indiquer une valeur de population (bulle 1), renseigner la couche "
-"de bâtiments (bulle 2), enregistrer dans un fichier (bulle 3) puis "
-"exécuter (bulle 4)."
+"**2.** Indiquer une valeur de population (bulle 1), renseigner la couche de "
+"bâtiments (bulle 2), enregistrer dans un fichier (bulle 3) puis exécuter (bulle "
+"4)."
 msgstr ""
+"**2.** Enter a population value (marker 1), select the building layer (marker "
+"2), set an output file (marker 3), then run (marker 4)."
 
 #: ../../preparation.rst:440
 msgid "La couche de bâtiments doit être de type *polygone*."
-msgstr ""
+msgstr "The building layer must be *polygon* type."
 
 #: ../../preparation.rst:445
 msgid ""
-"**3.** Après exécution du module, vous disposez **d'une couche de type "
-"point** avec les **centroïdes des bâtiments** de la zone. A chaque "
-"centroïde est associé un nombre d'individus (**attribut population**) "
-"auquel vous pouvez accéder en ouvrant la table attributaire de la couche."
+"**3.** Après exécution du module, vous disposez **d'une couche de type point** "
+"avec les **centroïdes des bâtiments** de la zone. A chaque centroïde est "
+"associé un nombre d'individus (**attribut population**) auquel vous pouvez "
+"accéder en ouvrant la table attributaire de la couche."
 msgstr ""
+"**3.** After running the module, you will have **a point layer** with the "
+"**centroids of the buildings** in the area. Each centroid has an associated "
+"**population attribute** that can be accessed in the attribute table of the "
+"layer."
 
 #: ../../preparation.rst:450
 msgid ""
-"Pour **répartir plus finement la population** (par exemple par "
-"quartiers), sélectionner les entités d'un quartier avant de lancer le "
-"module ``Population`` et après avoir indiqué la couche, cocher **Entités "
-"sélectionnés uniquement**."
+"Pour **répartir plus finement la population** (par exemple par quartiers), "
+"sélectionner les entités d'un quartier avant de lancer le module ``Population`` "
+"et après avoir indiqué la couche, cocher **Entités sélectionnés uniquement**."
 msgstr ""
+"To **distribute the population more precisely** (for example, by "
+"neighborhoods), select the entities of one neighborhood before running the "
+"``Population`` module, and after selecting the layer, tick **Selected features "
+"only**."
 
 #: ../../preparation.rst:453
 msgid ""
-"Répéter autant de fois que de quartiers de la zone. Puis utiliser l'outil"
-" ``Fusionner des couches vecteur`` de QGIS pour obtenir une seule et "
-"unique couche (entrée du module ``Réseau``)."
+"Répéter autant de fois que de quartiers de la zone. Puis utiliser l'outil "
+"``Fusionner des couches vecteur`` de QGIS pour obtenir une seule et unique "
+"couche (entrée du module ``Réseau``)."
 msgstr ""
+"Repeat as many times as there are neighborhoods in the area. Then use QGIS’s "
+"``Merge vector layers`` tool to obtain a single layer (input for the ``Sewer "
+"network`` module)."
 
 #: ../../preparation.rst:458
 msgid ""
-"La population de Petite-Anse est estimée à 1100 individus dont 150 sur la"
-" partie haute et 950 sur la partie basse."
+"La population de Petite-Anse est estimée à 1100 individus dont 150 sur la "
+"partie haute et 950 sur la partie basse."
 msgstr ""
+"The population of Petite-Anse is estimated at 1,100 inhabitants, with 150 in "
+"the upper area and 950 in the lower area."
 
 #: ../../preparation.rst:460
 msgid ""
-"**Préalable** : Une couche de type *polygone* avec les bâtiments à "
-"raccorder obtenue avec le module ``Routes et bâtiments`` et post-traitée "
-"(suppression/ajout de certains bâtiments selon la connaissance terrain de"
-" la zone)."
+"**Préalable** : Une couche de type *polygone* avec les bâtiments à raccorder "
+"obtenue avec le module ``Routes et bâtiments`` et post-traitée (suppression/"
+"ajout de certains bâtiments selon la connaissance terrain de la zone)."
 msgstr ""
+"**Prerequisite**: A *polygon* layer containing the buildings to be connected, "
+"obtained with the ``Roads and Buildings`` module and post-processed (removal/"
+"addition of certain buildings according to field knowledge of the area)."
 
 #: ../../preparation.rst:463
 msgid "**Répartition de la population sur la zone haute**"
-msgstr ""
+msgstr "**Population distribution in the upper area**"
 
 #: ../../preparation.rst:465
 msgid "**1.** Sélectionner les bâtiments de la zone haute (bulles 1 à 3)."
-msgstr ""
+msgstr "**1.** Select the buildings in the upper area (landmarks 1 to 3)."
 
 #: ../../preparation.rst:467
 msgid ""
-"**2.** Lancer le module ``Population`` comme expliqué :ref:`plus haut "
-"<start-pop>`."
+"**2.** Lancer le module ``Population`` comme expliqué :ref:`plus haut <start-"
+"pop>`."
 msgstr ""
+"**2.** Launch the ``Population`` module as explained :ref:`above <start-pop>`."
 
 #: ../../preparation.rst:469
 msgid ""
-"**3.** Indiquer *150* pour le *Total d'habitants* de la zone (bulle 4), "
-"cocher *Entités sélectionnées* une fois la couche de bâtiments "
-"sélectionnée (bulle 5) puis *Exécuter* (bulle 6)."
+"**3.** Indiquer *150* pour le *Total d'habitants* de la zone (bulle 4), cocher "
+"*Entités sélectionnées* une fois la couche de bâtiments sélectionnée (bulle 5) "
+"puis *Exécuter* (bulle 6)."
 msgstr ""
+"**3.** Enter *150* for the *Total inhabitants* of the area (marker 4), tick "
+"*Selected features only* after selecting the building layer (marker 5), then "
+"run (marker 6)."
 
 #: ../../preparation.rst:474
 msgid "**4.** Vous obtenez la couche suivante."
-msgstr ""
+msgstr "**4.** You will obtain the following layer."
 
 #: ../../preparation.rst:479
 msgid "**Répartition de la population sur la zone basse**"
-msgstr ""
+msgstr "**Population distribution in the lower area**"
 
 #: ../../preparation.rst:481
 msgid ""
-"**1.** Répéter la même procédure en sélectionnant cette fois la zone "
-"basse et en indiquant *950* pour le *Total d'habitants* de la zone."
+"**1.** Répéter la même procédure en sélectionnant cette fois la zone basse et "
+"en indiquant *950* pour le *Total d'habitants* de la zone."
 msgstr ""
+"**1.** Repeat the same procedure, this time selecting the lower area and "
+"entering *950* for the *Total inhabitants* of the area."
 
 #: ../../preparation.rst:486
 msgid "**2.** Vous obtenez la couche suivante."
-msgstr ""
+msgstr "**2.** You get the following layer."
 
 #: ../../preparation.rst:491
 msgid "**Fusion des deux couches obtenues**"
-msgstr ""
+msgstr "**Merging the two output layers**"
 
 #: ../../preparation.rst:493
 msgid ""
-"**1.** Pour fusionner les 2 couches obtenues, chercher l'outil *Fusionner"
-" des couches vecteur* dans la boîte à outils de traitements QGIS."
-msgstr ""
+"**1.** Pour fusionner les 2 couches obtenues, chercher l'outil *Fusionner des "
+"couches vecteur* dans la boîte à outils de traitements QGIS."
+msgstr "**1.** In the QGIS Processing Toolbox, search for *Merge vector layers*."
 
 #: ../../preparation.rst:498
 msgid ""
-"**2.** Sélectionner les deux couches (bulle 1), choisir pour SCR le SCR "
-"du projet (bulle 2) puis enregistrer le fichier (bulle 3) avant "
-"d'exécuter (bulle 4)."
+"**2.** Sélectionner les deux couches (bulle 1), choisir pour SCR le SCR du "
+"projet (bulle 2) puis enregistrer le fichier (bulle 3) avant d'exécuter (bulle "
+"4)."
 msgstr ""
+"**2.** Select the two layers (marker 1), choose the project CRS (marker 2), set "
+"the output file (marker 3), then run (marker 4)."
 
 #: ../../preparation.rst:503
 msgid "**Pour visualiser les attributs de la couche obtenue :**"
-msgstr ""
+msgstr "**Viewing the attributes of the resulting layer:**"
 
 #: ../../preparation.rst:505
 msgid ""
-"Sélectionner la couche (bulle 1) et ouvrir la table attributaire (bulle "
-"2)."
-msgstr ""
+"Sélectionner la couche (bulle 1) et ouvrir la table attributaire (bulle 2)."
+msgstr "Select the layer (marker 1) and open the attribute table (marker 2)."
 
 #: ../../preparation.rst:510
 msgid ""
-"La couche obtenue contient bien les centroides des bâtiments de la zone "
-"haute et de la zone basse et pour chaque centroïde, l'attribut "
-"*population* est renseigné. Cette couche peut être utilisée en entrée de "
-"module ``Réseau``."
+"La couche obtenue contient bien les centroides des bâtiments de la zone haute "
+"et de la zone basse et pour chaque centroïde, l'attribut *population* est "
+"renseigné. Cette couche peut être utilisée en entrée de module ``Réseau``."
 msgstr ""
+"The resulting layer contains the centroids of buildings in both the upper and "
+"lower areas, and for each centroid, the *population* attribute is filled in. "
+"This layer can be used as input for the ``Sewer network`` module."
 
 #: ../../preparation.rst:516
 msgid ""
-"Au sein de la couche *entrees_reseau.gpkg* mise à disposition à la page "
-":ref:`Création d'un scénario pour la question du centralisé / "
-"décentralisé <prb1>`, vous trouverez plusieurs couches :"
+"Au sein de la couche *entrees_reseau.gpkg* mise à disposition à la "
+"page :ref:`Création d'un scénario pour la question du centralisé / décentralisé "
+"<prb1>`, vous trouverez plusieurs couches :"
 msgstr ""
+"The geopackage *entrees_reseau.gpkg* given at page :ref:`Creating a scenario "
+"for the centralized/decentralized question <prb1>` includes several layers:"
 
 #: ../../preparation.rst:518
 msgid ""
-"*batiments_osm_population* a été générée en suivant le processus suivant "
-": module ``Routes et bâtiments``, post-traitement manuel (sélection plus "
-"fine des bâtiments à raccorder), module ``Population``;"
+"*batiments_osm_population* a été générée en suivant le processus suivant : "
+"module ``Routes et bâtiments``, post-traitement manuel (sélection plus fine des "
+"bâtiments à raccorder), module ``Population``;"
 msgstr ""
+"*batiments_osm_population* was generated following these steps: ``Roads and "
+"buildings`` module, manual post-processing (finer selection of buildings to "
+"connect), ``Population`` module;"
 
 #: ../../preparation.rst:519
 msgid ""
 "*batiments_ign_population* a été obtenue en utilisant le plugin BD TOPO® "
-"Extractor suivi d'un post-traitement manuel puis d'une utilisation du "
-"module ``Population``;"
+"Extractor suivi d'un post-traitement manuel puis d'une utilisation du module "
+"``Population``;"
 msgstr ""
+"*batiments_ign_population* was obtained using BD TOPO® Extractor plugin, then "
+"applying a manual post-processing and finally using the ``Population`` module;"
 
 #: ../../preparation.rst:521
 msgid ""
-"Les deux couches peuvent être utilisées en entrées du module ``Réseau``. "
-"La couche se basant sur les données IGN contient plus de bâtiments "
-"(meilleure qualité de données) et fournira donc des résultats a priori "
-"plus pertinents."
+"Les deux couches peuvent être utilisées en entrées du module ``Réseau``. La "
+"couche se basant sur les données IGN contient plus de bâtiments (meilleure "
+"qualité de données) et fournira donc des résultats a priori plus pertinents."
 msgstr ""
+"Both layers can be used as inputs for the ``Sewer network`` module. The layer "
+"based on IGN data contains more buildings (best data quality) and thus will a "
+"priori provide more relevant results."
 
 #: ../../preparation.rst:524
 msgid ""
-"*routes_zone_reduite* a été générée à l'aide du module ``Routes et "
-"bâtiments`` appliqué à la couche *zone _reduite* (dans *zones.gpkg*) "
-"suivi d'un post-traitement manuel (suppression de routes impraticables);"
+"*routes_zone_reduite* a été générée à l'aide du module ``Routes et bâtiments`` "
+"appliqué à la couche *zone _reduite* (dans *zones.gpkg*) suivi d'un post-"
+"traitement manuel (suppression de routes impraticables);"
 msgstr ""
+"*routes_zone_reduite* results of the use of the ``Roads and buildinds`` module "
+"on *zone _reduite* layer (in *zones.gpkg*) followed by a manual post-processing "
+"(elimination of impassable roads);"
 
 #: ../../preparation.rst:525
 msgid ""
-"*routes_zone_elargie* a été obtenue à l'aide du module ``Routes et "
-"bâtiments`` appliqué à la couche *zone _elargie* (dans *zones.gpkg*) "
-"suivi d'un post-traitement manuel (suppression de routes non "
-"empruntables);"
+"*routes_zone_elargie* a été obtenue à l'aide du module ``Routes et bâtiments`` "
+"appliqué à la couche *zone _elargie* (dans *zones.gpkg*) suivi d'un post-"
+"traitement manuel (suppression de routes non empruntables);"
 msgstr ""
+"*routes_zone_elargie* was obtained using the ``Roads and buildings`` module on "
+"*zone _elargie* layer (in *zones.gpkg*) and then a manual post-processing "
+"(elimination of impassable roads);"
 
 #: ../../preparation.rst:526
 msgid ""
-"*steu* qui contient les 4 emplacements de envisageables pour des stations"
-" de traitement des eaux usées."
+"*steu* qui contient les 4 emplacements de envisageables pour des stations de "
+"traitement des eaux usées."
 msgstr ""
+"*steu* that contains the 4 possible locations for wastewater treatment plants."
 
 #: ../../preparation.rst:528
 msgid ""
-"Le geopackage *couches_intermediaires.gpkg* contient les couches "
-"intermédiaires qui ont été nécessaires à l'obtention de ces couches."
+"Le geopackage *couches_intermediaires.gpkg* contient les couches intermédiaires "
+"qui ont été nécessaires à l'obtention de ces couches."
 msgstr ""
+"The geopackage *couches_intermediaires.gpkg* contains all intermediate layers "
+"that were necessary to obtain these 5 layers."
 
 #: ../../preparation.rst:533
 msgid "Entrées du module ``Hydraulique``"
-msgstr ""
+msgstr "Inputs for the ``Hydraulic`` module"
 
 #: ../../preparation.rst:536
 msgid "Cette section est en cours de construction."
-msgstr ""
-
+msgstr "This section is under construction."
