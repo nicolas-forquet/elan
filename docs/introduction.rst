@@ -40,7 +40,7 @@ interconnectées entre elles par une route. La collectivité en charge de ce qua
 
 Si toutes les eaux usées générées par ce quartier sont évacuées et traitées en **un point**, la gestion sera **centralisée**. Si **deux exutoires (ou plus)** sont retenus, la gestion sera **décentralisée**.
 
-.. image:: _static/petite_anse.png
+.. image:: _static/fr/petite_anse.png
     :width: 550
 
 ELAN permet d'aider à la prise de décision en permettant à l'utilisateur **d'explorer de multiples scénarios et de les évaluer**.
@@ -57,7 +57,7 @@ Structure de l'outil
 --------------------
 ELAN est structuré en **plusieurs groupement de modules**. 
 
-.. image:: _static/elan_prb1+2.png
+.. image:: _static/fr/elan_prb1+2.png
     :width: 500
 
 * **Préparation des données** 
@@ -104,40 +104,40 @@ et de **les combiner entre eux pour envisager ces problématiques dans leur glob
 
 Les travaux de recherche identifiés et intégrés à la version actuelle de l'outil ont été développés par :
 
-.. image:: _static/ufz.jpg
+.. image:: _static/fr/ufz.jpg
     :width: 400
     :target: https://www.ufz.de/ 
 
-.. image:: _static/reversaal.jpg
+.. image:: _static/fr/reversaal.jpg
     :width: 200 
     :target: https://reversaal.lyon-grenoble.hub.inrae.fr/  
 
 Parmi les futures intégrations à ELAN, ont été identifiés les travaux d'hydrologie urbaine menés conjointement par :
 
- .. image:: _static/insa.jpg
+ .. image:: _static/fr/insa.jpg
     :width: 200
     :target: https://deep.insa-lyon.fr/  
 
- .. image:: _static/uga.png
+ .. image:: _static/fr/uga.png
     :width: 100
     :target: https://www.univ-grenoble-alpes.fr/recherche/recherche-712368.kjsp  
 
 Le développement de l'outil en lui-même mobilise deux acteurs : 
 
- .. image:: _static/reversaal.jpg
+ .. image:: _static/fr/reversaal.jpg
     :width: 200 
     :target: https://reversaal.lyon-grenoble.hub.inrae.fr/ 
 
- .. image:: _static/oslandia.png
+ .. image:: _static/fr/oslandia.png
     :width: 200  
     :target: https://oslandia.com/
 
 Ce projet est développé grâce aux financements de : 
 
- .. image:: _static/ofb.png
+ .. image:: _static/fr/ofb.png
     :width: 125 
     :target: https://www.ofb.gouv.fr/
 
- .. image:: _static/caribsan.png
+ .. image:: _static/fr/caribsan.png
     :width: 250 
     :target: https://www.caribsan.eu/

@@ -44,17 +44,17 @@ Utilisation du module
 
 **1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Réseau``.
 
-.. image:: _static/start-reseau.png
+.. image:: _static/fr/start-reseau.png
     :width: 251
 
 .. tip::
     Pour afficher le panneau ``Boîte à outils de traitements`` s'il n'apparaît pas dans votre espace de travail : *Vue* - *Panneaux* - *Boîte à outils de traitements*.
     Ou plus simplement : cliquez sur l'icône engrenage à côté de l'icône sigma (en haut à droite *a priori*).
 
-.. image:: _static/boite-outils.png
+.. image:: _static/fr/boite-outils.png
      :width: 633
 
-.. image:: _static/boite-outils-icone.png
+.. image:: _static/fr/boite-outils-icone.png
      :width: 193
 
 **2.** **Renseigner les 4 couches géographiques**. 
@@ -70,7 +70,7 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 .. note::
     Si vous avez eu recours au module ``Population`` pour préparer vos données géographiques, l'attribut à indiquer est *population*.
 
-.. image:: _static/couches-reseau.png
+.. image:: _static/fr/couches-reseau.png
     :width: 677
 
 **3.** Faire coulisser l'ascenseur à l'aide de la souris (et non de la molette, cela risque de changer les valeurs des paramètres à votre insu) et **ajuster les différents paramètres** (encart 5) afin que le pré-dimensionnement du réseau soit le plus adapté à votre contexte : 
@@ -100,7 +100,7 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 
 **4.** Indiquer un emplacement et un nom pour la couche .gpkg en sortie (bulle 6) puis exécuter (bulle 7).
 
-.. image:: _static/entrees-reseau.png
+.. image:: _static/fr/entrees-reseau.png
     :width: 700
 
 **5.** Après exécution du module, vous disposez de **1 fichier au format .gpkg qui contient 7 couches** :
@@ -148,7 +148,7 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 
     Par exemple, la station de pompage est ici caractérisée par une charge hydrostatique de -19,25 m.
             
-            .. image:: _static/siphon.png
+            .. image:: _static/fr/siphon.png
                 :width: 700
 
 * ``Canalisations`` : *longueur* [m], *profil de terrain* [liste de points échantillonnés tous les 10 m], *avec pompe* [booléen], *sous pression* [booléen], *profils de canalisations* [liste de points échantillonnés tous les 10 m], *profondeur moyenne tranchée* [m], *diamètre* [m], *débit de pointe* [m3/s], *coordonnées STEU* [identifiant STEU exutoire].
@@ -178,11 +178,11 @@ Application à l'exemple de :ref:`Petite-Anse <petite-anse>`
 
 Le scénario que nous allons créer dans ce pas à pas va considérer un raccordement du quartier à l'un des emplacements possibles : celui au Sud de la zone. 
 
-.. image:: _static/reseau-exemple-scenario.png
+.. image:: _static/fr/reseau-exemple-scenario.png
     :width: 600
 
 .. note::
-    Pour reproduire ce pas à pas, vous pouvez : soit utiliser les données que vous avez préparé en suivant la page :ref:`Obtention et préparation des données géographiques <preparation>`, soit télécharger les données :download:`ici <_static/couches_petite_anse.zip>`.
+    Pour reproduire ce pas à pas, vous pouvez : soit utiliser les données que vous avez préparé en suivant la page :ref:`Obtention et préparation des données géographiques <preparation>`, soit télécharger les données :download:`ici <_static/fr/couches_petite_anse.zip>`.
 
 **1. Utilisation du module** ``Réseau``
 
@@ -190,14 +190,14 @@ Le scénario que nous allons créer dans ce pas à pas va considérer un raccord
 
 * Chercher ``ELAN`` dans la boîte à outils de traitements (bulle 4) et sélectionner ``Réseau`` (bulle 5).
 
-.. image:: _static/etape1.png
+.. image:: _static/fr/etape1.png
     :width: 700
 
 * Indiquer les 4 couches géographiques (bulles 1 à 4). **Bien cocher Entité(s) sélectionnée(s) uniquement pour considérer uniquement la STEU au Sud de la zone.**
 
 * Si vous souhaitez travailler en considérant un nombre variable d'habitants par bâtiment, indiquer l'attribut correspondant à la population parmi les attributs de votre couche bâtiments (menu déroulant) pour *Nombre d'habitants*. Sinon laisser le champ vide.
 
-.. image:: _static/etape2a.png
+.. image:: _static/fr/etape2a.png
     :width: 611
 
 * Laisser les valeurs par défaut pour les différents paramètres techniques.
@@ -208,14 +208,14 @@ Le scénario que nous allons créer dans ce pas à pas va considérer un raccord
 
 * Exécuter (bulle 7).
 
-.. image:: _static/etape2b.png
+.. image:: _static/fr/etape2b.png
     :width: 500
 
 **2. Résultats en sortie de module** ``Réseau``
 
 Après exécution, vous obtenez la vue suivante :
 
-.. image:: _static/vue-gravitaire.png
+.. image:: _static/fr/vue-gravitaire.png
     :width: 700
 
 .. note::
@@ -239,48 +239,48 @@ D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y accéd
 
 **3.** Sélectionner le style de votre choix parmi les 5 autres proposés. 
 
-.. image:: _static/reseau-styles.png
+.. image:: _static/fr/reseau-styles.png
     :width: 500
 
 **Style diamètres**
 
-.. image:: _static/vue-diametres.png
+.. image:: _static/fr/vue-diametres.png
     :width: 700
 
 .. tip::
     Pour savoir exactement combien d'entités correspondent à chaque diamètre : cliquer droit sur la couche ``Canalisations`` et cocher ``Afficher le nombre d'entités``. 
     Vous obtiendrez quelque chose de ce type : 
 
-                .. image:: _static/afficher_entites.png
+                .. image:: _static/fr/afficher_entites.png
                     :width: 162
 
     Cette astuce peut être appliquée à n'importe quelle couche vecteur.
 
 **Style débit de pointe**
 
-.. image:: _static/vue-debit.png
+.. image:: _static/fr/vue-debit.png
     :width: 400
 
 **Style profondeur**
 
-.. image:: _static/vue-profondeur.png
+.. image:: _static/fr/vue-profondeur.png
     :width: 700
 
 **Style sens d'écoulement**
 
-.. image:: _static/vue-ecoulement.png
+.. image:: _static/fr/vue-ecoulement.png
     :width: 700
 
 **Style sous-réseaux**
 
-.. image:: _static/vue-sous-reseau.png
+.. image:: _static/fr/vue-sous-reseau.png
     :width: 400
 
 .. note::
     Le style *Sous-réseaux* est ici uniforme car ce scénario considère une seule station donc un seul réseau d'assainissement (pas de sous-réseaux).
     En considérant 2 stations possibles, une vue de ce type sera obtenue :
 
-                .. image:: _static/vue_2_reseaux.png
+                .. image:: _static/fr/vue_2_reseaux.png
                     :width: 200
 
 .. tip::
@@ -288,7 +288,7 @@ D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y accéd
     
     Pour cela, il vous suffit de cliquer sur l'icône *Ajouter un groupe* et d'y glisser les couches que vous souhaitez rassembler.
 
-            .. image:: _static/ajout-groupe.png
+            .. image:: _static/fr/ajout-groupe.png
                 :width: 130
 
 **3. Consultation de la couche** ``Informations sur le réseau`` **et des attributs des autres couches**
@@ -299,7 +299,7 @@ D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y accéd
 
 * Une fenêtre s'ouvre et vous permet d'accéder à l'ensemble des informations de la couche (bulle 3).
 
-.. image:: _static/informations-table.png
+.. image:: _static/fr/informations-table.png
     :width: 700
 
 Pour consulter les attributs des 4 autres couches obtenues en sortie, procéder de même en sélectionnant la couche
@@ -315,7 +315,7 @@ L'ensemble des attributs disponibles pour chaque couche est détaillé :ref:`plu
     - Dans la fenêtre qui s'ouvre, dérouler *Options* et cocher *Afficher des couches à un groupe* (bulle 1).
     - Cliquer sur *Ajouter une couche* (bulle 2).
 
-                    .. image:: _static/ouverture_gpkg.png
+                    .. image:: _static/fr/ouverture_gpkg.png
                         :width: 500
 
 Exploration des résultats (module ``Profils de canalisations``)
@@ -334,12 +334,12 @@ Utilisation du module
 
 **1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Profils de canalisations``.
 
-.. image:: _static/start-profils.png
+.. image:: _static/fr/start-profils.png
     :width: 277
 
 **2.** Renseigner la couche de canalisations (bulle 1), choisir un emplacement et un nom pour le fichier de sortie (bulle 2) avant d'exécuter (bulle 3).
 
-.. image:: _static/use-profils.png
+.. image:: _static/fr/use-profils.png
     :width: 680
 
 **3.** En sortie de module, vous obtenez **1 fichier .gpkg qui contient 3 couches** :
@@ -355,7 +355,7 @@ Visualisation (illustration sur notre exemple)
 
 **1.** Pour afficher un profil de canalisations dans un plan xz, commencer par ouvrir l'outil **Profil d'élévation** : *Vue* - *Profil d'élévation*.
 
-.. image:: _static/start-profil-elevation.png
+.. image:: _static/fr/start-profil-elevation.png
     :width: 431
 
 **2.** Dans la fenêtre *Profil d'élévation*, cocher les couches que vous souhaitez voir apparaître sur votre coupe. Par exemple : ``Stations de relevage``, ``Stations de pompage``, ``Profil de terrain``, ``Profil de canalisations`` et ``Canalisation 3D`` (bulle 1).
@@ -379,12 +379,12 @@ Visualisation (illustration sur notre exemple)
 
 * Puis cliquer droit pour activer le tracé entre ces deux points (bulle 7).
 
-.. image:: _static/use-profil-elevation.png
+.. image:: _static/fr/use-profil-elevation.png
     :width: 597
 
 **4.** Votre profil s'affiche dans la fenêtre profil d'élévation.
 
-.. image:: _static/profil-exemple.png
+.. image:: _static/fr/profil-exemple.png
     :width: 700
 
 Cette vue montre le relief du terrain et le profil de canalisations échantillonnées. Elle permet de bien
@@ -393,7 +393,7 @@ de celles en refoulement, ni d'omettre les points qui arrivent d'autres plans au
 
 **5.** En décochant ``Canalisations 3D``, vous obtenez cette vue.
 
-.. image:: _static/profil-style-gravitaire.png
+.. image:: _static/fr/profil-style-gravitaire.png
     :width: 700
 
 Ici les chutes au niveaux des regards ne sont pas représentées (discontinutés dans le tracé). En revanche, les sections
@@ -402,19 +402,19 @@ perturber l'interprétation du profil.
 
 **6.** Vous pouvez également obtenir une vue en fonction des diamètres.
 
-.. image:: _static/profil-style-diametre.png
+.. image:: _static/fr/profil-style-diametre.png
     :width: 700
 
 Pour cela :
 
 * Cliquer droit sur ``Canalisations 3D`` dans la fenêtre *Profil d'élévation* puis cliquer sur *Propriétés*.
 
-.. image:: _static/profil-chgt-style.png
+.. image:: _static/fr/profil-chgt-style.png
     :width: 300
 
 * Dans la fenêtre qui s'ouvre, cliquer sur *Style* (en bas) et sélectionner *Diamètres*.
 
-.. image:: _static/profil-changement-style.png
+.. image:: _static/fr/profil-changement-style.png
     :width: 700
 
 .. tip::
@@ -432,8 +432,8 @@ Pour compléter votre scénario, il reste à pré-dimensionner la ou les station
 
 Le module ``Procédés`` permet, pour chaque station, de **tester et pré-dimensionner différentes filières de traitement de filtres plantés de végétaux (FPV)**.
 
-Les filières peuvent être constituées de **1 à n étages de traitement** (au maximum, n = 3) et impliquer **différents procédés** : :download:`filtre à écoulement vertical (système français)<_static/CARIBSAN_Fiche01_V1-FR.pdf>` (VdNS1), 
-:download:`filtre à écoulement vertical avec sable <_static/CARIBSAN_Fiche02_V1-FR.pdf>` (VdNS2) et :download:`filtre à écoulement vertical avec couche saturée <_static/CARIBSAN_Fiche03_V1-FR.pdf>` (VdNSS).
+Les filières peuvent être constituées de **1 à n étages de traitement** (au maximum, n = 3) et impliquer **différents procédés** : :download:`filtre à écoulement vertical (système français)<_static/fr/CARIBSAN_Fiche01_V1-FR.pdf>` (VdNS1), 
+:download:`filtre à écoulement vertical avec sable <_static/fr/CARIBSAN_Fiche02_V1-FR.pdf>` (VdNS2) et :download:`filtre à écoulement vertical avec couche saturée <_static/fr/CARIBSAN_Fiche03_V1-FR.pdf>` (VdNSS).
 
 Préalable 
 ^^^^^^^^^^^^
@@ -464,7 +464,7 @@ Utilisation du module
 
 **1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Procédés``.
 
-.. image:: _static/start-procedes.png
+.. image:: _static/fr/start-procedes.png
     :width: 271
 
 **2.** Indiquer si votre zone se situe en climat *Tempéré* ou *Tropical* (bulle 1). Ce choix impacte le pré-dimensionnement des filières en termes de surface et de volume (surface et volume réduits en climat tropical).
@@ -484,7 +484,7 @@ Pour plus d'informations sur la bonne prise en compte du climat tropical lors du
 
 **6.** Choisir un emplacement et un nom pour le fichier de sortie (bulle 5) avant d'exécuter (bulle 6).
 
-.. image:: _static/use-procedes.png
+.. image:: _static/fr/use-procedes.png
     :width: 662
 
 **7.** Après exécution du module, vous obtenez une couche nommée ``Couche de filières`` (couche de type *point*).
@@ -584,27 +584,27 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 
 * Sortir du mode édition (bulle 5) et fermer la table attributaire (bulle 6).
 
-.. image:: _static/edit-attributs-steu.png
+.. image:: _static/fr/edit-attributs-steu.png
     :width: 700
 
 **2. Délimitation de la surface disponible** (facultatif)
 
 * Créer une nouvelle couche (.gpkg ou .shp) de type *polygone*.
 
-.. image:: _static/nouvelle-couche.png
+.. image:: _static/fr/nouvelle-couche.png
      :width: 600
 
-.. image:: _static/couche-surface.png
+.. image:: _static/fr/couche-surface.png
      :width: 400
 
 * L'éditer et délimiter la surface disponible.
 
-.. image:: _static/delimitation-surface.png
+.. image:: _static/fr/delimitation-surface.png
      :width: 700
 
 * Enregistrer et sortir du mode édition.
 
-.. image:: _static/save.png
+.. image:: _static/fr/save.png
      :width: 196
 
 **3. Utilisation du module** ``Procédés``
@@ -615,21 +615,21 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 
 * Indiquer la couche ``STEU`` dont vous avez renseigné les attributs (bulle 4) et la couche ``surface-dispo`` que vous venez de créer (bulle 5).
 
-.. image:: _static/ex-procedes.png
+.. image:: _static/fr/ex-procedes.png
      :width: 600
 
 * Vérifier que les champs identifiés pour les niveaux de rejets et le débit journalier sont corrects.
 
 * Indiquer un nom et un emplacement pour l'enregistrement du fichier de sortie (bulle 6), puis exécuter (bulle 7).
 
-.. image:: _static/ex-procedes-suite.png
+.. image:: _static/fr/ex-procedes-suite.png
      :width: 600
 
 **4. Consultation des caractéristiques des filières de traitement pré-dimensionnées**
 
 Après exécution du module, vous obtenez un visuel de ce type (couche *point*) :
 
-.. image:: _static/sortie-procedes-ex.png
+.. image:: _static/fr/sortie-procedes-ex.png
      :width: 600
 
 Pour consulter les attributs de cette couche : 
@@ -640,7 +640,7 @@ Pour consulter les attributs de cette couche :
 
 * Une fenêtre s'ouvre et vous permet d'accéder à l'ensemble des informations de la couche (bulle 3).
 
-.. image:: _static/attributs-procedes-ex.png
+.. image:: _static/fr/attributs-procedes-ex.png
      :width: 700
 
 Étape 3 : Pré-sélectionner une filière par exutoire
@@ -689,12 +689,12 @@ Utilisation du module
 
 **1.** Ouvrir la table attributaire de votre ``Couche de filières`` et sélectionner une filière par exutoire. Par exemple ici, la filière VdNS1 (1 seule filière car 1 seul exutoire dans ce scénario).
 
-.. image:: _static/select-filiere.png
+.. image:: _static/fr/select-filiere.png
     :width: 600
 
 **2.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Créer un scénario``.
 
-.. image:: _static/start-scenario.png
+.. image:: _static/fr/start-scenario.png
     :width: 250
 
 
@@ -703,7 +703,7 @@ Utilisation du module
 
 **4.** Indiquer un nom et un emplacement pour le fichier de sortie (bulle 4) puis exécuter (bulle 5).
 
-.. image:: _static/use-scenario.png
+.. image:: _static/fr/use-scenario.png
     :width: 667
 
 **5.** En sortie de module, vous obtenez **1 fichier.gpkg qui contient 9 couches** : 
@@ -721,7 +721,7 @@ Exercice : Création d'un second scénario pour :ref:`Petite-Anse <petite-anse>`
 Pour mettre en pratique le contenu de cette page, vous pouvez essayez de suivre les différentes étapes décrites
 mais cette fois-ci en considérant 2 emplacements possibles : celui au Sud de la zone et celui au Nord.
 
-.. image:: _static/illustration-exercice.png
+.. image:: _static/fr/illustration-exercice.png
      :width: 500
 
 Les niveaux de rejet pour l'emplacement au Nord de la zone sont moins contraignants (pas de contrainte sur l'azote) :

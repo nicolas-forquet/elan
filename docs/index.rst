@@ -24,7 +24,7 @@ ELAN
 
    **Version du plugin** : |version|
 
-   .. image:: _static/logo.png
+   .. image:: _static/fr/logo.png
       :width: 175
 
 .. attention::
