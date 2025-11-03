@@ -8,17 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-25 14:29+0200\n"
+"POT-Creation-Date: 2025-11-03 12:02+0100\n"
 "PO-Revision-Date: 2025-10-28 09:30+0100\n"
 "Last-Translator: \n"
-"Language-Team: en <LL@li.org>\n"
 "Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.17.0\n"
-"X-Generator: Poedit 3.8\n"
 
 #: ../../index.rst:7
 msgid "ELAN"
@@ -29,8 +28,8 @@ msgid ""
 "**ELAN** est un plugin QGIS d'aide à la décision pour une gestion "
 "intégrée des eaux urbaines par des solutions fondées sur la nature."
 msgstr ""
-"**ELAN** is a QGIS decision-support plugin for integrated urban "
-"water management by nature-based solutions."
+"**ELAN** is a QGIS decision-support plugin for integrated urban water "
+"management by nature-based solutions."
 
 #: ../../index.rst:11
 msgid "**Auteurs** :"
@@ -46,8 +45,7 @@ msgstr ""
 
 #: ../../index.rst:15
 msgid "Sophie Aubier, Jacky Volpes `Oslandia <https://oslandia.com/>`_"
-msgstr ""
-"Sophie Aubier, Jacky Volpes `Oslandia <https://oslandia.com/>`_"
+msgstr "Sophie Aubier, Jacky Volpes `Oslandia <https://oslandia.com/>`_"
 
 #: ../../index.rst:17
 msgid "**Anciens contributeurs** : Marie-Chloé Rosse, Raphaël Delhome"
@@ -55,11 +53,11 @@ msgstr "**Former contributors**: Marie-Chloé Rosse, Raphaël Delhome"
 
 #: ../../index.rst:19
 msgid ""
-"**Licence** : `GNU General Public License v2.0 or later <https://"
-"www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html>`_"
+"**Licence** : `GNU General Public License v2.0 or later "
+"<https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html>`_"
 msgstr ""
-"**License**: `GNU General Public License v2.0 or later <https://"
-"www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html>`_"
+"**License**: `GNU General Public License v2.0 or later "
+"<https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html>`_"
 
 #: ../../index.rst:21
 msgid "**Version minimum de QGIS requise** : |qgis_version_min|"
@@ -73,6 +71,10 @@ msgstr "**Last documentation update**: |date_update|"
 msgid "**Version du plugin** : |version|"
 msgstr "**Plugin version** : |version|"
 
+#: ../../index.rst:27
+msgid ".. image:: _static/fr/logo.png"
+msgstr ""
+
 #: ../../index.rst:31
 msgid "Ce projet est en cours de développement."
 msgstr "This project is currently under development."
@@ -80,3 +82,4 @@ msgstr "This project is currently under development."
 #: ../../index.rst:35
 msgid "Contenu"
 msgstr "Content"
+

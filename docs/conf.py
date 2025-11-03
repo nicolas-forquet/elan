@@ -56,3 +56,5 @@ rst_epilog = "\n".join(map(lambda x: f".. |{x}| replace:: {frozen_locals[x]}", v
 
 html_theme = "piccolo_theme"
 html_static_path = ["_static"]
+
+gettext_additional_targets = {"image"}
