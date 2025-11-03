@@ -41,11 +41,11 @@ The documentation is generated using Sphinx and is automatically generated throu
 
 - documentation=https://elan7835313.gitlab.io/elan/
 
-To update the `po` translations files:
+To update the `pot` and `po` translations files:
 
 ```bash
 cd docs/
-sphinx-intl update -l en
+sphinx-build -b gettext . locales/pot && sphinx-intl update -l en
 ```
 
 To build the documentation with all languages:
