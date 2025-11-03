@@ -50,9 +50,9 @@ def setup(app):
         flags=re.MULTILINE | re.DOTALL,
     )
     if match is None:
-        app.config.release = version = "ELAN VERSION NOT FOUND"
+        version = app.config.release = app.config.version = "ELAN VERSION NOT FOUND"
     else:
-        app.config.release = version = match[0].split(" - ")[0].strip()
+        version = app.config.release = app.config.version = match[0].split(" - ")[0].strip()
 
     date_update = format_date(datetime.now(), format="long", locale=app.config.language)
     qgis_version_min = __about__.__plugin_md__.get("general").get("qgisminimumversion")
