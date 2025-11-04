@@ -17,5 +17,8 @@ sed "s|{{prefix}}|$3|" $1/_templates/globaltoc.html.ref > $1/_templates/globalto
 sphinx-build -D language=en $1 $2/en
 sphinx-build -D language=fr $1 $2/fr
 
+# Remove globaltoc.html after sphinx build
+rm $1/_templates/globaltoc.html
+
 # Handle root url to go to default language
 sed "s|{{prefix}}|$3|" $1/global_index.html.ref > $2/index.html
