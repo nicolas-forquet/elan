@@ -52,7 +52,7 @@ coverage.xml
 
 # Translations
 *.mo
-docs/locales/pot/.doctrees
+docs/locales/pot/
 
 # Sphinx documentation
 docs/_build/
