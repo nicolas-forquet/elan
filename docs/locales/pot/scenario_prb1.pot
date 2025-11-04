@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-03 12:35+0100\n"
+"POT-Creation-Date: 2025-11-04 15:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,20 +98,8 @@ msgstr ""
 msgid "**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Réseau``."
 msgstr ""
 
-#: ../../scenario_prb1.rst:47
-msgid ".. image:: _static/fr/start-reseau.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:51
 msgid "Pour afficher le panneau ``Boîte à outils de traitements`` s'il n'apparaît pas dans votre espace de travail : *Vue* - *Panneaux* - *Boîte à outils de traitements*. Ou plus simplement : cliquez sur l'icône engrenage à côté de l'icône sigma (en haut à droite *a priori*)."
-msgstr ""
-
-#: ../../scenario_prb1.rst:54
-msgid ".. image:: _static/fr/boite-outils.png"
-msgstr ""
-
-#: ../../scenario_prb1.rst:57
-msgid ".. image:: _static/fr/boite-outils-icone.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:60
@@ -128,10 +116,6 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:71
 msgid "Si vous avez eu recours au module ``Population`` pour préparer vos données géographiques, l'attribut à indiquer est *population*."
-msgstr ""
-
-#: ../../scenario_prb1.rst:73
-msgid ".. image:: _static/fr/couches-reseau.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:76
@@ -180,10 +164,6 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:101
 msgid "**4.** Indiquer un emplacement et un nom pour la couche .gpkg en sortie (bulle 6) puis exécuter (bulle 7)."
-msgstr ""
-
-#: ../../scenario_prb1.rst:103
-msgid ".. image:: _static/fr/entrees-reseau.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:106
@@ -250,10 +230,6 @@ msgstr ""
 msgid "Par exemple, la station de pompage est ici caractérisée par une charge hydrostatique de -19,25 m."
 msgstr ""
 
-#: ../../scenario_prb1.rst:151
-msgid ".. image:: _static/fr/siphon.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:154
 msgid "``Canalisations`` : *longueur* [m], *profil de terrain* [liste de points échantillonnés tous les 10 m], *avec pompe* [booléen], *sous pression* [booléen], *profils de canalisations* [liste de points échantillonnés tous les 10 m], *profondeur moyenne tranchée* [m], *diamètre* [m], *débit de pointe* [m3/s], *coordonnées STEU* [identifiant STEU exutoire]."
 msgstr ""
@@ -303,10 +279,6 @@ msgstr ""
 msgid "Le scénario que nous allons créer dans ce pas à pas va considérer un raccordement du quartier à l'un des emplacements possibles : celui au Sud de la zone."
 msgstr ""
 
-#: ../../scenario_prb1.rst:181
-msgid ".. image:: _static/fr/reseau-exemple-scenario.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:185
 msgid "Pour reproduire ce pas à pas, vous pouvez : soit utiliser les données que vous avez préparé en suivant la page :ref:`Obtention et préparation des données géographiques <preparation>`, soit télécharger les données :download:`ici <_static/fr/couches_petite_anse.zip>`."
 msgstr ""
@@ -323,20 +295,12 @@ msgstr ""
 msgid "Chercher ``ELAN`` dans la boîte à outils de traitements (bulle 4) et sélectionner ``Réseau`` (bulle 5)."
 msgstr ""
 
-#: ../../scenario_prb1.rst:193
-msgid ".. image:: _static/fr/etape1.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:196
 msgid "Indiquer les 4 couches géographiques (bulles 1 à 4). **Bien cocher Entité(s) sélectionnée(s) uniquement pour considérer uniquement la STEU au Sud de la zone.**"
 msgstr ""
 
 #: ../../scenario_prb1.rst:198
 msgid "Si vous souhaitez travailler en considérant un nombre variable d'habitants par bâtiment, indiquer l'attribut correspondant à la population parmi les attributs de votre couche bâtiments (menu déroulant) pour *Nombre d'habitants*. Sinon laisser le champ vide."
-msgstr ""
-
-#: ../../scenario_prb1.rst:200
-msgid ".. image:: _static/fr/etape2a.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:203
@@ -355,20 +319,12 @@ msgstr ""
 msgid "Exécuter (bulle 7)."
 msgstr ""
 
-#: ../../scenario_prb1.rst:211
-msgid ".. image:: _static/fr/etape2b.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:214
 msgid "**2. Résultats en sortie de module** ``Réseau``"
 msgstr ""
 
 #: ../../scenario_prb1.rst:216
 msgid "Après exécution, vous obtenez la vue suivante :"
-msgstr ""
-
-#: ../../scenario_prb1.rst:218
-msgid ".. image:: _static/fr/vue-gravitaire.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:223
@@ -419,24 +375,12 @@ msgstr ""
 msgid "**3.** Sélectionner le style de votre choix parmi les 5 autres proposés."
 msgstr ""
 
-#: ../../scenario_prb1.rst:242
-msgid ".. image:: _static/fr/reseau-styles.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:245
 msgid "**Style diamètres**"
 msgstr ""
 
-#: ../../scenario_prb1.rst:247
-msgid ".. image:: _static/fr/vue-diametres.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:251
 msgid "Pour savoir exactement combien d'entités correspondent à chaque diamètre : cliquer droit sur la couche ``Canalisations`` et cocher ``Afficher le nombre d'entités``. Vous obtiendrez quelque chose de ce type :"
-msgstr ""
-
-#: ../../scenario_prb1.rst:254
-msgid ".. image:: _static/fr/afficher_entites.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:257
@@ -447,40 +391,20 @@ msgstr ""
 msgid "**Style débit de pointe**"
 msgstr ""
 
-#: ../../scenario_prb1.rst:261
-msgid ".. image:: _static/fr/vue-debit.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:264
 msgid "**Style profondeur**"
-msgstr ""
-
-#: ../../scenario_prb1.rst:266
-msgid ".. image:: _static/fr/vue-profondeur.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:269
 msgid "**Style sens d'écoulement**"
 msgstr ""
 
-#: ../../scenario_prb1.rst:271
-msgid ".. image:: _static/fr/vue-ecoulement.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:274
 msgid "**Style sous-réseaux**"
 msgstr ""
 
-#: ../../scenario_prb1.rst:276
-msgid ".. image:: _static/fr/vue-sous-reseau.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:280
 msgid "Le style *Sous-réseaux* est ici uniforme car ce scénario considère une seule station donc un seul réseau d'assainissement (pas de sous-réseaux). En considérant 2 stations possibles, une vue de ce type sera obtenue :"
-msgstr ""
-
-#: ../../scenario_prb1.rst:283
-msgid ".. image:: _static/fr/vue_2_reseaux.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:287
@@ -489,10 +413,6 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:289
 msgid "Pour cela, il vous suffit de cliquer sur l'icône *Ajouter un groupe* et d'y glisser les couches que vous souhaitez rassembler."
-msgstr ""
-
-#: ../../scenario_prb1.rst:291
-msgid ".. image:: _static/fr/ajout-groupe.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:294
@@ -510,10 +430,6 @@ msgstr ""
 #: ../../scenario_prb1.rst:300
 #: ../../scenario_prb1.rst:641
 msgid "Une fenêtre s'ouvre et vous permet d'accéder à l'ensemble des informations de la couche (bulle 3)."
-msgstr ""
-
-#: ../../scenario_prb1.rst:302
-msgid ".. image:: _static/fr/informations-table.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:305
@@ -540,10 +456,6 @@ msgstr ""
 msgid "Cliquer sur *Ajouter une couche* (bulle 2)."
 msgstr ""
 
-#: ../../scenario_prb1.rst:318
-msgid ".. image:: _static/fr/ouverture_gpkg.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:322
 msgid "Exploration des résultats (module ``Profils de canalisations``)"
 msgstr ""
@@ -560,16 +472,8 @@ msgstr ""
 msgid "**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Profils de canalisations``."
 msgstr ""
 
-#: ../../scenario_prb1.rst:337
-msgid ".. image:: _static/fr/start-profils.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:340
 msgid "**2.** Renseigner la couche de canalisations (bulle 1), choisir un emplacement et un nom pour le fichier de sortie (bulle 2) avant d'exécuter (bulle 3)."
-msgstr ""
-
-#: ../../scenario_prb1.rst:342
-msgid ".. image:: _static/fr/use-profils.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:345
@@ -594,10 +498,6 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:356
 msgid "**1.** Pour afficher un profil de canalisations dans un plan xz, commencer par ouvrir l'outil **Profil d'élévation** : *Vue* - *Profil d'élévation*."
-msgstr ""
-
-#: ../../scenario_prb1.rst:358
-msgid ".. image:: _static/fr/start-profil-elevation.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:361
@@ -640,16 +540,8 @@ msgstr ""
 msgid "Puis cliquer droit pour activer le tracé entre ces deux points (bulle 7)."
 msgstr ""
 
-#: ../../scenario_prb1.rst:382
-msgid ".. image:: _static/fr/use-profil-elevation.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:385
 msgid "**4.** Votre profil s'affiche dans la fenêtre profil d'élévation."
-msgstr ""
-
-#: ../../scenario_prb1.rst:387
-msgid ".. image:: _static/fr/profil-exemple.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:390
@@ -660,20 +552,12 @@ msgstr ""
 msgid "**5.** En décochant ``Canalisations 3D``, vous obtenez cette vue."
 msgstr ""
 
-#: ../../scenario_prb1.rst:396
-msgid ".. image:: _static/fr/profil-style-gravitaire.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:399
 msgid "Ici les chutes au niveaux des regards ne sont pas représentées (discontinutés dans le tracé). En revanche, les sections en refoulement (en rouge) se distinguent clairement de celles en gravitaire (en bleu) et les points arrivant d'autres plans ne viennent pas perturber l'interprétation du profil."
 msgstr ""
 
 #: ../../scenario_prb1.rst:403
 msgid "**6.** Vous pouvez également obtenir une vue en fonction des diamètres."
-msgstr ""
-
-#: ../../scenario_prb1.rst:405
-msgid ".. image:: _static/fr/profil-style-diametre.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:408
@@ -684,16 +568,8 @@ msgstr ""
 msgid "Cliquer droit sur ``Canalisations 3D`` dans la fenêtre *Profil d'élévation* puis cliquer sur *Propriétés*."
 msgstr ""
 
-#: ../../scenario_prb1.rst:412
-msgid ".. image:: _static/fr/profil-chgt-style.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:415
 msgid "Dans la fenêtre qui s'ouvre, cliquer sur *Style* (en bas) et sélectionner *Diamètres*."
-msgstr ""
-
-#: ../../scenario_prb1.rst:417
-msgid ".. image:: _static/fr/profil-changement-style.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:421
@@ -768,10 +644,6 @@ msgstr ""
 msgid "**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Procédés``."
 msgstr ""
 
-#: ../../scenario_prb1.rst:467
-msgid ".. image:: _static/fr/start-procedes.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:470
 msgid "**2.** Indiquer si votre zone se situe en climat *Tempéré* ou *Tropical* (bulle 1). Ce choix impacte le pré-dimensionnement des filières en termes de surface et de volume (surface et volume réduits en climat tropical)."
 msgstr ""
@@ -802,10 +674,6 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:485
 msgid "**6.** Choisir un emplacement et un nom pour le fichier de sortie (bulle 5) avant d'exécuter (bulle 6)."
-msgstr ""
-
-#: ../../scenario_prb1.rst:487
-msgid ".. image:: _static/fr/use-procedes.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:490
@@ -1051,10 +919,6 @@ msgstr ""
 msgid "Sortir du mode édition (bulle 5) et fermer la table attributaire (bulle 6)."
 msgstr ""
 
-#: ../../scenario_prb1.rst:587
-msgid ".. image:: _static/fr/edit-attributs-steu.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:590
 msgid "**2. Délimitation de la surface disponible** (facultatif)"
 msgstr ""
@@ -1063,28 +927,12 @@ msgstr ""
 msgid "Créer une nouvelle couche (.gpkg ou .shp) de type *polygone*."
 msgstr ""
 
-#: ../../scenario_prb1.rst:594
-msgid ".. image:: _static/fr/nouvelle-couche.png"
-msgstr ""
-
-#: ../../scenario_prb1.rst:597
-msgid ".. image:: _static/fr/couche-surface.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:600
 msgid "L'éditer et délimiter la surface disponible."
 msgstr ""
 
-#: ../../scenario_prb1.rst:602
-msgid ".. image:: _static/fr/delimitation-surface.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:605
 msgid "Enregistrer et sortir du mode édition."
-msgstr ""
-
-#: ../../scenario_prb1.rst:607
-msgid ".. image:: _static/fr/save.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:610
@@ -1103,10 +951,6 @@ msgstr ""
 msgid "Indiquer la couche ``STEU`` dont vous avez renseigné les attributs (bulle 4) et la couche ``surface-dispo`` que vous venez de créer (bulle 5)."
 msgstr ""
 
-#: ../../scenario_prb1.rst:618
-msgid ".. image:: _static/fr/ex-procedes.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:621
 msgid "Vérifier que les champs identifiés pour les niveaux de rejets et le débit journalier sont corrects."
 msgstr ""
@@ -1115,20 +959,12 @@ msgstr ""
 msgid "Indiquer un nom et un emplacement pour l'enregistrement du fichier de sortie (bulle 6), puis exécuter (bulle 7)."
 msgstr ""
 
-#: ../../scenario_prb1.rst:625
-msgid ".. image:: _static/fr/ex-procedes-suite.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:628
 msgid "**4. Consultation des caractéristiques des filières de traitement pré-dimensionnées**"
 msgstr ""
 
 #: ../../scenario_prb1.rst:630
 msgid "Après exécution du module, vous obtenez un visuel de ce type (couche *point*) :"
-msgstr ""
-
-#: ../../scenario_prb1.rst:632
-msgid ".. image:: _static/fr/sortie-procedes-ex.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:635
@@ -1141,10 +977,6 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:639
 msgid "Cliquer que l'icône Ouvrir la table attributaire (bulle 2)."
-msgstr ""
-
-#: ../../scenario_prb1.rst:643
-msgid ".. image:: _static/fr/attributs-procedes-ex.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:647
@@ -1223,16 +1055,8 @@ msgstr ""
 msgid "**1.** Ouvrir la table attributaire de votre ``Couche de filières`` et sélectionner une filière par exutoire. Par exemple ici, la filière VdNS1 (1 seule filière car 1 seul exutoire dans ce scénario)."
 msgstr ""
 
-#: ../../scenario_prb1.rst:692
-msgid ".. image:: _static/fr/select-filiere.png"
-msgstr ""
-
 #: ../../scenario_prb1.rst:695
 msgid "**2.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Créer un scénario``."
-msgstr ""
-
-#: ../../scenario_prb1.rst:697
-msgid ".. image:: _static/fr/start-scenario.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:701
@@ -1241,10 +1065,6 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:704
 msgid "**4.** Indiquer un nom et un emplacement pour le fichier de sortie (bulle 4) puis exécuter (bulle 5)."
-msgstr ""
-
-#: ../../scenario_prb1.rst:706
-msgid ".. image:: _static/fr/use-scenario.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:709
@@ -1273,10 +1093,6 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:721
 msgid "Pour mettre en pratique le contenu de cette page, vous pouvez essayez de suivre les différentes étapes décrites mais cette fois-ci en considérant 2 emplacements possibles : celui au Sud de la zone et celui au Nord."
-msgstr ""
-
-#: ../../scenario_prb1.rst:724
-msgid ".. image:: _static/fr/illustration-exercice.png"
 msgstr ""
 
 #: ../../scenario_prb1.rst:727

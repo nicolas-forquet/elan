@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-03 12:39+0100\n"
+"POT-Creation-Date: 2025-11-04 15:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,10 +76,6 @@ msgstr ""
 msgid "Si toutes les eaux usées générées par ce quartier sont évacuées et traitées en **un point**, la gestion sera **centralisée**. Si **deux exutoires (ou plus)** sont retenus, la gestion sera **décentralisée**."
 msgstr ""
 
-#: ../../introduction.rst:43
-msgid ".. image:: _static/fr/petite_anse.png"
-msgstr ""
-
 #: ../../introduction.rst:46
 msgid "ELAN permet d'aider à la prise de décision en permettant à l'utilisateur **d'explorer de multiples scénarios et de les évaluer**."
 msgstr ""
@@ -102,10 +98,6 @@ msgstr ""
 
 #: ../../introduction.rst:58
 msgid "ELAN est structuré en **plusieurs groupement de modules**."
-msgstr ""
-
-#: ../../introduction.rst:60
-msgid ".. image:: _static/fr/elan_prb1+2.png"
 msgstr ""
 
 #: ../../introduction.rst:63
@@ -196,43 +188,14 @@ msgstr ""
 msgid "Les travaux de recherche identifiés et intégrés à la version actuelle de l'outil ont été développés par :"
 msgstr ""
 
-#: ../../introduction.rst:107
-msgid ".. image:: _static/fr/ufz.jpg"
-msgstr ""
-
-#: ../../introduction.rst:111
-#: ../../introduction.rst:127
-msgid ".. image:: _static/fr/reversaal.jpg"
-msgstr ""
-
 #: ../../introduction.rst:115
 msgid "Parmi les futures intégrations à ELAN, ont été identifiés les travaux d'hydrologie urbaine menés conjointement par :"
-msgstr ""
-
-#: ../../introduction.rst:117
-msgid ".. image:: _static/fr/insa.jpg"
-msgstr ""
-
-#: ../../introduction.rst:121
-msgid ".. image:: _static/fr/uga.png"
 msgstr ""
 
 #: ../../introduction.rst:125
 msgid "Le développement de l'outil en lui-même mobilise deux acteurs :"
 msgstr ""
 
-#: ../../introduction.rst:131
-msgid ".. image:: _static/fr/oslandia.png"
-msgstr ""
-
 #: ../../introduction.rst:135
 msgid "Ce projet est développé grâce aux financements de :"
-msgstr ""
-
-#: ../../introduction.rst:137
-msgid ".. image:: _static/fr/ofb.png"
-msgstr ""
-
-#: ../../introduction.rst:141
-msgid ".. image:: _static/fr/caribsan.png"
 msgstr ""

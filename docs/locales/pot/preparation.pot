@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-03 12:35+0100\n"
+"POT-Creation-Date: 2025-11-04 15:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -144,10 +144,6 @@ msgstr ""
 msgid "Si oui, il vous faudra créer un compte (email et mot de passe) pour pouvoir télécharger le fichier."
 msgstr ""
 
-#: ../../preparation.rst:70
-msgid ".. image:: _static/fr/alaska-edu.png"
-msgstr ""
-
 #: ../../preparation.rst:73
 msgid "``routes`` et ``bâtiments``: le module :ref:`Routes et bâtiments <routes>` d'ELAN vous permet d'extraire les données Open Street Map sur une zone définie."
 msgstr ""
@@ -180,10 +176,6 @@ msgstr ""
 msgid "Si *Explorateur* n'est pas visible : activez-le via *Vue - Panneaux - Explorateur*."
 msgstr ""
 
-#: ../../preparation.rst:93
-msgid ".. image:: _static/fr/afficher-explorateur.png"
-msgstr ""
-
 #: ../../preparation.rst:96
 msgid "Chercher la catégorie **Tuiles XYZ** (bulle 1)."
 msgstr ""
@@ -192,16 +184,8 @@ msgstr ""
 msgid "Dérouler et double-cliquer sur **OpenStreetMap** (bulle 2)."
 msgstr ""
 
-#: ../../preparation.rst:100
-msgid ".. image:: _static/fr/tuiles-xyz.png"
-msgstr ""
-
 #: ../../preparation.rst:103
 msgid "Localiser la zone sur le fond Open Street Map qui s'est affiché dans votre vue cartographique."
-msgstr ""
-
-#: ../../preparation.rst:105
-msgid ".. image:: _static/fr/localiser-zone.png"
 msgstr ""
 
 #: ../../preparation.rst:109
@@ -216,10 +200,6 @@ msgstr ""
 msgid "**1.** Télécharger le `MNT à 5 m de la Martinique <https://data.geopf.fr/telechargement/download/RGEALTI/RGEALTI_2-0_1M_ASC_WGS84UTM20-MART87_D972_2015-10-21/RGEALTI_2-0_1M_ASC_WGS84UTM20-MART87_D972_2015-10-21.7z>`_ sur RGE ALTI®."
 msgstr ""
 
-#: ../../preparation.rst:116
-msgid ".. image:: _static/fr/mnt972.png"
-msgstr ""
-
 #: ../../preparation.rst:119
 msgid "**2.** Identifier les dalles de MNT qui coïncident avec notre zone d'intérêt. Cette étape passe par le chargement des différentes dalles dans votre projet QGIS (via le panneau *Explorateur*)."
 msgstr ""
@@ -232,20 +212,8 @@ msgstr ""
 msgid "Il vous suffit en effet de sélectionner les dalles coïncidant avec votre zone (bulles 2 et 3) puis de faire ``Ouvrir la table attributaire (entités sélectionnées uniquement)`` (bulle 4) pour accéder directement aux noms des dalles d'intérêt (attribut NOM DALLE)."
 msgstr ""
 
-#: ../../preparation.rst:128
-msgid ".. image:: _static/fr/grille_mnt.png"
-msgstr ""
-
-#: ../../preparation.rst:131
-msgid ".. image:: _static/fr/4dalles_table.png"
-msgstr ""
-
 #: ../../preparation.rst:134
 msgid "Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART87, RGEALTI_MTQ_0710_1600_MNT_WGS84UTM20_MART87, RGEALTI_MTQ_0705_1605_MNT_WGS84UTM20_MART87 et RGEALTI_MTQ_0710_1605_MNT_WGS84UTM20_MART87."
-msgstr ""
-
-#: ../../preparation.rst:136
-msgid ".. image:: _static/fr/4dalles.png"
 msgstr ""
 
 #: ../../preparation.rst:139
@@ -256,52 +224,24 @@ msgstr ""
 msgid "**4.** Géoréférencer les 4 dalles dans ce SCR (pas de détection automatique)."
 msgstr ""
 
-#: ../../preparation.rst:145
-msgid ".. image:: _static/fr/set_SCR.png"
-msgstr ""
-
 #: ../../preparation.rst:149
 msgid "Faire du SCR du MNT le SCR de votre projet : opter pour ce SCR lorsque vous créez de nouvelles couches, et reprojeter les couches vecteur que vous importez dans ce SCR avec l'outil natif de QGIS ``Reprojeter une couche``."
-msgstr ""
-
-#: ../../preparation.rst:151
-msgid ".. image:: _static/fr/SCR_projet.png"
 msgstr ""
 
 #: ../../preparation.rst:154
 msgid "**5.** Pour fusionner les 4 dalles, utiliser l'outil ``Fusion`` de GDAL."
 msgstr ""
 
-#: ../../preparation.rst:156
-msgid ".. image:: _static/fr/fusion.png"
-msgstr ""
-
 #: ../../preparation.rst:160
 msgid "Pour afficher le panneau ``Boîte à outils de traitements`` s'il n'apparaît pas dans votre espace de travail : *Vue - Panneaux - Boîte à outils de traitements*. Ou plus simplement : cliquez sur l'icône engrenage à côté de l'icône sigma (en haut à droite *a priori*)."
-msgstr ""
-
-#: ../../preparation.rst:163
-msgid ".. image:: _static/fr/boite-outils.png"
-msgstr ""
-
-#: ../../preparation.rst:166
-msgid ".. image:: _static/fr/boite-outils-icone.png"
 msgstr ""
 
 #: ../../preparation.rst:169
 msgid "**6.** Renseigner les entrées (bulle 1) et enregistrer la sortie dans un fichier de type .tif (bulle 2) avant d'exécuter (bulle 3)."
 msgstr ""
 
-#: ../../preparation.rst:171
-msgid ".. image:: _static/fr/fusion2.png"
-msgstr ""
-
 #: ../../preparation.rst:174
 msgid "**7.** Ce processing vous permet d'obtenir une seule dalle de MNT en sortie."
-msgstr ""
-
-#: ../../preparation.rst:176
-msgid ".. image:: _static/fr/dalle_fusionnee.png"
 msgstr ""
 
 #: ../../preparation.rst:179
@@ -312,16 +252,8 @@ msgstr ""
 msgid "Chercher l'outil ``Assigner une projection`` de GDAL dans la boite à outils de traitements (bulles 1 et 2)."
 msgstr ""
 
-#: ../../preparation.rst:183
-msgid ".. image:: _static/fr/assigner-projection.png"
-msgstr ""
-
 #: ../../preparation.rst:186
 msgid "Renseigner la couche (bulle 1) et le SCR de destination (bulle 2), puis Exécuter (bulle 3)."
-msgstr ""
-
-#: ../../preparation.rst:188
-msgid ".. image:: _static/fr/use-assigner-scr.png"
 msgstr ""
 
 #: ../../preparation.rst:191
@@ -344,25 +276,12 @@ msgstr ""
 msgid "Dans *Paramètres de valeurs Min/Max* (bulle 2), changer le paramètre *Statistiques de l'emprise* à *Emprise actualisée* au lieu de *Raster entier* par défaut (bulle 3)."
 msgstr ""
 
-#: ../../preparation.rst:202
-msgid ".. image:: _static/fr/symbologie-mnt.png"
-msgstr ""
-
-#: ../../preparation.rst:205
-msgid ".. image:: _static/fr/zoom-mnt.png"
-msgstr ""
-
 #: ../../preparation.rst:209
 msgid "**Exutoires possibles (STEU)**"
 msgstr ""
 
 #: ../../preparation.rst:211
 msgid "**1.** Créer une nouvelle couche (.shp ou .gpkg)."
-msgstr ""
-
-#: ../../preparation.rst:213
-#: ../../preparation.rst:257
-msgid ".. image:: _static/fr/nouvelle-couche.png"
 msgstr ""
 
 #: ../../preparation.rst:216
@@ -373,29 +292,12 @@ msgstr ""
 msgid "**3.** Pour le SCR, choisir le SCR du projet (ici EPSG:32620- WGS 84/UTM zone 20N) puis exécuter (bulles 3 et 4)."
 msgstr ""
 
-#: ../../preparation.rst:220
-msgid ".. image:: _static/fr/couche-steu.png"
-msgstr ""
-
 #: ../../preparation.rst:223
 msgid "**4.** Ajouter les 4 emplacements possibles tour à tour en suivant les bulles 1 à 5 indiquées sur la capture."
 msgstr ""
 
-#: ../../preparation.rst:225
-msgid ".. image:: _static/fr/add-steu.png"
-msgstr ""
-
-#: ../../preparation.rst:228
-msgid ".. image:: _static/fr/4steu.png"
-msgstr ""
-
 #: ../../preparation.rst:231
 msgid "**5.** Bien enregistrer et désactiver le mode édition une fois les 4 emplacements ajoutés."
-msgstr ""
-
-#: ../../preparation.rst:233
-#: ../../preparation.rst:272
-msgid ".. image:: _static/fr/save.png"
 msgstr ""
 
 #: ../../preparation.rst:236
@@ -408,14 +310,6 @@ msgstr ""
 
 #: ../../preparation.rst:241
 msgid "Vous pouvez également télécharger manuellement les données sur le site Géoservices de l'IGN `BD TOPO® <https://geoservices.ign.fr/bdtopo>`_, mais vous devrez vraisemblablement les post-traiter pour les réduire à votre zone d'étude (données mises à disposition à l'échelle du département)."
-msgstr ""
-
-#: ../../preparation.rst:244
-msgid ".. image:: _static/fr/extensions.png"
-msgstr ""
-
-#: ../../preparation.rst:247
-msgid ".. image:: _static/fr/bd_topo.png"
 msgstr ""
 
 #: ../../preparation.rst:250
@@ -431,16 +325,8 @@ msgstr ""
 msgid "**1.** Créer une nouvelle couche de type *polygone* dans le SCR du projet."
 msgstr ""
 
-#: ../../preparation.rst:260
-msgid ".. image:: _static/fr/couche-zone.png"
-msgstr ""
-
 #: ../../preparation.rst:265
 msgid "**2.** L'éditer et délimiter la zone d'intérêt."
-msgstr ""
-
-#: ../../preparation.rst:267
-msgid ".. image:: _static/fr/edit-zone.png"
 msgstr ""
 
 #: ../../preparation.rst:270
@@ -451,17 +337,8 @@ msgstr ""
 msgid "**4.** Lancer le plugin."
 msgstr ""
 
-#: ../../preparation.rst:277
-#: ../../preparation.rst:309
-msgid ".. image:: _static/fr/start_bd_topo.png"
-msgstr ""
-
 #: ../../preparation.rst:280
 msgid "**5.** Indiquer la couche d'intérêt (bulle 1), cocher ``Batiment`` (bulle 2) et indiquer le dossier d'enregistrement (bulles 3 et 4) avant de cliquer sur ``OK`` (bulle 5)."
-msgstr ""
-
-#: ../../preparation.rst:282
-msgid ".. image:: _static/fr/extraction-batiments.png"
 msgstr ""
 
 #: ../../preparation.rst:285
@@ -469,28 +346,12 @@ msgstr ""
 msgid "Vous obtenez une sortie de ce type :"
 msgstr ""
 
-#: ../../preparation.rst:287
-msgid ".. image:: _static/fr/sortie-batiments.png"
-msgstr ""
-
 #: ../../preparation.rst:290
 msgid "**6.** Editer la couche (icône crayon), sélectionner (bulles 1 puis 2) puis supprimer les quelques entités situées hors de la zone (bulle 3). Enregistrer avant de sortir du mode édition."
 msgstr ""
 
-#: ../../preparation.rst:292
-msgid ".. image:: _static/fr/suppr-batiments.png"
-msgstr ""
-
 #: ../../preparation.rst:295
 msgid "**7.** Pour obtenir des points à partir des polygones obtenus (contrainte liée module ``Réseau`` ), utiliser l'outil ``Centroïdes`` de QGIS."
-msgstr ""
-
-#: ../../preparation.rst:297
-msgid ".. image:: _static/fr/centroides.png"
-msgstr ""
-
-#: ../../preparation.rst:302
-msgid ".. image:: _static/fr/sortie-centroides.png"
 msgstr ""
 
 #: ../../preparation.rst:305
@@ -506,16 +367,8 @@ msgstr ""
 msgid "**2.** Délimiter la zone à extraire sur la carte (bulles 1 et 2), cocher ``Tronçon de route`` (bulle 3) et indiquer le dossier d'enregistrement (bulles 4 et 5) avant de cliquer sur ``OK`` (bulle 6)."
 msgstr ""
 
-#: ../../preparation.rst:314
-msgid ".. image:: _static/fr/extraction_routes.png"
-msgstr ""
-
 #: ../../preparation.rst:317
 msgid "La sortie obtenue est de ce type :"
-msgstr ""
-
-#: ../../preparation.rst:319
-msgid ".. image:: _static/fr/sortie-routes.png"
 msgstr ""
 
 #: ../../preparation.rst:322
@@ -560,16 +413,8 @@ msgstr ""
 msgid "**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Routes et bâtiments``."
 msgstr ""
 
-#: ../../preparation.rst:353
-msgid ".. image:: _static/fr/start-r+b.png"
-msgstr ""
-
 #: ../../preparation.rst:356
 msgid "**2.** Indiquer la couche *polygone* qui délimite la zone à extraire (bulle 1), cocher *Reprojection des couches dans le SCR du projet* (bulle 2) puis exécuter (bulle 3)."
-msgstr ""
-
-#: ../../preparation.rst:358
-msgid ".. image:: _static/fr/r+b.png"
 msgstr ""
 
 #: ../../preparation.rst:361
@@ -612,10 +457,6 @@ msgstr ""
 msgid "Par exemple :"
 msgstr ""
 
-#: ../../preparation.rst:383
-msgid ".. image:: _static/fr/save-temp.png"
-msgstr ""
-
 #: ../../preparation.rst:386
 #: ../../preparation.rst:456
 msgid "**Application à l'exemple de** :ref:`Petite-Anse <petite-anse>`"
@@ -625,20 +466,8 @@ msgstr ""
 msgid "En appliquant ``Routes et bâtiments`` à la zone définie :ref:`plus haut <zone>`, voici les sorties obtenues pour les bâtiments :"
 msgstr ""
 
-#: ../../preparation.rst:392
-msgid ".. image:: _static/fr/sorties-b.png"
-msgstr ""
-
-#: ../../preparation.rst:394
-msgid ".. image:: _static/fr/sorties-c.png"
-msgstr ""
-
 #: ../../preparation.rst:399
 msgid "En appliquant le module à une zone élargie pour inclure les possibles connexions aux stations existantes, vous obtiendrez une sortie de type :"
-msgstr ""
-
-#: ../../preparation.rst:401
-msgid ".. image:: _static/fr/sortie-r.png"
 msgstr ""
 
 #: ../../preparation.rst:406
@@ -669,20 +498,12 @@ msgstr ""
 msgid "**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Population``."
 msgstr ""
 
-#: ../../preparation.rst:433
-msgid ".. image:: _static/fr/start-pop.png"
-msgstr ""
-
 #: ../../preparation.rst:436
 msgid "**2.** Indiquer une valeur de population (bulle 1), renseigner la couche de bâtiments (bulle 2), enregistrer dans un fichier (bulle 3) puis exécuter (bulle 4)."
 msgstr ""
 
 #: ../../preparation.rst:440
 msgid "La couche de bâtiments doit être de type *polygone*."
-msgstr ""
-
-#: ../../preparation.rst:442
-msgid ".. image:: _static/fr/use-pop.png"
 msgstr ""
 
 #: ../../preparation.rst:445
@@ -721,16 +542,8 @@ msgstr ""
 msgid "**3.** Indiquer *150* pour le *Total d'habitants* de la zone (bulle 4), cocher *Entités sélectionnées* une fois la couche de bâtiments sélectionnée (bulle 5) puis *Exécuter* (bulle 6)."
 msgstr ""
 
-#: ../../preparation.rst:471
-msgid ".. image:: _static/fr/pop-haut.png"
-msgstr ""
-
 #: ../../preparation.rst:474
 msgid "**4.** Vous obtenez la couche suivante."
-msgstr ""
-
-#: ../../preparation.rst:476
-msgid ".. image:: _static/fr/sortie-haut.png"
 msgstr ""
 
 #: ../../preparation.rst:479
@@ -741,16 +554,8 @@ msgstr ""
 msgid "**1.** Répéter la même procédure en sélectionnant cette fois la zone basse et en indiquant *950* pour le *Total d'habitants* de la zone."
 msgstr ""
 
-#: ../../preparation.rst:483
-msgid ".. image:: _static/fr/pop-bas.png"
-msgstr ""
-
 #: ../../preparation.rst:486
 msgid "**2.** Vous obtenez la couche suivante."
-msgstr ""
-
-#: ../../preparation.rst:488
-msgid ".. image:: _static/fr/sortie-bas.png"
 msgstr ""
 
 #: ../../preparation.rst:491
@@ -761,16 +566,8 @@ msgstr ""
 msgid "**1.** Pour fusionner les 2 couches obtenues, chercher l'outil *Fusionner des couches vecteur* dans la boîte à outils de traitements QGIS."
 msgstr ""
 
-#: ../../preparation.rst:495
-msgid ".. image:: _static/fr/start-fusion-vecteurs.png"
-msgstr ""
-
 #: ../../preparation.rst:498
 msgid "**2.** Sélectionner les deux couches (bulle 1), choisir pour SCR le SCR du projet (bulle 2) puis enregistrer le fichier (bulle 3) avant d'exécuter (bulle 4)."
-msgstr ""
-
-#: ../../preparation.rst:500
-msgid ".. image:: _static/fr/use-fusion-vecteurs.png"
 msgstr ""
 
 #: ../../preparation.rst:503
@@ -779,10 +576,6 @@ msgstr ""
 
 #: ../../preparation.rst:505
 msgid "Sélectionner la couche (bulle 1) et ouvrir la table attributaire (bulle 2)."
-msgstr ""
-
-#: ../../preparation.rst:507
-msgid ".. image:: _static/fr/table-sortie-population-fusion.png"
 msgstr ""
 
 #: ../../preparation.rst:510

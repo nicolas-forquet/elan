@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-03 12:02+0100\n"
+"POT-Creation-Date: 2025-11-04 15:58+0100\n"
 "PO-Revision-Date: 2025-10-31 14:08+0100\n"
 "Last-Translator: \n"
 "Language: en\n"
@@ -122,10 +122,6 @@ msgstr "Installing plugin"
 msgid "**1.** Ouvrir le gestionnaire d'extensions."
 msgstr "**1.** Open the plugin manager."
 
-#: ../../installation.rst:67
-msgid ".. image:: _static/fr/extensions-gestionnaire.png"
-msgstr ""
-
 #: ../../installation.rst:70
 msgid ""
 "**2.** Dans `Toutes` (bulle 1), chercher \"elan\" (bulle 2). Sélectionner"
@@ -135,10 +131,6 @@ msgstr ""
 "**2.** In `All` (landmark 1), search \"elan\" (landmark 2). Select the "
 "plugin (landmark 3) and click on ``Install plugin`` at the bottom of the "
 "plugin description (landmark 4)."
-
-#: ../../installation.rst:72
-msgid ".. image:: _static/fr/installation_elan.png"
-msgstr ""
 
 #: ../../installation.rst:75
 msgid ""
@@ -222,10 +214,6 @@ msgstr "**pysewer is required to use the** ``Sewer network`` **module**."
 msgid "**1.** Aller dans les paramètres de l'extension ELAN."
 msgstr "**1.** Go to the ELAN plugin settings."
 
-#: ../../installation.rst:110 ../../installation.rst:136
-msgid ".. image:: _static/fr/parametres_elan.png"
-msgstr ""
-
 #: ../../installation.rst:113
 msgid ""
 "**2.** Vérifier si pysewer est déjà installé ou non en cliquant sur "
@@ -241,10 +229,6 @@ msgid ""
 msgstr ""
 "**3.** If not, proceed with installation using the button ``Install "
 "pysewer in ELAN specific environment (need an internet connection)``."
-
-#: ../../installation.rst:117
-msgid ".. image:: _static/fr/pysewer.png"
-msgstr ""
 
 #: ../../installation.rst:122
 msgid ""
@@ -300,10 +284,6 @@ msgstr ""
 "**3.** If not, proceed with installation using the button ``Install "
 "wetlandoptimizer in ELAN specific environment (need an internet "
 "connection)``."
-
-#: ../../installation.rst:143
-msgid ".. image:: _static/fr/wetlandoptimizer.png"
-msgstr ""
 
 #: ../../installation.rst:147
 msgid ""

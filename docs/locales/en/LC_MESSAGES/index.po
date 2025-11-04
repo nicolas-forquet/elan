@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-03 12:02+0100\n"
+"POT-Creation-Date: 2025-11-04 15:58+0100\n"
 "PO-Revision-Date: 2025-10-28 09:30+0100\n"
 "Last-Translator: \n"
 "Language: en\n"
@@ -70,10 +70,6 @@ msgstr "**Last documentation update**: |date_update|"
 #: ../../index.rst:25
 msgid "**Version du plugin** : |version|"
 msgstr "**Plugin version** : |version|"
-
-#: ../../index.rst:27
-msgid ".. image:: _static/fr/logo.png"
-msgstr ""
 
 #: ../../index.rst:31
 msgid "Ce projet est en cours de développement."

@@ -35,11 +35,10 @@ exclude_patterns = []
 html_theme = "piccolo_theme"
 html_static_path = ["_static"]
 
-# -- Treat images URLs as translatables
-
-gettext_additional_targets = {"image"}
 
 # -- Choose variables to export to be usable in .rst files -------------------
+# -- Need to do this in setup() because we need to know which language is being used
+
 
 def setup(app):
     # Get latest version of ELAN
