@@ -64,12 +64,12 @@ Installation de l'extension
 
 **1.** Ouvrir le gestionnaire d'extensions.
 
-.. image:: _static/fr/extensions-gestionnaire.png
+.. image:: _static/extensions-gestionnaire.png
      :width: 314
 
 **2.** Dans `Toutes` (bulle 1), chercher "elan" (bulle 2). Sélectionner le plugin (bulle 3) puis cliquer sur ``Installer l'extension`` en bas du descriptif de l'extension (bulle 4).
 
-.. image:: _static/fr/installation_elan.png
+.. image:: _static/installation_elan.png
     :width: 700
 
 **3.** La mention ``Extension installée avec succès`` apparaît au sommet de la fenêtre. Fermer le gestionnaire d'extensions.
@@ -107,14 +107,14 @@ Son installation se fait via l'extension.
 
 **1.** Aller dans les paramètres de l'extension ELAN.
 
-.. image:: _static/fr/parametres_elan.png
+.. image:: _static/parametres_elan.png
       :width: 463
 
 **2.** Vérifier si pysewer est déjà installé ou non en cliquant sur ``Vérifier si pysewer est installé``.
 
 **3.** Si non, procéder à l'installation grâce au bouton ``Installer pysewer dans ELAN`` (nécessite une connexion internet).
 
-.. image:: _static/fr/pysewer.png
+.. image:: _static/pysewer.png
       :width: 453
 
 .. _wetlandoptimizer:
@@ -133,14 +133,14 @@ Son installation se fait via ELAN.
 
 **1.** Aller dans les paramètres de l'extension ELAN.
 
-.. image:: _static/fr/parametres_elan.png
+.. image:: _static/parametres_elan.png
     :width: 463
 
 **2.** Vérifier si pysewer est déjà installé ou non en cliquant sur ``Vérifier si wetlandoptimizer est installé``.
 
 **3.** Si non, procéder à l'installation grâce au bouton ``Installer wetlandoptimizer dans ELAN`` (nécessite une connexion internet).
 
-.. image:: _static/fr/wetlandoptimizer.png
+.. image:: _static/wetlandoptimizer.png
     :width: 449
 
 .. note::

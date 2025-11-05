@@ -57,7 +57,7 @@ Structure de l'outil
 --------------------
 ELAN est structuré en **plusieurs groupement de modules**. 
 
-.. image:: _static/fr/elan_prb1+2.png
+.. image:: _static/elan_prb1+2.png
     :width: 500
 
 * **Préparation des données** 
@@ -104,40 +104,40 @@ et de **les combiner entre eux pour envisager ces problématiques dans leur glob
 
 Les travaux de recherche identifiés et intégrés à la version actuelle de l'outil ont été développés par :
 
-.. image:: _static/fr/ufz.jpg
+.. image:: _static/ufz.jpg
     :width: 400
     :target: https://www.ufz.de/ 
 
-.. image:: _static/fr/reversaal.jpg
+.. image:: _static/reversaal.jpg
     :width: 200 
     :target: https://reversaal.lyon-grenoble.hub.inrae.fr/  
 
 Parmi les futures intégrations à ELAN, ont été identifiés les travaux d'hydrologie urbaine menés conjointement par :
 
- .. image:: _static/fr/insa.jpg
+ .. image:: _static/insa.jpg
     :width: 200
     :target: https://deep.insa-lyon.fr/  
 
- .. image:: _static/fr/uga.png
+ .. image:: _static/uga.png
     :width: 100
     :target: https://www.univ-grenoble-alpes.fr/recherche/recherche-712368.kjsp  
 
 Le développement de l'outil en lui-même mobilise deux acteurs : 
 
- .. image:: _static/fr/reversaal.jpg
+ .. image:: _static/reversaal.jpg
     :width: 200 
     :target: https://reversaal.lyon-grenoble.hub.inrae.fr/ 
 
- .. image:: _static/fr/oslandia.png
+ .. image:: _static/oslandia.png
     :width: 200  
     :target: https://oslandia.com/
 
 Ce projet est développé grâce aux financements de : 
 
- .. image:: _static/fr/ofb.png
+ .. image:: _static/ofb.png
     :width: 125 
     :target: https://www.ofb.gouv.fr/
 
- .. image:: _static/fr/caribsan.png
+ .. image:: _static/caribsan.png
     :width: 250 
     :target: https://www.caribsan.eu/
