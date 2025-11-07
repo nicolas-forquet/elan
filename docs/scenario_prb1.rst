@@ -87,7 +87,7 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 
 * ``profondeur min autorisée de canalisation`` : [m], généralement conditionnée par le risque de gel.
 
-* ``rugosité canalisation`` : [mm], dépend du matériau utilisé pour les canalisations.
+* ``rugosité canalisation`` : [μm], dépend du matériau utilisé pour les canalisations.
 
 * ``diamètre autorisé sous pression`` : [m], un seul diamètre autorisé.
 
@@ -134,7 +134,7 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 * ``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour chaque exutoire), *débit de pointe* [m3/j], *débit moyen journalier* [m3/j], *habitants raccordés* [nb], *profondeur tranchée* [m], *profondeur canas entrantes* [m], *diamètres entrants* [m].
 
 .. note::
-    En sortie de module ``Réseau``, la couche STEU compte aussi des attributs non renseignés : *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet coliformes* [UFC/100mL]. Ces attributs sont à renseigner manuellement 
+    En sortie de module ``Réseau``, la couche STEU compte aussi des attributs non renseignés : *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL]. Ces attributs sont à renseigner manuellement 
     pour chaque exutoire selon vos contraintes de rejet. Ils servent d'entrées pour le module ``Procédés``. Certains peuvent être renseignés à *NULL*.
 
 * ``Stations de relevage`` : *altitude terrain* [m], *débit de pointe* [m3/s], *débit moyen journalier* [m3/j], *habitants raccordés* [nb], *profondeur canas entrantes* [m], *charge hydrostatique* [m].
@@ -311,7 +311,7 @@ L'ensemble des attributs disponibles pour chaque couche est détaillé :ref:`plu
     Si vous êtes amenés à charger le géopackage contenant les 7 couches dans un autre projet, vous pouvez l'ouvrir directement
     dans un groupe en suivant la démarche suivante (ouverture des 7 couches placées dans un groupe commun) :
 
-    - Glisser le .gpkg depuis *Explorateur* dans votre fichier QGIS.
+    - Glisser le .gpkg depuis *Explorateur* dans la fenêtre avec la vue cartographique.
     - Dans la fenêtre qui s'ouvre, dérouler *Options* et cocher *Afficher des couches à un groupe* (bulle 1).
     - Cliquer sur *Ajouter une couche* (bulle 2).
 
@@ -442,13 +442,13 @@ Préalable
 
 **2.** Disposer **d'une couche de type point avec le ou les emplacements de stations envisagés**.
 
-Cette couche doit contenir **10 attributs** : *coordonnées gps*, *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet coliformes* [UFC/100mL], *débit journalier* [m3/j]. 
+Cette couche doit contenir **10 attributs** : *coordonnées gps*, *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL], *débit journalier* [m3/j]. 
 
 Pour les **niveaux de rejet**, **3 doivent obligatoirement être renseignés** avec une valeur numérique strictement supérieure à 0 : **niveau rejet MES** [mg/L], **niveau rejet DBO5** [mg/L], **niveau rejet DCO** [mg/L]. 
 Les autres peuvent être renseignés à *NULL* selon votre contexte (tout ou partie d'entre eux).
 
 .. attention::
-    Les niveaux de rejets relatifs au phosphore total (PT) et aux pathogènes (coliformes) ne sont actuellement pas pris en compte dans l'optimisation réalisée par *wetlandoptimizer* (valeurs par défaut considérées : *NULL*).
+    Les niveaux de rejets relatifs au phosphore total (PT) et aux pathogènes (e.coli) ne sont actuellement pas pris en compte dans l'optimisation réalisée par *wetlandoptimizer* (valeurs par défaut considérées : *NULL*).
     Leur prise en compte sera intégrée dans une version future. 
 
 Cette couche peut-être obtenue en **sortie de module** ``Réseau``. Le débit journalier et les coordonnées GPS sont alors renseignés. 
@@ -520,19 +520,19 @@ Chaque entité possède de nombreux attributs :
     * **concentration NTK effluent** [mg/L] : concentration en NTK en sortie de filière de traitement.
     * **concentration DCO effluent** [mg/L] : concentration en DCO en sortie de filière de traitement.
     * **concentration NT effluent** [mg/L] : concentration en NT en sortie de filière de traitement.
-    * **concentration NO3 effluent** [mg/L] : concentration en NO3 en sortie de filière de traitement.
+    * **concentration N-NO3 effluent** [mg/L] : concentration en N-NO3 en sortie de filière de traitement.
     * **concentration PT effluent** [mg/L] : concentration en PT en sortie de filière de traitement.
-    * **concentration coliformes** [UFC/100mL] : concentration en coliformes en sortie de filière de traitement.
-    * **déviation MES** [%] : déviation de la concentration en MES dans l'effluent par rapport au niveau de rejet.
-    * **déviation DBO5** [%] : déviation de la concentration en DBO5 dans l'effluent par rapport au niveau de rejet.
-    * **déviation NTK** [%] : déviation de la concentration en NTK dans l'effluent par rapport au niveau de rejet.
-    * **déviation DCO** [%] : déviation de la concentration en DCO dans l'effluent par rapport au niveau de rejet.
-    * **déviation NT** [%] : déviation de la concentration en NT dans l'effluent par rapport au niveau de rejet.
-    * **déviation NO3** [%] : déviation de la concentration en NO3 dans l'effluent par rapport au niveau de rejet.
-    * **déviation PT** [%] : déviation de la concentration en PT dans l'effluent par rapport au niveau de rejet.
-    * **déviation coliformes** [%] : déviation de la concentration en coliformes dans l'effluent par rapport au niveau de rejet.
+    * **concentration e.coli** [UFC/100mL] : concentration en e.coli en sortie de filière de traitement.
+    * **déviation MES** [mg/L] : déviation de la concentration en MES dans l'effluent par rapport au niveau de rejet.
+    * **déviation DBO5** [mg/L] : déviation de la concentration en DBO5 dans l'effluent par rapport au niveau de rejet.
+    * **déviation NTK** [mg/L] : déviation de la concentration en NTK dans l'effluent par rapport au niveau de rejet.
+    * **déviation DCO** [mg/L] : déviation de la concentration en DCO dans l'effluent par rapport au niveau de rejet.
+    * **déviation NT** [mg/L] : déviation de la concentration en NT dans l'effluent par rapport au niveau de rejet.
+    * **déviation N-NO3** [mg/L] : déviation de la concentration en N-NO3 dans l'effluent par rapport au niveau de rejet.
+    * **déviation PT** [mg/L] : déviation de la concentration en PT dans l'effluent par rapport au niveau de rejet.
+    * **déviation e.coli** [mg/L] : déviation de la concentration en e.coli dans l'effluent par rapport au niveau de rejet.
 
-    Les déviations sont mises en formes : en vert si supérieures ou égales à 0, en rouge si inférieures à 0. Elles renseignent sur la 
+    Les déviations sont mises en formes : en vert si inférieures ou égales à 0, en rouge si supérieures à 0. Elles renseignent sur la 
     conformité de la filière par rapport aux niveaux de rejets renseignés en entrée de module : vert = conforme, rouge = non conforme.
 
     * **MES normalisé** [-] : valeur normalisée de la concentration en MES dans l'effluent par rapport au niveau de rejet exigé.
@@ -542,7 +542,7 @@ Chaque entité possède de nombreux attributs :
     * **NT normalisé** [-] : valeur normalisée de la concentration en NT dans l'effluent par rapport au niveau de rejet exigé.
     * **NO3 normalisé** [-] : valeur normalisée de la concentration en NO3 dans l'effluent par rapport au niveau de rejet exigé.
     * **PT normalisé** [-] : valeur normalisée de la concentration en PT dans l'effluent par rapport au niveau de rejet exigé.
-    * **coliformes normalisés** [-] : valeur normalisée de la concentration en coliformes dans l'effluent par rapport au niveau de rejet exigé.
+    * **e.coli normalisé** [-] : valeur normalisée de la concentration en e.coli dans l'effluent par rapport au niveau de rejet exigé.
     * **surface normalisée** [-] : valeur normalisée de la surface totale de la filière par rapport à la surface disponible.
 
     Si la valeur normalisée est inférieure ou égale à 1, alors elle respecte la contrainte indiquée (niveau de rejet ou surface disponible). Sinon, elle l'excède.
@@ -713,7 +713,7 @@ Utilisation du module
 
 - 7 couches issues du module ``Réseau``.
 - 1 couche ``Couche de filières`` avec les filières retenues.
-- 1 couche sans géométrie  ``metadata`` qui contient un identifiant unique pour la comparaison postérieure à d'autres scénarios.
+- 1 couche sans géométrie ``metadata`` qui contient un identifiant unique pour la comparaison postérieure à d'autres scénarios.
 
 .. important::
     **Le géopackage de sortie ne s'ouvre pas dans le projet**. Il est juste enregistré à l'emplacement indiqué, prêt à être chargé dans un nouveau projet à des fins d'évaluation puis de comparaison.
