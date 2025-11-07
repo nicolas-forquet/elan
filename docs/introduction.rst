@@ -40,7 +40,7 @@ interconnectées entre elles par une route. La collectivité en charge de ce qua
 
 Si toutes les eaux usées générées par ce quartier sont évacuées et traitées en **un point**, la gestion sera **centralisée**. Si **deux exutoires (ou plus)** sont retenus, la gestion sera **décentralisée**.
 
-.. image:: _static/fr/petite_anse.png
+.. image:: _static/petite_anse.png
     :width: 550
 
 ELAN permet d'aider à la prise de décision en permettant à l'utilisateur **d'explorer de multiples scénarios et de les évaluer**.

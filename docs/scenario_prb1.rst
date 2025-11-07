@@ -182,7 +182,7 @@ Le scénario que nous allons créer dans ce pas à pas va considérer un raccord
     :width: 600
 
 .. note::
-    Pour reproduire ce pas à pas, vous pouvez : soit utiliser les données que vous avez préparé en suivant la page :ref:`Obtention et préparation des données géographiques <preparation>`, soit télécharger les données :download:`ici <_static/fr/couches_petite_anse.zip>`.
+    Pour reproduire ce pas à pas, vous pouvez : soit utiliser les données que vous avez préparé en suivant la page :ref:`Obtention et préparation des données géographiques <preparation>`, soit télécharger les données :download:`ici <_static/layers_petite_anse.zip>`.
 
 **1. Utilisation du module** ``Réseau``
 
@@ -485,6 +485,9 @@ Pour plus d'informations sur la bonne prise en compte du climat tropical lors du
 **6.** Choisir un emplacement et un nom pour le fichier de sortie (bulle 5) avant d'exécuter (bulle 6).
 
 .. image:: _static/use-procedes.png
+    :width: 662
+
+.. image:: _static/use-procedes2.png
     :width: 662
 
 **7.** Après exécution du module, vous obtenez une couche nommée ``Couche de filières`` (couche de type *point*).
