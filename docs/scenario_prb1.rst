@@ -540,7 +540,7 @@ Chaque entité possède de nombreux attributs :
     * **NTK normalisé** [-] : valeur normalisée de la concentration en NTK dans l'effluent par rapport au niveau de rejet exigé.
     * **DCO normalisé** [-] : valeur normalisée de la concentration en DCO dans l'effluent par rapport au niveau de rejet exigé.
     * **NT normalisé** [-] : valeur normalisée de la concentration en NT dans l'effluent par rapport au niveau de rejet exigé.
-    * **NO3 normalisé** [-] : valeur normalisée de la concentration en NO3 dans l'effluent par rapport au niveau de rejet exigé.
+    * **N-NO3 normalisé** [-] : valeur normalisée de la concentration en N-NO3 dans l'effluent par rapport au niveau de rejet exigé.
     * **PT normalisé** [-] : valeur normalisée de la concentration en PT dans l'effluent par rapport au niveau de rejet exigé.
     * **e.coli normalisé** [-] : valeur normalisée de la concentration en e.coli dans l'effluent par rapport au niveau de rejet exigé.
     * **surface normalisée** [-] : valeur normalisée de la surface totale de la filière par rapport à la surface disponible.
