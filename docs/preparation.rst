@@ -91,14 +91,14 @@ Pour identifier la zone, afficher le fond de carte `Open Street Map <https://www
      Si *Explorateur* n'est pas visible : activez-le via *Vue - Panneaux - Explorateur*.
 
           .. image:: _static/afficher-explorateur.png
-               :width: 400
+               :width: 700
 
 * Chercher la catégorie **Tuiles XYZ** (bulle 1).
 
 * Dérouler et double-cliquer sur **OpenStreetMap** (bulle 2).
 
 .. image:: _static/tuiles-xyz.png
-      :width: 300
+      :width: 700
 
 * Localiser la zone sur le fond Open Street Map qui s'est affiché dans votre vue cartographique.
 
@@ -134,7 +134,7 @@ Pour identifier la zone, afficher le fond de carte `Open Street Map <https://www
 Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART87, RGEALTI_MTQ_0710_1600_MNT_WGS84UTM20_MART87, RGEALTI_MTQ_0705_1605_MNT_WGS84UTM20_MART87 et RGEALTI_MTQ_0710_1605_MNT_WGS84UTM20_MART87.
 
 .. image:: _static/4dalles.png
-     :width: 500
+     :width: 700
 
 **3.** Identifier le SCR (système de coordonnées de référence) associé. Il est indiqué dans l'appellation des fichiers : ici WGS184UTM20, soit EPSG:32620- WGS 84/UTM zone 20N dans QGIS.
 
@@ -154,14 +154,14 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 **5.** Pour fusionner les 4 dalles, utiliser l'outil ``Fusion`` de GDAL. 
 
 .. image:: _static/fusion.png
-      :width: 270
+      :width: 357
 
 .. tip::
     Pour afficher le panneau ``Boîte à outils de traitements`` s'il n'apparaît pas dans votre espace de travail : *Vue - Panneaux - Boîte à outils de traitements*. 
     Ou plus simplement : cliquez sur l'icône engrenage à côté de l'icône sigma (en haut à droite *a priori*).
 
 .. image:: _static/boite-outils.png
-     :width: 633
+     :width: 700
 
 .. image:: _static/boite-outils-icone.png
      :width: 193
@@ -169,24 +169,24 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 **6.** Renseigner les entrées (bulle 1) et enregistrer la sortie dans un fichier de type .tif (bulle 2) avant d'exécuter (bulle 3).
 
 .. image:: _static/fusion2.png
-      :width: 700
+      :width: 620
 
 **7.** Ce processing vous permet d'obtenir une seule dalle de MNT en sortie.
 
 .. image:: _static/dalle_fusionnee.png
-     :width: 500
+     :width: 700
 
 **8.** Cette dalle n'est pas géoréférencée. Pour lui assigner un SCR de manière durable :
 
 * Chercher l'outil ``Assigner une projection`` de GDAL dans la boite à outils de traitements (bulles 1 et 2).
 
 .. image:: _static/assigner-projection.png
-     :width: 250
+     :width: 700
 
 * Renseigner la couche (bulle 1) et le SCR de destination (bulle 2), puis Exécuter (bulle 3).
 
 .. image:: _static/use-assigner-scr.png
-     :width: 500
+     :width: 700
 
 * Votre couche initiale est désormais géoréférencée (pas de nouvelle couche créée).
 
@@ -203,7 +203,7 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
       :width: 700
 
 .. image:: _static/zoom-mnt.png
-     :width: 700
+     :width: 620
 
 
 **Exutoires possibles (STEU)**
@@ -218,7 +218,7 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 **3.** Pour le SCR, choisir le SCR du projet (ici EPSG:32620- WGS 84/UTM zone 20N) puis exécuter (bulles 3 et 4).
 
 .. image:: _static/couche-steu.png
-      :width: 508
+      :width: 467
 
 **4.** Ajouter les 4 emplacements possibles tour à tour en suivant les bulles 1 à 5 indiquées sur la capture.
 
@@ -242,7 +242,7 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
      post-traiter pour les réduire à votre zone d'étude (données mises à disposition à l'échelle du département).
 
 .. image:: _static/extensions.png
-     :width: 317
+     :width: 507
 
 .. image:: _static/bd_topo.png
      :width: 700
@@ -258,7 +258,7 @@ qui permettent d'accéder aux deux stations existantes** (voir :ref:`introductio
      :width: 700
 
 .. image:: _static/couche-zone.png
-     :width: 507
+     :width: 470
 
 .. _zone:
 
@@ -275,12 +275,12 @@ qui permettent d'accéder aux deux stations existantes** (voir :ref:`introductio
 **4.** Lancer le plugin.
 
 .. image:: _static/start_bd_topo.png
-     :width: 505
+     :width: 700
 
 **5.** Indiquer la couche d'intérêt (bulle 1), cocher ``Batiment`` (bulle 2) et indiquer le dossier d'enregistrement (bulles 3 et 4) avant de cliquer sur ``OK`` (bulle 5).
 
 .. image:: _static/extraction-batiments.png
-     :width: 465
+     :width: 483
 
 Vous obtenez une sortie de ce type : 
 
@@ -307,7 +307,7 @@ Vous obtenez une sortie de ce type :
 **1.** Lancer le plugin BD TOPO® Extractor.
 
 .. image:: _static/start_bd_topo.png
-      :width: 505
+      :width: 700
 
 **2.** Délimiter la zone à extraire sur la carte (bulles 1 et 2), cocher ``Tronçon de route`` (bulle 3) et indiquer le dossier d'enregistrement (bulles 4 et 5) avant de cliquer sur ``OK`` (bulle 6).
 
@@ -351,12 +351,12 @@ Open Street Map est un outil ouvert et collaboratif.
 **1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Routes et bâtiments``.
 
 .. image:: _static/start-r+b.png
-      :width: 250
+      :width: 352
 
 **2.** Indiquer la couche *polygone* qui délimite la zone à extraire (bulle 1), cocher *Reprojection des couches dans le SCR du projet* (bulle 2) puis exécuter (bulle 3).
 
 .. image:: _static/r+b.png
-      :width: 700
+      :width: 615
 
 **3.** Après exécution du module, vous disposez de **cinq sorties** :
 
@@ -399,7 +399,7 @@ En appliquant ``Routes et bâtiments`` à la zone définie :ref:`plus haut <zone
 En appliquant le module à une zone élargie pour inclure les possibles connexions aux stations existantes, vous obtiendrez une sortie de type : 
 
 .. image:: _static/sortie-r.png
-     :width: 600
+     :width: 700
 
 * **Post-traitement des couches**
 
@@ -431,7 +431,7 @@ Pour plus d'informations sur la méthode de répartition utilisée :
 **1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Population``.
 
 .. image:: _static/start-pop.png
-    :width: 254
+    :width: 354
 
 **2.** Indiquer une valeur de population (bulle 1), renseigner la couche de bâtiments (bulle 2), enregistrer dans
 un fichier (bulle 3) puis exécuter (bulle 4).
@@ -440,7 +440,7 @@ un fichier (bulle 3) puis exécuter (bulle 4).
     La couche de bâtiments doit être de type *polygone*.
 
 .. image:: _static/use-pop.png
-    :width: 700
+    :width: 621
 
 **3.** Après exécution du module, vous disposez **d'une couche de type point** avec les **centroïdes des bâtiments** de la zone.
 A chaque centroïde est associé un nombre d'individus (**attribut population**) auquel vous pouvez accéder en ouvrant la table 
@@ -493,12 +493,12 @@ et post-traitée (suppression/ajout de certains bâtiments selon la connaissance
 **1.** Pour fusionner les 2 couches obtenues, chercher l'outil *Fusionner des couches vecteur* dans la boîte à outils de traitements QGIS.
 
 .. image:: _static/start-fusion-vecteurs.png
-      :width: 346
+      :width: 296
 
 **2.** Sélectionner les deux couches (bulle 1), choisir pour SCR le SCR du projet (bulle 2) puis enregistrer le fichier (bulle 3) avant d'exécuter (bulle 4).
 
 .. image:: _static/use-fusion-vecteurs.png
-    :width: 700
+    :width: 682
 
 **Pour visualiser les attributs de la couche obtenue :**
 

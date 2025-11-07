@@ -65,7 +65,7 @@ Installation de l'extension
 **1.** Ouvrir le gestionnaire d'extensions.
 
 .. image:: _static/extensions-gestionnaire.png
-     :width: 314
+     :width: 506
 
 **2.** Dans `Toutes` (bulle 1), chercher "elan" (bulle 2). Sélectionner le plugin (bulle 3) puis cliquer sur ``Installer l'extension`` en bas du descriptif de l'extension (bulle 4).
 
@@ -108,14 +108,14 @@ Son installation se fait via l'extension.
 **1.** Aller dans les paramètres de l'extension ELAN.
 
 .. image:: _static/parametres_elan.png
-      :width: 463
+      :width: 700
 
 **2.** Vérifier si pysewer est déjà installé ou non en cliquant sur ``Vérifier si pysewer est installé``.
 
 **3.** Si non, procéder à l'installation grâce au bouton ``Installer pysewer dans ELAN`` (nécessite une connexion internet).
 
 .. image:: _static/pysewer.png
-      :width: 453
+      :width: 608
 
 .. _wetlandoptimizer:
 
@@ -134,14 +134,14 @@ Son installation se fait via ELAN.
 **1.** Aller dans les paramètres de l'extension ELAN.
 
 .. image:: _static/parametres_elan.png
-    :width: 463
+    :width: 700
 
 **2.** Vérifier si pysewer est déjà installé ou non en cliquant sur ``Vérifier si wetlandoptimizer est installé``.
 
 **3.** Si non, procéder à l'installation grâce au bouton ``Installer wetlandoptimizer dans ELAN`` (nécessite une connexion internet).
 
 .. image:: _static/wetlandoptimizer.png
-    :width: 449
+    :width: 611
 
 .. note::
     L'installation d'une dépendance via l'extension peut prendre jusqu'à plusieurs minutes, c'est normal. Aucune fenêtre de progression n'apparait, mais le processus est bien en
