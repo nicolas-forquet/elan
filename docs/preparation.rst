@@ -98,7 +98,7 @@ Pour identifier la zone, afficher le fond de carte `Open Street Map <https://www
 * Dérouler et double-cliquer sur **OpenStreetMap** (bulle 2).
 
 .. image:: _static/tuiles-xyz.png
-      :width: 700
+      :width: 435
 
 * Localiser la zone sur le fond Open Street Map qui s'est affiché dans votre vue cartographique.
 
@@ -181,12 +181,12 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 * Chercher l'outil ``Assigner une projection`` de GDAL dans la boite à outils de traitements (bulles 1 et 2).
 
 .. image:: _static/assigner-projection.png
-     :width: 700
+     :width: 397
 
 * Renseigner la couche (bulle 1) et le SCR de destination (bulle 2), puis Exécuter (bulle 3).
 
 .. image:: _static/use-assigner-scr.png
-     :width: 700
+     :width: 506
 
 * Votre couche initiale est désormais géoréférencée (pas de nouvelle couche créée).
 
@@ -515,15 +515,15 @@ Cette couche peut être utilisée en entrée de module ``Réseau``.
 .. note::
     Au sein de la couche *entrees_reseau.gpkg* mise à disposition à la page :ref:`Création d'un scénario pour la question du centralisé / décentralisé <prb1>`, vous trouverez plusieurs couches :
     
-     - *batiments_osm_population* a été générée en suivant le processus suivant : module ``Routes et bâtiments``, post-traitement manuel (sélection plus fine des bâtiments à raccorder), module ``Population``;
-     - *batiments_ign_population* a été obtenue en utilisant le plugin BD TOPO® Extractor suivi d'un post-traitement manuel puis d'une utilisation du module ``Population``;
+     - *buildings_osm_population* a été générée en suivant le processus suivant : module ``Routes et bâtiments``, post-traitement manuel (sélection plus fine des bâtiments à raccorder), module ``Population``;
+     - *buildings_ign_population* a été obtenue en utilisant le plugin BD TOPO® Extractor suivi d'un post-traitement manuel puis d'une utilisation du module ``Population``;
 
      Les deux couches peuvent être utilisées en entrées du module ``Réseau``. La couche se basant sur les données IGN contient plus de 
      bâtiments (meilleure qualité de données) et fournira donc des résultats a priori plus pertinents.
 
-     - *routes_zone_reduite* a été générée à l'aide du module ``Routes et bâtiments`` appliqué à la couche *zone _reduite* (dans *zones.gpkg*) suivi d'un post-traitement manuel (suppression de routes impraticables);
-     - *routes_zone_elargie* a été obtenue à l'aide du module ``Routes et bâtiments`` appliqué à la couche *zone _elargie* (dans *zones.gpkg*) suivi d'un post-traitement manuel (suppression de routes non empruntables);
-     - *steu* qui contient les 4 emplacements de envisageables pour des stations de traitement des eaux usées.
+     - *roads_reduced_area* a été générée à l'aide du module ``Routes et bâtiments`` appliqué à la couche *zone _reduite* (dans *zones.gpkg*) suivi d'un post-traitement manuel (suppression de routes impraticables);
+     - *roads_enlarged_area* a été obtenue à l'aide du module ``Routes et bâtiments`` appliqué à la couche *zone _elargie* (dans *zones.gpkg*) suivi d'un post-traitement manuel (suppression de routes non empruntables);
+     - *wwtp* qui contient les 4 emplacements de envisageables pour des stations de traitement des eaux usées.
 
      Le geopackage *couches_intermediaires.gpkg* contient les couches intermédiaires qui ont été nécessaires à l'obtention de ces couches.
     

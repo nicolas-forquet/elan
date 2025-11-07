@@ -252,7 +252,7 @@ D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y accéd
     Vous obtiendrez quelque chose de ce type : 
 
                 .. image:: _static/afficher_entites.png
-                    :width: 162
+                    :width: 157
 
     Cette astuce peut être appliquée à n'importe quelle couche vecteur.
 
@@ -357,6 +357,7 @@ Visualisation (illustration sur notre exemple)
 
 .. image:: _static/start-profil-elevation.png
     :width: 556
+
 **2.** Dans la fenêtre *Profil d'élévation*, cocher les couches que vous souhaitez voir apparaître sur votre coupe. Par exemple : ``Stations de relevage``, ``Stations de pompage``, ``Profil de terrain``, ``Profil de canalisations`` et ``Canalisation 3D`` (bulle 1).
 
 **3.** Sélectionner les canalisations dont vous souhaitez afficher le profil souterrain. Pour cela :
@@ -706,7 +707,7 @@ Utilisation du module
 **4.** Indiquer un nom et un emplacement pour le fichier de sortie (bulle 4) puis exécuter (bulle 5).
 
 .. image:: _static/use-scenario.png
-    :width: 579
+    :width: 578
 
 **5.** En sortie de module, vous obtenez **1 fichier.gpkg qui contient 9 couches** : 
 
