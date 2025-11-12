@@ -57,6 +57,11 @@ Sur Linux
     $ source elan-test/bin/activate
     $ qgis
 
+Sur Mac
+^^^^^^^^^
+
+Le plugin ELAN n'est pas compatible avec Mac actuellement.
+
 .. _extension:
 
 Installation de l'extension
@@ -77,6 +82,8 @@ Installation de l'extension
 .. note::
     L'extension est en cours de développement. Lorsqu'une nouvelle version est disponible, suivre la même démarche mais cliquer sur ``Tout mettre à jour`` en bas du descriptif.
 
+.. attention::
+    Après avoir mis à jour l'extension, vous devez réinstaller les dépendances externes comme expliqué dans la rubrique suivante.
 
 .. _dependances:
 
