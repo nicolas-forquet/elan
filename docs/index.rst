@@ -35,6 +35,7 @@ Contenu
 -------
 
 .. toctree::
+   :caption: Global content
    introduction
    installation 
    preparation
