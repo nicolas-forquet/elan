@@ -35,7 +35,9 @@ Contenu
 -------
 
 .. toctree::
+
    :caption: Global content
+
    introduction
    installation 
    preparation
@@ -45,6 +47,7 @@ Contenu
    comparaison
 
    :caption: Tutorials
+   
    petite_anse
 
    
