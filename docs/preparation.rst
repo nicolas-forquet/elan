@@ -70,13 +70,13 @@ En contexte international
 .. image:: _static/alaska-edu.png
       :width: 700
 
-* ``routes`` et ``bâtiments``: le module :ref:`Routes et bâtiments <routes>` d'ELAN vous permet d'extraire les données Open Street Map sur une zone définie.
+* ``routes`` et ``bâtiments``: le module :ref:`Routes et bâtiments <routes>` d'ELAN vous permet d'extraire les données OpenStreetMap sur une zone définie.
 
 .. attention::
     La couche ``bâtiments`` obtenue sera de type *polygone* et non *point*. Elle devra donc être transformée via le module :ref:`Population <population>` intégré à ELAN ou le module ``Centroïdes`` qui est natif de QGIS.
 
 .. note::
-     Si votre zone d'étude est située dans l'hémisphère Sud, Open Buildings peut constituer une alternative intéressante à Open Street Map pour les bâtiments. Pour plus d'informations : https://sites.research.google/gr/open-buildings/.
+     Si votre zone d'étude est située dans l'hémisphère Sud, Open Buildings peut constituer une alternative intéressante à OpenStreetMap pour les bâtiments. Pour plus d'informations : https://sites.research.google/gr/open-buildings/.
 
 
 Utilisation des modules ``Routes et bâtiments`` et ``Population``
@@ -88,16 +88,16 @@ Module ``Routes et bâtiments``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Le module ``Routes et bâtiments`` permet l'extraction des entités routes et bâtiments se trouvant dans une zone définie par l'utilisateur (couche de type *polygone*).
-L'extraction se fait à partir `d'Open Street Map <https://www.openstreetmap.org>`_ qui rassemble des données cartographiques à l'échelle mondiale. 
-Open Street Map est un outil ouvert et collaboratif.
+L'extraction se fait à partir `d'OpenStreetMap <https://www.openstreetmap.org>`_ qui rassemble des données cartographiques à l'échelle mondiale. 
+OpenStreetMap est un outil ouvert et collaboratif.
 
 .. note::
-     La qualité des données Open Street Map est variable selon les zones du globe : elle peut être d'une qualité moindre par 
+     La qualité des données OpenStreetMap est variable selon les zones du globe : elle peut être d'une qualité moindre par 
      rapport à des données nationales (moins de bâtiments reportés par exemple) comme de qualité équivalente. Dans 
      le dernier cas, l'utilisation du module ``Routes et bâtiments`` peut parfois s'avérer plus simple que l'usage des 
      données nationales (téléchargement, post-traitement).
 
-     Bon à savoir : un très léger décalage en termes de georéférencement peut caractériser les données extraites à partir d'Open Street Map.
+     Bon à savoir : un très léger décalage en termes de georéférencement peut caractériser les données extraites à partir d'OpenStreetMap.
 
 **Utilisation du module**
 
@@ -113,7 +113,7 @@ Open Street Map est un outil ouvert et collaboratif.
 
 **3.** Après exécution du module, vous disposez de **cinq sorties** :
 
-* ``Bâtiments`` : couche de type *polygone* avec les bâtiments tels que définis dans Open Street Map
+* ``Bâtiments`` : couche de type *polygone* avec les bâtiments tels que définis dans OpenStreetMap
 
 * ``Bâtiments fusionnés`` : couche de type *polygone* obtenue après fusion des bâtiments adjacents
 
@@ -121,7 +121,7 @@ Open Street Map est un outil ouvert et collaboratif.
 
 * ``Centroïdes des bâtiments fusionnés`` : couche de type *point* qui contient les centroïdes de la couche ``Bâtiments fusionnés``
 
-* ``Routes`` : couche de type *ligne* avec les routes telles que définies Open Street Map
+* ``Routes`` : couche de type *ligne* avec les routes telles que définies OpenStreetMap
 
 Les couches **bâtiments** peuvent constituer des entrées pour le **module** ``Population``.
 

@@ -6,16 +6,16 @@ Exemple de Petite Anse
 Ce tutoriel se base sur le cas de :ref:`Petite Anse <petite-anse>` et détaille les étapes à mettre en oeuvre pour créer un scénario pour la question du centralisé / décentralisé,
 depuis l'obtention et la préparation des données géographiques jusqu'à la création d'un objet scénario.
 
-Il peut être suivi pas à pas pour prendre en main ELAN avant de l'appliquer à son propre cas d'étude. Un :ref:`exercice <exercice>` pour créer un autre scénario sur la zonde de Petite Anse est 
+Il peut être suivi pas à pas pour prendre en main ELAN avant de l'appliquer à son propre cas d'étude. Un :ref:`exercice <exercice>` pour créer un autre scénario sur la zone de Petite Anse est 
 proposé à la fin de ce tutoriel.
 
 Obtention et préparation des données géographiques
 ---------------------------------------------------
 
-Préalable : Afficher un fond de carte (ici Open Street Map)
+Préalable : Afficher un fond de carte (ici OpenStreetMap)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pour identifier la zone, afficher le fond de carte `Open Street Map <https://www.openstreetmap.org>`_ : 
+Pour identifier la zone, afficher le fond de carte `OpenStreetMap <https://www.openstreetmap.org>`_ : 
 
 * Aller dans le panneau *Explorateur*.
 
@@ -32,7 +32,7 @@ Pour identifier la zone, afficher le fond de carte `Open Street Map <https://www
 .. image:: _static/tuiles-xyz.png
       :width: 435
 
-* Localiser la zone sur le fond Open Street Map qui s'est affiché dans votre vue cartographique.
+* Localiser la zone sur le fond OpenStreetMap qui s'est affiché dans votre vue cartographique.
 
 .. image:: _static/localiser-zone.png
       :width: 700
@@ -284,8 +284,8 @@ En appliquant le module à une zone élargie pour inclure les possibles connexio
 Les couches peuvent ensuite être éditées ce qui vous permet de retranscrire votre connaissance du terrain (routes non empruntables ou au contraire, ajout de chemins envisageables,
 sélection fine des bâtiments à raccorder ou non). Cette étape contribue à améliorer la pertinence des résultats obtenus en sortie de module ``Réseau``.
 
-Étape 4 : Répartir la population au sein des bâtiments
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Étape 4 : Répartir la population au sein des bâtiments (facultatif)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 La population de Petite Anse est estimée à 1100 individus dont 150 sur la partie haute et 950 sur la partie basse.
 
@@ -345,7 +345,7 @@ Cette couche peut être utilisée en entrée de module ``Réseau``.
 .. _couches_prb1: 
 
 .. note::
-    Au sein de la couche *entrees_reseau.gpkg* mise à disposition à la page :ref:`Création d'un scénario pour la question du centralisé / décentralisé <prb1>`, vous trouverez plusieurs couches :
+    Au sein de la couche *entrees_reseau.gpkg* mise à disposition dans la rubrique suivante, vous trouverez plusieurs couches :
     
      - *buildings_osm_population* a été générée en suivant le processus suivant : module ``Routes et bâtiments``, post-traitement manuel (sélection plus fine des bâtiments à raccorder), module ``Population``;
      - *buildings_ign_population* a été obtenue en utilisant le plugin BD TOPO® Extractor suivi d'un post-traitement manuel puis d'une utilisation du module ``Population``;
@@ -357,7 +357,7 @@ Cette couche peut être utilisée en entrée de module ``Réseau``.
      - *roads_enlarged_area* a été obtenue à l'aide du module ``Routes et bâtiments`` appliqué à la couche *zone _elargie* (dans *zones.gpkg*) suivi d'un post-traitement manuel (suppression de routes non empruntables);
      - *wwtp* qui contient les 4 emplacements de envisageables pour des stations de traitement des eaux usées.
 
-     Le geopackage *couches_intermediaires.gpkg* contient les couches intermédiaires qui ont été nécessaires à l'obtention de ces couches.
+     Le geopackage *intermediate_layers.gpkg* contient les couches intermédiaires qui ont été nécessaires à l'obtention de ces couches.
 
 
 Création d'un scénario
@@ -372,7 +372,7 @@ Le scénario que nous allons créer dans ce pas à pas va considérer un raccord
     :width: 600
 
 .. note::
-    Pour reproduire ce pas à pas, vous pouvez : soit utiliser les données que vous avez préparé en suivant la page :ref:`Obtention et préparation des données géographiques <preparation>`, soit télécharger les données :download:`ici <_static/layers_petite_anse.zip>`.
+    Pour reproduire ce pas à pas, vous pouvez : soit utiliser les données que vous avez préparé en suivant la rubrique précédente, soit télécharger les données :download:`ici <_static/layers_petite_anse.zip>`.
 
 **1. Utilisation du module** ``Réseau``
 
@@ -495,7 +495,7 @@ D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y accéd
 Pour consulter les attributs des 4 autres couches obtenues en sortie, procéder de même en sélectionnant la couche
 dont vous souhaitez consulter les attributs. 
 
-L'ensemble des attributs disponibles pour chaque couche est détaillé :ref:`plus haut <attributs-reseau>`.
+L'ensemble des attributs disponibles pour chaque couche est détaillé :ref:`ici <attributs-reseau>`.
 
 .. tip::
     Si vous êtes amenés à charger le géopackage contenant les 7 couches dans un autre projet, vous pouvez l'ouvrir directement

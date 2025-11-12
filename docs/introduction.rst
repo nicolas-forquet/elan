@@ -61,7 +61,7 @@ ELAN est structuré en **plusieurs groupement de modules**.
     :width: 500
 
 * **Préparation des données** 
-    * ``Routes et bâtiments`` qui permet **d'extraire les données** `Open Street Map <https://www.openstreetmap.org>`_ de la zone d'intérêt définie par l'utilisateur.
+    * ``Routes et bâtiments`` qui permet **d'extraire les données** `OpenStreetMap <https://www.openstreetmap.org>`_ de la zone d'intérêt définie par l'utilisateur.
     * ``Population`` qui est utilisable pour **répartir un nombre connu d'habitants** au sein d'un ensemble de bâtiments.
     * ``Bassins versants urbains`` pour **identifier les différents bassins versants urbains** drainés par un réseau unitaire connu. 
 
