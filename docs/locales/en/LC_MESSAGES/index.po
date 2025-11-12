@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-04 15:58+0100\n"
+"POT-Creation-Date: 2025-11-12 14:01+0100\n"
 "PO-Revision-Date: 2025-10-28 09:30+0100\n"
 "Last-Translator: \n"
 "Language: en\n"
@@ -48,7 +48,10 @@ msgid "Sophie Aubier, Jacky Volpes `Oslandia <https://oslandia.com/>`_"
 msgstr "Sophie Aubier, Jacky Volpes `Oslandia <https://oslandia.com/>`_"
 
 #: ../../index.rst:17
-msgid "**Anciens contributeurs** : Marie-Chloé Rosse, Raphaël Delhome"
+#, fuzzy
+msgid ""
+"**Anciens contributeurs** : Larissa Marcos, Marie-Chloé Rosse, Raphaël "
+"Delhome"
 msgstr "**Former contributors**: Marie-Chloé Rosse, Raphaël Delhome"
 
 #: ../../index.rst:19
