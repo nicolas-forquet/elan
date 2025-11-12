@@ -173,150 +173,7 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
     Si, pour enregistrer les sorties de simulation, vous passez par un couche temporaire que vous enregistrez ensuite, les mises en forme proposées (symbologies, styles, noms des couches) ne seront pas conservées.
     Seul le passage par *Enregistrer un fichier* lors du lancement du module et l'enregistrement dans votre projet QGIS permet de les conserver.
 
-Application à l'exemple de :ref:`Petite-Anse <petite-anse>`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Le scénario que nous allons créer dans ce pas à pas va considérer un raccordement du quartier à l'un des emplacements possibles : celui au Sud de la zone. 
-
-.. image:: _static/reseau-exemple-scenario.png
-    :width: 600
-
-.. note::
-    Pour reproduire ce pas à pas, vous pouvez : soit utiliser les données que vous avez préparé en suivant la page :ref:`Obtention et préparation des données géographiques <preparation>`, soit télécharger les données :download:`ici <_static/layers_petite_anse.zip>`.
-
-**1. Utilisation du module** ``Réseau``
-
-* Sélectionner la station au Sud (bulles 1 à 3).
-
-* Chercher ``ELAN`` dans la boîte à outils de traitements (bulle 4) et sélectionner ``Réseau`` (bulle 5).
-
-.. image:: _static/etape1.png
-    :width: 700
-
-* Indiquer les 4 couches géographiques (bulles 1 à 4). **Bien cocher Entité(s) sélectionnée(s) uniquement pour considérer uniquement la STEU au Sud de la zone.**
-
-* Si vous souhaitez travailler en considérant un nombre variable d'habitants par bâtiment, indiquer l'attribut correspondant à la population parmi les attributs de votre couche bâtiments (menu déroulant) pour *Nombre d'habitants*. Sinon laisser le champ vide.
-
-.. image:: _static/etape2a.png
-    :width: 678
-
-* Laisser les valeurs par défaut pour les différents paramètres techniques.
-
-* Sélectionner les 6 premiers diamètres (0,1 à 0,4) parmi les options possibles pour les diamètres gravitaires (bulle 5).
-
-* Sélectionner un nom et un emplacement pour le fichier (bulle 6).
-
-* Exécuter (bulle 7).
-
-.. image:: _static/etape2b.png
-    :width: 700
-
-**2. Résultats en sortie de module** ``Réseau``
-
-Après exécution, vous obtenez la vue suivante :
-
-.. image:: _static/vue-gravitaire.png
-    :width: 700
-
-.. note::
-
-    Les couches relatives aux routes et aux bâtiments n'apparaissent pas sur cette vue et les suivantes pour plus de lisibilité.
-
-6 couches géométriques ont été chargées dans votre espace de travail, chacune avec une symbologie qui lui est propre :
-
-    * carré jaune pour la STEU
-    * lignes de couleur aléatoire pour les routes
-    * points de couleur aléatoire pour les bâtiments
-    * triangles verts pour les stations de relevage
-    * triangles rouges pour les stations de pompage (privées et non privées)
-    * lignes bleues pour les sections en gravitaire et lignes rouges pour les sections en refoulement
-
-D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y accéder :
-
-**1.** Sélectionner la couche ``Canalisations`` et **cliquer droit**.
-
-**2.** Aller dans *Styles*. 
-
-**3.** Sélectionner le style de votre choix parmi les 5 autres proposés. 
-
-.. image:: _static/reseau-styles.png
-    :width: 630
-
-**Style diamètres**
-
-.. image:: _static/vue-diametres.png
-    :width: 700
-
-.. tip::
-    Pour savoir exactement combien d'entités correspondent à chaque diamètre : cliquer droit sur la couche ``Canalisations`` et cocher ``Afficher le nombre d'entités``. 
-    Vous obtiendrez quelque chose de ce type : 
-
-                .. image:: _static/afficher_entites.png
-                    :width: 157
-
-    Cette astuce peut être appliquée à n'importe quelle couche vecteur.
-
-**Style débit de pointe**
-
-.. image:: _static/vue-debit.png
-    :width: 601
-
-**Style profondeur**
-
-.. image:: _static/vue-profondeur.png
-    :width: 700
-
-**Style sens d'écoulement**
-
-.. image:: _static/vue-ecoulement.png
-    :width: 700
-
-**Style sous-réseaux**
-
-.. image:: _static/vue-sous-reseau.png
-    :width: 599
-
-.. note::
-    Le style *Sous-réseaux* est ici uniforme car ce scénario considère une seule station donc un seul réseau d'assainissement (pas de sous-réseaux).
-    En considérant 2 stations possibles, une vue de ce type sera obtenue :
-
-                .. image:: _static/vue_2_reseaux.png
-                    :width: 200
-
-.. tip::
-    Pour organiser votre espace avec les différentes couches, vous pouvez créer des groupes (ici *Préparation de données*, *Données mises à disposition* et *STEU Sud*.)
-    
-    Pour cela, il vous suffit de cliquer sur l'icône *Ajouter un groupe* et d'y glisser les couches que vous souhaitez rassembler.
-
-            .. image:: _static/ajout-groupe.png
-                :width: 132
-
-**3. Consultation de la couche** ``Informations sur le réseau`` **et des attributs des autres couches**
-
-* Sélectionner la couche ``Informations sur le réseau`` (bulle 1).
-
-* Cliquer que l'icône *Ouvrir la table attributaire* (bulle 2).
-
-* Une fenêtre s'ouvre et vous permet d'accéder à l'ensemble des informations de la couche (bulle 3).
-
-.. image:: _static/informations-table.png
-    :width: 700
-
-Pour consulter les attributs des 4 autres couches obtenues en sortie, procéder de même en sélectionnant la couche
-dont vous souhaitez consulter les attributs. 
-
-L'ensemble des attributs disponibles pour chaque couche est détaillé :ref:`plus haut <attributs-reseau>`.
-
-.. tip::
-    Si vous êtes amenés à charger le géopackage contenant les 7 couches dans un autre projet, vous pouvez l'ouvrir directement
-    dans un groupe en suivant la démarche suivante (ouverture des 7 couches placées dans un groupe commun) :
-
-    - Glisser le .gpkg depuis *Explorateur* dans la fenêtre avec la vue cartographique.
-    - Dans la fenêtre qui s'ouvre, dérouler *Options* et cocher *Afficher des couches à un groupe* (bulle 1).
-    - Cliquer sur *Ajouter une couche* (bulle 2).
-
-                    .. image:: _static/ouverture_gpkg.png
-                        :width: 542
+.. _visualisation-profils:
 
 Exploration des résultats (module ``Profils de canalisations``)
 ------------------------------------------------------------------
@@ -350,8 +207,8 @@ Utilisation du module
 
 * ``Canalisations 3D`` : couche de type *ligne Z* créée à partir d'un échantillonnage de la couche ``Canalisations`` (conservation des styles et des attributs).
 
-Visualisation (illustration sur notre exemple)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Visualisation 
+^^^^^^^^^^^^^^
 
 **1.** Pour afficher un profil de canalisations dans un plan xz, commencer par ouvrir l'outil **Profil d'élévation** : *Vue* - *Profil d'élévation*.
 
@@ -567,109 +424,21 @@ votre choix de filière. Par exemple, si une forte augmentation de population es
 n'est pas au maximum de sa charge en termes de polluants dans la configuration actuelle.
 
 
-Application à l'exemple de :ref:`Petite-Anse <petite-anse>`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**1. Renseigner les contraintes de rejet dans la couche** ``STEU``
-
-Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone sont les suivants :
-
-    * MES : 35 mg/L 
-    * DBO5 : 35 mg/L 
-    * NTK : 20 mg/L 
-    * DCO : 125 mg/L
-
-* Sélectionner la couche ``STEU`` (bulle 1).
-
-* Basculer en mode édition (bulle 2) puis ouvrir la table attributaire (bulle 3).
-
-* Renseigner les valeurs numériques indiquées pour les niveaux de rejet en MES, DBO5, NTK et DCO (encart 4).
-
-* Sortir du mode édition (bulle 5) et fermer la table attributaire (bulle 6).
-
-.. image:: _static/edit-attributs-steu.png
-    :width: 700
-
-**2. Délimitation de la surface disponible** (facultatif)
-
-* Créer une nouvelle couche (.gpkg ou .shp) de type *polygone*.
-
-.. image:: _static/nouvelle-couche.png
-     :width: 700
-
-.. image:: _static/couche-surface.png
-     :width: 444
-
-* L'éditer et délimiter la surface disponible.
-
-.. image:: _static/delimitation-surface.png
-     :width: 700
-
-* Enregistrer et sortir du mode édition.
-
-.. image:: _static/save.png
-     :width: 196
-
-**3. Utilisation du module** ``Procédés``
-
-* Cherche ``ELAN`` dans la *Boîte à outils de traitements* et sélectionner ``Procédés`` (bulles 1 et 2).
-
-* Choisir *Tropical* pour le climat (bulle 3).
-
-* Indiquer la couche ``STEU`` dont vous avez renseigné les attributs (bulle 4) et la couche ``surface-dispo`` que vous venez de créer (bulle 5).
-
-.. image:: _static/ex-procedes.png
-     :width: 700
-
-* Vérifier que les champs identifiés pour les niveaux de rejets et le débit journalier sont corrects.
-
-* Indiquer un nom et un emplacement pour l'enregistrement du fichier de sortie (bulle 6), puis exécuter (bulle 7).
-
-.. image:: _static/ex-procedes-suite.png
-     :width: 576
-
-**4. Consultation des caractéristiques des filières de traitement pré-dimensionnées**
-
-Après exécution du module, vous obtenez un visuel de ce type (couche *point*) :
-
-.. image:: _static/sortie-procedes-ex.png
-     :width: 700
-
-Pour consulter les attributs de cette couche : 
-
-* Sélectionner la couche ``Couche de filières`` (bulle 1).
-
-* Cliquer que l'icône Ouvrir la table attributaire (bulle 2).
-
-* Une fenêtre s'ouvre et vous permet d'accéder à l'ensemble des informations de la couche (bulle 3).
-
-.. image:: _static/attributs-procedes-ex.png
-     :width: 700
-
 Étape 3 : Pré-sélectionner une filière par exutoire
 -----------------------------------------------------
 
-Ici, 6 filières permettent d'atteindre les niveaux de rejets imposés (déviations en vert) :
-    
-    * VdNS1-VdNS2
-    * VdNS1-VdNS2-VdNS2
-    * VdNSS-VdNS2
-    * VdNSS-VdNS2-VdNS2
-    * VdNS1
-    * VdNSS
+Parmi les filières proposées, certaines permettent d'atteindre les niveaux de rejets imposés (déviations en vert), d'autres non (déviations en rouge), avec des contraintes
+de surface qui leur sont propre et qui peuvent excéder la surface disponible (surface totale en rouge si une surface disponible a été renseignée).
 
-La surface totale apparaît en rouge pour la filière VdNS1-VdNS2-VdNS2 car elle est supérieure à la surface disponible.
+Le respect des niveaux de rejet imposés et de la surface disponible sont deux critères assez évidents qui vous permettront de pré-sélectionner une filière par exutoire.
 
-Les filières à étage unique (VdNS1 et VdNSS) permettent ici d'atteindre les niveaux de rejets et sont généralement moins 
-coûteuses que les filières multi-étages. Au vu des taux de charge en polluants et du taux de charge hydraulique, elles 
-pourraient constituer deux filières de traitement intéressantes.
-
-Un premier scénario pourrait donc être : le réseau d'assainissement obtenu à l'étape 1 couplé à une filière VdNS1. Le couplage avec une filière 
-VdNSS pourrait constituer un second scénario.
+Les taux de charge en polluants et le taux de charge hydraulique peuvent également vous aider dans le choix des filières pré-sélectionnées.
 
 .. note::
    Des représentations graphiques (bar plot et radar plot) pour mieux visualiser les attributs des différentes filières retenues seront bientôt disponibles
    en sortie de module ``Procédés``. Il sera ainsi plus simple d'identifier leurs points forts et leurs points faibles respectifs.
+
+.. _creer-scenario:
 
 Étape 4 : Créer un objet scénario (module ``Créer un scénario``)
 -----------------------------------------------------------------
@@ -718,24 +487,4 @@ Utilisation du module
 .. important::
     **Le géopackage de sortie ne s'ouvre pas dans le projet**. Il est juste enregistré à l'emplacement indiqué, prêt à être chargé dans un nouveau projet à des fins d'évaluation puis de comparaison.
 
-Exercice : Création d'un second scénario pour :ref:`Petite-Anse <petite-anse>`
--------------------------------------------------------------------------------
 
-Pour mettre en pratique le contenu de cette page, vous pouvez essayez de suivre les différentes étapes décrites
-mais cette fois-ci en considérant 2 emplacements possibles : celui au Sud de la zone et celui au Nord.
-
-.. image:: _static/illustration-exercice.png
-     :width: 500
-
-Les niveaux de rejet pour l'emplacement au Nord de la zone sont moins contraignants (pas de contrainte sur l'azote) :
-
-    * MES : 35 mg/L 
-    * DBO5 : 35 mg/L 
-    * DCO : 125 mg/L
-
-.. important::
-    L'aspect itératif de la définition d'un scénario est brièvement mentionné mais n'est pas détaillé dans ce pas à pas. Il s'agit d'une pratique possible (voire inévitable).
-    
-    Par exemple : si vous jugez que certains bâtiments sont trop "coûteux" à raccorder (plus de 40 mètre linéaire pour un bâtiment), 
-    vous pouvez éditer la couche bâtiment et supprimer ces bâtiments pour voir quel serait l'impact de leur maintien en assainissement 
-    non collectif sur le pré-dimensionnement du réseau proposé. De même vous pouvez redéfinir les chemins empruntables en supprimant certains et/ou en en ajoutant d'autres.

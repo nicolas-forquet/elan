@@ -43,5 +43,8 @@ Contenu
    evaluation
    comparaison
 
+   :caption: Tutorials
+   petite_anse
+
    
 

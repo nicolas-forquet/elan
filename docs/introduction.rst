@@ -45,7 +45,7 @@ Si toutes les eaux usées générées par ce quartier sont évacuées et traité
 
 ELAN permet d'aider à la prise de décision en permettant à l'utilisateur **d'explorer de multiples scénarios et de les évaluer**.
 
-Le cas de Petite Anse servira d'exemple tout au long des explications relatives à la question du centralisé/décentralisé.
+Petite Anse nous servira de cas d'exemple pour la question du centralisé/décentralisé : un :ref:`tutoriel <tutorial1>` lui est consacré.
 
 Question des déversements par temps de pluie : Écully (Rhône)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
