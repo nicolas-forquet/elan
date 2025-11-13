@@ -1,4 +1,6 @@
 <div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Global content</span></p>
+  {{ toctree(includehidden=theme_globaltoc_includehidden, collapse=theme_globaltoc_collapse, titles_only=True, maxdepth=theme_globaltoc_maxdepth) }}
   <p class="caption" role="heading"><span class="caption-text">Available languages</span></p>
   <ul>
     <li class="toctree-l1"><a id="fr-link" class="reference internal" href="#">Français</a></li>
