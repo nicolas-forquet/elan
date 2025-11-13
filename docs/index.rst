@@ -36,6 +36,7 @@ Contenu
 
 .. toctree::
    :caption: Documentation
+
    introduction
    installation 
    preparation
@@ -46,6 +47,7 @@ Contenu
 
 .. toctree::
    :caption: Tutorials
+   
    petite_anse
 
    
