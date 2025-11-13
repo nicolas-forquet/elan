@@ -35,6 +35,7 @@ Contenu
 -------
 
 .. toctree::
+   :caption: Documentation
    introduction
    installation 
    preparation
@@ -42,6 +43,9 @@ Contenu
    scenario_prb2
    evaluation
    comparaison
+
+.. toctree::
+   :caption: Tutorials
    petite_anse
 
    
