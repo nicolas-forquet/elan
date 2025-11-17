@@ -148,6 +148,7 @@ documentation:
     - python -m pip install -U -r requirements/documentation.txt
   script:
     - ./docs/multi_lang_build.sh docs target/docs /-/elan/-/jobs/$CI_JOB_ID/artifacts/target/docs
+    - echo "See documentation at https://${CI_PROJECT_NAMESPACE}.gitlab.io/-/${CI_PROJECT_NAME}/-/jobs/${CI_JOB_ID}/artifacts/target/docs/index.html"
   artifacts:
     name: documentation
     expose_as: "Built documentation static website"
