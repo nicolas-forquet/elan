@@ -1,0 +1,360 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, REVERSAAL et Oslandia
+# This file is distributed under the same license as the ELAN package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ELAN 2025.7.925-beta\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-12 16:43+0100\n"
+"PO-Revision-Date: 2025-11-12 16:47+0100\n"
+"Last-Translator: \n"
+"Language-Team: en <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.17.0\n"
+"X-Generator: Poedit 3.8\n"
+
+#: ../../installation.rst:2
+msgid "Installation"
+msgstr "Installation"
+
+#: ../../installation.rst:5
+msgid "Préalable"
+msgstr "Prerequisite"
+
+#: ../../installation.rst:8
+msgid "Sur Windows"
+msgstr "On Windows"
+
+#: ../../installation.rst:9 ../../installation.rst:15
+msgid ""
+"Avoir téléchargé QGIS depuis le `site officiel <https://qgis.org/download/>`_ et "
+"l'avoir installé en suivant le `guide d'installation <https://qgis.org/resources/"
+"installation-guide/>`_."
+msgstr ""
+"To have dowloaded QGIS from the `official website <https://qgis.org/download/>`_ "
+"and installed it following the `installation guide <https://qgis.org/resources/"
+"installation-guide/>`_."
+
+#: ../../installation.rst:11
+msgid "Ouvrir QGIS."
+msgstr "Open QGIS."
+
+#: ../../installation.rst:14
+msgid "Sur Linux"
+msgstr "On Linux"
+
+#: ../../installation.rst:17
+msgid ""
+"Avoir téléchargé le fichier contenant la liste des dépendances : https://"
+"gitlab.com/elan7835313/elan/-/blob/main/requirements/development.txt."
+msgstr ""
+"To have downloaded the file containing the list of dependencies: https://"
+"gitlab.com/elan7835313/elan/-/blob/main/requirements/development.txt."
+
+#: ../../installation.rst:19
+msgid ""
+"**Pour utiliser ELAN sur Linux, il vous faut un environnement virtuel contenant "
+"les dépendances requises.**"
+msgstr ""
+"**To use ELAN on Linux, you must have a virtual environnement containing the "
+"required dependencies.**"
+
+#: ../../installation.rst:21
+msgid "**La démarche expliquée ici est à faire une seule fois.**"
+msgstr "**The procedure explained is to be done only once.**"
+
+#: ../../installation.rst:23
+msgid "**1.** Créer un environnement virtuel Python."
+msgstr "**1.** Create a Python virtual environment."
+
+#: ../../installation.rst:29
+msgid "**2.** L'activer."
+msgstr "**2.** Activate this environment."
+
+#: ../../installation.rst:35
+msgid ""
+"**3.** Installer les dépendances grâce au fichier contenant la liste des "
+"dépendances."
+msgstr ""
+"**3.** Install dependencies using the file containing the list of dependencies."
+
+#: ../../installation.rst:42
+msgid ""
+"Remplacer *path* dans la ligne de code par le chemin vers le fichier des "
+"dépendances que vous avez téléchargé précédemment."
+msgstr ""
+"Replace *path* in the code line with the path to the file containing the list of "
+"dependencies that you downloaded earlier."
+
+#: ../../installation.rst:44
+msgid "**4.** Ouvrir QGIS via le terminal, dans l'environnement virtuel Python."
+msgstr "**4.** Open QGIS in Python virtual environment using the terminal."
+
+#: ../../installation.rst:50
+msgid ""
+"**Pour utiliser ELAN, il faudra toujours lancer QGIS depuis l'environnement "
+"virtuel**. Ainsi, pour toute utilisation future vous devrez :"
+msgstr ""
+"**To use ELAN on Linux, you will always need to launch QGIS from the virtual "
+"environment**. Therefore, each time you will need to:"
+
+#: ../../installation.rst:52
+msgid "Activer l'environnement virtuel."
+msgstr "Activate the virtual environment."
+
+#: ../../installation.rst:53
+msgid "Ouvrir QGIS via le terminal."
+msgstr "Open QGIS using the terminal."
+
+#: ../../installation.rst:61
+msgid "Sur Mac"
+msgstr "On Mac"
+
+#: ../../installation.rst:63
+msgid "Le plugin ELAN n'est pas compatible avec Mac actuellement."
+msgstr "Currently, ELAN is not compatible with Mac."
+
+#: ../../installation.rst:68
+msgid "Installation de l'extension"
+msgstr "Installing plugin"
+
+#: ../../installation.rst:70
+msgid "**1.** Ouvrir le gestionnaire d'extensions."
+msgstr "**1.** Open the plugin manager."
+
+#: ../../installation.rst:75
+msgid ""
+"**2.** Dans `Toutes` (bulle 1), chercher \"elan\" (bulle 2). Sélectionner le "
+"plugin (bulle 3) puis cliquer sur ``Installer l'extension`` en bas du descriptif "
+"de l'extension (bulle 4)."
+msgstr ""
+"**2.** In `All` (landmark 1), search \"elan\" (landmark 2). Select the plugin "
+"(landmark 3) and click on ``Install plugin`` at the bottom of the plugin "
+"description (landmark 4)."
+
+#: ../../installation.rst:80
+msgid ""
+"**3.** La mention ``Extension installée avec succès`` apparaît au sommet de la "
+"fenêtre. Fermer le gestionnaire d'extensions."
+msgstr ""
+"**3.** The message ``Plugin installed successfully`` appears at the top of the "
+"window. Close the plugin manager."
+
+#: ../../installation.rst:83
+msgid ""
+"L'extension est en cours de développement. Lorsqu'une nouvelle version est "
+"disponible, suivre la même démarche mais cliquer sur ``Tout mettre à jour`` en "
+"bas du descriptif."
+msgstr ""
+"The plugin is under development. When a new version is available, proceed as "
+"above but click on ``Upgrade`` at the bottom of the description."
+
+#: ../../installation.rst:86
+msgid ""
+"Après avoir mis à jour l'extension, vous devez réinstaller les dépendances "
+"externes comme expliqué dans la rubrique suivante."
+msgstr ""
+"Once the plugin upgraded, you need to reinstall external dependencies as "
+"detailed in the following section."
+
+#: ../../installation.rst:91
+msgid "Installation des dépendances"
+msgstr "Installing external dependencies"
+
+#: ../../installation.rst:93
+msgid ""
+"ELAN utilise des codes développés dans le cadre de différents projets de "
+"recherche (voir :ref:`introduction <projets-recherche>`). Cette section explique "
+"comment procéder à leur installation. Selon le code, son installation se fait "
+"soit via les paramètres de l'extension, soit directement en ligne de commande."
+msgstr ""
+"ELAN uses codes developed as part of various research projects "
+"(see :ref:`introduction <projets-recherche>`). This section explains how to "
+"install them. Depending on the code, installation is done either via the plugin "
+"settings or directly from the command line."
+
+#: ../../installation.rst:98
+msgid "Question du centralisé/décentralisé : pysewer et wetlandoptimizer"
+msgstr "Centralized/decentralized question: pysewer and wetlandoptimizer"
+
+#: ../../installation.rst:102
+msgid ""
+"**pysewer** est une bibliothèque Python développée par `l'UFZ <https://"
+"www.ufz.de/>`_, un centre de recherche allemand axé sur la recherche "
+"environnementale."
+msgstr ""
+"**pysewer** is a Python library developed by `UFZ <https://www.ufz.de/>`_, a "
+"German research center focused on environmental research."
+
+#: ../../installation.rst:104
+msgid ""
+"Elle permet d'effectuer le tracé et le pré-dimensionnement d'un réseau "
+"d'assainissement strict. Pour plus d'informations :"
+msgstr ""
+"It enables the design and preliminary sizing of a separate sewer network. For "
+"more details:"
+
+#: ../../installation.rst:106
+msgid ""
+"*Sanne et al., (2024). Pysewer: A Python Library for Sewer Network Generation in "
+"Data Scarce Regions. Journal of Open Source Software, 9(104), 6430, https://"
+"doi.org/10.21105/joss.06430*"
+msgstr ""
+"*Sanne et al., (2024). Pysewer: A Python Library for Sewer Network Generation in "
+"Data Scarce Regions. Journal of Open Source Software, 9(104), 6430, https://"
+"doi.org/10.21105/joss.06430*"
+
+#: ../../installation.rst:108
+msgid "Lien GitLab : https://git.ufz.de/despot/pysewer"
+msgstr "GitLab link : https://git.ufz.de/despot/pysewer"
+
+#: ../../installation.rst:110
+msgid "Son installation se fait via l'extension."
+msgstr "Its installation is done via the plugin."
+
+#: ../../installation.rst:113
+msgid "**pysewer est nécessaire pour pouvoir utiliser le module** ``Réseau``."
+msgstr "**pysewer is required to use the** ``Sewer network`` **module**."
+
+#: ../../installation.rst:115 ../../installation.rst:141
+msgid "**1.** Aller dans les paramètres de l'extension ELAN."
+msgstr "**1.** Go to the ELAN plugin settings."
+
+#: ../../installation.rst:120
+msgid ""
+"**2.** Vérifier si pysewer est déjà installé ou non en cliquant sur ``Vérifier "
+"si pysewer est installé``."
+msgstr ""
+"**2.** Check whether pysewer is already installed by clicking ``Check if pysewer "
+"is installed``."
+
+#: ../../installation.rst:122
+msgid ""
+"**3.** Si non, procéder à l'installation grâce au bouton ``Installer pysewer "
+"dans ELAN`` (nécessite une connexion internet)."
+msgstr ""
+"**3.** If not, proceed with installation using the button ``Install pysewer in "
+"ELAN specific environment (need an internet connection)``."
+
+#: ../../installation.rst:129
+msgid ""
+"**wetlandoptimizer** est un package Python développé par `REVERSAAL (INRAE) "
+"<https://reversaal.lyon-grenoble.hub.inrae.fr/>`_ dans le cadre du projet "
+"`CARIBSAN <https://caribsan.eu/>`_."
+msgstr ""
+"**wetlandoptimizer** is a Python package developed by `REVERSAAL (INRAE) "
+"<https://reversaal.lyon-grenoble.hub.inrae.fr/>`_ as part of the `CARIBSAN "
+"project <https://caribsan.eu/>`_."
+
+#: ../../installation.rst:131
+msgid ""
+"Il permet un pré-dimensionnement optimisé pour des filières de type filtres "
+"plantés de végétaux. Ces filières peuvent être mono ou multi-étages et composées "
+"de différents procédés. Pour plus d'informations :"
+msgstr ""
+"It enables optimized preliminary sizing for constructed wetland treatment "
+"systems. These systems can be single-stage or multi-stage and made of different "
+"processes. For more details:"
+
+#: ../../installation.rst:134
+msgid ""
+"Lien GitLab : https://forgemia.inra.fr/reversaal/nature-based-solutions/caribsan/"
+"wetlandoptimizer"
+msgstr ""
+"GitLab link : https://forgemia.inra.fr/reversaal/nature-based-solutions/caribsan/"
+"wetlandoptimizer"
+
+#: ../../installation.rst:136
+msgid "Son installation se fait via ELAN."
+msgstr "Its installation is done via ELAN."
+
+#: ../../installation.rst:139
+msgid ""
+"**wetlandoptimizer est nécessaire au fonctionnement du module** ``Procédés``."
+msgstr "**wetlandoptimizer is required for the** ``Processes`` **module to work**."
+
+#: ../../installation.rst:146
+msgid ""
+"**2.** Vérifier si pysewer est déjà installé ou non en cliquant sur ``Vérifier "
+"si wetlandoptimizer est installé``."
+msgstr ""
+"**2.** Check whether wetlandoptimizer is already installed by clicking ``Check "
+"if wetlandoptimizer is installed``."
+
+#: ../../installation.rst:148
+msgid ""
+"**3.** Si non, procéder à l'installation grâce au bouton ``Installer "
+"wetlandoptimizer dans ELAN`` (nécessite une connexion internet)."
+msgstr ""
+"**3.** If not, proceed with installation using the button ``Install "
+"wetlandoptimizer in ELAN specific environment (need an internet connection)``."
+
+#: ../../installation.rst:154
+msgid ""
+"L'installation d'une dépendance via l'extension peut prendre jusqu'à plusieurs "
+"minutes, c'est normal. Aucune fenêtre de progression n'apparait, mais le "
+"processus est bien en cours en arrière-plan. Une fois l'installation terminée, "
+"une fenêtre s'affiche avec la mention *Succès de l'installation*."
+msgstr ""
+"Installing a dependency via the plugin can take several minutes, this is normal. "
+"No information window appears but the process runs correctly in the background. "
+"Once installation done, a window appear stating *Installation successfull*."
+
+#: ../../installation.rst:158
+msgid ""
+"Les dépendances peuvent être concernées par des montées en version. Dans ce cas, "
+"faire ``REINITIALISATION DES PARAMETRES`` puis réinstaller les dépendances comme "
+"expliqué juste avant."
+msgstr ""
+"Dependencies may be subject to version upgrades. In such cases, perform ``RESET "
+"SETTINGS`` and then reinstall the dependencies as explained above."
+
+#: ../../installation.rst:161
+msgid "Question des déversements par temps de pluie : pysheds"
+msgstr "Stormwater overflows question: pysheds"
+
+#: ../../installation.rst:163
+msgid ""
+"**pysheds** est une bibliothèque open-source Python développée par `l'UT Austin "
+"<https://www.utexas.edu/>`_, une université américaine (Texas)."
+msgstr ""
+"**pysheds** is an open-source Python library developed by `UT Austin <https://"
+"www.utexas.edu/>`_, a U.S. university (Texas)."
+
+#: ../../installation.rst:165
+msgid ""
+"Elle permet de délimiter rapidement des bassins versants topographiques par "
+"analyse du modèle numérique de terrain (MNT). Son installation se fait "
+"directement en ligne de commande."
+msgstr ""
+"It allows rapid delineation of topographic catchments by analyzing a Digital "
+"Elevation Model (DEM). Its installation is done directly from the command line."
+
+#: ../../installation.rst:169
+msgid ""
+"**pysheds doit avoir été installé pour pouvoir utiliser le module** ``Bassins "
+"versants urbains``."
+msgstr "**pysheds must be installed to use the** ``Urban Catchment`` **module**."
+
+#: ../../installation.rst:171
+msgid ""
+"**1.** Ouvrir un terminal. Par exemple, sur Windows ouvrir l'application "
+"`OSGeo4W Shell`."
+msgstr ""
+"**1.** Open a terminal. For example, on Windows open the `OSGeo4W Shell` "
+"application."
+
+#: ../../installation.rst:173
+msgid "**2.** Exécuter la commande suivante :"
+msgstr "**2.** Run the following command:"
+
+#: ../../installation.rst:179
+msgid "**3.** Fermer le terminal."
+msgstr "**3.** Close the terminal."

@@ -41,6 +41,22 @@ The documentation is generated using Sphinx and is automatically generated throu
 
 - documentation=https://elan7835313.gitlab.io/elan/
 
+To update the `pot` and `po` translations files:
+
+```bash
+cd docs/
+sphinx-build -b gettext . locales/pot && sphinx-intl update -l en
+```
+
+To build the documentation with all languages:
+
+```bash
+cd docs/
+./multi_lang_build.sh . ./_build $(pwd)/_build
+```
+
+and open the file `./docs/_build/index.html`
+
 ----
 
 ## License

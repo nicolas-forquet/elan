@@ -45,7 +45,7 @@ Si toutes les eaux usées générées par ce quartier sont évacuées et traité
 
 ELAN permet d'aider à la prise de décision en permettant à l'utilisateur **d'explorer de multiples scénarios et de les évaluer**.
 
-Le cas de Petite Anse servira d'exemple tout au long des explications relatives à la question du centralisé/décentralisé.
+Petite Anse nous servira de cas d'exemple pour la question du centralisé/décentralisé : un :ref:`tutoriel <tutorial1>` lui est consacré.
 
 Question des déversements par temps de pluie : Écully (Rhône)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -61,7 +61,7 @@ ELAN est structuré en **plusieurs groupement de modules**.
     :width: 500
 
 * **Préparation des données** 
-    * ``Routes et bâtiments`` qui permet **d'extraire les données** `Open Street Map <https://www.openstreetmap.org>`_ de la zone d'intérêt définie par l'utilisateur.
+    * ``Routes et bâtiments`` qui permet **d'extraire les données** `OpenStreetMap <https://www.openstreetmap.org>`_ de la zone d'intérêt définie par l'utilisateur.
     * ``Population`` qui est utilisable pour **répartir un nombre connu d'habitants** au sein d'un ensemble de bâtiments.
     * ``Bassins versants urbains`` pour **identifier les différents bassins versants urbains** drainés par un réseau unitaire connu. 
 

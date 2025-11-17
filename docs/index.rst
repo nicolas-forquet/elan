@@ -14,7 +14,7 @@ ELAN
 
    * Sophie Aubier, Jacky Volpes `Oslandia <https://oslandia.com/>`_
 
-   **Anciens contributeurs** : Marie-Chloé Rosse, Raphaël Delhome
+   **Anciens contributeurs** : Larissa Marcos, Marie-Chloé Rosse, Raphaël Delhome
 
    **Licence** : `GNU General Public License v2.0 or later <https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html>`_
 
@@ -35,6 +35,8 @@ Contenu
 -------
 
 .. toctree::
+   :caption: Documentation
+
    introduction
    installation 
    preparation
@@ -42,6 +44,11 @@ Contenu
    scenario_prb2
    evaluation
    comparaison
+
+.. toctree::
+   :caption: Tutorials
+   
+   petite_anse
 
    
 
