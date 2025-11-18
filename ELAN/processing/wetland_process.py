@@ -369,7 +369,7 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         # Loop on WWTP and run wetlandoptimizer on each one
         assigned_surfaces_ids = []
         optimizations_parameters = []
-        wwtp_features = list(sinks_source.getFeatures())
+        wwtp_features: list[QgsFeature] = list(sinks_source.getFeatures())
         for wwtp_feature in wwtp_features:
 
             # Find corresponding available surface
@@ -387,29 +387,23 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
                         break
 
             # Get objectives
-            obj_none = []
-            TSS_obj = wwtp_feature[TSS_obj_field_name]
-            if TSS_obj == NULL:
-                obj_none.append(self.tr("TSS"))
-            BOD5_obj = wwtp_feature[BOD5_obj_field_name]
-            if BOD5_obj == NULL:
-                obj_none.append(self.tr("BOD5"))
-            COD_obj = wwtp_feature[COD_obj_field_name]
-            if COD_obj == NULL:
-                obj_none.append(self.tr("COD"))
-            if len(obj_none) > 0:
-                raise QgsProcessingException(self.tr("These values can't be NULL:") + " " + ", ".join(obj_none))
-            TKN_obj = wwtp_feature[TKN_obj_field_name]
-            NO3N_obj = wwtp_feature[NO3N_obj_field_name]
-            TN_obj = wwtp_feature[TN_obj_field_name]
-            TP_obj = wwtp_feature[TP_obj_field_name]
-            ecoli_obj = wwtp_feature[ecoli_obj_field_name]
-            Q = wwtp_feature[Q_obj_field_name]
-            Cobj = [TSS_obj, BOD5_obj, TKN_obj, COD_obj, NO3N_obj, TN_obj, TP_obj, ecoli_obj]
-            Cobj = [None if param == NULL else param for param in Cobj]
+            Cobj = self.getObjectivesValues(
+                TSS_obj_field_name,
+                BOD5_obj_field_name,
+                COD_obj_field_name,
+                TKN_obj_field_name,
+                NO3N_obj_field_name,
+                TN_obj_field_name,
+                TP_obj_field_name,
+                ecoli_obj_field_name,
+                wwtp_feature,
+            )
+            assert len(Cobj) == 8
 
             optimizations_parameters.append(
-                OptimizationParameters(Cin, Cobj, Q, stages_max, climate, available_surface)
+                OptimizationParameters(
+                    Cin, Cobj, wwtp_feature[Q_obj_field_name], stages_max, climate, available_surface
+                )
             )
 
         # Set multiprocess path on Windows
@@ -501,6 +495,67 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         if context.willLoadLayerOnCompletion(treatment_dest):
             context.layerToLoadOnCompletionDetails(treatment_dest).setPostProcessor(self.post_processor)
         return {self.TREATMENT: treatment_dest}
+
+    def getObjectivesValues(
+        self,
+        TSS_obj_field_name,
+        BOD5_obj_field_name,
+        COD_obj_field_name,
+        TKN_obj_field_name,
+        NO3N_obj_field_name,
+        TN_obj_field_name,
+        TP_obj_field_name,
+        ecoli_obj_field_name,
+        wwtp_feature: QgsFeature,
+    ) -> list[float | None]:
+        """
+        Get and check objectives values from a WWTP feature
+        It raises an exception if a check fails.
+        """
+
+        check_obj_not_null = [
+            (TSS_obj_field_name, self.tr("TSS")),
+            (BOD5_obj_field_name, self.tr("BOD5")),
+            (COD_obj_field_name, self.tr("COD")),
+        ]
+        check_obj_positive = check_obj_not_null + [
+            (TKN_obj_field_name, self.tr("TNK")),
+            (NO3N_obj_field_name, self.tr("NO3-N")),
+            (TN_obj_field_name, self.tr("TN")),
+            (TP_obj_field_name, self.tr("TP")),
+            (ecoli_obj_field_name, self.tr("e.coli")),
+        ]
+
+        # Check objectives values that should not be NULL
+        errors = []
+        for obj_field_name, obj_name in check_obj_not_null:
+            if (obj_value := wwtp_feature[obj_field_name]) == NULL:
+                errors.append(obj_name)
+        if len(errors) > 0:
+            raise QgsProcessingException(self.tr("These values can't be NULL:") + " " + ", ".join(errors))
+
+        # Check objectives values that should be positives when they are not NULL
+        errors.clear()
+        for obj_field_name, obj_name in check_obj_positive:
+            if (obj_value := wwtp_feature[obj_field_name]) != NULL and obj_value <= 0:
+                errors.append(obj_name)
+        if len(errors) > 0:
+            raise QgsProcessingException(self.tr("These values must be strictly positive:") + " " + ", ".join(errors))
+
+        Cobj = [
+            wwtp_feature[TSS_obj_field_name],
+            wwtp_feature[BOD5_obj_field_name],
+            wwtp_feature[COD_obj_field_name],
+            wwtp_feature[TKN_obj_field_name],
+            wwtp_feature[NO3N_obj_field_name],
+            wwtp_feature[TN_obj_field_name],
+            wwtp_feature[TP_obj_field_name],
+            wwtp_feature[ecoli_obj_field_name],
+        ]
+
+        # Replace NULL values with None
+        Cobj = [None if param == NULL else param for param in Cobj]
+        return Cobj
 
 
 def outputFields() -> QgsFields:
