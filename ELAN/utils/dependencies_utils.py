@@ -229,7 +229,7 @@ if __name__ == "__main__":
             args.delete_libraries,
         ]
     ):
-        print("Nothing to do.")
+        parser.print_help()
         sys.exit(0)
 
     app = QgsApplication([], False)

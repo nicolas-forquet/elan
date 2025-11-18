@@ -1,8 +1,7 @@
 # Develoment dependencies
 # -----------------------
 
-black>=24.2,<24.3
-pylint>=3.1,<3.2
-semver>=3.0,<3.1
-isort>=5.13,<5.14
-pre-commit>=3.6,<3.7
+black
+pylint
+isort
+pre-commit
