@@ -275,7 +275,7 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
         if context.willLoadLayerOnCompletion(buildings_clipped_dest):
             ld = context.layerToLoadOnCompletionDetails(buildings_clipped_dest)
             ld.name = self.tr("Buildings")
-            ld.layerSortKey = 1
+            ld.layerSortKey = 0
 
         # Merge buildings
         multistep_feedback.setCurrentStep(5)
@@ -294,24 +294,22 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
         if context.willLoadLayerOnCompletion(merged_buildings_dest):
             ld = context.layerToLoadOnCompletionDetails(merged_buildings_dest)
             ld.name = self.tr("Merged buidings")
-            ld.layerSortKey = 0
+            ld.layerSortKey = 1
 
-        # Create centroids of merged buildings
-        multistep_feedback.setCurrentStep(6)
-        multistep_feedback.setProgressText(self.tr("Creating merged buildings centroids..."))
-        centroid_merged_buildings_dest = processing.run(
-            "native:centroids",
-            {"INPUT": merged_buildings_dest, "OUTPUT": parameters[self.CENTROID_MERGED_BUILDINGS_OUTPUT]},
+        # Clip the roads inside the input polygons
+        multistep_feedback.setCurrentStep(3)
+        multistep_feedback.setProgressText(self.tr("Clipping roads..."))
+        roads_clipped_dest = processing.run(
+            "native:clip",
+            {"INPUT": temp_roads, "OVERLAY": overlay, "OUTPUT": parameters[self.ROADS_OUTPUT]},
             context=context,
             feedback=multistep_feedback,
             is_child_algorithm=True,
         )["OUTPUT"]
-        if context.willLoadLayerOnCompletion(centroid_merged_buildings_dest):
-            ld = context.layerToLoadOnCompletionDetails(centroid_merged_buildings_dest)
-            ld.name = self.tr("Merged buildings centroids")
-            ld.layerSortKey = 3
-
-        multistep_feedback.setCurrentStep(7)
+        if context.willLoadLayerOnCompletion(roads_clipped_dest):
+            ld = context.layerToLoadOnCompletionDetails(roads_clipped_dest)
+            ld.name = self.tr("Roads")
+            ld.layerSortKey = 2
 
         return {
             self.BUILDINGS_OUTPUT: buildings_clipped_dest,
