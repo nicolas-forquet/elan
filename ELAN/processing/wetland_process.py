@@ -15,7 +15,6 @@ import json
 import multiprocessing
 import sys
 from pathlib import Path
-from typing import Optional
 
 from qgis.core import (
     NULL,
@@ -29,7 +28,6 @@ from qgis.core import (
     QgsFields,
     QgsProcessingAlgorithm,
     QgsProcessingException,
-    QgsProcessingFeedback,
     QgsProcessingLayerPostProcessorInterface,
     QgsProcessingParameterEnum,
     QgsProcessingParameterFeatureSink,
@@ -85,6 +83,7 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         ]
 
     def createInstance(self):
+        """Return an instance of this class"""
         return WetlandProcessAlgorithm()
 
     def name(self):
@@ -312,10 +311,6 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             )
         )
 
-    def pushInfo(self, feedback: Optional[QgsProcessingFeedback], *args):
-        if feedback is not None:
-            feedback.pushInfo(" ".join([str(msg) for msg in args]))
-
     def processAlgorithm(self, parameters, context, feedback):
         """
         Here is where the processing itself takes place.
@@ -326,7 +321,7 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             raise QgsProcessingException(
                 self.tr("The wetlandoptimizer library is not installed.\nGo to ELAN settings to install it.")
             )
-        from wetlandoptimizer.main import COD_Fractionation
+        from wetlandoptimizer.main import COD_Fractionation  # pylint: disable=import-outside-toplevel
 
         sinks_source = self.parameterAsSource(parameters, self.SINKS, context)
         if sinks_source is None:
@@ -421,7 +416,7 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             except Exception as err:
                 raise QgsProcessingException(
                     self.tr("Unexpected error to set python path for multiprocessing:") + "\n" + str(err)
-                )
+                ) from err
 
         # Launch optimizations on every WWTP in parallel
         with multiprocessing.Pool() as pool:
@@ -559,6 +554,7 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
 
 
 def outputFields() -> QgsFields:
+    """Definition of the output fields for the output layer"""
 
     fields = [
         # String field containing the sink coordinate
@@ -615,6 +611,8 @@ def outputFields() -> QgsFields:
 
 
 class WetlandProcessPostProcessor(QgsProcessingLayerPostProcessorInterface, Translatable):
+    """Post process layer to set attribute table conditionnal formatting and layer style"""
+
     def postProcessLayer(self, layer, context, feedback):  # pylint: disable=unused-argument
         """
         Set the layer style
@@ -666,8 +664,10 @@ class WetlandProcessPostProcessor(QgsProcessingLayerPostProcessorInterface, Tran
         conditional_styles.setFieldStyles("total_surface", [ok_style, nok_style])
 
 
-class OptimizationParameters:
-    def __init__(self, Cin, Cobj, Q, stages_max, climate, available_surface):
+class OptimizationParameters:  # pylint: disable=too-few-public-methods
+    """Class to store parameters for parallel optimization"""
+
+    def __init__(self, Cin, Cobj, Q, stages_max, climate, available_surface):  # pylint: disable=too-many-arguments
         self.available_surface = available_surface
         self.Cin = Cin
         self.Cobj = Cobj
@@ -681,7 +681,7 @@ def run_optimization(optimization_parameters: OptimizationParameters):
     """
     Independant optimization call to wetlandoptimizer library
     """
-    from wetlandoptimizer.main import Results_Global_Generation_All
+    from wetlandoptimizer.main import Results_Global_Generation_All  # pylint: disable=import-outside-toplevel
 
     optimization_parameters.pathway_results = Results_Global_Generation_All(
         optimization_parameters.Cin,
