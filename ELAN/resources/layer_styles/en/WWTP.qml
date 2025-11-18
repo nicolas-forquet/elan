@@ -411,6 +411,76 @@
         </config>
       </editWidget>
     </field>
+    <field configurationFlags="NoFlag" name="TSS_in">
+      <editWidget type="TextEdit">
+        <config>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field configurationFlags="NoFlag" name="BOD5_in">
+      <editWidget type="TextEdit">
+        <config>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field configurationFlags="NoFlag" name="TKN_in">
+      <editWidget type="TextEdit">
+        <config>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field configurationFlags="NoFlag" name="COD_in">
+      <editWidget type="TextEdit">
+        <config>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field configurationFlags="NoFlag" name="NO3N_in">
+      <editWidget type="TextEdit">
+        <config>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field configurationFlags="NoFlag" name="TP_in">
+      <editWidget type="TextEdit">
+        <config>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field configurationFlags="NoFlag" name="ecoli_in">
+      <editWidget type="TextEdit">
+        <config>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
     <field configurationFlags="NoFlag" name="TSS_obj">
       <editWidget type="TextEdit">
         <config>
@@ -502,14 +572,21 @@
     <alias field="upstream_pe" index="6" name="inhabitants connected"/>
     <alias field="inflow_trench_depths" index="7" name="inflow trench depths"/>
     <alias field="inflow_diameters" index="8" name="inflow diameters"/>
-    <alias field="TSS_obj" index="9" name="TSS outflow contentration target"/>
-    <alias field="BOD5_obj" index="10" name="BOD5 outflow contentration target"/>
-    <alias field="TKN_obj" index="11" name="TKN outflow contentration target"/>
-    <alias field="COD_obj" index="12" name="COD outflow contentration target"/>
-    <alias field="NO3N_obj" index="13" name="NO3-N outflow contentration target"/>
-    <alias field="TN_obj" index="14" name="TN outflow contentration target"/>
-    <alias field="TP_obj" index="15" name="TP outflow contentration target"/>
-    <alias field="ecoli_obj" index="16" name="e.coli outflow contentration target"/>
+    <alias field="TSS_in" index="9" name="TSS inflow concentration"/>
+    <alias field="BOD5_in" index="10" name="BOD5 inflow concentration"/>
+    <alias field="TKN_in" index="11" name="TKN inflow concentration"/>
+    <alias field="COD_in" index="12" name="COD inflow concentration"/>
+    <alias field="NO3N_in" index="13" name="NO3-N inflow concentration"/>
+    <alias field="TP_in" index="14" name="TP inflow concentration"/>
+    <alias field="ecoli_in" index="15" name="e.coli inflow concentration"/>
+    <alias field="TSS_obj" index="16" name="TSS outflow contentration target"/>
+    <alias field="BOD5_obj" index="17" name="BOD5 outflow contentration target"/>
+    <alias field="TKN_obj" index="18" name="TKN outflow contentration target"/>
+    <alias field="COD_obj" index="19" name="COD outflow contentration target"/>
+    <alias field="NO3N_obj" index="20" name="NO3-N outflow contentration target"/>
+    <alias field="TN_obj" index="21" name="TN outflow contentration target"/>
+    <alias field="TP_obj" index="22" name="TP outflow contentration target"/>
+    <alias field="ecoli_obj" index="23" name="e.coli outflow contentration target"/>
   </aliases>
   <splitPolicies>
     <policy field="trench_depth" policy="DefaultValue"/>
@@ -520,6 +597,13 @@
     <policy field="upstream_pe" policy="DefaultValue"/>
     <policy field="inflow_trench_depths" policy="DefaultValue"/>
     <policy field="inflow_diameters" policy="DefaultValue"/>
+    <policy field="TSS_in" policy="DefaultValue"/>
+    <policy field="BOD5_in" policy="DefaultValue"/>
+    <policy field="TKN_in" policy="DefaultValue"/>
+    <policy field="COD_in" policy="DefaultValue"/>
+    <policy field="NO3N_in" policy="DefaultValue"/>
+    <policy field="TP_in" policy="DefaultValue"/>
+    <policy field="ecoli_in" policy="DefaultValue"/>
     <policy field="TSS_obj" policy="DefaultValue"/>
     <policy field="BOD5_obj" policy="DefaultValue"/>
     <policy field="TKN_obj" policy="DefaultValue"/>
@@ -539,6 +623,13 @@
     <default applyOnUpdate="0" expression="" field="upstream_pe"/>
     <default applyOnUpdate="0" expression="" field="inflow_trench_depths"/>
     <default applyOnUpdate="0" expression="" field="inflow_diameters"/>
+    <default applyOnUpdate="0" expression="" field="TSS_in"/>
+    <default applyOnUpdate="0" expression="" field="BOD5_in"/>
+    <default applyOnUpdate="0" expression="" field="TKN_in"/>
+    <default applyOnUpdate="0" expression="" field="COD_in"/>
+    <default applyOnUpdate="0" expression="" field="NO3N_in"/>
+    <default applyOnUpdate="0" expression="" field="TP_in"/>
+    <default applyOnUpdate="0" expression="" field="ecoli_in"/>
     <default applyOnUpdate="0" expression="" field="TSS_obj"/>
     <default applyOnUpdate="0" expression="" field="BOD5_obj"/>
     <default applyOnUpdate="0" expression="" field="TKN_obj"/>
@@ -558,6 +649,13 @@
     <constraint constraints="0" exp_strength="0" field="upstream_pe" notnull_strength="0" unique_strength="0"/>
     <constraint constraints="0" exp_strength="0" field="inflow_trench_depths" notnull_strength="0" unique_strength="0"/>
     <constraint constraints="0" exp_strength="0" field="inflow_diameters" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TSS_in" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="BOD5_in" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TKN_in" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="COD_in" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="NO3N_in" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="TP_in" notnull_strength="0" unique_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="ecoli_in" notnull_strength="0" unique_strength="0"/>
     <constraint constraints="0" exp_strength="0" field="TSS_obj" notnull_strength="0" unique_strength="0"/>
     <constraint constraints="0" exp_strength="0" field="BOD5_obj" notnull_strength="0" unique_strength="0"/>
     <constraint constraints="0" exp_strength="0" field="TKN_obj" notnull_strength="0" unique_strength="0"/>
@@ -577,6 +675,13 @@
     <constraint desc="" exp="" field="upstream_pe"/>
     <constraint desc="" exp="" field="inflow_trench_depths"/>
     <constraint desc="" exp="" field="inflow_diameters"/>
+    <constraint desc="" exp="" field="TSS_in"/>
+    <constraint desc="" exp="" field="BOD5_in"/>
+    <constraint desc="" exp="" field="TKN_in"/>
+    <constraint desc="" exp="" field="COD_in"/>
+    <constraint desc="" exp="" field="NO3N_in"/>
+    <constraint desc="" exp="" field="TP_in"/>
+    <constraint desc="" exp="" field="ecoli_in"/>
     <constraint desc="" exp="" field="TSS_obj"/>
     <constraint desc="" exp="" field="BOD5_obj"/>
     <constraint desc="" exp="" field="TKN_obj"/>
@@ -601,6 +706,13 @@
       <column hidden="0" name="inflow_diameters" type="field" width="-1"/>
       <column hidden="0" name="trench_depth" type="field" width="167"/>
       <column hidden="0" name="upstream_pe" type="field" width="177"/>
+      <column hidden="0" name="TSS_in" type="field" width="100"/>
+      <column hidden="0" name="BOD5_in" type="field" width="-1"/>
+      <column hidden="0" name="TKN_in" type="field" width="-1"/>
+      <column hidden="0" name="COD_in" type="field" width="-1"/>
+      <column hidden="0" name="NO3N_in" type="field" width="100"/>
+      <column hidden="0" name="TP_in" type="field" width="100"/>
+      <column hidden="0" name="ecoli_in" type="field" width="100"/>
       <column hidden="0" name="TSS_obj" type="field" width="241"/>
       <column hidden="0" name="BOD5_obj" type="field" width="-1"/>
       <column hidden="0" name="TKN_obj" type="field" width="-1"/>
@@ -641,14 +753,21 @@ def my_form_open(dialog, layer, feature):
   <featformsuppress>0</featformsuppress>
   <editorlayout>generatedlayout</editorlayout>
   <editable>
+    <field editable="1" name="BOD5_in"/>
     <field editable="1" name="BOD5_obj"/>
+    <field editable="1" name="COD_in"/>
     <field editable="1" name="COD_obj"/>
+    <field editable="1" name="NO3N_in"/>
     <field editable="1" name="NO3N_obj"/>
+    <field editable="1" name="TKN_in"/>
     <field editable="1" name="TKN_obj"/>
     <field editable="1" name="TN_obj"/>
+    <field editable="1" name="TP_in"/>
     <field editable="1" name="TP_obj"/>
+    <field editable="1" name="TSS_in"/>
     <field editable="1" name="TSS_obj"/>
     <field editable="1" name="average_daily_flow"/>
+    <field editable="1" name="ecoli_in"/>
     <field editable="1" name="ecoli_obj"/>
     <field editable="1" name="elevation"/>
     <field editable="1" name="fid"/>
@@ -661,14 +780,21 @@ def my_form_open(dialog, layer, feature):
     <field editable="1" name="upstream_pe"/>
   </editable>
   <labelOnTop>
+    <field labelOnTop="0" name="BOD5_in"/>
     <field labelOnTop="0" name="BOD5_obj"/>
+    <field labelOnTop="0" name="COD_in"/>
     <field labelOnTop="0" name="COD_obj"/>
+    <field labelOnTop="0" name="NO3N_in"/>
     <field labelOnTop="0" name="NO3N_obj"/>
+    <field labelOnTop="0" name="TKN_in"/>
     <field labelOnTop="0" name="TKN_obj"/>
     <field labelOnTop="0" name="TN_obj"/>
+    <field labelOnTop="0" name="TP_in"/>
     <field labelOnTop="0" name="TP_obj"/>
+    <field labelOnTop="0" name="TSS_in"/>
     <field labelOnTop="0" name="TSS_obj"/>
     <field labelOnTop="0" name="average_daily_flow"/>
+    <field labelOnTop="0" name="ecoli_in"/>
     <field labelOnTop="0" name="ecoli_obj"/>
     <field labelOnTop="0" name="elevation"/>
     <field labelOnTop="0" name="fid"/>
@@ -681,14 +807,21 @@ def my_form_open(dialog, layer, feature):
     <field labelOnTop="0" name="upstream_pe"/>
   </labelOnTop>
   <reuseLastValue>
+    <field name="BOD5_in" reuseLastValue="0"/>
     <field name="BOD5_obj" reuseLastValue="0"/>
+    <field name="COD_in" reuseLastValue="0"/>
     <field name="COD_obj" reuseLastValue="0"/>
+    <field name="NO3N_in" reuseLastValue="0"/>
     <field name="NO3N_obj" reuseLastValue="0"/>
+    <field name="TKN_in" reuseLastValue="0"/>
     <field name="TKN_obj" reuseLastValue="0"/>
     <field name="TN_obj" reuseLastValue="0"/>
+    <field name="TP_in" reuseLastValue="0"/>
     <field name="TP_obj" reuseLastValue="0"/>
+    <field name="TSS_in" reuseLastValue="0"/>
     <field name="TSS_obj" reuseLastValue="0"/>
     <field name="average_daily_flow" reuseLastValue="0"/>
+    <field name="ecoli_in" reuseLastValue="0"/>
     <field name="ecoli_obj" reuseLastValue="0"/>
     <field name="elevation" reuseLastValue="0"/>
     <field name="fid" reuseLastValue="0"/>

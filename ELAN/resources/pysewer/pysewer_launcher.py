@@ -7,9 +7,8 @@ import importlib.util
 import pathlib
 import site
 import sqlite3
-from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
+from typing import Optional, cast
 
 
 def main():
@@ -68,11 +67,14 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
     from pysewer.routing import rsph_tree
     from rasterio.crs import CRS
 
-    # Class to transform the GeoDataFrame to our needs for ELAN:
-    #   - remove unwanted columns
-    #   - still create a layer even if the GeoDataFrame is empty
-    #   - handle fid specific field
     class PysewerToGpkgSpecs:
+        """
+        Class to transform the GeoDataFrame to our needs for ELAN:
+          - remove unwanted columns
+          - still create a layer even if the GeoDataFrame is empty
+          - handle fid specific field
+        """
+
         layer_name = ""
         geometry = ""
         fields = {}
@@ -158,6 +160,13 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
             "average_daily_flow": "float",
             "inflow_trench_depths": "str",
             "inflow_diameters": "str",
+            "TSS_in": "float",
+            "BOD5_in": "float",
+            "TKN_in": "float",
+            "COD_in": "float",
+            "NO3N_in": "float",
+            "TP_in": "float",
+            "ecoli_in": "float",
             "TSS_obj": "float",
             "BOD5_obj": "float",
             "TKN_obj": "float",
@@ -170,6 +179,15 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
 
         def __init__(self, gdf: gpd.GeoDataFrame, crs: CRS):
             super().__init__(gdf, crs)
+
+            # Add columns for input concentrations
+            self.gdf["TSS_in"] = float("nan")
+            self.gdf["BOD5_in"] = float("nan")
+            self.gdf["TKN_in"] = float("nan")
+            self.gdf["COD_in"] = float("nan")
+            self.gdf["NO3N_in"] = float("nan")
+            self.gdf["TP_in"] = float("nan")
+            self.gdf["ecoli_in"] = float("nan")
 
             # Add columns for desired concentrations
             self.gdf["TSS_obj"] = float("nan")
@@ -233,7 +251,7 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
         ),
         SewerNetworkSpecs(get_edge_gdf(g, detailed=True), export_crs),
     ]:
-        spec.write_to_gpkg(str(output_path))
+        cast(PysewerToGpkgSpecs, spec).write_to_gpkg(str(output_path))
 
     # Create and fill info_network layer
     conn = sqlite3.connect(str(output_path))
