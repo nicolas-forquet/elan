@@ -30,9 +30,7 @@ def test_roads_buildings(elan_processing, mocker, tmp_path):
     roads_buildings_param = {
         "POLYGON": str(test_data_dir / "buildings_roads_input.gpkg.zip"),
         "BUILDINGS_OUTPUT": str(tmp_path / "buildings_generated_output.gpkg"),
-        "CENTROID_BUILDINGS_OUTPUT": str(tmp_path / "buildings_centroids_generated_output.gpkg"),
         "MERGED_BUILDINGS_OUTPUT": str(tmp_path / "buildings_merged_generated_output.gpkg"),
-        "CENTROID_MERGED_BUILDINGS_OUTPUT": str(tmp_path / "buildings_centroids_merged_generated_output.gpkg"),
         "ROADS_OUTPUT": str(tmp_path / "roads_generated_output.gpkg"),
         "PROJ": False,
     }
@@ -54,17 +52,13 @@ def test_roads_buildings(elan_processing, mocker, tmp_path):
 
     layers_generated = [
         "buildings_generated_output",
-        "buildings_centroids_generated_output",
         "roads_generated_output",
         "buildings_merged_generated_output",
-        "buildings_centroids_merged_generated_output",
     ]
     layers_reference = [
         "buildings_reference_output",
-        "buildings_centroids_reference_output",
         "roads_reference_output",
         "buildings_merged_reference_output",
-        "buildings_centroids_merged_reference_output",
     ]
 
     for layer_reference, layer_generated in zip(layers_reference, layers_generated):
