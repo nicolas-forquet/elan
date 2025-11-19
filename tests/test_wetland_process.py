@@ -78,10 +78,8 @@ def test_wetland_process_with_negative_objectives(elan_processing, tmp_path):
         "Q_FIELD": "average_daily_flow",
     }
 
-    with pytest.raises(QgsProcessingException) as exception:
+    with pytest.raises(QgsProcessingException, match="These values must be strictly positive: COD, TN"):
         elan_processing.run(test_wetland_process_alg, wetland_process_param)
-
-    assert str(exception.value) == "These values must be strictly positive: COD, TN"
 
 
 def test_wetland_process_with_null_objectives(elan_processing, tmp_path):
@@ -111,7 +109,5 @@ def test_wetland_process_with_null_objectives(elan_processing, tmp_path):
         "Q_FIELD": "average_daily_flow",
     }
 
-    with pytest.raises(QgsProcessingException) as exception:
+    with pytest.raises(QgsProcessingException, match="These values can't be NULL: TSS, BOD5"):
         elan_processing.run(test_wetland_process_alg, wetland_process_param)
-
-    assert str(exception.value) == "These values can't be NULL: TSS, BOD5"

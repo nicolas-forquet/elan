@@ -2,6 +2,8 @@
 test_sewer_network
 """
 
+# pylint: disable=import-outside-toplevel
+
 import re
 
 import pytest
@@ -65,7 +67,7 @@ def test_sewer_network(elan_processing, tmp_path):
 def test_sewer_network_with_empty_outputs(elan_processing, tmp_path):
     """
     We don't put any building feature in the input buildings layer
-    so that no sewer and no pump are created and we must have
+    so that no pump is created, only one sewer, and we must have
     no error but empty output layers with their structure (fields)
     """
 
