@@ -1401,17 +1401,17 @@ Si aucun champ n&apos;est sélectionné, le module prendra en compte le paramèt
     <message>
         <location filename="../../processing/wetland_process.py" line="253"/>
         <source>BOD5 outflow concentration target [g/m3]</source>
-        <translation>niveau de rejet en DBO5 [g/m3] (champ)</translation>
+        <translation>niveau de rejet en DBO5 [g/m3]</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="254"/>
         <source>TKN outflow concentration target [g/m3]</source>
-        <translation>niveau de rejet en NTK [g/m3] (champ)</translation>
+        <translation>niveau de rejet en NTK [g/m3]</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="255"/>
         <source>COD outflow concentration target [g/m3]</source>
-        <translation>niveau de rejet en DCO [g/m3] (champ)</translation>
+        <translation>niveau de rejet en DCO [g/m3]</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="203"/>
@@ -1421,7 +1421,7 @@ Si aucun champ n&apos;est sélectionné, le module prendra en compte le paramèt
     <message>
         <location filename="../../processing/wetland_process.py" line="234"/>
         <source>Daily inflow [m3/d]</source>
-        <translation>débit journalier entrant [m3/j] (champ)</translation>
+        <translation>débit journalier entrant [m3/j]</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="287"/>
@@ -1443,7 +1443,7 @@ Aller dans les paramètres ELAN pour l&apos;installer.</translation>
     <message>
         <location filename="../../processing/wetland_process.py" line="256"/>
         <source>NO3-N outflow concentration target [g/m3]</source>
-        <translation>niveau de rejet en N-NO3 [g/m3] (champ)</translation>
+        <translation>niveau de rejet en N-NO3 [g/m3]</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="257"/>
@@ -1498,12 +1498,12 @@ Aller dans les paramètres ELAN pour l&apos;installer.</translation>
     <message>
         <location filename="../../processing/wetland_process.py" line="258"/>
         <source>TP outflow concentration target [g/m3]</source>
-        <translation>niveau de rejet en PT [g/m3] (champ)</translation>
+        <translation>niveau de rejet en PT [g/m3]</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="259"/>
         <source>e.coli outflow concentration target [UFC/100mL]</source>
-        <translation>niveau de rejet en e.coli [UFC/100mL] (champ)</translation>
+        <translation>niveau de rejet en e.coli [UFC/100mL]</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="548"/>
@@ -1559,32 +1559,32 @@ La prise en compte des phosphores (PT) et des e.coli n&apos;est pas pleinement m
     <message>
         <location filename="../../processing/wetland_process.py" line="245"/>
         <source>BOD5 inflow concentration [g/m3]</source>
-        <translation>concentration entrée DBO5 [g/m3]</translation>
+        <translation>concentration en entrée en DBO5 [g/m3]</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="246"/>
         <source>TKN inflow concentration [g/m3]</source>
-        <translation>concentration entrée NTK [g/m3]</translation>
+        <translation>concentration en entrée en NTK [g/m3]</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="247"/>
         <source>COD inflow concentration [g/m3]</source>
-        <translation>concentration entrée DCO [g/m3]</translation>
+        <translation>concentration en entrée en DCO [g/m3]</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="248"/>
         <source>NO3-N inflow concentration [g/m3]</source>
-        <translation>concentration entrée N-NO3 [g/m3]</translation>
+        <translation>concentration en entrée en N-NO3 [g/m3]</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="249"/>
         <source>TP inflow concentration [g/m3]</source>
-        <translation>concentration entrée PT [g/m3]</translation>
+        <translation>concentration en entrée en PT [g/m3]</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="250"/>
         <source>e.coli inflow concentration [UFC/100mL]</source>
-        <translation>concentration entrée e.coli [UFC/100mL]</translation>
+        <translation>concentration en entrée en e.coli [UFC/100mL]</translation>
     </message>
     <message>
         <location filename="../../processing/wetland_process.py" line="489"/>
@@ -1594,7 +1594,7 @@ La prise en compte des phosphores (PT) et des e.coli n&apos;est pas pleinement m
     <message>
         <location filename="../../processing/wetland_process.py" line="244"/>
         <source>TSS inflow concentration [g/m3]</source>
-        <translation>concentration entrée MES [g/m3]</translation>
+        <translation>concentration en entrée en MES [g/m3]</translation>
     </message>
 </context>
 <context>
