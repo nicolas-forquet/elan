@@ -65,13 +65,13 @@ Development currently involves :
 
 <div align="center">
   <a href="https://reversaal.lyon-grenoble.hub.inrae.fr/">
-    <img alt="reversaal logo" src="./docs/_static/reversaal.jpg" height="125">
+    <img alt="reversaal logo" src="./docs/_static/reversaal.jpg" height="110">
   </a>
 </div>
 
 <div align="center">
   <a href="https://oslandia.com/">
-    <img alt="oslandia logo" src="./docs/_static/oslandia.png" height="125">
+    <img alt="oslandia logo" src="./docs/_static/oslandia.png" height="110">
   </a>
 </div>
 
