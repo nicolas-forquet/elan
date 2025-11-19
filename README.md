@@ -63,13 +63,13 @@ The project is developped under the terms of the `GPLv2+` license.
 
 Development currently involves :
 
-<div align="center">
+<div align="right">
   <a href="https://reversaal.lyon-grenoble.hub.inrae.fr/">
     <img alt="reversaal logo" src="./docs/_static/reversaal.jpg" height="100">
   </a>
 </div>
 
-<div align="center">
+<div align="left">
   <a href="https://oslandia.com/">
     <img alt="oslandia logo" src="./docs/_static/oslandia.png" height="100">
   </a>
@@ -149,13 +149,13 @@ This project is made possible through funding from :
 
 <div align="center">
   <a href="https://ofb.gouv.fr/">
-    <img alt="ofb logo" src="./docs/_static/ofb.png" height="100">
+    <img alt="ofb logo" src="./docs/_static/ofb.png" height="125">
   </a>
 </div>
 
 <div align="center">
   <a href="https://www.caribsan.eu/">
-    <img alt="caribsan logo" src="./docs/_static/caribsan.png" height="100">
+    <img alt="caribsan logo" src="./docs/_static/caribsan.png" height="75">
   </a>
 </div>
 
