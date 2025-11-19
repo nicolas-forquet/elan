@@ -619,12 +619,12 @@ Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</tr
 <context>
     <name>RoadsBuildingsAlgorithm</name>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="73"/>
+        <location filename="../../processing/roads_buildings.py" line="71"/>
         <source>Roads and buildings</source>
         <translation>Routes et bâtiments</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="80"/>
+        <location filename="../../processing/roads_buildings.py" line="78"/>
         <source>Data pre-processing</source>
         <translation>Préparation des données</translation>
     </message>
@@ -646,7 +646,7 @@ Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</tr
 
             - The building and road entities are added to the output layers.
             </source>
-        <translation>Cet algorithme interroge l&apos;API Overpass pour extraire des données OSM (OpenStreetMap) de bâtiments et de routes dans une zone définie par un rectangle.
+        <translation type="obsolete">Cet algorithme interroge l&apos;API Overpass pour extraire des données OSM (OpenStreetMap) de bâtiments et de routes dans une zone définie par un rectangle.
 
 - L&apos;utilisateur spécifie une couche de polygones pour définir la zone de requête (emprise totale de la couche).
 
@@ -660,114 +660,144 @@ Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</tr
 - Les entités de bâtiments et de routes sont ajoutées aux couches de sortie.</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="121"/>
+        <location filename="../../processing/roads_buildings.py" line="116"/>
         <source>Extraction area</source>
         <translation>Aire d&apos;extraction</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="127"/>
+        <location filename="../../processing/roads_buildings.py" line="122"/>
         <source>Buildings - Output layer</source>
         <translation>Bâtiments - Couche de sortie</translation>
     </message>
     <message>
         <location filename="../../processing/roads_buildings.py" line="151"/>
         <source>Merged buildings centroids - Output layer</source>
-        <translation>Centroïdes des bâtiments fusionnés - Couche de sortie</translation>
+        <translation type="obsolete">Centroïdes des bâtiments fusionnés - Couche de sortie</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="143"/>
+        <location filename="../../processing/roads_buildings.py" line="130"/>
         <source>Merged buildings - Output layer</source>
         <translation>Bâtiments fusionnés - Couche de sortie</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="159"/>
+        <location filename="../../processing/roads_buildings.py" line="138"/>
         <source>Roads - Output layer</source>
         <translation>Routes - Couche de sortie</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="165"/>
+        <location filename="../../processing/roads_buildings.py" line="144"/>
         <source>Reproject layers to the project&apos;s CRS</source>
         <translation>Reprojection des couches dans le SCR du projet </translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="177"/>
+        <location filename="../../processing/roads_buildings.py" line="156"/>
         <source>Unable to get input polygon layer</source>
         <translation>Impossible d&apos;obtenir la couche de polygones en entrée</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="187"/>
+        <location filename="../../processing/roads_buildings.py" line="166"/>
         <source>The extent of the extraction area is null</source>
         <translation>L&apos;étendue de l&apos;aire d&apos;extraction est nulle</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="273"/>
+        <location filename="../../processing/roads_buildings.py" line="252"/>
         <source>Error while retrieving layer</source>
         <translation>Erreur lors de la récupération de la couche</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="293"/>
+        <location filename="../../processing/roads_buildings.py" line="272"/>
         <source>Buildings</source>
         <translation>Bâtiments</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="308"/>
+        <location filename="../../processing/roads_buildings.py" line="306"/>
         <source>Roads</source>
         <translation>Routes</translation>
     </message>
     <message>
         <location filename="../../processing/roads_buildings.py" line="323"/>
         <source>Buildings centroids</source>
-        <translation>Centroïdes de bâtiments</translation>
+        <translation type="obsolete">Centroïdes de bâtiments</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="342"/>
+        <location filename="../../processing/roads_buildings.py" line="291"/>
         <source>Merged buidings</source>
         <translation>Bâtiments fusionnés</translation>
     </message>
     <message>
         <location filename="../../processing/roads_buildings.py" line="357"/>
         <source>Merged buildings centroids</source>
-        <translation>Centroïdes des bâtiments fusionnés</translation>
+        <translation type="obsolete">Centroïdes des bâtiments fusionnés</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="189"/>
+        <location filename="../../processing/roads_buildings.py" line="168"/>
         <source>The extent of the extraction area is too big</source>
         <translation>L&apos;étendue de l&apos;aire d&apos;extraction est trop grande</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="173"/>
+        <location filename="../../processing/roads_buildings.py" line="152"/>
         <source>Downloading data...</source>
         <translation>Téléchargement des données...</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="283"/>
+        <location filename="../../processing/roads_buildings.py" line="262"/>
         <source>Clipping buildings...</source>
         <translation>Découpage des bâtiments...</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="298"/>
+        <location filename="../../processing/roads_buildings.py" line="296"/>
         <source>Clipping roads...</source>
         <translation>Découpage des routes...</translation>
     </message>
     <message>
         <location filename="../../processing/roads_buildings.py" line="313"/>
         <source>Creating buildings centroids...</source>
-        <translation>Création des centroïdes de bâtiments...</translation>
+        <translation type="obsolete">Création des centroïdes de bâtiments...</translation>
     </message>
     <message>
         <location filename="../../processing/roads_buildings.py" line="347"/>
         <source>Creating merged buildings centroids...</source>
-        <translation>Création des centroïdes des bâtiments fusionnés...</translation>
+        <translation type="obsolete">Création des centroïdes des bâtiments fusionnés...</translation>
     </message>
     <message>
-        <location filename="../../processing/roads_buildings.py" line="328"/>
+        <location filename="../../processing/roads_buildings.py" line="277"/>
         <source>Merging buildings...</source>
         <translation>Fusion des bâtiments...</translation>
     </message>
     <message>
         <location filename="../../processing/roads_buildings.py" line="135"/>
         <source>Buildings centroids - Output layer</source>
-        <translation>Centroïdes des bâtiments - Couche de sortie</translation>
+        <translation type="obsolete">Centroïdes des bâtiments - Couche de sortie</translation>
+    </message>
+    <message>
+        <location filename="../../processing/roads_buildings.py" line="96"/>
+        <source>
+            This algorithm queries the Overpass API to extract OSM (OpenStreetMap) data for buildings
+            and roads within an area defined by a rectangle.
+
+            - The user specifies a polygon layer to define the query area (whole extent of the layer).
+
+            - An Overpass query is formulated to extract entities of type &quot;building&quot; and &quot;highway&quot;
+            within the specified area(s).
+
+            - Three output layers are created:
+            - A polygon layer for buildings.
+            - A polygon layer for merged buildings (touching polygons).
+            - A line layer for roads.
+            - The building and road entities are added to the output layers.
+            </source>
+        <translation>Cet algorithme interroge l&apos;API Overpass pour extraire des données OSM (OpenStreetMap) de bâtiments et de routes dans une zone définie par un rectangle.
+
+- L&apos;utilisateur spécifie une couche de polygones pour définir la zone de requête (emprise totale de la couche).
+
+- Une requête Overpass est formulée pour extraire les entités de type &quot;building&quot; et &quot;highway&quot; dans la (les) zone(s) spécifiée(s).
+
+- Trois couches de sortie sont créées :
+- Une couche de polygones pour les bâtiments.
+- Une couche de polygones pour les bâtiments fusionnés (polygones qui se touchent).
+- Une couche de lignes pour les routes.
+
+- Les entités de bâtiments et de routes sont ajoutées aux couches de sortie.</translation>
     </message>
 </context>
 <context>
