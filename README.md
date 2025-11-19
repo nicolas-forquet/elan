@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://gitlab.com/elan7835313/elan">
-        <img alt="elan logo" src="./docs/_static/logo.png" height="175">
+        <img alt="elan logo" src="./docs/_static/logo.png" height="190">
     </a>
 </div>
 
@@ -63,13 +63,13 @@ The project is developped under the terms of the `GPLv2+` license.
 
 Development currently involves :
 
-<div align="center">
+<div align="left">
   <a href="https://reversaal.lyon-grenoble.hub.inrae.fr/">
     <img alt="reversaal logo" src="./docs/_static/reversaal.jpg" height="110">
   </a>
 </div>
 
-<div align="center">
+<div align="left">
   <a href="https://oslandia.com/">
     <img alt="oslandia logo" src="./docs/_static/oslandia.png" height="110">
   </a>
@@ -147,31 +147,31 @@ If you use elan, please cite the following ressource :
 
 This project is made possible through funding from :
 
-<div align="center">
+<div align="left">
   <a href="https://ofb.gouv.fr/">
     <img alt="ofb logo" src="./docs/_static/ofb.png" height="125">
   </a>
 </div>
 
-<div align="center">
+<div align="left">
   <a href="https://www.caribsan.eu/">
     <img alt="caribsan logo" src="./docs/_static/caribsan.png" height="75">
   </a>
 </div>
 
-<div align="center">
+<div align="left">
   <a href="https://www.afd.fr/fr">
     <img alt="afd logo" src="./docs/_static/afd.png" height="100">
   </a>
 </div>
 
-<div align="center">
+<div align="left">
   <a href="https://www.eaurmc.fr/">
     <img alt="rmc logo" src="./docs/_static/rmc.png" height="100">
   </a>
 </div>
 
-<div align="center">
+<div align="left">
   <a href="https://eau-grandsudouest.fr/">
     <img alt="adour logo" src="./docs/_static/adour.png" height="100">
   </a>
