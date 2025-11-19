@@ -12,9 +12,6 @@ repos:
   - id: detect-private-key
   - id: end-of-file-fixer
     exclude_types: ["qml", "ts"]
-  - id: fix-encoding-pragma
-    args: [--remove]
-    exclude_types: ["qml", "ts"]
   - id: trailing-whitespace
     args: [--markdown-linebreak-ext=md]
     exclude_types: ["qml", "ts"]
@@ -34,6 +31,11 @@ repos:
     - id: isort
       types: [file, python]
       args: ["--profile", "black", "--filter-files"]
+
+- repo: https://github.com/asottile/pyupgrade
+  rev: v3.21.2
+  hooks:
+    - id: pyupgrade
 
 - repo: https://github.com/pycqa/pylint
   rev: v4.0.3
