@@ -103,13 +103,10 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
             - An Overpass query is formulated to extract entities of type "building" and "highway"
             within the specified area(s).
 
-            - Five output layers are created:
+            - Three output layers are created:
             - A polygon layer for buildings.
             - A polygon layer for merged buildings (touching polygons).
-            - A point layer for the centroids of building polygons.
-            - A point layer for the centroids of merged buildings.
             - A line layer for roads.
-
             - The building and road entities are added to the output layers.
             """
         )

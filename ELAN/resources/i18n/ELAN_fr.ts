@@ -639,11 +639,9 @@ Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</tr
             - An Overpass query is formulated to extract entities of type &quot;building&quot; and &quot;highway&quot;
             within the specified area(s).
 
-            - Five output layers are created:
+            - Three output layers are created:
             - A polygon layer for buildings.
             - A polygon layer for merged buildings (touching polygons).
-            - A point layer for the centroids of building polygons.
-            - A point layer for the centroids of merged buildings.
             - A line layer for roads.
 
             - The building and road entities are added to the output layers.
@@ -654,11 +652,9 @@ Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</tr
 
 - Une requête Overpass est formulée pour extraire les entités de type &quot;building&quot; et &quot;highway&quot; dans la (les) zone(s) spécifiée(s).
 
-- Cinq couches de sortie sont créées :
+- Trois couches de sortie sont créées :
 - Une couche de polygones pour les bâtiments.
 - Une couche de polygones pour les bâtiments fusionnés (polygones qui se touchent).
-- Une couche de points pour les centroides des polygones des bâtiments.
-- Une couche de points pour les centroides des bâtiments fusionnés.
 - Une couche de lignes pour les routes.
 
 - Les entités de bâtiments et de routes sont ajoutées aux couches de sortie.</translation>
