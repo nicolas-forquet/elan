@@ -63,15 +63,15 @@ The project is developped under the terms of the `GPLv2+` license.
 
 Development currently involves :
 
-<div align="right">
+<div align="center">
   <a href="https://reversaal.lyon-grenoble.hub.inrae.fr/">
-    <img alt="reversaal logo" src="./docs/_static/reversaal.jpg" height="100">
+    <img alt="reversaal logo" src="./docs/_static/reversaal.jpg" height="125">
   </a>
 </div>
 
-<div align="left">
+<div align="center">
   <a href="https://oslandia.com/">
-    <img alt="oslandia logo" src="./docs/_static/oslandia.png" height="100">
+    <img alt="oslandia logo" src="./docs/_static/oslandia.png" height="125">
   </a>
 </div>
 
