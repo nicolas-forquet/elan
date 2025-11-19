@@ -315,7 +315,7 @@ class ProcessPlots(Translatable):
                 main_panel.y_fields_combo.findText(normalized_field), Qt.CheckState.Checked
             )
         main_panel.marker_type_combo.setCurrentIndex(main_panel.marker_type_combo.findData("lines+markers"))
-        main_panel.line_combo_threshold.setCurrentText("Dash Line")
+        main_panel.line_combo_threshold.setCurrentIndex(1)
         main_panel.marker_size.setValue(5.0)
 
         # Color scale BlueYellowRed
