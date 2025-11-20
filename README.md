@@ -77,48 +77,7 @@ Development currently involves :
   </a>
 </div>
 
-It is an open project ! Good to know if you want to help :
-
-### Tooling
-
-This project is configured with the following tools:
-
-- [Black](https://black.readthedocs.io/en/stable/) to format the code without any existential question
-
-- [iSort](https://pycqa.github.io/isort/) to sort the Python imports
-
-Code rules are enforced with [pre-commit](https://pre-commit.com/) hooks.  
-
-Static code analisis is based on: PyLint
-
-See also: [contribution guidelines](CONTRIBUTING.md).
-
-### CI/CD
-
-Plugin is linted, tested and packaged with GitLab.
-
-### Documentation
-
-The documentation is generated using Sphinx and is automatically generated through the CI and published on Pages.
-
-- documentation= https://elan-gis.org/
-
-To update the `pot` and `po` translations files:
-
-```bash
-cd docs/
-sphinx-build -b gettext . locales/pot \&\& sphinx-intl update -l en
-```
-
-To build the documentation with all languages:
-
-```bash
-cd docs/
-./multi\_lang\_build.sh . ./\_build $(pwd)/\_build
-```
-
-and open the file `./docs/\_build/index.html`
-
+It is an open project! See [contribution guidelines](CONTRIBUTING.md).
 ## Citation
 
 If you use Elan, please cite the following ressource :
