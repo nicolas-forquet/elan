@@ -53,10 +53,7 @@ At an early stage in urban water management projects to explore multiple scenari
 
 ## How to use it ?
 
-On QGIS >= 3.40
-
-Following the steps explained in the online documentation : https://elan-gis.org/
-
+**See the [online documentation available in English and French](https://elan-gis.org).**
 ## License
 
 The project is developped under the terms of the `GPLv2+` license.
