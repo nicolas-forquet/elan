@@ -555,23 +555,23 @@ Ne sélectionner que des entités avec des {} différents.</translation>
     </message>
     <message>
         <location filename="../../scripts/treatment_train_plot.py" line="222"/>
-        <source>TSS</source>
-        <translation>MES</translation>
+        <source>TSS /</source>
+        <translation>MES /</translation>
     </message>
     <message>
         <location filename="../../scripts/treatment_train_plot.py" line="223"/>
-        <source>BOD5</source>
-        <translation>DBO5</translation>
+        <source>BOD5 /</source>
+        <translation>DBO5 /</translation>
     </message>
     <message>
         <location filename="../../scripts/treatment_train_plot.py" line="224"/>
-        <source>TKN</source>
-        <translation>NTK</translation>
+        <source>TKN /</source>
+        <translation>NTK /</translation>
     </message>
     <message>
         <location filename="../../scripts/treatment_train_plot.py" line="225"/>
-        <source>COD</source>
-        <translation>DCO</translation>
+        <source>COD /</source>
+        <translation>DCO /</translation>
     </message>
     <message>
         <location filename="../../scripts/treatment_train_plot.py" line="266"/>
@@ -607,8 +607,8 @@ Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</tr
     </message>
     <message>
         <location filename="../../scripts/treatment_train_plot.py" line="226"/>
-        <source>Hydraulic loading rate</source>
-        <translation>Taux de charge hydraulique</translation>
+        <source>Hydraulic /</source>
+        <translation>Hydraulique /</translation>
     </message>
     <message>
         <location filename="../../scripts/treatment_train_plot.py" line="254"/>
