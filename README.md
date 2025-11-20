@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://gitlab.com/elan7835313/elan">
-        <img alt="elan logo" src="./docs/_static/logo.png" height="190">
+        <img alt="elan logo" src="./docs/_static/logo.png" height="200">
     </a>
 </div>
 
@@ -14,6 +14,8 @@
 Elan is a QGIS decision-support plugin that aims to facilitate integrated urban water management by nature-based solutions currently under development.
 
 The user can create and compare different urban water management scenarios (wastewater and stormwater) to support informed decision making.
+
+Elan is available on the official QGIS repository : https://plugins.qgis.org/search/?q=ELAN. It can also be installed directly from the QGIS plugin manager. 
 
 ## Features
 
@@ -51,9 +53,9 @@ At an early stage in urban water management projects to explore multiple scenari
 
 ## How to use it ?
 
-On QGIS >=3.40
+On QGIS >= 3.40
 
-Following the steps explained in the online documentation : elan-gis.org
+Following the steps explained in the online documentation : https://elan-gis.org/
 
 ## License
 
@@ -119,7 +121,7 @@ and open the file `./docs/\_build/index.html`
 
 ## Citation
 
-If you use elan, please cite the following ressource :
+If you use Elan, please cite the following ressource :
 
 > Gabrielle Favreau, Nicolas Forquet, Jacky Volpes, Sophie Aubier, Pascal Molle (laste update mentionned). Elan : a QGIS decision-support plugin for integrated urban water management by nature-based solutions. https://elan-gis.org/
 
