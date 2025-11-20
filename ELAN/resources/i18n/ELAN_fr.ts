@@ -1476,22 +1476,22 @@ Aller dans les paramètres ELAN pour l&apos;installer.</translation>
         <translation>Erreur inattendue pour affecter le chemin de Python pour multiprocessing:</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="543"/>
+        <location filename="../../processing/wetland_process.py" line="551"/>
         <source>TSS</source>
         <translation>MES</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="544"/>
+        <location filename="../../processing/wetland_process.py" line="552"/>
         <source>BOD5</source>
         <translation>DBO5</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="545"/>
+        <location filename="../../processing/wetland_process.py" line="553"/>
         <source>COD</source>
         <translation>DCO</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="561"/>
+        <location filename="../../processing/wetland_process.py" line="569"/>
         <source>These values can&apos;t be NULL:</source>
         <translation>Ces valeurs ne doivent pas être NULL :</translation>
     </message>
@@ -1506,32 +1506,32 @@ Aller dans les paramètres ELAN pour l&apos;installer.</translation>
         <translation>niveau de rejet en e.coli [UFC/100mL]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="548"/>
+        <location filename="../../processing/wetland_process.py" line="556"/>
         <source>TNK</source>
         <translation>NTK</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="549"/>
+        <location filename="../../processing/wetland_process.py" line="557"/>
         <source>NO3-N</source>
         <translation>N-NO3</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="550"/>
+        <location filename="../../processing/wetland_process.py" line="558"/>
         <source>TN</source>
         <translation>NT</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="551"/>
+        <location filename="../../processing/wetland_process.py" line="559"/>
         <source>TP</source>
         <translation>PT</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="552"/>
+        <location filename="../../processing/wetland_process.py" line="560"/>
         <source>e.coli</source>
         <translation>e.coli</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="569"/>
+        <location filename="../../processing/wetland_process.py" line="577"/>
         <source>These values must be strictly positive:</source>
         <translation>Ces valeurs doivent être strictement positives :</translation>
     </message>
@@ -1596,11 +1596,16 @@ La prise en compte des phosphores (PT) et des e.coli n&apos;est pas pleinement m
         <source>TSS inflow concentration [g/m3]</source>
         <translation>concentration en entrée en MES [g/m3]</translation>
     </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="525"/>
+        <source>Inflow concentrations have incorrect values: {}, causing an error during COD_Fractionation step.</source>
+        <translation>Valeurs incorrectes pour les concentrations en entrées : {}, provoquant une erreur lors de l&apos;étape COD_Fractionation.</translation>
+    </message>
 </context>
 <context>
     <name>WetlandProcessPostProcessor</name>
     <message>
-        <location filename="../../processing/wetland_process.py" line="664"/>
+        <location filename="../../processing/wetland_process.py" line="672"/>
         <source>No layer styles found</source>
         <translation>Aucun style de couche trouvé</translation>
     </message>

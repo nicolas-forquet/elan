@@ -510,17 +510,25 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
 
         from wetlandoptimizer.main import COD_Fractionation  # pylint: disable=import-outside-toplevel
 
-        return COD_Fractionation(
-            [
-                wwtp_feature[TSS_in_field_name] if wwtp_feature[TSS_in_field_name] != NULL else DEFAULT_TSS_IN,
-                wwtp_feature[BOD5_in_field_name] if wwtp_feature[BOD5_in_field_name] != NULL else DEFAULT_BOD5_IN,
-                wwtp_feature[TKN_in_field_name] if wwtp_feature[TKN_in_field_name] != NULL else DEFAULT_TKN_IN,
-                wwtp_feature[COD_in_field_name] if wwtp_feature[COD_in_field_name] != NULL else DEFAULT_COD_IN,
-                wwtp_feature[NO3N_in_field_name] if wwtp_feature[NO3N_in_field_name] != NULL else DEFAULT_NO3N_IN,
-                wwtp_feature[TP_in_field_name] if wwtp_feature[TP_in_field_name] != NULL else DEFAULT_TP_IN,
-                wwtp_feature[ecoli_in_field_name] if wwtp_feature[ecoli_in_field_name] != NULL else DEFAULT_ECOLI_IN,
-            ]
-        )
+        inflow_concentrations = [
+            wwtp_feature[TSS_in_field_name] if wwtp_feature[TSS_in_field_name] != NULL else DEFAULT_TSS_IN,
+            wwtp_feature[BOD5_in_field_name] if wwtp_feature[BOD5_in_field_name] != NULL else DEFAULT_BOD5_IN,
+            wwtp_feature[TKN_in_field_name] if wwtp_feature[TKN_in_field_name] != NULL else DEFAULT_TKN_IN,
+            wwtp_feature[COD_in_field_name] if wwtp_feature[COD_in_field_name] != NULL else DEFAULT_COD_IN,
+            wwtp_feature[NO3N_in_field_name] if wwtp_feature[NO3N_in_field_name] != NULL else DEFAULT_NO3N_IN,
+            wwtp_feature[TP_in_field_name] if wwtp_feature[TP_in_field_name] != NULL else DEFAULT_TP_IN,
+            wwtp_feature[ecoli_in_field_name] if wwtp_feature[ecoli_in_field_name] != NULL else DEFAULT_ECOLI_IN,
+        ]
+
+        Cin = COD_Fractionation(inflow_concentrations)
+        if all(val == 0 for val in Cin):
+            raise QgsProcessingException(
+                self.tr(
+                    "Inflow concentrations have incorrect values: {}, causing an error during COD_Fractionation step."
+                ).format(inflow_concentrations)
+            )
+
+        return Cin
 
     def getTargetConcentrations(
         self,
