@@ -11,7 +11,9 @@
 
 ## Elan QGIS plugin
 
-Elan is a QGIS decision-support plugin that aims to facilitate integrated urban water management by nature-based solutions currently under development.
+Elan is a QGIS decision-support plugin that aims to facilitate integrated urban water management by nature-based solutions.
+
+It is currently under active development.
 
 The user can create and compare different urban water management scenarios (wastewater and stormwater) to support informed decision making.
 
