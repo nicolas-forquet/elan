@@ -215,15 +215,15 @@ class ProcessPlots(Translatable):
             g
             for g in [
                 self.generate_gradient(c, max_stages_nb + 1)
-                for c in ["#70ad47", "#5a9bd5", "#ffc000", "#43682b", "#555555"]
+                for c in ["#333333", "#58BF03", "#2ACCFE", "#FF8C66", "#FEA4E6"]
             ]
         ]
         bar_legend_labels = [
-            self.tr("TSS"),
-            self.tr("BOD5"),
-            self.tr("TKN"),
-            self.tr("COD"),
-            self.tr("Hydraulic loading rate"),
+            self.tr("TSS /"),
+            self.tr("BOD5 /"),
+            self.tr("TKN /"),
+            self.tr("COD /"),
+            self.tr("Hydraulic /"),
         ]
 
         # Following conditions should not appear (implementation problem from above lists)
