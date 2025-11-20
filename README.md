@@ -100,7 +100,7 @@ If you use Elan, please cite the following ressource :
 
 > Bartos et al. (2020). Pysheds: simple and fast watershed delineation in Python. Zenodo repository, 10.5281/zenodo.3822494.
 
-### QGSI plugins required for elan 
+### Third-party QGIS plugins required for Elan 
 
 * **DataPlotly** : https://github.com/ghtmtt/DataPlotly
 
