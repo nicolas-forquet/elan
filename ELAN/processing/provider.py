@@ -12,6 +12,7 @@ from ELAN.processing.assessment import AssessmentAlgorithm
 from ELAN.processing.comparison import ComparisonAlgorithm
 from ELAN.processing.hydraulic import HydraulicAlgorithm, HydraulicUrbanCatchmentAlgorithm
 from ELAN.processing.population import PopulationAreametricAlgorithm, PopulationUniformAlgorithm
+from ELAN.processing.projection import SnapOnRoadsAlgorithm
 from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
 from ELAN.processing.scenario import ScenarioAlgorithm
 from ELAN.processing.sewer_network import SewerNetworkAlgorithm
@@ -27,6 +28,7 @@ class ELANProvider(QgsProcessingProvider, Translatable):
         self.addAlgorithm(PopulationAreametricAlgorithm())
         self.addAlgorithm(PopulationUniformAlgorithm())
         self.addAlgorithm(RoadsBuildingsAlgorithm())
+        self.addAlgorithm(SnapOnRoadsAlgorithm())
         self.addAlgorithm(WetlandProcessAlgorithm())
         self.addAlgorithm(SewerNetworkAlgorithm())
         self.addAlgorithm(TrenchProfileAlgorithm())
