@@ -46,9 +46,7 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
 
     POLYGON = "POLYGON"
     BUILDINGS_OUTPUT = "BUILDINGS_OUTPUT"
-    CENTROID_BUILDINGS_OUTPUT = "CENTROID_BUILDINGS_OUTPUT"
     MERGED_BUILDINGS_OUTPUT = "MERGED_BUILDINGS_OUTPUT"
-    CENTROID_MERGED_BUILDINGS_OUTPUT = "CENTROID_MERGED_BUILDINGS_OUTPUT"
     ROADS_OUTPUT = "ROADS_OUTPUT"
     PROJ = "PROJ"
 
@@ -105,13 +103,10 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
             - An Overpass query is formulated to extract entities of type "building" and "highway"
             within the specified area(s).
 
-            - Five output layers are created:
+            - Three output layers are created:
             - A polygon layer for buildings.
             - A polygon layer for merged buildings (touching polygons).
-            - A point layer for the centroids of building polygons.
-            - A point layer for the centroids of merged buildings.
             - A line layer for roads.
-
             - The building and road entities are added to the output layers.
             """
         )
@@ -134,25 +129,9 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
 
         self.addParameter(
             QgsProcessingParameterFeatureSink(
-                self.CENTROID_BUILDINGS_OUTPUT,
-                self.tr("Buildings centroids - Output layer"),
-                Qgis.ProcessingSourceType.VectorPoint,
-            )
-        )
-
-        self.addParameter(
-            QgsProcessingParameterFeatureSink(
                 self.MERGED_BUILDINGS_OUTPUT,
                 self.tr("Merged buildings - Output layer"),
                 Qgis.ProcessingSourceType.VectorPolygon,
-            )
-        )
-
-        self.addParameter(
-            QgsProcessingParameterFeatureSink(
-                self.CENTROID_MERGED_BUILDINGS_OUTPUT,
-                self.tr("Merged buildings centroids - Output layer"),
-                Qgis.ProcessingSourceType.VectorPoint,
             )
         )
 
@@ -291,37 +270,7 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
         if context.willLoadLayerOnCompletion(buildings_clipped_dest):
             ld = context.layerToLoadOnCompletionDetails(buildings_clipped_dest)
             ld.name = self.tr("Buildings")
-            ld.layerSortKey = 1
-
-        # Clip the roads inside the input polygons
-        multistep_feedback.setCurrentStep(3)
-        multistep_feedback.setProgressText(self.tr("Clipping roads..."))
-        roads_clipped_dest = processing.run(
-            "native:clip",
-            {"INPUT": temp_roads, "OVERLAY": overlay, "OUTPUT": parameters[self.ROADS_OUTPUT]},
-            context=context,
-            feedback=multistep_feedback,
-            is_child_algorithm=True,
-        )["OUTPUT"]
-        if context.willLoadLayerOnCompletion(roads_clipped_dest):
-            ld = context.layerToLoadOnCompletionDetails(roads_clipped_dest)
-            ld.name = self.tr("Roads")
-            ld.layerSortKey = 2
-
-        # Create buildings centroids
-        multistep_feedback.setCurrentStep(4)
-        multistep_feedback.setProgressText(self.tr("Creating buildings centroids..."))
-        centroid_buildings_dest = processing.run(
-            "native:centroids",
-            {"INPUT": buildings_clipped_dest, "OUTPUT": parameters[self.CENTROID_BUILDINGS_OUTPUT]},
-            context=context,
-            feedback=multistep_feedback,
-            is_child_algorithm=True,
-        )["OUTPUT"]
-        if context.willLoadLayerOnCompletion(centroid_buildings_dest):
-            ld = context.layerToLoadOnCompletionDetails(centroid_buildings_dest)
-            ld.name = self.tr("Buildings centroids")
-            ld.layerSortKey = 4
+            ld.layerSortKey = 0
 
         # Merge buildings
         multistep_feedback.setCurrentStep(5)
@@ -340,29 +289,25 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
         if context.willLoadLayerOnCompletion(merged_buildings_dest):
             ld = context.layerToLoadOnCompletionDetails(merged_buildings_dest)
             ld.name = self.tr("Merged buidings")
-            ld.layerSortKey = 0
+            ld.layerSortKey = 1
 
-        # Create centroids of merged buildings
-        multistep_feedback.setCurrentStep(6)
-        multistep_feedback.setProgressText(self.tr("Creating merged buildings centroids..."))
-        centroid_merged_buildings_dest = processing.run(
-            "native:centroids",
-            {"INPUT": merged_buildings_dest, "OUTPUT": parameters[self.CENTROID_MERGED_BUILDINGS_OUTPUT]},
+        # Clip the roads inside the input polygons
+        multistep_feedback.setCurrentStep(3)
+        multistep_feedback.setProgressText(self.tr("Clipping roads..."))
+        roads_clipped_dest = processing.run(
+            "native:clip",
+            {"INPUT": temp_roads, "OVERLAY": overlay, "OUTPUT": parameters[self.ROADS_OUTPUT]},
             context=context,
             feedback=multistep_feedback,
             is_child_algorithm=True,
         )["OUTPUT"]
-        if context.willLoadLayerOnCompletion(centroid_merged_buildings_dest):
-            ld = context.layerToLoadOnCompletionDetails(centroid_merged_buildings_dest)
-            ld.name = self.tr("Merged buildings centroids")
-            ld.layerSortKey = 3
-
-        multistep_feedback.setCurrentStep(7)
+        if context.willLoadLayerOnCompletion(roads_clipped_dest):
+            ld = context.layerToLoadOnCompletionDetails(roads_clipped_dest)
+            ld.name = self.tr("Roads")
+            ld.layerSortKey = 2
 
         return {
             self.BUILDINGS_OUTPUT: buildings_clipped_dest,
-            self.CENTROID_BUILDINGS_OUTPUT: centroid_buildings_dest,
             self.MERGED_BUILDINGS_OUTPUT: merged_buildings_dest,
-            self.CENTROID_MERGED_BUILDINGS_OUTPUT: centroid_merged_buildings_dest,
             self.ROADS_OUTPUT: roads_clipped_dest,
         }
