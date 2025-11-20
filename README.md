@@ -15,23 +15,21 @@ Elan is a QGIS decision-support plugin that aims to facilitate integrated urban 
 
 It is currently under active development.
 
-The user can create and compare different urban water management scenarios (wastewater and stormwater) to support informed decision making.
-
-Elan is available on the official QGIS repository : https://plugins.qgis.org/search/?q=ELAN. It can also be installed directly from the QGIS plugin manager. 
+Using ELAN, the user can create and compare different urban water management scenarios (wastewater and stormwater) to support informed decision making.
 
 ## Features
 
 The plugin includes several modules:
 
-- `Roads and buildings`, `Population` and `RoadProjection` to prepare the geographical data
+- `Roads and buildings`, `Population` and `Projection on roads` to prepare the geographical data
 
-- `Sewer network` and `Processes` to investigate and presize scenarios
+- `Sewer network` and `Processes` to investigate and pre-size scenarios
 
 - `Longitudinal sewer profile` to better visualize sewer pre-sizing
 
 - `Create a scenario` to create a scenario item that can be further compared to others
 
-And customized plots to better compare presized treatment train options.
+And customized plots to better compare pre-sized treatment train options.
 
 ## For whom ?
 
@@ -53,9 +51,14 @@ At this stage of development, only the wastewater issue can be addressed by Elan
 
 At an early stage in urban water management projects to explore multiple scenarios based on nature-based solutions and pre-select the ones to consider in the preliminary design phase. It can be part of a participatory process.
 
+## Where to find it ?
+
+Elan is available on the official QGIS repository : https://plugins.qgis.org/search/?q=ELAN. It can also be installed directly from the QGIS plugin manager. 
+
 ## How to use it ?
 
 **See the [online documentation available in English and French](https://elan-gis.org).**
+
 ## License
 
 The project is developped under the terms of the `GPLv2+` license.
@@ -77,6 +80,7 @@ Development currently involves :
 </div>
 
 It is an open project! See [contribution guidelines](CONTRIBUTING.md).
+
 ## Citation
 
 If you use Elan, please cite the following ressource :
