@@ -27,7 +27,7 @@ The plugin includes several modules:
 
 - `Longitudinal sewer profile` to better visualize sewer pre-sizing
 
-- `Create a scenario` to create a scenario item that can be further compare to others
+- `Create a scenario` to create a scenario item that can be further compared to others
 
 And customized plots to better compare presized treatment train options.
 
