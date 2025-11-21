@@ -3,13 +3,13 @@ Logigramme question du centralisé / décentralisé
 
 .. mermaid::
     :zoom:
-    
+
     flowchart TB
-        A[Routes et bâtiments]:::class1
-        B[Population]:::class3
+        A[:ref: `Routes et bâtiments <routes>`]:::class1
+        B[:ref: `Population <population>`]:::class3
         C[Projection]:::class3
         D[Réseau]:::class3
-        E[Clustering]:::class1
+        E[Grouping]:::class1
         E --polygones groupés--> B
         B --centroïdes--> C --centroïdes projetés--> D
         F@{ shape: circle, label: "MNT" }
@@ -21,9 +21,9 @@ Logigramme question du centralisé / décentralisé
         A --> H:::class0 --> D
         F:::class0 --> D
         E --> G:::class0 --> D
-        J[Profils de canalisations]:::class1
+        J[:ref: `Profils de canalisations <visualisation-profils>`]:::class1
         K[Procédés]:::class3
-        L[Créer un scénario]:::class3
+        L[:ref: `Créer un scénario <creer-scenario>`]:::class3
         M[Plots]:::class3
         N@{ shape: circle, label: "réseau pré <br/> dimensionné"}
         D --> N:::class2
