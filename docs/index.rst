@@ -49,6 +49,7 @@ Contenu
    :caption: Tutorials
    
    petite_anse
+   logigramme_prb1
 
    
 
