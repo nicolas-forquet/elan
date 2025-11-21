@@ -5,8 +5,8 @@ Logigramme question du centralisé / décentralisé
     :zoom:
 
     flowchart TB
-        A[:ref: `Routes et bâtiments <routes>`]:::class1
-        B[:ref: `Population <population>`]:::class3
+        A[<a href="https://elan-gis.org/preparation.html#routes">Routes et bâtiments</a>]
+        B[Population]:::class3
         C[Projection]:::class3
         D[Réseau]:::class3
         E[Grouping]:::class1
@@ -16,14 +16,14 @@ Logigramme question du centralisé / décentralisé
         G@{ shape: circle, label: "exutoires" }
         H@{ shape: circle, label: "routes" }
         I@{ shape: circle, label: "bâtiments" }
-        A --polygones--> I --> B
+        A:::class1 --polygones--> I --> B
         I:::class0 --> E
         A --> H:::class0 --> D
         F:::class0 --> D
         E --> G:::class0 --> D
-        J[:ref: `Profils de canalisations <visualisation-profils>`]:::class1
+        J[Profils de canalisations]:::class1
         K[Procédés]:::class3
-        L[:ref: `Créer un scénario <creer-scenario>`]:::class3
+        L[Créer un scénario]:::class3
         M[Plots]:::class3
         N@{ shape: circle, label: "réseau pré <br/> dimensionné"}
         D --> N:::class2
