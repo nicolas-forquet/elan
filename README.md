@@ -69,7 +69,7 @@ Development currently involves :
 
 <table>
   <tr>
-    <td><a href="https://reversaal.lyon-grenoble.hub.inrae.fr/"><img alt="reversaal logo" src="./docs/_static/reversaal.jpg" height="110"></a></td>
+    <td><a href="https://reversaal.lyon-grenoble.hub.inrae.fr/"><img alt="reversaal logo" src="./docs/_static/reversaal.png" height="110"></a></td>
     <td><a href="https://oslandia.com/"><img alt="oslandia logo" src="./docs/_static/oslandia.png" height="110"></a></td>
   </tr>
 </table>
@@ -105,6 +105,16 @@ If you use Elan, please cite the following ressource :
 ### Funding 
 
 This project is made possible through funding from :
+
+<table>
+  <tr>
+    <td><a href="https://ofb.gouv.fr/"><img alt="ofb logo" src="./docs/_static/ofb.png" height="125"></a></td>
+    <td><a href="https://www.caribsan.eu/"><img alt="caribsan logo" src="./docs/_static/caribsan.png" height="75"></a></td>
+    <td><a href="https://www.afd.fr/fr"><img alt="afd logo" src="./docs/_static/afd.png" height="100"></a></td>
+    <td><a href="https://www.eaurmc.fr/"><img alt="rmc logo" src="./docs/_static/rmc.png" height="100"></a></td>
+    <td><a href="https://eau-grandsudouest.fr/"><img alt="adour logo" src="./docs/_static/adour.png" height="100"></a></td>
+  </tr>
+</table>
 
 <div align="center">
   <a href="https://ofb.gouv.fr/">
