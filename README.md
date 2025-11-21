@@ -101,8 +101,6 @@ If you use Elan, please cite the following ressource :
 
 This project is made possible through funding from :
 
-<a href="https://ofb.gouv.fr/"><img alt="ofb logo" src="./docs/_static/ofb.png" height="100"></a>  <a href="https://www.caribsan.eu/"><img alt="caribsan logo" src="./docs/_static/caribsan.png" height="100"></a>  <a href="https://www.afd.fr/fr"><img alt="afd logo" src="./docs/_static/afd.png" height="100"></a>  <a href="https://www.eaurmc.fr/"><img alt="rmc logo" src="./docs/_static/rmc.png" height="100"></a>  <a href="https://eau-grandsudouest.fr/"><img alt="adour logo" src="./docs/_static/adour.png" height="100"></a>
-
 <div align="center">
   <a href="https://ofb.gouv.fr/">
     <img alt="ofb logo" src="./docs/_static/ofb.png" height="130">
