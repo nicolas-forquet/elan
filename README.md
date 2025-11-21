@@ -80,7 +80,7 @@ If you use Elan, please cite the following ressource :
 
 ## Acknowledgments
 
-### Open source research projects integrated to elan
+### Open source research projects integrated to Elan
 
 * **pysewer**, Python library developed by UFZ : https://git.ufz.de/despot/pysewer
 
