@@ -67,8 +67,12 @@ The project is developped under the terms of the `GPLv2+` license.
 
 Development currently involves :
 
-| [![reversaal logo](./docs/_static/reversaal.jpg)](https://reversaal.lyon-grenoble.hub.inrae.fr/)  | [![oslandia logo](./docs/_static/oslandia.png)](https://oslandia.com/) |
-|-------|-----|
+<table>
+  <tr>
+    <td><a href="https://reversaal.lyon-grenoble.hub.inrae.fr/"><img alt="reversaal logo" src="./docs/_static/reversaal.jpg" height="110"></a></td>
+    <td><a href="https://oslandia.com/"><img alt="oslandia logo" src="./docs/_static/oslandia.png" height="110"></a></td>
+  </tr>
+</table>
 
 **It is an open project! See [contribution guidelines](CONTRIBUTING.md).**
 
