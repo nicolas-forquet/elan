@@ -15,6 +15,8 @@ La création d'un scénario pour la question du centralisé / décentralisé imp
 
 Pour une même zone, vous pouvez créer successivement autant de scénarios que vous le souhaitez.
 
+.. _reseau:
+
 Étape 1 : Tracer le réseau d'assainissement (module ``Réseau``)
 -----------------------------------------------------------------
 
@@ -103,6 +105,8 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 .. image:: _static/entrees-reseau.png
     :width: 697
 
+.. _sorties_reseau:
+
 **5.** Après exécution du module, vous disposez de **1 fichier au format .gpkg qui contient 7 couches** :
 
 * ``STEU`` (carré jaune) : couche de type *point* avec le ou les exutoires considérés pour la simulation. 
@@ -130,6 +134,8 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 .. _attributs-reseau:
 
 **Chaque couche vecteur est caractérisée par des attributs.**
+
+.. _set_concentrations:
 
 * ``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour chaque exutoire), *débit de pointe* [m3/j], *débit moyen journalier* [m3/j], *habitants raccordés* [nb], *profondeur tranchée* [m], *profondeur canas entrantes* [m], *diamètres entrants* [m].
 
@@ -282,6 +288,8 @@ Pour cela :
         * Choisir *Diamètres*.
         * Décocher puis recocher la couche ``Canalisations 3D`` dans la fenêtre *Profil d'élévation* pour que le nouveau style s'applique.
 
+.. _procedes:
+
 Étape 2 : Pré-dimensionner la ou les STEU (module ``Procédés``)
 ----------------------------------------------------------------
 
@@ -423,6 +431,7 @@ Les taux de charge par étage de traitement peuvent constituer des indicateurs i
 votre choix de filière. Par exemple, si une forte augmentation de population est planifiée sur la zone, il sera préférable d'opter pour une filière de traitement qui 
 n'est pas au maximum de sa charge en termes de polluants dans la configuration actuelle.
 
+.. _selection:
 
 Étape 3 : Pré-sélectionner une filière par exutoire
 -----------------------------------------------------

@@ -3,6 +3,8 @@
 Obtention et préparation des données géographiques
 ===================================================
 
+.. _entrees_reseau:
+
 Entrées du module ``Réseau``
 -----------------------------
 
