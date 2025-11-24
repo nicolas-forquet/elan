@@ -9,12 +9,13 @@
 ***************************************************************************
 """
 
-# pylint: disable=invalid-name
+# pylint: disable=invalid-name,too-many-arguments,too-many-positional-arguments
 
 import json
 import multiprocessing
 import sys
 from pathlib import Path
+from typing import Any, Optional
 
 from qgis.core import (
     NULL,
@@ -26,8 +27,12 @@ from qgis.core import (
     QgsFeature,
     QgsField,
     QgsFields,
+    QgsMapLayer,
     QgsProcessingAlgorithm,
+    QgsProcessingContext,
     QgsProcessingException,
+    QgsProcessingFeatureSource,
+    QgsProcessingFeedback,
     QgsProcessingLayerPostProcessorInterface,
     QgsProcessingParameterEnum,
     QgsProcessingParameterFeatureSink,
@@ -43,14 +48,14 @@ from ELAN.processing.utils import getLocalizedStylesDirectory
 from ELAN.utils.dependencies_utils import wetlandoptimizerInstalled
 from ELAN.utils.tr import Translatable
 
-# Hard-coded concentrations values arriving at the WWTP in g/m3
-TSS_IN = 288
-BOD5_IN = 265
-TKN_IN = 67
-COD_IN = 646
-NO3N_IN = 3
-TP_IN = 9.4
-ECOLI_IN = 0  # [UFC/mL]
+# Hard-coded default concentrations values arriving at the WWTP in g/m3
+DEFAULT_TSS_IN = 288
+DEFAULT_BOD5_IN = 265
+DEFAULT_TKN_IN = 67
+DEFAULT_COD_IN = 646
+DEFAULT_NO3N_IN = 3
+DEFAULT_TP_IN = 9.4
+DEFAULT_ECOLI_IN = 0  # [UFC/100mL]
 
 
 class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
@@ -58,6 +63,13 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
     Algorithm using wetlandoptimizer
     """
 
+    TSS_IN = "TSS_IN"
+    BOD5_IN = "BOD5_IN"
+    TKN_IN = "TKN_IN"
+    COD_IN = "COD_IN"
+    NO3N_IN = "NO3N_IN"
+    TP_IN = "TP_IN"
+    ECOLI_IN = "ECOLI_IN"
     TSS_OBJ = "TSS_OBJ"
     BOD5_OBJ = "BOD5_OBJ"
     TKN_OBJ = "TKN_OBJ"
@@ -129,19 +141,8 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         return self.tr(
             "Sizing of treatment systems according to user defined discharge levels."
             "\n"
-            """
-            <u>Glossary:</u>
-            [TSS]: TSS outflow concentration target [g/m3]
-            [BOD5]: BOD5 outflow concentration target [g/m3]
-            [TKN]:TKN outflow concentration target [g/m3]
-            [COD]: COD outflow concentration target [g/m3]
-            [NO3-N]: NO3-N outflow concentration target [g/m3]
-            [TN]: TN3 outflow concentration target [g/m3]
-            [TP]: TP outflow concentration target [g/m3]
-            [e.coli]: e.coli outflow concentration target [UFC/mL]
-            """
-            "\n"
-            "The input concentrations used are:"
+            "If they are not filled in the input WWTP layer, "
+            "the input concentrations used are:"
             "<ul>"
             "<li>TSS: {} g/m3</li>"
             "<li>BOD5: {} g/m3</li>"
@@ -149,7 +150,7 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             "<li>COD: {} g/m3</li>"
             "<li>NO3-N: {} g/m3</li>"
             "<li>TP: {} g/m3</li>"
-            "<li>e.coli: {} g/m3</li>"
+            "<li>e.coli: {} UFC/100mL</li>"
             "</ul>"
             "\n"
             "The available surface layer is optional. If present, each input WWTP feature "
@@ -161,7 +162,15 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             "with the treatment system total needed surface.\n\n"
             "<em>Warning</em>\n"
             "TP and e.coli are not completely ready for this version of ELAN."
-        ).format(TSS_IN, BOD5_IN, TKN_IN, COD_IN, NO3N_IN, TP_IN, ECOLI_IN)
+        ).format(
+            DEFAULT_TSS_IN,
+            DEFAULT_BOD5_IN,
+            DEFAULT_TKN_IN,
+            DEFAULT_COD_IN,
+            DEFAULT_NO3N_IN,
+            DEFAULT_TP_IN,
+            DEFAULT_ECOLI_IN,
+        )
 
     def initAlgorithm(self, configuration=None):  # pylint: disable=unused-argument
         """
@@ -221,85 +230,6 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
                 maxValue=3,
             )
         )
-        self.addParameter(
-            QgsProcessingParameterField(
-                self.TSS_OBJ,
-                self.tr("TSS outflow concentration target [g/m3]"),
-                parentLayerParameterName=self.SINKS,
-                type=Qgis.ProcessingFieldParameterDataType.Numeric,
-                defaultValue="TSS_obj",
-            )
-        )
-
-        self.addParameter(
-            QgsProcessingParameterField(
-                self.BOD5_OBJ,
-                self.tr("BOD5 outflow concentration target [g/m3]"),
-                parentLayerParameterName=self.SINKS,
-                type=Qgis.ProcessingFieldParameterDataType.Numeric,
-                defaultValue="BOD5_obj",
-            )
-        )
-
-        self.addParameter(
-            QgsProcessingParameterField(
-                self.TKN_OBJ,
-                self.tr("TKN outflow concentration target [g/m3]"),
-                parentLayerParameterName=self.SINKS,
-                type=Qgis.ProcessingFieldParameterDataType.Numeric,
-                defaultValue="TKN_obj",
-            )
-        )
-
-        self.addParameter(
-            QgsProcessingParameterField(
-                self.COD_OBJ,
-                self.tr("COD outflow concentration target [g/m3]"),
-                parentLayerParameterName=self.SINKS,
-                type=Qgis.ProcessingFieldParameterDataType.Numeric,
-                defaultValue="COD_obj",
-            )
-        )
-
-        self.addParameter(
-            QgsProcessingParameterField(
-                self.NO3N_OBJ,
-                self.tr("NO3-N outflow concentration target [g/m3]"),
-                parentLayerParameterName=self.SINKS,
-                type=Qgis.ProcessingFieldParameterDataType.Numeric,
-                defaultValue="NO3N_obj",
-            )
-        )
-
-        self.addParameter(
-            QgsProcessingParameterField(
-                self.TN_OBJ,
-                self.tr("TN outflow concentration target [g/m3]"),
-                parentLayerParameterName=self.SINKS,
-                type=Qgis.ProcessingFieldParameterDataType.Numeric,
-                defaultValue="TN_obj",
-            )
-        )
-
-        self.addParameter(
-            QgsProcessingParameterField(
-                self.TP_OBJ,
-                self.tr("TP outflow concentration target [g/m3]"),
-                parentLayerParameterName=self.SINKS,
-                type=Qgis.ProcessingFieldParameterDataType.Numeric,
-                defaultValue="TP_obj",
-            )
-        )
-
-        self.addParameter(
-            QgsProcessingParameterField(
-                self.ECOLI_OBJ,
-                self.tr("e.coli outflow concentration target [UFC/mL]"),
-                parentLayerParameterName=self.SINKS,
-                type=Qgis.ProcessingFieldParameterDataType.Numeric,
-                defaultValue="ecoli_obj",
-            )
-        )
 
         self.addParameter(
             QgsProcessingParameterField(
@@ -311,7 +241,43 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             )
         )
 
-    def processAlgorithm(self, parameters, context, feedback):
+        self.addConcentrationParameter(self.TSS_IN, self.tr("TSS inflow concentration [g/m3]"), "TSS_in")
+        self.addConcentrationParameter(self.BOD5_IN, self.tr("BOD5 inflow concentration [g/m3]"), "BOD5_in")
+        self.addConcentrationParameter(self.TKN_IN, self.tr("TKN inflow concentration [g/m3]"), "TKN_in")
+        self.addConcentrationParameter(self.COD_IN, self.tr("COD inflow concentration [g/m3]"), "COD_in")
+        self.addConcentrationParameter(self.NO3N_IN, self.tr("NO3-N inflow concentration [g/m3]"), "NO3N_in")
+        self.addConcentrationParameter(self.TP_IN, self.tr("TP inflow concentration [g/m3]"), "TP_in")
+        self.addConcentrationParameter(self.ECOLI_IN, self.tr("e.coli inflow concentration [UFC/100mL]"), "ecoli_in")
+
+        self.addConcentrationParameter(self.TSS_OBJ, self.tr("TSS outflow concentration target [g/m3]"), "TSS_obj")
+        self.addConcentrationParameter(self.BOD5_OBJ, self.tr("BOD5 outflow concentration target [g/m3]"), "BOD5_obj")
+        self.addConcentrationParameter(self.TKN_OBJ, self.tr("TKN outflow concentration target [g/m3]"), "TKN_obj")
+        self.addConcentrationParameter(self.COD_OBJ, self.tr("COD outflow concentration target [g/m3]"), "COD_obj")
+        self.addConcentrationParameter(self.NO3N_OBJ, self.tr("NO3-N outflow concentration target [g/m3]"), "NO3N_obj")
+        self.addConcentrationParameter(self.TN_OBJ, self.tr("TN outflow concentration target [g/m3]"), "TN_obj")
+        self.addConcentrationParameter(self.TP_OBJ, self.tr("TP outflow concentration target [g/m3]"), "TP_obj")
+        self.addConcentrationParameter(
+            self.ECOLI_OBJ, self.tr("e.coli outflow concentration target [UFC/100mL]"), "ecoli_obj"
+        )
+
+    def addConcentrationParameter(self, param_id: str, param_desc: str, param_default: str) -> None:
+        """
+        Add a concentration obj or in field from SINKS layer to the processing advanced parameters.
+        """
+
+        param = QgsProcessingParameterField(
+            param_id,
+            param_desc,
+            parentLayerParameterName=self.SINKS,
+            type=Qgis.ProcessingFieldParameterDataType.Numeric,
+            defaultValue=param_default,
+        )
+        param.setFlags(Qgis.ProcessingParameterFlag.Advanced)
+        self.addParameter(param)
+
+    def processAlgorithm(
+        self, parameters, context, feedback
+    ):  # pylint: disable=too-many-locals,too-many-branches,too-many-statements
         """
         Here is where the processing itself takes place.
         """
@@ -321,7 +287,6 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             raise QgsProcessingException(
                 self.tr("The wetlandoptimizer library is not installed.\nGo to ELAN settings to install it.")
             )
-        from wetlandoptimizer.main import COD_Fractionation  # pylint: disable=import-outside-toplevel
 
         sinks_source = self.parameterAsSource(parameters, self.SINKS, context)
         if sinks_source is None:
@@ -345,21 +310,27 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         if treatment_sink is None:
             raise QgsProcessingException(self.invalidSinkError(parameters, self.TREATMENT))
 
-        TSS_obj_field_name = self.parameterAsString(parameters, self.TSS_OBJ, context)
-        BOD5_obj_field_name = self.parameterAsString(parameters, self.BOD5_OBJ, context)
-        TKN_obj_field_name = self.parameterAsString(parameters, self.TKN_OBJ, context)
-        COD_obj_field_name = self.parameterAsString(parameters, self.COD_OBJ, context)
-        NO3N_obj_field_name = self.parameterAsString(parameters, self.NO3N_OBJ, context)
-        TN_obj_field_name = self.parameterAsString(parameters, self.TN_OBJ, context)
-        TP_obj_field_name = self.parameterAsString(parameters, self.TP_OBJ, context)
-        ecoli_obj_field_name = self.parameterAsString(parameters, self.ECOLI_OBJ, context)
-        Q_obj_field_name = self.parameterAsString(parameters, self.Q_FIELD, context)
-        sink_coords_field_name = self.parameterAsString(parameters, self.SINK_COORDS, context)
+        # Get the names of every field from WWTP layer
+        TSS_in_field_name = self.getWwtpFieldName(sinks_source, parameters, self.TSS_IN, context)
+        BOD5_in_field_name = self.getWwtpFieldName(sinks_source, parameters, self.BOD5_IN, context)
+        TKN_in_field_name = self.getWwtpFieldName(sinks_source, parameters, self.TKN_IN, context)
+        COD_in_field_name = self.getWwtpFieldName(sinks_source, parameters, self.COD_IN, context)
+        NO3N_in_field_name = self.getWwtpFieldName(sinks_source, parameters, self.NO3N_IN, context)
+        TP_in_field_name = self.getWwtpFieldName(sinks_source, parameters, self.TP_IN, context)
+        ecoli_in_field_name = self.getWwtpFieldName(sinks_source, parameters, self.ECOLI_IN, context)
+        TSS_obj_field_name = self.getWwtpFieldName(sinks_source, parameters, self.TSS_OBJ, context)
+        BOD5_obj_field_name = self.getWwtpFieldName(sinks_source, parameters, self.BOD5_OBJ, context)
+        TKN_obj_field_name = self.getWwtpFieldName(sinks_source, parameters, self.TKN_OBJ, context)
+        COD_obj_field_name = self.getWwtpFieldName(sinks_source, parameters, self.COD_OBJ, context)
+        NO3N_obj_field_name = self.getWwtpFieldName(sinks_source, parameters, self.NO3N_OBJ, context)
+        TN_obj_field_name = self.getWwtpFieldName(sinks_source, parameters, self.TN_OBJ, context)
+        TP_obj_field_name = self.getWwtpFieldName(sinks_source, parameters, self.TP_OBJ, context)
+        ecoli_obj_field_name = self.getWwtpFieldName(sinks_source, parameters, self.ECOLI_OBJ, context)
+        Q_obj_field_name = self.getWwtpFieldName(sinks_source, parameters, self.Q_FIELD, context)
+        sink_coords_field_name = self.getWwtpFieldName(sinks_source, parameters, self.SINK_COORDS, context)
+
         stages_max = self.parameterAsInt(parameters, self.STAGES_MAX, context)
         climate = self.climates[self.parameterAsInt(parameters, self.CLIMATE, context)][1]
-
-        # Hard coded (see the constants at the top of the module)
-        Cin = COD_Fractionation([TSS_IN, BOD5_IN, TKN_IN, COD_IN, NO3N_IN, TP_IN, ECOLI_IN])
 
         # Loop on WWTP and run wetlandoptimizer on each one
         assigned_surfaces_ids = []
@@ -381,8 +352,8 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
                         assigned_surfaces_ids.append(surface_feature.id())
                         break
 
-            # Get objectives
-            Cobj = self.getObjectivesValues(
+            # Get target concentrations
+            Cobj = self.getTargetConcentrations(
                 TSS_obj_field_name,
                 BOD5_obj_field_name,
                 COD_obj_field_name,
@@ -393,7 +364,18 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
                 ecoli_obj_field_name,
                 wwtp_feature,
             )
-            assert len(Cobj) == 8
+
+            # Get input concentrations
+            Cin = self.getInputConcentrations(
+                TSS_in_field_name,
+                BOD5_in_field_name,
+                COD_in_field_name,
+                TKN_in_field_name,
+                NO3N_in_field_name,
+                TP_in_field_name,
+                ecoli_in_field_name,
+                wwtp_feature,
+            )
 
             optimizations_parameters.append(
                 OptimizationParameters(
@@ -491,18 +473,75 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             context.layerToLoadOnCompletionDetails(treatment_dest).setPostProcessor(self.post_processor)
         return {self.TREATMENT: treatment_dest}
 
-    def getObjectivesValues(
+    def getWwtpFieldName(
         self,
-        TSS_obj_field_name,
-        BOD5_obj_field_name,
-        COD_obj_field_name,
-        TKN_obj_field_name,
-        NO3N_obj_field_name,
-        TN_obj_field_name,
-        TP_obj_field_name,
-        ecoli_obj_field_name,
+        sinks_source: QgsProcessingFeatureSource,
+        parameters: dict[Optional[str], Any],
+        parameter_name: str,
+        context: QgsProcessingContext,
+    ) -> str:
+        """
+        Get the field name in the WWTP input layer, and check that it really exists.
+        """
+
+        obj_field_name = self.parameterAsString(parameters, parameter_name, context)
+        if obj_field_name not in sinks_source.fields().names():
+            raise QgsProcessingException(
+                self.tr("Field '{}' does not exist in input WWTP layer").format(obj_field_name)
+            )
+
+        return obj_field_name
+
+    def getInputConcentrations(
+        self,
+        TSS_in_field_name: str,
+        BOD5_in_field_name: str,
+        COD_in_field_name: str,
+        TKN_in_field_name: str,
+        NO3N_in_field_name: str,
+        TP_in_field_name: str,
+        ecoli_in_field_name: str,
         wwtp_feature: QgsFeature,
-    ) -> list[float | None]:
+    ) -> list:
+        """
+        Get input concentration values from a WWTP feature.
+        Use default values if no value is found.
+        """
+
+        from wetlandoptimizer.main import COD_Fractionation  # pylint: disable=import-outside-toplevel
+
+        inflow_concentrations = [
+            wwtp_feature[TSS_in_field_name] if wwtp_feature[TSS_in_field_name] != NULL else DEFAULT_TSS_IN,
+            wwtp_feature[BOD5_in_field_name] if wwtp_feature[BOD5_in_field_name] != NULL else DEFAULT_BOD5_IN,
+            wwtp_feature[TKN_in_field_name] if wwtp_feature[TKN_in_field_name] != NULL else DEFAULT_TKN_IN,
+            wwtp_feature[COD_in_field_name] if wwtp_feature[COD_in_field_name] != NULL else DEFAULT_COD_IN,
+            wwtp_feature[NO3N_in_field_name] if wwtp_feature[NO3N_in_field_name] != NULL else DEFAULT_NO3N_IN,
+            wwtp_feature[TP_in_field_name] if wwtp_feature[TP_in_field_name] != NULL else DEFAULT_TP_IN,
+            wwtp_feature[ecoli_in_field_name] if wwtp_feature[ecoli_in_field_name] != NULL else DEFAULT_ECOLI_IN,
+        ]
+
+        Cin = COD_Fractionation(inflow_concentrations)
+        if all(val == 0 for val in Cin):
+            raise QgsProcessingException(
+                self.tr(
+                    "Inflow concentrations have incorrect values: {}, causing an error during COD_Fractionation step."
+                ).format(inflow_concentrations)
+            )
+
+        return Cin
+
+    def getTargetConcentrations(
+        self,
+        TSS_obj_field_name: str,
+        BOD5_obj_field_name: str,
+        COD_obj_field_name: str,
+        TKN_obj_field_name: str,
+        NO3N_obj_field_name: str,
+        TN_obj_field_name: str,
+        TP_obj_field_name: str,
+        ecoli_obj_field_name: str,
+        wwtp_feature: QgsFeature,
+    ) -> list[Optional[float]]:
         """
         Get and check objectives values from a WWTP feature
         It raises an exception if a check fails.
@@ -613,7 +652,12 @@ def outputFields() -> QgsFields:
 class WetlandProcessPostProcessor(QgsProcessingLayerPostProcessorInterface, Translatable):
     """Post process layer to set attribute table conditionnal formatting and layer style"""
 
-    def postProcessLayer(self, layer, context, feedback):  # pylint: disable=unused-argument
+    def postProcessLayer(
+        self,
+        layer: Optional[QgsMapLayer],
+        context: QgsProcessingContext,  # pylint: disable=unused-argument
+        feedback: Optional[QgsProcessingFeedback],
+    ):
         """
         Set the layer style
         """
@@ -667,7 +711,15 @@ class WetlandProcessPostProcessor(QgsProcessingLayerPostProcessorInterface, Tran
 class OptimizationParameters:  # pylint: disable=too-few-public-methods
     """Class to store parameters for parallel optimization"""
 
-    def __init__(self, Cin, Cobj, Q, stages_max, climate, available_surface):  # pylint: disable=too-many-arguments
+    def __init__(
+        self,
+        Cin: list[Optional[float]],
+        Cobj: list[Optional[float]],
+        Q: float,
+        stages_max: int,
+        climate: str,
+        available_surface: float,
+    ):  # pylint: disable=too-many-arguments
         self.available_surface = available_surface
         self.Cin = Cin
         self.Cobj = Cobj
