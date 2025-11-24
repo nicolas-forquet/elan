@@ -19,7 +19,6 @@ from qgis.core import (
     QgsFields,
     QgsGeometry,
     QgsProcessingAlgorithm,
-    QgsProcessingException,
     QgsProcessingParameterFeatureSink,
     QgsProcessingParameterFeatureSource,
     QgsProcessingParameterNumber,
@@ -29,8 +28,7 @@ from qgis.PyQt.QtCore import QVariant
 
 from ELAN.snap_buildings_to_roads import snap_buildings_to_road_vertices
 from ELAN.utils.tr import Translatable
-
-
+import pandas as pd
 class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
     """
     This class projects building centroids onto the nearest road vertices within a user-defined maximum distance.
@@ -39,7 +37,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
     USER_TOTAL_POPULATION = "USER_TOTAL_POPULATION"
     MAX_DISTANCE_TO_ROAD = "MAX_DISTANCE_TO_ROAD"
     BUILDINGS_INPUT_DATA = " BUILDINGS_INPUT_DATA"
-    ROADS_INPUT_DATA = "BUILDINGS_INPUT_DATA"
+    ROADS_INPUT_DATA = "ROADS_INPUT_DATA"
     OUTPUT_AGGREGATED = "OUTPUT_AGGREGATED"
     OUTPUT_LINES = "OUTPUT_LINES"
     OUTPUT_STATUS = "OUTPUT_STATUS"
@@ -142,16 +140,26 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
 
         self.addParameter(
             QgsProcessingParameterFeatureSource(
-                self.BUILDINGS_INPUT_DATA, self.tr("Building layer"), [Qgis.ProcessingSourceType.VectorPoint]
+                self.BUILDINGS_INPUT_DATA, self.tr("Building layer"), [Qgis.ProcessingSourceType.VectorPolygon]
             )
         )
 
         self.addParameter(
             QgsProcessingParameterFeatureSink(
-                self.OUTPUT_AGGREGATED, self.tr("Roads - Output layer"), Qgis.ProcessingSourceType.VectorLine
+                self.OUTPUT_AGGREGATED, self.tr("Snapped centroids summary - Output layer"), Qgis.ProcessingSourceType.VectorLine
             )
         )
-        # self.addParameter(QgsProcessingParameterFeatureSink(self.OUTPUT, self.tr("Output layer")))
+
+        self.addParameter(
+            QgsProcessingParameterFeatureSink(
+                self.OUTPUT_LINES, self.tr("Projection lines - Output layer"), Qgis.ProcessingSourceType.VectorLine
+            )
+        )
+        self.addParameter(
+            QgsProcessingParameterFeatureSink(
+                self.OUTPUT_STATUS, self.tr("Buildings with snap status - Output layer"), Qgis.ProcessingSourceType.VectorLine
+            )
+        )
 
     def processAlgorithm(self, parameters, context, feedback):
         """
@@ -163,23 +171,32 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         roads_source = self.parameterAsSource(parameters, self.ROADS_INPUT_DATA, context)
         buildings_source = self.parameterAsSource(parameters, self.BUILDINGS_INPUT_DATA, context)
 
+        # Create GeoDataFrame from roads_source and buildings_source
         roads_gdf = gpd.GeoDataFrame.from_features(roads_source.getFeatures())
         roads_gdf.set_crs(roads_source.sourceCrs().authid(), inplace=True)
 
         buildings_gdf = gpd.GeoDataFrame.from_features(buildings_source.getFeatures())
         buildings_gdf.set_crs(buildings_source.sourceCrs().authid(), inplace=True)
+
+        # Call snap_buildings_to_road_vertices script
         aggregated, lines, status = snap_buildings_to_road_vertices(
             buildings_gdf, roads_gdf, population_value, max_distance=max_distance_value
         )
 
+
+
+        # Create output layer
+
         roads_crs = roads_source.sourceCrs()
         aggregated_fields = QgsFields()
+        lines_fields = QgsFields()
+        status_fields = QgsFields()
 
-        (output_sink, output_dest_id) = self.parameterAsSink(
-            parameters, self.OUTPUT_AGGREGATED, context, aggregated_fields, QgsWkbTypes.Point, roads_crs
-        )
 
+        # get fields
         for col, dtype in zip(aggregated.columns, aggregated.dtypes):
+            if col == "geometry":
+                continue
             if dtype == "int":
                 qgs_type = QVariant.Int
             elif dtype == "float":
@@ -188,11 +205,65 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
                 qgs_type = QVariant.String
             aggregated_fields.append(QgsField(col, qgs_type))
 
+        for col, dtype in zip(lines.columns, lines.dtypes):
+            if col == "geometry":
+                continue
+            if dtype == "int":
+                qgs_type = QVariant.Int
+            elif dtype == "float":
+                qgs_type = QVariant.Double
+            else:
+                qgs_type = QVariant.String
+            lines_fields.append(QgsField(col, qgs_type))
+
+        for col, dtype in zip(status.columns, status.dtypes):
+            if col == "geometry":
+                continue
+            if dtype == "int":
+                qgs_type = QVariant.Int
+            elif dtype == "float":
+                qgs_type = QVariant.Double
+            else:
+                qgs_type = QVariant.String
+            status_fields.append(QgsField(col, qgs_type))
+
+        # Create layer with sink
+
+        (aggregated_sink, aggregeted_dest_id) = self.parameterAsSink(
+            parameters, self.OUTPUT_AGGREGATED, context, aggregated_fields,  QgsWkbTypes.Point, roads_crs
+        )
+        (lines_sink, lines_dest_id) = self.parameterAsSink(
+            parameters, self.OUTPUT_LINES, context, aggregated_fields,QgsWkbTypes.LineString, roads_crs
+        )
+        (status_sink, status_dest_id) = self.parameterAsSink(
+            parameters, self.OUTPUT_STATUS, context, status_fields, QgsWkbTypes.Point, roads_crs
+        )
+
+        # Fill the layer
+
         for _, row in aggregated.iterrows():
             feat = QgsFeature()
             feat.setFields(aggregated_fields)
-            feat.setAttributes(list(row.values))
+            attrs = [None if pd.isna(row[col]) else row[col] for col in aggregated.columns if col != "geometry"]
+            feat.setAttributes(attrs)
             feat.setGeometry(QgsGeometry.fromWkt(row.geometry.wkt))
-            output_sink.addFeature(feat)
+            aggregated_sink.addFeature(feat, QgsFeatureSink.Flag.FastInsert)
 
-        return {self.OUTPUT_AGGREGATED: output_sink}
+        for _, row in lines.iterrows():
+            feat = QgsFeature()
+            feat.setFields(lines_fields)
+            attrs = [None if pd.isna(row[col]) else row[col] for col in lines.columns if col != "geometry"]
+ 
+            feat.setAttributes(attrs)
+            feat.setGeometry(QgsGeometry.fromWkt(row.geometry.wkt))
+            lines_sink.addFeature(feat, QgsFeatureSink.Flag.FastInsert)
+
+        for _, row in status.iterrows():
+            feat = QgsFeature()
+            feat.setFields(status_fields)
+            attrs = [None if pd.isna(row[col]) else row[col] for col in status.columns if col != "geometry"]
+            feat.setAttributes(attrs)
+            feat.setGeometry(QgsGeometry.fromWkt(row.geometry.wkt))
+            status_sink.addFeature(feat, QgsFeatureSink.Flag.FastInsert)
+
+        return {self.OUTPUT_AGGREGATED: aggregated_sink, self.OUTPUT_LINES: lines_sink, self.OUTPUT_STATUS: status_sink}
