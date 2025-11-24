@@ -10,6 +10,7 @@
 """
 
 import geopandas as gpd
+import pandas as pd
 from qgis import processing
 from qgis.core import (
     Qgis,
@@ -28,7 +29,8 @@ from qgis.PyQt.QtCore import QVariant
 
 from ELAN.snap_buildings_to_roads import snap_buildings_to_road_vertices
 from ELAN.utils.tr import Translatable
-import pandas as pd
+
+
 class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
     """
     This class projects building centroids onto the nearest road vertices within a user-defined maximum distance.
@@ -146,7 +148,9 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
 
         self.addParameter(
             QgsProcessingParameterFeatureSink(
-                self.OUTPUT_AGGREGATED, self.tr("Snapped centroids summary - Output layer"), Qgis.ProcessingSourceType.VectorLine
+                self.OUTPUT_AGGREGATED,
+                self.tr("Snapped centroids summary - Output layer"),
+                Qgis.ProcessingSourceType.VectorLine,
             )
         )
 
@@ -157,7 +161,9 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         )
         self.addParameter(
             QgsProcessingParameterFeatureSink(
-                self.OUTPUT_STATUS, self.tr("Buildings with snap status - Output layer"), Qgis.ProcessingSourceType.VectorLine
+                self.OUTPUT_STATUS,
+                self.tr("Buildings with snap status - Output layer"),
+                Qgis.ProcessingSourceType.VectorLine,
             )
         )
 
@@ -183,15 +189,12 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             buildings_gdf, roads_gdf, population_value, max_distance=max_distance_value
         )
 
-
-
         # Create output layer
 
         roads_crs = roads_source.sourceCrs()
         aggregated_fields = QgsFields()
         lines_fields = QgsFields()
         status_fields = QgsFields()
-
 
         # get fields
         for col, dtype in zip(aggregated.columns, aggregated.dtypes):
@@ -230,10 +233,10 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         # Create layer with sink
 
         (aggregated_sink, aggregeted_dest_id) = self.parameterAsSink(
-            parameters, self.OUTPUT_AGGREGATED, context, aggregated_fields,  QgsWkbTypes.Point, roads_crs
+            parameters, self.OUTPUT_AGGREGATED, context, aggregated_fields, QgsWkbTypes.Point, roads_crs
         )
         (lines_sink, lines_dest_id) = self.parameterAsSink(
-            parameters, self.OUTPUT_LINES, context, aggregated_fields,QgsWkbTypes.LineString, roads_crs
+            parameters, self.OUTPUT_LINES, context, lines_fields, QgsWkbTypes.LineString, roads_crs
         )
         (status_sink, status_dest_id) = self.parameterAsSink(
             parameters, self.OUTPUT_STATUS, context, status_fields, QgsWkbTypes.Point, roads_crs
@@ -253,7 +256,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             feat = QgsFeature()
             feat.setFields(lines_fields)
             attrs = [None if pd.isna(row[col]) else row[col] for col in lines.columns if col != "geometry"]
- 
+
             feat.setAttributes(attrs)
             feat.setGeometry(QgsGeometry.fromWkt(row.geometry.wkt))
             lines_sink.addFeature(feat, QgsFeatureSink.Flag.FastInsert)
