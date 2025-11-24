@@ -4,11 +4,11 @@
     </a>
 </div>
 
-[![QGIS.org](https://img.shields.io/badge/QGIS.org-published-green)](https://plugins.qgis.org/search/?q=ELAN)
+[![QGIS.org](https://img.shields.io/badge/QGIS.org-published-green)](https://plugins.qgis.org/plugins/ELAN)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat\&labelColor=ef8336)](https://pycqa.github.io/isort/)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit\&logoColor=white)](https://github.com/pre-commit/pre-commit)
-[![pylint](https://client-projects.pages.oslandia.io/2010\_09\_inrae\_assainissement/lint/pylint.svg)](https://client-projects.pages.oslandia.io/2010\_09\_inrae\_assainissement/lint/)
+[![pylint](https://elan-gis.org/lint/pylint.svg)](https://pylint.readthedocs.io/en/stable/index.html)
 
 ## Elan QGIS plugin
 
@@ -49,7 +49,7 @@ At an early stage in urban water management projects to explore multiple scenari
 
 ## Where to find it?
 
-Elan is available on the [official QGIS repository](https://plugins.qgis.org/search/?q=ELAN). It can also be installed directly from the QGIS plugin manager.
+Elan is available on the [official QGIS repository](https://plugins.qgis.org/plugins/ELAN). It can also be installed directly from the QGIS plugin manager.
 
 ## How to use it?
 
