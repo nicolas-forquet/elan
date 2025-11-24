@@ -215,7 +215,7 @@ class ProcessPlots(Translatable):
             g
             for g in [
                 self.generate_gradient(c, max_stages_nb + 1)
-                for c in ["#333333", "#58BF03", "#2ACCFE", "#FF8C66", "#FEA4E6"]
+                for c in ["#FEA4E6", "#333333", "#58BF03", "#2ACCFE", "#FF8C66"]
             ]
         ]
         bar_legend_labels = [
