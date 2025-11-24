@@ -116,6 +116,6 @@ This project is made possible through funding from:
 
 <div align="center">
   <a href="https://www.afd.fr/fr">
-    <img alt="afd logo" src="./docs/_static/afd.png" height="100">
+    <img alt="afd logo" src="./docs/_static/afd.png" height="90">
   </a>
 </div>
