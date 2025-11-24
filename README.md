@@ -54,7 +54,7 @@ At an early stage in urban water management projects to explore multiple scenari
 
 ## Where to find it?
 
-Elan is available on the official QGIS repository: https://plugins.qgis.org/search/?q=ELAN. It can also be installed directly from the QGIS plugin manager. 
+Elan is available on the [official QGIS repository](https://plugins.qgis.org/search/?q=ELAN). It can also be installed directly from the QGIS plugin manager. 
 
 ## How to use it?
 
