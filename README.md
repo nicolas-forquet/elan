@@ -23,11 +23,8 @@ Using Elan, the user can create and compare different urban water management sce
 The plugin includes several modules:
 
 - `Roads and buildings`, `Population` and `Projection on roads` to prepare the geographical data
-
 - `Sewer network` and `Processes` to investigate and pre-size scenarios
-
 - `Longitudinal sewer profile` to better visualize sewer pre-sizing
-
 - `Create a scenario` to create a scenario item that can be further compared to others
 
 And customized plots to better compare pre-sized treatment train options.
@@ -39,9 +36,7 @@ Urban water professionals and stakeholders with a GIS skill.
 ## For what?
 
 * To connect an area with no sanitation network (wastewater)
-
 * To reduce existing stormwater overflows (stormwater)
-
 * Find the optimum degree of decentralization
 
 **Disclaimer**
@@ -54,7 +49,7 @@ At an early stage in urban water management projects to explore multiple scenari
 
 ## Where to find it?
 
-Elan is available on the [official QGIS repository](https://plugins.qgis.org/search/?q=ELAN). It can also be installed directly from the QGIS plugin manager. 
+Elan is available on the [official QGIS repository](https://plugins.qgis.org/search/?q=ELAN). It can also be installed directly from the QGIS plugin manager.
 
 ## How to use it?
 
@@ -62,7 +57,7 @@ Elan is available on the [official QGIS repository](https://plugins.qgis.org/sea
 
 ## License
 
-The project is developped under the terms of the [GPLv2+ license](https://gitlab.com/elan7835313/elan/-/blob/main/LICENSE?ref_type=heads).
+The project is developed under the terms of the [GPLv2+ license](https://gitlab.com/elan7835313/elan/-/blob/main/LICENSE?ref_type=heads).
 
 ## Development and contribution
 
@@ -94,11 +89,11 @@ If you use Elan, please cite the following ressource:
 
 > Bartos et al. (2020). Pysheds: simple and fast watershed delineation in Python. Zenodo repository, 10.5281/zenodo.3822494.
 
-### Third-party QGIS plugins required for Elan 
+### Third-party QGIS plugins required for Elan
 
 * **DataPlotly**: https://github.com/ghtmtt/DataPlotly
 
-### Funding 
+### Funding
 
 This project is made possible through funding from:
 
