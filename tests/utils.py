@@ -37,7 +37,10 @@ def assert_same_layers(
                 map(lambda x: round(x, 3), layer_b.uniqueValues(idx))
             )
         else:
-            assert layer_a.uniqueValues(idx) == layer_b.uniqueValues(idx)
+            assert layer_a.uniqueValues(idx) == layer_b.uniqueValues(idx), (
+                f"Field {field_name}: layer_a unique values are {layer_a.uniqueValues(idx)} "
+                "but layer_b unique values are {layer_b.uniqueValues(idx)}"
+            )
 
 
 def load_layer(gpkg_path: str | Path, layer_name: str) -> QgsVectorLayer:

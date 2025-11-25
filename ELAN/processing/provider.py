@@ -11,12 +11,12 @@ from ELAN.__about__ import DIR_PLUGIN_ROOT, __experimental__, __version__
 from ELAN.processing.economical import EconomicalAlgorithm
 from ELAN.processing.hydraulic import HydraulicAlgorithm, HydraulicUrbanCatchmentAlgorithm
 from ELAN.processing.lca import LcaAlgorithm
-from ELAN.processing.population import PopulationAlgorithm
+from ELAN.processing.population import PopulationAreametricAlgorithm, PopulationUniformAlgorithm
 from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
+from ELAN.processing.scenario import ScenarioAlgorithm
 from ELAN.processing.sewer_network import SewerNetworkAlgorithm
 from ELAN.processing.trench_profile import TrenchProfileAlgorithm
 from ELAN.processing.wetland_process import WetlandProcessAlgorithm
-from ELAN.processing.scenario import ScenarioAlgorithm
 from ELAN.utils.tr import Translatable
 
 
@@ -24,7 +24,8 @@ class ELANProvider(QgsProcessingProvider, Translatable):
     def loadAlgorithms(self):
         """Loads all algorithms belonging to this provider."""
 
-        self.addAlgorithm(PopulationAlgorithm())
+        self.addAlgorithm(PopulationAreametricAlgorithm())
+        self.addAlgorithm(PopulationUniformAlgorithm())
         self.addAlgorithm(RoadsBuildingsAlgorithm())
         self.addAlgorithm(WetlandProcessAlgorithm())
         self.addAlgorithm(SewerNetworkAlgorithm())

@@ -13,7 +13,7 @@ from ELAN.__about__ import DIR_PLUGIN_ROOT
 def test_all_processings(elan_processing, mocker, tmp_path):
 
     from ELAN.processing.provider import (
-        PopulationAlgorithm,
+        PopulationAreametricAlgorithm,
         RoadsBuildingsAlgorithm,
         SewerNetworkAlgorithm,
         TrenchProfileAlgorithm,
@@ -52,7 +52,7 @@ def test_all_processings(elan_processing, mocker, tmp_path):
 
     ########################## Population #####################################################
 
-    test_population_alg = PopulationAlgorithm()
+    test_population_alg = PopulationAreametricAlgorithm()
     test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "population"
 
     population_param = {
