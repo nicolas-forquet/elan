@@ -27,7 +27,7 @@ from qgis.core import (
 )
 from qgis.PyQt.QtCore import QVariant
 
-from ELAN.snap_buildings_to_roads import snap_buildings_to_road_vertices
+from ELAN.scripts.snap_buildings_to_roads import snap_buildings_to_road_vertices
 from ELAN.utils.tr import Translatable
 
 
