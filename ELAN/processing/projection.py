@@ -135,7 +135,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         self.addParameter(
             QgsProcessingParameterNumber(
                 self.MAX_DISTANCE_TO_ROAD,
-                self.tr("Maximum distance for projection (Km)"),
+                self.tr("Maximum distance to road for projection (m)"),
                 Qgis.ProcessingNumberParameterType.Integer,
                 defaultValue=40,
             )
@@ -156,7 +156,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         self.addParameter(
             QgsProcessingParameterFeatureSink(
                 self.OUTPUT_AGGREGATED,
-                self.tr("Snapped centroids summary - Output layer"),
+                self.tr("Projected centroids - Output layer"),
                 Qgis.ProcessingSourceType.VectorLine,
             )
         )
