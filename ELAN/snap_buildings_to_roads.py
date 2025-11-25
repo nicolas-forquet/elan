@@ -49,7 +49,7 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
     vertex_sindex = vertex_gdf.sindex
 
     # Containers
-    aggregation = defaultdict(lambda: {"geometry": None, "count": 0, f"sum_{value_field}": 0.0})
+    aggregation = defaultdict(lambda: {"geometry": None, "count": 0, str(value_field): 0.0})
     projection_lines = []
     building_records = []
 
@@ -75,7 +75,7 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
             pt = vertex_index[key]
             aggregation[key]["geometry"] = pt
             aggregation[key]["count"] += 1
-            aggregation[key][f"sum_{value_field}"] += value
+            aggregation[key][str(value_field)] += value
 
             # Record projection line
             projection_lines.append(LineString([(centroid.x, centroid.y), (pt.x, pt.y)]))
