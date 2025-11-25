@@ -91,7 +91,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             "This module projects building centroids onto the nearest road vertices within a "
             "user-defined maximum distance.\n"
             "The purpose of this spatial operation is to reduce the number of pumping stations "
-            "or connection points that are not relevant from a municipal perspective — "
+            "or connection points that are not relevant from a municipal perspective - "
             "specifically those representing private lateral connections between individual "
             "buildings and the public road network.\n"
             "By snapping buildings to the closest road within a specified distance, the script "
@@ -107,6 +107,14 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             "        buildings to roads</li>"
             "</ul>"
             "<h2>Outputs:</h2>"
+            "<ul>"
+            "<h3>Building features are preserved, with a new status column:</h3>"
+            "    <li>Projected → successfully snapped to a nearby road</li>"
+            "    <li>Not_projected → no road found within the specified distance</li>"
+            "<h3>Centroids that fall on the same road vertex are merged, with:</h3>"
+            "    <li>Population values aggregated by sum</li>"
+            "    <li>A new column recording how many buildings were projected to that vertex</li>"
+            "</ul>"
         )
 
     def initAlgorithm(self, configuration=None):
