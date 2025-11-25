@@ -42,7 +42,6 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
     ROADS_INPUT_DATA = "ROADS_INPUT_DATA"
     OUTPUT_AGGREGATED = "OUTPUT_AGGREGATED"
     OUTPUT_LINES = "OUTPUT_LINES"
-    OUTPUT_STATUS = "OUTPUT_STATUS"
 
     def createInstance(self):
         return SnapOnRoadsAlgorithm()
@@ -159,13 +158,6 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
                 self.OUTPUT_LINES, self.tr("Projection lines - Output layer"), Qgis.ProcessingSourceType.VectorLine
             )
         )
-        self.addParameter(
-            QgsProcessingParameterFeatureSink(
-                self.OUTPUT_STATUS,
-                self.tr("Buildings with snap status - Output layer"),
-                Qgis.ProcessingSourceType.VectorLine,
-            )
-        )
 
     def processAlgorithm(self, parameters, context, feedback):
         """
@@ -185,7 +177,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         buildings_gdf.set_crs(buildings_source.sourceCrs().authid(), inplace=True)
 
         # Call snap_buildings_to_road_vertices script
-        aggregated, lines, status = snap_buildings_to_road_vertices(
+        aggregated, lines = snap_buildings_to_road_vertices(
             buildings_gdf, roads_gdf, population_value, max_distance=max_distance_value
         )
 
@@ -194,7 +186,6 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         roads_crs = roads_source.sourceCrs()
         aggregated_fields = QgsFields()
         lines_fields = QgsFields()
-        status_fields = QgsFields()
 
         # get fields
         for col, dtype in zip(aggregated.columns, aggregated.dtypes):
@@ -219,17 +210,6 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
                 qgs_type = QVariant.String
             lines_fields.append(QgsField(col, qgs_type))
 
-        for col, dtype in zip(status.columns, status.dtypes):
-            if col == "geometry":
-                continue
-            if dtype == "int":
-                qgs_type = QVariant.Int
-            elif dtype == "float":
-                qgs_type = QVariant.Double
-            else:
-                qgs_type = QVariant.String
-            status_fields.append(QgsField(col, qgs_type))
-
         # Create layer with sink
 
         (aggregated_sink, aggregeted_dest_id) = self.parameterAsSink(
@@ -237,9 +217,6 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         )
         (lines_sink, lines_dest_id) = self.parameterAsSink(
             parameters, self.OUTPUT_LINES, context, lines_fields, QgsWkbTypes.LineString, roads_crs
-        )
-        (status_sink, status_dest_id) = self.parameterAsSink(
-            parameters, self.OUTPUT_STATUS, context, status_fields, QgsWkbTypes.Point, roads_crs
         )
 
         # Fill the layer
@@ -261,12 +238,4 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             feat.setGeometry(QgsGeometry.fromWkt(row.geometry.wkt))
             lines_sink.addFeature(feat, QgsFeatureSink.Flag.FastInsert)
 
-        for _, row in status.iterrows():
-            feat = QgsFeature()
-            feat.setFields(status_fields)
-            attrs = [None if pd.isna(row[col]) else row[col] for col in status.columns if col != "geometry"]
-            feat.setAttributes(attrs)
-            feat.setGeometry(QgsGeometry.fromWkt(row.geometry.wkt))
-            status_sink.addFeature(feat, QgsFeatureSink.Flag.FastInsert)
-
-        return {self.OUTPUT_AGGREGATED: aggregated_sink, self.OUTPUT_LINES: lines_sink, self.OUTPUT_STATUS: status_sink}
+        return {self.OUTPUT_AGGREGATED: aggregated_sink, self.OUTPUT_LINES: lines_sink}

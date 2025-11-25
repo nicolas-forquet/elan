@@ -20,7 +20,6 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
     Returns:
         - aggregated_gdf: snapped vertex points with sum + count
         - projection_lines_gdf: LineStrings from original centroid to snapped vertex
-        - status_gdf: one record per building with 'status' and snapped geometry
     """
 
     if buildings_gdf.crs != roads_gdf.crs:
@@ -91,6 +90,5 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
     # Build outputs
     aggregated_gdf = gpd.GeoDataFrame(list(aggregation.values()), crs=buildings_gdf.crs)
     lines_gdf = gpd.GeoDataFrame(geometry=projection_lines, crs=buildings_gdf.crs)
-    status_gdf = gpd.GeoDataFrame(building_records, crs=buildings_gdf.crs)
 
-    return aggregated_gdf, lines_gdf, status_gdf
+    return aggregated_gdf, lines_gdf
