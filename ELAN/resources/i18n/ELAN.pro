@@ -8,6 +8,7 @@ SOURCES= ../../plugin_main.py \
     ../../processing/wetland_process.py \
     ../../processing/sewer_network.py \
     ../../processing/assessment.py \
+    ../../processing/projection.py \
     ../../processing/population.py \
     ../../processing/trench_profile.py \
     ../../processing/scenario.py \
