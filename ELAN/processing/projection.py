@@ -222,32 +222,10 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         # Create output layer
 
         roads_crs = roads_source.sourceCrs()
-        aggregated_fields = QgsFields()
-        lines_fields = QgsFields()
 
         # get fields
-        for col, dtype in zip(aggregated.columns, aggregated.dtypes):
-            if col == "geometry":
-                continue
-            if dtype == "int":
-                qgs_type = QVariant.Int
-            elif dtype == "float":
-                qgs_type = QVariant.Double
-            else:
-                qgs_type = QVariant.String
-            aggregated_fields.append(QgsField(col, qgs_type))
-
-        for col, dtype in zip(lines.columns, lines.dtypes):
-            if col == "geometry":
-                continue
-            if dtype == "int":
-                qgs_type = QVariant.Int
-            elif dtype == "float":
-                qgs_type = QVariant.Double
-            else:
-                qgs_type = QVariant.String
-            lines_fields.append(QgsField(col, qgs_type))
-
+        aggregated_fields = self.getFieldsFromDataFrame(aggregated)
+        lines_fields = self.getFieldsFromDataFrame(lines)
         # Create layer with sink
 
         (aggregated_sink, aggregeted_dest_id) = self.parameterAsSink(
@@ -258,22 +236,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         )
 
         # Fill the layer
-
-        for _, row in aggregated.iterrows():
-            feat = QgsFeature()
-            feat.setFields(aggregated_fields)
-            attrs = [None if pd.isna(row[col]) else row[col] for col in aggregated.columns if col != "geometry"]
-            feat.setAttributes(attrs)
-            feat.setGeometry(QgsGeometry.fromWkt(row.geometry.wkt))
-            aggregated_sink.addFeature(feat, QgsFeatureSink.Flag.FastInsert)
-
-        for _, row in lines.iterrows():
-            feat = QgsFeature()
-            feat.setFields(lines_fields)
-            attrs = [None if pd.isna(row[col]) else row[col] for col in lines.columns if col != "geometry"]
-
-            feat.setAttributes(attrs)
-            feat.setGeometry(QgsGeometry.fromWkt(row.geometry.wkt))
-            lines_sink.addFeature(feat, QgsFeatureSink.Flag.FastInsert)
+        aggregated_sink = self.fillSinkWithDataFrame(aggregated, aggregated_fields, aggregated_sink)
+        lines_sink = self.fillSinkWithDataFrame(lines, lines_fields, lines_sink)
 
         return {self.OUTPUT_AGGREGATED: aggregated_sink, self.OUTPUT_LINES: lines_sink}
