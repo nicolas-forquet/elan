@@ -1,4 +1,4 @@
-Panorama question du centralisé / décentralisé
+Flux global question du centralisé / décentralisé
 ========================================================
 
 .. mermaid::
@@ -41,5 +41,5 @@ Panorama question du centralisé / décentralisé
 
 **Légende**
 
-.. image:: _static/mermaid_legend.png
+.. image:: _static/mermaid_legende.png
      :width: 300
