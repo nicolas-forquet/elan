@@ -17,6 +17,7 @@ def assert_same_layers(
     - field names
     - field types
     - unique values for each attribute
+    - CRS
 
     If check_values_only_on_fields is provided (list of field names), the assertion for
     the uniqueValues is made only on these fields.
@@ -25,6 +26,7 @@ def assert_same_layers(
     assert layer_a.featureCount() == layer_b.featureCount()
     assert [field.name() for field in layer_a.fields()] == [field.name() for field in layer_b.fields()]
     assert [field.type() for field in layer_a.fields()] == [field.type() for field in layer_b.fields()]
+    assert layer_a.crs() == layer_b.crs(), f"{layer_a.crs().authid()} != {layer_b.crs().authid()}"
 
     for idx in range(layer_a.fields().size()):
         field_name = layer_a.fields().at(idx).name()
