@@ -20,10 +20,10 @@ from qgis.core import (
     QgsFields,
     QgsGeometry,
     QgsProcessingAlgorithm,
+    QgsProcessingParameterDistance,
     QgsProcessingParameterFeatureSink,
     QgsProcessingParameterFeatureSource,
     QgsProcessingParameterField,
-    QgsProcessingParameterNumber,
     QgsWkbTypes,
 )
 from qgis.PyQt.QtCore import QMetaType, QVariant
@@ -144,11 +144,11 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             )
         )
         self.addParameter(
-            QgsProcessingParameterNumber(
+            QgsProcessingParameterDistance(
                 self.MAX_DISTANCE_TO_ROAD,
                 self.tr("Maximum distance to road for projection (m)"),
-                Qgis.ProcessingNumberParameterType.Integer,
                 defaultValue=40,
+                parentParameterName=self.ROADS_INPUT_DATA,
             )
         )
         self.addParameter(
