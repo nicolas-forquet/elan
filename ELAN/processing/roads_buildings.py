@@ -37,12 +37,13 @@ from qgis.core import (
     QgsProject,
     QgsVectorLayer,
 )
-from qgis.PyQt.QtCore import QVariant
+from qgis.PyQt.QtCore import QMetaType
 
 from ELAN.utils.tr import Translatable
 
 
 class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
+    """ELAN processing to extract OSM roads and buildings from a polygon zone"""
 
     POLYGON = "POLYGON"
     BUILDINGS_OUTPUT = "BUILDINGS_OUTPUT"
@@ -51,6 +52,7 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
     PROJ = "PROJ"
 
     def createInstance(self):
+        """Return an instance of this class"""
         return RoadsBuildingsAlgorithm()
 
     def name(self):
@@ -98,7 +100,7 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
             This algorithm queries the Overpass API to extract OSM (OpenStreetMap) data for buildings
             and roads within an area defined by a rectangle.
 
-            - The user specifies a polygon layer to define the query area (whole extent of the layer).
+            - The user specifies a polygon layer to define the query area.
 
             - An Overpass query is formulated to extract entities of type "building" and "highway"
             within the specified area(s).
@@ -111,7 +113,11 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
             """
         )
 
-    def initAlgorithm(self, configuration=None):
+    def initAlgorithm(self, configuration=None):  # pylint: disable=unused-argument
+        """
+        Here we define the inputs and output of the algorithm, along
+        with some other properties.
+        """
 
         self.addParameter(
             QgsProcessingParameterFeatureSource(
@@ -145,7 +151,12 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
             QgsProcessingParameterBoolean(self.PROJ, self.tr("Reproject layers to the project's CRS"), False)
         )
 
-    def processAlgorithm(self, parameters, context, feedback):
+    def processAlgorithm(
+        self, parameters, context, feedback
+    ):  # pylint: disable=too-many-locals,too-many-branches,too-many-statements
+        """
+        Here is where the processing itself takes place.
+        """
 
         multistep_feedback = QgsProcessingMultiStepFeedback(7, feedback)
         multistep_feedback.setCurrentStep(1)
@@ -192,9 +203,9 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
         all_road_tags = sorted(tag for tag in all_tags if tag == "highway")
 
         for tag in all_building_tags:
-            building_fields.append(QgsField(tag, QVariant.String))
+            building_fields.append(QgsField(tag, QMetaType.Type.QString))
         for tag in all_road_tags:
-            road_fields.append(QgsField(tag, QVariant.String))
+            road_fields.append(QgsField(tag, QMetaType.Type.QString))
 
         if (project := QgsProject.instance()) is not None and self.parameterAsBool(parameters, self.PROJ, context):
             dest_crs = project.crs()
