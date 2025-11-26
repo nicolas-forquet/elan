@@ -28,7 +28,7 @@ from qgis.core import (
 )
 from qgis.PyQt.QtCore import QMetaType, QVariant
 
-from ELAN.scripts.snap_buildings_to_roads import snap_buildings_to_road_vertices
+from ELAN.scripts.snap_on_roads import snap_buildings_to_road_vertices
 from ELAN.utils.tr import Translatable
 
 
@@ -110,8 +110,8 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             "<h2>Outputs:</h2>"
             "<ul>"
             "<h3>Building features are preserved, with a new status column:</h3>"
-            "    <li>Projected → successfully snapped to a nearby road</li>"
-            "    <li>Not_projected → no road found within the specified distance</li>"
+            "    <li>Projected: successfully snapped to a nearby road</li>"
+            "    <li>Not projected: no road found within the specified distance</li>"
             "<h3>Centroids that fall on the same road vertex are merged, with:</h3>"
             "    <li>Population values aggregated by sum</li>"
             "    <li>A new column recording how many buildings were projected to that vertex</li>"
