@@ -46,14 +46,14 @@ Contenu
    comparaison
 
 .. toctree::
-   :caption: Interactive flowcharts
+   :caption: Logigrammes interactifs
 
    logigramme_global1
    logigramme_preparation1
    logigramme_scenario1
 
 .. toctree::
-   :caption: Tutorials
+   :caption: Tutoriels
    
    petite_anse
 
