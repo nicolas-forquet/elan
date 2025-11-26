@@ -37,11 +37,10 @@ def test_sewer_network(elan_processing, tmp_path):
         "DEM_FILE_PATH": str(test_data_dir / "sewer_network_mnt_input.tif"),
         "ROADS_INPUT_DATA": str(test_data_dir / "sewer_network_roads_input.gpkg.zip"),
         "BUILDINGS_INPUT_DATA": str(test_data_dir / "sewer_network_buildings_population_input.gpkg.zip"),
-        "INHABITANTS_DWELLING_ATTRIBUTE_NAME": "population",
+        "POPULATION_ATTRIBUTE_NAME": "population",
         "PUMP_PENALTY": 1000,
         "MAX_CONNECTION_LENGTH": 30,
         "CLUSTERING": "None",
-        "DEFAULT_INHABITANTS_DWELLING": 3,
         "DAILY_WASTEWATER_PERSON": 0.164,
         "PEAK_FACTOR": 2.3,
         "MIN_SLOPE": -0.01,
@@ -84,11 +83,10 @@ def test_sewer_network_with_empty_outputs(elan_processing, tmp_path):
         "DEM_FILE_PATH": str(test_data_dir / "sewer_network_mnt_no_output.tif"),
         "ROADS_INPUT_DATA": str(test_data_dir / "sewer_network_roads_no_output.gpkg.zip"),
         "BUILDINGS_INPUT_DATA": str(test_data_dir / "sewer_network_buildings_empty.gpkg.zip"),
-        "INHABITANTS_DWELLING_ATTRIBUTE_NAME": "population",
+        "POPULATION_ATTRIBUTE_NAME": "population",
         "PUMP_PENALTY": 1000,
         "MAX_CONNECTION_LENGTH": 30,
         "CLUSTERING": "None",
-        "DEFAULT_INHABITANTS_DWELLING": 3,
         "DAILY_WASTEWATER_PERSON": 0.164,
         "PEAK_FACTOR": 2.3,
         "MIN_SLOPE": -0.01,
@@ -141,7 +139,7 @@ def test_error_null_population_fields(elan_processing):
         "DEM_FILE_PATH": str(
             DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "sewer_network" / "sewer_network_mnt_input.tif"
         ),
-        "INHABITANTS_DWELLING_ATTRIBUTE_NAME": "population",
+        "POPULATION_ATTRIBUTE_NAME": "population",
         "OUTPUT_GPKG": "memory:",
     }
 
