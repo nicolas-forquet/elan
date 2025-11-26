@@ -142,7 +142,6 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
                 self.tr("Total population"),
                 parentLayerParameterName=self.BUILDINGS_INPUT_DATA,
                 type=Qgis.ProcessingFieldParameterDataType.Numeric,
-                optional=True,
             )
         )
         self.addParameter(
