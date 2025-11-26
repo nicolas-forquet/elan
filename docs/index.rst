@@ -46,7 +46,7 @@ Contenu
    comparaison
 
 .. toctree::
-   :caption: Flowcharts
+   :caption: Interactive flowcharts
 
    logigramme_global1
    logigramme_preparation1
