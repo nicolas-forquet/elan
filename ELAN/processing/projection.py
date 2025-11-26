@@ -22,10 +22,11 @@ from qgis.core import (
     QgsProcessingAlgorithm,
     QgsProcessingParameterFeatureSink,
     QgsProcessingParameterFeatureSource,
+    QgsProcessingParameterField,
     QgsProcessingParameterNumber,
     QgsWkbTypes,
 )
-from qgis.PyQt.QtCore import QVariant
+from qgis.PyQt.QtCore import QMetaType, QVariant
 
 from ELAN.scripts.snap_buildings_to_roads import snap_buildings_to_road_vertices
 from ELAN.utils.tr import Translatable
@@ -36,7 +37,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
     This class projects building centroids onto the nearest road vertices within a user-defined maximum distance.
     """
 
-    USER_TOTAL_POPULATION = "USER_TOTAL_POPULATION"
+    POPULATION_FIELD = "POPULATION_FIELD"
     MAX_DISTANCE_TO_ROAD = "MAX_DISTANCE_TO_ROAD"
     BUILDINGS_INPUT_DATA = " BUILDINGS_INPUT_DATA"
     ROADS_INPUT_DATA = "ROADS_INPUT_DATA"
@@ -54,7 +55,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return "elanprojectionroads"
+        return "elansnaponroads"
 
     def displayName(self):
         """
@@ -94,7 +95,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             "or connection points that are not relevant from a municipal perspective - "
             "specifically those representing private lateral connections between individual "
             "buildings and the public road network.\n"
-            "By snapping buildings to the closest road within a specified distance, the script "
+            "By snapping buildings to the closest road vertex within a specified distance, the script "
             "prevents these private connections from being counted as distinct infrastructure "
             "needs. This step helps isolate connections that actually relate to the public "
             "network and simplifies subsequent analysis."
@@ -167,13 +168,43 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             )
         )
 
+    def getFieldsFromDataFrame(self, df) -> QgsFields:
+        """
+        Get fields
+        """
+        fields = QgsFields()
+        for col, dtype in zip(df.columns, df.dtypes):
+            if col == "geometry":
+                continue
+            if dtype == "int":
+                qgs_type = QMetaType.Type.Int
+            elif dtype == "float":
+                qgs_type = QMetaType.Type.Double
+            else:
+                qgs_type = QMetaType.Type.QString
+            fields.append(QgsField(col, qgs_type))
+        return fields
+
+    def fillSinkWithDataFrame(self, output_df, fields, sink) -> QgsFeatureSink:
+        """
+        Fill the sink
+        """
+        for _, row in output_df.iterrows():
+            feat = QgsFeature()
+            feat.setFields(fields)
+            attrs = [None if pd.isna(row[col]) else row[col] for col in output_df.columns if col != "geometry"]
+            feat.setAttributes(attrs)
+            feat.setGeometry(QgsGeometry.fromWkt(row.geometry.wkt))
+            sink.addFeature(feat, QgsFeatureSink.Flag.FastInsert)
+        return sink
+
     def processAlgorithm(self, parameters, context, feedback):
         """
         Here is where the processing itself takes place.
         """
 
         max_distance_value = self.parameterAsInt(parameters, self.MAX_DISTANCE_TO_ROAD, context)
-        population_value = self.parameterAsInt(parameters, self.USER_TOTAL_POPULATION, context)
+        population_value = self.parameterAsInt(parameters, self.POPULATION_FIELD, context)
         roads_source = self.parameterAsSource(parameters, self.ROADS_INPUT_DATA, context)
         buildings_source = self.parameterAsSource(parameters, self.BUILDINGS_INPUT_DATA, context)
 
