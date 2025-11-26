@@ -169,6 +169,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         """
         Get fields
         """
+
         fields = QgsFields()
         for col, dtype in zip(df.columns, df.dtypes):
             if col == "geometry":
@@ -195,7 +196,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             sink.addFeature(feat, QgsFeatureSink.Flag.FastInsert)
         return sink
 
-    def processAlgorithm(self, parameters, context, feedback):
+    def processAlgorithm(self, parameters, context, feedback) -> QgsFeatureSink:
         """
         Here is where the processing itself takes place.
         """
@@ -204,6 +205,11 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         population_value = self.parameterAsString(parameters, self.POPULATION_FIELD, context)
         roads_source = self.parameterAsSource(parameters, self.ROADS_INPUT_DATA, context)
         buildings_source = self.parameterAsSource(parameters, self.BUILDINGS_INPUT_DATA, context)
+
+        if roads_source is None:
+            raise self.invalidSourceError(parameters, self.ROADS_INPUT_DATA)
+        if buildings_source is None:
+            raise self.invalidSourceError(parameters, self.BUILDINGS_INPUT_DATA)
 
         # Create GeoDataFrame from roads_source and buildings_source
         roads_gdf = gpd.GeoDataFrame.from_features(roads_source.getFeatures())
@@ -234,5 +240,10 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         # Fill the layer
         aggregated_sink = self.fillSinkWithDataFrame(aggregated, aggregated_fields, aggregated_sink)
         lines_sink = self.fillSinkWithDataFrame(lines, lines_fields, lines_sink)
+
+        if aggregated_sink is None:
+            raise self.invalidSinkError(parameters, self.OUTPUT_AGGREGATED)
+        if lines_sink is None:
+            raise self.invalidSinkError(parameters, self.OUTPUT_LINES)
 
         return {self.OUTPUT_AGGREGATED: aggregeted_dest_id, self.OUTPUT_LINES: lines_dest_id}
