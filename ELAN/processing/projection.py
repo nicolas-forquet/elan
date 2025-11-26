@@ -89,15 +89,15 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         """
 
         return self.tr(
-            "This module projects building centroids onto the nearest road vertices within a "
+            "This module projects building centroids onto the nearest road vertices within a"
             "user-defined maximum distance.\n"
-            "The purpose of this spatial operation is to reduce the number of pumping stations "
-            "or connection points that are not relevant from an urban perspective - "
-            "specifically those representing private lateral connections between individual "
+            "The purpose of this spatial operation is to reduce the number of pumping stations"
+            "or connection points that are not relevant from an urban perspective -"
+            "specifically those representing private lateral connections between individual"
             "buildings and the public road network.\n"
-            "By snapping buildings to the closest road vertex within a specified distance, the script "
+            "By snapping buildings to the closest road vertex within a specified distance, the script"
             "prevents these private connections from being counted as distinct infrastructure "
-            "needs. This step helps isolate connections that actually relate to the public "
+            "needs. This step helps isolate connections that actually relate to the public"
             "network and simplifies subsequent analysis."
             "<h2>Inputs:</h2>"
             "<ul>"
@@ -137,7 +137,6 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
 
         self.addParameter(
             QgsProcessingParameterField(
-                self.POPULATION_FIELD,
                 self.POPULATION_FIELD,
                 self.tr("Total population"),
                 parentLayerParameterName=self.BUILDINGS_INPUT_DATA,
