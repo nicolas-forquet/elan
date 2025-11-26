@@ -202,14 +202,13 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         """
 
         max_distance_value = self.parameterAsInt(parameters, self.MAX_DISTANCE_TO_ROAD, context)
-        population_value = self.parameterAsInt(parameters, self.POPULATION_FIELD, context)
+        population_value = self.parameterAsString(parameters, self.POPULATION_FIELD, context)
         roads_source = self.parameterAsSource(parameters, self.ROADS_INPUT_DATA, context)
         buildings_source = self.parameterAsSource(parameters, self.BUILDINGS_INPUT_DATA, context)
 
         # Create GeoDataFrame from roads_source and buildings_source
         roads_gdf = gpd.GeoDataFrame.from_features(roads_source.getFeatures())
         roads_gdf.set_crs(roads_source.sourceCrs().authid(), inplace=True)
-
         buildings_gdf = gpd.GeoDataFrame.from_features(buildings_source.getFeatures())
         buildings_gdf.set_crs(buildings_source.sourceCrs().authid(), inplace=True)
 
@@ -217,7 +216,6 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         aggregated, lines = snap_buildings_to_road_vertices(
             buildings_gdf, roads_gdf, population_value, max_distance=max_distance_value
         )
-
         # Create output layer
 
         roads_crs = roads_source.sourceCrs()
@@ -238,4 +236,4 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         aggregated_sink = self.fillSinkWithDataFrame(aggregated, aggregated_fields, aggregated_sink)
         lines_sink = self.fillSinkWithDataFrame(lines, lines_fields, lines_sink)
 
-        return {self.OUTPUT_AGGREGATED: aggregated_sink, self.OUTPUT_LINES: lines_sink}
+        return {self.OUTPUT_AGGREGATED: aggregeted_dest_id, self.OUTPUT_LINES: lines_dest_id}
