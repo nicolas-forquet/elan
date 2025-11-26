@@ -123,14 +123,26 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         Here we define the inputs and output of the algorithm, along
         with some other properties.
         """
-        # We add the input vector features source. It can have any kind of
-        # geometry.
+
         self.addParameter(
-            QgsProcessingParameterNumber(
-                self.USER_TOTAL_POPULATION,
+            QgsProcessingParameterFeatureSource(
+                self.ROADS_INPUT_DATA, self.tr("Road layer"), [Qgis.ProcessingSourceType.VectorLine]
+            )
+        )
+        self.addParameter(
+            QgsProcessingParameterFeatureSource(
+                self.BUILDINGS_INPUT_DATA, self.tr("Building layer"), [Qgis.ProcessingSourceType.VectorPoint]
+            )
+        )
+
+        self.addParameter(
+            QgsProcessingParameterField(
+                self.POPULATION_FIELD,
+                self.POPULATION_FIELD,
                 self.tr("Total population"),
-                Qgis.ProcessingNumberParameterType.Integer,
-                defaultValue=1000,
+                parentLayerParameterName=self.BUILDINGS_INPUT_DATA,
+                type=Qgis.ProcessingFieldParameterDataType.Numeric,
+                optional=True,
             )
         )
         self.addParameter(
@@ -141,19 +153,6 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
                 defaultValue=40,
             )
         )
-
-        self.addParameter(
-            QgsProcessingParameterFeatureSource(
-                self.ROADS_INPUT_DATA, self.tr("Road layer"), [Qgis.ProcessingSourceType.VectorLine]
-            )
-        )
-
-        self.addParameter(
-            QgsProcessingParameterFeatureSource(
-                self.BUILDINGS_INPUT_DATA, self.tr("Building layer"), [Qgis.ProcessingSourceType.VectorPolygon]
-            )
-        )
-
         self.addParameter(
             QgsProcessingParameterFeatureSink(
                 self.OUTPUT_AGGREGATED,
