@@ -41,21 +41,5 @@ Panorama question du centralisé / décentralisé
 
 **Légende**
 
-.. mermaid::
-
-    flowchart TB
-        A[facultatif]:::class1
-        C[obligatoire]:::class3
-        B@{ shape: rect, label: "relatif aux entrées" }
-        B:::class0
-        D@{ shape: rect, label: "relatif aux sorties" }
-        D:::class2
-        P@{ shape: hex, label: "action utilisateur" }
-        P:::class4
-        A ~~~ C ~~~ P
-        B ~~~ D ~~~ P
-        classDef class0 fill:##E6E6FA, stroke:#9932CC
-        classDef class1 fill:#FFE4B5, stroke:#FFE4B5
-        classDef class2 fill:#F0FFF0, stroke:#2E8B57
-        classDef class3 fill:#FFF5EE, stroke:#FF8C00
-        classDef class4 fill:#f8f8ff , stroke:#000000
+.. image:: _static/mermaid_legend.png
+     :width: 300

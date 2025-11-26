@@ -4,10 +4,6 @@ Préparation des données question du centralisé / décentralisé
 .. mermaid::
     :zoom:
 
-    mermaid.initialize({
-        theme: 'neutral',
-    });
-
     flowchart TB
         A["J'ai les couches raster (MNT) et vecteurs (routes et bâtiments) nécessaires ?"]
         B1[Je suis en contexte français ?]
