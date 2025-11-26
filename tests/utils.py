@@ -9,22 +9,26 @@ from qgis.core import QgsProject, QgsVectorLayer
 
 
 def assert_same_layers(
-    layer_a: QgsVectorLayer, layer_b: QgsVectorLayer, check_values_only_on_fields: Optional[list[str]] = None
+    layer_a: QgsVectorLayer,
+    layer_b: QgsVectorLayer,
+    check_values_only_on_fields: Optional[list[str]] = None,
+    check_geom=True,
 ):
     """
     Verify that layer_a and layer_b are the same.
-    - feature count
-    - field names
-    - field types
-    - unique values for each attribute
-    - CRS
+        - feature count
+        - field names
+        - field types
+        - unique values for each attribute
+        - CRS
+        - geometries
 
     If check_values_only_on_fields is provided (list of field names), the assertion for
     the uniqueValues is made only on these fields.
     """
 
     assert layer_a.featureCount() == layer_b.featureCount()
-    assert [field.name() for field in layer_a.fields()] == [field.name() for field in layer_b.fields()]
+    assert layer_a.fields().names() == layer_b.fields().names()
     assert [field.type() for field in layer_a.fields()] == [field.type() for field in layer_b.fields()]
     assert layer_a.crs() == layer_b.crs(), f"{layer_a.crs().authid()} != {layer_b.crs().authid()}"
 
@@ -43,6 +47,15 @@ def assert_same_layers(
                 f"Field {field_name}: layer_a unique values are {layer_a.uniqueValues(idx)} "
                 "but layer_b unique values are {layer_b.uniqueValues(idx)}"
             )
+
+    if check_geom:
+        fid_idx = layer_a.fields().indexFromName("fid")
+        assert fid_idx != -1, "a 'fid' field is required to check the geometries"
+        fids = layer_a.uniqueValues(fid_idx)
+        for fid in fids:
+            geom_a = next(layer_a.getFeatures(f'"fid" = {fid}')).geometry().asWkt()
+            geom_b = next(layer_b.getFeatures(f'"fid" = {fid}')).geometry().asWkt()
+            assert geom_a == geom_b
 
 
 def load_layer(gpkg_path: str | Path, layer_name: str) -> QgsVectorLayer:
