@@ -27,12 +27,6 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
 
     roads_gdf = explode_multilines(roads_gdf)
     roads_gdf = roads_gdf[roads_gdf.geometry.is_valid]
-    buildings_gdf = buildings_gdf.copy()
-    buildings_gdf["area"] = buildings_gdf.geometry.area
-
-    total_area = buildings_gdf["area"].sum()
-    buildings_gdf["population"] = buildings_gdf["area"] / total_area * value_field
-    value_field = "population"
 
     # Extract all road vertices
     vertex_index = {}
@@ -49,7 +43,7 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
     vertex_sindex = vertex_gdf.sindex
 
     # Containers
-    aggregation = defaultdict(lambda: {"geometry": None, "count": 0, str(value_field): 0.0})
+    aggregation = defaultdict(lambda: {"geometry": None, "count": 0, f"{value_field}": 0.0})
     projection_lines = []
     building_records = []
 
@@ -90,5 +84,6 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
     # Build outputs
     aggregated_gdf = gpd.GeoDataFrame(list(aggregation.values()), crs=buildings_gdf.crs)
     lines_gdf = gpd.GeoDataFrame(geometry=projection_lines, crs=buildings_gdf.crs)
+    status_gdf = gpd.GeoDataFrame(building_records, crs=buildings_gdf.crs)
 
     return aggregated_gdf, lines_gdf
