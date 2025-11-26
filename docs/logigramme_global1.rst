@@ -41,5 +41,5 @@ Flux global question du centralisé / décentralisé
 
 **Légende**
 
-.. image:: _static/mermaid_legende.png
+.. image:: _static/mermaid-legende.png
      :width: 300
