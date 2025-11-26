@@ -92,7 +92,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             "This module projects building centroids onto the nearest road vertices within a "
             "user-defined maximum distance.\n"
             "The purpose of this spatial operation is to reduce the number of pumping stations "
-            "or connection points that are not relevant from a municipal perspective - "
+            "or connection points that are not relevant from an urban perspective - "
             "specifically those representing private lateral connections between individual "
             "buildings and the public road network.\n"
             "By snapping buildings to the closest road vertex within a specified distance, the script "
