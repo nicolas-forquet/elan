@@ -1,5 +1,5 @@
-Logigramme question du centralisé / décentralisé
-=================================================
+Panorama question du centralisé / décentralisé
+========================================================
 
 .. mermaid::
     :zoom:

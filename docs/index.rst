@@ -46,10 +46,16 @@ Contenu
    comparaison
 
 .. toctree::
+   :caption: Flowcharts
+
+   logigramme_global1
+   logigramme_preparation1
+   logigramme_scenario1
+
+.. toctree::
    :caption: Tutorials
    
    petite_anse
-   logigramme_prb1
 
    
 
