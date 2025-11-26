@@ -39,7 +39,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
 
     POPULATION_FIELD = "POPULATION_FIELD"
     MAX_DISTANCE_TO_ROAD = "MAX_DISTANCE_TO_ROAD"
-    BUILDINGS_INPUT_DATA = " BUILDINGS_INPUT_DATA"
+    BUILDINGS_INPUT_DATA = "BUILDINGS_INPUT_DATA"
     ROADS_INPUT_DATA = "ROADS_INPUT_DATA"
     OUTPUT_AGGREGATED = "OUTPUT_AGGREGATED"
     OUTPUT_LINES = "OUTPUT_LINES"
@@ -62,7 +62,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         Returns the translated algorithm name, which should be used for any
         user-visible display of the algorithm name.
         """
-        return self.tr("Projection on roads")
+        return self.tr("Snap on roads")
 
     def group(self):
         """
