@@ -30,6 +30,7 @@ extensions = [
 
 templates_path = ["_templates"]
 exclude_patterns = []
+figure_language_filename = '{docs/}{en}/{basename}{.mmd}'
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

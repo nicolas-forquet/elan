@@ -1,7 +1,7 @@
 Flux global question du centralisé / décentralisé
 ========================================================
 
-.. mermaid:: global_fr.mmd
+.. mermaid:: global_flowchart.mmd
     :zoom:
 
 **Légende**
