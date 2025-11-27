@@ -78,11 +78,15 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 .. image:: _static/set_SCR.png
       :width: 700
 
+.. _SCR_projet:
+
 .. tip::
     Faire du SCR du MNT le SCR de votre projet : opter pour ce SCR lorsque vous créez de nouvelles couches, et reprojeter les couches vecteur que vous importez dans ce SCR avec l'outil natif de QGIS ``Reprojeter une couche``.
 
 .. image:: _static/SCR_projet.png
       :width: 700
+
+.. _ fusion:
 
 **5.** Pour fusionner les 4 dalles, utiliser l'outil ``Fusion`` de GDAL. 
 
@@ -141,6 +145,8 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 Étape 2 : Formaliser les exutoires possibles (STEU)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. _set_exutoires:
+
 **1.** Créer une nouvelle couche (.shp ou .gpkg).
 
 .. image:: _static/nouvelle-couche.png
@@ -187,6 +193,8 @@ qui permettent d'accéder aux deux stations existantes** (voir :ref:`introductio
 **Récupération des bâtiments**
 
 **1.** Créer une nouvelle couche de type *polygone* dans le SCR du projet.
+
+.. _creer_zone:
 
 .. image:: _static/nouvelle-couche.png
      :width: 700
@@ -252,6 +260,8 @@ La sortie obtenue est de ce type :
 
 .. image:: _static/sortie-routes.png
      :width: 700
+
+.. _edition_manuelle:
 
 **Post-traitement des couches**
 
