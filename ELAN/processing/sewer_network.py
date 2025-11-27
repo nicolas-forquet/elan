@@ -146,12 +146,14 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             "This sewer pipe module uses Pysewer. "
             "It must be installed either locally or through the ELAN plugin settings."
             "<h2>Outputs:</h2>"
-            "4 geographic layers are created:\n"
+            "6 geographic layers are created:\n"
             "<ul>"
             "    <li>WWTP: treatment stations used in the sewer pipe way</li>"
             "    <li>Lifting stations: lifting stations</li>"
             "    <li>Pumping stations: pumping stations</li>"
             "    <li>Sewer pipes: sewer pipe</li>"
+            "    <li>Buildings: a copy of the input buildings features</li>"
+            "    <li>Roads: a copy of the input roads features</li>"
             "</ul>"
             "One additional layer without geometry is also created:"
             "<ul>"
@@ -486,7 +488,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 ("lifting_stations", self.tr("Lifting stations")),
                 ("sewer_pipes", self.tr("Sewer pipes")),
                 ("roads", self.tr("Roads")),
-                ("info_network", self.tr("Network informations")),
+                ("info_network", self.tr("Network information")),
             ]
         ):
             layer_details = context.LayerDetails()
@@ -624,7 +626,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 output_layer_path + "|layername=info_network",
                 style_file.read(),
                 "",
-                self.tr("Network informations"),
+                self.tr("Network information"),
                 "",
                 "",
                 True,

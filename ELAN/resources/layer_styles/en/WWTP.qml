@@ -579,14 +579,14 @@
     <alias field="NO3N_in" index="13" name="NO3-N inflow concentration"/>
     <alias field="TP_in" index="14" name="TP inflow concentration"/>
     <alias field="ecoli_in" index="15" name="e.coli inflow concentration"/>
-    <alias field="TSS_obj" index="16" name="TSS outflow contentration target"/>
-    <alias field="BOD5_obj" index="17" name="BOD5 outflow contentration target"/>
-    <alias field="TKN_obj" index="18" name="TKN outflow contentration target"/>
-    <alias field="COD_obj" index="19" name="COD outflow contentration target"/>
-    <alias field="NO3N_obj" index="20" name="NO3-N outflow contentration target"/>
-    <alias field="TN_obj" index="21" name="TN outflow contentration target"/>
-    <alias field="TP_obj" index="22" name="TP outflow contentration target"/>
-    <alias field="ecoli_obj" index="23" name="e.coli outflow contentration target"/>
+    <alias field="TSS_obj" index="16" name="TSS outflow concentration target"/>
+    <alias field="BOD5_obj" index="17" name="BOD5 outflow concentration target"/>
+    <alias field="TKN_obj" index="18" name="TKN outflow concentration target"/>
+    <alias field="COD_obj" index="19" name="COD outflow concentration target"/>
+    <alias field="NO3N_obj" index="20" name="NO3-N outflow concentration target"/>
+    <alias field="TN_obj" index="21" name="TN outflow concentration target"/>
+    <alias field="TP_obj" index="22" name="TP outflow concentration target"/>
+    <alias field="ecoli_obj" index="23" name="e.coli outflow concentration target"/>
   </aliases>
   <splitPolicies>
     <policy field="trench_depth" policy="DefaultValue"/>
