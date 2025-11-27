@@ -21,6 +21,9 @@ project = "ELAN"
 copyright = datetime.now().strftime("%Y") + ", REVERSAAL et Oslandia"
 author = "REVERSAAL (INRAE) et Oslandia"
 
+language = "fr"
+
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
