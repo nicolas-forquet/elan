@@ -7,7 +7,7 @@ ELAN s'inscrit dans un objectif global de transformer la ville de demain pour la
 Cette transformation constitue un véritable défi territorial, ce qui rend particulièrement pertinent le recours au système d'information géographique (SIG).
 
 Un outil, deux problématiques
----------------------------------
+-----------------------------
 ELAN permet d'aider à la décision face à **deux problématiques** : l'une mettant en jeu spécifiquement les eaux usées (**"question du centralisé/décentralisé"**), 
 l'autre impliquant les eaux urbaines dans leur ensemble (**"question des déversements par temps de pluie"**).
 
@@ -18,12 +18,12 @@ Dans le cas de déversements d'un réseau unitaire par temps de pluie, l'utilisa
 **comment limiter les déversements d'eaux non traitées au niveau des déversoirs d'orage ?**
 
 Illustration par des exemples
--------------------------------
+-----------------------------
 
 .. _petite-anse:
 
 Question du centralisé/décentralisé : Petite Anse (Martinique)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Petite Anse est un **quartier sans réseau d'assainissement** : historiquement le choix de l'assainissement non collectif 
 s'est en effet imposé, notamment au regard des contraintes géographiques (relief marqué).
 
@@ -48,7 +48,7 @@ ELAN permet d'aider à la prise de décision en permettant à l'utilisateur **d'
 Petite Anse nous servira de cas d'exemple pour la question du centralisé/décentralisé : un :ref:`tutoriel <tutorial1>` lui est consacré.
 
 Question des déversements par temps de pluie : Écully (Rhône)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. hint::
    Cette section est en cours de construction.
@@ -97,7 +97,7 @@ ELAN est structuré en **plusieurs groupement de modules**.
 .. _projets-recherche:
 
 Un outil qui mutualise différents travaux de recherche
--------------------------------------------------------
+------------------------------------------------------
 
 ELAN vise à **rendre plus largement accessible les résultats de travaux de recherche** menés indépendamment sur un aspect spécifique des problématiques adressées
 et de **les combiner entre eux pour envisager ces problématiques dans leur globalité et leur complexité**.

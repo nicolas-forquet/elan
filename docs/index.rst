@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 ELAN  
-=====
+====
 
 **ELAN** est un plugin QGIS d'aide à la décision pour une gestion intégrée des eaux urbaines par des solutions fondées sur la nature.
 

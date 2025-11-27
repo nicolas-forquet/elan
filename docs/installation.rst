@@ -2,7 +2,7 @@ Installation
 ============
 
 Préalable
-----------
+---------
 
 Sur Windows
 ^^^^^^^^^^^
@@ -58,7 +58,7 @@ Sur Linux
     $ qgis
 
 Sur Mac
-^^^^^^^^^
+^^^^^^^
 
 Le plugin ELAN n'est pas compatible avec Mac actuellement.
 
@@ -95,7 +95,7 @@ Cette section explique comment procéder à leur installation.
 Selon le code, son installation se fait soit via les paramètres de l'extension, soit directement en ligne de commande.
 
 Question du centralisé/décentralisé : pysewer et wetlandoptimizer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _pysewer:
 
@@ -158,7 +158,7 @@ Son installation se fait via ELAN.
     Les dépendances peuvent être concernées par des montées en version. Dans ce cas, faire ``REINITIALISATION DES PARAMETRES`` puis réinstaller les dépendances comme expliqué juste avant.
 
 Question des déversements par temps de pluie : pysheds
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * **pysheds** est une bibliothèque open-source Python développée par `l'UT Austin <https://www.utexas.edu/>`_, une université américaine (Texas).
 

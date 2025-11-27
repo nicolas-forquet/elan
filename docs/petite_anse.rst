@@ -1,7 +1,7 @@
 .. _tutorial1:
 
 Exemple de Petite Anse
-========================
+======================
 
 Ce tutoriel se base sur le cas de :ref:`Petite Anse <petite-anse>` et détaille les étapes à mettre en oeuvre pour créer un scénario pour la question du centralisé / décentralisé,
 depuis l'obtention et la préparation des données géographiques jusqu'à la création d'un objet scénario.
@@ -10,10 +10,10 @@ Il peut être suivi pas à pas pour prendre en main ELAN avant de l'appliquer à
 proposé à la fin de ce tutoriel.
 
 Obtention et préparation des données géographiques
----------------------------------------------------
+--------------------------------------------------
 
 Préalable : Afficher un fond de carte (ici OpenStreetMap)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pour identifier la zone, afficher le fond de carte `OpenStreetMap <https://www.openstreetmap.org>`_ : 
 
@@ -42,7 +42,7 @@ Pour identifier la zone, afficher le fond de carte `OpenStreetMap <https://www.o
      Il s'agit d'un export PDF du chapitre 3 du tutoriel QGIS 3.22 'Białowieża' disponible à cette adresse : https://tutoqgis.cnrs.fr/.
 
 Étape 1 : Se procurer le Modèle Numérique de Terrain (MNT)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **1.** Télécharger le `MNT à 5 m de la Martinique <https://data.geopf.fr/telechargement/download/RGEALTI/RGEALTI_2-0_1M_ASC_WGS84UTM20-MART87_D972_2015-10-21/RGEALTI_2-0_1M_ASC_WGS84UTM20-MART87_D972_2015-10-21.7z>`_ sur RGE ALTI®.
 
@@ -143,7 +143,7 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
      :width: 620
 
 Étape 2 : Formaliser les exutoires possibles (STEU)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _set_exutoires:
 
@@ -173,7 +173,7 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
       :width: 196
 
 Étape 3 : Récupérer les routes et bâtiments - obtention avec le plugin de l'IGN (option 1)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Préalable :** Installer l'extension `BD TOPO® Extractor <https://plugins.qgis.org/plugins/bd_topo_extractor/>`_ via le gestionnaire d'extensions QGIS.
 
@@ -271,7 +271,7 @@ Les couches peuvent ensuite être éditées au besoin. Par exemple ici, restrein
 sélection fine des bâtiments à raccorder ou non) et **contribue donc à obtenir des résultats plus pertinents**.
 
 Étape 3 : Récupérer les routes et bâtiments - obtention avec ELAN (option 2)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Récupération des bâtiments**
 
@@ -295,7 +295,7 @@ Les couches peuvent ensuite être éditées ce qui vous permet de retranscrire v
 sélection fine des bâtiments à raccorder ou non). Cette étape contribue à améliorer la pertinence des résultats obtenus en sortie de module ``Réseau``.
 
 Étape 4 : Répartir la population au sein des bâtiments (facultatif)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 La population de Petite Anse est estimée à 1100 individus dont 150 sur la partie haute et 950 sur la partie basse.
 
@@ -371,10 +371,10 @@ Cette couche peut être utilisée en entrée de module ``Réseau``.
 
 
 Création d'un scénario
------------------------
+----------------------
 
 Étape 1 : Tracer le réseau d'assainissement (module ``Réseau``)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Le scénario que nous allons créer dans ce pas à pas va considérer un raccordement du quartier à l'un des emplacements possibles : celui au Sud de la zone. 
 
@@ -520,14 +520,14 @@ L'ensemble des attributs disponibles pour chaque couche est détaillé :ref:`ici
 
 
 Exploration des résultats (module ``Profils de canalisations``)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pour explorer le pré-dimensionnement proposé par le module ``Réseau``, vous pouvez visualiser le profil souterrain d'une succession de tuyaux grâce au module
 ``Profils de canalisations`` couplé à l'outil *Profil d'élévation* de QGIS. Un :ref:`exemple <visualisation-profils>` est donné dans la documentation générale.
 
 
 Étape 2 : Pré-dimensionner la ou les STEU (module ``Procédés``)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **1. Renseigner les contraintes de rejet dans la couche** ``STEU``
 
@@ -606,7 +606,7 @@ Pour consulter les attributs de cette couche :
      :width: 700
 
 Étape 3 : Pré-sélectionner une filière par exutoire
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ici, 6 filières permettent d'atteindre les niveaux de rejets imposés (déviations en vert) :
     
@@ -628,7 +628,7 @@ VdNSS pourrait constituer un second scénario.
 
 
 Étape 4 : Créer un objet scénario (module ``Créer un scénario``)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Une fois que le couplage réseau/filière constitutif d'un scénario est identifié, vous pouvez créer un objet scénario à l'aide du module ``Créer un scénario`` comme
 :ref:`détaillé dans la documentation générale <creer-scenario>`. Cet objet permettra ensuite l'évaluation du scénario et sa comparaison à d'autres scénarios envisagés. 
@@ -636,7 +636,7 @@ Une fois que le couplage réseau/filière constitutif d'un scénario est identif
 .. _exercice:
 
 Exercice : Création d'un second scénario pour :ref:`Petite Anse <petite-anse>`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pour mettre en pratique le contenu de cette page, vous pouvez essayez de suivre les différentes étapes décrites
 mais cette fois-ci en considérant 2 emplacements possibles : celui au Sud de la zone et celui au Nord.

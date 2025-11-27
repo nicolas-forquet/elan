@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.10.92-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-26 15:57+0100\n"
+"POT-Creation-Date: 2025-11-27 14:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -21,9 +21,9 @@ msgstr ""
 
 #: ../../logigramme_global1.rst:2
 msgid "Flux global question du centralisé / décentralisé"
-msgstr ""
+msgstr "Global workflow centralized / decentralized question"
 
-#: ../../logigramme_global1.rst:42
+#: ../../logigramme_global1.rst:7
 msgid "**Légende**"
-msgstr ""
+msgstr "Legend"
 

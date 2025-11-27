@@ -1,12 +1,12 @@
 .. _preparation:
 
 Obtention et préparation des données géographiques
-===================================================
+==================================================
 
 .. _entrees_reseau:
 
 Entrées du module ``Réseau``
------------------------------
+----------------------------
 
 Pour pouvoir utiliser le module ``Réseau``, **4 couches géographiques** sont nécessaires :
 
@@ -54,7 +54,7 @@ En contexte français (Hexagone et Outre-Mer)
     La couche ``bâtiments`` obtenue est de type *polygone* et non *point*. Elle doit donc être transformée via le module :ref:`Population <population>` intégré à ELAN ou le module ``Centroïdes`` qui est natif de QGIS.
 
 En contexte international
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * ``MNT`` : le MNT ou DEM en anglais (Digital Elevation Model), est *a priori* disponible sur l'ensemble des territoires du monde à une maille de 30 m via différentes plateformes.
 
@@ -90,12 +90,12 @@ En contexte international
 
 
 Utilisation des modules ``Routes et bâtiments`` et ``Population``
-------------------------------------------------------------------
+-----------------------------------------------------------------
 
 .. _routes:
 
 Module ``Routes et bâtiments``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Le module ``Routes et bâtiments`` permet l'extraction des entités routes et bâtiments se trouvant dans une zone définie par l'utilisateur (couche de type *polygone*).
 L'extraction se fait à partir `d'OpenStreetMap <https://www.openstreetmap.org>`_ qui rassemble des données cartographiques à l'échelle mondiale. 
@@ -149,7 +149,7 @@ Les couches **centroïdes et routes** peuvent être utilisées en entrée du **m
 .. _population:
 
 Module ``Population``
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 Le module ``Population`` permet de **répartir un nombre connu d'individus au sein des bâtiments de la zone**. 
 La répartition se fait **en appliquant la méthode surfacique** qui considère l'emprise des bâtiments : plus un 
@@ -195,7 +195,7 @@ attributaire de la couche.
 
 
 Entrées du module ``Hydraulique``
-----------------------------------
+---------------------------------
 
 .. hint::
    Cette section est en cours de construction.
