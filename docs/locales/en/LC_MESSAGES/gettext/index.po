@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, REVERSAAL et Oslandia
+# This file is distributed under the same license as the ELAN package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ELAN 2025.10.92-beta\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-27 10:01+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../../index.rst:37
+msgid "Documentation"
+msgstr ""
+
+#: ../../../index.rst:48
+msgid "Logigrammes interactifs"
+msgstr ""
+
+#: ../../../index.rst:55
+msgid "Tutoriels"
+msgstr ""
+
+#: ../../../index.rst:7
+msgid "ELAN"
+msgstr ""
+
+#: ../../../index.rst:9
+msgid ""
+"**ELAN** est un plugin QGIS d'aide à la décision pour une gestion "
+"intégrée des eaux urbaines par des solutions fondées sur la nature."
+msgstr ""
+
+#: ../../../index.rst:11
+msgid "**Auteurs** :"
+msgstr ""
+
+#: ../../../index.rst:13
+msgid ""
+"Gabrielle Favreau, Pascal Molle, Nicolas Forquet `REVERSAAL (INRAE) "
+"<https://reversaal.lyon-grenoble.hub.inrae.fr/>`_"
+msgstr ""
+
+#: ../../../index.rst:15
+msgid "Sophie Aubier, Jacky Volpes `Oslandia <https://oslandia.com/>`_"
+msgstr ""
+
+#: ../../../index.rst:17
+msgid ""
+"**Anciens contributeurs** : Larissa Marcos, Marie-Chloé Rosse, Raphaël "
+"Delhome"
+msgstr ""
+
+#: ../../../index.rst:19
+msgid ""
+"**Licence** : `GNU General Public License v2.0 or later "
+"<https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html>`_"
+msgstr ""
+
+#: ../../../index.rst:21
+msgid "**Version minimum de QGIS requise** : |qgis_version_min|"
+msgstr ""
+
+#: ../../../index.rst:23
+msgid "**Dernière mise à jour de la documentation** : |date_update|"
+msgstr ""
+
+#: ../../../index.rst:25
+msgid "**Version du plugin** : |version|"
+msgstr ""
+
+#: ../../../index.rst:31
+msgid "Ce projet est en cours de développement."
+msgstr ""
+
+#: ../../../index.rst:35
+msgid "Contenu"
+msgstr ""
+

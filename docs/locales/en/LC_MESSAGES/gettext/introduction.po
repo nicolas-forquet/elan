@@ -1,0 +1,291 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, REVERSAAL et Oslandia
+# This file is distributed under the same license as the ELAN package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ELAN 2025.10.92-beta\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-27 10:01+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../../introduction.rst:2
+msgid "Introduction"
+msgstr ""
+
+#: ../../../introduction.rst:4
+msgid ""
+"L'appellation ELAN a été choisie pour **\"urban watEr pLanning scenArios "
+"for sustaiNable cities\"**. Il s'agit d'un **outil d'aide à la décision "
+"pour une gestion intégrée des eaux urbaines (usées et pluviales) par des "
+"solutions fondées sur la nature**. ELAN s'inscrit dans un objectif global"
+" de transformer la ville de demain pour la rendre résiliente au "
+"changement global. Cette transformation constitue un véritable défi "
+"territorial, ce qui rend particulièrement pertinent le recours au système"
+" d'information géographique (SIG)."
+msgstr ""
+
+#: ../../../introduction.rst:10
+msgid "Un outil, deux problématiques"
+msgstr ""
+
+#: ../../../introduction.rst:11
+msgid ""
+"ELAN permet d'aider à la décision face à **deux problématiques** : l'une "
+"mettant en jeu spécifiquement les eaux usées (**\"question du "
+"centralisé/décentralisé\"**), l'autre impliquant les eaux urbaines dans "
+"leur ensemble (**\"question des déversements par temps de pluie\"**)."
+msgstr ""
+
+#: ../../../introduction.rst:14
+msgid ""
+"Pour la problématique du centralisé/décentralisé, la question qui se pose"
+" est : **comment connecter une zone dépourvue de réseau d'assainissement "
+"(nouveau quartier, zone historiquement en assainissement non collectif) "
+"?**"
+msgstr ""
+
+#: ../../../introduction.rst:17
+msgid ""
+"Dans le cas de déversements d'un réseau unitaire par temps de pluie, "
+"l'utilisateur est confronté à la question : **comment limiter les "
+"déversements d'eaux non traitées au niveau des déversoirs d'orage ?**"
+msgstr ""
+
+#: ../../../introduction.rst:21
+msgid "Illustration par des exemples"
+msgstr ""
+
+#: ../../../introduction.rst:26
+msgid "Question du centralisé/décentralisé : Petite Anse (Martinique)"
+msgstr ""
+
+#: ../../../introduction.rst:27
+msgid ""
+"Petite Anse est un **quartier sans réseau d'assainissement** : "
+"historiquement le choix de l'assainissement non collectif s'est en effet "
+"imposé, notamment au regard des contraintes géographiques (relief "
+"marqué)."
+msgstr ""
+
+#: ../../../introduction.rst:30
+msgid ""
+"L'image ci-dessous permet d'expliquer la problématique. Le quartier de "
+"Petite Anse se trouve dans l'ellipse. Il est constitué de deux zones (une"
+" basse et une sur les hauteurs) interconnectées entre elles par une "
+"route. La collectivité en charge de ce quartier souhaite **étudier la "
+"possibilité d'implémenter un réseau d'assainissement collectif**."
+msgstr ""
+
+#: ../../../introduction.rst:33
+msgid "**Plusieurs exutoires** sont envisageables :"
+msgstr ""
+
+#: ../../../introduction.rst:35
+msgid ""
+"l'une des deux stations existantes (points verts encerclés de pointillés)"
+" ;"
+msgstr ""
+
+#: ../../../introduction.rst:37
+msgid ""
+"une nouvelle station dans le quartier à l'un des deux emplacements "
+"identifiés : sur les hauteurs (point orange encerclé de pointillés) ou "
+"sur le littoral (point bordeau encerclé de pointillés) ;"
+msgstr ""
+
+#: ../../../introduction.rst:39
+msgid ""
+"une combinaison de ces exutoires possibles (1 nouvelle et 1 station "
+"existante, 2 nouvelles)."
+msgstr ""
+
+#: ../../../introduction.rst:41
+msgid ""
+"Si toutes les eaux usées générées par ce quartier sont évacuées et "
+"traitées en **un point**, la gestion sera **centralisée**. Si **deux "
+"exutoires (ou plus)** sont retenus, la gestion sera **décentralisée**."
+msgstr ""
+
+#: ../../../introduction.rst:46
+msgid ""
+"ELAN permet d'aider à la prise de décision en permettant à l'utilisateur "
+"**d'explorer de multiples scénarios et de les évaluer**."
+msgstr ""
+
+#: ../../../introduction.rst:48
+msgid ""
+"Petite Anse nous servira de cas d'exemple pour la question du "
+"centralisé/décentralisé : un :ref:`tutoriel <tutorial1>` lui est "
+"consacré."
+msgstr ""
+
+#: ../../../introduction.rst:51
+msgid "Question des déversements par temps de pluie : Écully (Rhône)"
+msgstr ""
+
+#: ../../../introduction.rst:54
+msgid "Cette section est en cours de construction."
+msgstr ""
+
+#: ../../../introduction.rst:57
+msgid "Structure de l'outil"
+msgstr ""
+
+#: ../../../introduction.rst:58
+msgid "ELAN est structuré en **plusieurs groupement de modules**."
+msgstr ""
+
+#: ../../../introduction.rst:63
+msgid "**Préparation des données**"
+msgstr ""
+
+#: ../../../introduction.rst:64
+msgid ""
+"``Routes et bâtiments`` qui permet **d'extraire les données** "
+"`OpenStreetMap <https://www.openstreetmap.org>`_ de la zone d'intérêt "
+"définie par l'utilisateur."
+msgstr ""
+
+#: ../../../introduction.rst:65
+msgid ""
+"``Population`` qui est utilisable pour **répartir un nombre connu "
+"d'habitants** au sein d'un ensemble de bâtiments."
+msgstr ""
+
+#: ../../../introduction.rst:66
+msgid ""
+"``Bassins versants urbains`` pour **identifier les différents bassins "
+"versants urbains** drainés par un réseau unitaire connu."
+msgstr ""
+
+#: ../../../introduction.rst:69
+msgid ""
+"L'utilisation de ces modules est facultative. Elle permet, si "
+"l'utilisateur en a besoin, de préparer les données SIG requises en "
+"entrées des modules de type \"Processus\" : ``Routes et bâtiments`` et "
+"``Population`` pour le module ``Réseau``, ``Bassins versants urbains`` "
+"pour le module ``Hydraulique``."
+msgstr ""
+
+#: ../../../introduction.rst:72
+msgid "**Processus**"
+msgstr ""
+
+#: ../../../introduction.rst:73
+msgid ""
+"``Réseau`` pour **tracer un réseau d'assainissement** strict (réseau "
+"séparatif, eaux usées uniquement) dans une zone sans réseau à l'aide de "
+":ref:`pysewer <pysewer>`."
+msgstr ""
+
+#: ../../../introduction.rst:74
+msgid ""
+"``Procédés`` qui permet de **pré-dimensionner des filières de "
+"traitement** des eaux usées de type filtres plantés de végétaux à l'aide "
+"de :ref:`wetlandoptimizer <wetlandoptimizer>`."
+msgstr ""
+
+#: ../../../introduction.rst:75
+msgid ""
+"``Hydraulique`` qui intervient dans **l'estimation des volumes produits**"
+" par les différents bassins versants urbains d'une zone."
+msgstr ""
+
+#: ../../../introduction.rst:79
+msgid ""
+"Le module ``Réseau`` est utilisé pour la question du "
+"centralisé/décentralisé."
+msgstr ""
+
+#: ../../../introduction.rst:81
+msgid "Le module ``Hydraulique`` pour celle des déversements par temps de pluie."
+msgstr ""
+
+#: ../../../introduction.rst:83
+msgid "Le module ``Procédés`` peut être sollicité pour les deux problématiques."
+msgstr ""
+
+#: ../../../introduction.rst:85
+msgid ""
+"``Créer un scénario`` qui est à l'interface des modules de types "
+"*Processus* et *Analyse* et permet de créer des objets scénarios qui "
+"pourront ensuite être évalués et comparés."
+msgstr ""
+
+#: ../../../introduction.rst:87
+msgid "**Exploration des résultats**"
+msgstr ""
+
+#: ../../../introduction.rst:88
+msgid ""
+"``Profils de canalisations`` qui permet de **visualiser le profil "
+"souterrain des canalisations (vue longitudinale)**."
+msgstr ""
+
+#: ../../../introduction.rst:91
+msgid ""
+"L'utilisation de ce module est facultative. Elle permet, si l'utilisateur"
+" le souhaite, d'approfondir les résultats obtenus en sortie de module "
+"``Réseau``."
+msgstr ""
+
+#: ../../../introduction.rst:93
+msgid "**Analyse**"
+msgstr ""
+
+#: ../../../introduction.rst:94
+msgid ""
+"``Évaluation`` qui permet **d'évaluer un scénario sur plusieurs "
+"paramètres** (économique, technicité, robustesse)."
+msgstr ""
+
+#: ../../../introduction.rst:95
+msgid ""
+"``Comparaison`` pour **mener une analyse multicritère sur un ensemble de "
+"scénarios** et les comparer selon différents critères priorisés par "
+"l'utilisateur."
+msgstr ""
+
+#: ../../../introduction.rst:100
+msgid "Un outil qui mutualise différents travaux de recherche"
+msgstr ""
+
+#: ../../../introduction.rst:102
+msgid ""
+"ELAN vise à **rendre plus largement accessible les résultats de travaux "
+"de recherche** menés indépendamment sur un aspect spécifique des "
+"problématiques adressées et de **les combiner entre eux pour envisager "
+"ces problématiques dans leur globalité et leur complexité**."
+msgstr ""
+
+#: ../../../introduction.rst:105
+msgid ""
+"Les travaux de recherche identifiés et intégrés à la version actuelle de "
+"l'outil ont été développés par :"
+msgstr ""
+
+#: ../../../introduction.rst:115
+msgid ""
+"Parmi les futures intégrations à ELAN, ont été identifiés les travaux "
+"d'hydrologie urbaine menés conjointement par :"
+msgstr ""
+
+#: ../../../introduction.rst:125
+msgid "Le développement de l'outil en lui-même mobilise deux acteurs :"
+msgstr ""
+
+#: ../../../introduction.rst:135
+msgid "Ce projet est développé grâce aux financements de :"
+msgstr ""
+
