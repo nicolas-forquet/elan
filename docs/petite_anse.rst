@@ -386,6 +386,8 @@ Le scénario que nous allons créer dans ce pas à pas va considérer un raccord
 
 **1. Utilisation du module** ``Réseau``
 
+.. _select_steu:
+
 * Sélectionner la station au Sud (bulles 1 à 3).
 
 * Chercher ``ELAN`` dans la boîte à outils de traitements (bulle 4) et sélectionner ``Réseau`` (bulle 5).
@@ -430,6 +432,8 @@ Après exécution, vous obtenez la vue suivante :
     * triangles verts pour les stations de relevage
     * triangles rouges pour les stations de pompage (privées et non privées)
     * lignes bleues pour les sections en gravitaire et lignes rouges pour les sections en refoulement
+
+.. _select_styles:
 
 D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y accéder :
 
@@ -483,6 +487,8 @@ D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y accéd
                 .. image:: _static/vue_2_reseaux.png
                     :width: 200
 
+.. _groupe:
+
 .. tip::
     Pour organiser votre espace avec les différentes couches, vous pouvez créer des groupes (ici *Préparation de données*, *Données mises à disposition* et *STEU Sud*.)
     
@@ -490,6 +496,8 @@ D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y accéd
 
             .. image:: _static/ajout-groupe.png
                 :width: 132
+
+.. _view_attributs:
 
 **3. Consultation de la couche** ``Informations sur le réseau`` **et des attributs des autres couches**
 
@@ -528,6 +536,7 @@ Pour explorer le pré-dimensionnement proposé par le module ``Réseau``, vous p
 
 Étape 2 : Pré-dimensionner la ou les STEU (module ``Procédés``)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _specify_C:
 
 **1. Renseigner les contraintes de rejet dans la couche** ``STEU``
 
@@ -548,6 +557,8 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 
 .. image:: _static/edit-attributs-steu.png
     :width: 700
+
+.. _define_surface:
 
 **2. Délimitation de la surface disponible** (facultatif)
 

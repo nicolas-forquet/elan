@@ -43,6 +43,7 @@ pour quelques astuces et explications.
 
 Utilisation du module
 ^^^^^^^^^^^^^^^^^^^^^
+.. _start_reseau:
 
 **1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Réseau``.
 
@@ -324,6 +325,8 @@ Les attributs relatifs aux niveaux de rejet sont présents mais à renseigner ma
 Ce point est **facultatif** et n'intervient pas dans le pré-dimensionnement :
 il permet de vous aider à identifier quelles filières, parmi celles qui permettent d'atteindre vos contraintes de rejet, coïncident avec vos contraintes en termes de surface.
 
+.. _start_procedes:
+
 Utilisation du module
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -354,6 +357,8 @@ Pour plus d'informations sur la bonne prise en compte du climat tropical lors du
 
 .. image:: _static/use-procedes2.png
     :width: 568
+
+.. _sortie_procedes:
 
 **7.** Après exécution du module, vous obtenez une couche nommée ``Couche de filières`` (couche de type *point*).
 
