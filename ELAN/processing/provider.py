@@ -8,9 +8,9 @@ from qgis.PyQt.QtGui import QIcon
 
 # project
 from ELAN.__about__ import DIR_PLUGIN_ROOT, __experimental__, __version__
-from ELAN.processing.economical import EconomicalAlgorithm
+from ELAN.processing.assessment import AssessmentAlgorithm
+from ELAN.processing.comparison import ComparisonAlgorithm
 from ELAN.processing.hydraulic import HydraulicAlgorithm, HydraulicUrbanCatchmentAlgorithm
-from ELAN.processing.lca import LcaAlgorithm
 from ELAN.processing.population import PopulationAreametricAlgorithm, PopulationUniformAlgorithm
 from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
 from ELAN.processing.scenario import ScenarioAlgorithm
@@ -33,8 +33,8 @@ class ELANProvider(QgsProcessingProvider, Translatable):
         self.addAlgorithm(ScenarioAlgorithm())
 
         if __experimental__:
-            self.addAlgorithm(LcaAlgorithm())
-            self.addAlgorithm(EconomicalAlgorithm())
+            self.addAlgorithm(AssessmentAlgorithm())
+            self.addAlgorithm(ComparisonAlgorithm())
             self.addAlgorithm(HydraulicAlgorithm())
             self.addAlgorithm(HydraulicUrbanCatchmentAlgorithm())
 
