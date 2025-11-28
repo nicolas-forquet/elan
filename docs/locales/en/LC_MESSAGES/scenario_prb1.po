@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-12 14:01+0100\n"
-"PO-Revision-Date: 2025-11-12 14:42+0100\n"
+"PO-Revision-Date: 2025-11-28 15:47+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -129,7 +129,7 @@ msgstr ""
 #: ../../scenario_prb1.rst:43 ../../scenario_prb1.rst:190
 #: ../../scenario_prb1.rst:320 ../../scenario_prb1.rst:460
 msgid "Utilisation du module"
-msgstr "Using the ``Sewer network`` module"
+msgstr "Using the module"
 
 #: ../../scenario_prb1.rst:45
 msgid ""
