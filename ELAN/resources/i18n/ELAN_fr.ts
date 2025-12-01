@@ -200,32 +200,32 @@ Traitement en coquille vide</translation>
 <context>
     <name>ELANPlugin</name>
     <message>
-        <location filename="../../plugin_main.py" line="61"/>
+        <location filename="../../plugin_main.py" line="60"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../../plugin_main.py" line="69"/>
+        <location filename="../../plugin_main.py" line="68"/>
         <source>Documentation</source>
         <translation>Documentation</translation>
     </message>
     <message>
-        <location filename="../../plugin_main.py" line="110"/>
+        <location filename="../../plugin_main.py" line="109"/>
         <source>Error importing dependencies. ELAN processing modules are disabled.</source>
         <translation>Erreur à l&apos;import des dépendances. Les modules de traitement d&apos;ELAN ont été désactivés.</translation>
     </message>
     <message>
-        <location filename="../../plugin_main.py" line="110"/>
+        <location filename="../../plugin_main.py" line="109"/>
         <source>How to fix it...</source>
         <translation>Réparer...</translation>
     </message>
     <message>
-        <location filename="../../plugin_main.py" line="91"/>
+        <location filename="../../plugin_main.py" line="90"/>
         <source>Show bar plot for treatment train layer</source>
         <translation>Afficher le graphique en barres des filières possibles de la STEU</translation>
     </message>
     <message>
-        <location filename="../../plugin_main.py" line="96"/>
+        <location filename="../../plugin_main.py" line="95"/>
         <source>Show radar plot for treatment train layer</source>
         <translation>Afficher le graphique en radar des filières possibles de la STEU</translation>
     </message>
@@ -1417,12 +1417,12 @@ La couche canas dispose de 6 styles différents sélectionnables par le menu con
 <context>
     <name>SnapOnRoadsAlgorithm</name>
     <message>
-        <location filename="../../processing/projection.py" line="65"/>
+        <location filename="../../processing/snap_on_roads.py" line="67"/>
         <source>Snap on roads</source>
         <translation>Projection sur routes</translation>
     </message>
     <message>
-        <location filename="../../processing/projection.py" line="72"/>
+        <location filename="../../processing/snap_on_roads.py" line="74"/>
         <source>Data pre-processing</source>
         <translation>Préparation des données</translation>
     </message>
@@ -1431,7 +1431,7 @@ La couche canas dispose de 6 styles différents sélectionnables par le menu con
         <source>This module projects building centroids onto the nearest road vertices within auser-defined maximum distance.
 The purpose of this spatial operation is to reduce the number of pumping stationsor connection points that are not relevant from an urban perspective -specifically those representing private lateral connections between individualbuildings and the public road network.
 By snapping buildings to the closest road vertex within a specified distance, the scriptprevents these private connections from being counted as distinct infrastructure needs. This step helps isolate connections that actually relate to the publicnetwork and simplifies subsequent analysis.&lt;h2&gt;Inputs:&lt;/h2&gt;&lt;ul&gt;    &lt;li&gt;Building layer: centroid locations of buildings&lt;/li&gt;    &lt;li&gt;Road layer: road geometry used for snapping&lt;/li&gt;    &lt;li&gt;Total population: numeric input representing overall population count&lt;/li&gt;    &lt;li&gt;Maximum distance for projection: maximum search distance for snapping         buildings to roads&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;Outputs:&lt;/h2&gt;&lt;ul&gt;&lt;h3&gt;Building features are preserved, with a new status column:&lt;/h3&gt;    &lt;li&gt;Projected: successfully snapped to a nearby road&lt;/li&gt;    &lt;li&gt;Not projected: no road found within the specified distance&lt;/li&gt;&lt;h3&gt;Centroids that fall on the same road vertex are merged, with:&lt;/h3&gt;    &lt;li&gt;Population values aggregated by sum&lt;/li&gt;    &lt;li&gt;A new column recording how many buildings were projected to that vertex&lt;/li&gt;&lt;/ul&gt;</source>
-        <translation>Ce module projette les centroïdes de bâtiments sur les sommets de route les plus proches, dans une distance maximale définie par l’utilisateur.
+        <translation type="obsolete">Ce module projette les centroïdes de bâtiments sur les sommets de route les plus proches, dans une distance maximale définie par l’utilisateur.
 Le but de cette opération spatiale est de réduire le nombre de stations de pompage ou de points de raccordement qui ne sont pas pertinents d’un point de vue municipal - en particulier ceux représentant les branchements privés reliant individuellement chaque bâtiment au réseau routier public. 
 En ajustant (snapping) les bâtiments à la route la plus proche dans une distance spécifiée, le script évite que ces connexions privées soient comptabilisées comme des besoins d’infrastructure distincts. 
 Cette étape permet d’isoler les raccordements réellement liés au réseau public et de simplifier les analyses ultérieure.
@@ -1455,9 +1455,9 @@ Cette étape permet d’isoler les raccordements réellement liés au réseau pu
 &lt;/ul&gt;</translation>
     </message>
     <message>
-        <location filename="../../processing/projection.py" line="138"/>
-        <source>Total population</source>
-        <translation>Population total</translation>
+        <location filename="../../processing/snap_on_roads.py" line="140"/>
+        <source>Building population field</source>
+        <translation>Champ population du bâtiment</translation>
     </message>
     <message>
         <location filename="../../processing/projection.py" line="137"/>
@@ -1465,14 +1465,14 @@ Cette étape permet d’isoler les raccordements réellement liés au réseau pu
         <translation type="obsolete">Distance maximum pour la projection</translation>
     </message>
     <message>
-        <location filename="../../processing/projection.py" line="127"/>
+        <location filename="../../processing/snap_on_roads.py" line="129"/>
         <source>Road layer</source>
-        <translation>Couche routes</translation>
+        <translation>Couche route</translation>
     </message>
     <message>
-        <location filename="../../processing/projection.py" line="132"/>
+        <location filename="../../processing/snap_on_roads.py" line="134"/>
         <source>Building layer</source>
-        <translation>Couche de bâtiments</translation>
+        <translation>Couche bâtiment</translation>
     </message>
     <message>
         <location filename="../../processing/projection.py" line="158"/>
@@ -1480,7 +1480,7 @@ Cette étape permet d’isoler les raccordements réellement liés au réseau pu
         <translation type="obsolete">Résumé des centroïdes projetés - Couche de sortie</translation>
     </message>
     <message>
-        <location filename="../../processing/projection.py" line="162"/>
+        <location filename="../../processing/snap_on_roads.py" line="164"/>
         <source>Projection lines - Output layer</source>
         <translation>Lignes de projection - Couche de sortie</translation>
     </message>
@@ -1520,12 +1520,36 @@ Cette étape permet d’isoler les raccordements réellement liés au réseau pu
     <message>
         <location filename="../../processing/projection.py" line="146"/>
         <source>Maximum distance to road for projection (m)</source>
-        <translation>Distance maximale à la route pour la projection (m)</translation>
+        <translation type="obsolete">Distance maximale à la route pour la projection (m)</translation>
     </message>
     <message>
-        <location filename="../../processing/projection.py" line="154"/>
+        <location filename="../../processing/snap_on_roads.py" line="156"/>
         <source>Projected centroids - Output layer</source>
-        <translation>centroïdes projetés</translation>
+        <translation>Centroïdes projetés - Couche de sortie</translation>
+    </message>
+    <message>
+        <location filename="../../processing/snap_on_roads.py" line="93"/>
+        <source>This module projects building centroids onto the nearest road vertices within auser-defined maximum distance.
+The purpose of this spatial operation is to reduce the number of pumping stationsor connection points that are not relevant from an urban perspective -specifically those representing private lateral connections between individualbuildings and the public road network.
+By snapping buildings to the closest road vertex within a specified distance, the scriptprevents these private connections from being counted as distinct infrastructure needs. This step helps isolate connections that actually relate to the publicnetwork and simplifies subsequent analysis.&lt;h2&gt;Inputs:&lt;/h2&gt;&lt;ul&gt;    &lt;li&gt;Building layer: centroid locations of buildings&lt;/li&gt;    &lt;li&gt;Road layer: road geometry used for snapping&lt;/li&gt;    &lt;li&gt;Building population field: field from the buildings layer with the population attribute&lt;/li&gt;    &lt;li&gt;Maximum distance to road for snapping: maximum search distance for snapping         buildings to roads&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;Outputs:&lt;/h2&gt;&lt;ul&gt;&lt;h3&gt;Building features are preserved, with a new status column:&lt;/h3&gt;    &lt;li&gt;Projected: successfully snapped to a nearby road&lt;/li&gt;    &lt;li&gt;Not projected: no road found within the specified distance&lt;/li&gt;&lt;h3&gt;Centroids that fall on the same road vertex are merged, with:&lt;/h3&gt;    &lt;li&gt;Population values aggregated by sum&lt;/li&gt;    &lt;li&gt;A new column recording how many buildings were projected to that vertex&lt;/li&gt;&lt;/ul&gt;</source>
+        <translation>Ce module projette les centroïdes de bâtiments sur les sommets de route les plus proches, dans une distance maximale définie par l’utilisateur.
+Le but de cette opération spatiale est de réduire le nombre de stations de pompage ou de points de raccordement qui ne sont pas pertinents d’un point de vue municipal.
+En particulier ceux représentant les branchements privés reliant individuellement chaque bâtiment au réseau routier public. 
+En ajustant les bâtiments à la route la plus proche dans une distance spécifiée, le script évite que ces connexions privées soient comptabilisées comme des besoins d’infrastructure distincts.
+Cette étape permet d’isoler les raccordements réellement liés au réseau public et de simplifier les analyses ultérieures.
+
+&lt;h2&gt;Entrées :&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;Couche des bâtiments : localisation des centroïdes des bâtiments&lt;/li&gt;&lt;li&gt;Couche des routes : géométrie des routes utilisée pour l’ajustement&lt;/li&gt;&lt;li&gt;Champ population du bâtiment : champ de la couche bâtiments avec l&apos;attribut de population&lt;/li&gt;&lt;li&gt;Distance maximale à la route pour projection : distance maximale de recherche pour ajuster les bâtiments aux routes&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;Sorties :&lt;/h2&gt;
+&lt;h3&gt;Les entités de bâtiments sont conservées, avec une nouvelle colonne de statut :&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;Projeté : ajusté avec succès à une route proche&lt;/li&gt;&lt;li&gt;Non projeté: aucune route trouvée dans la distance spécifiée&lt;/li&gt;&lt;/ul&gt;
+&lt;h3&gt;Les centroïdes situés sur le même sommet de route sont fusionnés avec :&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;Valeurs de population agrégées par somme&lt;/li&gt;&lt;li&gt;Une nouvelle colonne indique le nombre de bâtiments projetés sur ce sommet&lt;/li&gt;&lt;/ul&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../processing/snap_on_roads.py" line="148"/>
+        <source>Maximum distance to road for snapping (m)</source>
+        <translation>Distance maximale à la route pour la projection (m)</translation>
     </message>
 </context>
 <context>
