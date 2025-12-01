@@ -18,7 +18,9 @@ def test_get_active_layer(mocker):
 
     # First layer is a real treatment train layer
     test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "wetland_process"
-    treatment_train_layer = load_layer(test_data_dir / "wetland_process_reference_output.gpkg.zip", "couche_de_filires")
+    treatment_train_layer = load_layer(
+        test_data_dir / "wetland_process_reference_output_without_surface.gpkg.zip", "couche_de_filires"
+    )
 
     # Second layer to test is not a treatment train layer, some fields are missing
     error_layer = QgsVectorLayer(
@@ -62,7 +64,9 @@ def test_validate_and_get_metadata(mocker):
 
     # First layer is a real treatment train layer
     test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "wetland_process"
-    treatment_train_layer = load_layer(test_data_dir / "wetland_process_reference_output.gpkg.zip", "couche_de_filires")
+    treatment_train_layer = load_layer(
+        test_data_dir / "wetland_process_reference_output_without_surface.gpkg.zip", "couche_de_filires"
+    )
 
     # qmessagebox mock will avoid showing a popup and stuck the test
     qmessagebox_mock: Mock = mocker.patch("ELAN.scripts.treatment_train_plot.QMessageBox")
