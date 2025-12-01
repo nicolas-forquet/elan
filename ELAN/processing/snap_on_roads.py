@@ -9,9 +9,10 @@
 ***************************************************************************
 """
 
+from collections import defaultdict
+
 import geopandas as gpd
 import pandas as pd
-from qgis import processing
 from qgis.core import (
     Qgis,
     QgsFeature,
@@ -20,15 +21,15 @@ from qgis.core import (
     QgsFields,
     QgsGeometry,
     QgsProcessingAlgorithm,
+    QgsProcessingException,
     QgsProcessingParameterDistance,
     QgsProcessingParameterFeatureSink,
     QgsProcessingParameterFeatureSource,
     QgsProcessingParameterField,
-    QgsWkbTypes,
 )
-from qgis.PyQt.QtCore import QMetaType, QVariant
+from qgis.PyQt.QtCore import QMetaType
+from shapely.geometry import LineString, Point
 
-from ELAN.scripts.snap_on_roads import snap_buildings_to_road_vertices
 from ELAN.utils.tr import Translatable
 
 
@@ -45,6 +46,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
     OUTPUT_LINES = "OUTPUT_LINES"
 
     def createInstance(self):
+        """Return an instance of this class"""
         return SnapOnRoadsAlgorithm()
 
     def name(self):
@@ -85,7 +87,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         """
         Returns a localised short helper string for the algorithm. This string
         should provide a basic description about what the algorithm does and the
-        parameters and outputs associated with it..
+        parameters and outputs associated with it.
         """
 
         return self.tr(
@@ -103,8 +105,8 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             "<ul>"
             "    <li>Building layer: centroid locations of buildings</li>"
             "    <li>Road layer: road geometry used for snapping</li>"
-            "    <li>Total population: numeric input representing overall population count</li>"
-            "    <li>Maximum distance for projection: maximum search distance for snapping "
+            "    <li>Building population field: field from the buildings layer with the population attribute</li>"
+            "    <li>Maximum distance to road for snapping: maximum search distance for snapping "
             "        buildings to roads</li>"
             "</ul>"
             "<h2>Outputs:</h2>"
@@ -118,7 +120,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             "</ul>"
         )
 
-    def initAlgorithm(self, configuration=None):
+    def initAlgorithm(self, configuration=None):  # pylint: disable=unused-argument
         """
         Here we define the inputs and output of the algorithm, along
         with some other properties.
@@ -138,7 +140,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         self.addParameter(
             QgsProcessingParameterField(
                 self.POPULATION_FIELD,
-                self.tr("Total population"),
+                self.tr("Building population field"),
                 parentLayerParameterName=self.BUILDINGS_INPUT_DATA,
                 type=Qgis.ProcessingFieldParameterDataType.Numeric,
             )
@@ -146,7 +148,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         self.addParameter(
             QgsProcessingParameterDistance(
                 self.MAX_DISTANCE_TO_ROAD,
-                self.tr("Maximum distance to road for projection (m)"),
+                self.tr("Maximum distance to road for snapping (m)"),
                 defaultValue=40,
                 parentParameterName=self.ROADS_INPUT_DATA,
             )
@@ -196,7 +198,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             sink.addFeature(feat, QgsFeatureSink.Flag.FastInsert)
         return sink
 
-    def processAlgorithm(self, parameters, context, feedback) -> QgsFeatureSink:
+    def processAlgorithm(self, parameters, context, feedback):  # pylint: disable=unused-argument, too-many-locals
         """
         Here is where the processing itself takes place.
         """
@@ -207,9 +209,9 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         buildings_source = self.parameterAsSource(parameters, self.BUILDINGS_INPUT_DATA, context)
 
         if roads_source is None:
-            raise self.invalidSourceError(parameters, self.ROADS_INPUT_DATA)
+            raise QgsProcessingException(self.invalidSourceError(parameters, self.ROADS_INPUT_DATA))
         if buildings_source is None:
-            raise self.invalidSourceError(parameters, self.BUILDINGS_INPUT_DATA)
+            raise QgsProcessingException(self.invalidSourceError(parameters, self.BUILDINGS_INPUT_DATA))
 
         # Create GeoDataFrame from roads_source and buildings_source
         roads_gdf = gpd.GeoDataFrame.from_features(roads_source.getFeatures())
@@ -231,10 +233,10 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         # Create layer with sink
 
         (aggregated_sink, aggregeted_dest_id) = self.parameterAsSink(
-            parameters, self.OUTPUT_AGGREGATED, context, aggregated_fields, QgsWkbTypes.Point, roads_crs
+            parameters, self.OUTPUT_AGGREGATED, context, aggregated_fields, Qgis.WkbType.Point, roads_crs
         )
         (lines_sink, lines_dest_id) = self.parameterAsSink(
-            parameters, self.OUTPUT_LINES, context, lines_fields, QgsWkbTypes.LineString, roads_crs
+            parameters, self.OUTPUT_LINES, context, lines_fields, Qgis.WkbType.LineString, roads_crs
         )
 
         # Fill the layer
@@ -242,8 +244,93 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         lines_sink = self.fillSinkWithDataFrame(lines, lines_fields, lines_sink)
 
         if aggregated_sink is None:
-            raise self.invalidSinkError(parameters, self.OUTPUT_AGGREGATED)
+            raise QgsProcessingException(self.invalidSinkError(parameters, self.OUTPUT_AGGREGATED))
         if lines_sink is None:
-            raise self.invalidSinkError(parameters, self.OUTPUT_LINES)
+            raise QgsProcessingException(self.invalidSinkError(parameters, self.OUTPUT_LINES))
 
         return {self.OUTPUT_AGGREGATED: aggregeted_dest_id, self.OUTPUT_LINES: lines_dest_id}
+
+
+def explode_multilines(gdf):
+    """
+    Explodes MultiLineStrings into individual LineStrings.
+    """
+    gdf = gdf.explode(ignore_index=True)
+    return gdf[gdf.geometry.type == "LineString"].reset_index(drop=True)
+
+
+def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_distance=500):
+    """
+    Snap centroids to road vertices, aggregate population at each vertex,
+    and return individual building status and projection lines.
+
+    Returns:
+        - aggregated_gdf: snapped vertex points with sum + count
+        - projection_lines_gdf: LineStrings from original centroid to snapped vertex
+    """
+
+    if buildings_gdf.crs != roads_gdf.crs:
+        raise ValueError("CRS mismatch between buildings and roads")
+
+    roads_gdf = explode_multilines(roads_gdf)
+    roads_gdf = roads_gdf[roads_gdf.geometry.is_valid]
+
+    # Extract all road vertices
+    vertex_index = {}
+    vertices = []
+    for line in roads_gdf.geometry:
+        for coord in line.coords:
+            pt = Point(coord)
+            key = (round(pt.x, 6), round(pt.y, 6))
+            if key not in vertex_index:
+                vertex_index[key] = pt
+                vertices.append(pt)
+
+    vertex_gdf = gpd.GeoDataFrame(geometry=vertices, crs=roads_gdf.crs)
+    vertex_sindex = vertex_gdf.sindex
+
+    # Containers
+    aggregation = defaultdict(lambda: {"geometry": None, "count": 0, f"{value_field}": 0.0})
+    projection_lines = []
+    building_records = []
+
+    for _, row in buildings_gdf.iterrows():
+        centroid = row.geometry.centroid
+        value = row[value_field]
+
+        # Find nearest vertex within threshold
+        possible_idx = list(vertex_sindex.intersection(centroid.buffer(max_distance).bounds))
+        candidates = vertex_gdf.iloc[possible_idx]
+
+        nearest_pt = None
+        min_dist = float("inf")
+        for _, v_row in candidates.iterrows():
+            dist = centroid.distance(v_row.geometry)
+            if dist < min_dist and dist <= max_distance:
+                nearest_pt = v_row.geometry
+                min_dist = dist
+
+        if nearest_pt:
+            # Snap and aggregate
+            key = (round(nearest_pt.x, 6), round(nearest_pt.y, 6))
+            pt = vertex_index[key]
+            aggregation[key]["geometry"] = pt
+            aggregation[key]["count"] += 1
+            aggregation[key][str(value_field)] += value
+
+            # Record projection line
+            projection_lines.append(LineString([(centroid.x, centroid.y), (pt.x, pt.y)]))
+
+            # Record individual building
+            building_records.append({**row.drop("geometry"), "geometry": pt, "status": "snapped"})
+
+        else:
+            # Not snapped
+            building_records.append({**row.drop("geometry"), "geometry": centroid, "status": "not_snapped"})
+
+    # Build outputs
+    aggregated_gdf = gpd.GeoDataFrame(list(aggregation.values()), crs=buildings_gdf.crs)
+    lines_gdf = gpd.GeoDataFrame(geometry=projection_lines, crs=buildings_gdf.crs)
+    status_gdf = gpd.GeoDataFrame(building_records, crs=buildings_gdf.crs)
+
+    return aggregated_gdf, lines_gdf

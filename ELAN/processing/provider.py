@@ -12,10 +12,10 @@ from ELAN.processing.assessment import AssessmentAlgorithm
 from ELAN.processing.comparison import ComparisonAlgorithm
 from ELAN.processing.hydraulic import HydraulicAlgorithm, HydraulicUrbanCatchmentAlgorithm
 from ELAN.processing.population import PopulationAreametricAlgorithm, PopulationUniformAlgorithm
-from ELAN.processing.projection import SnapOnRoadsAlgorithm
 from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
 from ELAN.processing.scenario import ScenarioAlgorithm
 from ELAN.processing.sewer_network import SewerNetworkAlgorithm
+from ELAN.processing.snap_on_roads import SnapOnRoadsAlgorithm
 from ELAN.processing.trench_profile import TrenchProfileAlgorithm
 from ELAN.processing.wetland_process import WetlandProcessAlgorithm
 from ELAN.utils.tr import Translatable
