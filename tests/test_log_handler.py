@@ -20,20 +20,20 @@ def test_log_handler(mocker):
     # normal call
     PlgLogger.log("everything is fine")
     message_log_mock.logMessage.assert_called_once_with(
-        level=0, message="everything is fine", notifyUser=False, tag="ELAN"
+        level=0, message="everything is fine", notifyUser=False, tag="Elan"
     )
     message_log_mock.reset_mock()
 
     # call with a non string parameter: should convert it to a string
     PlgLogger.log(54)
-    message_log_mock.logMessage.assert_called_once_with(level=0, message="54", notifyUser=False, tag="ELAN")
+    message_log_mock.logMessage.assert_called_once_with(level=0, message="54", notifyUser=False, tag="Elan")
     message_log_mock.reset_mock()
 
     # call with push: should trigger a message bar
     PlgLogger.log("hey", push=True)
-    message_log_mock.logMessage.assert_called_once_with(level=0, message="hey", notifyUser=True, tag="ELAN")
+    message_log_mock.logMessage.assert_called_once_with(level=0, message="hey", notifyUser=True, tag="Elan")
     iface_mock.messageBar.return_value.pushMessage.assert_called_once_with(
-        level=0, text="hey", title="ELAN", duration=3
+        level=0, text="hey", title="Elan", duration=3
     )
     message_log_mock.reset_mock()
     iface_mock.reset_mock()
@@ -48,10 +48,10 @@ def test_log_handler(mocker):
     # call with log level "warning" and push
     PlgLogger.log("watch out this error!", log_level=2, push=True)
     message_log_mock.logMessage.assert_called_once_with(
-        level=2, message="watch out this error!", notifyUser=True, tag="ELAN"
+        level=2, message="watch out this error!", notifyUser=True, tag="Elan"
     )
     iface_mock.messageBar.return_value.pushMessage.assert_called_once_with(
-        level=2, text="watch out this error!", title="ELAN", duration=9
+        level=2, text="watch out this error!", title="Elan", duration=9
     )
     message_log_mock.reset_mock()
     iface_mock.reset_mock()
