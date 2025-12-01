@@ -143,5 +143,5 @@ Ce projet est développé grâce aux financements de :
     :target: https://www.caribsan.eu/
 
 .. image:: _static/afd.png
-    :width: 230 
-    :target: https://www.caribsan.eu/
+    :width: 200 
+    :target: https://www.afd.fr
