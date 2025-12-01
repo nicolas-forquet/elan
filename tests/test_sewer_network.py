@@ -2,7 +2,7 @@
 test_sewer_network
 """
 
-# pylint: disable=import-outside-toplevel
+# pylint: disable=import-outside-toplevel, invalid-name
 
 import re
 
