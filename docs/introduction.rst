@@ -108,7 +108,7 @@ Les travaux de recherche identifiés et intégrés à la version actuelle de l'o
     :width: 400
     :target: https://www.ufz.de/ 
 
-.. image:: _static/reversaal.jpg
+.. image:: _static/reversaal.png
     :width: 200 
     :target: https://reversaal.lyon-grenoble.hub.inrae.fr/  
 
@@ -124,7 +124,7 @@ Parmi les futures intégrations à Elan, ont été identifiés les travaux d'hyd
 
 Le développement de l'outil en lui-même mobilise deux acteurs : 
 
- .. image:: _static/reversaal.jpg
+ .. image:: _static/reversaal.png
     :width: 200 
     :target: https://reversaal.lyon-grenoble.hub.inrae.fr/ 
 
@@ -140,4 +140,8 @@ Ce projet est développé grâce aux financements de :
 
  .. image:: _static/caribsan.png
     :width: 250 
+    :target: https://www.caribsan.eu/
+
+.. image:: _static/afd.png
+    :width: 230 
     :target: https://www.caribsan.eu/
