@@ -55,6 +55,7 @@ from ELAN.utils.tr import Translatable
 
 
 class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
+    """ELAN processing to launch pysewer and load its outputs"""
 
     OUTPUT_DIR = "OUTPUT_DIR"
     DEM_FILE_PATH = "DEM_FILE_PATH"
@@ -92,6 +93,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         ]
 
     def createInstance(self):
+        """Return an instance of this class"""
         return SewerNetworkAlgorithm()
 
     def name(self):
@@ -144,12 +146,14 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             "This sewer pipe module uses Pysewer. "
             "It must be installed either locally or through the ELAN plugin settings."
             "<h2>Outputs:</h2>"
-            "4 geographic layers are created:\n"
+            "6 geographic layers are created:\n"
             "<ul>"
             "    <li>WWTP: treatment stations used in the sewer pipe way</li>"
             "    <li>Lifting stations: lifting stations</li>"
             "    <li>Pumping stations: pumping stations</li>"
             "    <li>Sewer pipes: sewer pipe</li>"
+            "    <li>Buildings: a copy of the input buildings features</li>"
+            "    <li>Roads: a copy of the input roads features</li>"
             "</ul>"
             "One additional layer without geometry is also created:"
             "<ul>"
@@ -450,13 +454,13 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         if feedback is not None:
             feedback.pushInfo(self.tr("Launching pysewer..."))
 
-        pysewer_process = subprocess.Popen(**kwargs)  # pylint:disable=subprocess-run-check
-        while (return_code := pysewer_process.poll()) is None:
-            time.sleep(0.1)
-            if feedback is not None and feedback.isCanceled():
-                pysewer_process.terminate()
-                pysewer_process.wait()
-                raise QgsProcessingException(self.tr("Processing stopped by user"))
+        with subprocess.Popen(**kwargs) as pysewer_process:
+            while (return_code := pysewer_process.poll()) is None:
+                time.sleep(0.1)
+                if feedback is not None and feedback.isCanceled():
+                    pysewer_process.terminate()
+                    pysewer_process.wait()
+                    raise QgsProcessingException(self.tr("Processing stopped by user"))
 
         if return_code is not None and return_code != 0:
             if pysewer_process.stderr is not None:
@@ -465,10 +469,8 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                     raise QgsProcessingException(
                         self.tr("pysewer is not installed, go to ELAN settings to check/install.")
                     )
-                else:
-                    raise QgsProcessingException(error_message)
-            else:
-                raise QgsProcessingException(self.tr("Unexpected error while running pysewer"))
+                raise QgsProcessingException(error_message)
+            raise QgsProcessingException(self.tr("Unexpected error while running pysewer"))
 
         if feedback is not None:
             feedback.pushInfo(self.tr("Post-processing and layer styles creation..."))
@@ -486,7 +488,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 ("lifting_stations", self.tr("Lifting stations")),
                 ("sewer_pipes", self.tr("Sewer pipes")),
                 ("roads", self.tr("Roads")),
-                ("info_network", self.tr("Network informations")),
+                ("info_network", self.tr("Network information")),
             ]
         ):
             layer_details = context.LayerDetails()
@@ -552,7 +554,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 False,
                 "",
             ):
-                raise Exception(self.tr("Error with diameters style"))
+                raise RuntimeError(self.tr("Error with diameters style"))
 
         with (styles_dir / "sewer_pipes_gravity.qml").open() as style_file:
             if not ogr_provider.saveStyle(
@@ -565,7 +567,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 True,  # Default gravitaire style
                 "",
             ):
-                raise Exception(self.tr("Error with gravity-driven style"))
+                raise RuntimeError(self.tr("Error with gravity-driven style"))
 
         with (styles_dir / "sewer_pipes_flow_direction.qml").open() as style_file:
             if not ogr_provider.saveStyle(
@@ -578,7 +580,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 False,
                 "",
             ):
-                raise Exception(self.tr("Error with flow direction style"))
+                raise RuntimeError(self.tr("Error with flow direction style"))
 
         with (styles_dir / "sewer_pipes_depth.qml").open() as style_file:
             if not ogr_provider.saveStyle(
@@ -591,7 +593,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 False,
                 "",
             ):
-                raise Exception(self.tr("Error with depth style"))
+                raise RuntimeError(self.tr("Error with depth style"))
 
         with (styles_dir / "pumping_stations.qml").open() as style_file:
             if not ogr_provider.saveStyle(
@@ -604,7 +606,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 True,
                 "",
             ):
-                raise Exception(self.tr("Error with pumping stations style"))
+                raise RuntimeError(self.tr("Error with pumping stations style"))
 
         with (styles_dir / "lifting_stations.qml").open() as style_file:
             if not ogr_provider.saveStyle(
@@ -617,20 +619,20 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 True,
                 "",
             ):
-                raise Exception(self.tr("Error with lifting stations style"))
+                raise RuntimeError(self.tr("Error with lifting stations style"))
 
         with (styles_dir / "info_network.qml").open() as style_file:
             if not ogr_provider.saveStyle(
                 output_layer_path + "|layername=info_network",
                 style_file.read(),
                 "",
-                self.tr("Network informations"),
+                self.tr("Network information"),
                 "",
                 "",
                 True,
                 "",
             ):
-                raise Exception(self.tr("Error with network information style"))
+                raise RuntimeError(self.tr("Error with network information style"))
 
         with (styles_dir / "WWTP.qml").open() as style_file:
             if not ogr_provider.saveStyle(
@@ -643,7 +645,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 True,
                 "",
             ):
-                raise Exception(self.tr("Error with WWTP style"))
+                raise RuntimeError(self.tr("Error with WWTP style"))
 
         # Adapt this style to the data.
         # We don't use QgsVectorLayer.loadNamedStyle to load the QML file because
@@ -671,7 +673,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             False,
             "",
         ):
-            raise Exception(self.tr("Error with peak flow style"))
+            raise RuntimeError(self.tr("Error with peak flow style"))
 
         try:
             # Create the sub-network styles
@@ -705,5 +707,5 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 "",
             ):
                 raise AssertionError()
-        except AssertionError:
-            raise Exception(self.tr("Error with sub-networks style"))
+        except AssertionError as e:
+            raise RuntimeError(self.tr("Error with sub-networks style")) from e
