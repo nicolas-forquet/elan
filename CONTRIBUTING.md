@@ -1,4 +1,4 @@
-# How to contribute to ELAN?
+# How to contribute to Elan?
 
 We are open to any new contribution! We will try to give you a prompt feedback, review and merge your MR.
 To simplify the process, we invite you to read and follow these guidelines.
@@ -81,7 +81,7 @@ To update the `pot` and `po` translations files:
 cd docs/
 sphinx-build -b gettext . locales/pot \&\& sphinx-intl update -l en
 ```
-Then use a software like [`poedit`](https://poedit.net to write the translations).
+Then use a software like [`poedit`](https://poedit.net) to write the translations.
 
 To build the documentation with all languages:
 
