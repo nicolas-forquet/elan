@@ -22,7 +22,7 @@ Using Elan, the user can create and compare different urban water management sce
 
 The plugin includes several modules:
 
-- `Roads and buildings`, `Population` and `Projection on roads` to prepare the geographical data
+- `Roads and buildings`, `Population` and `Snap on roads` to prepare the geographical data
 - `Sewer network` and `Processes` to investigate and pre-size scenarios
 - `Longitudinal sewer profile` to better visualize sewer pre-sizing
 - `Create a scenario` to create a scenario item that can be further compared to others
