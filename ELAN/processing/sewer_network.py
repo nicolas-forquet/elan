@@ -29,6 +29,7 @@ from qgis.core import (
     QgsLineSymbol,
     QgsProcessingAlgorithm,
     QgsProcessingException,
+    QgsProcessingParameterDefinition,
     QgsProcessingParameterEnum,
     QgsProcessingParameterFeatureSource,
     QgsProcessingParameterField,
@@ -63,8 +64,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
     PUMP_PENALTY = "PUMP_PENALTY"
     MAX_CONNECTION_LENGTH = "MAX_CONNECTION_LENGTH"
     CLUSTERING = "CLUSTERING"
-    DEFAULT_INHABITANTS_DWELLING = "DEFAULT_INHABITANTS_DWELLING"
-    INHABITANTS_DWELLING_ATTRIBUTE_NAME = "INHABITANTS_DWELLING_ATTRIBUTE_NAME"
+    POPULATION_ATTRIBUTE_NAME = "POPULATION_ATTRIBUTE_NAME"
     DAILY_WASTEWATER_PERSON = "DAILY_WASTEWATER_PERSON"
     PEAK_FACTOR = "PEAK_FACTOR"
     MIN_SLOPE = "MIN_SLOPE"
@@ -156,11 +156,12 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             "<li>Network information: statistics such as the total number of buildings, date, etc.</li>"
             "</ul>"
             "The sewer pipe layer includes 6 styles."
-            "<h2>Options:</h2>"
-            "If the input building layer has a population number field, "
-            "it is possible to select it. If no such field exists, "
-            "the module uses the parameter 'mean inhabitants per household'."
         )
+
+    def addAdvancedParameter(self, param: QgsProcessingParameterDefinition):
+        """Add a parameter in the advanced section of the UI"""
+        param.setFlags(Qgis.ProcessingParameterFlag.Advanced)
+        self.addParameter(param)
 
     def initAlgorithm(self, configuration=None):  # pylint: disable=unused-argument
         """
@@ -195,40 +196,27 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         )
         self.addParameter(
             QgsProcessingParameterField(
-                self.INHABITANTS_DWELLING_ATTRIBUTE_NAME,
-                self.tr("Number of inhabitants (field)"),
+                self.POPULATION_ATTRIBUTE_NAME,
+                self.tr("Population (field)"),
                 parentLayerParameterName=self.BUILDINGS_INPUT_DATA,
                 type=Qgis.ProcessingFieldParameterDataType.Numeric,
-                optional=True,
             )
         )
 
-        self.addParameter(
+        self.addAdvancedParameter(
             QgsProcessingParameterNumber(self.PUMP_PENALTY, self.tr("Penalty factor for pumping"), defaultValue=1000)
         )
 
-        self.addParameter(
+        self.addAdvancedParameter(
             QgsProcessingParameterNumber(
                 self.MAX_CONNECTION_LENGTH, self.tr("Maximum connection lengh [m]"), defaultValue=30
             )
         )
 
-        self.addParameter(
+        self.addAdvancedParameter(
             QgsProcessingParameterString(self.CLUSTERING, self.tr("Source clustering"), defaultValue="None")
         )
 
-        self.addParameter(
-            QgsProcessingParameterNumber(
-                self.DEFAULT_INHABITANTS_DWELLING,
-                self.tr(
-                    "Mean inhabitants per household\n"
-                    "(used by default if no inhabitant field is selected, "
-                    "or if a field error is detected)"
-                ),
-                Qgis.ProcessingNumberParameterType.Double,
-                defaultValue=3,
-            )
-        )
         self.addParameter(
             QgsProcessingParameterNumber(
                 self.DAILY_WASTEWATER_PERSON,
@@ -237,7 +225,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 defaultValue=0.164,  # peak factor for wastewater
             )
         )
-        self.addParameter(
+        self.addAdvancedParameter(
             QgsProcessingParameterNumber(
                 self.PEAK_FACTOR,
                 self.tr("Peak load coefficient"),
@@ -245,7 +233,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 defaultValue=2.3,
             )
         )
-        self.addParameter(
+        self.addAdvancedParameter(
             QgsProcessingParameterNumber(
                 self.MIN_SLOPE,
                 self.tr("Minimum slope for sewer self-cleaning [m/m]"),
@@ -271,7 +259,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             )
         )
 
-        self.addParameter(
+        self.addAdvancedParameter(
             QgsProcessingParameterNumber(
                 self.ROUGHNESS,
                 self.tr("Pipe roughness [µm]"),
@@ -298,7 +286,12 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             )
         )
 
-    def processAlgorithm(self, parameters, context, feedback):
+    def processAlgorithm(
+        self, parameters, context, feedback
+    ):  # pylint: disable=too-many-locals,too-many-branches,too-many-statements
+        """
+        Here is where the processing itself takes place.
+        """
 
         # load custom settings from the example settings file
         sinks_source = self.parameterAsSource(parameters, self.SINKS, context)
@@ -309,12 +302,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         pump_penalty = self.parameterAsDouble(parameters, self.PUMP_PENALTY, context)
         max_connection_length = self.parameterAsDouble(parameters, self.MAX_CONNECTION_LENGTH, context)
         clustering = self.parameterAsDouble(parameters, self.CLUSTERING, context)
-        default_inhabitants_dwelling = int(
-            self.parameterAsDouble(parameters, self.DEFAULT_INHABITANTS_DWELLING, context)
-        )
-        inhabitants_dwelling_attribute_name = self.parameterAsString(
-            parameters, self.INHABITANTS_DWELLING_ATTRIBUTE_NAME, context
-        )
+        population_attribute_name = self.parameterAsString(parameters, self.POPULATION_ATTRIBUTE_NAME, context)
         daily_wastewater_person = self.parameterAsDouble(parameters, self.DAILY_WASTEWATER_PERSON, context)
         peak_factor = self.parameterAsDouble(parameters, self.PEAK_FACTOR, context)
         min_slope = self.parameterAsDouble(parameters, self.MIN_SLOPE, context)
@@ -336,12 +324,10 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 self.tr("The DEM must have a single band ({} band(s) found)").format(band_count)
             )
 
-        # Check NULL values in inhabitants_dwelling_attribute_name
-        if NULL in buildings_source.uniqueValues(
-            buildings_source.fields().indexFromName(inhabitants_dwelling_attribute_name)
-        ):
+        # Check NULL values in population_attribute_name
+        if NULL in buildings_source.uniqueValues(buildings_source.fields().indexFromName(population_attribute_name)):
             raise QgsProcessingException(
-                self.tr("There is one or more NULL values in the field ") + inhabitants_dwelling_attribute_name
+                self.tr("There is one or more NULL values in the field ") + population_attribute_name
             )
 
         # Check CRSs
@@ -411,8 +397,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 "clustering": clustering,
             },
             "optimization": {
-                "default_inhabitants_dwelling": default_inhabitants_dwelling,
-                "inhabitants_dwelling_attribute_name": inhabitants_dwelling_attribute_name,
+                "inhabitants_dwelling_attribute_name": population_attribute_name,
                 "daily_wastewater_person": daily_wastewater_person,
                 "peak_factor": peak_factor,
                 "min_slope": min_slope,
