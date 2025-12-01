@@ -1,6 +1,6 @@
 [general]
-name=ELAN
-about=Processing modules : Roads and buildings, Population, Sewer network, Longitudinal sewer profile, Processes, Scenario creation, Assessment, Comparison (+ Urban catchment, Hydraulic for alpha version)
+name=Elan
+about=Processing modules : Roads and buildings, Population, Snap on roads, Sewer network, Longitudinal sewer profile, Processes, Scenario creation, Assessment, Comparison (+ Urban catchment, Hydraulic for beta version)
 category=Water management
 hasProcessingProvider=yes
 description=QGIS decision-support plugin for integrated urban water management by nature-based solutions
