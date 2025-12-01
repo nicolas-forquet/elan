@@ -15,6 +15,7 @@ from ELAN.processing.population import PopulationAreametricAlgorithm, Population
 from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
 from ELAN.processing.scenario import ScenarioAlgorithm
 from ELAN.processing.sewer_network import SewerNetworkAlgorithm
+from ELAN.processing.snap_on_roads import SnapOnRoadsAlgorithm
 from ELAN.processing.trench_profile import TrenchProfileAlgorithm
 from ELAN.processing.wetland_process import WetlandProcessAlgorithm
 from ELAN.utils.tr import Translatable
@@ -27,6 +28,7 @@ class ELANProvider(QgsProcessingProvider, Translatable):
         self.addAlgorithm(PopulationAreametricAlgorithm())
         self.addAlgorithm(PopulationUniformAlgorithm())
         self.addAlgorithm(RoadsBuildingsAlgorithm())
+        self.addAlgorithm(SnapOnRoadsAlgorithm())
         self.addAlgorithm(WetlandProcessAlgorithm())
         self.addAlgorithm(SewerNetworkAlgorithm())
         self.addAlgorithm(TrenchProfileAlgorithm())
