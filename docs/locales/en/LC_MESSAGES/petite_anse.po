@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 16:09+0100\n"
-"PO-Revision-Date: 2025-11-12 16:51+0100\n"
+"POT-Creation-Date: 2025-12-01 10:26+0100\n"
+"PO-Revision-Date: 2025-12-01 10:31+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -38,13 +38,13 @@ msgstr ""
 
 #: ../../petite_anse.rst:9
 msgid ""
-"Il peut être suivi pas à pas pour prendre en main ELAN avant de l'appliquer à "
+"Il peut être suivi pas à pas pour prendre en main Elan avant de l'appliquer à "
 "son propre cas d'étude. Un :ref:`exercice <exercice>` pour créer un autre "
 "scénario sur la zone de Petite Anse est proposé à la fin de ce tutoriel."
 msgstr ""
-"It can be followed step by step to get started with ELAN before using the plugin "
-"on your own case. An :ref:`exercise <exercice>` to create another scenario for "
-"Petite Anse area is suggested at the end of this tutorial."
+"It can be followed step by step to get started with Elan before using the "
+"plugin on your own case. An :ref:`exercise <exercice>` to create another "
+"scenario for Petite Anse area is suggested at the end of this tutorial."
 
 #: ../../petite_anse.rst:13
 msgid "Obtention et préparation des données géographiques"
@@ -59,8 +59,8 @@ msgid ""
 "Pour identifier la zone, afficher le fond de carte `OpenStreetMap <https://"
 "www.openstreetmap.org>`_ :"
 msgstr ""
-"To locate the area, display the `OpenStreetMap <https://www.openstreetmap.org>`_ "
-"basemap:"
+"To locate the area, display the `OpenStreetMap <https://"
+"www.openstreetmap.org>`_ basemap:"
 
 #: ../../petite_anse.rst:20
 msgid "Aller dans le panneau *Explorateur*."
@@ -142,8 +142,8 @@ msgid ""
 "sélectionnées uniquement)`` (bulle 4) pour accéder directement aux noms des "
 "dalles d'intérêt (attribut NOM DALLE)."
 msgstr ""
-"All you have to do is to select the tiles covering your area (landmarks 2 and 3) "
-"and do ``Open Attribute Table (Selected Features)`` (marker 4) to access "
+"All you have to do is to select the tiles covering your area (landmarks 2 and "
+"3) and do ``Open Attribute Table (Selected Features)`` (marker 4) to access "
 "directly their names (attribute NOM DALLE)."
 
 #: ../../petite_anse.rst:67
@@ -175,7 +175,7 @@ msgid ""
 "**4.** Géoréférencer les 4 dalles dans ce SCR (pas de détection automatique)."
 msgstr "**4.** Assign this CRS to the 4 tiles (no automatic detection)."
 
-#: ../../petite_anse.rst:82
+#: ../../petite_anse.rst:84
 msgid ""
 "Faire du SCR du MNT le SCR de votre projet : opter pour ce SCR lorsque vous "
 "créez de nouvelles couches, et reprojeter les couches vecteur que vous importez "
@@ -185,41 +185,41 @@ msgstr ""
 "reproject imported vector layers into this CRS using QGIS’s ``Reproject layer`` "
 "tool."
 
-#: ../../petite_anse.rst:87
+#: ../../petite_anse.rst:91
 msgid "**5.** Pour fusionner les 4 dalles, utiliser l'outil ``Fusion`` de GDAL."
 msgstr "**5.** Merge the 4 tiles using the GDAL ``Merge`` tool."
 
-#: ../../petite_anse.rst:93
+#: ../../petite_anse.rst:97
 msgid ""
 "Pour afficher le panneau ``Boîte à outils de traitements`` s'il n'apparaît pas "
-"dans votre espace de travail : *Vue - Panneaux - Boîte à outils de traitements*. "
-"Ou plus simplement : cliquez sur l'icône engrenage à côté de l'icône sigma (en "
-"haut à droite *a priori*)."
+"dans votre espace de travail : *Vue - Panneaux - Boîte à outils de "
+"traitements*. Ou plus simplement : cliquez sur l'icône engrenage à côté de "
+"l'icône sigma (en haut à droite *a priori*)."
 msgstr ""
 "To display the ``Processing Toolbox`` panel if it does not appear in your "
 "workspace: *View → Panels → Processing Toolbox*. Or even easier: click on the "
 "gear icon just next to the sigma icon (top right *a priori*)."
 
-#: ../../petite_anse.rst:102
+#: ../../petite_anse.rst:106
 msgid ""
-"**6.** Renseigner les entrées (bulle 1) et enregistrer la sortie dans un fichier "
-"de type .tif (bulle 2) avant d'exécuter (bulle 3)."
+"**6.** Renseigner les entrées (bulle 1) et enregistrer la sortie dans un "
+"fichier de type .tif (bulle 2) avant d'exécuter (bulle 3)."
 msgstr ""
 "**6.** Fill in the inputs (marker 1) and save the output to a .tif file (marker "
 "2) before running (marker 3)."
 
-#: ../../petite_anse.rst:107
+#: ../../petite_anse.rst:111
 msgid ""
 "**7.** Ce processing vous permet d'obtenir une seule dalle de MNT en sortie."
 msgstr "**7.** This process allows you to obtain a single DEM tile as output."
 
-#: ../../petite_anse.rst:112
+#: ../../petite_anse.rst:116
 msgid ""
 "**8.** Cette dalle n'est pas géoréférencée. Pour lui assigner un SCR de manière "
 "durable :"
 msgstr "**8.** This tile is not georeferenced. To assign it a CRS permanently:"
 
-#: ../../petite_anse.rst:114
+#: ../../petite_anse.rst:118
 msgid ""
 "Chercher l'outil ``Assigner une projection`` de GDAL dans la boite à outils de "
 "traitements (bulles 1 et 2)."
@@ -227,33 +227,34 @@ msgstr ""
 "Search for the ``Assign projection`` tool from GDAL in the Processing Toolbox "
 "(landmarks 1 and 2)."
 
-#: ../../petite_anse.rst:119
+#: ../../petite_anse.rst:123
 msgid ""
-"Renseigner la couche (bulle 1) et le SCR de destination (bulle 2), puis Exécuter "
-"(bulle 3)."
+"Renseigner la couche (bulle 1) et le SCR de destination (bulle 2), puis "
+"Exécuter (bulle 3)."
 msgstr ""
 "Fill in the layer (marker 1) and the target CRS (marker 2), then Run (marker 3)."
 
-#: ../../petite_anse.rst:124
+#: ../../petite_anse.rst:128
 msgid ""
-"Votre couche initiale est désormais géoréférencée (pas de nouvelle couche créée)."
+"Votre couche initiale est désormais géoréférencée (pas de nouvelle couche "
+"créée)."
 msgstr "Your initial layer is now georeferenced (no new layer created)."
 
-#: ../../petite_anse.rst:127
+#: ../../petite_anse.rst:131
 msgid ""
 "Pour que l'échelle du MNT s'ajuste automatiquement lorsque vous zommez sur la "
 "carte :"
 msgstr "To have the DEM scale adjust automatically when you zoom in on the map:"
 
-#: ../../petite_anse.rst:129
+#: ../../petite_anse.rst:133
 msgid "Double cliquer sur votre couche raster dans le panneau *Couches*."
 msgstr "Double-click your raster layer in the *Layers* panel."
 
-#: ../../petite_anse.rst:131
+#: ../../petite_anse.rst:135
 msgid "Choisir *Symbologie* dans la fenêtre qui s'ouvre (bulle 1)."
 msgstr "Choose *Symbology* in the window that opens (marker 1)."
 
-#: ../../petite_anse.rst:133
+#: ../../petite_anse.rst:137
 msgid ""
 "Dans *Paramètres de valeurs Min/Max* (bulle 2), changer le paramètre "
 "*Statistiques de l'emprise* à *Emprise actualisée* au lieu de *Raster entier* "
@@ -262,23 +263,23 @@ msgstr ""
 "In *Min/Max Value Settings* (marker 2), change the *Statistics extent* setting "
 "to *Updated Canvas* instead of the default *Whole raster* (marker 3)."
 
-#: ../../petite_anse.rst:142
+#: ../../petite_anse.rst:146
 msgid "Étape 2 : Formaliser les exutoires possibles (STEU)"
 msgstr "Step 2: Specify possible discharge points (WWTP)"
 
-#: ../../petite_anse.rst:144
+#: ../../petite_anse.rst:150
 msgid "**1.** Créer une nouvelle couche (.shp ou .gpkg)."
 msgstr "**1.** Create a new .shp or .gpkg layer."
 
-#: ../../petite_anse.rst:149
+#: ../../petite_anse.rst:155
 msgid ""
 "**2.** Choisir un emplacement de sauvegarde et un nom pour cette couche (bulle "
 "1), puis renseigner son type : *Point* (bulle 2)."
 msgstr ""
-"**2.** Chose a storage location and name the layer (marker 1), then set its type "
-"to *Point* (marker 2)."
+"**2.** Chose a storage location and name the layer (marker 1), then set its "
+"type to *Point* (marker 2)."
 
-#: ../../petite_anse.rst:151
+#: ../../petite_anse.rst:157
 msgid ""
 "**3.** Pour le SCR, choisir le SCR du projet (ici EPSG:32620- WGS 84/UTM zone "
 "20N) puis exécuter (bulles 3 et 4)."
@@ -286,7 +287,7 @@ msgstr ""
 "**3.** For the CRS, choose the project CRS (here EPSG:32620 – WGS 84 / UTM zone "
 "20N), then run (landmarks 3 and 4)."
 
-#: ../../petite_anse.rst:156
+#: ../../petite_anse.rst:162
 msgid ""
 "**4.** Ajouter les 4 emplacements possibles tour à tour en suivant les bulles 1 "
 "à 5 indiquées sur la capture."
@@ -294,7 +295,7 @@ msgstr ""
 "**4.** Ajouter les 4 emplacements possibles tour à tour en suivant les bulles 1 "
 "à 5 indiquées sur la capture."
 
-#: ../../petite_anse.rst:164
+#: ../../petite_anse.rst:170
 msgid ""
 "**5.** Bien enregistrer et désactiver le mode édition une fois les 4 "
 "emplacements ajoutés."
@@ -302,13 +303,13 @@ msgstr ""
 "**5.** Be sure to save and disable edit mode once the 4 locations have been "
 "added."
 
-#: ../../petite_anse.rst:170
+#: ../../petite_anse.rst:176
 msgid ""
 "Étape 3 : Récupérer les routes et bâtiments - obtention avec le plugin de l'IGN "
 "(option 1)"
 msgstr "Step 3: Retrieve roads and buildings - using the IGN plugin (option 1)"
 
-#: ../../petite_anse.rst:172
+#: ../../petite_anse.rst:178
 msgid ""
 "**Préalable :** Installer l'extension `BD TOPO® Extractor <https://"
 "plugins.qgis.org/plugins/bd_topo_extractor/>`_ via le gestionnaire d'extensions "
@@ -317,7 +318,7 @@ msgstr ""
 "**Prerequisite**: Install the `BD TOPO® Extractor <https://plugins.qgis.org/"
 "plugins/bd_topo_extractor/>`_ plugin via the QGIS Plugin Manager."
 
-#: ../../petite_anse.rst:175
+#: ../../petite_anse.rst:181
 msgid ""
 "Vous pouvez également télécharger manuellement les données sur le site "
 "Géoservices de l'IGN `BD TOPO® <https://geoservices.ign.fr/bdtopo>`_, mais vous "
@@ -328,160 +329,162 @@ msgstr ""
 "<https://geoservices.ign.fr/bdtopo>`_, but a post-processing is then likely to "
 "be needed (data given at a department scale)."
 
-#: ../../petite_anse.rst:184
+#: ../../petite_anse.rst:190
 msgid ""
-"Pour les **bâtiments**, il nous faut **uniquement ceux de la zone à connecter**. "
-"Pour les **routes empruntables**, nous avons besoin de **celles de la zone**, "
-"mais également de **celles qui permettent d'accéder aux deux stations "
-"existantes** (voir :ref:`introduction <petite-anse>`)."
+"Pour les **bâtiments**, il nous faut **uniquement ceux de la zone à "
+"connecter**. Pour les **routes empruntables**, nous avons besoin de **celles de "
+"la zone**, mais également de **celles qui permettent d'accéder aux deux "
+"stations existantes** (voir :ref:`introduction <petite-anse>`)."
 msgstr ""
 "For **buildings**, **only those in the area to be connected** are needed. For "
 "**possible roads**, include **those in the area** plus **those that connect to "
 "the two existing plants** (see :ref:`introduction <petite-anse>`)."
 
-#: ../../petite_anse.rst:187 ../../petite_anse.rst:266
+#: ../../petite_anse.rst:193 ../../petite_anse.rst:276
 msgid "**Récupération des bâtiments**"
 msgstr "**Récupération des bâtiments**"
 
-#: ../../petite_anse.rst:189
+#: ../../petite_anse.rst:195
 msgid "**1.** Créer une nouvelle couche de type *polygone* dans le SCR du projet."
 msgstr "**1.** Create a new *polygon* layer in the project CRS."
 
-#: ../../petite_anse.rst:199
+#: ../../petite_anse.rst:207
 msgid "**2.** L'éditer et délimiter la zone d'intérêt."
 msgstr "**2.** Edit this layer and draw the area of interest."
 
-#: ../../petite_anse.rst:204
+#: ../../petite_anse.rst:212
 msgid "**3.** Enregistrer et sortir du mode édition."
 msgstr "**3.** Save and exit edit mode."
 
-#: ../../petite_anse.rst:209
+#: ../../petite_anse.rst:217
 msgid "**4.** Lancer le plugin."
 msgstr "**4.** Launch the plugin."
 
-#: ../../petite_anse.rst:214
+#: ../../petite_anse.rst:222
 msgid ""
 "**5.** Indiquer la couche d'intérêt (bulle 1), cocher ``Batiment`` (bulle 2) et "
-"indiquer le dossier d'enregistrement (bulles 3 et 4) avant de cliquer sur ``OK`` "
-"(bulle 5)."
+"indiquer le dossier d'enregistrement (bulles 3 et 4) avant de cliquer sur "
+"``OK`` (bulle 5)."
 msgstr ""
 "**5.** Specify the layer of interest (marker 1), tick ``Building`` (marker 2), "
-"and specify the output folder (landmarks 3 and 4) before clicking ``OK`` (marker "
-"5)."
+"and specify the output folder (landmarks 3 and 4) before clicking ``OK`` "
+"(marker 5)."
 
-#: ../../petite_anse.rst:219 ../../petite_anse.rst:234
+#: ../../petite_anse.rst:227 ../../petite_anse.rst:242
 msgid "Vous obtenez une sortie de ce type :"
 msgstr "You will obtain an output like this:"
 
-#: ../../petite_anse.rst:224
+#: ../../petite_anse.rst:232
 msgid ""
 "**6.** Editer la couche (icône crayon), sélectionner (bulles 1 puis 2) puis "
 "supprimer les quelques entités situées hors de la zone (bulle 3). Enregistrer "
 "avant de sortir du mode édition."
 msgstr ""
-"**6.** Edit the layer (pencil icon), select (landmarks 1 and 2), then delete the "
-"few entities located outside the area (marker 3). Save before exiting edit mode."
+"**6.** Edit the layer (pencil icon), select (landmarks 1 and 2), then delete "
+"the few entities located outside the area (marker 3). Save before exiting edit "
+"mode."
 
-#: ../../petite_anse.rst:229
+#: ../../petite_anse.rst:237
 msgid ""
 "**7.** Pour obtenir des points à partir des polygones obtenus (contrainte liée "
 "module ``Réseau`` ), utiliser l'outil ``Centroïdes`` de QGIS."
 msgstr ""
-"**7.** To obtain points from the resulting polygons (requirement for the ``Sewer "
-"network`` module), use the ``Centroids`` tool native to QGIS."
+"**7.** To obtain points from the resulting polygons (requirement for the "
+"``Sewer network`` module), use the ``Centroids`` tool native to QGIS."
 
-#: ../../petite_anse.rst:239 ../../petite_anse.rst:275
+#: ../../petite_anse.rst:247 ../../petite_anse.rst:285
 msgid "**Récupération des routes**"
 msgstr "**Road retrieval**"
 
-#: ../../petite_anse.rst:241
+#: ../../petite_anse.rst:249
 msgid "**1.** Lancer le plugin BD TOPO® Extractor."
 msgstr "**1.** Launch the BD TOPO® Extractor plugin."
 
-#: ../../petite_anse.rst:246
+#: ../../petite_anse.rst:254
 msgid ""
 "**2.** Délimiter la zone à extraire sur la carte (bulles 1 et 2), cocher "
-"``Tronçon de route`` (bulle 3) et indiquer le dossier d'enregistrement (bulles 4 "
-"et 5) avant de cliquer sur ``OK`` (bulle 6)."
+"``Tronçon de route`` (bulle 3) et indiquer le dossier d'enregistrement (bulles "
+"4 et 5) avant de cliquer sur ``OK`` (bulle 6)."
 msgstr ""
 "**2.** Delimit the area to extract on the map (landmarks 1 and 2), tick "
 "``Tronçon de route`` (marker 3), and specify the output folder (landmarks 4 and "
 "5) before clicking ``OK`` (marker 6)."
 
-#: ../../petite_anse.rst:251
+#: ../../petite_anse.rst:259
 msgid "La sortie obtenue est de ce type :"
 msgstr "You will obtain an output like this:"
 
-#: ../../petite_anse.rst:256 ../../petite_anse.rst:282
+#: ../../petite_anse.rst:266 ../../petite_anse.rst:292
 msgid "**Post-traitement des couches**"
 msgstr "**Post-processing of layers**"
 
-#: ../../petite_anse.rst:258
+#: ../../petite_anse.rst:268
 msgid ""
-"Les couches peuvent ensuite être éditées au besoin. Par exemple ici, restreindre "
-"les routes empruntables en supprimant les sentiers."
+"Les couches peuvent ensuite être éditées au besoin. Par exemple ici, "
+"restreindre les routes empruntables en supprimant les sentiers."
 msgstr ""
 "The layers can then be edited as needed. For example, in this case, restrict "
 "usable roads by removing footpaths."
 
-#: ../../petite_anse.rst:260
+#: ../../petite_anse.rst:270
 msgid ""
 "**L'édition permet à l'utilisateur de retranscrire sa connaissance du terrain** "
 "(routes non empruntables ou au contraire, ajout de chemins envisageables, "
 "sélection fine des bâtiments à raccorder ou non) et **contribue donc à obtenir "
 "des résultats plus pertinents**."
 msgstr ""
-"**Editing allows the user to transcribe its field knowledge** (roads that cannot "
-"be used, or conversely, adding possible paths, fine selection of buildings to "
-"connect or not) and **therefore contributes to obtain more relevant results**."
+"**Editing allows the user to transcribe its field knowledge** (roads that "
+"cannot be used, or conversely, adding possible paths, fine selection of "
+"buildings to connect or not) and **therefore contributes to obtain more "
+"relevant results**."
 
-#: ../../petite_anse.rst:264
+#: ../../petite_anse.rst:274
 msgid ""
-"Étape 3 : Récupérer les routes et bâtiments - obtention avec ELAN (option 2)"
-msgstr "Step 3: Retrieve roads and buildings - using ELAN (option 2)"
+"Étape 3 : Récupérer les routes et bâtiments - obtention avec Elan (option 2)"
+msgstr "Step 3: Retrieve roads and buildings - using Elan (option 2)"
 
-#: ../../petite_anse.rst:268
+#: ../../petite_anse.rst:278
 msgid ""
-"En appliquant ``Routes et bâtiments`` à la zone définie :ref:`plus haut <zone>`, "
-"voici les sorties obtenues pour les bâtiments :"
+"En appliquant ``Routes et bâtiments`` à la zone définie :ref:`plus haut "
+"<zone>`, voici les sorties obtenues pour les bâtiments :"
 msgstr ""
-"By applying the ``Roads and Buildings`` module to the area defined :ref:`earlier "
-"<zone>`, the following outputs are obtained for buildings:"
+"By applying the ``Roads and Buildings`` module to the area "
+"defined :ref:`earlier <zone>`, the following outputs are obtained for buildings:"
 
-#: ../../petite_anse.rst:277
+#: ../../petite_anse.rst:287
 msgid ""
-"En appliquant le module à une zone élargie pour inclure les possibles connexions "
-"aux stations existantes, vous obtiendrez une sortie de type :"
+"En appliquant le module à une zone élargie pour inclure les possibles "
+"connexions aux stations existantes, vous obtiendrez une sortie de type :"
 msgstr ""
 "By applying the module to an expanded area to include possible connections to "
 "the existing treatment plants, you will obtain an output of this type:"
 
-#: ../../petite_anse.rst:284
+#: ../../petite_anse.rst:294
 msgid ""
 "Les couches peuvent ensuite être éditées ce qui vous permet de retranscrire "
-"votre connaissance du terrain (routes non empruntables ou au contraire, ajout de "
-"chemins envisageables, sélection fine des bâtiments à raccorder ou non). Cette "
-"étape contribue à améliorer la pertinence des résultats obtenus en sortie de "
-"module ``Réseau``."
+"votre connaissance du terrain (routes non empruntables ou au contraire, ajout "
+"de chemins envisageables, sélection fine des bâtiments à raccorder ou non). "
+"Cette étape contribue à améliorer la pertinence des résultats obtenus en sortie "
+"de module ``Réseau``."
 msgstr ""
-"The layers can then be edited to reflect your field knowledge (roads that cannot "
-"be used or, conversely, adding possible paths, fine selection of which buildings "
-"to connect). This step helps improve the relevance of the results obtained from "
-"the ``Sewer network`` module."
+"The layers can then be edited to reflect your field knowledge (roads that "
+"cannot be used or, conversely, adding possible paths, fine selection of which "
+"buildings to connect). This step helps improve the relevance of the results "
+"obtained from the ``Sewer network`` module."
 
-#: ../../petite_anse.rst:288
+#: ../../petite_anse.rst:298
 msgid "Étape 4 : Répartir la population au sein des bâtiments (facultatif)"
 msgstr "Step 4: Distribute population among buildings (optional)"
 
-#: ../../petite_anse.rst:290
+#: ../../petite_anse.rst:300
 msgid ""
-"La population de Petite Anse est estimée à 1100 individus dont 150 sur la partie "
-"haute et 950 sur la partie basse."
+"La population de Petite Anse est estimée à 1100 individus dont 150 sur la "
+"partie haute et 950 sur la partie basse."
 msgstr ""
-"The population of Petite-Anse is estimated at 1,100 inhabitants, with 150 in the "
-"upper area and 950 in the lower area."
+"The population of Petite-Anse is estimated at 1,100 inhabitants, with 150 in "
+"the upper area and 950 in the lower area."
 
-#: ../../petite_anse.rst:292
+#: ../../petite_anse.rst:302
 msgid ""
 "**Préalable** : Une couche de type *polygone* avec les bâtiments à raccorder "
 "obtenue avec le module ``Routes et bâtiments`` et post-traitée (suppression/"
@@ -491,63 +494,63 @@ msgstr ""
 "obtained with the ``Roads and Buildings`` module and post-processed (removal/"
 "addition of certain buildings according to field knowledge of the area)."
 
-#: ../../petite_anse.rst:295
+#: ../../petite_anse.rst:305
 msgid "**Répartition de la population sur la zone haute**"
 msgstr "**Population distribution in the upper area**"
 
-#: ../../petite_anse.rst:297
+#: ../../petite_anse.rst:307
 msgid "**1.** Sélectionner les bâtiments de la zone haute (bulles 1 à 3)."
 msgstr "**1.** Select the buildings in the upper area (landmarks 1 to 3)."
 
-#: ../../petite_anse.rst:299
+#: ../../petite_anse.rst:309
 msgid ""
 "**2.** Lancer le module ``Population`` comme expliqué :ref:`plus haut <start-"
 "pop>`."
 msgstr ""
-"**2.** Launch the ``Population`` module as explained in :ref:`main documentation "
-"<start-pop>`."
+"**2.** Launch the ``Population`` module as explained in :ref:`main "
+"documentation <start-pop>`."
 
-#: ../../petite_anse.rst:301
+#: ../../petite_anse.rst:311
 msgid ""
 "**3.** Indiquer *150* pour le *Total d'habitants* de la zone (bulle 4), cocher "
 "*Entités sélectionnées* une fois la couche de bâtiments sélectionnée (bulle 5) "
 "puis *Exécuter* (bulle 6)."
 msgstr ""
 "**3.** Enter *150* for the *Total inhabitants* of the area (marker 4), tick "
-"*Selected features only* after selecting the building layer (marker 5), then run "
-"(marker 6)."
+"*Selected features only* after selecting the building layer (marker 5), then "
+"run (marker 6)."
 
-#: ../../petite_anse.rst:306
+#: ../../petite_anse.rst:316
 msgid "**4.** Vous obtenez la couche suivante."
 msgstr "**4.** You will obtain the following layer."
 
-#: ../../petite_anse.rst:311
+#: ../../petite_anse.rst:321
 msgid "**Répartition de la population sur la zone basse**"
 msgstr "**Population distribution in the lower area**"
 
-#: ../../petite_anse.rst:313
+#: ../../petite_anse.rst:323
 msgid ""
-"**1.** Répéter la même procédure en sélectionnant cette fois la zone basse et en "
-"indiquant *950* pour le *Total d'habitants* de la zone."
+"**1.** Répéter la même procédure en sélectionnant cette fois la zone basse et "
+"en indiquant *950* pour le *Total d'habitants* de la zone."
 msgstr ""
 "**1.** Repeat the same procedure, this time selecting the lower area and "
 "entering *950* for the *Total inhabitants* of the area."
 
-#: ../../petite_anse.rst:318
+#: ../../petite_anse.rst:328
 msgid "**2.** Vous obtenez la couche suivante."
 msgstr "**2.** You get the following layer."
 
-#: ../../petite_anse.rst:323
+#: ../../petite_anse.rst:333
 msgid "**Fusion des deux couches obtenues**"
 msgstr "**Merging the two output layers**"
 
-#: ../../petite_anse.rst:325
+#: ../../petite_anse.rst:335
 msgid ""
 "**1.** Pour fusionner les 2 couches obtenues, chercher l'outil *Fusionner des "
 "couches vecteur* dans la boîte à outils de traitements QGIS."
 msgstr "**1.** In the QGIS Processing Toolbox, search for *Merge vector layers*."
 
-#: ../../petite_anse.rst:330
+#: ../../petite_anse.rst:340
 msgid ""
 "**2.** Sélectionner les deux couches (bulle 1), choisir pour SCR le SCR du "
 "projet (bulle 2) puis enregistrer le fichier (bulle 3) avant d'exécuter (bulle "
@@ -556,25 +559,26 @@ msgstr ""
 "**2.** Select the two layers (marker 1), choose the project CRS (marker 2), set "
 "the output file (marker 3), then run (marker 4)."
 
-#: ../../petite_anse.rst:335
+#: ../../petite_anse.rst:345
 msgid "**Pour visualiser les attributs de la couche obtenue :**"
 msgstr "**Viewing the attributes of the resulting layer:**"
 
-#: ../../petite_anse.rst:337
-msgid "Sélectionner la couche (bulle 1) et ouvrir la table attributaire (bulle 2)."
+#: ../../petite_anse.rst:347
+msgid ""
+"Sélectionner la couche (bulle 1) et ouvrir la table attributaire (bulle 2)."
 msgstr "Select the layer (marker 1) and open the attribute table (marker 2)."
 
-#: ../../petite_anse.rst:342
+#: ../../petite_anse.rst:352
 msgid ""
-"La couche obtenue contient bien les centroides des bâtiments de la zone haute et "
-"de la zone basse et pour chaque centroïde, l'attribut *population* est "
+"La couche obtenue contient bien les centroides des bâtiments de la zone haute "
+"et de la zone basse et pour chaque centroïde, l'attribut *population* est "
 "renseigné. Cette couche peut être utilisée en entrée de module ``Réseau``."
 msgstr ""
 "The resulting layer contains the centroids of buildings in both the upper and "
 "lower areas, and for each centroid, the *population* attribute is filled in. "
 "This layer can be used as input for the ``Sewer network`` module."
 
-#: ../../petite_anse.rst:348
+#: ../../petite_anse.rst:358
 msgid ""
 "Au sein de la couche *entrees_reseau.gpkg* mise à disposition dans la rubrique "
 "suivante, vous trouverez plusieurs couches :"
@@ -582,7 +586,7 @@ msgstr ""
 "The geopackage *entrees_reseau.gpkg* given in the following section includes "
 "several layers:"
 
-#: ../../petite_anse.rst:350
+#: ../../petite_anse.rst:360
 msgid ""
 "*buildings_osm_population* a été générée en suivant le processus suivant : "
 "module ``Routes et bâtiments``, post-traitement manuel (sélection plus fine des "
@@ -592,7 +596,7 @@ msgstr ""
 "buildings`` module, manual post-processing (finer selection of buildings to "
 "connect), ``Population`` module;"
 
-#: ../../petite_anse.rst:351
+#: ../../petite_anse.rst:361
 msgid ""
 "*buildings_ign_population* a été obtenue en utilisant le plugin BD TOPO® "
 "Extractor suivi d'un post-traitement manuel puis d'une utilisation du module "
@@ -601,7 +605,7 @@ msgstr ""
 "*buildings_ign_population* was obtained using BD TOPO® Extractor plugin, then "
 "applying a manual post-processing and finally using the ``Population`` module;"
 
-#: ../../petite_anse.rst:353
+#: ../../petite_anse.rst:363
 msgid ""
 "Les deux couches peuvent être utilisées en entrées du module ``Réseau``. La "
 "couche se basant sur les données IGN contient plus de bâtiments (meilleure "
@@ -611,17 +615,17 @@ msgstr ""
 "based on IGN data contains more buildings (best data quality) and thus will a "
 "priori provide more relevant results."
 
-#: ../../petite_anse.rst:356
+#: ../../petite_anse.rst:366
 msgid ""
 "*roads_reduced_area* a été générée à l'aide du module ``Routes et bâtiments`` "
 "appliqué à la couche *zone _reduite* (dans *zones.gpkg*) suivi d'un post-"
 "traitement manuel (suppression de routes impraticables);"
 msgstr ""
-"*roads_reduced_area* results of the use of the ``Roads and buildinds`` module on "
-"*zone _reduite* layer (in *zones.gpkg*) followed by a manual post-processing "
+"*roads_reduced_area* results of the use of the ``Roads and buildinds`` module "
+"on *zone _reduite* layer (in *zones.gpkg*) followed by a manual post-processing "
 "(elimination of impassable roads);"
 
-#: ../../petite_anse.rst:357
+#: ../../petite_anse.rst:367
 msgid ""
 "*roads_enlarged_area* a été obtenue à l'aide du module ``Routes et bâtiments`` "
 "appliqué à la couche *zone _elargie* (dans *zones.gpkg*) suivi d'un post-"
@@ -631,31 +635,31 @@ msgstr ""
 "*zone _elargie* layer (in *zones.gpkg*) and then a manual post-processing "
 "(elimination of impassable roads);"
 
-#: ../../petite_anse.rst:358
+#: ../../petite_anse.rst:368
 msgid ""
 "*wwtp* qui contient les 4 emplacements de envisageables pour des stations de "
 "traitement des eaux usées."
 msgstr ""
 "*wwtp* that contains the 4 possible locations for wastewater treatment plants."
 
-#: ../../petite_anse.rst:360
+#: ../../petite_anse.rst:370
 msgid ""
-"Le geopackage *intermediate_layers.gpkg* contient les couches intermédiaires qui "
-"ont été nécessaires à l'obtention de ces couches."
+"Le geopackage *intermediate_layers.gpkg* contient les couches intermédiaires "
+"qui ont été nécessaires à l'obtention de ces couches."
 msgstr ""
 "The geopackage *intermediate_layers.gpkg* contains all intermediate layers that "
 "were necessary to obtain these 5 layers."
 
-#: ../../petite_anse.rst:364
+#: ../../petite_anse.rst:374
 msgid "Création d'un scénario"
 msgstr "Create a scenario"
 
-#: ../../petite_anse.rst:367
+#: ../../petite_anse.rst:377
 msgid "Étape 1 : Tracer le réseau d'assainissement (module ``Réseau``)"
 msgstr ""
 "Step 1: Pre-designing the sanitation sewer network (``Sewer network`` Module)"
 
-#: ../../petite_anse.rst:369
+#: ../../petite_anse.rst:379
 msgid ""
 "Le scénario que nous allons créer dans ce pas à pas va considérer un "
 "raccordement du quartier à l'un des emplacements possibles : celui au Sud de la "
@@ -664,33 +668,33 @@ msgstr ""
 "The scenario we will create in this step-by-step guide will consider connecting "
 "the area to one of the possible discharge point locations: the southern one."
 
-#: ../../petite_anse.rst:375
+#: ../../petite_anse.rst:385
 msgid ""
 "Pour reproduire ce pas à pas, vous pouvez : soit utiliser les données que vous "
 "avez préparé en suivant la rubrique précédente, soit télécharger les "
 "données :download:`ici <_static/layers_petite_anse.zip>`."
 msgstr ""
-"To reproduce this step-by-step example, you can either use the data you prepared "
-"by following the previous section, or download the data :download:`here <_static/"
-"layers_petite_anse.zip>`."
+"To reproduce this step-by-step example, you can either use the data you "
+"prepared by following the previous section, or download the "
+"data :download:`here <_static/layers_petite_anse.zip>`."
 
-#: ../../petite_anse.rst:377
+#: ../../petite_anse.rst:387
 msgid "**1. Utilisation du module** ``Réseau``"
 msgstr "**1. Using the** ``Sewer network`` **module**"
 
-#: ../../petite_anse.rst:379
+#: ../../petite_anse.rst:391
 msgid "Sélectionner la station au Sud (bulles 1 à 3)."
 msgstr "Select the southern WWTP (markers 1 to 3)."
 
-#: ../../petite_anse.rst:381
+#: ../../petite_anse.rst:393
 msgid ""
-"Chercher ``ELAN`` dans la boîte à outils de traitements (bulle 4) et "
+"Chercher ``elan`` dans la boîte à outils de traitements (bulle 4) et "
 "sélectionner ``Réseau`` (bulle 5)."
 msgstr ""
-"Search for ``ELAN`` in the Processing Toolbox (marker 4) and select ``Sewer "
+"Search for ``elan`` in the Processing Toolbox (marker 4) and select ``Sewer "
 "network`` (marker 5)."
 
-#: ../../petite_anse.rst:386
+#: ../../petite_anse.rst:398
 msgid ""
 "Indiquer les 4 couches géographiques (bulles 1 à 4). **Bien cocher Entité(s) "
 "sélectionnée(s) uniquement pour considérer uniquement la STEU au Sud de la "
@@ -699,7 +703,7 @@ msgstr ""
 "Specify the 4 geographic layers (markers 1 to 4). **Be sure to tick Selected "
 "features only to consider only the WWTP in the south of the area.**"
 
-#: ../../petite_anse.rst:388
+#: ../../petite_anse.rst:400
 msgid ""
 "Si vous souhaitez travailler en considérant un nombre variable d'habitants par "
 "bâtiment, indiquer l'attribut correspondant à la population parmi les attributs "
@@ -711,11 +715,11 @@ msgstr ""
 "(drop-down menu) for *Number of inhabitants (field)*. If not, let the field "
 "empty."
 
-#: ../../petite_anse.rst:393
+#: ../../petite_anse.rst:405
 msgid "Laisser les valeurs par défaut pour les différents paramètres techniques."
 msgstr "Leave the default values for the various technical parameters."
 
-#: ../../petite_anse.rst:395
+#: ../../petite_anse.rst:407
 msgid ""
 "Sélectionner les 6 premiers diamètres (0,1 à 0,4) parmi les options possibles "
 "pour les diamètres gravitaires (bulle 5)."
@@ -723,23 +727,23 @@ msgstr ""
 "Select the first 6 possible options (0.1 to 0.4) for gravity diameters (marker "
 "5)."
 
-#: ../../petite_anse.rst:397
+#: ../../petite_anse.rst:409
 msgid "Sélectionner un nom et un emplacement pour le fichier (bulle 6)."
 msgstr "Choose a name and a saving location for the file (marker 6)."
 
-#: ../../petite_anse.rst:399
+#: ../../petite_anse.rst:411
 msgid "Exécuter (bulle 7)."
 msgstr "Run (marker 7)."
 
-#: ../../petite_anse.rst:404
+#: ../../petite_anse.rst:416
 msgid "**2. Résultats en sortie de module** ``Réseau``"
 msgstr "**2. Results from the** ``Sewer network`` **module**"
 
-#: ../../petite_anse.rst:406
+#: ../../petite_anse.rst:418
 msgid "Après exécution, vous obtenez la vue suivante :"
 msgstr "After executing it, you will obtain the following view:"
 
-#: ../../petite_anse.rst:413
+#: ../../petite_anse.rst:425
 msgid ""
 "Les couches relatives aux routes et aux bâtiments n'apparaissent pas sur cette "
 "vue et les suivantes pour plus de lisibilité."
@@ -747,7 +751,7 @@ msgstr ""
 "Layers relative to roads and buildings do not appear in this view and the "
 "following ones for more clarity."
 
-#: ../../petite_anse.rst:415
+#: ../../petite_anse.rst:427
 msgid ""
 "6 couches géométriques ont été chargées dans votre espace de travail, chacune "
 "avec une symbologie qui lui est propre :"
@@ -755,56 +759,56 @@ msgstr ""
 "6 geographic layers have been loaded into your workspace, each with its own "
 "symbology:"
 
-#: ../../petite_anse.rst:417
+#: ../../petite_anse.rst:429
 msgid "carré jaune pour la STEU"
 msgstr "yellow square for the WWTP"
 
-#: ../../petite_anse.rst:418
+#: ../../petite_anse.rst:430
 msgid "lignes de couleur aléatoire pour les routes"
 msgstr "random colored lines for roads"
 
-#: ../../petite_anse.rst:419
+#: ../../petite_anse.rst:431
 msgid "points de couleur aléatoire pour les bâtiments"
 msgstr "random colored points for buildings"
 
-#: ../../petite_anse.rst:420
+#: ../../petite_anse.rst:432
 msgid "triangles verts pour les stations de relevage"
 msgstr "green triangles for lifting stations"
 
-#: ../../petite_anse.rst:421
+#: ../../petite_anse.rst:433
 msgid "triangles rouges pour les stations de pompage (privées et non privées)"
 msgstr "red triangles for pumping stations (private and non-private)"
 
-#: ../../petite_anse.rst:422
+#: ../../petite_anse.rst:434
 msgid ""
-"lignes bleues pour les sections en gravitaire et lignes rouges pour les sections "
-"en refoulement"
+"lignes bleues pour les sections en gravitaire et lignes rouges pour les "
+"sections en refoulement"
 msgstr ""
 "blue lines for gravity-driven sections and red lines for pressurized sections"
 
-#: ../../petite_anse.rst:424
+#: ../../petite_anse.rst:438
 msgid ""
 "D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y "
 "accéder :"
 msgstr "Other styles are available for the ``Sewer pipes layer``. To access them:"
 
-#: ../../petite_anse.rst:426
+#: ../../petite_anse.rst:440
 msgid "**1.** Sélectionner la couche ``Canalisations`` et **cliquer droit**."
 msgstr "**1.** Select the ``Sewer pipes`` layer and **right-click**."
 
-#: ../../petite_anse.rst:428
+#: ../../petite_anse.rst:442
 msgid "**2.** Aller dans *Styles*."
 msgstr "**2.** Go to *Styles*."
 
-#: ../../petite_anse.rst:430
+#: ../../petite_anse.rst:444
 msgid "**3.** Sélectionner le style de votre choix parmi les 5 autres proposés."
 msgstr "**3.** Select the style of your choice among the 5 alternatives provided."
 
-#: ../../petite_anse.rst:435
+#: ../../petite_anse.rst:449
 msgid "**Style diamètres**"
 msgstr "**Diameters style**"
 
-#: ../../petite_anse.rst:441
+#: ../../petite_anse.rst:455
 msgid ""
 "Pour savoir exactement combien d'entités correspondent à chaque diamètre : "
 "cliquer droit sur la couche ``Canalisations`` et cocher ``Afficher le nombre "
@@ -813,37 +817,37 @@ msgstr ""
 "To know exactly how many features fit each diameter: right-click on ``Sewer "
 "pipes`` and tick ``Show Feature Count``. You will get something of this kind:"
 
-#: ../../petite_anse.rst:447
+#: ../../petite_anse.rst:461
 msgid "Cette astuce peut être appliquée à n'importe quelle couche vecteur."
 msgstr "This tip can be applied to any vector layer."
 
-#: ../../petite_anse.rst:449
+#: ../../petite_anse.rst:463
 msgid "**Style débit de pointe**"
 msgstr "**Peak flow style**"
 
-#: ../../petite_anse.rst:454
+#: ../../petite_anse.rst:468
 msgid "**Style profondeur**"
 msgstr "**Depth style**"
 
-#: ../../petite_anse.rst:459
+#: ../../petite_anse.rst:473
 msgid "**Style sens d'écoulement**"
 msgstr "**Flow direction style**"
 
-#: ../../petite_anse.rst:464
+#: ../../petite_anse.rst:478
 msgid "**Style sous-réseaux**"
 msgstr "**Sub-networks style**"
 
-#: ../../petite_anse.rst:470
+#: ../../petite_anse.rst:484
 msgid ""
 "Le style *Sous-réseaux* est ici uniforme car ce scénario considère une seule "
 "station donc un seul réseau d'assainissement (pas de sous-réseaux). En "
 "considérant 2 stations possibles, une vue de ce type sera obtenue :"
 msgstr ""
-"The *Sub-networks* style is uniform here, since this scenario considers a single "
-"treatment plant, therefore a single sewer network (no sub-networks). Considering "
-"2 discharge points, a view of this kind would be obtained:"
+"The *Sub-networks* style is uniform here, since this scenario considers a "
+"single treatment plant, therefore a single sewer network (no sub-networks). "
+"Considering 2 discharge points, a view of this kind would be obtained:"
 
-#: ../../petite_anse.rst:477
+#: ../../petite_anse.rst:493
 msgid ""
 "Pour organiser votre espace avec les différentes couches, vous pouvez créer des "
 "groupes (ici *Préparation de données*, *Données mises à disposition* et *STEU "
@@ -852,7 +856,7 @@ msgstr ""
 "To organize your workspace with the different layers, you can create groups "
 "(e.g., *Data Prepared*, *Data Provided*, and *Sewer Network - Southern WWTP*)."
 
-#: ../../petite_anse.rst:479
+#: ../../petite_anse.rst:495
 msgid ""
 "Pour cela, il vous suffit de cliquer sur l'icône *Ajouter un groupe* et d'y "
 "glisser les couches que vous souhaitez rassembler."
@@ -860,7 +864,7 @@ msgstr ""
 "To do this, simply click the *Add Group* icon and drag the layers you want to "
 "group into it."
 
-#: ../../petite_anse.rst:484
+#: ../../petite_anse.rst:502
 msgid ""
 "**3. Consultation de la couche** ``Informations sur le réseau`` **et des "
 "attributs des autres couches**"
@@ -868,22 +872,22 @@ msgstr ""
 "**3. Consulting the** ``Network information`` **layer and attributes of other "
 "layers**"
 
-#: ../../petite_anse.rst:486
+#: ../../petite_anse.rst:504
 msgid "Sélectionner la couche ``Informations sur le réseau`` (bulle 1)."
 msgstr "Select the ``Network information`` layer (marker 1)."
 
-#: ../../petite_anse.rst:488
+#: ../../petite_anse.rst:506
 msgid "Cliquer que l'icône *Ouvrir la table attributaire* (bulle 2)."
 msgstr "Click on the *Open attribute table* icon (marker 2)."
 
-#: ../../petite_anse.rst:490 ../../petite_anse.rst:593
+#: ../../petite_anse.rst:508 ../../petite_anse.rst:614
 msgid ""
-"Une fenêtre s'ouvre et vous permet d'accéder à l'ensemble des informations de la "
-"couche (bulle 3)."
+"Une fenêtre s'ouvre et vous permet d'accéder à l'ensemble des informations de "
+"la couche (bulle 3)."
 msgstr ""
 "A window opens giving you access to all the information in the layer (marker 3)."
 
-#: ../../petite_anse.rst:495
+#: ../../petite_anse.rst:513
 msgid ""
 "Pour consulter les attributs des 4 autres couches obtenues en sortie, procéder "
 "de même en sélectionnant la couche dont vous souhaitez consulter les attributs."
@@ -891,7 +895,7 @@ msgstr ""
 "To consult the attributes of the other 4 layers produced by the module, proceed "
 "the same way by selecting the layer whose attributes you want to view."
 
-#: ../../petite_anse.rst:498
+#: ../../petite_anse.rst:516
 msgid ""
 "L'ensemble des attributs disponibles pour chaque couche est détaillé :ref:`ici "
 "<attributs-reseau>`."
@@ -899,7 +903,7 @@ msgstr ""
 "The full list of attributes available for each layer is detailed :ref:`here "
 "<attributs-reseau>`."
 
-#: ../../petite_anse.rst:501
+#: ../../petite_anse.rst:519
 msgid ""
 "Si vous êtes amenés à charger le géopackage contenant les 7 couches dans un "
 "autre projet, vous pouvez l'ouvrir directement dans un groupe en suivant la "
@@ -908,12 +912,13 @@ msgstr ""
 "If you have to loag the geopackage containing the 7 layers in another project, "
 "you can directly load it into a common group following these steps:"
 
-#: ../../petite_anse.rst:504
+#: ../../petite_anse.rst:522
 msgid ""
-"Glisser le .gpkg depuis *Explorateur* dans la fenêtre avec la vue cartographique."
+"Glisser le .gpkg depuis *Explorateur* dans la fenêtre avec la vue "
+"cartographique."
 msgstr "Drag and drop the .gpk from *Browser* to the map canvas."
 
-#: ../../petite_anse.rst:505
+#: ../../petite_anse.rst:523
 msgid ""
 "Dans la fenêtre qui s'ouvre, dérouler *Options* et cocher *Afficher des couches "
 "à un groupe* (bulle 1)."
@@ -921,15 +926,15 @@ msgstr ""
 "In the window that opens, pull down *Options* and tick *Add layers to a group* "
 "(marker 1)."
 
-#: ../../petite_anse.rst:506
+#: ../../petite_anse.rst:524
 msgid "Cliquer sur *Ajouter une couche* (bulle 2)."
 msgstr "Click on *Add Layers* (marker 2)."
 
-#: ../../petite_anse.rst:513
+#: ../../petite_anse.rst:531
 msgid "Exploration des résultats (module ``Profils de canalisations``)"
 msgstr "Results exploration (``Longitudinal sewer profile`` module)"
 
-#: ../../petite_anse.rst:515
+#: ../../petite_anse.rst:533
 msgid ""
 "Pour explorer le pré-dimensionnement proposé par le module ``Réseau``, vous "
 "pouvez visualiser le profil souterrain d'une succession de tuyaux grâce au "
@@ -938,19 +943,20 @@ msgid ""
 "générale."
 msgstr ""
 "To explore the preliminary sizing proposed by the ``Sewer network`` module, you "
-"can view the underground profile of a sequence of pipes using the ``Longitudinal "
-"sewer profile`` module coupled with the QGIS *Elevation profile* tool. "
-"An :ref:`example <visualisation-profils>` is given in the general documentation."
+"can view the underground profile of a sequence of pipes using the "
+"``Longitudinal sewer profile`` module coupled with the QGIS *Elevation profile* "
+"tool. An :ref:`example <visualisation-profils>` is given in the general "
+"documentation."
 
-#: ../../petite_anse.rst:520
+#: ../../petite_anse.rst:538
 msgid "Étape 2 : Pré-dimensionner la ou les STEU (module ``Procédés``)"
 msgstr "Step 2: Preliminary sizing of the WWTP(s) (``Processes`` module)"
 
-#: ../../petite_anse.rst:522
+#: ../../petite_anse.rst:541
 msgid "**1. Renseigner les contraintes de rejet dans la couche** ``STEU``"
 msgstr "**1. Specifying outflow concentration targets in the** ``WWTP`` **layer**"
 
-#: ../../petite_anse.rst:524
+#: ../../petite_anse.rst:543
 msgid ""
 "Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone "
 "sont les suivants :"
@@ -958,75 +964,76 @@ msgstr ""
 "The outflow concentration targets to be met for a plant located south of the "
 "area are as follows:"
 
-#: ../../petite_anse.rst:526 ../../petite_anse.rst:639
+#: ../../petite_anse.rst:545 ../../petite_anse.rst:660
 msgid "MES : 35 mg/L"
 msgstr "TSS: 35 mg/L"
 
-#: ../../petite_anse.rst:527 ../../petite_anse.rst:640
+#: ../../petite_anse.rst:546 ../../petite_anse.rst:661
 msgid "DBO5 : 35 mg/L"
 msgstr "BOD₅: 35 mg/L"
 
-#: ../../petite_anse.rst:528
+#: ../../petite_anse.rst:547
 msgid "NTK : 20 mg/L"
 msgstr "TKN: 20 mg/L"
 
-#: ../../petite_anse.rst:529 ../../petite_anse.rst:641
+#: ../../petite_anse.rst:548 ../../petite_anse.rst:662
 msgid "DCO : 125 mg/L"
 msgstr "COD: 125 mg/L"
 
-#: ../../petite_anse.rst:531
+#: ../../petite_anse.rst:550
 msgid "Sélectionner la couche ``STEU`` (bulle 1)."
 msgstr "Select the ``WWTP`` layer (marker 1)."
 
-#: ../../petite_anse.rst:533
+#: ../../petite_anse.rst:552
 msgid ""
 "Basculer en mode édition (bulle 2) puis ouvrir la table attributaire (bulle 3)."
 msgstr "Switch to edit mode (marker 2) then open the attribute table (marker 3)."
 
-#: ../../petite_anse.rst:535
+#: ../../petite_anse.rst:554
 msgid ""
 "Renseigner les valeurs numériques indiquées pour les niveaux de rejet en MES, "
 "DBO5, NTK et DCO (encart 4)."
 msgstr ""
 "Fill the numerical values indicated for TSS, BOD₅, TKN, and COD (insert 4)."
 
-#: ../../petite_anse.rst:537
-msgid "Sortir du mode édition (bulle 5) et fermer la table attributaire (bulle 6)."
+#: ../../petite_anse.rst:556
+msgid ""
+"Sortir du mode édition (bulle 5) et fermer la table attributaire (bulle 6)."
 msgstr "Exit edit mode (marker 5) and close the attribute table (marker 6)."
 
-#: ../../petite_anse.rst:542
+#: ../../petite_anse.rst:563
 msgid "**2. Délimitation de la surface disponible** (facultatif)"
 msgstr "**2. Delimiting the available surface area** (optional)"
 
-#: ../../petite_anse.rst:544
+#: ../../petite_anse.rst:565
 msgid "Créer une nouvelle couche (.gpkg ou .shp) de type *polygone*."
 msgstr "Create a new *polygon* layer (.gpkg or .shp)."
 
-#: ../../petite_anse.rst:552
+#: ../../petite_anse.rst:573
 msgid "L'éditer et délimiter la surface disponible."
 msgstr "Edit the layer and delineate the available surface area."
 
-#: ../../petite_anse.rst:557
+#: ../../petite_anse.rst:578
 msgid "Enregistrer et sortir du mode édition."
 msgstr "Save and exit edit mode."
 
-#: ../../petite_anse.rst:562
+#: ../../petite_anse.rst:583
 msgid "**3. Utilisation du module** ``Procédés``"
 msgstr "**3. Using the** ``Processes`` **module**"
 
-#: ../../petite_anse.rst:564
+#: ../../petite_anse.rst:585
 msgid ""
-"Cherche ``ELAN`` dans la *Boîte à outils de traitements* et sélectionner "
+"Cherche ``elan`` dans la *Boîte à outils de traitements* et sélectionner "
 "``Procédés`` (bulles 1 et 2)."
 msgstr ""
-"Search for ``ELAN`` in the *Processing Toolbox* and select ``Processes`` "
+"Search for ``elan`` in the *Processing Toolbox* and select ``Processes`` "
 "(markers 1 and 2)."
 
-#: ../../petite_anse.rst:566
+#: ../../petite_anse.rst:587
 msgid "Choisir *Tropical* pour le climat (bulle 3)."
 msgstr "Choose *Tropical* for climate (marker 3)."
 
-#: ../../petite_anse.rst:568
+#: ../../petite_anse.rst:589
 msgid ""
 "Indiquer la couche ``STEU`` dont vous avez renseigné les attributs (bulle 4) et "
 "la couche ``surface-dispo`` que vous venez de créer (bulle 5)."
@@ -1034,7 +1041,7 @@ msgstr ""
 "Indicate the ``WWTP`` layer where you filled in the attributes (marker 4) and "
 "the ``available_surface`` layer you just created (marker 5)."
 
-#: ../../petite_anse.rst:573
+#: ../../petite_anse.rst:594
 msgid ""
 "Vérifier que les champs identifiés pour les niveaux de rejets et le débit "
 "journalier sont corrects."
@@ -1042,7 +1049,7 @@ msgstr ""
 "Verify that the fields identified for outflow concentration targets and daily "
 "inflow are correct."
 
-#: ../../petite_anse.rst:575
+#: ../../petite_anse.rst:596
 msgid ""
 "Indiquer un nom et un emplacement pour l'enregistrement du fichier de sortie "
 "(bulle 6), puis exécuter (bulle 7)."
@@ -1050,66 +1057,66 @@ msgstr ""
 "Provide a name and save location for the output file (marker 6), then run "
 "(marker 7)."
 
-#: ../../petite_anse.rst:580
+#: ../../petite_anse.rst:601
 msgid ""
 "**4. Consultation des caractéristiques des filières de traitement pré-"
 "dimensionnées**"
 msgstr "**4. Exploring the characteristics of pre-sized treatment trains**"
 
-#: ../../petite_anse.rst:582
+#: ../../petite_anse.rst:603
 msgid ""
 "Après exécution du module, vous obtenez un visuel de ce type (couche *point*) :"
 msgstr "After execution, you obtain a *point* layer output of this type:"
 
-#: ../../petite_anse.rst:587
+#: ../../petite_anse.rst:608
 msgid "Pour consulter les attributs de cette couche :"
 msgstr "To access the attributes of this layer:"
 
-#: ../../petite_anse.rst:589
+#: ../../petite_anse.rst:610
 msgid "Sélectionner la couche ``Couche de filières`` (bulle 1)."
 msgstr "Select the ``Treatment trains layer`` (marker 1)."
 
-#: ../../petite_anse.rst:591
+#: ../../petite_anse.rst:612
 msgid "Cliquer que l'icône Ouvrir la table attributaire (bulle 2)."
 msgstr "Click the Open attribute table icon (marker 2)."
 
-#: ../../petite_anse.rst:599
+#: ../../petite_anse.rst:620
 msgid "Étape 3 : Pré-sélectionner une filière par exutoire"
 msgstr "Step 3: Pre-selecting a treatment train for each discharge point"
 
-#: ../../petite_anse.rst:601
+#: ../../petite_anse.rst:622
 msgid ""
-"Ici, 6 filières permettent d'atteindre les niveaux de rejets imposés (déviations "
-"en vert) :"
+"Ici, 6 filières permettent d'atteindre les niveaux de rejets imposés "
+"(déviations en vert) :"
 msgstr ""
-"Here, 6 treatment trains meet the required outflow concentrations (deviations in "
-"green):"
+"Here, 6 treatment trains meet the required outflow concentrations (deviations "
+"in green):"
 
-#: ../../petite_anse.rst:603
+#: ../../petite_anse.rst:624
 msgid "VdNS1-VdNS2"
 msgstr "VdNS1-VdNS2"
 
-#: ../../petite_anse.rst:604
+#: ../../petite_anse.rst:625
 msgid "VdNS1-VdNS2-VdNS2"
 msgstr "VdNS1-VdNS2-VdNS2"
 
-#: ../../petite_anse.rst:605
+#: ../../petite_anse.rst:626
 msgid "VdNSS-VdNS2"
 msgstr "VdNSS-VdNS2"
 
-#: ../../petite_anse.rst:606
+#: ../../petite_anse.rst:627
 msgid "VdNSS-VdNS2-VdNS2"
 msgstr "VdNSS-VdNS2-VdNS2"
 
-#: ../../petite_anse.rst:607
+#: ../../petite_anse.rst:628
 msgid "VdNS1"
 msgstr "VdNS1"
 
-#: ../../petite_anse.rst:608
+#: ../../petite_anse.rst:629
 msgid "VdNSS"
 msgstr "VdNSS"
 
-#: ../../petite_anse.rst:610
+#: ../../petite_anse.rst:631
 msgid ""
 "La surface totale apparaît en rouge pour la filière VdNS1-VdNS2-VdNS2 car elle "
 "est supérieure à la surface disponible."
@@ -1117,7 +1124,7 @@ msgstr ""
 "The total surface appears in red for the VdNS1–VdNS2–VdNS2 train, as it exceeds "
 "the available surface area."
 
-#: ../../petite_anse.rst:612
+#: ../../petite_anse.rst:633
 msgid ""
 "Les filières à étage unique (VdNS1 et VdNSS) permettent ici d'atteindre les "
 "niveaux de rejets et sont généralement moins coûteuses que les filières multi-"
@@ -1125,11 +1132,11 @@ msgid ""
 "elles pourraient constituer deux filières de traitement intéressantes."
 msgstr ""
 "The single-stage treatment trains (VdNS1 and VdNSS) here are sufficient to meet "
-"the outflow concentration targets and are generally less costly than multi-stage "
-"treatment trains. Given the pollutant loading rates and the hydraulic loading "
-"rate, they could be two promising treatment trains options."
+"the outflow concentration targets and are generally less costly than multi-"
+"stage treatment trains. Given the pollutant loading rates and the hydraulic "
+"loading rate, they could be two promising treatment trains options."
 
-#: ../../petite_anse.rst:616
+#: ../../petite_anse.rst:637
 msgid ""
 "Un premier scénario pourrait donc être : le réseau d'assainissement obtenu à "
 "l'étape 1 couplé à une filière VdNS1. Le couplage avec une filière VdNSS "
@@ -1139,39 +1146,40 @@ msgstr ""
 "coupled with a VdNS1 train. Pairing it with a VdNSS train could form a second "
 "scenario."
 
-#: ../../petite_anse.rst:621
+#: ../../petite_anse.rst:642
 msgid "Étape 4 : Créer un objet scénario (module ``Créer un scénario``)"
 msgstr "Step 4: Creation of a scenario item (``Create a scenario`` module)"
 
-#: ../../petite_anse.rst:623
+#: ../../petite_anse.rst:644
 msgid ""
-"Une fois que le couplage réseau/filière constitutif d'un scénario est identifié, "
-"vous pouvez créer un objet scénario à l'aide du module ``Créer un scénario`` "
-"comme :ref:`détaillé dans la documentation générale <creer-scenario>`. Cet objet "
-"permettra ensuite l'évaluation du scénario et sa comparaison à d'autres "
-"scénarios envisagés."
+"Une fois que le couplage réseau/filière constitutif d'un scénario est "
+"identifié, vous pouvez créer un objet scénario à l'aide du module ``Créer un "
+"scénario`` comme :ref:`détaillé dans la documentation générale <creer-"
+"scenario>`. Cet objet permettra ensuite l'évaluation du scénario et sa "
+"comparaison à d'autres scénarios envisagés."
 msgstr ""
 "Once you have identified the sewer network/treatment trains coupling for a "
 "scenario, you can create a scenario item using the ``Créer un scénario`` module "
-"as :ref:`detailed in global documentation <creer-scenario>`. This item will then "
-"be useful to assess this scenario and compare it to other possible scenarios."
+"as :ref:`detailed in global documentation <creer-scenario>`. This item will "
+"then be useful to assess this scenario and compare it to other possible "
+"scenarios."
 
-#: ../../petite_anse.rst:629
+#: ../../petite_anse.rst:650
 msgid ""
 "Exercice : Création d'un second scénario pour :ref:`Petite Anse <petite-anse>`"
 msgstr "Exercise: Creating a second scenario for :ref:`Petite-Anse <petite-anse>`"
 
-#: ../../petite_anse.rst:631
+#: ../../petite_anse.rst:652
 msgid ""
 "Pour mettre en pratique le contenu de cette page, vous pouvez essayez de suivre "
-"les différentes étapes décrites mais cette fois-ci en considérant 2 emplacements "
-"possibles : celui au Sud de la zone et celui au Nord."
+"les différentes étapes décrites mais cette fois-ci en considérant 2 "
+"emplacements possibles : celui au Sud de la zone et celui au Nord."
 msgstr ""
 "To practice the content of this page, you can try following the same steps, but "
 "this time considering 2 possible discharge point locations: one in the South of "
 "the area and one in the North."
 
-#: ../../petite_anse.rst:637
+#: ../../petite_anse.rst:658
 msgid ""
 "Les niveaux de rejet pour l'emplacement au Nord de la zone sont moins "
 "contraignants (pas de contrainte sur l'azote) :"
@@ -1179,7 +1187,7 @@ msgstr ""
 "The outflow concentration targets for the northern location are less strict (no "
 "nitrogen constraint):"
 
-#: ../../petite_anse.rst:644
+#: ../../petite_anse.rst:665
 msgid ""
 "L'aspect itératif de la définition d'un scénario est brièvement mentionné mais "
 "n'est pas détaillé dans ce pas à pas. Il s'agit d'une pratique possible (voire "
@@ -1188,7 +1196,7 @@ msgstr ""
 "The iterative nature of scenario definition is not detailed in this step-by-"
 "step, but it is a possible practice (if not unavoidable)."
 
-#: ../../petite_anse.rst:646
+#: ../../petite_anse.rst:667
 msgid ""
 "Par exemple : si vous jugez que certains bâtiments sont trop \"coûteux\" à "
 "raccorder (plus de 40 mètre linéaire pour un bâtiment), vous pouvez éditer la "

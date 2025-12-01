@@ -6,7 +6,7 @@ Exemple de Petite Anse
 Ce tutoriel se base sur le cas de :ref:`Petite Anse <petite-anse>` et détaille les étapes à mettre en oeuvre pour créer un scénario pour la question du centralisé / décentralisé,
 depuis l'obtention et la préparation des données géographiques jusqu'à la création d'un objet scénario.
 
-Il peut être suivi pas à pas pour prendre en main ELAN avant de l'appliquer à son propre cas d'étude. Un :ref:`exercice <exercice>` pour créer un autre scénario sur la zone de Petite Anse est 
+Il peut être suivi pas à pas pour prendre en main Elan avant de l'appliquer à son propre cas d'étude. Un :ref:`exercice <exercice>` pour créer un autre scénario sur la zone de Petite Anse est 
 proposé à la fin de ce tutoriel.
 
 Obtention et préparation des données géographiques
@@ -270,7 +270,7 @@ Les couches peuvent ensuite être éditées au besoin. Par exemple ici, restrein
 **L'édition permet à l'utilisateur de retranscrire sa connaissance du terrain** (routes non empruntables ou au contraire, ajout de chemins envisageables, 
 sélection fine des bâtiments à raccorder ou non) et **contribue donc à obtenir des résultats plus pertinents**.
 
-Étape 3 : Récupérer les routes et bâtiments - obtention avec ELAN (option 2)
+Étape 3 : Récupérer les routes et bâtiments - obtention avec Elan (option 2)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Récupération des bâtiments**
@@ -390,7 +390,7 @@ Le scénario que nous allons créer dans ce pas à pas va considérer un raccord
 
 * Sélectionner la station au Sud (bulles 1 à 3).
 
-* Chercher ``ELAN`` dans la boîte à outils de traitements (bulle 4) et sélectionner ``Réseau`` (bulle 5).
+* Chercher ``elan`` dans la boîte à outils de traitements (bulle 4) et sélectionner ``Réseau`` (bulle 5).
 
 .. image:: _static/etape1.png
     :width: 700
@@ -582,7 +582,7 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 
 **3. Utilisation du module** ``Procédés``
 
-* Cherche ``ELAN`` dans la *Boîte à outils de traitements* et sélectionner ``Procédés`` (bulles 1 et 2).
+* Cherche ``elan`` dans la *Boîte à outils de traitements* et sélectionner ``Procédés`` (bulles 1 et 2).
 
 * Choisir *Tropical* pour le climat (bulle 3).
 

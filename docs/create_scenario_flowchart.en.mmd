@@ -32,7 +32,7 @@ flowchart TB
         A11[<a href="https://elan-gis.org/en/scenario_prb1.html#_start_procedes">I launch the *Processes* module</a>]
         G1[I specify the layer with the available areas]
         G2[I leave the *available area* input empty]
-        A12["I choose between *Temperate* ou *Tropical* climate (>= 25°C as an annual average)"]
+        A12["I choose between *Temperate* ou *Tropical* climate (Tmin >= 18°C all year around)"]
         A13[I fill my *WWTP* layer. <br/> I check that the parameters were correctly detected. <br/> I run the module.]
         A14[<a href="https://elan-gis.org/en/scenario_prb1.html#_sorties_procedes">I get 1 treatment trains layer with several options</a>]
         A15[I compare the several options using the graphical representations proposed in Elan]
@@ -53,4 +53,3 @@ flowchart TB
         A17 -- yes --> H1 -- for each case under consideration --> A18
         A17 -- no --> H2 --> A18
         A18 --> A19 --> A20
-  

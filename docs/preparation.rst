@@ -51,7 +51,7 @@ En contexte français (Hexagone et Outre-Mer)
         * Choisir les couches ``Bâtiment`` et ``Tronçon de route``.
 
 .. attention::
-    La couche ``bâtiments`` obtenue est de type *polygone* et non *point*. Elle doit donc être transformée via le module :ref:`Population <population>` intégré à ELAN ou le module ``Centroïdes`` qui est natif de QGIS.
+    La couche ``bâtiments`` obtenue est de type *polygone* et non *point*. Elle doit donc être transformée via le module :ref:`Population <population>` intégré à Elan ou le module ``Centroïdes`` qui est natif de QGIS.
 
 En contexte international
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -78,10 +78,10 @@ En contexte international
 .. image:: _static/alaska-edu.png
       :width: 700
 
-* ``routes`` et ``bâtiments``: le module :ref:`Routes et bâtiments <routes>` d'ELAN vous permet d'extraire les données OpenStreetMap sur une zone définie.
+* ``routes`` et ``bâtiments``: le module :ref:`Routes et bâtiments <routes>` d'Elan vous permet d'extraire les données OpenStreetMap sur une zone définie.
 
 .. attention::
-    La couche ``bâtiments`` obtenue sera de type *polygone* et non *point*. Elle devra donc être transformée via le module :ref:`Population <population>` intégré à ELAN ou le module ``Centroïdes`` qui est natif de QGIS.
+    La couche ``bâtiments`` obtenue sera de type *polygone* et non *point*. Elle devra donc être transformée via le module :ref:`Population <population>` intégré à Elan ou le module ``Centroïdes`` qui est natif de QGIS.
 
 .. _open_buildings:
 
@@ -111,7 +111,7 @@ OpenStreetMap est un outil ouvert et collaboratif.
 
 **Utilisation du module**
 
-**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Routes et bâtiments``.
+**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Routes et bâtiments``.
 
 .. image:: _static/start-r+b.png
       :width: 352
@@ -168,7 +168,7 @@ Pour plus d'informations sur la méthode de répartition utilisée :
 
 .. _start-pop:
 
-**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Population``.
+**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Population``.
 
 .. image:: _static/start-pop.png
     :width: 354

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 16:09+0100\n"
-"PO-Revision-Date: 2025-11-12 16:10+0100\n"
+"POT-Creation-Date: 2025-12-01 10:26+0100\n"
+"PO-Revision-Date: 2025-12-01 10:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -26,16 +26,16 @@ msgstr "Introduction"
 
 #: ../../introduction.rst:4
 msgid ""
-"L'appellation ELAN a été choisie pour **\"urban watEr pLanning scenArios for "
+"L'appellation Elan a été choisie pour **\"urban watEr pLanning scenArios for "
 "sustaiNable cities\"**. Il s'agit d'un **outil d'aide à la décision pour une "
 "gestion intégrée des eaux urbaines (usées et pluviales) par des solutions "
-"fondées sur la nature**. ELAN s'inscrit dans un objectif global de transformer "
+"fondées sur la nature**. Elan s'inscrit dans un objectif global de transformer "
 "la ville de demain pour la rendre résiliente au changement global. Cette "
 "transformation constitue un véritable défi territorial, ce qui rend "
 "particulièrement pertinent le recours au système d'information géographique "
 "(SIG)."
 msgstr ""
-"The name ELAN was chosen for **\"urban watEr pLanning scenArios for "
+"The name Elan was chosen for **\"urban watEr pLanning scenArios for "
 "sustaiNable cities\"**. It is a **decision-support tool for the integrated "
 "management of urban waters (wastewater and stormwater) through nature-based "
 "solutions**. ELAN is part of a broader objective to transform the cities of "
@@ -49,12 +49,12 @@ msgstr "One tool, two issues"
 
 #: ../../introduction.rst:11
 msgid ""
-"ELAN permet d'aider à la décision face à **deux problématiques** : l'une "
+"Elan permet d'aider à la décision face à **deux problématiques** : l'une "
 "mettant en jeu spécifiquement les eaux usées (**\"question du centralisé/"
 "décentralisé\"**), l'autre impliquant les eaux urbaines dans leur ensemble "
 "(**\"question des déversements par temps de pluie\"**)."
 msgstr ""
-"ELAN helps decision-making in relation to **two issues**: one specifically "
+"Elan helps decision-making in relation to **two issues**: one specifically "
 "concerning wastewater (the **centralized/decentralized question**), the other "
 "involving urban water as a whole (the **stormwater overflows question**)."
 
@@ -149,10 +149,10 @@ msgstr ""
 
 #: ../../introduction.rst:46
 msgid ""
-"ELAN permet d'aider à la prise de décision en permettant à l'utilisateur "
+"Elan permet d'aider à la prise de décision en permettant à l'utilisateur "
 "**d'explorer de multiples scénarios et de les évaluer**."
 msgstr ""
-"ELAN helps the decision-making process by allowing users to **explore and "
+"Elan helps the decision-making process by allowing users to **explore and "
 "assess multiple scenarios**."
 
 #: ../../introduction.rst:48
@@ -176,8 +176,8 @@ msgid "Structure de l'outil"
 msgstr "Structure of the tool"
 
 #: ../../introduction.rst:58
-msgid "ELAN est structuré en **plusieurs groupement de modules**."
-msgstr "ELAN is structured into **several groups of modules**."
+msgid "Elan est structuré en **plusieurs groupement de modules**."
+msgstr "Elan is structured into **several groups of modules**."
 
 #: ../../introduction.rst:63
 msgid "**Préparation des données**"
@@ -326,12 +326,12 @@ msgstr "A tool that combines different research projects"
 
 #: ../../introduction.rst:102
 msgid ""
-"ELAN vise à **rendre plus largement accessible les résultats de travaux de "
+"Elan vise à **rendre plus largement accessible les résultats de travaux de "
 "recherche** menés indépendamment sur un aspect spécifique des problématiques "
 "adressées et de **les combiner entre eux pour envisager ces problématiques "
 "dans leur globalité et leur complexité**."
 msgstr ""
-"ELAN aims to **make the results of research conducted on the subject more "
+"Elan aims to **make the results of research conducted on the subject more "
 "widely accessible**. As research projects are mainly focusing on a specific "
 "aspect of the issues addressed, ELAN allows to combine them to consider these "
 "two urban water management issues in their entirety and complexity."
@@ -346,10 +346,10 @@ msgstr ""
 
 #: ../../introduction.rst:115
 msgid ""
-"Parmi les futures intégrations à ELAN, ont été identifiés les travaux "
+"Parmi les futures intégrations à Elan, ont été identifiés les travaux "
 "d'hydrologie urbaine menés conjointement par :"
 msgstr ""
-"Among the future integrations into ELAN is the urban hydrology research "
+"Among the future integrations into Elan is the urban hydrology research "
 "conducted jointly by:"
 
 #: ../../introduction.rst:125
