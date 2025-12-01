@@ -27,7 +27,31 @@ Unreleased
 - and that other one too
 -->
 
-## 2025.10.92-beta - 2025-10-02
+## 2025.12.1 - 2025-12-01
+
+### Added
+
+- New module: Snap on roads
+- New module: Population (uniform distribution)
+
+### Changed
+
+- Roads and buildings module: removed centroid outputs
+- Processes and Sewer network modules: inflow concentrations can be given
+- Processes module: concentrations are in advanced parameters
+- Sewer network module: some parameters are now in the advanced section
+- Improved color range for plots
+
+### Removed
+
+- Sewer network module: removed the average population input
+
+### Fixed
+
+- Typos
+- Radar plot threshold was not correct in French
+
+## 2025.10.92 - 2025-10-02
 
 ### Added
 
