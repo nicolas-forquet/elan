@@ -21,13 +21,19 @@ project = "ELAN"
 copyright = datetime.now().strftime("%Y") + ", REVERSAAL et Oslandia"
 author = "REVERSAAL (INRAE) et Oslandia"
 
+language = "fr"
+
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = [
+    'sphinxcontrib.mermaid'
+]
 
 templates_path = ["_templates"]
 exclude_patterns = []
+figure_language_filename = '{root}.{language}{ext}'
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

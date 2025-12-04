@@ -1,10 +1,12 @@
 .. _preparation:
 
 Obtention et préparation des données géographiques
-===================================================
+==================================================
+
+.. _entrees_reseau:
 
 Entrées du module ``Réseau``
------------------------------
+----------------------------
 
 Pour pouvoir utiliser le module ``Réseau``, **4 couches géographiques** sont nécessaires :
 
@@ -29,11 +31,15 @@ Sinon, poursuivez ici pour quelques astuces et explications sur l'obtention et l
 En contexte français (Hexagone et Outre-Mer)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. _ rge_alti:
+
 * ``MNT``: raster téléchargeable par département sur le site `Géoservices de l'IGN <https://geoservices.ign.fr/>`_ 
     * MNT à 25 m : `BD ALTI® 25M <https://geoservices.ign.fr/bdalti>`_
     * MNT à 5 m voire 1 m : `RGE ALTI® <https://geoservices.ign.fr/rgealti>`_
 
 * ``routes`` et ``bâtiments``: couches téléchargeables par département sur le site Géoservices de l'IGN `BD TOPO® <https://geoservices.ign.fr/bdtopo>`_.
+
+.. _bd_topo:
 
 .. tip::
     Pour accéder aux routes et bâtiments à l'échelle de votre zone d'étude et non du département, vous pouvez installer et utiliser le plugin `BD TOPO® Extractor <https://plugins.qgis.org/plugins/bd_topo_extractor/>`_.
@@ -45,10 +51,10 @@ En contexte français (Hexagone et Outre-Mer)
         * Choisir les couches ``Bâtiment`` et ``Tronçon de route``.
 
 .. attention::
-    La couche ``bâtiments`` obtenue est de type *polygone* et non *point*. Elle doit donc être transformée via le module :ref:`Population <population>` intégré à ELAN ou le module ``Centroïdes`` qui est natif de QGIS.
+    La couche ``bâtiments`` obtenue est de type *polygone* et non *point*. Elle doit donc être transformée via le module :ref:`Population <population>` intégré à Elan ou le module ``Centroïdes`` qui est natif de QGIS.
 
 En contexte international
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * ``MNT`` : le MNT ou DEM en anglais (Digital Elevation Model), est *a priori* disponible sur l'ensemble des territoires du monde à une maille de 30 m via différentes plateformes.
 
@@ -56,6 +62,8 @@ En contexte international
     Plus le MNT est précis, plus les sorties du module ``Réseau`` seront pertinentes. 
     **Nous vous recommandons donc de regarder si des données MNT à 10 m ou 5 m sont disponibles dans votre contexte national**. 
     A défaut, utilisez le MNT à 30 m, mais gardez en tête que la précision du MNT impacte les résultats du module ``Réseau`` (surestimation du nombre de stations de pompage). 
+
+.. _alaska_edu:
 
 .. tip::
     Si vous ne disposez pas de données locales de MNT à une maille inférieure à 30 m, vous pouvez consulter le site ASF Data Search à l'adresse suivante : https://search.asf.alaska.edu/#/ et suivre les étapes indiquées pour essayer de trouver une tuile de MNT à rune maille de 12.5 m sur votre zone.
@@ -70,22 +78,24 @@ En contexte international
 .. image:: _static/alaska-edu.png
       :width: 700
 
-* ``routes`` et ``bâtiments``: le module :ref:`Routes et bâtiments <routes>` d'ELAN vous permet d'extraire les données OpenStreetMap sur une zone définie.
+* ``routes`` et ``bâtiments``: le module :ref:`Routes et bâtiments <routes>` d'Elan vous permet d'extraire les données OpenStreetMap sur une zone définie.
 
 .. attention::
-    La couche ``bâtiments`` obtenue sera de type *polygone* et non *point*. Elle devra donc être transformée via le module :ref:`Population <population>` intégré à ELAN ou le module ``Centroïdes`` qui est natif de QGIS.
+    La couche ``bâtiments`` obtenue sera de type *polygone* et non *point*. Elle devra donc être transformée via le module :ref:`Population <population>` intégré à Elan ou le module ``Centroïdes`` qui est natif de QGIS.
+
+.. _open_buildings:
 
 .. note::
      Si votre zone d'étude est située dans l'hémisphère Sud, Open Buildings peut constituer une alternative intéressante à OpenStreetMap pour les bâtiments. Pour plus d'informations : https://sites.research.google/gr/open-buildings/.
 
 
 Utilisation des modules ``Routes et bâtiments`` et ``Population``
-------------------------------------------------------------------
+-----------------------------------------------------------------
 
 .. _routes:
 
 Module ``Routes et bâtiments``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Le module ``Routes et bâtiments`` permet l'extraction des entités routes et bâtiments se trouvant dans une zone définie par l'utilisateur (couche de type *polygone*).
 L'extraction se fait à partir `d'OpenStreetMap <https://www.openstreetmap.org>`_ qui rassemble des données cartographiques à l'échelle mondiale. 
@@ -101,7 +111,7 @@ OpenStreetMap est un outil ouvert et collaboratif.
 
 **Utilisation du module**
 
-**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Routes et bâtiments``.
+**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Routes et bâtiments``.
 
 .. image:: _static/start-r+b.png
       :width: 352
@@ -139,7 +149,7 @@ Les couches **centroïdes et routes** peuvent être utilisées en entrée du **m
 .. _population:
 
 Module ``Population``
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 Le module ``Population`` permet de **répartir un nombre connu d'individus au sein des bâtiments de la zone**. 
 La répartition se fait **en appliquant la méthode surfacique** qui considère l'emprise des bâtiments : plus un 
@@ -158,7 +168,7 @@ Pour plus d'informations sur la méthode de répartition utilisée :
 
 .. _start-pop:
 
-**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Population``.
+**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Population``.
 
 .. image:: _static/start-pop.png
     :width: 354
@@ -185,7 +195,7 @@ attributaire de la couche.
 
 
 Entrées du module ``Hydraulique``
-----------------------------------
+---------------------------------
 
 .. hint::
    Cette section est en cours de construction.

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 16:43+0100\n"
-"PO-Revision-Date: 2025-11-12 16:47+0100\n"
+"POT-Creation-Date: 2025-12-01 10:26+0100\n"
+"PO-Revision-Date: 2025-12-01 10:29+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -60,10 +60,10 @@ msgstr ""
 
 #: ../../installation.rst:19
 msgid ""
-"**Pour utiliser ELAN sur Linux, il vous faut un environnement virtuel contenant "
+"**Pour utiliser Elan sur Linux, il vous faut un environnement virtuel contenant "
 "les dépendances requises.**"
 msgstr ""
-"**To use ELAN on Linux, you must have a virtual environnement containing the "
+"**To use Elan on Linux, you must have a virtual environnement containing the "
 "required dependencies.**"
 
 #: ../../installation.rst:21
@@ -99,10 +99,10 @@ msgstr "**4.** Open QGIS in Python virtual environment using the terminal."
 
 #: ../../installation.rst:50
 msgid ""
-"**Pour utiliser ELAN, il faudra toujours lancer QGIS depuis l'environnement "
+"**Pour utiliser Elan, il faudra toujours lancer QGIS depuis l'environnement "
 "virtuel**. Ainsi, pour toute utilisation future vous devrez :"
 msgstr ""
-"**To use ELAN on Linux, you will always need to launch QGIS from the virtual "
+"**To use Elan on Linux, you will always need to launch QGIS from the virtual "
 "environment**. Therefore, each time you will need to:"
 
 #: ../../installation.rst:52
@@ -118,8 +118,8 @@ msgid "Sur Mac"
 msgstr "On Mac"
 
 #: ../../installation.rst:63
-msgid "Le plugin ELAN n'est pas compatible avec Mac actuellement."
-msgstr "Currently, ELAN is not compatible with Mac."
+msgid "Le plugin Elan n'est pas compatible avec Mac actuellement."
+msgstr "Currently, Elan is not compatible with Mac."
 
 #: ../../installation.rst:68
 msgid "Installation de l'extension"
@@ -170,12 +170,12 @@ msgstr "Installing external dependencies"
 
 #: ../../installation.rst:93
 msgid ""
-"ELAN utilise des codes développés dans le cadre de différents projets de "
+"Elan utilise des codes développés dans le cadre de différents projets de "
 "recherche (voir :ref:`introduction <projets-recherche>`). Cette section explique "
 "comment procéder à leur installation. Selon le code, son installation se fait "
 "soit via les paramètres de l'extension, soit directement en ligne de commande."
 msgstr ""
-"ELAN uses codes developed as part of various research projects "
+"Elan uses codes developed as part of various research projects "
 "(see :ref:`introduction <projets-recherche>`). This section explains how to "
 "install them. Depending on the code, installation is done either via the plugin "
 "settings or directly from the command line."
@@ -224,8 +224,8 @@ msgid "**pysewer est nécessaire pour pouvoir utiliser le module** ``Réseau``."
 msgstr "**pysewer is required to use the** ``Sewer network`` **module**."
 
 #: ../../installation.rst:115 ../../installation.rst:141
-msgid "**1.** Aller dans les paramètres de l'extension ELAN."
-msgstr "**1.** Go to the ELAN plugin settings."
+msgid "**1.** Aller dans les paramètres de l'extension Elan."
+msgstr "**1.** Go to the Elan plugin settings."
 
 #: ../../installation.rst:120
 msgid ""
@@ -238,10 +238,10 @@ msgstr ""
 #: ../../installation.rst:122
 msgid ""
 "**3.** Si non, procéder à l'installation grâce au bouton ``Installer pysewer "
-"dans ELAN`` (nécessite une connexion internet)."
+"dans Elan`` (nécessite une connexion internet)."
 msgstr ""
 "**3.** If not, proceed with installation using the button ``Install pysewer in "
-"ELAN specific environment (need an internet connection)``."
+"Elan specific environment (need an internet connection)``."
 
 #: ../../installation.rst:129
 msgid ""
@@ -272,8 +272,8 @@ msgstr ""
 "wetlandoptimizer"
 
 #: ../../installation.rst:136
-msgid "Son installation se fait via ELAN."
-msgstr "Its installation is done via ELAN."
+msgid "Son installation se fait via Elan."
+msgstr "Its installation is done via Elan."
 
 #: ../../installation.rst:139
 msgid ""
@@ -291,10 +291,10 @@ msgstr ""
 #: ../../installation.rst:148
 msgid ""
 "**3.** Si non, procéder à l'installation grâce au bouton ``Installer "
-"wetlandoptimizer dans ELAN`` (nécessite une connexion internet)."
+"wetlandoptimizer dans Elan`` (nécessite une connexion internet)."
 msgstr ""
 "**3.** If not, proceed with installation using the button ``Install "
-"wetlandoptimizer in ELAN specific environment (need an internet connection)``."
+"wetlandoptimizer in Elan specific environment (need an internet connection)``."
 
 #: ../../installation.rst:154
 msgid ""

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 14:01+0100\n"
-"PO-Revision-Date: 2025-11-12 14:10+0100\n"
+"POT-Creation-Date: 2025-12-01 10:26+0100\n"
+"PO-Revision-Date: 2025-12-01 10:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -20,16 +20,28 @@ msgstr ""
 "Generated-By: Babel 2.17.0\n"
 "X-Generator: Poedit 3.8\n"
 
+#: ../../index.rst:37
+msgid "Documentation"
+msgstr "Documentation"
+
+#: ../../index.rst:48
+msgid "Logigrammes interactifs"
+msgstr "Interactive flowcharts"
+
+#: ../../index.rst:55
+msgid "Tutoriels"
+msgstr "Tutorials"
+
 #: ../../index.rst:7
-msgid "ELAN"
-msgstr "ELAN"
+msgid "Elan"
+msgstr "Elan"
 
 #: ../../index.rst:9
 msgid ""
-"**ELAN** est un plugin QGIS d'aide à la décision pour une gestion "
+"**Elan** est un plugin QGIS d'aide à la décision pour une gestion "
 "intégrée des eaux urbaines par des solutions fondées sur la nature."
 msgstr ""
-"**ELAN** is a QGIS decision-support plugin for integrated urban water "
+"**Elan** is a QGIS decision-support plugin for integrated urban water "
 "management by nature-based solutions."
 
 #: ../../index.rst:11

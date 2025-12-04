@@ -1,12 +1,12 @@
-.. ELAN documentation master file, created by
+.. Elan documentation master file, created by
    sphinx-quickstart on Wed Jan 29 10:25:58 2025.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-ELAN  
-=====
+Elan 
+====
 
-**ELAN** est un plugin QGIS d'aide à la décision pour une gestion intégrée des eaux urbaines par des solutions fondées sur la nature.
+**Elan** est un plugin QGIS d'aide à la décision pour une gestion intégrée des eaux urbaines par des solutions fondées sur la nature.
 
    **Auteurs** :
 
@@ -46,7 +46,14 @@ Contenu
    comparaison
 
 .. toctree::
-   :caption: Tutorials
+   :caption: Logigrammes interactifs
+
+   logigramme_global1
+   logigramme_preparation1
+   logigramme_scenario1
+
+.. toctree::
+   :caption: Tutoriels
    
    petite_anse
 

@@ -1,7 +1,7 @@
 .. _prb1:
 
 Création d'un scénario pour la question du centralisé / décentralisé
-=====================================================================
+====================================================================
 
 La création d'un scénario pour la question du centralisé / décentralisé implique quatre temps :
 
@@ -15,11 +15,13 @@ La création d'un scénario pour la question du centralisé / décentralisé imp
 
 Pour une même zone, vous pouvez créer successivement autant de scénarios que vous le souhaitez.
 
+.. _reseau:
+
 Étape 1 : Tracer le réseau d'assainissement (module ``Réseau``)
------------------------------------------------------------------
+---------------------------------------------------------------
 
 Préalable
-^^^^^^^^^^
+^^^^^^^^^
 
 **1.** Avoir installé **la librairie pysewer** comme expliqué dans :ref:`Installation des dépendances <dependances>`.
 
@@ -40,9 +42,10 @@ Si vous ne disposez pas de ces couches pour votre zone d'étude, vous pouvez vou
 pour quelques astuces et explications.
 
 Utilisation du module
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+.. _start_reseau:
 
-**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Réseau``.
+**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Réseau``.
 
 .. image:: _static/start-reseau.png
     :width: 353
@@ -96,12 +99,14 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 .. attention::
     Il a été constaté que **les modifications des profondeurs max et min autorisées ne sont actuellement pas prises 
     en compte** (valeurs bloquées aux valeurs par défaut 0.25 m et 8 m). Le bug doit d'abord être corrigé sur pysewer
-    avant que la correction puisse être intégrée à ELAN.
+    avant que la correction puisse être intégrée à Elan.
 
 **4.** Indiquer un emplacement et un nom pour la couche .gpkg en sortie (bulle 6) puis exécuter (bulle 7).
 
 .. image:: _static/entrees-reseau.png
     :width: 697
+
+.. _sorties_reseau:
 
 **5.** Après exécution du module, vous disposez de **1 fichier au format .gpkg qui contient 7 couches** :
 
@@ -130,6 +135,8 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 .. _attributs-reseau:
 
 **Chaque couche vecteur est caractérisée par des attributs.**
+
+.. _set_concentrations:
 
 * ``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour chaque exutoire), *débit de pointe* [m3/j], *débit moyen journalier* [m3/j], *habitants raccordés* [nb], *profondeur tranchée* [m], *profondeur canas entrantes* [m], *diamètres entrants* [m].
 
@@ -176,20 +183,20 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 .. _visualisation-profils:
 
 Exploration des résultats (module ``Profils de canalisations``)
-------------------------------------------------------------------
+---------------------------------------------------------------
 
 Pour explorer le pré-dimensionnement proposé par le module ``Réseau``, en plus des différents styles proposés pour la couche ``Canalisations``, le module ``Profils de canalisations`` et la visualisation
 de ses sorties par l'outil *Profil d'élévation* de QGIS vous permet de visualiser le profil souterrain d'une succession de tuyaux.
 
 Préalable
-^^^^^^^^^^
+^^^^^^^^^
 
 Disposer d'une couche ``Canalisations`` issue du module ``Réseau``.
 
 Utilisation du module
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
-**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Profils de canalisations``.
+**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Profils de canalisations``.
 
 .. image:: _static/start-profils.png
     :width: 372
@@ -208,7 +215,7 @@ Utilisation du module
 * ``Canalisations 3D`` : couche de type *ligne Z* créée à partir d'un échantillonnage de la couche ``Canalisations`` (conservation des styles et des attributs).
 
 Visualisation 
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^
 
 **1.** Pour afficher un profil de canalisations dans un plan xz, commencer par ouvrir l'outil **Profil d'élévation** : *Vue* - *Profil d'élévation*.
 
@@ -282,8 +289,10 @@ Pour cela :
         * Choisir *Diamètres*.
         * Décocher puis recocher la couche ``Canalisations 3D`` dans la fenêtre *Profil d'élévation* pour que le nouveau style s'applique.
 
+.. _procedes:
+
 Étape 2 : Pré-dimensionner la ou les STEU (module ``Procédés``)
-----------------------------------------------------------------
+---------------------------------------------------------------
 
 Pour compléter votre scénario, il reste à pré-dimensionner la ou les stations qui constituent les points exutoires de votre réseau d'assainissement.
 
@@ -293,7 +302,7 @@ Les filières peuvent être constituées de **1 à n étages de traitement** (au
 :download:`filtre à écoulement vertical avec sable <_static/fr/CARIBSAN_Fiche02_V1-FR.pdf>` (VdNS2) et :download:`filtre à écoulement vertical avec couche saturée <_static/fr/CARIBSAN_Fiche03_V1-FR.pdf>` (VdNSS).
 
 Préalable 
-^^^^^^^^^^^^
+^^^^^^^^^
 
 **1.** Avoir installé **la librairie wetlandoptimizer** comme expliqué dans :ref:`Installation des dépendances <dependances>`.
 
@@ -316,10 +325,12 @@ Les attributs relatifs aux niveaux de rejet sont présents mais à renseigner ma
 Ce point est **facultatif** et n'intervient pas dans le pré-dimensionnement :
 il permet de vous aider à identifier quelles filières, parmi celles qui permettent d'atteindre vos contraintes de rejet, coïncident avec vos contraintes en termes de surface.
 
-Utilisation du module
-^^^^^^^^^^^^^^^^^^^^^^
+.. _start_procedes:
 
-**1.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Procédés``.
+Utilisation du module
+^^^^^^^^^^^^^^^^^^^^^
+
+**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Procédés``.
 
 .. image:: _static/start-procedes.png
     :width: 356
@@ -327,7 +338,7 @@ Utilisation du module
 **2.** Indiquer si votre zone se situe en climat *Tempéré* ou *Tropical* (bulle 1). Ce choix impacte le pré-dimensionnement des filières en termes de surface et de volume (surface et volume réduits en climat tropical).
 
 .. note::
-    Choisissez *Tropical* si la température est supérieure ou égale à 25°C toute l'année.
+    Choisissez *Tropical* si la température minimale est supérieure ou égale à 18°C toute l'année.
 
 Pour plus d'informations sur la bonne prise en compte du climat tropical lors du dimensionnement de filtres plantés de végétaux :
 
@@ -346,6 +357,8 @@ Pour plus d'informations sur la bonne prise en compte du climat tropical lors du
 
 .. image:: _static/use-procedes2.png
     :width: 568
+
+.. _sortie_procedes:
 
 **7.** Après exécution du module, vous obtenez une couche nommée ``Couche de filières`` (couche de type *point*).
 
@@ -423,9 +436,10 @@ Les taux de charge par étage de traitement peuvent constituer des indicateurs i
 votre choix de filière. Par exemple, si une forte augmentation de population est planifiée sur la zone, il sera préférable d'opter pour une filière de traitement qui 
 n'est pas au maximum de sa charge en termes de polluants dans la configuration actuelle.
 
+.. _selection:
 
 Étape 3 : Pré-sélectionner une filière par exutoire
------------------------------------------------------
+---------------------------------------------------
 
 Parmi les filières proposées, certaines permettent d'atteindre les niveaux de rejets imposés (déviations en vert), d'autres non (déviations en rouge), avec des contraintes
 de surface qui leur sont propre et qui peuvent excéder la surface disponible (surface totale en rouge si une surface disponible a été renseignée).
@@ -441,14 +455,14 @@ Les taux de charge en polluants et le taux de charge hydraulique peuvent égalem
 .. _creer-scenario:
 
 Étape 4 : Créer un objet scénario (module ``Créer un scénario``)
------------------------------------------------------------------
+----------------------------------------------------------------
 
 Le module ``Créer un scénario`` vous permet de créer un objet scénario contenant à la fois le pré-dimensionnement d'un réseau et celui des filières associées (1 par exutoire).
 
 Il prend la forme d'un géopackage. C'est sur la base de ce géopackage que le scénario pourra ensuite être évalué par le module ``Evaluation``.
 
 Préalable 
-^^^^^^^^^^^^
+^^^^^^^^^
 
 **1.** Disposer d'une couche ``Canalisations`` issue du module ``Réseau``.
 
@@ -457,14 +471,14 @@ Préalable
 **3.** Avoir choisi une possibilité de filière pour chaque exutoire parmi toutes celles pré-dimensionnées.
 
 Utilisation du module
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 **1.** Ouvrir la table attributaire de votre ``Couche de filières`` et sélectionner une filière par exutoire. Par exemple ici, la filière VdNS1 (1 seule filière car 1 seul exutoire dans ce scénario).
 
 .. image:: _static/select-filiere.png
     :width: 700
 
-**2.** Chercher ``ELAN`` dans la boîte à outils de traitements et sélectionner ``Créer un scénario``.
+**2.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Créer un scénario``.
 
 .. image:: _static/start-scenario.png
     :width: 353

@@ -2,7 +2,7 @@ Installation
 ============
 
 Préalable
-----------
+---------
 
 Sur Windows
 ^^^^^^^^^^^
@@ -16,7 +16,7 @@ Sur Linux
 
 * Avoir téléchargé le fichier contenant la liste des dépendances : https://gitlab.com/elan7835313/elan/-/blob/main/requirements/development.txt.
 
-**Pour utiliser ELAN sur Linux, il vous faut un environnement virtuel contenant les dépendances requises.** 
+**Pour utiliser Elan sur Linux, il vous faut un environnement virtuel contenant les dépendances requises.** 
 
 **La démarche expliquée ici est à faire une seule fois.**
 
@@ -47,7 +47,7 @@ Sur Linux
 
     $ qgis
 
-**Pour utiliser ELAN, il faudra toujours lancer QGIS depuis l'environnement virtuel**. Ainsi, pour toute utilisation future vous devrez :
+**Pour utiliser Elan, il faudra toujours lancer QGIS depuis l'environnement virtuel**. Ainsi, pour toute utilisation future vous devrez :
 
     * Activer l'environnement virtuel.
     * Ouvrir QGIS via le terminal.
@@ -58,9 +58,9 @@ Sur Linux
     $ qgis
 
 Sur Mac
-^^^^^^^^^
+^^^^^^^
 
-Le plugin ELAN n'est pas compatible avec Mac actuellement.
+Le plugin Elan n'est pas compatible avec Mac actuellement.
 
 .. _extension:
 
@@ -90,12 +90,12 @@ Installation de l'extension
 Installation des dépendances
 ----------------------------
 
-ELAN utilise des codes développés dans le cadre de différents projets de recherche (voir :ref:`introduction <projets-recherche>`). 
+Elan utilise des codes développés dans le cadre de différents projets de recherche (voir :ref:`introduction <projets-recherche>`). 
 Cette section explique comment procéder à leur installation. 
 Selon le code, son installation se fait soit via les paramètres de l'extension, soit directement en ligne de commande.
 
 Question du centralisé/décentralisé : pysewer et wetlandoptimizer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _pysewer:
 
@@ -112,14 +112,14 @@ Son installation se fait via l'extension.
 .. important::
     **pysewer est nécessaire pour pouvoir utiliser le module** ``Réseau``.
 
-**1.** Aller dans les paramètres de l'extension ELAN.
+**1.** Aller dans les paramètres de l'extension Elan.
 
 .. image:: _static/parametres_elan.png
       :width: 700
 
 **2.** Vérifier si pysewer est déjà installé ou non en cliquant sur ``Vérifier si pysewer est installé``.
 
-**3.** Si non, procéder à l'installation grâce au bouton ``Installer pysewer dans ELAN`` (nécessite une connexion internet).
+**3.** Si non, procéder à l'installation grâce au bouton ``Installer pysewer dans Elan`` (nécessite une connexion internet).
 
 .. image:: _static/pysewer.png
       :width: 608
@@ -133,19 +133,19 @@ Pour plus d'informations :
 
     Lien GitLab : https://forgemia.inra.fr/reversaal/nature-based-solutions/caribsan/wetlandoptimizer 
 
-Son installation se fait via ELAN. 
+Son installation se fait via Elan. 
 
 .. important::
     **wetlandoptimizer est nécessaire au fonctionnement du module** ``Procédés``.
 
-**1.** Aller dans les paramètres de l'extension ELAN.
+**1.** Aller dans les paramètres de l'extension Elan.
 
 .. image:: _static/parametres_elan.png
     :width: 700
 
 **2.** Vérifier si pysewer est déjà installé ou non en cliquant sur ``Vérifier si wetlandoptimizer est installé``.
 
-**3.** Si non, procéder à l'installation grâce au bouton ``Installer wetlandoptimizer dans ELAN`` (nécessite une connexion internet).
+**3.** Si non, procéder à l'installation grâce au bouton ``Installer wetlandoptimizer dans Elan`` (nécessite une connexion internet).
 
 .. image:: _static/wetlandoptimizer.png
     :width: 611
@@ -158,7 +158,7 @@ Son installation se fait via ELAN.
     Les dépendances peuvent être concernées par des montées en version. Dans ce cas, faire ``REINITIALISATION DES PARAMETRES`` puis réinstaller les dépendances comme expliqué juste avant.
 
 Question des déversements par temps de pluie : pysheds
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * **pysheds** est une bibliothèque open-source Python développée par `l'UT Austin <https://www.utexas.edu/>`_, une université américaine (Texas).
 
