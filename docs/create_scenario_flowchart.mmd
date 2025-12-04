@@ -1,55 +1,65 @@
 flowchart TB
-        A1[Je vérifie que : <br/> - mes couches sont dans le même SCR <br/> <a href="https://elan-gis.org/fr/installation.html#_dependances">-les dépendances externes sont bien installées</a>]
-        A2[J'ai une couche avec les exutoires possibles ?]
-        B1[Pour mon scénario, je veux en considérer uniquement certains ?]
-        B2[<a href="https://elan-gis.org/fr/petite_anse.html#_select_steu">Je sélectionne ceux que je veux considérer</a>]
-        A3[<a href="https://elan-gis.org/fr/scenario_prb1.html#_start_reseau">Je lance le module *Réseau*</a>]
-        C1[J'indique ma couche steu et je coche *entités sélectionnées uniquement*]
-        C2[J'indique ma couche steu]
-        C3[Je n'indique pas de couche steu]
-        A4[- Je renseigne mes couches MNT, bâtiments et routes. <br/> - Je change les valeurs par défaut des paramètres que je connais. <br/> - Je sélectionne la gamme de diamètres gravitaires autorisée. <br/> - J'enregistre vers un fichier. <br/> - J'exécute. ]
-        A5[<a href="https://elan-gis.org/fr/scenario_prb1.html#_sorties_reseau">J'obtiens 7 couches]
-        A6[<a href="https://elan-gis.org/fr/petite_anse.html#_groupe">Je les regroupe dans un groupe</a>]
-        A7[Je veux explorer le prédimensionnement proposé ?]
-        D[<a href="https://elan-gis.org/fr/petite_anse.html#_select_styles">Je change les styles.</a> <br/> <a href="https://elan-gis.org/fr/petite_anse.html#_view_attributs">Je regarde les attributs.</a> <br/> <a href="https://elan-gis.org/fr/scenario_prb1.html#_visualisation-profils">J'utilise le module *Profils de canalisations*.</a>]
-        A8[Je suis satisfait.e du prédimensionnement ?]
-        A1 --> A2
-        A2 -- oui --> B1
-        B1 -- oui --> B2 --> A3
-        B1 -- non --> A3
-        A2 -- non --> A3
-        A3 --> C1 --> A4
-        A3 --> C2 --> A4
-        A3 --> C3 --> A4
-        A4 --> A5 --> A6 --> A7
-        A7 -- oui --> D --> A8
-        A7 -- non --> A8
-        E["J'édite mes couches routes et bâtiments voire exutoires (ajout/suppression) pour ajuster le prédimensionnement"]
-        A9[<a href="https://elan-gis.org/fr/petite_anse.html#_specify_C">J'édite ma couche STEU obtenue pour renseigner mes concentrations d'entrées et mes contraintes de rejets pour les différents exutoires.</a> <br/> Pour les paramètres sans contrainte, je laisse à NULL.]
-        A10[J'ai une contrainte de surface à respecter pour mes exutoires ?]
-        F1[<a href="https://elan-gis.org/fr/petite_anse.html#_define_surface">Je créé 1 couche de type polygone où je délimite les surfaces mobilisables</a>]
-        F2[Je vérifie que mes points exutoires sont bien dans les surfaces délimitées]
-        A11[<a href="https://elan-gis.org/fr/scenario_prb1.html#_start_procedes">Je lance le module *Procédés*</a>]
-        G1[Je renseigne la couche avec les surfaces disponibles]
-        G2[Je laisse vide l'emplacement *surface disponible*]
-        A12["Je choisis entre climat *Tempéré* ou *Tropical* (Tmin >= 18°C toute l'année)"]
-        A13[J'indique ma couche *STEU*. <br/> Je vérifie que les paramètres ont bien été détectés. <br/> J'exécute.]
-        A14[<a href="https://elan-gis.org/fr/scenario_prb1.html#_sorties_procedes">J'obtiens 1 couche filières avec différentes possibilités</a>]
-        A15[J'explore/je compare les propositions à l'aide des outils graphiques proposés]
-        A16[<a href="https://elan-gis.org/fr/scenario_prb1.html#_selection">Pour chaque exutoire, je préselectionne une option parmi celles proposées</a>]
-        A17[Plusieurs options/combinaisons me semblent envisageables/pertinentes ?]
-        A8 -- oui --> A9 --> A10
-        A8 -- pas tout à fait --> E --> A3
-        A10 -- oui --> F1 --> F2 --> A11
-        A10 -- non --> A11
-        A11 --> G1 --> A12
-        A11 --> G2 --> A12
-        A12 --> A13 --> A14 --> A15 --> A16 --> A17
-        H1[Je créé plusieurs scénarios pour cette configuration de réseau]
-        H2[Je créé un seul scénario pour cette configuration de réseau]
-        A18[<a href="https://elan-gis.org/fr/scenario_prb1.html#_creer_scenario">Je lance le module *Créer un scénario*</a>]
-        A19["Je renseigne le réseau et les filières associées (celles choisies sont à présélectionner). <br/> J'exécute."]
-        A20[J'obtiens 1 gpkg avec toutes les composantes de mon scénario pour mieux le comparer aux autres scénarios envisagés par la suite]
-        A17 -- oui --> H1 -- pour chaque cas envisagé --> A18
-        A17 -- non --> H2 --> A18
-        A18 --> A19 --> A20
+    A["J'ai les couches raster (MNT) et vecteurs (routes et bâtiments) nécessaires ?"]
+    B1[Je suis en contexte français ?]
+    B2[<a href="https://elan-gis.org/fr/preparation.html#bd-topo">J'utilise *BD TOPO extractor* pour récupérer les routes et les bâtiments</a>]
+    B3[<a href="https://elan-gis.org/fr/preparation.html#rge-alti">Je télécharge le MNT à 5m sur *RGE Alti*</a>]
+    C[Je sais où trouver les couches nécessaires dans mon contexte local ?]
+    D1[<a href="https://elan-gis.org/fr/preparation.html#alaska-edu">Je cherche sur *alaska.edu* pour trouver du MNT à 12,5m</a>]
+    D2[Ma zone est située dans l'hémisphère Sud ?]
+    D3[<a href="https://elan-gis.org/fr/preparation.html#open-buildings">Je télécharge mes bâtiments sur *OpenBuildings*</a>]
+    E1[<a href="https://elan-gis.org/fr/petite_anse.html#creer-zone">Je créé une couche polygone qui délimite ma zone d'étude</a>]
+    E2[<a href="https://elan-gis.org/fr/preparation.html#routes">J'utilise le module *Routes et bâtiments* d'Elan pour récupérer</a>]
+    E3[mes routes]
+    E4[mes routes et mes bâtiments]
+    F1[Mon MNT est constitué d'une seule dalle ?]
+    A --> F1
+    A -- non --> B1
+    B1 -- oui --> B2 --> B3 --> F1
+    B1 -- non --> C -- oui --> F1
+    C -- non OU oui en partie --> D1 --> D2
+    D2 -- oui --> D3 --> E2 --> E3 --> F1
+    D2 -- non --> E1 --> E2 --> E4 --> F1
+    G[<a href="https://elan-gis.org/fr/petite_anse.html#fusion">J'utilise l'outil *Fusion* de GDAL</a>]
+    F2[Mon MNT a des pixels manquants ?]
+    F3["Mes couches vecteurs retranscrivent bien la réalité du terrain (bâtiments à raccorder, chemins autorisés) ?"]
+    H[<a href="https://elan-gis.org/fr/petite_anse.html#edition-manuelle">J'édite manuellement mes couches : ajout/suppression de routes et bâtiments en m'aidant éventuellement d'images satellitaires</a>]
+    F4[Toutes mes couches sont dans le même SCR ?]
+    I1[<a href="https://elan-gis.org/fr/petite_anse.html#SCR-projet">Je définis le SCR du projet à partir du MNT</a>]
+    I2[Je projette mes couches routes et bâtiments dans ce SCR avec l'outil *Reprojeter une couche* de QGIS]
+    F5[J'ai connaissance des exutoires possibles ?]
+    F1 -- oui --> F2
+    F1 -- non --> G --> F2
+    F2 -- oui --> F3
+    F2 -- non --> F3
+    F3 -- oui --> F4
+    F3 -- non --> H --> F4
+    F4 -- oui --> F5
+    F4 -- non --> I1 --> I2 --> F5
+    F6[<a href="https://elan-gis.org/fr/petite_anse.html#set-exutoires">Je créé une couche point dans le SCR du projet avec tous les exutoires possibles</a>]
+    J[Je continue : Elan positionnera l'exutoire sur le pixel le plus bas de ma zone]
+    F7["Je vérifie que toutes mes entités (routes, bâtiments, exutoires) sont sur le MNT"]
+    F8["Je connais la population à raccorder (nombre total d'habitants) ?"]
+    K[Je fais des recherches]
+    F9["Une répartition uniforme de la population me convient (nombre moyen d'habitant/bâtiment) ?"]
+    L[<a href="https://elan-gis.org/fr/preparation.html#population">J'utilise le module *Population répartition surfacique* pour avoir un nombre ajusté d'habitants par bâtiment</a>]
+    M1[J'estime un nombre d'habitant/bâtiment]
+    M2["J'utilise le module *Population (répartition uniforme)*"]
+    F10[J'obtiens une couche de bâtiments sous forme de centroïdes avec un attribut population]
+    F11["Je vérifie que mes centroïdes sont bien dans le bon SCR (SCR du projet)"]
+    F12[Je connais mes contraintes de dimensionnement ? <br/> - consommation moyenne d'eau/habitant/jour <br/> - profondeur min et max autorisées <br/> - diamètres possibles]
+    N[Je fais des recherches/des hypothèses]
+    F13[Je suis prêt.e à créer un scénario]
+    F5 -- oui --> F6 --> F7
+    F5 -- non --> J --> F7
+    F7 --> F8
+    F8 -- oui --> F9
+    F8 -- non --> K --> F9
+    F9 -- oui --> M1 --> M2 --> F10
+    F9 -- non --> L --> F10
+    F10 --> F11 --> F12
+    F12 -- oui --> F13
+    F12 -- non --> N --> F13
+
+
+
+  

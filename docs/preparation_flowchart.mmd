@@ -1,61 +1,36 @@
 flowchart TB
-    A["J'ai les couches raster (MNT) et vecteurs (routes et bâtiments) nécessaires ?"]
-    B1[Je suis en contexte français ?]
-    B2[<a href="https://elan-gis.org/fr/preparation.html#bd_topo">J'utilise *BD TOPO extractor* pour récupérer les routes et les bâtiments</a>]
-    B3[<a href="https://elan-gis.org/fr/preparation.html#rge_alti">Je télécharge le MNT à 5m sur *RGE Alti*</a>]
-    C[Je sais où trouver les couches nécessaires dans mon contexte local ?]
-    D1[<a href="https://elan-gis.org/fr/preparation.html#alaska_edu">Je cherche sur *alaska.edu* pour trouver du MNT à 12,5m</a>]
-    D2[Ma zone est située dans l'hémisphère Sud ?]
-    D3[<a href="https://elan-gis.org/fr/preparation.html#open_buildings">Je télécharge mes bâtiments sur *OpenBuildings*</a>]
-    E1[<a href="https://elan-gis.org/fr/petite_anse.html#creer_zone">Je créé une couche polygone qui délimite ma zone d'étude</a>]
-    E2[<a href="https://elan-gis.org/fr/preparation.html#routes">J'utilise le module *Routes et bâtiments* d'Elan pour récupérer</a>]
-    E3[mes routes]
-    E4[mes routes et mes bâtiments]
-    F1[Mon MNT est constitué d'une seule dalle ?]
-    A --> F1
-    A -- non --> B1
-    B1 -- oui --> B2 --> B3 --> F1
-    B1 -- non --> C -- oui --> F1
-    C -- non OU oui en partie --> D1 --> D2
-    D2 -- oui --> D3 --> E2 --> E3 --> F1
-    D2 -- non --> E1 --> E2 --> E4 --> F1
-    G[<a href="https://elan-gis.org/fr/petite_anse.html#fusion">J'utilise l'outil *Fusion* de GDAL</a>]
-    F2[Mon MNT a des pixels manquants ?]
-    F3["Mes couches vecteurs retranscrivent bien la réalité du terrain (bâtiments à raccorder, chemins autorisés) ?"]
-    H[<a href="https://elan-gis.org/fr/petite_anse.html#edition_manuelle">J'édite manuellement mes couches : ajout/suppression de routes et bâtiments en m'aidant éventuellement d'images satellitaires</a>]
-    F4[Toutes mes couches sont dans le même SCR ?]
-    I1[<a href="https://elan-gis.org/fr/petite_anse.html#SCR_projet">Je définis le SCR du projet à partir du MNT</a>]
-    I2[Je projette mes couches routes et bâtiments dans ce SCR avec l'outil *Reprojeter une couche* de QGIS]
-    F5[J'ai connaissance des exutoires possibles ?]
-    F1 -- oui --> F2
-    F1 -- non --> G --> F2
-    F2 -- oui --> F3
-    F2 -- non --> F3
-    F3 -- oui --> F4
-    F3 -- non --> H --> F4
-    F4 -- oui --> F5
-    F4 -- non --> I1 --> I2 --> F5
-    F6[<a href="https://elan-gis.org/fr/petite_anse.html#set_exutoires">Je créé une couche point dans le SCR du projet avec tous les exutoires possibles</a>]
-    J[Je continue : Elan positionnera l'exutoire sur le pixel le plus bas de ma zone]
-    F7["Je vérifie que toutes mes entités (routes, bâtiments, exutoires) sont sur le MNT"]
-    F8["Je connais la population à raccorder (nombre total d'habitants) ?"]
-    K[Je fais des recherches]
-    F9["Une répartition uniforme de la population me convient (nombre moyen d'habitant/bâtiment) ?"]
-    L[<a href="https://elan-gis.org/fr/preparation.html#population">J'utilise le module *Population répartition surfacique* pour avoir un nombre ajusté d'habitants par bâtiment</a>]
-    M1[J'estime un nombre d'habitant/bâtiment]
-    M2["J'utilise le module *Population (répartition uniforme)*"]
-    F10[J'obtiens une couche de bâtiments sous forme de centroïdes avec un attribut population]
-    F11["Je vérifie que mes centroïdes sont bien dans le bon SCR (SCR du projet)"]
-    F12[Je connais mes contraintes de dimensionnement ? <br/> - consommation moyenne d'eau/habitant/jour <br/> - profondeur min et max autorisées <br/> - diamètres possibles]
-    N[Je fais des recherches/des hypothèses]
-    F13[Je suis prêt.e à créer un scénario]
-    F5 -- oui --> F6 --> F7
-    F5 -- non --> J --> F7
-    F7 --> F8
-    F8 -- oui --> F9
-    F8 -- non --> K --> F9
-    F9 -- oui --> M1 --> M2 --> F10
-    F9 -- non --> L --> F10
-    F10 --> F11 --> F12
-    F12 -- oui --> F13
-    F12 -- non --> N --> F13
+    A[<a href="https://elan-gis.org/fr/preparation.html#routes">Routes et bâtiments</a>]
+    B[<a href="https://elan-gis.org/fr/preparation.html#population">Population</a>]
+    C[Projection]:::class1
+    D[<a href="https://elan-gis.org/fr/scenario_prb1.html#reseau">Réseau</a>]:::class3
+    B:::class3 --centroïdes--> C --centroïdes projetés--> D
+    B --centroïdes--> D
+    F@{ shape: circle, label: <a href="https://elan-gis.org/fr/preparation.html#entrees-reseau">MNT</a> }
+    G@{ shape: circle, label: <a href="https://elan-gis.org/fr/preparation.html#entrees-reseau">exutoires</a> }
+    H@{ shape: circle, label: <a href="https://elan-gis.org/fr/preparation.html#entrees-reseau">routes</a> }
+    I@{ shape: circle, label: <a href="https://elan-gis.org/fr/preparation.html#entrees-reseau">bâtiments</a> }
+    A:::class1 --polygones--> I:::class0 --> B
+    A --> H:::class0 --> D
+    F:::class0 --> D
+    G:::class0 --> D
+    J[<a href="https://elan-gis.org/fr/scenario_prb1.html#visualisation-profils">Profils de canalisations</a>]:::class1
+    K[<a href="https://elan-gis.org/fr/scenario_prb1.html#procedes">Procédés</a>]:::class3
+    L[<a href="https://elan-gis.org/fr/scenario_prb1.html#creer-scenario">Créer un scénario</a>]:::class3
+    M[Plots]:::class3
+    N@{ shape: circle, label: <a href="https://elan-gis.org/fr/scenario_prb1.html#sorties-reseau">réseau pré <br/> dimensionné</a> }
+    D --> N:::class2
+    N --canalisations--> J
+    N --STEU--> Q:::class0 --> K
+    K --filières--> M 
+    N --> L
+    O@{ shape: framed-circle, label: "Stop" }
+    P@{ shape: hex, label: <a href="https://elan-gis.org/fr/scenario_prb1.html#selection">Sélection</a> }
+    M --> P:::class2 --> L
+    L -- objet scénario --> O
+    Q@{ shape: hex, label: <a href="https://elan-gis.org/fr/scenario_prb1.html#set-concentrations">Précision C_in <br/> et C_obj</a> }
+    classDef class0 fill:#E6E6FA, stroke:#9932CC
+    classDef class1 fill:#FFE4B5, stroke:#FFE4B5
+    classDef class2 fill:#F0FFF0, stroke:#2E8B57
+    classDef class3 fill:#FFF5EE, stroke:#FF8C00
+
+  
