@@ -105,6 +105,7 @@ builder:
   image: python:${PYTHON_VERSION}
   stage: 📦 build
   rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     - changes:
       - .gitlab-ci.yml
       - ${PROJECT_FOLDER}/**/*
