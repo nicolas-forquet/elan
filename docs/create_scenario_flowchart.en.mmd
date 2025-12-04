@@ -2,7 +2,7 @@ flowchart TB
         A1[I check that: <br/> - all my layers are in the same CRS <br/> <a href="https://elan-gis.org/en/installation.html#dependances"> - external dependencies are installed</a>]
         A2[Do I have a layer with all possible discharge points?]
         B1[Do I want to consider only some of them for this scenario?]
-        B2[<a href="https://elan-gis.org/en/petite_anse.html#select_-steu">I select the one.s I want to consider</a>]
+        B2[<a href="https://elan-gis.org/en/petite_anse.html#select-steu">I select the one.s I want to consider</a>]
         A3[<a href="https://elan-gis.org/en/scenario_prb1.html#start-reseau">I launch the *Sewer network* module</a>]
         C1[I specify my wwtp layer and I tick *Selected features only*]
         C2[I specify my wwtp layer]
@@ -34,7 +34,7 @@ flowchart TB
         G2[I leave the *available area* input empty]
         A12["I choose between *Temperate* ou *Tropical* climate (Tmin >= 18°C all year around)"]
         A13[I fill my *WWTP* layer. <br/> I check that the parameters were correctly detected. <br/> I run the module.]
-        A14[<a href="https://elan-gis.org/en/scenario_prb1.html#sorties-procedes">I get 1 treatment trains layer with several options</a>]
+        A14[<a href="https://elan-gis.org/en/scenario_prb1.html#sortie-procedes">I get 1 treatment trains layer with several options</a>]
         A15[I compare the several options using the graphical representations proposed in Elan]
         A16[<a href="https://elan-gis.org/en/scenario_prb1.html#selection">For each discharge point, I pre-select one option among the possible ones</a>]
         A17[Is there several relevant options or option combinaisons?]
@@ -53,3 +53,4 @@ flowchart TB
         A17 -- yes --> H1 -- for each case under consideration --> A18
         A17 -- no --> H2 --> A18
         A18 --> A19 --> A20
+
