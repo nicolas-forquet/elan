@@ -43,7 +43,7 @@ pour quelques astuces et explications.
 
 Utilisation du module
 ^^^^^^^^^^^^^^^^^^^^^
-.. _start_reseau:
+.. _start-reseau:
 
 **1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Réseau``.
 
@@ -106,7 +106,7 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 .. image:: _static/entrees-reseau.png
     :width: 697
 
-.. _sorties_reseau:
+.. _sorties-reseau:
 
 **5.** Après exécution du module, vous disposez de **1 fichier au format .gpkg qui contient 7 couches** :
 
@@ -136,7 +136,7 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 
 **Chaque couche vecteur est caractérisée par des attributs.**
 
-.. _set_concentrations:
+.. _set-concentrations:
 
 * ``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour chaque exutoire), *débit de pointe* [m3/j], *débit moyen journalier* [m3/j], *habitants raccordés* [nb], *profondeur tranchée* [m], *profondeur canas entrantes* [m], *diamètres entrants* [m].
 
@@ -325,7 +325,7 @@ Les attributs relatifs aux niveaux de rejet sont présents mais à renseigner ma
 Ce point est **facultatif** et n'intervient pas dans le pré-dimensionnement :
 il permet de vous aider à identifier quelles filières, parmi celles qui permettent d'atteindre vos contraintes de rejet, coïncident avec vos contraintes en termes de surface.
 
-.. _start_procedes:
+.. _start-procedes:
 
 Utilisation du module
 ^^^^^^^^^^^^^^^^^^^^^
@@ -358,7 +358,7 @@ Pour plus d'informations sur la bonne prise en compte du climat tropical lors du
 .. image:: _static/use-procedes2.png
     :width: 568
 
-.. _sortie_procedes:
+.. _sortie-procedes:
 
 **7.** Après exécution du module, vous obtenez une couche nommée ``Couche de filières`` (couche de type *point*).
 

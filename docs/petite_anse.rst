@@ -78,7 +78,7 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 .. image:: _static/set_SCR.png
       :width: 700
 
-.. _SCR_projet:
+.. _SCR-projet:
 
 .. tip::
     Faire du SCR du MNT le SCR de votre projet : opter pour ce SCR lorsque vous créez de nouvelles couches, et reprojeter les couches vecteur que vous importez dans ce SCR avec l'outil natif de QGIS ``Reprojeter une couche``.
@@ -86,7 +86,7 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 .. image:: _static/SCR_projet.png
       :width: 700
 
-.. _ fusion:
+.. _fusion:
 
 **5.** Pour fusionner les 4 dalles, utiliser l'outil ``Fusion`` de GDAL. 
 
@@ -145,7 +145,7 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 Étape 2 : Formaliser les exutoires possibles (STEU)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _set_exutoires:
+.. _set-exutoires:
 
 **1.** Créer une nouvelle couche (.shp ou .gpkg).
 
@@ -194,7 +194,7 @@ qui permettent d'accéder aux deux stations existantes** (voir :ref:`introductio
 
 **1.** Créer une nouvelle couche de type *polygone* dans le SCR du projet.
 
-.. _creer_zone:
+.. _creer-zone:
 
 .. image:: _static/nouvelle-couche.png
      :width: 700
@@ -261,7 +261,7 @@ La sortie obtenue est de ce type :
 .. image:: _static/sortie-routes.png
      :width: 700
 
-.. _edition_manuelle:
+.. _edition-manuelle:
 
 **Post-traitement des couches**
 
@@ -352,7 +352,7 @@ Sélectionner la couche (bulle 1) et ouvrir la table attributaire (bulle 2).
 La couche obtenue contient bien les centroides des bâtiments de la zone haute et de la zone basse et pour chaque centroïde, l'attribut *population* est renseigné.
 Cette couche peut être utilisée en entrée de module ``Réseau``.
 
-.. _couches_prb1: 
+.. _couches-prb1: 
 
 .. note::
     Au sein de la couche *entrees_reseau.gpkg* mise à disposition dans la rubrique suivante, vous trouverez plusieurs couches :
@@ -386,7 +386,7 @@ Le scénario que nous allons créer dans ce pas à pas va considérer un raccord
 
 **1. Utilisation du module** ``Réseau``
 
-.. _select_steu:
+.. _select-steu:
 
 * Sélectionner la station au Sud (bulles 1 à 3).
 
@@ -433,7 +433,7 @@ Après exécution, vous obtenez la vue suivante :
     * triangles rouges pour les stations de pompage (privées et non privées)
     * lignes bleues pour les sections en gravitaire et lignes rouges pour les sections en refoulement
 
-.. _select_styles:
+.. _select-styles:
 
 D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y accéder :
 
@@ -497,7 +497,7 @@ D'autres styles sont disponibles pour la couche ``Canalisations``. Pour y accéd
             .. image:: _static/ajout-groupe.png
                 :width: 132
 
-.. _view_attributs:
+.. _view-attributs:
 
 **3. Consultation de la couche** ``Informations sur le réseau`` **et des attributs des autres couches**
 
@@ -536,7 +536,7 @@ Pour explorer le pré-dimensionnement proposé par le module ``Réseau``, vous p
 
 Étape 2 : Pré-dimensionner la ou les STEU (module ``Procédés``)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _specify_C:
+.. _specify-C:
 
 **1. Renseigner les contraintes de rejet dans la couche** ``STEU``
 
@@ -558,7 +558,7 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 .. image:: _static/edit-attributs-steu.png
     :width: 700
 
-.. _define_surface:
+.. _define-surface:
 
 **2. Délimitation de la surface disponible** (facultatif)
 
