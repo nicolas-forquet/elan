@@ -71,7 +71,7 @@ Development currently involves:
 
 If you use Elan, please cite the following ressource:
 
-> Gabrielle Favreau, Nicolas Forquet, Jacky Volpes, Sophie Aubier, Pascal Molle (laste update mentionned). Elan: a QGIS decision-support plugin for integrated urban water management by nature-based solutions. https://elan-gis.org/
+> Gabrielle Favreau, Nicolas Forquet, Jacky Volpes, Sophie Aubier, Pascal Molle (last update mentionned). Elan: a QGIS decision-support plugin for integrated urban water management by nature-based solutions. https://elan-gis.org/
 
 ## Acknowledgments
 
