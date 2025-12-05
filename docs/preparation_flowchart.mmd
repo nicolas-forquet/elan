@@ -1,13 +1,13 @@
 flowchart TB
     A["J'ai les couches raster (MNT) et vecteurs (routes et bâtiments) nécessaires ?"]
     B1[Je suis en contexte français ?]
-    B2[<a href="https://elan-gis.org/fr/preparation.html#bd_topo">J'utilise *BD TOPO extractor* pour récupérer les routes et les bâtiments</a>]
-    B3[<a href="https://elan-gis.org/fr/preparation.html#rge_alti">Je télécharge le MNT à 5m sur *RGE Alti*</a>]
+    B2[<a href="https://elan-gis.org/fr/preparation.html#bd-topo">J'utilise *BD TOPO extractor* pour récupérer les routes et les bâtiments</a>]
+    B3[<a href="https://elan-gis.org/fr/preparation.html#rge-alti">Je télécharge le MNT à 5m sur *RGE Alti*</a>]
     C[Je sais où trouver les couches nécessaires dans mon contexte local ?]
-    D1[<a href="https://elan-gis.org/fr/preparation.html#alaska_edu">Je cherche sur *alaska.edu* pour trouver du MNT à 12,5m</a>]
+    D1[<a href="https://elan-gis.org/fr/preparation.html#alaska-edu">Je cherche sur *alaska.edu* pour trouver du MNT à 12,5m</a>]
     D2[Ma zone est située dans l'hémisphère Sud ?]
-    D3[<a href="https://elan-gis.org/fr/preparation.html#open_buildings">Je télécharge mes bâtiments sur *OpenBuildings*</a>]
-    E1[<a href="https://elan-gis.org/fr/petite_anse.html#creer_zone">Je créé une couche polygone qui délimite ma zone d'étude</a>]
+    D3[<a href="https://elan-gis.org/fr/preparation.html#open-buildings">Je télécharge mes bâtiments sur *OpenBuildings*</a>]
+    E1[<a href="https://elan-gis.org/fr/petite_anse.html#creer-zone">Je créé une couche polygone qui délimite ma zone d'étude</a>]
     E2[<a href="https://elan-gis.org/fr/preparation.html#routes">J'utilise le module *Routes et bâtiments* d'Elan pour récupérer</a>]
     E3[mes routes]
     E4[mes routes et mes bâtiments]
@@ -22,9 +22,9 @@ flowchart TB
     G[<a href="https://elan-gis.org/fr/petite_anse.html#fusion">J'utilise l'outil *Fusion* de GDAL</a>]
     F2[Mon MNT a des pixels manquants ?]
     F3["Mes couches vecteurs retranscrivent bien la réalité du terrain (bâtiments à raccorder, chemins autorisés) ?"]
-    H[<a href="https://elan-gis.org/fr/petite_anse.html#edition_manuelle">J'édite manuellement mes couches : ajout/suppression de routes et bâtiments en m'aidant éventuellement d'images satellitaires</a>]
+    H[<a href="https://elan-gis.org/fr/petite_anse.html#edition-manuelle">J'édite manuellement mes couches : ajout/suppression de routes et bâtiments en m'aidant éventuellement d'images satellitaires</a>]
     F4[Toutes mes couches sont dans le même SCR ?]
-    I1[<a href="https://elan-gis.org/fr/petite_anse.html#SCR_projet">Je définis le SCR du projet à partir du MNT</a>]
+    I1[<a href="https://elan-gis.org/fr/petite_anse.html#SCR-projet">Je définis le SCR du projet à partir du MNT</a>]
     I2[Je projette mes couches routes et bâtiments dans ce SCR avec l'outil *Reprojeter une couche* de QGIS]
     F5[J'ai connaissance des exutoires possibles ?]
     F1 -- oui --> F2
@@ -35,7 +35,7 @@ flowchart TB
     F3 -- non --> H --> F4
     F4 -- oui --> F5
     F4 -- non --> I1 --> I2 --> F5
-    F6[<a href="https://elan-gis.org/fr/petite_anse.html#set_exutoires">Je créé une couche point dans le SCR du projet avec tous les exutoires possibles</a>]
+    F6[<a href="https://elan-gis.org/fr/petite_anse.html#set-exutoires">Je créé une couche point dans le SCR du projet avec tous les exutoires possibles</a>]
     J[Je continue : Elan positionnera l'exutoire sur le pixel le plus bas de ma zone]
     F7["Je vérifie que toutes mes entités (routes, bâtiments, exutoires) sont sur le MNT"]
     F8["Je connais la population à raccorder (nombre total d'habitants) ?"]
@@ -48,7 +48,7 @@ flowchart TB
     F11["Je vérifie que mes centroïdes sont bien dans le bon SCR (SCR du projet)"]
     F12[Je connais mes contraintes de dimensionnement ? <br/> - consommation moyenne d'eau/habitant/jour <br/> - profondeur min et max autorisées <br/> - diamètres possibles]
     N[Je fais des recherches/des hypothèses]
-    F13[Je suis prêt.e à créer un scénario]
+    F13[Je suis prêt.e à créer un scénario !]
     F5 -- oui --> F6 --> F7
     F5 -- non --> J --> F7
     F7 --> F8
@@ -59,3 +59,4 @@ flowchart TB
     F10 --> F11 --> F12
     F12 -- oui --> F13
     F12 -- non --> N --> F13
+

@@ -1,17 +1,17 @@
 flowchart TB
-        A1[I check that: <br/> - all my layers are in the same CRS <br/> <a href="https://elan-gis.org/en/installation.html#_dependances"> - external dependencies are installed</a>]
+        A1[I check that: <br/> - all my layers are in the same CRS <br/> <a href="https://elan-gis.org/en/installation.html#dependances"> - external dependencies are installed</a>]
         A2[Do I have a layer with all possible discharge points?]
         B1[Do I want to consider only some of them for this scenario?]
-        B2[<a href="https://elan-gis.org/en/petite_anse.html#_select_steu">I select the one.s I want to consider</a>]
-        A3[<a href="https://elan-gis.org/en/scenario_prb1.html#_start_reseau">I launch the *Sewer network* module</a>]
+        B2[<a href="https://elan-gis.org/en/petite_anse.html#select-steu">I select the one.s I want to consider</a>]
+        A3[<a href="https://elan-gis.org/en/scenario_prb1.html#start-reseau">I launch the *Sewer network* module</a>]
         C1[I specify my wwtp layer and I tick *Selected features only*]
         C2[I specify my wwtp layer]
         C3[I do not specify any wwtp layer]
         A4[- I fill my DEM, building and road layers.<br/> - I change the default values of the parameters I know. <br/> - I select the range of possible gravity-driven diameters. <br/> - I specify a name and save location. <br/> - I run the module. ]
-        A5[<a href="https://elan-gis.org/en/scenario_prb1.html#_sorties_reseau">I get 7 layers</a>]
-        A6[<a href="https://elan-gis.org/en/petite_anse.html#_groupe">I gather them in a group</a>]
+        A5[<a href="https://elan-gis.org/en/scenario_prb1.html#sorties-reseau">I get 7 layers</a>]
+        A6[<a href="https://elan-gis.org/en/petite_anse.html#groupe">I gather them in a group</a>]
         A7[Do I want to explore the proposed pre-sizing?]
-        D[<a href="https://elan-gis.org/en/petite_anse.html#_select_styles">I change the pipes layer style.</a> <br/> <a href="https://elan-gis.org/en/petite_anse.html#_view_attributs">I look at the attributes.</a> <br/> <a href="https://elan-gis.org/en/scenario_prb1.html#_visualisation-profils">I use the *Longitudinal sewer profile* module.</a>]
+        D[<a href="https://elan-gis.org/en/petite_anse.html#select-styles">I change the pipes layer style.</a> <br/> <a href="https://elan-gis.org/en/petite_anse.html#view-attributs">I look at the attributes.</a> <br/> <a href="https://elan-gis.org/en/scenario_prb1.html#visualisation-profils">I use the *Longitudinal sewer profile* module.</a>]
         A8[Am I satisfied with the proposed pre-sizing?]
         A1 --> A2
         A2 -- yes --> B1
@@ -25,18 +25,18 @@ flowchart TB
         A7 -- yes --> D --> A8
         A7 -- no --> A8
         E["I edit my road and building layers or even my discharge points layer (addition/deletion) to adjust pre-sizing"]
-        A9[<a href="https://elan-gis.org/en/petite_anse.html#_specify_C">I edit my wwtp layer to state my inflow concentrations and my outflow target concentrations for each discharge point.</a> <br/> For the pollutants with no constraint, I leave the field to NULL.]
+        A9[<a href="https://elan-gis.org/en/petite_anse.html#specify-C">I edit my wwtp layer to state my inflow concentrations and my outflow target concentrations for each discharge point.</a> <br/> For the pollutants with no constraint, I leave the field to NULL.]
         A10[Are there surface constraints at my possible discharge points?]
-        F1[<a href="https://elan-gis.org/en/petite_anse.html#_define_surface">I create a polygon layer where I define the available areas</a>]
+        F1[<a href="https://elan-gis.org/en/petite_anse.html#define-surface">I create a polygon layer where I define the available areas</a>]
         F2[I check that my discharge points are included in the contoured areas]
-        A11[<a href="https://elan-gis.org/en/scenario_prb1.html#_start_procedes">I launch the *Processes* module</a>]
+        A11[<a href="https://elan-gis.org/en/scenario_prb1.html#start-procedes">I launch the *Processes* module</a>]
         G1[I specify the layer with the available areas]
         G2[I leave the *available area* input empty]
         A12["I choose between *Temperate* ou *Tropical* climate (Tmin >= 18°C all year around)"]
         A13[I fill my *WWTP* layer. <br/> I check that the parameters were correctly detected. <br/> I run the module.]
-        A14[<a href="https://elan-gis.org/en/scenario_prb1.html#_sorties_procedes">I get 1 treatment trains layer with several options</a>]
+        A14[<a href="https://elan-gis.org/en/scenario_prb1.html#sortie-procedes">I get 1 treatment trains layer with several options</a>]
         A15[I compare the several options using the graphical representations proposed in Elan]
-        A16[<a href="https://elan-gis.org/en/scenario_prb1.html#_selection">For each discharge point, I pre-select one option among the possible ones</a>]
+        A16[<a href="https://elan-gis.org/en/scenario_prb1.html#selection">For each discharge point, I pre-select one option among the possible ones</a>]
         A17[Is there several relevant options or option combinaisons?]
         A8 -- yes --> A9 --> A10
         A8 -- not entirely --> E --> A3
@@ -47,9 +47,10 @@ flowchart TB
         A12 --> A13 --> A14 --> A15 --> A16 --> A17
         H1[I create multiple scenarios for this sewer network configuration]
         H2[I create only one scenario for this sewer network configuration]
-        A18[<a href="https://elan-gis.org/en/scenario_prb1.html#_creer_scenario">I launch the *Create a scenario* module</a>]
+        A18[<a href="https://elan-gis.org/en/scenario_prb1.html#creer-scenario">I launch the *Create a scenario* module</a>]
         A19["I specify the sewer network and the associated treatment trains (the ones chosen must be pre-selected). <br/> I run the module."]
         A20[I get 1 gpkg with all my scenario components that will then allow comparison to other scenarios]
         A17 -- yes --> H1 -- for each case under consideration --> A18
         A17 -- no --> H2 --> A18
         A18 --> A19 --> A20
+
