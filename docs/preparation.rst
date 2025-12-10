@@ -119,7 +119,7 @@ OpenStreetMap est un outil ouvert et collaboratif.
 **2.** Indiquer la couche *polygone* qui délimite la zone à extraire (bulle 1), cocher *Reprojection des couches dans le SCR du projet* (bulle 2) puis exécuter (bulle 3).
 
 .. image:: _static/r+b.png
-      :width: 615
+      :width: 592
 
 **3.** Après exécution du module, vous disposez de **trois sorties** :
 
@@ -140,18 +140,38 @@ La couche **routes** peuvent être utilisée en entrée du **module** ``Réseau`
     Par exemple : 
 
           .. image:: _static/save-temp.png
-               :width: 700
+               :width: 657
 
 .. _population:
 
 Modules ``Population`` : ``Population (répartition uniforme)`` et ``Population (répartition surfacique)``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Les modules ``Population`` permettent d'assigner à chaque bâtiment un nombre d'habitants via un attribut *population* et de réduire chaque bâtiment en un point (son centroïde).
+Les modules ``Population`` permettent d'assigner à chaque bâtiment (polygone) un nombre d'habitants via un attribut *population* et de réduire chaque bâtiment en un point (son centroïde).
 Ils se distinguent l'un de l'autre dans la modalité de répartition (nombre fixe ou variable d'habitants par bâtiment). Selon votre besoin, vous pouvez utiliser soit l'un, soit l'autre des modules ``Population``.
 
 Module ``Population (répartition uniforme)``
 """"""""""""""""""""""""""""""""""""""""""""
+
+**Utilisation du module**
+
+**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Population (répartition uniforme)``.
+
+.. image:: _static/start-pop-u.png
+    :width: 275
+
+**2.** Renseigner la couche de bâtiments (bulle 1), indiquer un nombre moyen d'habitants par bâtiment (bulle 2), enregistrer dans un fichier (bulle 3) puis exécuter (bulle 4).
+
+.. attention::
+    La couche de bâtiments doit être de type *polygone*.
+
+.. image:: _static/use-pop-u.png
+    :width: 675
+
+**3.** Après exécution du module, vous disposez **d'une couche de type point** avec les **centroïdes des bâtiments** de la zone.
+A chaque centroïde est associé un nombre identique d'individus (**attribut population**) qui correspond au nombre moyen d'habitants par bâtiment renseigné.
+A ce stade, vous pouvez éditer la couche et ajuster manuellement ce nombre pour certains bâtiments si vous le souhaitez (immeuble par exemple).
+
 
 Module ``Population (répartition surfacique)``
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -173,10 +193,10 @@ Pour plus d'informations sur la méthode de répartition utilisée :
 
 .. _start-pop:
 
-**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Population``.
+**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Population (répartition surfacique)``.
 
 .. image:: _static/start-pop.png
-    :width: 354
+    :width: 274
 
 **2.** Indiquer une valeur de population (bulle 1), renseigner la couche de bâtiments (bulle 2), enregistrer dans
 un fichier (bulle 3) puis exécuter (bulle 4).
@@ -185,7 +205,7 @@ un fichier (bulle 3) puis exécuter (bulle 4).
     La couche de bâtiments doit être de type *polygone*.
 
 .. image:: _static/use-pop.png
-    :width: 621
+    :width: 675
 
 **3.** Après exécution du module, vous disposez **d'une couche de type point** avec les **centroïdes des bâtiments** de la zone.
 A chaque centroïde est associé un nombre d'individus (**attribut population**) auquel vous pouvez accéder en ouvrant la table 
@@ -193,10 +213,15 @@ attributaire de la couche.
 
 .. tip::
     Pour **répartir plus finement la population** (par exemple par quartiers), sélectionner les entités d'un quartier avant de lancer
-    le module ``Population`` et après avoir indiqué la couche, cocher **Entités sélectionnés uniquement**. 
+    l'un des modules ``Population`` et après avoir indiqué la couche, cocher **Entités sélectionnés uniquement**. 
     
     Répéter autant de fois que de quartiers de la zone. Puis utiliser l'outil ``Fusionner des couches vecteur`` de QGIS pour obtenir une seule et unique 
     couche (entrée du module ``Réseau``).
+
+Module ``Projection sur routes``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Utilisation du module**
 
 
 Entrées du module ``Hydraulique``
