@@ -157,6 +157,10 @@ Son installation se fait via Elan.
 .. note::
     Les dépendances peuvent être concernées par des montées en version. Dans ce cas, faire ``REINITIALISATION DES PARAMETRES`` puis réinstaller les dépendances comme expliqué juste avant.
 
+    Lorsqu'une nouvelle version d'Elan est installée, il est également nécessaire de réinstaller *pysewer* et *wetlandoptimizer*.
+
+.. _pysheds:
+
 Question des déversements par temps de pluie : pysheds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
