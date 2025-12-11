@@ -442,15 +442,83 @@ n'est pas au maximum de sa charge en termes de polluants dans la configuration a
 ---------------------------------------------------
 
 Parmi les filières proposées, certaines permettent d'atteindre les niveaux de rejets imposés (déviations en vert), d'autres non (déviations en rouge), avec des contraintes
-de surface qui leur sont propre et qui peuvent excéder la surface disponible (surface totale en rouge si une surface disponible a été renseignée).
+de surface qui leur sont propres et qui peuvent excéder la surface disponible (surface totale en rouge si une surface disponible a été renseignée).
+
+Des représentations graphiques ont été intégrées à Elan pour mieux visualiser les attributs des différentes filières et ainsi identifier plus facilement leurs points forts 
+et leurs points faibles respectifs. 
+
+Pour afficher ces représentations graphiques, il faut au préalable :
+- Avoir installé **l'extension Data Plotly** comme expliqué dans :ref:`Installation des extensions QGIS tierces <extensions-tierces>`.
+- Disposer d'une couche ``Couche de filières`` (sortie du module ``Procédés``).
+- Si votre couche ``Couche de filières`` contient plusieurs exutoires, avoir sélectionné l'un d'entre eux.
+
+.. important::
+    Le radar plot et le bar plot visent à **comparer les différentes filières possibles pour un exutoire**. Si votre couche ``Couche de filières`` contient plusieurs exutoires
+    et que vous oubliez d'un sélectionner un, un message d'erreur apparaitra lorsque vous essayerez d'afficher un des deux graphiques.
+
+Radar plot
+^^^^^^^^^^
 
 Le respect des niveaux de rejet imposés et de la surface disponible sont deux critères assez évidents qui vous permettront de pré-sélectionner une filière par exutoire.
+Le radar plot intégré à Elan permet de visualiser graphiquement les différentes filières sur la base de ces critères et ainsi faciliter leur comparaison.
 
-Les taux de charge en polluants et le taux de charge hydraulique peuvent également vous aider dans le choix des filières pré-sélectionnées.
+Pour l'afficher :
 
-.. note::
-   Des représentations graphiques (bar plot et radar plot) pour mieux visualiser les attributs des différentes filières retenues seront bientôt disponibles
-   en sortie de module ``Procédés``. Il sera ainsi plus simple d'identifier leurs points forts et leurs points faibles respectifs.
+**1.** Cliquer sur votre couche ``Couche de filières`` dans l'onglet *Couches* (bulle 1).
+
+**2. ** Appuyer sur le bouton en forme de radar plot (bulle 2).
+
+**3. ** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous *Processing Toolbox*, bulle 3).
+
+.. image:: _static/afficher-radarplot.png
+    :width: 700
+
+**4. **  Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique.
+
+.. image:: _static/radarplot.png
+    :width: 700
+
+Les axes du radar plot coïncident avec les contraintes renseignées par l'utilisateur dans la couche ``STEU`` éditée en sortie de module ``Réseau``. Dans cet exemple, 
+l'utilisateur a indiqué des contraintes (niveaux de rejet) sur 4 polluants (MES, DCO, DBO5 et NTK) et une contrainte de surface avec une couche polygone en entrée de 
+module ``Procédés``.
+
+Le seuil en pointillés représente les contraintes : un point sous le seuil indique que la contrainte sur cet axe est respectée, tandis qu'un point au-dessus du seuil traduit
+une non conformité de la filière sur ce critère.
+
+Par défaut, toutes les filières proposées pour l'exutoire apparaissent sur le radar plot. Si vous souhaitez en voir uniquement certaines, il vous suffit de les sélectionner
+dans la table attributaire puis de cliquer de nouveau sur le bouton radar plot.
+
+Bar plot
+^^^^^^^^
+
+Les taux de charge en polluants et le taux de charge hydraulique peuvent également vous aider dans le choix des filières pré-sélectionnées. C'est le bar plot intégré à Elan 
+qui vous permettra de visualiser de manière graphique ces attributs.
+
+Pour l'afficher :
+
+**1.** Cliquer sur votre couche ``Couche de filières`` dans l'onglet *Couches* (bulle 1).
+
+**2. ** Appuyer sur le bouton en forme de bar plot (bulle 2).
+
+**3. ** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous *Processing Toolbox*, bulle 3).
+
+.. image:: _static/afficher-barplot.png
+    :width: 700
+
+**4. **  Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique.
+
+.. image:: _static/barplot.png
+    :width: 700
+
+Pour chaque filière, le graphique permet de voir par étage les taux de charge en MES, DBO5, NTK et DCO ainsi que le taux de charge hydraulique. Une filière 1 étage apparait avec
+un seul "bloc" avec l'ensemble des taux de charge "stage 1" (couleurs d'intensité maximale), tandis qu'une filière 3 étages contient 3 "blocs" avec les taux de charge "stage 1", "stage 2" 
+et "stage 3" (intensité de couleur décroissante : maximale pour "stage 1" et minimale pour "stage 3").
+
+Le bar plot vous permet d'identifier le ou les éléments qui ont été limitants dans l'optimisation de la filière (taux à 100 %) et d'avoir une appréciation rapide de la marge
+de manoeuvre (ou non marge de manoeuvre) possible pour une filière en cas de changement de contexte (augmentation de la population par exemple).
+
+Par défaut, toutes les filières proposées pour l'exutoire apparaissent sur le radar plot. Si vous souhaitez en voir uniquement certaines, il vous suffit de les sélectionner
+dans la table attributaire puis de cliquer de nouveau sur le bouton bar plot.
 
 .. _creer-scenario:
 
