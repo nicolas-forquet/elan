@@ -1,62 +1,89 @@
 flowchart TB
-    A["Do I have all the required layers, raster (DEM) and vectors (roads and buildings)?"]
-    B1[Am I in French context?]
-    B2[<a href="https://elan-gis.org/en/preparation.html#bd-topo">I use *BD TOPO extractor* to retrieve roads and buildings</a>]
-    B3[<a href="https://elan-gis.org/en/preparation.html#rge-alti">I download 5m DEM on *RGE Alti*</a>]
-    C[Do I know where to find the required layers in my local context?]
-    D1[<a href="https://elan-gis.org/en/preparation.html#alaska-edu">I search on *alaska.edu* to find 12.5m DEM</a>]
-    D2[Is my area in the southern hemisphere?]
-    D3[<a href="https://elan-gis.org/en/preparation.html#open-buildings">I download my buildings on *OpenBuildings*</a>]
-    E1[<a href="https://elan-gis.org/en/petite_anse.html#creer-zone">I create a polygon layer to define the study area</a>]
+    A1["I open a QGIS project"]
+    A2[<a href="https://elan-gis.org/en/petite_anse.html#basemap">I display the OpenStreetMap basemap</a>]
+    A3["Do I know where to find DEM in my local context (min resolution 12.5m) ?"]
+    A1 --> A2 --> A3
+    B1["I load my DEM into my project"]
+    B2[Am I in French context?]
+    B3[<a href="https://elan-gis.org/en/preparation.html#rge-alti">I download 5m DEM on *RGE Alti*</a>]
+    B4[<a href="https://elan-gis.org/en/preparation.html#alaska-edu">I search on *alaska.edu* to find 12.5m DEM</a>]
+    A3 -- yes --> B1
+    A3 -- no --> B2
+    B2 -- yes --> B3 --> B1
+    B2 -- no --> B4 --> B1
+    B5["The detected CRS is correct (Predefined and not Custom)?"]
+    B6[I correct by selecting the corresponding QGIS predefined CRS]
+    B7[<a href="https://elan-gis.org/en/petite_anse.html#SCR-projet">I define the project CRS from DEM layer</a>]
+    B8[Is my DEM made of only 1 tile?]
+    B1 --> B5 -- yes --> B7 --> B8
+    B5 -- no --> B6 --> B7
+    C1[My DEM greatly exceeds the study area?]
+    C2[<a href="https://elan-gis.org/en/petite_anse.html#fusion">I use the GDAL *Merge* tool</a>]
+    C3[Does my DEM have missing pixels?]
+    C3a[Missing pixels are few or/and far enough from the area you want to connect?]
+    C3b[I look for another DEM tile and I repeat previous steps OR I extrapolate values of the missing pixels]
+    B8 -- yes --> C1
+    B8 -- no --> C2 --> C1
+    C1 -- no --> C3
+    C4["I use the QGIS *Clip to extent* tool"]
+    C5["I check the detected CRS is correct (Predefined and not Custom)." I correct it if necessary.]
+    C6[<a href="https://elan-gis.org/en/petite_anse.html#SCR-projet">I define the project CRS from my clipped DEM layer</a>]
+    C7[My DEM is ready! <a href="https://elan-gis.org/en/petite_anse.html#symbologie-mnt">I can adjust its symbology to better see the contrasts when I zoom in</a>]
+    C1 -- yes --> C4 --> C5 --> C6 --> C3
+    C3 -- yes --> C3a -- yes --> C7
+    C3a -- no --> C3b --> C7
+    C3 -- no --> C7
+    D1["Do I know where to find my vector layers (roads and buildings) in my local context?"]
+    D2[Am I in French context?]
+    D3[<a href="https://elan-gis.org/en/preparation.html#bd-topo">I use *BD TOPO extractor* to retrieve roads and buildings</a>]
+    D4[Is my area in the southern hemisphere?]
+    D5[<a href="https://elan-gis.org/en/preparation.html#open-buildings">I download my buildings on *Open Buildings*</a>]
+    D6[<a href="https://elan-gis.org/en/petite_anse.html#creer-zone">I create a polygon layer to define the study area</a>]
+    D7["Do my vector layers accurately transcribe the field reality (buildings to be connected and possible roads)?"]
+    D8[<a href="https://elan-gis.org/en/petite_anse.html#creer-zone">I create a polygon layer to define the study area</a>]
+    C7 --> D1
+    D1 -- yes --> D7
+    D1 -- no --> D2
+    D2 -- yes --> D6 --> D3 --> D7
+    D2 -- no --> D4
+    E1[<a href="https://elan-gis.org/en/petite_anse.html#creer-zone">I create a polygon layer to define the study area</a>]
     E2[<a href="https://elan-gis.org/en/preparation.html#routes">I use the Elan *Roads and buildings* module to get</a>]
     E3[my roads]
     E4[my roads and my buildings]
-    F1[Is my DEM made of only 1 tile?]
-    A --> F1
-    A -- no --> B1
-    B1 -- yes --> B2 --> B3 --> F1
-    B1 -- no --> C -- yes --> F1
-    C -- no OR partly yes --> D1 --> D2
-    D2 -- yes --> D3 --> E2 --> E3 --> F1
-    D2 -- no --> E1 --> E2 --> E4 --> F1
-    G[<a href="https://elan-gis.org/en/petite_anse.html#fusion">I use the GDAL *Merge* tool</a>]
-    F2[Does my DEM have missing pixels?]
-    F3["Do my vector layers accurately transcribe the field reality (buildings to be connected and possible roads)?"]
-    H[<a href="https://elan-gis.org/en/petite_anse.html#edition-manuelle">I edit manually my layers: addition/deletion of roads and buildings eventually based on satellite images</a>]
-    F4[Are all my layers in the same CRS?]
-    I1[<a href="https://elan-gis.org/en/petite_anse.html#SCR-projet">I define the project CRS from DEM layer</a>]
-    I2[I project my roads and buildings layers in this CRS using QGIS *Reproject layer* tool]
-    F5[Do I know where possible discharge points are?]
-    F1 -- yes --> F2
-    F1 -- no --> G --> F2
-    F2 -- yes --> F3
-    F2 -- no --> F3
-    F3 -- yes --> F4
-    F3 -- no --> H --> F4
-    F4 -- yes --> F5
-    F4 -- no --> I1 --> I2 --> F5
-    F6[<a href="https://elan-gis.org/en/petite_anse.html#set-exutoires">I create a point layer in the project CRS with all possible discharge points</a>]
-    J[I go on : Elan will automatically position a discharge point on the lowest pixel of my area]
-    F7["I check if all my features (roads, buildings, discharge points) are on my DEM tile"]
-    F8["Do I have an estimation of the population to connect (total number of inhabitants)?"]
-    K[I do some research]
-    F9["Does a uniform distribution of the population within the area suits me (same number of inhabitants/building)?"]
-    L[<a href="https://elan-gis.org/en/preparation.html#population">I use the Elan *Population areametric distribution* module to get a number of inhabitants adjusted to buildings footprint</a>]
-    M1[I estimate a mean number of inhabitants/building]
-    M2["I use the Elan *Population (uniform distribution) module*"]
-    F10[I get a building layer as centroids with a population attribute]
-    F11["I check if my centroid layer is in the correct CRS (project CRS)"]
-    F12[Do I know my sizing constraints? <br/> - average production of wastewater/day/person <br/> - min and max sewer depths <br/> - possible diameters]
-    N[I do research / make hypotheses]
-    F13[I am ready to create a scenario !]
-    F5 -- yes --> F6 --> F7
-    F5 -- no --> J --> F7
-    F7 --> F8
-    F8 -- yes --> F9
-    F8 -- no --> K --> F9
-    F9 -- yes --> M1 --> M2 --> F10
-    F9 -- no --> L --> F10
-    F10 --> F11 --> F12
-    F12 -- yes --> F13
-    F12 -- no --> N --> F13
-
+    D4 -- yes --> D5 --> D8 --> E2 --> E3 --> D7
+    D4 -- no --> E1 --> E2 --> E4 --> D7
+    E5[<a href="https://elan-gis.org/en/petite_anse.html#edition-manuelle">I edit manually my layers: addition/deletion of roads and buildings eventually based on satellite images</a>]
+    E6[Are all my layers in the same CRS?]
+    D7 -- yes --> E6
+    D7 -- no --> E5 --> E6
+    F1[Do I know where possible discharge points are?]
+    F2[I project my vector layers in this CRS using QGIS *Reproject layer* tool]
+    F3[<a href="https://elan-gis.org/en/petite_anse.html#set-exutoires">I create a point layer in the project CRS with all possible discharge points</a>]
+    F4[I go on : Elan will automatically position a discharge point on the lowest pixel of my area]
+    F5["I check if all my features (roads, buildings, discharge points) are on my DEM tile"]
+    F6["Do I have an estimation of the population to connect (total number of inhabitants)?"]
+    E6 -- yes --> F1
+    E6 -- no --> F2 --> F1
+    F1 -- yes --> F3 --> F5
+    F1 -- non --> F4 --> F5
+    F5 --> F6
+    G1["Does a uniform distribution of the population within the area suits me (same number of inhabitants/building)?"]
+    G2[I do some research]
+    G3[I estimate a mean number of inhabitants/building based on the number of buildings I have in my layer]
+    G4[<a href="https://elan-gis.org/en/preparation.html#population">I use the Elan *Population uniform distribution module*</a>]
+    G5[I get a building layer as centroids with a population attribute]
+    G6["Do I want to pre-size only main arteries of the sewer network (faster)?"]
+    G7[I use the Elan *Snap on roads* module]
+    F6 -- yes --> G1
+    F6 -- no --> G2 --> G1
+    G1 -- yes --> G3 --> G4 --> G5
+    H1[<a href="https://elan-gis.org/en/preparation.html#population">I use the Elan *Population areametric distribution* module to get a number of inhabitants adjusted to buildings footprint</a>]
+    H2["I check if my centroids layer is in the correct CRS (project CRS)"]
+    H3[Do I know my sizing constraints? <br/> - average production of wastewater/day/person <br/> - min and max sewer depths <br/> - possible diameters]
+    H4[I do research / make hypotheses]
+    H5[I am ready to create a scenario !]
+    G1 -- no --> H1 --> G5 --> G6
+    G6 -- yes --> G7 --> H2
+    G6 -- no --> H2 --> H3
+    H3 -- yes --> H5
+    H3 -- no --> H4 --> H5

@@ -1,62 +1,89 @@
 flowchart TB
-    A["J'ai les couches raster (MNT) et vecteurs (routes et bâtiments) nécessaires ?"]
-    B1[Je suis en contexte français ?]
-    B2[<a href="https://elan-gis.org/fr/preparation.html#bd-topo">J'utilise *BD TOPO extractor* pour récupérer les routes et les bâtiments</a>]
-    B3[<a href="https://elan-gis.org/fr/preparation.html#rge-alti">Je télécharge le MNT à 5m sur *RGE Alti*</a>]
-    C[Je sais où trouver les couches nécessaires dans mon contexte local ?]
-    D1[<a href="https://elan-gis.org/fr/preparation.html#alaska-edu">Je cherche sur *alaska.edu* pour trouver du MNT à 12,5m</a>]
-    D2[Ma zone est située dans l'hémisphère Sud ?]
-    D3[<a href="https://elan-gis.org/fr/preparation.html#open-buildings">Je télécharge mes bâtiments sur *OpenBuildings*</a>]
-    E1[<a href="https://elan-gis.org/fr/petite_anse.html#creer-zone">Je créé une couche polygone qui délimite ma zone d'étude</a>]
+    A1["J'ouvre un projet QGIS"]
+    A2[<a href="https://elan-gis.org/fr/petite_anse.html#basemap">Je charge un fond de carte OpenStreetMap</a>]
+    A3["Je sais où trouver du MNT dans mon contexte local (résolution min 12,5 m) ?"]
+    A1 --> A2 --> A3
+    B1["Je charge mon MNT dans QGIS"]
+    B2[Je suis en contexte français ?]
+    B3[<a href="https://elan-gis.org/fr/preparation.html#rge-alti">Je télécharge le MNT à 5 m sur *RGE Alti*</a>]
+    B4[<a href="https://elan-gis.org/fr/preparation.html#alaska-edu">Je cherche sur *alaska.edu* pour trouver du MNT à 12,5 m</a>]
+    A3 -- oui --> B1
+    A3 -- non --> B2
+    B2 -- oui --> B3 --> B1
+    B2 -- non --> B4 --> B1
+    B5["Le SCR détecté est correct (Prédéfini et non Personnalisé) ?"]
+    B6[Je corrige en sélectionnant un des SCR prédéfinis de QGIS]
+    B7[<a href="https://elan-gis.org/fr/petite_anse.html#SCR-projet">Je définis le SCR du projet à partir du MNT</a>]
+    B8[Mon MNT est constitué d'une seule dalle ?]
+    B1 --> B5 -- oui --> B7 --> B8
+    B5 -- non --> B6 --> B7
+    C1[Mon MNT excède largement la zone d'étude ?]
+    C2[<a href="https://elan-gis.org/fr/petite_anse.html#fusion">J'utilise l'outil *Fusion* de GDAL</a>]
+    C3[Mon MNT a des pixels manquants ?]
+    C3a[Les pixels manquants sont peu nombreux et/ou à la marge de la zone à connecter ?]
+    C3b[Je cherche un autre MNT et je reprends les étapes précédentes OU j'extrapole la valeurs des quelques pixels manquants]
+    B8 -- oui --> C1
+    B8 -- non --> C2 --> C1
+    C1 -- non --> C3
+    C4["J'utilise l'outil *Découper un raster selon une emprise* de QGIS"]
+    C5["Je vérifie que le SCR détecté est correct (Prédéfini et non Personnalisé)". Je corrige si nécessaire.]
+    C6[<a href="https://elan-gis.org/fr/petite_anse.html#SCR-projet">Je définis le SCR du projet à partir du MNT découpé</a>]
+    C7[Mon MNT est prêt ! <a href="https://elan-gis.org/fr/petite_anse.html#symbologie-mnt">Je peux modifier sa symbologie pour mieux voir les contrastes en zoomant</a>]
+    C1 -- oui --> C4 --> C5 --> C6 --> C3
+    C3 -- oui --> C3a -- oui --> C7
+    C3a -- non --> C3b --> C7
+    C3 -- non --> C7
+    D1["Je sais où trouver mes couches vecteurs (routes et bâtiments) dans mon contexte local ?"]
+    D2[Je suis en contexte français ?]
+    D3[<a href="https://elan-gis.org/fr/preparation.html#bd-topo">J'utilise *BD TOPO extractor* pour récupérer les routes et les bâtiments</a>]
+    D4[Ma zone est située dans l'hémisphère Sud ?]
+    D5[<a href="https://elan-gis.org/fr/preparation.html#open-buildings">Je télécharge mes bâtiments sur *Open Buildings*</a>]
+    D6[<a href="https://elan-gis.org/fr/petite_anse.html#creer-zone">Je créé une couche polygone qui délimite ma zone d'étude</a>]
+    D7["Mes couches vecteurs retranscrivent bien la réalité du terrain (bâtiments à raccorder, chemins autorisés) ?"]
+    D8[<a href="https://elan-gis.org/fr/petite_anse.html#creer-zone">Je créé une couche polygone qui délimite ma zone d'étude</a>]
+    C7 --> D1
+    D1 -- oui --> D7
+    D1 -- non --> D2
+    D2 -- oui --> D6 --> D3 --> D7
+    D2 -- non --> D4
+    E1[<a href="https://elan-gis.org/fr/petite_anse.html#creer-zone">Je créé une couche polygone qui délimite ma zone d'étude</a>]
     E2[<a href="https://elan-gis.org/fr/preparation.html#routes">J'utilise le module *Routes et bâtiments* d'Elan pour récupérer</a>]
     E3[mes routes]
     E4[mes routes et mes bâtiments]
-    F1[Mon MNT est constitué d'une seule dalle ?]
-    A --> F1
-    A -- non --> B1
-    B1 -- oui --> B2 --> B3 --> F1
-    B1 -- non --> C -- oui --> F1
-    C -- non OU oui en partie --> D1 --> D2
-    D2 -- oui --> D3 --> E2 --> E3 --> F1
-    D2 -- non --> E1 --> E2 --> E4 --> F1
-    G[<a href="https://elan-gis.org/fr/petite_anse.html#fusion">J'utilise l'outil *Fusion* de GDAL</a>]
-    F2[Mon MNT a des pixels manquants ?]
-    F3["Mes couches vecteurs retranscrivent bien la réalité du terrain (bâtiments à raccorder, chemins autorisés) ?"]
-    H[<a href="https://elan-gis.org/fr/petite_anse.html#edition-manuelle">J'édite manuellement mes couches : ajout/suppression de routes et bâtiments en m'aidant éventuellement d'images satellitaires</a>]
-    F4[Toutes mes couches sont dans le même SCR ?]
-    I1[<a href="https://elan-gis.org/fr/petite_anse.html#SCR-projet">Je définis le SCR du projet à partir du MNT</a>]
-    I2[Je projette mes couches routes et bâtiments dans ce SCR avec l'outil *Reprojeter une couche* de QGIS]
-    F5[J'ai connaissance des exutoires possibles ?]
-    F1 -- oui --> F2
-    F1 -- non --> G --> F2
-    F2 -- oui --> F3
-    F2 -- non --> F3
-    F3 -- oui --> F4
-    F3 -- non --> H --> F4
-    F4 -- oui --> F5
-    F4 -- non --> I1 --> I2 --> F5
-    F6[<a href="https://elan-gis.org/fr/petite_anse.html#set-exutoires">Je créé une couche point dans le SCR du projet avec tous les exutoires possibles</a>]
-    J[Je continue : Elan positionnera l'exutoire sur le pixel le plus bas de ma zone]
-    F7["Je vérifie que toutes mes entités (routes, bâtiments, exutoires) sont sur le MNT"]
-    F8["Je connais la population à raccorder (nombre total d'habitants) ?"]
-    K[Je fais des recherches]
-    F9["Une répartition uniforme de la population me convient (nombre moyen d'habitant/bâtiment) ?"]
-    L[<a href="https://elan-gis.org/fr/preparation.html#population">J'utilise le module *Population répartition surfacique* pour avoir un nombre ajusté d'habitants par bâtiment</a>]
-    M1[J'estime un nombre d'habitant/bâtiment]
-    M2["J'utilise le module *Population (répartition uniforme)*"]
-    F10[J'obtiens une couche de bâtiments sous forme de centroïdes avec un attribut population]
-    F11["Je vérifie que mes centroïdes sont bien dans le bon SCR (SCR du projet)"]
-    F12[Je connais mes contraintes de dimensionnement ? <br/> - consommation moyenne d'eau/habitant/jour <br/> - profondeur min et max autorisées <br/> - diamètres possibles]
-    N[Je fais des recherches/des hypothèses]
-    F13[Je suis prêt.e à créer un scénario !]
-    F5 -- oui --> F6 --> F7
-    F5 -- non --> J --> F7
-    F7 --> F8
-    F8 -- oui --> F9
-    F8 -- non --> K --> F9
-    F9 -- oui --> M1 --> M2 --> F10
-    F9 -- non --> L --> F10
-    F10 --> F11 --> F12
-    F12 -- oui --> F13
-    F12 -- non --> N --> F13
-
+    D4 -- oui --> D5 --> D8 --> E2 --> E3 --> D7
+    D4 -- non --> E1 --> E2 --> E4 --> D7
+    E5[<a href="https://elan-gis.org/fr/petite_anse.html#edition-manuelle">J'édite manuellement mes couches : ajout/suppression de routes et bâtiments en m'aidant éventuellement d'images satellitaires</a>]
+    E6[Toutes mes couches sont dans le même SCR ?]
+    D7 -- oui --> E6
+    D7 -- non --> E5 --> E6
+    F1[J'ai connaissance des exutoires possibles ?]
+    F2[Je projette mes couches vecteurs dans ce SCR avec l'outil *Reprojeter une couche* de QGIS]
+    F3[<a href="https://elan-gis.org/fr/petite_anse.html#set-exutoires">Je créé une couche point dans le SCR du projet avec tous les exutoires possibles</a>]
+    F4[Je continue : Elan positionnera l'exutoire sur le pixel le plus bas de ma zone]
+    F5["Je vérifie que toutes mes entités (routes, bâtiments, exutoires) sont sur le MNT"]
+    F6["Je connais la population à raccorder (nombre total d'habitants) ?"]
+    E6 -- oui --> F1
+    E6 -- non --> F2 --> F1
+    F1 -- oui --> F3 --> F5
+    F1 -- non --> F4 --> F5
+    F5 --> F6
+    G1["Une répartition uniforme de la population me convient (nombre moyen d'habitant/bâtiment) ?"]
+    G2[Je fais des recherches]
+    G3[J'estime un nombre d'habitant/bâtiment en fonction du nombre de bâtiments de ma couche]
+    G4[<a href="https://elan-gis.org/fr/preparation.html#population">J'utilise le module *Population répartition uniforme* d'Elan</a>]
+    G5[J'obtiens une couche de bâtiments sous forme de centroïdes avec un attribut population]
+    G6["Je souhaite un pré-dimensionnement uniquement des artères principales du réseau (plus rapide) ?"]
+    G7[J'utilise le module *Projection sur routes* d'Elan]
+    F6 -- oui --> G1
+    F6 -- non --> G2 --> G1
+    G1 -- oui --> G3 --> G4 --> G5
+    H1[<a href="https://elan-gis.org/fr/preparation.html#population">J'utilise le module *Population répartition surfacique* d'Elan pour avoir un nombre ajusté d'habitants par bâtiment</a>]
+    H2["Je vérifie que mes centroïdes sont bien dans le bon SCR (SCR du projet)"]
+    H3[Je connais mes contraintes de dimensionnement ? <br/> - consommation moyenne d'eau/habitant/jour <br/> - profondeur min et max autorisées <br/> - diamètres possibles]
+    H4[Je fais des recherches/des hypothèses]
+    H5[Je suis prêt.e à créer un scénario !]
+    G1 -- non --> H1 --> G5 --> G6
+    G6 -- oui --> G7 --> H2
+    G6 -- non --> H2 --> H3
+    H3 -- oui --> H5
+    H3 -- non --> H4 --> H5

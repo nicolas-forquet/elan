@@ -12,6 +12,8 @@ proposé à la fin de ce tutoriel.
 Obtention et préparation des données géographiques
 --------------------------------------------------
 
+.. _basemap:
+
 Préalable : Afficher un fond de carte (ici OpenStreetMap)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -126,6 +128,8 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
      :width: 506
 
 * Votre couche initiale est désormais géoréférencée (pas de nouvelle couche créée).
+
+.. _symbologie-mnt:
 
 .. tip::
     Pour que l'échelle du MNT s'ajuste automatiquement lorsque vous zommez sur la carte :
