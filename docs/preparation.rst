@@ -133,6 +133,8 @@ Les couches **bâtiments** peuvent constituer des entrées pour les **modules** 
 
 La couche **routes** peuvent être utilisée en entrée du **module** ``Réseau``.
 
+.. _save-temp:
+
 .. tip:: 
     Lorsque vous lancez le module, vous pouvez laisser l'option par défaut de *Créer une couche temporaire* pour les trois sorties et n'enregistrer que celles dont vous
     avez besoin / celles qui vous donnent le plus satisfaction au regard de votre connaissance du terrain et de la problématique.
@@ -152,6 +154,8 @@ Ils se distinguent l'un de l'autre dans la modalité de répartition (nombre fix
 
 Module ``Population (répartition uniforme)``
 """"""""""""""""""""""""""""""""""""""""""""
+
+Le module ``Population (répartition uniforme)`` permet de **d'associer à chaque bâtiment le même nombre d'habitants** (nombre moyen d'habitants par bâtiment). 
 
 **Utilisation du module**
 
@@ -183,11 +187,6 @@ bâtiment occupe une surface importante, plus le nombre d'individus associé ser
 Pour plus d'informations sur la méthode de répartition utilisée :
 
     *Lwin et al., (2009). A GIS Approach to Estimation of Building Population for Micro-spatial Analysis. Transactions in GIS, 13(4):401-414, doi: 10.1111/j.1467-9671.2009.01171.x*
-
-.. note::
-    Si vous souhaitez considérer un **nombre moyen d'individus par bâtiment** identique pour chacun d'entre eux, 
-    **utilisez directement le module** ``Réseau`` où vous préciserez le nombre moyen d'individus par bâtiment qui est à
-    considérer. 
 
 **Utilisation du module**
 
@@ -221,7 +220,38 @@ attributaire de la couche.
 Module ``Projection sur routes``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Le module ``Projection sur routes`` permet de **projeter les centroïdes des bâtiments à connecter sur la route la plus proche** (au niveau d'un noeud) dans la limte d'une distance fixée par l'utilisateur
+(40 m par défaut). 
+
+Cette étape facultative présente **3 avantages majeurs** :
+- **réduire le nombre de centroïdes** à considérer lors du prédimensionnement du réseau puisque les centroïdes projetés à un même noeud sont fusionnés entre eux, ce qui implique une **réduction du temps de calcul**,
+- **tracer uniquement les artères principales** du réseau lors du prédimensionnement 
+- **centrer le prédimensionnement sur ce qui relève du domaine public** (canalisations et stations de pompage / relèvement)
+
 **Utilisation du module**
+
+**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Projection sur routes``.
+
+.. image:: _static/start-projection.png
+    :width: 273
+
+**2.** Renseigner la couche de routes (bulle 1) et celle de bâtiments (bulle 2), indiquer le champ correspondant à la population (bulle 3), si besoin ajuster la valeur par défaut
+de la distance maximale à la route autorisée (bulle 4) puis exécuter (bulle 5).
+
+.. image:: _static/use-projection.png
+    :width: 700
+
+**3.** Après exécution du module, vous disposez de **deux sorties** temporaires que vous pouvez ensuite enregistrer comme expliqué :ref:`plus haut <save-temp>`
+
+* ``Centroïdes projetés`` : couche de type *point* avec les centroïdes projetés sur les routes (pour ceux où la condition de distance à la route est respectée). Chaque centroïde est caractérisé par 2 attributs :
+    - *count* le nombre de bâtiments représentés par ce centroïde,
+    - *population* le nombre total d'habitants au niveau de ce centroïde.
+
+* ``Lignes de projection`` : couche de type *ligne* avec les lignes de projection entre les centroïdes initiaux et ceux obtenus après projection
+
+La couche de **centroïdes** peut être utilisée en entrée du module ``Réseau``. 
+
+La couche de **lignes** est uniquement disponible pour servir la compréhension de l'utilisateur et lui permettre d'envisager des ajustements (ajout de tronçons de routes, suppression de bâtiments, modification de la distance maximale à la route autorisée par exemple).
 
 
 Entrées du module ``Hydraulique``

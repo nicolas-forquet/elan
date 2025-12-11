@@ -310,7 +310,7 @@ et post-traitée (suppression/ajout de certains bâtiments selon la connaissance
 
 **1.** Sélectionner les bâtiments de la zone haute (bulles 1 à 3).
 
-**2.** Lancer le module ``Population`` comme expliqué :ref:`plus haut <start-pop>`.
+**2.** Lancer le module ``Population (répartition surfacique)`` comme expliqué :ref:`ici <start-pop>`.
 
 **3.** Indiquer *150* pour le *Total d'habitants* de la zone (bulle 4), cocher *Entités sélectionnées* une fois la couche de bâtiments sélectionnée (bulle 5) puis *Exécuter* (bulle 6).
 
