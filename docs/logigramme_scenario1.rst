@@ -5,7 +5,7 @@ Création d'un scénario question du centralisé / décentralisé
 
 **Préalable :**
 * Avoir préparé vos données en vous aidant du :ref:`logigramme précédent <_flowchart-prepa>`
-* Installer *pysewer*, *wetlandoptimizer* et *DataPlotly* (voir :ref:`la page Installation, rubrique dépendances externes <_dependances>`)
+* Installer *pysewer*, *wetlandoptimizer* et *DataPlotly* (voir la page Installation, rubriques :ref:`dépendances externes <_dependances>` et :ref:`extensions QGIS tierces <_extensions-tierces>`)
 * Recueillir les informations suivantes pour le prédimensionnement du réseau :
     - consommation journalière d'eau par personne (en L)
     - profondeurs minimum et maximum (pour les canalisations) envisageables dans votre contexte

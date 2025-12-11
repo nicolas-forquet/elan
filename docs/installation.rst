@@ -159,6 +159,39 @@ Son installation se fait via Elan.
 
     Lorsqu'une nouvelle version d'Elan est installée, il est également nécessaire de réinstaller *pysewer* et *wetlandoptimizer*.
 
+.. _extensions-tierces:
+
+Installation des extensions QGIS tierces
+----------------------------------------
+
+Certaines fonctionnalités d'Elan repose sur d'autres extensions QGIS. Cette section détaille lesquelles et la manière de les installer.
+
+Question du centralisé/décentralisé : Data Plotly
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Data Plotly** est une extension QGIS qui permet la création de graphiques interactifs dans l'environnement QGIS. Elle se base sur la librairie Plotly et l'API Python.
+Data Plotly rassemble une importante communauté et évolue grâce aux contributions de celle-ci. Le développement d'Elan a permis de contribuer à Data Plotly en ajoutant
+un nouveau type de graphique : le graphique radar.
+
+Lien GitLab : https://github.com/ghtmtt/DataPlotly
+
+Son installation se fait via le gestionnaire d'extensions QGIS.
+
+.. important::
+    **Data Plotly est nécessaire pour pouvoir visualiser de manière graphique les sorties du module** ``Procédés``.
+
+**1.** Ouvrir le gestionnaire d'extensions.
+
+.. image:: _static/extensions-gestionnaire.png
+     :width: 506
+
+**2.** Dans `Toutes` (bulle 1), chercher "Data Plotly" (bulle 2). Sélectionner le plugin (bulle 3) puis cliquer sur ``Installer l'extension`` en bas du descriptif de l'extension (bulle 4).
+
+.. image:: _static/installation_dataplotly.png
+     :width: 700
+
+**3.** La mention ``Extension installée avec succès`` apparaît au sommet de la fenêtre. Fermer le gestionnaire d'extensions.
+
 .. _pysheds:
 
 Question des déversements par temps de pluie : pysheds
