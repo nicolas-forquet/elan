@@ -8,18 +8,83 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.10.92-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 14:53+0100\n"
+"POT-Creation-Date: 2025-12-11 16:51+0100\n"
 "PO-Revision-Date: 2025-11-27 15:32+0100\n"
 "Last-Translator: \n"
-"Language-Team: en <LL@li.org>\n"
 "Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.17.0\n"
-"X-Generator: Poedit 3.8\n"
 
-#: ../../logigramme_scenario1.rst:2
+#: ../../logigramme_scenario1.rst:4
 msgid "Création d'un scénario question du centralisé / décentralisé"
 msgstr "Creation of a scenario centralized / decentralized question"
+
+#: ../../logigramme_scenario1.rst:6
+msgid "**Préalable :**"
+msgstr ""
+
+#: ../../logigramme_scenario1.rst:8
+msgid ""
+"Avoir préparé vos données en vous aidant du :ref:`logigramme précédent "
+"<flowchart-prepa>`"
+msgstr ""
+
+#: ../../logigramme_scenario1.rst:10
+msgid ""
+"Installer *pysewer*, *wetlandoptimizer* et *DataPlotly* (voir la page "
+"Installation, rubriques :ref:`dépendances externes <dependances>` et "
+":ref:`extensions QGIS tierces <extensions-tierces>`)"
+msgstr ""
+
+#: ../../logigramme_scenario1.rst:12
+msgid ""
+"Recueillir les informations suivantes pour le prédimensionnement du "
+"réseau :"
+msgstr ""
+
+#: ../../logigramme_scenario1.rst:13
+msgid "consommation journalière d'eau par personne (en L)"
+msgstr ""
+
+#: ../../logigramme_scenario1.rst:14
+msgid ""
+"profondeurs minimum et maximum (pour les canalisations) envisageables "
+"dans votre contexte"
+msgstr ""
+
+#: ../../logigramme_scenario1.rst:15
+msgid "diamètres usuels pour les canalisations"
+msgstr ""
+
+#: ../../logigramme_scenario1.rst:17
+msgid ""
+"Recueillir les informations suivantes pour le prédimensionnement des "
+"filières de traitement :"
+msgstr ""
+
+#: ../../logigramme_scenario1.rst:18
+msgid ""
+"les concentrations usuelles d'un effluent domestique dans votre contexte "
+"(MES, DCO, DBO5, NTK, TN, N-NO3, TP, e.coli)"
+msgstr ""
+
+#: ../../logigramme_scenario1.rst:19
+msgid "les niveaux de rejet imposés par votre réglementation (MES, DCO et DBO5)"
+msgstr ""
+
+#: ../../logigramme_scenario1.rst:21
+msgid ""
+"Ce logigramme vise à vous guider à la création de scénarios sur votre "
+"zone d'étude."
+msgstr ""
+
+#: ../../logigramme_scenario1.rst:23
+msgid ""
+"Il est interactif : vous pouvez zoomer et cliquer sur certains blocs pour"
+" être renvoyé aux rubriques correspondantes dans la documentation."
+msgstr ""
+

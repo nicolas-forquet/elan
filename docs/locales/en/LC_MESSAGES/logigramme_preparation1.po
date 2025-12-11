@@ -8,18 +8,63 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.10.92-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 14:53+0100\n"
+"POT-Creation-Date: 2025-12-11 16:51+0100\n"
 "PO-Revision-Date: 2025-11-27 15:30+0100\n"
 "Last-Translator: \n"
-"Language-Team: en <LL@li.org>\n"
 "Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.17.0\n"
-"X-Generator: Poedit 3.8\n"
 
-#: ../../logigramme_preparation1.rst:2
+#: ../../logigramme_preparation1.rst:4
 msgid "Préparation des données question du centralisé / décentralisé"
 msgstr "Data preparation centralized / decentralized question"
+
+#: ../../logigramme_preparation1.rst:6
+msgid "**Préalable :**"
+msgstr ""
+
+#: ../../logigramme_preparation1.rst:8
+msgid ""
+"Télécharger QGIS depuis le `site officiel <https://qgis.org/download/>`_ "
+"et l'installer en suivant le `guide d'installation "
+"<https://qgis.org/resources/installation-guide/>`_."
+msgstr ""
+
+#: ../../logigramme_preparation1.rst:10
+msgid ""
+"Prendre en main QGIS à l'aide de tutoriels (https://tutoqgis.cnrs.fr/ par"
+" exemple)"
+msgstr ""
+
+#: ../../logigramme_preparation1.rst:12
+msgid ""
+"Identifier les données SIG disponibles dans votre contexte et les "
+"télécharger (MNT, routes et bâtiments) : plateforme gouvernementale de "
+"mise à disposition de données, plugin QGIS existant."
+msgstr ""
+
+#: ../../logigramme_preparation1.rst:14
+msgid "Chiffrer/estimer la population à raccorder"
+msgstr ""
+
+#: ../../logigramme_preparation1.rst:16
+msgid ":ref:`Installer Elan <extension>`"
+msgstr ""
+
+#: ../../logigramme_preparation1.rst:18
+msgid ""
+"Le logigramme ici présenté vise à vous guider pour préparer vos données "
+"avant de pouvoir créer des scénarios sur votre zone d'étude "
+"(:ref:`logigramme suivant <flowchart-scenario>`)."
+msgstr ""
+
+#: ../../logigramme_preparation1.rst:20
+msgid ""
+"Il est interactif : vous pouvez zoomer et cliquer sur certains blocs pour"
+" être renvoyé aux rubriques correspondantes dans la documentation."
+msgstr ""
+

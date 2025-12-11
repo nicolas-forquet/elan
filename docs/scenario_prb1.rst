@@ -468,14 +468,14 @@ Pour l'afficher :
 
 **1.** Cliquer sur votre couche ``Couche de filières`` dans l'onglet *Couches* (bulle 1).
 
-**2. ** Appuyer sur le bouton en forme de radar plot (bulle 2).
+**2.** Appuyer sur le bouton en forme de radar plot (bulle 2).
 
-**3. ** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous *Processing Toolbox*, bulle 3).
+**3.** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous *Processing Toolbox*, bulle 3).
 
 .. image:: _static/afficher-radarplot.png
     :width: 700
 
-**4. **  Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique.
+**4.**  Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique.
 
 .. image:: _static/radarplot.png
     :width: 700
@@ -500,14 +500,14 @@ Pour l'afficher :
 
 **1.** Cliquer sur votre couche ``Couche de filières`` dans l'onglet *Couches* (bulle 1).
 
-**2. ** Appuyer sur le bouton en forme de bar plot (bulle 2).
+**2.** Appuyer sur le bouton en forme de bar plot (bulle 2).
 
-**3. ** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous *Processing Toolbox*, bulle 3).
+**3.** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous *Processing Toolbox*, bulle 3).
 
 .. image:: _static/afficher-barplot.png
     :width: 700
 
-**4. **  Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique.
+**4.**  Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique.
 
 .. image:: _static/barplot.png
     :width: 700
