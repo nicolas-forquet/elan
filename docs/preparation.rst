@@ -217,6 +217,8 @@ attributaire de la couche.
     Répéter autant de fois que de quartiers de la zone. Puis utiliser l'outil ``Fusionner des couches vecteur`` de QGIS pour obtenir une seule et unique 
     couche (entrée du module ``Réseau``).
 
+.. _projection:
+
 Module ``Projection sur routes``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

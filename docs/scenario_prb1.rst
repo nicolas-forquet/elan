@@ -456,6 +456,8 @@ Pour afficher ces représentations graphiques, il faut au préalable :
     Le radar plot et le bar plot visent à **comparer les différentes filières possibles pour un exutoire**. Si votre couche ``Couche de filières`` contient plusieurs exutoires
     et que vous oubliez d'un sélectionner un, un message d'erreur apparaitra lorsque vous essayerez d'afficher un des deux graphiques.
 
+.. _plots:
+
 Radar plot
 ^^^^^^^^^^
 
