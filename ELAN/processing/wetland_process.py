@@ -356,8 +356,8 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             Cobj = self.getTargetConcentrations(
                 TSS_obj_field_name,
                 BOD5_obj_field_name,
-                COD_obj_field_name,
                 TKN_obj_field_name,
+                COD_obj_field_name,
                 NO3N_obj_field_name,
                 TN_obj_field_name,
                 TP_obj_field_name,
@@ -534,8 +534,8 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         self,
         TSS_obj_field_name: str,
         BOD5_obj_field_name: str,
-        COD_obj_field_name: str,
         TKN_obj_field_name: str,
+        COD_obj_field_name: str,
         NO3N_obj_field_name: str,
         TN_obj_field_name: str,
         TP_obj_field_name: str,
@@ -566,7 +566,7 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             if (obj_value := wwtp_feature[obj_field_name]) == NULL:
                 errors.append(obj_name)
         if len(errors) > 0:
-            raise QgsProcessingException(self.tr("These values can't be NULL:") + " " + ", ".join(errors))
+            raise QgsProcessingException(self.tr("These target values can't be NULL:") + " " + ", ".join(errors))
 
         # Check objectives values that should be positives when they are not NULL
         errors.clear()
@@ -574,13 +574,15 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             if (obj_value := wwtp_feature[obj_field_name]) != NULL and obj_value <= 0:
                 errors.append(obj_name)
         if len(errors) > 0:
-            raise QgsProcessingException(self.tr("These values must be strictly positive:") + " " + ", ".join(errors))
+            raise QgsProcessingException(
+                self.tr("These target values must be strictly positive:") + " " + ", ".join(errors)
+            )
 
         Cobj = [
             wwtp_feature[TSS_obj_field_name],
             wwtp_feature[BOD5_obj_field_name],
-            wwtp_feature[COD_obj_field_name],
             wwtp_feature[TKN_obj_field_name],
+            wwtp_feature[COD_obj_field_name],
             wwtp_feature[NO3N_obj_field_name],
             wwtp_feature[TN_obj_field_name],
             wwtp_feature[TP_obj_field_name],
