@@ -202,6 +202,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             QgsProcessingParameterField(
                 self.POPULATION_ATTRIBUTE_NAME,
                 self.tr("Population (field)"),
+                "population",
                 parentLayerParameterName=self.BUILDINGS_INPUT_DATA,
                 type=Qgis.ProcessingFieldParameterDataType.Numeric,
             )
