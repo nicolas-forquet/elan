@@ -80,9 +80,9 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 
 * ``nombre moyen de personnes par foyer`` : à renseigner dans le cas où la population n'est pas discrétisée à l'échelle du bâtiment.
 
-* ``volume moyen d'eaux usées produit par jour par personne`` : [m3].
+* ``volume moyen d'eaux usées produit par jour par personne`` : [m³].
 
-* ``coefficient de pointe journalier`` : [m3/j].
+* ``coefficient de pointe journalier`` : [m³/j].
 
 * ``pente minimale permettant l'autocurrage`` : [m/m].
 
@@ -138,15 +138,15 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 
 .. _set-concentrations:
 
-* ``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour chaque exutoire), *débit de pointe* [m3/j], *débit moyen journalier* [m3/j], *habitants raccordés* [nb], *profondeur tranchée* [m], *profondeur canas entrantes* [m], *diamètres entrants* [m].
+* ``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour chaque exutoire), *débit de pointe* [m³/j], *débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur tranchée* [m], *profondeur canas entrantes* [m], *diamètres entrants* [m].
 
 .. note::
     En sortie de module ``Réseau``, la couche STEU compte aussi des attributs non renseignés : *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL]. Ces attributs sont à renseigner manuellement 
     pour chaque exutoire selon vos contraintes de rejet. Ils servent d'entrées pour le module ``Procédés``. Certains peuvent être renseignés à *NULL*.
 
-* ``Stations de relevage`` : *altitude terrain* [m], *débit de pointe* [m3/s], *débit moyen journalier* [m3/j], *habitants raccordés* [nb], *profondeur canas entrantes* [m], *charge hydrostatique* [m].
+* ``Stations de relevage`` : *altitude terrain* [m], *débit de pointe* [m³/s], *débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur canas entrantes* [m], *charge hydrostatique* [m].
 
-* ``Stations de pompage`` : *altitude terrain* [m], *débit de pointe* [m3/s], *débit moyen journalier* [m3/j], *habitants raccordés* [nb], *profondeur canas entrantes* [m], *charge hydrostatique* [m].
+* ``Stations de pompage`` : *altitude terrain* [m], *débit de pointe* [m³/s], *débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur canas entrantes* [m], *charge hydrostatique* [m].
 
 .. note::
     ``Stations de pompage`` peut indiquer des charges hydrostatiques négatives pour certaines des stations pré-dimensionnées. Il ne s'agit pas d'une erreur :
@@ -158,7 +158,7 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
             .. image:: _static/siphon.png
                 :width: 700
 
-* ``Canalisations`` : *longueur* [m], *profil de terrain* [liste de points échantillonnés tous les 10 m], *avec pompe* [booléen], *sous pression* [booléen], *profils de canalisations* [liste de points échantillonnés tous les 10 m], *profondeur moyenne tranchée* [m], *diamètre* [m], *débit de pointe* [m3/s], *coordonnées STEU* [identifiant STEU exutoire].
+* ``Canalisations`` : *longueur* [m], *profil de terrain* [liste de points échantillonnés tous les 10 m], *avec pompe* [booléen], *sous pression* [booléen], *profils de canalisations* [liste de points échantillonnés tous les 10 m], *profondeur moyenne tranchée* [m], *diamètre* [m], *débit de pointe* [m³/s], *coordonnées STEU* [identifiant STEU exutoire].
 
 * ``Informations sur le réseau`` : *nombre bâtiments* [nb], *longueur réseau sous pression* [mètre linéaire], *longueur réseau gravitaire* [mètre linéaire], *nombre stations pompage* [nb], *nombre stations relevage* [nb], *date simulation* [datetime].
 
@@ -470,12 +470,12 @@ Pour l'afficher :
 
 **2.** Appuyer sur le bouton en forme de radar plot (bulle 2).
 
-**3.** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous *Processing Toolbox*, bulle 3).
+**3.** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous *Boîte à outils de traitements*, bulle 3).
 
 .. image:: _static/afficher-radarplot.png
     :width: 700
 
-**4.**  Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique.
+**4.** Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique.
 
 .. image:: _static/radarplot.png
     :width: 700
@@ -502,7 +502,7 @@ Pour l'afficher :
 
 **2.** Appuyer sur le bouton en forme de bar plot (bulle 2).
 
-**3.** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous *Processing Toolbox*, bulle 3).
+**3.** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous *Boîte à outils de traitements*, bulle 3).
 
 .. image:: _static/afficher-barplot.png
     :width: 700
@@ -519,7 +519,7 @@ et "stage 3" (intensité de couleur décroissante : maximale pour "stage 1" et m
 Le bar plot vous permet d'identifier le ou les éléments qui ont été limitants dans l'optimisation de la filière (taux à 100 %) et d'avoir une appréciation rapide de la marge
 de manoeuvre (ou non marge de manoeuvre) possible pour une filière en cas de changement de contexte (augmentation de la population par exemple).
 
-Par défaut, toutes les filières proposées pour l'exutoire apparaissent sur le radar plot. Si vous souhaitez en voir uniquement certaines, il vous suffit de les sélectionner
+Par défaut, toutes les filières proposées pour l'exutoire apparaissent sur le bar plot. Si vous souhaitez en voir uniquement certaines, il vous suffit de les sélectionner
 dans la table attributaire puis de cliquer de nouveau sur le bouton bar plot.
 
 .. _creer-scenario:

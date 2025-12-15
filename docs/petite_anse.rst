@@ -547,7 +547,7 @@ Pour explorer le pré-dimensionnement proposé par le module ``Réseau``, vous p
 Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone sont les suivants :
 
     * MES : 35 mg/L 
-    * DBO5 : 35 mg/L 
+    * DBO₅ : 35 mg/L 
     * NTK : 20 mg/L 
     * DCO : 125 mg/L
 
@@ -555,7 +555,7 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 
 * Basculer en mode édition (bulle 2) puis ouvrir la table attributaire (bulle 3).
 
-* Renseigner les valeurs numériques indiquées pour les niveaux de rejet en MES, DBO5, NTK et DCO (encart 4).
+* Renseigner les valeurs numériques indiquées pour les niveaux de rejet en MES, DBO₅, NTK et DCO (encart 4).
 
 * Sortir du mode édition (bulle 5) et fermer la table attributaire (bulle 6).
 
@@ -662,7 +662,7 @@ mais cette fois-ci en considérant 2 emplacements possibles : celui au Sud de la
 Les niveaux de rejet pour l'emplacement au Nord de la zone sont moins contraignants (pas de contrainte sur l'azote) :
 
     * MES : 35 mg/L 
-    * DBO5 : 35 mg/L 
+    * DBO₅ : 35 mg/L 
     * DCO : 125 mg/L
 
 .. important::
