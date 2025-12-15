@@ -56,7 +56,8 @@ En contexte français (Hexagone et Outre-Mer)
 En contexte international
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* ``MNT`` : le MNT ou DEM en anglais (Digital Elevation Model) est caractérisé par une maille d'acquisition (30 m, 12.5 m, 10 m, 5 m, 1 m sont les mailles les plus communes). 
+* ``MNT`` : le MNT ou DEM en anglais (Digital Elevation Model) est caractérisé par une maille d'acquisition (30 m, 12.5 m, 10 m, 5 m, 1 m sont les mailles les plus communes).
+ 
 **Plus la maille est fine, plus le MNT est précis et plus les sorties du module** ``Réseau`` **seront pertinentes**. Idéalement, une maille de 5 m ou moins sera utilisée.
 
 .. note::

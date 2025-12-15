@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-11 16:43+0100\n"
-"PO-Revision-Date: 2025-12-12 14:40+0100\n"
+"POT-Creation-Date: 2025-12-15 11:41+0100\n"
+"PO-Revision-Date: 2025-12-15 11:46+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -969,7 +969,7 @@ msgid "MES : 35 mg/L"
 msgstr "TSS: 35 mg/L"
 
 #: ../../petite_anse.rst:550 ../../petite_anse.rst:665
-msgid "DBO5 : 35 mg/L"
+msgid "DBO₅ : 35 mg/L"
 msgstr "BOD₅: 35 mg/L"
 
 #: ../../petite_anse.rst:551
@@ -992,7 +992,7 @@ msgstr "Switch to edit mode (marker 2) then open the attribute table (marker 3).
 #: ../../petite_anse.rst:558
 msgid ""
 "Renseigner les valeurs numériques indiquées pour les niveaux de rejet en MES, "
-"DBO5, NTK et DCO (encart 4)."
+"DBO₅, NTK et DCO (encart 4)."
 msgstr ""
 "Fill the numerical values indicated for TSS, BOD₅, TKN, and COD (insert 4)."
 

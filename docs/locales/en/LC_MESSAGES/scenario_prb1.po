@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-11 16:47+0100\n"
-"PO-Revision-Date: 2025-12-15 11:31+0100\n"
+"POT-Creation-Date: 2025-12-15 11:41+0100\n"
+"PO-Revision-Date: 2025-12-15 11:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -206,11 +206,11 @@ msgstr ""
 "population is not discretized at the building level."
 
 #: ../../scenario_prb1.rst:83
-msgid "``volume moyen d'eaux usées produit par jour par personne`` : [m3]."
+msgid "``volume moyen d'eaux usées produit par jour par personne`` : [m³]."
 msgstr "``average daily production of wastewater per person`` : [m³]."
 
 #: ../../scenario_prb1.rst:85
-msgid "``coefficient de pointe journalier`` : [m3/j]."
+msgid "``coefficient de pointe journalier`` : [m³/j]."
 msgstr "``peak load coefificient``: [m³/day]."
 
 #: ../../scenario_prb1.rst:87
@@ -352,7 +352,7 @@ msgstr "**Each vector layer is characterized by attributes.**"
 #: ../../scenario_prb1.rst:141
 msgid ""
 "``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour "
-"chaque exutoire), *débit de pointe* [m3/j], *débit moyen journalier* [m3/j], "
+"chaque exutoire), *débit de pointe* [m³/j], *débit moyen journalier* [m³/j], "
 "*habitants raccordés* [nb], *profondeur tranchée* [m], *profondeur canas "
 "entrantes* [m], *diamètres entrants* [m]."
 msgstr ""
@@ -383,8 +383,8 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:147
 msgid ""
-"``Stations de relevage`` : *altitude terrain* [m], *débit de pointe* [m3/s], "
-"*débit moyen journalier* [m3/j], *habitants raccordés* [nb], *profondeur canas "
+"``Stations de relevage`` : *altitude terrain* [m], *débit de pointe* [m³/s], "
+"*débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur canas "
 "entrantes* [m], *charge hydrostatique* [m]."
 msgstr ""
 "``Lifting stations``: *terrain elevation* [m], *peak flow* [m³/day], *average "
@@ -393,8 +393,8 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:149
 msgid ""
-"``Stations de pompage`` : *altitude terrain* [m], *débit de pointe* [m3/s], "
-"*débit moyen journalier* [m3/j], *habitants raccordés* [nb], *profondeur canas "
+"``Stations de pompage`` : *altitude terrain* [m], *débit de pointe* [m³/s], "
+"*débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur canas "
 "entrantes* [m], *charge hydrostatique* [m]."
 msgstr ""
 "``Pumping stations``: *terrain elevation* [m], *peak flow* [m³/day], *average "
@@ -427,7 +427,7 @@ msgid ""
 "``Canalisations`` : *longueur* [m], *profil de terrain* [liste de points "
 "échantillonnés tous les 10 m], *avec pompe* [booléen], *sous pression* "
 "[booléen], *profils de canalisations* [liste de points échantillonnés tous les "
-"10 m], *profondeur moyenne tranchée* [m], *diamètre* [m], *débit de pointe* [m3/"
+"10 m], *profondeur moyenne tranchée* [m], *diamètre* [m], *débit de pointe* [m³/"
 "s], *coordonnées STEU* [identifiant STEU exutoire]."
 msgstr ""
 "``Sewer pipes``: *length* [m], *land profile* [list of points sampled every 10 "
@@ -990,7 +990,7 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:372
 msgid ""
-"**taux de charge DBO5 par étape de traitement** [%] : taux de charge en DBO5 "
+"**taux de charge DBO5 par étape de traitement** [%] : taux de charge en DBO₅ "
 "par étage [taux étage 1,..., taux étage n]."
 msgstr ""
 "**BOD5 loading per treatment stage** [%]: BOD₅ loading rate per stage [stage 1, "
@@ -1096,7 +1096,7 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:389
 msgid ""
-"**concentration DBO5 effluent** [mg/L] : concentration en DBO5 en sortie de "
+"**concentration DBO5 effluent** [mg/L] : concentration en DBO₅ en sortie de "
 "filière de traitement."
 msgstr ""
 "**BOD5 outflow concentration** [mg/L]: BOD₅ concentration at the outlet of the "
@@ -1128,7 +1128,7 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:393
 msgid ""
-"**concentration N-NO3 effluent** [mg/L] : concentration en N-NO3 en sortie de "
+"**concentration N-NO3 effluent** [mg/L] : concentration en N-NO₃ en sortie de "
 "filière de traitement."
 msgstr ""
 "**NO3-N outflow concentration** [mg/L]: NO₃-N concentration at the outlet of "
@@ -1160,7 +1160,7 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:397
 msgid ""
-"**déviation DBO5** [mg/L] : déviation de la concentration en DBO5 dans "
+"**déviation DBO5** [mg/L] : déviation de la concentration en DBO₅ dans "
 "l'effluent par rapport au niveau de rejet."
 msgstr ""
 "**DBO5 deviation** [mg/L] : deviation of BOD₅ outflow concentration relative to "
@@ -1192,7 +1192,7 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:401
 msgid ""
-"**déviation N-NO3** [mg/L] : déviation de la concentration en N-NO3 dans "
+"**déviation N-NO3** [mg/L] : déviation de la concentration en N-NO₃ dans "
 "l'effluent par rapport au niveau de rejet."
 msgstr ""
 "**NO3-N deviation** [mg/L] : deviation of NO₃-N outflow concentration relative "
@@ -1236,7 +1236,7 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:409
 msgid ""
-"**DBO5 normalisé** [-] : valeur normalisée de la concentration en DBO5 dans "
+"**DBO5 normalisé** [-] : valeur normalisée de la concentration en DBO₅ dans "
 "l'effluent par rapport au niveau de rejet exigé."
 msgstr ""
 "**DBO5 normalized** [-] : normalized value of BOD₅ achieved outflow "
@@ -1268,7 +1268,7 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:413
 msgid ""
-"**N-NO3 normalisé** [-] : valeur normalisée de la concentration en N-NO3 dans "
+"**N-NO3 normalisé** [-] : valeur normalisée de la concentration en N-NO₃ dans "
 "l'effluent par rapport au niveau de rejet exigé."
 msgstr ""
 "**NO3-N normalized** [-] : normalized value of N-NO₃ achieved outflow "
@@ -1460,14 +1460,13 @@ msgstr "**2.** Click on the button with a radar plot icon (landmark 2)."
 #: ../../scenario_prb1.rst:473 ../../scenario_prb1.rst:505
 msgid ""
 "**3.** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous "
-"*Processing Toolbox*, bulle 3)."
+"*Boîte à outils de traitements*, bulle 3)."
 msgstr ""
 "**3.** A *DataPlotly* window pops up in the lower right side of you screen "
 "(below *Processing Toolbox*, landmark 3)."
 
-#: ../../scenario_prb1.rst:478 ../../scenario_prb1.rst:510
-msgid ""
-"**4.**  Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique."
+#: ../../scenario_prb1.rst:478
+msgid "**4.** Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique."
 msgstr "**4.** You can expand or move the window to better see the plot."
 
 #: ../../scenario_prb1.rst:483
@@ -1475,7 +1474,7 @@ msgid ""
 "Les axes du radar plot coïncident avec les contraintes renseignées par "
 "l'utilisateur dans la couche ``STEU`` éditée en sortie de module ``Réseau``. "
 "Dans cet exemple, l'utilisateur a indiqué des contraintes (niveaux de rejet) "
-"sur 4 polluants (MES, DCO, DBO5 et NTK) et une contrainte de surface avec une "
+"sur 4 polluants (MES, DCO, DBO₅ et NTK) et une contrainte de surface avec une "
 "couche polygone en entrée de module ``Procédés``."
 msgstr ""
 "The radar plot axes match the constraints specified by the user in the ``WWTP`` "
@@ -1525,10 +1524,15 @@ msgstr ""
 msgid "**2.** Appuyer sur le bouton en forme de bar plot (bulle 2)."
 msgstr "**2.** Click on the button with a bar plot icon (landmark 2)."
 
+#: ../../scenario_prb1.rst:510
+msgid ""
+"**4.**  Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique."
+msgstr "**4.** You can expand or move the window to better see the plot."
+
 #: ../../scenario_prb1.rst:515
 msgid ""
 "Pour chaque filière, le graphique permet de voir par étage les taux de charge "
-"en MES, DBO5, NTK et DCO ainsi que le taux de charge hydraulique. Une filière 1 "
+"en MES, DBO₅, NTK et DCO ainsi que le taux de charge hydraulique. Une filière 1 "
 "étage apparait avec un seul \"bloc\" avec l'ensemble des taux de charge \"stage "
 "1\" (couleurs d'intensité maximale), tandis qu'une filière 3 étages contient 3 "
 "\"blocs\" avec les taux de charge \"stage 1\", \"stage 2\" et \"stage 3\" "
@@ -1559,8 +1563,8 @@ msgstr ""
 #: ../../scenario_prb1.rst:522
 msgid ""
 "Par défaut, toutes les filières proposées pour l'exutoire apparaissent sur le "
-"radar plot. Si vous souhaitez en voir uniquement certaines, il vous suffit de "
-"les sélectionner dans la table attributaire puis de cliquer de nouveau sur le "
+"bar plot. Si vous souhaitez en voir uniquement certaines, il vous suffit de les "
+"sélectionner dans la table attributaire puis de cliquer de nouveau sur le "
 "bouton bar plot."
 msgstr ""
 "By default, all possible treatment trains for the considered discharge point "
