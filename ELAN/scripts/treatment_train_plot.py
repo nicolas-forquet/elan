@@ -233,6 +233,7 @@ class ProcessPlots(Translatable):
             raise RuntimeError("Missing a color for a field!")
 
         main_panel.clearPlotView()
+        main_panel.additional_info_combo.setField(None)  # clear possible addigional hover label
         main_panel.layer_combo.setLayer(layer)
         main_panel.plot_combo.setCurrentIndex(main_panel.plot_combo.findData("bar"))
         main_panel.selected_feature_check.setChecked(layer.selectedFeatureCount() > 0)
