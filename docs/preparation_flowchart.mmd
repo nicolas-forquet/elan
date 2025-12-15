@@ -13,7 +13,7 @@ flowchart TB
     B2 -- non --> B4 --> B1
     B5["Le SCR détecté est correct (Prédéfini et non Personnalisé) ?"]
     B6[Je corrige en sélectionnant un des SCR prédéfinis de QGIS]
-    B7[<a href="https://elan-gis.org/fr/petite_anse.html#SCR-projet">Je définis le SCR du projet à partir du MNT</a>]
+    B7[<a href="https://elan-gis.org/fr/petite_anse.html#scr-projet">Je définis le SCR du projet à partir du MNT</a>]
     B8[Mon MNT est constitué d'une seule dalle ?]
     B1 --> B5 -- oui --> B7 --> B8
     B5 -- non --> B6 --> B7
@@ -27,7 +27,7 @@ flowchart TB
     C1 -- non --> C3
     C4["J'utilise l'outil *Découper un raster selon une emprise* de QGIS"]
     C5["Je vérifie que le SCR détecté est correct (Prédéfini et non Personnalisé)". Je corrige si nécessaire.]
-    C6[<a href="https://elan-gis.org/fr/petite_anse.html#SCR-projet">Je définis le SCR du projet à partir du MNT découpé</a>]
+    C6[<a href="https://elan-gis.org/fr/petite_anse.html#scr-projet">Je définis le SCR du projet à partir du MNT découpé</a>]
     C7[Mon MNT est prêt ! <a href="https://elan-gis.org/fr/petite_anse.html#symbologie-mnt">Je peux modifier sa symbologie pour mieux voir les contrastes en zoomant</a>]
     C1 -- oui --> C4 --> C5 --> C6 --> C3
     C3 -- oui --> C3a -- oui --> C7
@@ -35,7 +35,7 @@ flowchart TB
     C3 -- non --> C7
     D1["Je sais où trouver mes couches vecteurs (routes et bâtiments) dans mon contexte local ?"]
     D2[Je suis en contexte français ?]
-    D3[<a href="https://elan-gis.org/fr/preparation.html#bd-topo">J'utilise *BD TOPO extractor* pour récupérer les routes et les bâtiments</a>]
+    D3[<a href="https://elan-gis.org/fr/preparation.html#ign-topo">J'utilise *BD TOPO extractor* pour récupérer les routes et les bâtiments</a>]
     D4[Ma zone est située dans l'hémisphère Sud ?]
     D5[<a href="https://elan-gis.org/fr/preparation.html#open-buildings">Je télécharge mes bâtiments sur *Open Buildings*</a>]
     D6[<a href="https://elan-gis.org/fr/petite_anse.html#creer-zone">Je créé une couche polygone qui délimite ma zone d'étude</a>]

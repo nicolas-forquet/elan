@@ -68,7 +68,7 @@ Elan est structuré en **plusieurs groupement de modules**.
     * ``Bassins versants urbains`` pour **identifier les différents bassins versants urbains** drainés par un réseau unitaire connu à l'aide de :ref:`pysheds <pysheds>`. 
 
 .. note::
-    L'utilisation de ces modules est facultative. Elle permet, si l'utilisateur en a besoin, de préparer les données SIG requises en entrées des modules de type "Processus" : 
+    L'utilisation de ces modules permet, si l'utilisateur en a besoin, de préparer les données SIG requises en entrées des modules de type "Processus" : 
     - ``Routes et bâtiments``, ``Population (répartition uniforme)``, ``Population (répartition surfacique)`` et ``Projection sur routes`` pour le module ``Réseau``, 
     - ``Bassins versants urbains`` pour le module ``Hydraulique``.
 

@@ -13,7 +13,7 @@ flowchart TB
     B2 -- no --> B4 --> B1
     B5["The detected CRS is correct (Predefined and not Custom)?"]
     B6[I correct by selecting the corresponding QGIS predefined CRS]
-    B7[<a href="https://elan-gis.org/en/petite_anse.html#SCR-projet">I define the project CRS from DEM layer</a>]
+    B7[<a href="https://elan-gis.org/en/petite_anse.html#scr-projet">I define the project CRS from DEM layer</a>]
     B8[Is my DEM made of only 1 tile?]
     B1 --> B5 -- yes --> B7 --> B8
     B5 -- no --> B6 --> B7
@@ -27,7 +27,7 @@ flowchart TB
     C1 -- no --> C3
     C4["I use the QGIS *Clip to extent* tool"]
     C5["I check the detected CRS is correct (Predefined and not Custom)." I correct it if necessary.]
-    C6[<a href="https://elan-gis.org/en/petite_anse.html#SCR-projet">I define the project CRS from my clipped DEM layer</a>]
+    C6[<a href="https://elan-gis.org/en/petite_anse.html#scr-projet">I define the project CRS from my clipped DEM layer</a>]
     C7[My DEM is ready! <a href="https://elan-gis.org/en/petite_anse.html#symbologie-mnt">I can adjust its symbology to better see the contrasts when I zoom in</a>]
     C1 -- yes --> C4 --> C5 --> C6 --> C3
     C3 -- yes --> C3a -- yes --> C7
@@ -35,7 +35,7 @@ flowchart TB
     C3 -- no --> C7
     D1["Do I know where to find my vector layers (roads and buildings) in my local context?"]
     D2[Am I in French context?]
-    D3[<a href="https://elan-gis.org/en/preparation.html#bd-topo">I use *BD TOPO extractor* to retrieve roads and buildings</a>]
+    D3[<a href="https://elan-gis.org/en/preparation.html#ign-topo">I use *BD TOPO extractor* to retrieve roads and buildings</a>]
     D4[Is my area in the southern hemisphere?]
     D5[<a href="https://elan-gis.org/en/preparation.html#open-buildings">I download my buildings on *Open Buildings*</a>]
     D6[<a href="https://elan-gis.org/en/petite_anse.html#creer-zone">I create a polygon layer to define the study area</a>]

@@ -37,7 +37,7 @@ En contexte français (Hexagone et Outre-Mer)
     * MNT à 25 m : `BD ALTI® 25M <https://geoservices.ign.fr/bdalti>`_
     * MNT à 5 m voire 1 m : `RGE ALTI® <https://geoservices.ign.fr/rgealti>`_
 
-.. _bd-topo:
+.. _ign-topo:
 
 * ``routes`` et ``bâtiments``: couches téléchargeables par département sur le site Géoservices de l'IGN `BD TOPO® <https://geoservices.ign.fr/bdtopo>`_.
 
@@ -81,7 +81,7 @@ En contexte international
 * ``routes`` et ``bâtiments``: le module :ref:`Routes et bâtiments <routes>` d'Elan vous permet d'extraire les données de types routes et bâtiments d'OpenStreetMap sur une zone définie.
 
 .. attention::
-    La couche ``bâtiments`` obtenue sera de type *polygone* et non *point*. Elle devra donc être transformée via un des modules :ref:`Population <population>` intégré à Elan.
+    La couche ``bâtiments`` obtenue est de type *polygone* et non *point* et est dépourvue d'attribut *population*. Elle devra donc être transformée via un des modules :ref:`Population <population>` intégré à Elan.
 
 .. _open-buildings:
 
@@ -222,7 +222,7 @@ attributaire de la couche.
 Module ``Projection sur routes``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Le module ``Projection sur routes`` permet de **projeter les centroïdes des bâtiments à connecter sur la route la plus proche** (au niveau d'un noeud) dans la limte d'une distance fixée par l'utilisateur
+Le module ``Projection sur routes`` permet de **projeter les centroïdes des bâtiments à connecter sur la route la plus proche** (au niveau d'un noeud) dans la limite d'une distance fixée par l'utilisateur
 (40 m par défaut). 
 
 Cette étape facultative présente **3 avantages majeurs** :

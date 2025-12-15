@@ -164,7 +164,7 @@ Son installation se fait via Elan.
 Installation des extensions QGIS tierces
 ----------------------------------------
 
-Certaines fonctionnalités d'Elan repose sur d'autres extensions QGIS. Cette section détaille lesquelles et la manière de les installer.
+Certaines fonctionnalités d'Elan reposent sur d'autres extensions QGIS. Cette section détaille lesquelles et la manière de les installer.
 
 Question du centralisé/décentralisé : Data Plotly
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

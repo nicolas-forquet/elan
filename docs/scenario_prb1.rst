@@ -369,7 +369,7 @@ Chaque entité possède de nombreux attributs :
     * **description filière** : détails de la filière pré-dimensionnée (procédé étage 1 - ... - procédé étage n). 
     * **coordonnées gps** : identifiant STEU pour laquelle la filière a été pré-dimensionnée.
     * **taux de charge MES par étape de traitement** [%] : taux de charge en MES par étage [taux étage 1,..., taux étage n].
-    * **taux de charge DBO5 par étape de traitement** [%] : taux de charge en DBO5 par étage [taux étage 1,..., taux étage n].
+    * **taux de charge DBO5 par étape de traitement** [%] : taux de charge en DBO₅ par étage [taux étage 1,..., taux étage n].
     * **taux de charge NTK par étape de traitement** [%] : taux de charge en NTK par étage [taux étage 1,..., taux étage n].
     * **taux de charge DCO par étape de traitement** [%] : taux de charge en DCO par étage [taux étage 1,..., taux étage n].
     * **taux de charge hydraulique par étape de traitement** [%] : taux de charge hydraulique par étage [taux étage 1,..., taux étage n].
@@ -386,19 +386,19 @@ Chaque entité possède de nombreux attributs :
 
     * **profondeur non saturée par étage** [m] : détail de la profondeur non saturée pour chaque étage [profondeur non saturée étage 1,..., profondeur non saturée étage n]. 
     * **concentration MES effluent** [mg/L] : concentration en MES en sortie de filière de traitement.
-    * **concentration DBO5 effluent** [mg/L] : concentration en DBO5 en sortie de filière de traitement.
+    * **concentration DBO5 effluent** [mg/L] : concentration en DBO₅ en sortie de filière de traitement.
     * **concentration NTK effluent** [mg/L] : concentration en NTK en sortie de filière de traitement.
     * **concentration DCO effluent** [mg/L] : concentration en DCO en sortie de filière de traitement.
     * **concentration NT effluent** [mg/L] : concentration en NT en sortie de filière de traitement.
-    * **concentration N-NO3 effluent** [mg/L] : concentration en N-NO3 en sortie de filière de traitement.
+    * **concentration N-NO3 effluent** [mg/L] : concentration en N-NO₃ en sortie de filière de traitement.
     * **concentration PT effluent** [mg/L] : concentration en PT en sortie de filière de traitement.
     * **concentration e.coli** [UFC/100mL] : concentration en e.coli en sortie de filière de traitement.
     * **déviation MES** [mg/L] : déviation de la concentration en MES dans l'effluent par rapport au niveau de rejet.
-    * **déviation DBO5** [mg/L] : déviation de la concentration en DBO5 dans l'effluent par rapport au niveau de rejet.
+    * **déviation DBO5** [mg/L] : déviation de la concentration en DBO₅ dans l'effluent par rapport au niveau de rejet.
     * **déviation NTK** [mg/L] : déviation de la concentration en NTK dans l'effluent par rapport au niveau de rejet.
     * **déviation DCO** [mg/L] : déviation de la concentration en DCO dans l'effluent par rapport au niveau de rejet.
     * **déviation NT** [mg/L] : déviation de la concentration en NT dans l'effluent par rapport au niveau de rejet.
-    * **déviation N-NO3** [mg/L] : déviation de la concentration en N-NO3 dans l'effluent par rapport au niveau de rejet.
+    * **déviation N-NO3** [mg/L] : déviation de la concentration en N-NO₃ dans l'effluent par rapport au niveau de rejet.
     * **déviation PT** [mg/L] : déviation de la concentration en PT dans l'effluent par rapport au niveau de rejet.
     * **déviation e.coli** [mg/L] : déviation de la concentration en e.coli dans l'effluent par rapport au niveau de rejet.
 
@@ -406,11 +406,11 @@ Chaque entité possède de nombreux attributs :
     conformité de la filière par rapport aux niveaux de rejets renseignés en entrée de module : vert = conforme, rouge = non conforme.
 
     * **MES normalisé** [-] : valeur normalisée de la concentration en MES dans l'effluent par rapport au niveau de rejet exigé.
-    * **DBO5 normalisé** [-] : valeur normalisée de la concentration en DBO5 dans l'effluent par rapport au niveau de rejet exigé.
+    * **DBO5 normalisé** [-] : valeur normalisée de la concentration en DBO₅ dans l'effluent par rapport au niveau de rejet exigé.
     * **NTK normalisé** [-] : valeur normalisée de la concentration en NTK dans l'effluent par rapport au niveau de rejet exigé.
     * **DCO normalisé** [-] : valeur normalisée de la concentration en DCO dans l'effluent par rapport au niveau de rejet exigé.
     * **NT normalisé** [-] : valeur normalisée de la concentration en NT dans l'effluent par rapport au niveau de rejet exigé.
-    * **N-NO3 normalisé** [-] : valeur normalisée de la concentration en N-NO3 dans l'effluent par rapport au niveau de rejet exigé.
+    * **N-NO3 normalisé** [-] : valeur normalisée de la concentration en N-NO₃ dans l'effluent par rapport au niveau de rejet exigé.
     * **PT normalisé** [-] : valeur normalisée de la concentration en PT dans l'effluent par rapport au niveau de rejet exigé.
     * **e.coli normalisé** [-] : valeur normalisée de la concentration en e.coli dans l'effluent par rapport au niveau de rejet exigé.
     * **surface normalisée** [-] : valeur normalisée de la surface totale de la filière par rapport à la surface disponible.
@@ -481,7 +481,7 @@ Pour l'afficher :
     :width: 700
 
 Les axes du radar plot coïncident avec les contraintes renseignées par l'utilisateur dans la couche ``STEU`` éditée en sortie de module ``Réseau``. Dans cet exemple, 
-l'utilisateur a indiqué des contraintes (niveaux de rejet) sur 4 polluants (MES, DCO, DBO5 et NTK) et une contrainte de surface avec une couche polygone en entrée de 
+l'utilisateur a indiqué des contraintes (niveaux de rejet) sur 4 polluants (MES, DCO, DBO₅ et NTK) et une contrainte de surface avec une couche polygone en entrée de 
 module ``Procédés``.
 
 Le seuil en pointillés représente les contraintes : un point sous le seuil indique que la contrainte sur cet axe est respectée, tandis qu'un point au-dessus du seuil traduit
@@ -512,7 +512,7 @@ Pour l'afficher :
 .. image:: _static/barplot.png
     :width: 700
 
-Pour chaque filière, le graphique permet de voir par étage les taux de charge en MES, DBO5, NTK et DCO ainsi que le taux de charge hydraulique. Une filière 1 étage apparait avec
+Pour chaque filière, le graphique permet de voir par étage les taux de charge en MES, DBO₅, NTK et DCO ainsi que le taux de charge hydraulique. Une filière 1 étage apparait avec
 un seul "bloc" avec l'ensemble des taux de charge "stage 1" (couleurs d'intensité maximale), tandis qu'une filière 3 étages contient 3 "blocs" avec les taux de charge "stage 1", "stage 2" 
 et "stage 3" (intensité de couleur décroissante : maximale pour "stage 1" et minimale pour "stage 3").
 
