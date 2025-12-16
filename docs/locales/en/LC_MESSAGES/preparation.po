@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-15 11:42+0100\n"
-"PO-Revision-Date: 2025-12-15 11:47+0100\n"
+"POT-Creation-Date: 2025-12-16 16:25+0100\n"
+"PO-Revision-Date: 2025-12-16 16:26+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -324,7 +324,7 @@ msgstr ""
 "characterize data extracted from OpenStreetMap."
 
 #: ../../preparation.rst:113 ../../preparation.rst:161 ../../preparation.rst:192
-#: ../../preparation.rst:234
+#: ../../preparation.rst:237
 msgid "**Utilisation du module**"
 msgstr "**Using the module**"
 
@@ -567,23 +567,34 @@ msgstr ""
 "by the user (40 m by default)."
 
 #: ../../preparation.rst:229
+msgid "Cette étape facultative présente **3 avantages majeurs** :"
+msgstr "This optional step has **3 major advantages**:"
+
+#: ../../preparation.rst:231
 msgid ""
-"Cette étape facultative présente **3 avantages majeurs** : - **réduire le nombre "
-"de centroïdes** à considérer lors du prédimensionnement du réseau puisque les "
-"centroïdes projetés à un même noeud sont fusionnés entre eux, ce qui implique "
-"une **réduction du temps de calcul**, - **tracer uniquement les artères "
-"principales** du réseau lors du prédimensionnement - **centrer le "
-"prédimensionnement sur ce qui relève du domaine public** (canalisations et "
-"stations de pompage / relèvement)"
+"**réduire le nombre de centroïdes** à considérer lors du prédimensionnement du "
+"réseau puisque les centroïdes projetés à un même noeud sont fusionnés entre eux, "
+"ce qui implique une **réduction du temps de calcul**"
 msgstr ""
-"This optional step has **3 major advantages**: -**reduce the number of "
-"centroids** to consider during preliminary sizing of the sewer network as "
-"centroids snapped on a same vertex are merged, which leads to a **reduction of "
-"the computation time**, - **pre-design only main arteries** of the sewer network "
-"- **focus preliminary sizing on public infrastructures** (pipes and lifting / "
+"**reduce the number of centroids** to consider during preliminary sizing of the "
+"sewer network as centroids snapped on a same vertex are merged, which leads to a "
+"**reduction of the computation time**"
+
+#: ../../preparation.rst:233
+msgid ""
+"**tracer uniquement les artères principales** du réseau lors du "
+"prédimensionnement"
+msgstr "**pre-design only main arteries** of the sewer network"
+
+#: ../../preparation.rst:235
+msgid ""
+"**centrer le prédimensionnement sur ce qui relève du domaine public** "
+"(canalisations et stations de pompage / relèvement)"
+msgstr ""
+"**focus preliminary sizing on public infrastructures** (pipes and lifting / "
 "pumping stations)"
 
-#: ../../preparation.rst:236
+#: ../../preparation.rst:239
 msgid ""
 "**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner "
 "``Projection sur routes``."
@@ -591,7 +602,7 @@ msgstr ""
 "**1.** Search for ``elan`` in the Processing Toolbox and select ``Snap on "
 "roads``."
 
-#: ../../preparation.rst:241
+#: ../../preparation.rst:244
 msgid ""
 "**2.** Renseigner la couche de routes (bulle 1) et celle de bâtiments (bulle 2), "
 "indiquer le champ correspondant à la population (bulle 3), si besoin ajuster la "
@@ -603,7 +614,7 @@ msgstr ""
 "default value for maximum distance authorized for snapping (landmark 4), then "
 "run (landmark 5)."
 
-#: ../../preparation.rst:247
+#: ../../preparation.rst:250
 msgid ""
 "**3.** Après exécution du module, vous disposez de **deux sorties** temporaires "
 "que vous pouvez ensuite enregistrer comme expliqué :ref:`plus haut <save-temp>`"
@@ -611,7 +622,7 @@ msgstr ""
 "**3.** After running the module, you have **two temporary outputs** that you can "
 "then save as explained :ref:`above <save-temp>`"
 
-#: ../../preparation.rst:249
+#: ../../preparation.rst:252
 msgid ""
 "``Centroïdes projetés`` : couche de type *point* avec les centroïdes projetés "
 "sur les routes (pour ceux où la condition de distance à la route est respectée). "
@@ -625,15 +636,15 @@ msgstr ""
 msgid "couche de type"
 msgstr "layer type"
 
-#: ../../preparation.rst:250
+#: ../../preparation.rst:253
 msgid "*count* le nombre de bâtiments représentés par ce centroïde,"
 msgstr "*count* the number of buildings represented by this centroid,"
 
-#: ../../preparation.rst:251
+#: ../../preparation.rst:254
 msgid "*population* le nombre total d'habitants au niveau de ce centroïde."
 msgstr "*population* the total number of inhabitants at this centroid."
 
-#: ../../preparation.rst:253
+#: ../../preparation.rst:256
 msgid ""
 "``Lignes de projection`` : couche de type *ligne* avec les lignes de projection "
 "entre les centroïdes initiaux et ceux obtenus après projection"
@@ -641,13 +652,13 @@ msgstr ""
 "``Projection lines``: *line string* layer with the projection lines between the "
 "initial centroids and the ones after snapping on roads"
 
-#: ../../preparation.rst:255
+#: ../../preparation.rst:258
 msgid ""
 "La couche de **centroïdes** peut être utilisée en entrée du module ``Réseau``."
 msgstr ""
 "**Centroid** layer can be used as inputs for the ``Sewer network`` **module**."
 
-#: ../../preparation.rst:257
+#: ../../preparation.rst:260
 msgid ""
 "La couche de **lignes** est uniquement disponible pour servir la compréhension "
 "de l'utilisateur et lui permettre d'envisager des ajustements (ajout de tronçons "
@@ -659,11 +670,11 @@ msgstr ""
 "buildings, change the maximum distance to road authorized for snapping for "
 "example)."
 
-#: ../../preparation.rst:261
+#: ../../preparation.rst:264
 msgid "Entrées du module ``Hydraulique``"
 msgstr "Inputs for the ``Hydraulic`` module"
 
-#: ../../preparation.rst:264
+#: ../../preparation.rst:267
 msgid "Cette section est en cours de construction."
 msgstr "This section is under construction."
 
