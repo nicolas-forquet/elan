@@ -227,9 +227,12 @@ Le module ``Projection sur routes`` permet de **projeter les centroïdes des bâ
 (40 m par défaut). 
 
 Cette étape facultative présente **3 avantages majeurs** :
-- **réduire le nombre de centroïdes** à considérer lors du prédimensionnement du réseau puisque les centroïdes projetés à un même noeud sont fusionnés entre eux, ce qui implique une **réduction du temps de calcul**,
-- **tracer uniquement les artères principales** du réseau lors du prédimensionnement 
-- **centrer le prédimensionnement sur ce qui relève du domaine public** (canalisations et stations de pompage / relèvement)
+
+* **réduire le nombre de centroïdes** à considérer lors du prédimensionnement du réseau puisque les centroïdes projetés à un même noeud sont fusionnés entre eux, ce qui implique une **réduction du temps de calcul**,
+
+* **tracer uniquement les artères principales** du réseau lors du prédimensionnement 
+
+* **centrer le prédimensionnement sur ce qui relève du domaine public** (canalisations et stations de pompage / relèvement)
 
 **Utilisation du module**
 

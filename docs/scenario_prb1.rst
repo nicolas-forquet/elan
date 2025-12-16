@@ -60,15 +60,11 @@ Utilisation du module
 .. image:: _static/boite-outils-icone.png
      :width: 193
 
-**2.** **Renseigner les 4 couches géographiques**. 
+**2.** **Renseigner les 4 couches géographiques**. Vérifier que le champ autodétecté pour ``Population (champ)`` est correct.
 
 .. tip::
     Pour les exutoires, vous pouvez sélectionner au préalable celui ou ceux que vous souhaitez considérer parmi l'ensemble des possibilités envisagées puis cocher *Entités sélectionnées uniquement* dans le module.
     Cette option est également proposée pour les routes et les bâtiments à considérer.
-
-Si le nombre d'individus par bâtiment est connu et renseigné dans un attribut (*population* par exemple), 
-l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus par bâtiment sera considéré 
-(valeur ajustable selon votre contexte).
 
 .. note::
     Si vous avez eu recours au module ``Population`` pour préparer vos données géographiques, l'attribut à indiquer est *population*.
@@ -78,19 +74,11 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 
 **3.** Faire coulisser l'ascenseur à l'aide de la souris (et non de la molette, cela risque de changer les valeurs des paramètres à votre insu) et **ajuster les différents paramètres** (encart 5) afin que le pré-dimensionnement du réseau soit le plus adapté à votre contexte : 
 
-* ``nombre moyen de personnes par foyer`` : à renseigner dans le cas où la population n'est pas discrétisée à l'échelle du bâtiment.
-
 * ``volume moyen d'eaux usées produit par jour par personne`` : [m³].
-
-* ``coefficient de pointe journalier`` : [m³/j].
-
-* ``pente minimale permettant l'autocurrage`` : [m/m].
 
 * ``profondeur max autorisée de canalisation`` : [m], dépend du contexte géologique.
 
 * ``profondeur min autorisée de canalisation`` : [m], généralement conditionnée par le risque de gel.
-
-* ``rugosité canalisation`` : [μm], dépend du matériau utilisé pour les canalisations.
 
 * ``diamètre autorisé sous pression`` : [m], un seul diamètre autorisé.
 
@@ -100,6 +88,15 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
     Il a été constaté que **les modifications des profondeurs max et min autorisées ne sont actuellement pas prises 
     en compte** (valeurs bloquées aux valeurs par défaut 0.25 m et 8 m). Le bug doit d'abord être corrigé sur pysewer
     avant que la correction puisse être intégrée à Elan.
+
+.. note::
+    Vous pouvez également ajuster d'autres paramètres en déroulant la section *Paramètres avancés*. Parmi eux :
+
+    * ``coefficient de pointe journalier`` : [m³/j].
+
+    * ``pente minimale permettant l'autocurrage`` : [m/m].
+    
+    * ``rugosité canalisation`` : [μm], dépend du matériau utilisé pour les canalisations.
 
 **4.** Indiquer un emplacement et un nom pour la couche .gpkg en sortie (bulle 6) puis exécuter (bulle 7).
 
@@ -448,9 +445,12 @@ Des représentations graphiques ont été intégrées à Elan pour mieux visuali
 et leurs points faibles respectifs. 
 
 Pour afficher ces représentations graphiques, il faut au préalable :
-- Avoir installé **l'extension Data Plotly** comme expliqué dans :ref:`Installation des extensions QGIS tierces <extensions-tierces>`.
-- Disposer d'une couche ``Couche de filières`` (sortie du module ``Procédés``).
-- Si votre couche ``Couche de filières`` contient plusieurs exutoires, avoir sélectionné l'un d'entre eux.
+
+* Avoir installé **l'extension Data Plotly** comme expliqué dans :ref:`Installation des extensions QGIS tierces <extensions-tierces>`.
+
+* Disposer d'une couche ``Couche de filières`` (sortie du module ``Procédés``).
+
+* Si votre couche ``Couche de filières`` contient plusieurs exutoires, avoir sélectionné l'un d'entre eux.
 
 .. important::
     Le radar plot et le bar plot visent à **comparer les différentes filières possibles pour un exutoire**. Si votre couche ``Couche de filières`` contient plusieurs exutoires
