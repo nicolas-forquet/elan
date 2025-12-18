@@ -233,7 +233,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         self.addAdvancedParameter(
             QgsProcessingParameterNumber(
                 self.PEAK_FACTOR,
-                self.tr("Peak load coefficient"),
+                self.tr("Peak load coefficient [m3/j]"),
                 Qgis.ProcessingNumberParameterType.Double,
                 defaultValue=2.3,
             )
