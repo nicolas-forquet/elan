@@ -463,15 +463,15 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                     pysewer_process.wait()
                     raise QgsProcessingException(self.tr("Processing stopped by user"))
 
-        if return_code is not None and return_code != 0:
-            if pysewer_process.stderr is not None:
-                error_message = pysewer_process.stderr.read()
-                if "ModuleNotFoundError" in error_message:
-                    raise QgsProcessingException(
-                        self.tr("pysewer is not installed, go to ELAN settings to check/install.")
-                    )
-                raise QgsProcessingException(error_message)
-            raise QgsProcessingException(self.tr("Unexpected error while running pysewer"))
+            if return_code is not None and return_code != 0:
+                if pysewer_process.stderr is not None:
+                    error_message = pysewer_process.stderr.read()
+                    if "ModuleNotFoundError" in error_message:
+                        raise QgsProcessingException(
+                            self.tr("pysewer is not installed, go to ELAN settings to check/install.")
+                        )
+                    raise QgsProcessingException(error_message)
+                raise QgsProcessingException(self.tr("Unexpected error while running pysewer"))
 
         if feedback is not None:
             feedback.pushInfo(self.tr("Post-processing and layer styles creation..."))
