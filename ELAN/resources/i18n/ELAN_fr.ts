@@ -25,7 +25,7 @@ Traitement en coquille vide</translation>
     <message>
         <location filename="../../processing/assessment.py" line="84"/>
         <source>Input Layer</source>
-        <translation>Couche d&apos;entrée</translation>
+        <translation>Couche d'entrée</translation>
     </message>
     <message>
         <location filename="../../processing/assessment.py" line="93"/>
@@ -48,7 +48,7 @@ Traitement en coquille vide</translation>
     <message>
         <location filename="../../processing/comparison.py" line="84"/>
         <source>Input layer</source>
-        <translation>Couche d&apos;entrée</translation>
+        <translation>Couche d'entrée</translation>
     </message>
     <message>
         <location filename="../../processing/comparison.py" line="93"/>
@@ -139,7 +139,7 @@ Traitement en coquille vide</translation>
     <message>
         <location filename="../../gui/dlg_settings.py" line="125"/>
         <source>Installation successfull</source>
-        <translation>Succès de l&apos;installation</translation>
+        <translation>Succès de l'installation</translation>
     </message>
     <message>
         <location filename="../../gui/dlg_settings.py" line="101"/>
@@ -179,12 +179,12 @@ Traitement en coquille vide</translation>
     <message>
         <location filename="../../gui/dlg_settings.py" line="98"/>
         <source>wetlandoptimizer is not installed</source>
-        <translation>wetlandoptimiser n&apos;est pas installé</translation>
+        <translation>wetlandoptimiser n'est pas installé</translation>
     </message>
     <message>
         <location filename="../../gui/dlg_settings.py" line="64"/>
         <source>pysewer is not installed</source>
-        <translation>pysewer n&apos;est pas installé</translation>
+        <translation>pysewer n'est pas installé</translation>
     </message>
     <message>
         <location filename="../../gui/dlg_settings.py" line="138"/>
@@ -207,7 +207,7 @@ Traitement en coquille vide</translation>
     <message>
         <location filename="../../plugin_main.py" line="109"/>
         <source>Error importing dependencies. ELAN processing modules are disabled.</source>
-        <translation>Erreur à l&apos;import des dépendances. Les modules de traitement d&apos;ELAN ont été désactivés.</translation>
+        <translation>Erreur à l'import des dépendances. Les modules de traitement d'ELAN ont été désactivés.</translation>
     </message>
     <message>
         <location filename="../../plugin_main.py" line="109"/>
@@ -240,7 +240,7 @@ Traitement en coquille vide</translation>
     <message>
         <location filename="../../processing/hydraulic.py" line="180"/>
         <source>Hydraulic simulation based on MLA model (INSA)</source>
-        <translation>Simulation hydraulique basée sur le modèle MLA développé par l&apos;INSA</translation>
+        <translation>Simulation hydraulique basée sur le modèle MLA développé par l'INSA</translation>
     </message>
     <message>
         <location filename="../../processing/hydraulic.py" line="188"/>
@@ -320,7 +320,7 @@ Traitement en coquille vide</translation>
     <message>
         <location filename="../../processing/hydraulic.py" line="295"/>
         <source>No QGIS project instance found</source>
-        <translation>Pas d&apos;instance de projet QGIS trouvée</translation>
+        <translation>Pas d'instance de projet QGIS trouvée</translation>
     </message>
     <message>
         <location filename="../../processing/hydraulic.py" line="323"/>
@@ -353,7 +353,7 @@ Traitement en coquille vide</translation>
     <message>
         <location filename="../../processing/hydraulic.py" line="432"/>
         <source>Erosion expansion distance</source>
-        <translation>Distance d&apos;érosion dilatation</translation>
+        <translation>Distance d'érosion dilatation</translation>
     </message>
     <message>
         <location filename="../../processing/hydraulic.py" line="433"/>
@@ -378,12 +378,12 @@ Traitement en coquille vide</translation>
     <message>
         <location filename="../../processing/hydraulic.py" line="455"/>
         <source>pysheds is not installed</source>
-        <translation>pysheds n&apos;est pas installé</translation>
+        <translation>pysheds n'est pas installé</translation>
     </message>
     <message>
         <location filename="../../processing/hydraulic.py" line="503"/>
         <source>DEM file export failed</source>
-        <translation>L&apos;export du ficher MNT a échoué</translation>
+        <translation>L'export du ficher MNT a échoué</translation>
     </message>
     <message>
         <location filename="../../processing/hydraulic.py" line="521"/>
@@ -418,7 +418,7 @@ Traitement en coquille vide</translation>
     <message>
         <location filename="../../processing/hydraulic.py" line="595"/>
         <source>Process stopped by user</source>
-        <translation>Processus stoppé par l&apos;utilisateur</translation>
+        <translation>Processus stoppé par l'utilisateur</translation>
     </message>
     <message>
         <location filename="../../processing/hydraulic.py" line="631"/>
@@ -489,15 +489,15 @@ Traitement en coquille vide</translation>
 The distribution is made according to each building surface area.
 
 The output layer has a population field and is a point layer representing the buildings centroids.</source>
-        <translation>Assigne le nombre d&apos;habitants par bâtiment en fonction du nombre total d&apos;habitants.
+        <translation>Assigne le nombre d'habitants par bâtiment en fonction du nombre total d'habitants.
 La répartition est effectuée en fonction de la superficie de chaque bâtiment par rapport à la superficie totale de tous les bâtiments..
 
-La couche de sortie comporte un champ &apos;population&apos; et est une couche ponctuelle représentant les centroïdes des bâtiments.</translation>
+La couche de sortie comporte un champ 'population' et est une couche ponctuelle représentant les centroïdes des bâtiments.</translation>
     </message>
     <message>
         <location filename="../../processing/population.py" line="103"/>
         <source>Total inhabitants (estimation)</source>
-        <translation>Total d&apos;habitants (estimation)</translation>
+        <translation>Total d'habitants (estimation)</translation>
     </message>
     <message>
         <location filename="../../processing/population.py" line="109"/>
@@ -512,7 +512,7 @@ La couche de sortie comporte un champ &apos;population&apos; et est une couche p
     <message>
         <location filename="../../processing/population.py" line="176"/>
         <source>Warning! {} building(s) with 0 inhabitants</source>
-        <translation>Attention ! {} bâtiment(s) avec un nombre d&apos;habitant à 0&quot;)</translation>
+        <translation>Attention ! {} bâtiment(s) avec un nombre d'habitant à 0&quot;)</translation>
     </message>
 </context>
 <context>
@@ -530,16 +530,16 @@ La couche de sortie comporte un champ &apos;population&apos; et est une couche p
     <message>
         <location filename="../../processing/population.py" line="225"/>
         <source>Number of inhabitants per building</source>
-        <translation>Nombre d&apos;habitants par bâtiment</translation>
+        <translation>Nombre d'habitants par bâtiment</translation>
     </message>
     <message>
         <location filename="../../processing/population.py" line="281"/>
         <source>For each building, the number of inhabitants is set to the number given as input.
 
 The output layer has a population field and is a point layer representing the buildings centroids.</source>
-        <translation>Pour chaque bâtiment, le nombre d&apos;habitants est défini par le nombre indiqué en entrée.
+        <translation>Pour chaque bâtiment, le nombre d'habitants est défini par le nombre indiqué en entrée.
 
-La couche de sortie comporte un champ &apos;population&apos; et est une couche ponctuelle représentant les centroïdes des bâtiments.</translation>
+La couche de sortie comporte un champ 'population' et est une couche ponctuelle représentant les centroïdes des bâtiments.</translation>
     </message>
     <message>
         <location filename="../../processing/population.py" line="301"/>
@@ -557,7 +557,7 @@ La couche de sortie comporte un champ &apos;population&apos; et est une couche p
     <message>
         <location filename="../../scripts/treatment_train_plot.py" line="117"/>
         <source>The active layer is not a treatment train layer.</source>
-        <translation>La couche active n&apos;est pas une couche de filières.</translation>
+        <translation>La couche active n'est pas une couche de filières.</translation>
     </message>
     <message>
         <location filename="../../scripts/treatment_train_plot.py" line="119"/>
@@ -581,13 +581,13 @@ Ne sélectionner que des entités avec les mêmes {}</translation>
         <location filename="../../scripts/treatment_train_plot.py" line="176"/>
         <source>More than 1 feature with the same {}.
 Select only features with different {}.</source>
-        <translation>Plus d&apos;une entité avec le même {}.
+        <translation>Plus d'une entité avec le même {}.
 Ne sélectionner que des entités avec des {} différents.</translation>
     </message>
     <message>
         <location filename="../../scripts/treatment_train_plot.py" line="186"/>
         <source>The features don&apos;t have any stage</source>
-        <translation>Les entités n&apos;ont pas d&apos;étage de traitement</translation>
+        <translation>Les entités n'ont pas d'étage de traitement</translation>
     </message>
     <message>
         <location filename="../../scripts/treatment_train_plot.py" line="190"/>
@@ -615,22 +615,22 @@ Ne sélectionner que des entités avec des {} différents.</translation>
         <translation>DCO /</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="266"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="267"/>
         <source>Hydraulic and pollutant loading rates</source>
         <translation>Taux de charge hydraulique et des polluants</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="272"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="273"/>
         <source>Loading rate (%)</source>
         <translation>Taux de charge (%)</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="278"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="279"/>
         <source>Treatment trains</source>
         <translation>Filières</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="325"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="326"/>
         <source>Treatment trains multicriteria analysis</source>
         <translation>Analyse multicritère des filières de traitement</translation>
     </message>
@@ -639,7 +639,7 @@ Ne sélectionner que des entités avec des {} différents.</translation>
         <source>DataPlotly plugin not found!
 It must be installed and activated (see the plugin manager).</source>
         <translation>DataPlotly est introuvable !
-Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</translation>
+Il doit être installé et activé (voir le gestionnaire d'extensions).</translation>
     </message>
     <message>
         <location filename="../../scripts/treatment_train_plot.py" line="53"/>
@@ -652,7 +652,7 @@ Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</tr
         <translation>Hydraulique /</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="254"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="255"/>
         <source>stage</source>
         <translation>étage</translation>
     </message>
@@ -686,9 +686,9 @@ Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</tr
             - A line layer for roads.
             - The building and road entities are added to the output layers.
             </source>
-        <translation>Cet algorithme interroge l&apos;API Overpass pour extraire des données OSM (OpenStreetMap) de bâtiments et de routes dans une zone définie par un rectangle.
+        <translation>Cet algorithme interroge l'API Overpass pour extraire des données OSM (OpenStreetMap) de bâtiments et de routes dans une zone définie par un rectangle.
 
-- L&apos;utilisateur spécifie une couche de polygones pour définir la zone de requête.
+- L'utilisateur spécifie une couche de polygones pour définir la zone de requête.
 
 - Une requête Overpass est formulée pour extraire les entités de type &quot;building&quot; et &quot;highway&quot; dans la (les) zone(s) spécifiée(s).
 
@@ -702,7 +702,7 @@ Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</tr
     <message>
         <location filename="../../processing/roads_buildings.py" line="122"/>
         <source>Extraction area</source>
-        <translation>Aire d&apos;extraction</translation>
+        <translation>Aire d'extraction</translation>
     </message>
     <message>
         <location filename="../../processing/roads_buildings.py" line="128"/>
@@ -727,12 +727,12 @@ Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</tr
     <message>
         <location filename="../../processing/roads_buildings.py" line="167"/>
         <source>Unable to get input polygon layer</source>
-        <translation>Impossible d&apos;obtenir la couche de polygones en entrée</translation>
+        <translation>Impossible d'obtenir la couche de polygones en entrée</translation>
     </message>
     <message>
         <location filename="../../processing/roads_buildings.py" line="177"/>
         <source>The extent of the extraction area is null</source>
-        <translation>L&apos;étendue de l&apos;aire d&apos;extraction est nulle</translation>
+        <translation>L'étendue de l'aire d'extraction est nulle</translation>
     </message>
     <message>
         <location filename="../../processing/roads_buildings.py" line="263"/>
@@ -757,7 +757,7 @@ Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</tr
     <message>
         <location filename="../../processing/roads_buildings.py" line="179"/>
         <source>The extent of the extraction area is too big</source>
-        <translation>L&apos;étendue de l&apos;aire d&apos;extraction est trop grande</translation>
+        <translation>L'étendue de l'aire d'extraction est trop grande</translation>
     </message>
     <message>
         <location filename="../../processing/roads_buildings.py" line="163"/>
@@ -824,7 +824,7 @@ requises pour une future analyse et évaluation.</translation>
     <message>
         <location filename="../../processing/scenario.py" line="142"/>
         <source>There is more than one process per WWTP</source>
-        <translation>Il y a plus d&apos;un procédé par STEU</translation>
+        <translation>Il y a plus d'un procédé par STEU</translation>
     </message>
     <message>
         <location filename="../../processing/scenario.py" line="158"/>
@@ -834,7 +834,7 @@ requises pour une future analyse et évaluation.</translation>
     <message>
         <location filename="../../processing/scenario.py" line="160"/>
         <source>Error when editing metadata for scenario</source>
-        <translation>Erreur à l&apos;édition des métadonnées pour le scénario</translation>
+        <translation>Erreur à l'édition des métadonnées pour le scénario</translation>
     </message>
     <message>
         <location filename="../../processing/scenario.py" line="172"/>
@@ -927,12 +927,12 @@ requises pour une future analyse et évaluation.</translation>
     <message>
         <location filename="../../processing/sewer_network.py" line="225"/>
         <source>Average daily production of wastewater per person [m3]</source>
-        <translation>Volume moyen d’eaux usées produit par jour par personne</translation>
+        <translation>Volume moyen d’eaux usées produit par jour par personne [m3]</translation>
     </message>
     <message>
         <location filename="../../processing/sewer_network.py" line="233"/>
-        <source>Peak load coefficient</source>
-        <translation>Coefficient de pointe journalier</translation>
+        <source>Peak load coefficient [m3/j]</source>
+        <translation>Coefficient de pointe journalier [m3/j]</translation>
     </message>
     <message>
         <location filename="../../processing/sewer_network.py" line="241"/>
@@ -952,7 +952,7 @@ requises pour une future analyse et évaluation.</translation>
     <message>
         <location filename="../../processing/sewer_network.py" line="267"/>
         <source>Pipe roughness [µm]</source>
-        <translation>Rugosité canalisation</translation>
+        <translation>Rugosité canalisation [µm]</translation>
     </message>
     <message>
         <location filename="../../processing/sewer_network.py" line="276"/>
@@ -972,7 +972,7 @@ requises pour une future analyse et évaluation.</translation>
     <message>
         <location filename="../../processing/sewer_network.py" line="343"/>
         <source>All input layers must have the same CRS.</source>
-        <translation>Toutes les couches d&apos;entrée doivent avoir le même SCR.</translation>
+        <translation>Toutes les couches d'entrée doivent avoir le même SCR.</translation>
     </message>
     <message>
         <location filename="../../processing/sewer_network.py" line="372"/>
@@ -997,17 +997,17 @@ requises pour une future analyse et évaluation.</translation>
     <message>
         <location filename="../../processing/sewer_network.py" line="464"/>
         <source>Processing stopped by user</source>
-        <translation>Processus stoppé par l&apos;utilisateur</translation>
+        <translation>Processus stoppé par l'utilisateur</translation>
     </message>
     <message>
         <location filename="../../processing/sewer_network.py" line="470"/>
         <source>pysewer is not installed, go to ELAN settings to check/install.</source>
-        <translation>pysewer n&apos;est pas installé, aller dans les paramètres ELAN pour vérifier/installer.</translation>
+        <translation>pysewer n'est pas installé, aller dans les paramètres ELAN pour vérifier/installer.</translation>
     </message>
     <message>
         <location filename="../../processing/sewer_network.py" line="474"/>
         <source>Unexpected error while running pysewer</source>
-        <translation>Erreur inattendue lors de l&apos;exécution de pysewer</translation>
+        <translation>Erreur inattendue lors de l'exécution de pysewer</translation>
     </message>
     <message>
         <location filename="../../processing/sewer_network.py" line="477"/>
@@ -1062,17 +1062,17 @@ requises pour une future analyse et évaluation.</translation>
     <message>
         <location filename="../../processing/sewer_network.py" line="574"/>
         <source>Flow direction</source>
-        <translation>Sens d&apos;écoulement</translation>
+        <translation>Sens d'écoulement</translation>
     </message>
     <message>
         <location filename="../../processing/sewer_network.py" line="574"/>
         <source>Arrow based on trench flow direction</source>
-        <translation>Flèche selon le sens d&apos;&apos;écoulement de la tranchée</translation>
+        <translation>Flèche selon le sens d''écoulement de la tranchée</translation>
     </message>
     <message>
         <location filename="../../processing/sewer_network.py" line="584"/>
         <source>Error with flow direction style</source>
-        <translation>Erreur avec le style sens d&apos;écoulement</translation>
+        <translation>Erreur avec le style sens d'écoulement</translation>
     </message>
     <message>
         <location filename="../../processing/sewer_network.py" line="587"/>
@@ -1208,14 +1208,14 @@ requises pour une future analyse et évaluation.</translation>
         <location filename="../../processing/sewer_network.py" line="139"/>
         <source>This module generates a sewer pipe network based on the input building layer following the roads and the DEM input. The path is determined by the lowest altitude points or the points provided in the optional input layer: WWTP.&lt;h2&gt;Restriction:&lt;/h2&gt;The input layers must have the same CRS.&lt;h2&gt;Prerequisites:&lt;/h2&gt;This sewer pipe module uses Pysewer. It must be installed either locally or through the ELAN plugin settings.&lt;h2&gt;Outputs:&lt;/h2&gt;6 geographic layers are created:
 &lt;ul&gt;    &lt;li&gt;WWTP: treatment stations used in the sewer pipe way&lt;/li&gt;    &lt;li&gt;Lifting stations: lifting stations&lt;/li&gt;    &lt;li&gt;Pumping stations: pumping stations&lt;/li&gt;    &lt;li&gt;Sewer pipes: sewer pipe&lt;/li&gt;    &lt;li&gt;Buildings: a copy of the input buildings features&lt;/li&gt;    &lt;li&gt;Roads: a copy of the input roads features&lt;/li&gt;&lt;/ul&gt;One additional layer without geometry is also created:&lt;ul&gt;&lt;li&gt;Network information: statistics such as the total number of buildings, date, etc.&lt;/li&gt;&lt;/ul&gt;The sewer pipe layer includes 6 styles.</source>
-        <translation>Ce module trace un réseau de canalisations partant des bâtiments donnés en entrée, qui suit les routes et le modèle numérique de terrain donnés en entrée, et se dirige vers le point d&apos;altitude le plus bas ou les points présents dans la couche d&apos;entrée STEU optionnelle.
+        <translation>Ce module trace un réseau de canalisations partant des bâtiments donnés en entrée, qui suit les routes et le modèle numérique de terrain donnés en entrée, et se dirige vers le point d'altitude le plus bas ou les points présents dans la couche d'entrée STEU optionnelle.
 &lt;h2&gt;Restriction :&lt;/h2&gt;
 Les couches en entrées doivent toutes avoir le même système de coordonnées de référence (SCR).
 &lt;h2&gt;Prérequis :&lt;/h2&gt;
 Ce module réseau utilise la librairie pysewer qui doit être installée, en local ou via les réglages du plugin ELAN.
 &lt;h2&gt;Sorties :&lt;/h2&gt;
 6 couches géographiques sont crées en sortie :
-&lt;ul&gt;&lt;li&gt;STEU : stations de traitement utilisées pour le tracé du réseau&lt;/li&gt;&lt;li&gt;Stations de relevage&lt;li&gt;Stations de pompage&lt;/li&gt;&lt;li&gt;Canalisations&lt;/li&gt;&lt;li&gt;Routes : une copie des entités de routes utilisées en entrée&lt;/li&gt;&lt;li&gt;Bâtiments : une copie des entités de bâtiments utilisées en entrée&lt;/li&gt;&lt;/ul&gt;1 couche sans géométrie est crée en sortie :&lt;ul&gt;&lt;li&gt;Informations sur le réseau : statistiques du calcul (nombre total de bâtiments, date d&apos;exécution, etc.)&lt;/li&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;li&gt;STEU : stations de traitement utilisées pour le tracé du réseau&lt;/li&gt;&lt;li&gt;Stations de relevage&lt;li&gt;Stations de pompage&lt;/li&gt;&lt;li&gt;Canalisations&lt;/li&gt;&lt;li&gt;Routes : une copie des entités de routes utilisées en entrée&lt;/li&gt;&lt;li&gt;Bâtiments : une copie des entités de bâtiments utilisées en entrée&lt;/li&gt;&lt;/ul&gt;1 couche sans géométrie est crée en sortie :&lt;ul&gt;&lt;li&gt;Informations sur le réseau : statistiques du calcul (nombre total de bâtiments, date d'exécution, etc.)&lt;/li&gt;&lt;/ul&gt;
 La couche canas dispose de 6 styles différents sélectionnables par le menu contextuel de la couche.</translation>
     </message>
 </context>
@@ -1268,7 +1268,7 @@ En ajustant les bâtiments à la route la plus proche dans une distance spécifi
 Cette étape permet d’isoler les raccordements réellement liés au réseau public et de simplifier les analyses ultérieures.
 
 &lt;h2&gt;Entrées :&lt;/h2&gt;
-&lt;ul&gt;&lt;li&gt;Couche des bâtiments : localisation des centroïdes des bâtiments&lt;/li&gt;&lt;li&gt;Couche des routes : géométrie des routes utilisée pour l’ajustement&lt;/li&gt;&lt;li&gt;Champ population du bâtiment : champ de la couche bâtiments avec l&apos;attribut de population&lt;/li&gt;&lt;li&gt;Distance maximale à la route pour projection : distance maximale de recherche pour ajuster les bâtiments aux routes&lt;/li&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;li&gt;Couche des bâtiments : localisation des centroïdes des bâtiments&lt;/li&gt;&lt;li&gt;Couche des routes : géométrie des routes utilisée pour l’ajustement&lt;/li&gt;&lt;li&gt;Champ population du bâtiment : champ de la couche bâtiments avec l'attribut de population&lt;/li&gt;&lt;li&gt;Distance maximale à la route pour projection : distance maximale de recherche pour ajuster les bâtiments aux routes&lt;/li&gt;&lt;/ul&gt;
 &lt;h2&gt;Sorties :&lt;/h2&gt;
 &lt;h3&gt;Les entités de bâtiments sont conservées, avec une nouvelle colonne de statut :&lt;/h3&gt;
 &lt;ul&gt;&lt;li&gt;Projeté : ajusté avec succès à une route proche&lt;/li&gt;&lt;li&gt;Non projeté: aucune route trouvée dans la distance spécifiée&lt;/li&gt;&lt;/ul&gt;
@@ -1296,7 +1296,7 @@ Cette étape permet d’isoler les raccordements réellement liés au réseau pu
     <message>
         <location filename="../../processing/trench_profile.py" line="94"/>
         <source>This module creates layer of Z points from a sewer pipes layer created by the sewer network module, to be explored with the QGIS elevation profile tool.</source>
-        <translation>Ce module crée une couche de points Z à partir d&apos;une couche de canalisations crée par le module Réseau, permettant d&apos;être explorée avec l&apos;outil QGIS de profils d&apos;élévation.</translation>
+        <translation>Ce module crée une couche de points Z à partir d'une couche de canalisations crée par le module Réseau, permettant d'être explorée avec l'outil QGIS de profils d'élévation.</translation>
     </message>
     <message>
         <location filename="../../processing/trench_profile.py" line="345"/>
@@ -1397,171 +1397,215 @@ Cette étape permet d’isoler les raccordements réellement liés au réseau pu
 <context>
     <name>WetlandProcessAlgorithm</name>
     <message>
-        <location filename="../../processing/wetland_process.py" line="116"/>
+        <location filename="../../processing/wetland_process.py" line="107"/>
         <source>Processes</source>
         <translation>Procédés</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="123"/>
+        <location filename="../../processing/wetland_process.py" line="114"/>
         <source>Processings</source>
         <translation>Processus</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="197"/>
+        <location filename="../../processing/wetland_process.py" line="168"/>
         <source>WWTP layer</source>
         <translation>Couche STEU</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="191"/>
+        <location filename="../../processing/wetland_process.py" line="162"/>
         <source>Treatment trains layer</source>
         <translation>Couche de filières</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="252"/>
+        <location filename="../../processing/wetland_process.py" line="223"/>
         <source>TSS outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en MES [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="253"/>
+        <location filename="../../processing/wetland_process.py" line="224"/>
         <source>BOD5 outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en DBO5 [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="254"/>
+        <location filename="../../processing/wetland_process.py" line="225"/>
         <source>TKN outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en NTK [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="255"/>
+        <location filename="../../processing/wetland_process.py" line="226"/>
         <source>COD outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en DCO [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="203"/>
+        <location filename="../../processing/wetland_process.py" line="174"/>
         <source>Available area</source>
         <translation>Surface disponible</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="234"/>
+        <location filename="../../processing/wetland_process.py" line="205"/>
         <source>Daily inflow [m3/d]</source>
         <translation>débit journalier entrant [m3/j]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="287"/>
+        <location filename="../../processing/wetland_process.py" line="258"/>
         <source>The wetlandoptimizer library is not installed.
 Go to ELAN settings to install it.</source>
-        <translation>Wetlandoptimizer n&apos;est pas installé.
-Aller dans les paramètres ELAN pour l&apos;installer.</translation>
+        <translation>Wetlandoptimizer n'est pas installé.
+Aller dans les paramètres ELAN pour l'installer.</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="212"/>
+        <location filename="../../processing/wetland_process.py" line="183"/>
         <source>Sink coordinates</source>
         <translation>Coordonnées GPS</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="222"/>
+        <location filename="../../processing/wetland_process.py" line="193"/>
         <source>Maximum stages number (between 1 and 3)</source>
-        <translation>Nombre d&apos;étages maximum (entre 1 et 3)</translation>
+        <translation>Nombre d'étages maximum (entre 1 et 3)</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="256"/>
+        <location filename="../../processing/wetland_process.py" line="227"/>
         <source>NO3-N outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en N-NO3 [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="257"/>
+        <location filename="../../processing/wetland_process.py" line="228"/>
         <source>TN outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en NT [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="93"/>
+        <location filename="../../processing/wetland_process.py" line="84"/>
         <source>Temperate</source>
         <translation>Tempéré</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="94"/>
+        <location filename="../../processing/wetland_process.py" line="85"/>
         <source>Tropical</source>
         <translation>Tropical</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="181"/>
+        <location filename="../../processing/wetland_process.py" line="152"/>
         <source>Climate</source>
         <translation>Climat</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="397"/>
+        <location filename="../../processing/wetland_process.py" line="368"/>
         <source>Python not found for multiprocessing</source>
         <translation>Python introuvable pour multiprocessing</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="399"/>
+        <location filename="../../processing/wetland_process.py" line="370"/>
         <source>Unexpected error to set python path for multiprocessing:</source>
         <translation>Erreur inattendue pour affecter le chemin de Python pour multiprocessing:</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="551"/>
+        <location filename="../../processing/wetland_process.py" line="526"/>
         <source>TSS</source>
         <translation>MES</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="552"/>
+        <location filename="../../processing/wetland_process.py" line="527"/>
         <source>BOD5</source>
         <translation>DBO5</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="553"/>
+        <location filename="../../processing/wetland_process.py" line="528"/>
         <source>COD</source>
         <translation>DCO</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="569"/>
+        <location filename="../../processing/wetland_process.py" line="544"/>
         <source>These target values can&apos;t be NULL:</source>
-        <translation>Ces valeurs d&apos;objectif ne doivent pas être NULL :</translation>
+        <translation>Ces valeurs d'objectif ne doivent pas être NULL :</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="258"/>
+        <location filename="../../processing/wetland_process.py" line="229"/>
         <source>TP outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en PT [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="259"/>
+        <location filename="../../processing/wetland_process.py" line="230"/>
         <source>e.coli outflow concentration target [UFC/100mL]</source>
         <translation>niveau de rejet en e.coli [UFC/100mL]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="556"/>
+        <location filename="../../processing/wetland_process.py" line="531"/>
         <source>TNK</source>
         <translation>NTK</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="557"/>
+        <location filename="../../processing/wetland_process.py" line="532"/>
         <source>NO3-N</source>
         <translation>N-NO3</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="558"/>
+        <location filename="../../processing/wetland_process.py" line="533"/>
         <source>TN</source>
         <translation>NT</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="559"/>
+        <location filename="../../processing/wetland_process.py" line="534"/>
         <source>TP</source>
         <translation>PT</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="560"/>
+        <location filename="../../processing/wetland_process.py" line="535"/>
         <source>e.coli</source>
         <translation>e.coli</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="577"/>
+        <location filename="../../processing/wetland_process.py" line="552"/>
         <source>These target values must be strictly positive:</source>
-        <translation>Ces valeurs d&apos;objectif doivent être strictement positives :</translation>
+        <translation>Ces valeurs d'objectif doivent être strictement positives :</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="141"/>
+        <location filename="../../processing/wetland_process.py" line="216"/>
+        <source>BOD5 inflow concentration [g/m3]</source>
+        <translation>concentration en entrée en DBO5 [g/m3]</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="217"/>
+        <source>TKN inflow concentration [g/m3]</source>
+        <translation>concentration en entrée en NTK [g/m3]</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="218"/>
+        <source>COD inflow concentration [g/m3]</source>
+        <translation>concentration en entrée en DCO [g/m3]</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="219"/>
+        <source>NO3-N inflow concentration [g/m3]</source>
+        <translation>concentration en entrée en N-NO3 [g/m3]</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="220"/>
+        <source>TP inflow concentration [g/m3]</source>
+        <translation>concentration en entrée en PT [g/m3]</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="221"/>
+        <source>e.coli inflow concentration [UFC/100mL]</source>
+        <translation>concentration en entrée en e.coli [UFC/100mL]</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="460"/>
+        <source>Field &apos;{}&apos; does not exist in input WWTP layer</source>
+        <translation>Le champ '{}' n'existe pas dans la couche d'entrée STEU</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="215"/>
+        <source>TSS inflow concentration [g/m3]</source>
+        <translation>concentration en entrée en MES [g/m3]</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="500"/>
+        <source>Inflow concentrations have incorrect values: {}, causing an error during COD_Fractionation step.</source>
+        <translation>Valeurs incorrectes pour les concentrations en entrées : {}, provoquant une erreur lors de l'étape COD_Fractionation.</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="132"/>
         <source>Sizing of treatment systems according to user defined discharge levels.
-If they are not filled in the input WWTP layer, the input concentrations used are:&lt;ul&gt;&lt;li&gt;TSS: {} g/m3&lt;/li&gt;&lt;li&gt;BOD5: {} g/m3&lt;/li&gt;&lt;li&gt;TKN: {} g/m3&lt;/li&gt;&lt;li&gt;COD: {} g/m3&lt;/li&gt;&lt;li&gt;NO3-N: {} g/m3&lt;/li&gt;&lt;li&gt;TP: {} g/m3&lt;/li&gt;&lt;li&gt;e.coli: {} UFC/100mL&lt;/li&gt;&lt;/ul&gt;
 The available surface layer is optional. If present, each input WWTP feature will be matched only once with a corresponding surface.
 One surface will be affected to only one WWTP (if 2 WWTP are within the same surface, only one station will be matched with the surface).
 The surface layer will be reprojected to the WWTP CRS.
@@ -1569,66 +1613,25 @@ The available area influences the formatting of the attribute table, compared wi
 
 &lt;em&gt;Warning&lt;/em&gt;
 TP and e.coli are not completely ready for this version of ELAN.</source>
-        <translation>Dimensionnement de filières de traitements selon les niveaux de rejet définis par l&apos;utilisateur
-Si elles ne sont pas renseignées dans la couche STEU, les concentrations en entrée utilisées sont :&lt;ul&gt;&lt;li&gt;MES: {} g/m3&lt;/li&gt;&lt;li&gt;DBO5: {} g/m3&lt;/li&gt;&lt;li&gt;NTK: {} g/m3&lt;/li&gt;&lt;li&gt;DCO: {} g/m3&lt;/li&gt;&lt;li&gt;N-NO3: {} g/m3&lt;/li&gt;&lt;li&gt;PT: {} g/m3&lt;/li&gt;&lt;li&gt;e.coli : {} UFC/100mL&lt;/li&gt;&lt;/ul&gt;
-La couche de surface disponible est optionnelle. Si elle est présente, chaque entité de STEU en entrée ne sera associée qu&apos;une seule fois à sa surface correspondante.
+        <translation>Dimensionnement de filières de traitements selon les niveaux de rejet définis par l'utilisateur
+La couche de surface disponible est optionnelle. Si elle est présente, chaque entité de STEU en entrée ne sera associée qu'une seule fois à sa surface correspondante.
 Une surface sera affectée à une seule STEU (si 2 stations se trouvent dans la même surface, une seule station sera affectée à cette surface).
 La ​​couche de surface sera reprojetée sur le SCR de la couche STEU.
 La surface disponible influence le formatage de la table attributaire, par rapport à la surface totale nécessaire au procédé.
 
 &lt;em&gt;Attention&lt;/em&gt;
-La prise en compte des phosphores (PT) et des e.coli n&apos;est pas pleinement mature dans cette version de ELAN.</translation>
+La prise en compte des phosphores (PT) et des e.coli n'est pas pleinement mature dans cette version de ELAN.</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="245"/>
-        <source>BOD5 inflow concentration [g/m3]</source>
-        <translation>concentration en entrée en DBO5 [g/m3]</translation>
-    </message>
-    <message>
-        <location filename="../../processing/wetland_process.py" line="246"/>
-        <source>TKN inflow concentration [g/m3]</source>
-        <translation>concentration en entrée en NTK [g/m3]</translation>
-    </message>
-    <message>
-        <location filename="../../processing/wetland_process.py" line="247"/>
-        <source>COD inflow concentration [g/m3]</source>
-        <translation>concentration en entrée en DCO [g/m3]</translation>
-    </message>
-    <message>
-        <location filename="../../processing/wetland_process.py" line="248"/>
-        <source>NO3-N inflow concentration [g/m3]</source>
-        <translation>concentration en entrée en N-NO3 [g/m3]</translation>
-    </message>
-    <message>
-        <location filename="../../processing/wetland_process.py" line="249"/>
-        <source>TP inflow concentration [g/m3]</source>
-        <translation>concentration en entrée en PT [g/m3]</translation>
-    </message>
-    <message>
-        <location filename="../../processing/wetland_process.py" line="250"/>
-        <source>e.coli inflow concentration [UFC/100mL]</source>
-        <translation>concentration en entrée en e.coli [UFC/100mL]</translation>
-    </message>
-    <message>
-        <location filename="../../processing/wetland_process.py" line="489"/>
-        <source>Field &apos;{}&apos; does not exist in input WWTP layer</source>
-        <translation>Le champ &apos;{}&apos; n&apos;existe pas dans la couche d&apos;entrée STEU</translation>
-    </message>
-    <message>
-        <location filename="../../processing/wetland_process.py" line="244"/>
-        <source>TSS inflow concentration [g/m3]</source>
-        <translation>concentration en entrée en MES [g/m3]</translation>
-    </message>
-    <message>
-        <location filename="../../processing/wetland_process.py" line="525"/>
-        <source>Inflow concentrations have incorrect values: {}, causing an error during COD_Fractionation step.</source>
-        <translation>Valeurs incorrectes pour les concentrations en entrées : {}, provoquant une erreur lors de l&apos;étape COD_Fractionation.</translation>
+        <location filename="../../processing/wetland_process.py" line="495"/>
+        <source>An inflow concentration has a NULL value: {}.</source>
+        <translation>Une concentration en entrée a une valeur NULL : {}.</translation>
     </message>
 </context>
 <context>
     <name>WetlandProcessPostProcessor</name>
     <message>
-        <location filename="../../processing/wetland_process.py" line="674"/>
+        <location filename="../../processing/wetland_process.py" line="649"/>
         <source>No layer styles found</source>
         <translation>Aucun style de couche trouvé</translation>
     </message>

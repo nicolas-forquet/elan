@@ -27,11 +27,27 @@ def assert_same_layers(
     the uniqueValues is made only on these fields.
     """
 
+    # feature count
     assert layer_a.featureCount() == layer_b.featureCount()
-    assert layer_a.fields().names() == layer_b.fields().names()
-    assert [field.type() for field in layer_a.fields()] == [field.type() for field in layer_b.fields()]
+
+    # field names
+    layer_a_field_names = layer_a.fields().names()
+    layer_b_field_names = layer_b.fields().names()
+    assert layer_a_field_names == layer_b_field_names, (
+        f"layer_a field names: {layer_a_field_names} " f"but layer_b field names: {layer_b_field_names}"
+    )
+
+    # field types
+    layer_a_field_types = [field.type() for field in layer_a.fields()]
+    layer_b_field_types = [field.type() for field in layer_b.fields()]
+    assert (
+        layer_a_field_types == layer_b_field_types
+    ), f"layer_a field types: {layer_a_field_types} but layer_b field types: {layer_b_field_types}"
+
+    # CRS
     assert layer_a.crs() == layer_b.crs(), f"{layer_a.crs().authid()} != {layer_b.crs().authid()}"
 
+    # unique values inside each field
     for idx in range(layer_a.fields().size()):
         field_name = layer_a.fields().at(idx).name()
 
@@ -45,9 +61,10 @@ def assert_same_layers(
         else:
             assert layer_a.uniqueValues(idx) == layer_b.uniqueValues(idx), (
                 f"Field {field_name}: layer_a unique values are {layer_a.uniqueValues(idx)} "
-                "but layer_b unique values are {layer_b.uniqueValues(idx)}"
+                f"but layer_b unique values are {layer_b.uniqueValues(idx)}"
             )
 
+    # geometry for each feature (based on fid)
     if check_geom:
         fid_idx = layer_a.fields().indexFromName("fid")
         assert fid_idx != -1, "a 'fid' field is required to check the geometries"

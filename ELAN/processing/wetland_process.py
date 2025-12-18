@@ -41,21 +41,12 @@ from qgis.core import (
     QgsProcessingParameterNumber,
     QgsVectorLayer,
 )
-from qgis.PyQt.QtCore import QMetaType
+from qgis.PyQt.QtCore import QMetaType, QVariant
 from qgis.PyQt.QtGui import QColor
 
 from ELAN.processing.utils import getLocalizedStylesDirectory
 from ELAN.utils.dependencies_utils import wetlandoptimizerInstalled
 from ELAN.utils.tr import Translatable
-
-# Hard-coded default concentrations values arriving at the WWTP in g/m3
-DEFAULT_TSS_IN = 288
-DEFAULT_BOD5_IN = 265
-DEFAULT_TKN_IN = 67
-DEFAULT_COD_IN = 646
-DEFAULT_NO3N_IN = 3
-DEFAULT_TP_IN = 9.4
-DEFAULT_ECOLI_IN = 0  # [UFC/100mL]
 
 
 class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
@@ -141,18 +132,6 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         return self.tr(
             "Sizing of treatment systems according to user defined discharge levels."
             "\n"
-            "If they are not filled in the input WWTP layer, "
-            "the input concentrations used are:"
-            "<ul>"
-            "<li>TSS: {} g/m3</li>"
-            "<li>BOD5: {} g/m3</li>"
-            "<li>TKN: {} g/m3</li>"
-            "<li>COD: {} g/m3</li>"
-            "<li>NO3-N: {} g/m3</li>"
-            "<li>TP: {} g/m3</li>"
-            "<li>e.coli: {} UFC/100mL</li>"
-            "</ul>"
-            "\n"
             "The available surface layer is optional. If present, each input WWTP feature "
             "will be matched only once with a corresponding surface.\n"
             "One surface will be affected to only one WWTP (if 2 WWTP are "
@@ -162,14 +141,6 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             "with the treatment system total needed surface.\n\n"
             "<em>Warning</em>\n"
             "TP and e.coli are not completely ready for this version of ELAN."
-        ).format(
-            DEFAULT_TSS_IN,
-            DEFAULT_BOD5_IN,
-            DEFAULT_TKN_IN,
-            DEFAULT_COD_IN,
-            DEFAULT_NO3N_IN,
-            DEFAULT_TP_IN,
-            DEFAULT_ECOLI_IN,
         )
 
     def initAlgorithm(self, configuration=None):  # pylint: disable=unused-argument
@@ -511,15 +482,22 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         from wetlandoptimizer.main import COD_Fractionation  # pylint: disable=import-outside-toplevel
 
         inflow_concentrations = [
-            wwtp_feature[TSS_in_field_name] if wwtp_feature[TSS_in_field_name] != NULL else DEFAULT_TSS_IN,
-            wwtp_feature[BOD5_in_field_name] if wwtp_feature[BOD5_in_field_name] != NULL else DEFAULT_BOD5_IN,
-            wwtp_feature[TKN_in_field_name] if wwtp_feature[TKN_in_field_name] != NULL else DEFAULT_TKN_IN,
-            wwtp_feature[COD_in_field_name] if wwtp_feature[COD_in_field_name] != NULL else DEFAULT_COD_IN,
-            wwtp_feature[NO3N_in_field_name] if wwtp_feature[NO3N_in_field_name] != NULL else DEFAULT_NO3N_IN,
-            wwtp_feature[TP_in_field_name] if wwtp_feature[TP_in_field_name] != NULL else DEFAULT_TP_IN,
-            wwtp_feature[ecoli_in_field_name] if wwtp_feature[ecoli_in_field_name] != NULL else DEFAULT_ECOLI_IN,
+            wwtp_feature[TSS_in_field_name],
+            wwtp_feature[BOD5_in_field_name],
+            wwtp_feature[TKN_in_field_name],
+            wwtp_feature[COD_in_field_name],
+            wwtp_feature[NO3N_in_field_name],
+            wwtp_feature[TP_in_field_name],
+            wwtp_feature[ecoli_in_field_name],
+        ]
+        inflow_concentrations = [
+            None if isinstance(val, QVariant) or val is NULL else val for val in inflow_concentrations
         ]
 
+        if any(val is None for val in inflow_concentrations):
+            raise QgsProcessingException(
+                self.tr("An inflow concentration has a NULL value: {}.").format(inflow_concentrations)
+            )
         Cin = COD_Fractionation(inflow_concentrations)
         if all(val == 0 for val in Cin):
             raise QgsProcessingException(

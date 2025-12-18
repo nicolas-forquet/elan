@@ -180,14 +180,14 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
         def __init__(self, gdf: gpd.GeoDataFrame, crs: CRS):
             super().__init__(gdf, crs)
 
-            # Add columns for input concentrations
-            self.gdf["TSS_in"] = float("nan")
-            self.gdf["BOD5_in"] = float("nan")
-            self.gdf["TKN_in"] = float("nan")
-            self.gdf["COD_in"] = float("nan")
-            self.gdf["NO3N_in"] = float("nan")
-            self.gdf["TP_in"] = float("nan")
-            self.gdf["ecoli_in"] = float("nan")
+            # Default values hardcoded for inflow concentations
+            self.gdf["TSS_in"] = float(288)
+            self.gdf["BOD5_in"] = float(265)
+            self.gdf["TKN_in"] = float(67)
+            self.gdf["COD_in"] = float(646)
+            self.gdf["NO3N_in"] = float(3)
+            self.gdf["TP_in"] = float(9.4)
+            self.gdf["ecoli_in"] = float(0)
 
             # Add columns for desired concentrations
             self.gdf["TSS_obj"] = float("nan")
