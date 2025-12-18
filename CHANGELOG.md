@@ -27,7 +27,20 @@ Unreleased
 - and that other one too
 -->
 
-## 2025.12.91-beta - 2025-12-01
+## 2025.12.18 - 2025-12-18
+
+### Changed
+
+- Sewer network module: WWTP layer now contains default inflow concentrations values
+
+### Fixed
+
+- Sewer network module: missing units on some parameters
+- Processes plots: make sure unwanted labels are not plotted
+- Processes module: fix inversion of target NTK and DCO
+- Add "population" as a default field where needed
+
+## 2025.12.1 - 2025-12-01
 
 ### Added
 
