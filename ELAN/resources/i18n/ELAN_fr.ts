@@ -615,22 +615,22 @@ Ne sélectionner que des entités avec des {} différents.</translation>
         <translation>DCO /</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="266"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="267"/>
         <source>Hydraulic and pollutant loading rates</source>
         <translation>Taux de charge hydraulique et des polluants</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="272"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="273"/>
         <source>Loading rate (%)</source>
         <translation>Taux de charge (%)</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="278"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="279"/>
         <source>Treatment trains</source>
         <translation>Filières</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="325"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="326"/>
         <source>Treatment trains multicriteria analysis</source>
         <translation>Analyse multicritère des filières de traitement</translation>
     </message>
@@ -652,7 +652,7 @@ Il doit être installé et activé (voir le gestionnaire d&apos;extensions).</tr
         <translation>Hydraulique /</translation>
     </message>
     <message>
-        <location filename="../../scripts/treatment_train_plot.py" line="254"/>
+        <location filename="../../scripts/treatment_train_plot.py" line="255"/>
         <source>stage</source>
         <translation>étage</translation>
     </message>
@@ -1397,164 +1397,164 @@ Cette étape permet d’isoler les raccordements réellement liés au réseau pu
 <context>
     <name>WetlandProcessAlgorithm</name>
     <message>
-        <location filename="../../processing/wetland_process.py" line="116"/>
+        <location filename="../../processing/wetland_process.py" line="107"/>
         <source>Processes</source>
         <translation>Procédés</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="123"/>
+        <location filename="../../processing/wetland_process.py" line="114"/>
         <source>Processings</source>
         <translation>Processus</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="197"/>
+        <location filename="../../processing/wetland_process.py" line="168"/>
         <source>WWTP layer</source>
         <translation>Couche STEU</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="191"/>
+        <location filename="../../processing/wetland_process.py" line="162"/>
         <source>Treatment trains layer</source>
         <translation>Couche de filières</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="252"/>
+        <location filename="../../processing/wetland_process.py" line="223"/>
         <source>TSS outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en MES [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="253"/>
+        <location filename="../../processing/wetland_process.py" line="224"/>
         <source>BOD5 outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en DBO5 [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="254"/>
+        <location filename="../../processing/wetland_process.py" line="225"/>
         <source>TKN outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en NTK [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="255"/>
+        <location filename="../../processing/wetland_process.py" line="226"/>
         <source>COD outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en DCO [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="203"/>
+        <location filename="../../processing/wetland_process.py" line="174"/>
         <source>Available area</source>
         <translation>Surface disponible</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="234"/>
+        <location filename="../../processing/wetland_process.py" line="205"/>
         <source>Daily inflow [m3/d]</source>
         <translation>débit journalier entrant [m3/j]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="287"/>
+        <location filename="../../processing/wetland_process.py" line="258"/>
         <source>The wetlandoptimizer library is not installed.
 Go to ELAN settings to install it.</source>
         <translation>Wetlandoptimizer n&apos;est pas installé.
 Aller dans les paramètres ELAN pour l&apos;installer.</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="212"/>
+        <location filename="../../processing/wetland_process.py" line="183"/>
         <source>Sink coordinates</source>
         <translation>Coordonnées GPS</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="222"/>
+        <location filename="../../processing/wetland_process.py" line="193"/>
         <source>Maximum stages number (between 1 and 3)</source>
         <translation>Nombre d&apos;étages maximum (entre 1 et 3)</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="256"/>
+        <location filename="../../processing/wetland_process.py" line="227"/>
         <source>NO3-N outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en N-NO3 [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="257"/>
+        <location filename="../../processing/wetland_process.py" line="228"/>
         <source>TN outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en NT [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="93"/>
+        <location filename="../../processing/wetland_process.py" line="84"/>
         <source>Temperate</source>
         <translation>Tempéré</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="94"/>
+        <location filename="../../processing/wetland_process.py" line="85"/>
         <source>Tropical</source>
         <translation>Tropical</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="181"/>
+        <location filename="../../processing/wetland_process.py" line="152"/>
         <source>Climate</source>
         <translation>Climat</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="397"/>
+        <location filename="../../processing/wetland_process.py" line="368"/>
         <source>Python not found for multiprocessing</source>
         <translation>Python introuvable pour multiprocessing</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="399"/>
+        <location filename="../../processing/wetland_process.py" line="370"/>
         <source>Unexpected error to set python path for multiprocessing:</source>
         <translation>Erreur inattendue pour affecter le chemin de Python pour multiprocessing:</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="551"/>
+        <location filename="../../processing/wetland_process.py" line="526"/>
         <source>TSS</source>
         <translation>MES</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="552"/>
+        <location filename="../../processing/wetland_process.py" line="527"/>
         <source>BOD5</source>
         <translation>DBO5</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="553"/>
+        <location filename="../../processing/wetland_process.py" line="528"/>
         <source>COD</source>
         <translation>DCO</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="569"/>
+        <location filename="../../processing/wetland_process.py" line="544"/>
         <source>These target values can&apos;t be NULL:</source>
         <translation>Ces valeurs d&apos;objectif ne doivent pas être NULL :</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="258"/>
+        <location filename="../../processing/wetland_process.py" line="229"/>
         <source>TP outflow concentration target [g/m3]</source>
         <translation>niveau de rejet en PT [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="259"/>
+        <location filename="../../processing/wetland_process.py" line="230"/>
         <source>e.coli outflow concentration target [UFC/100mL]</source>
         <translation>niveau de rejet en e.coli [UFC/100mL]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="556"/>
+        <location filename="../../processing/wetland_process.py" line="531"/>
         <source>TNK</source>
         <translation>NTK</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="557"/>
+        <location filename="../../processing/wetland_process.py" line="532"/>
         <source>NO3-N</source>
         <translation>N-NO3</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="558"/>
+        <location filename="../../processing/wetland_process.py" line="533"/>
         <source>TN</source>
         <translation>NT</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="559"/>
+        <location filename="../../processing/wetland_process.py" line="534"/>
         <source>TP</source>
         <translation>PT</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="560"/>
+        <location filename="../../processing/wetland_process.py" line="535"/>
         <source>e.coli</source>
         <translation>e.coli</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="577"/>
+        <location filename="../../processing/wetland_process.py" line="552"/>
         <source>These target values must be strictly positive:</source>
         <translation>Ces valeurs d&apos;objectif doivent être strictement positives :</translation>
     </message>
@@ -1569,7 +1569,7 @@ The available area influences the formatting of the attribute table, compared wi
 
 &lt;em&gt;Warning&lt;/em&gt;
 TP and e.coli are not completely ready for this version of ELAN.</source>
-        <translation>Dimensionnement de filières de traitements selon les niveaux de rejet définis par l&apos;utilisateur
+        <translation type="obsolete">Dimensionnement de filières de traitements selon les niveaux de rejet définis par l&apos;utilisateur
 Si elles ne sont pas renseignées dans la couche STEU, les concentrations en entrée utilisées sont :&lt;ul&gt;&lt;li&gt;MES: {} g/m3&lt;/li&gt;&lt;li&gt;DBO5: {} g/m3&lt;/li&gt;&lt;li&gt;NTK: {} g/m3&lt;/li&gt;&lt;li&gt;DCO: {} g/m3&lt;/li&gt;&lt;li&gt;N-NO3: {} g/m3&lt;/li&gt;&lt;li&gt;PT: {} g/m3&lt;/li&gt;&lt;li&gt;e.coli : {} UFC/100mL&lt;/li&gt;&lt;/ul&gt;
 La couche de surface disponible est optionnelle. Si elle est présente, chaque entité de STEU en entrée ne sera associée qu&apos;une seule fois à sa surface correspondante.
 Une surface sera affectée à une seule STEU (si 2 stations se trouvent dans la même surface, une seule station sera affectée à cette surface).
@@ -1580,55 +1580,79 @@ La surface disponible influence le formatage de la table attributaire, par rappo
 La prise en compte des phosphores (PT) et des e.coli n&apos;est pas pleinement mature dans cette version de ELAN.</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="245"/>
+        <location filename="../../processing/wetland_process.py" line="216"/>
         <source>BOD5 inflow concentration [g/m3]</source>
         <translation>concentration en entrée en DBO5 [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="246"/>
+        <location filename="../../processing/wetland_process.py" line="217"/>
         <source>TKN inflow concentration [g/m3]</source>
         <translation>concentration en entrée en NTK [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="247"/>
+        <location filename="../../processing/wetland_process.py" line="218"/>
         <source>COD inflow concentration [g/m3]</source>
         <translation>concentration en entrée en DCO [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="248"/>
+        <location filename="../../processing/wetland_process.py" line="219"/>
         <source>NO3-N inflow concentration [g/m3]</source>
         <translation>concentration en entrée en N-NO3 [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="249"/>
+        <location filename="../../processing/wetland_process.py" line="220"/>
         <source>TP inflow concentration [g/m3]</source>
         <translation>concentration en entrée en PT [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="250"/>
+        <location filename="../../processing/wetland_process.py" line="221"/>
         <source>e.coli inflow concentration [UFC/100mL]</source>
         <translation>concentration en entrée en e.coli [UFC/100mL]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="489"/>
+        <location filename="../../processing/wetland_process.py" line="460"/>
         <source>Field &apos;{}&apos; does not exist in input WWTP layer</source>
         <translation>Le champ &apos;{}&apos; n&apos;existe pas dans la couche d&apos;entrée STEU</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="244"/>
+        <location filename="../../processing/wetland_process.py" line="215"/>
         <source>TSS inflow concentration [g/m3]</source>
         <translation>concentration en entrée en MES [g/m3]</translation>
     </message>
     <message>
-        <location filename="../../processing/wetland_process.py" line="525"/>
+        <location filename="../../processing/wetland_process.py" line="500"/>
         <source>Inflow concentrations have incorrect values: {}, causing an error during COD_Fractionation step.</source>
         <translation>Valeurs incorrectes pour les concentrations en entrées : {}, provoquant une erreur lors de l&apos;étape COD_Fractionation.</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="132"/>
+        <source>Sizing of treatment systems according to user defined discharge levels.
+The available surface layer is optional. If present, each input WWTP feature will be matched only once with a corresponding surface.
+One surface will be affected to only one WWTP (if 2 WWTP are within the same surface, only one station will be matched with the surface).
+The surface layer will be reprojected to the WWTP CRS.
+The available area influences the formatting of the attribute table, compared with the treatment system total needed surface.
+
+&lt;em&gt;Warning&lt;/em&gt;
+TP and e.coli are not completely ready for this version of ELAN.</source>
+        <translation>Dimensionnement de filières de traitements selon les niveaux de rejet définis par l&apos;utilisateur
+La couche de surface disponible est optionnelle. Si elle est présente, chaque entité de STEU en entrée ne sera associée qu&apos;une seule fois à sa surface correspondante.
+Une surface sera affectée à une seule STEU (si 2 stations se trouvent dans la même surface, une seule station sera affectée à cette surface).
+La ​​couche de surface sera reprojetée sur le SCR de la couche STEU.
+La surface disponible influence le formatage de la table attributaire, par rapport à la surface totale nécessaire au procédé.
+
+&lt;em&gt;Attention&lt;/em&gt;
+La prise en compte des phosphores (PT) et des e.coli n&apos;est pas pleinement mature dans cette version de ELAN.</translation>
+    </message>
+    <message>
+        <location filename="../../processing/wetland_process.py" line="495"/>
+        <source>An inflow concentration has a NULL value: {}.</source>
+        <translation>Une concentration en entrée a une valeur NULL : {}.</translation>
     </message>
 </context>
 <context>
     <name>WetlandProcessPostProcessor</name>
     <message>
-        <location filename="../../processing/wetland_process.py" line="674"/>
+        <location filename="../../processing/wetland_process.py" line="649"/>
         <source>No layer styles found</source>
         <translation>Aucun style de couche trouvé</translation>
     </message>
