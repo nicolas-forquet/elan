@@ -61,13 +61,16 @@ Elan est structuré en **plusieurs groupement de modules**.
     :width: 500
 
 * **Préparation des données** 
-    * ``Routes et bâtiments`` qui permet **d'extraire les données** `OpenStreetMap <https://www.openstreetmap.org>`_ de la zone d'intérêt définie par l'utilisateur.
-    * ``Population`` qui est utilisable pour **répartir un nombre connu d'habitants** au sein d'un ensemble de bâtiments.
-    * ``Bassins versants urbains`` pour **identifier les différents bassins versants urbains** drainés par un réseau unitaire connu. 
+    * ``Routes et bâtiments`` qui permet **d'extraire les données de type routes et de type bâtiments** `OpenStreetMap <https://www.openstreetmap.org>`_ sur la zone d'intérêt définie par l'utilisateur.
+    * ``Population (répartition uniforme)`` pour **assigner un nombre identique d'habitants** à chaque bâtiment sur la base d'un nombre moyen d'habitants par bâtiment.
+    * ``Population (répartition surfacique)`` qui est une alternative à ``Population (répartition uniforme)`` et permet de **d'ajuster le nombre d'habitants selon la surface du bâtiment** (nombre d'habitants différent d'un bâtiment à un autre) sur la base d'un total d'habitants connu.
+    * ``Projection sur routes`` qui est utilisable pour **projeter le centroïde de chaque bâtiment sur la route la plus proche** et ainsi simplifier le pré-dimensionnement du réseau.
+    * ``Bassins versants urbains`` pour **identifier les différents bassins versants urbains** drainés par un réseau unitaire connu à l'aide de :ref:`pysheds <pysheds>`. 
 
 .. note::
-    L'utilisation de ces modules est facultative. Elle permet, si l'utilisateur en a besoin, de préparer les données SIG requises en entrées des modules de type "Processus" : 
-    ``Routes et bâtiments`` et ``Population`` pour le module ``Réseau``, ``Bassins versants urbains`` pour le module ``Hydraulique``.
+    L'utilisation de ces modules permet, si l'utilisateur en a besoin, de préparer les données SIG requises en entrées des modules de type "Processus" : 
+    - ``Routes et bâtiments``, ``Population (répartition uniforme)``, ``Population (répartition surfacique)`` et ``Projection sur routes`` pour le module ``Réseau``, 
+    - ``Bassins versants urbains`` pour le module ``Hydraulique``.
 
 * **Processus**
     * ``Réseau`` pour **tracer un réseau d'assainissement** strict (réseau séparatif, eaux usées uniquement) dans une zone sans réseau à l'aide de :ref:`pysewer <pysewer>`.
@@ -122,7 +125,7 @@ Parmi les futures intégrations à Elan, ont été identifiés les travaux d'hyd
     :width: 100
     :target: https://www.univ-grenoble-alpes.fr/recherche/recherche-712368.kjsp  
 
-Le développement de l'outil en lui-même mobilise deux acteurs : 
+Le développement de l'outil en lui-même mobilise actuellement deux acteurs : 
 
  .. image:: _static/reversaal.png
     :width: 200 

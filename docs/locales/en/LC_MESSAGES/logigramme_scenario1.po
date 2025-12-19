@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.10.92-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 14:53+0100\n"
-"PO-Revision-Date: 2025-11-27 15:32+0100\n"
+"POT-Creation-Date: 2025-12-15 11:41+0100\n"
+"PO-Revision-Date: 2025-12-16 15:41+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -20,6 +20,83 @@ msgstr ""
 "Generated-By: Babel 2.17.0\n"
 "X-Generator: Poedit 3.8\n"
 
-#: ../../logigramme_scenario1.rst:2
+#: ../../logigramme_scenario1.rst:4
 msgid "Création d'un scénario question du centralisé / décentralisé"
 msgstr "Creation of a scenario centralized / decentralized question"
+
+#: ../../logigramme_scenario1.rst:6
+msgid "**Préalable :**"
+msgstr "**What do you need?**"
+
+#: ../../logigramme_scenario1.rst:8
+msgid ""
+"Avoir préparé vos données en vous aidant du :ref:`logigramme précédent "
+"<flowchart-prepa>`"
+msgstr "Prepare you GIS data using the :ref:`previous flowchart <flowchart-prepa>`"
+
+#: ../../logigramme_scenario1.rst:10
+msgid ""
+"Installer *pysewer*, *wetlandoptimizer* et *DataPlotly* (voir la page "
+"Installation, rubriques :ref:`dépendances externes <dependances>` "
+"et :ref:`extensions QGIS tierces <extensions-tierces>`)"
+msgstr ""
+"Install *pysewer*, *wetlandoptimizer* and *DataPlotly* (see Installation page, "
+"sections :ref:`external dependencies <dependances>` et :ref:`third-party QGIS "
+"plugins <extensions-tierces>`)"
+
+#: ../../logigramme_scenario1.rst:12
+msgid ""
+"Recueillir les informations suivantes pour le prédimensionnement du réseau :"
+msgstr ""
+"Gather the following informations for preliminary sizing of the sewer network:"
+
+#: ../../logigramme_scenario1.rst:13
+msgid "consommation journalière d'eau par personne (en m³)"
+msgstr "average daily production of wastewater per person (m³)"
+
+#: ../../logigramme_scenario1.rst:14
+msgid ""
+"profondeurs minimum et maximum (pour les canalisations) envisageables dans votre "
+"contexte"
+msgstr "possible minimum and maximum sewer depths (for pipes) in your context"
+
+#: ../../logigramme_scenario1.rst:15
+msgid "diamètres usuels pour les canalisations"
+msgstr "usual diameters for pipes"
+
+#: ../../logigramme_scenario1.rst:17
+msgid ""
+"Recueillir les informations suivantes pour le prédimensionnement des filières de "
+"traitement :"
+msgstr ""
+"Gather the following informations for the pre-design of wastewater treatment "
+"trains:"
+
+#: ../../logigramme_scenario1.rst:18
+msgid ""
+"les concentrations usuelles d'un effluent domestique dans votre contexte (MES, "
+"DCO, DBO₅, NTK, NT, N-NO₃, PT, e.coli)"
+msgstr ""
+"usual concentrations for domestic wastewater in your context (TSS, COD,BOD₅, "
+"TKN, TN, NO₃-N, TP, e.coli)"
+
+#: ../../logigramme_scenario1.rst:19
+msgid "les niveaux de rejet imposés par votre réglementation (MES, DCO et DBO₅)"
+msgstr ""
+"outfow concentration targets imposed by local regulations (TSS, COD and BOD₅)"
+
+#: ../../logigramme_scenario1.rst:21
+msgid ""
+"Ce logigramme vise à vous guider à la création de scénarios sur votre zone "
+"d'étude."
+msgstr ""
+"This flowchart aims to provide guidance for creating scenarios on your study "
+"area."
+
+#: ../../logigramme_scenario1.rst:23
+msgid ""
+"Il est interactif : vous pouvez zoomer et cliquer sur certains blocs pour être "
+"renvoyé aux rubriques correspondantes dans la documentation."
+msgstr ""
+"It is interactive: you can zoom in and click on certain blocks to be redirected "
+"to the corresponding sections in the documentation."

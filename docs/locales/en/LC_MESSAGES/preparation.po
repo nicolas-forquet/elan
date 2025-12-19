@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-01 10:26+0100\n"
-"PO-Revision-Date: 2025-12-01 10:32+0100\n"
+"POT-Creation-Date: 2025-12-16 16:25+0100\n"
+"PO-Revision-Date: 2025-12-16 16:26+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -49,14 +49,12 @@ msgstr ""
 #: ../../preparation.rst:15
 msgid ""
 "``bâtiments`` : couche vecteur qui rassemble les **bâtiments à raccorder**, "
-"type : *point* (centroïdes des bâtiments). Si l'occupation est différente selon "
-"les bâtiments, le nombre d'habitants par bâtiment peut être indiqué via un "
-"attribut (*population* par exemple)."
+"type : *point* (centroïdes des bâtiments). Le nombre d'habitants par bâtiment "
+"doit être renseigné dans un attribut *population*."
 msgstr ""
 "``buildings``: vector layer containing the **buildings to be connected**, type: "
-"*point* (building centroids). If occupancy differs between buildings, the number "
-"of inhabitants per building can be indicated via an attribute (e.g., "
-"*population*)."
+"*point* (building centroids).The number of inhabitants per building must be "
+"indicated via a *population* attribute."
 
 #: ../../preparation.rst:17
 msgid ""
@@ -75,7 +73,7 @@ msgstr ""
 "the area of interest."
 
 #: ../../preparation.rst:22
-msgid "Les couches vecteur peuvent être des .shp ou des .gpkg."
+msgid "Les couches vecteurs peuvent être des .shp ou des .gpkg."
 msgstr "Vector layers can be .shp or .gpkg."
 
 #: ../../preparation.rst:24
@@ -124,7 +122,7 @@ msgstr "25 m DEM: `BD ALTI® 25M <https://geoservices.ign.fr/bdalti>`_"
 msgid "MNT à 5 m voire 1 m : `RGE ALTI® <https://geoservices.ign.fr/rgealti>`_"
 msgstr "5 m or even 1 m DEM: `RGE ALTI® <https://geoservices.ign.fr/rgealti>`_"
 
-#: ../../preparation.rst:40
+#: ../../preparation.rst:42
 msgid ""
 "``routes`` et ``bâtiments``: couches téléchargeables par département sur le site "
 "Géoservices de l'IGN `BD TOPO® <https://geoservices.ign.fr/bdtopo>`_."
@@ -161,12 +159,12 @@ msgstr "Select the ``Bâtiment`` and ``Tronçon de route`` layers."
 #: ../../preparation.rst:54
 msgid ""
 "La couche ``bâtiments`` obtenue est de type *polygone* et non *point*. Elle doit "
-"donc être transformée via le module :ref:`Population <population>` intégré à "
-"Elan ou le module ``Centroïdes`` qui est natif de QGIS."
+"donc être transformée via un des modules :ref:`Population <population>` intégré "
+"à Elan."
 msgstr ""
 "The ``building`` layer obtained will be *polygon* type, not *point* type. It "
-"must therefore be converted using the :ref:`Population <population>` module "
-"integrated in Elan or the ``Centroids`` tool native to QGIS."
+"must therefore be converted using one of the :ref:`Population <population>` "
+"modules integrated in Elan."
 
 #: ../../preparation.rst:57
 msgid "En contexte international"
@@ -174,55 +172,65 @@ msgstr "In an international context"
 
 #: ../../preparation.rst:59
 msgid ""
-"``MNT`` : le MNT ou DEM en anglais (Digital Elevation Model), est *a priori* "
-"disponible sur l'ensemble des territoires du monde à une maille de 30 m via "
-"différentes plateformes."
+"``MNT`` : le MNT ou DEM en anglais (Digital Elevation Model) est caractérisé par "
+"une maille d'acquisition (30 m, 12.5 m, 10 m, 5 m, 1 m sont les mailles les plus "
+"communes)."
 msgstr ""
-"``DEM``: the DEM (Digital Elevation Model) is generally available worldwide at "
-"30 m resolution via various platforms."
+"``DEM`` (Digital Elevation Model): the DEM is characterized by its acquisition "
+"resolution (30 m, 12.5 m, 10 m, 5 m, 1 m are the most common)"
 
-#: ../../preparation.rst:62
+#: ../../preparation.rst:61
 msgid ""
-"Plus le MNT est précis, plus les sorties du module ``Réseau`` seront "
-"pertinentes. **Nous vous recommandons donc de regarder si des données MNT à 10 m "
-"ou 5 m sont disponibles dans votre contexte national**. A défaut, utilisez le "
-"MNT à 30 m, mais gardez en tête que la précision du MNT impacte les résultats du "
-"module ``Réseau`` (surestimation du nombre de stations de pompage)."
+"**Plus la maille est fine, plus le MNT est précis et plus les sorties du "
+"module** ``Réseau`` **seront pertinentes**. Idéalement, une maille de 5 m ou "
+"moins sera utilisée."
 msgstr ""
-"Relevance of ``Sewer network`` module outputs is partially conditioned by DEM "
-"resolution. Therefore, **we highly suggest to check if 10m or 5m DEM data are "
-"available in you local context**. If not, use a 30m DEM but keep in mind that it "
-"will impact the outputs of the ``Sewer network`` module (overestimation of "
-"pumping stations)."
+"**The finest is the DEM resolution, the more relevant are the outputs of the** "
+"``Sewer module``. Ideally, a 5 m resolution or less will be used."
 
-#: ../../preparation.rst:69
+#: ../../preparation.rst:64
+msgid ""
+"La disponibilité du MNT à des mailles inférieures à 30 m varie selon les "
+"territoires. **Nous vous recommandons de regarder si des données MNT à 10 m ou 5 "
+"m sont disponibles dans votre contexte national**. A défaut, utilisez un MNT à "
+"30 m (communément disponible), mais gardez en tête que la précision du MNT "
+"impacte les résultats du module ``Réseau`` (surestimation du nombre de stations "
+"de pompage)."
+msgstr ""
+"The availability of DEM with resolution finer than 30 m varies from one "
+"territory to another. **We highly suggest to check if 10 m or 5 m DEM data are "
+"available in you local context.** If not, use a 30 m DEM (commonly available) "
+"but keep in mind that it will impact the outputs of the ``Sewer network`` module "
+"(overestimation of pumping stations)."
+
+#: ../../preparation.rst:70
 msgid ""
 "Si vous ne disposez pas de données locales de MNT à une maille inférieure à 30 "
 "m, vous pouvez consulter le site ASF Data Search à l'adresse suivante : https://"
 "search.asf.alaska.edu/#/ et suivre les étapes indiquées pour essayer de trouver "
-"une tuile de MNT à rune maille de 12.5 m sur votre zone."
+"une tuile de MNT à une maille de 12.5 m sur votre zone."
 msgstr ""
-"If you do not have access to DEM finer than 30m, you can check the ASF Data "
+"If you do not have access to DEM finer than 30 m, you can check the ASF Data "
 "Search website at the following address : https://search.asf.alaska.edu/#/ and "
 "follow the indicated steps to try to find a 12.5 m DEM tile covering your area."
 
-#: ../../preparation.rst:71
+#: ../../preparation.rst:72
 msgid "Sélectionner Geographic Search pour Search type (bulle 1)."
 msgstr "Select Geographic Search for the Search type (marker 1)."
 
-#: ../../preparation.rst:72
+#: ../../preparation.rst:73
 msgid "Sélectionner ALOS PALSAR pour Data Set (bulle 2)."
 msgstr "Select ALOS PALSAR for the Data Set (marker 2)."
 
-#: ../../preparation.rst:73
+#: ../../preparation.rst:74
 msgid "Indiquer votre zone sur la carte (bulle 3, carré jaune)."
 msgstr "Indicate your area location on the map (marker 3, yellow square)."
 
-#: ../../preparation.rst:74
+#: ../../preparation.rst:75
 msgid "Cliquer sur SEARCH (bulle 4)."
 msgstr "Click on SEARCH (marker 4)."
 
-#: ../../preparation.rst:75
+#: ../../preparation.rst:76
 msgid ""
 "Regarder si parmi les tuiles proposées à gauche, il y en a une où un fichier "
 "High-Res Terrain Corrected est proposé au téléchargement (bulle 5)."
@@ -230,7 +238,7 @@ msgstr ""
 "Among the suggested tiles on the left, check if there is one where a file High-"
 "Res Terrain Corrected can be downloaded (marker 5)."
 
-#: ../../preparation.rst:76
+#: ../../preparation.rst:77
 msgid ""
 "Si oui, il vous faudra créer un compte (email et mot de passe) pour pouvoir "
 "télécharger le fichier."
@@ -238,26 +246,27 @@ msgstr ""
 "If that is the case, you will have to create an account (email and password) to "
 "download the tile."
 
-#: ../../preparation.rst:81
+#: ../../preparation.rst:82
 msgid ""
 "``routes`` et ``bâtiments``: le module :ref:`Routes et bâtiments <routes>` "
-"d'Elan vous permet d'extraire les données OpenStreetMap sur une zone définie."
+"d'Elan vous permet d'extraire les données de types routes et bâtiments "
+"d'OpenStreetMap sur une zone définie."
 msgstr ""
 "``roads`` et ``buildings``: the Elan :ref:`Roads and buildings <routes>` module "
-"allows you to extract OpenStreetMap data for a defined area."
+"allows you to extract OpenStreetMap roads and buildings data for a defined area."
 
-#: ../../preparation.rst:84
+#: ../../preparation.rst:85
 msgid ""
-"La couche ``bâtiments`` obtenue sera de type *polygone* et non *point*. Elle "
-"devra donc être transformée via le module :ref:`Population <population>` intégré "
-"à Elan ou le module ``Centroïdes`` qui est natif de QGIS."
+"La couche ``bâtiments`` obtenue est de type *polygone* et non *point* et est "
+"dépourvue d'attribut *population*. Elle devra donc être transformée via un des "
+"modules :ref:`Population <population>` intégré à Elan."
 msgstr ""
-"The ``buildings`` layer obtained will be *polygon* type, not *point* type. To "
-"use the ``Sewer network`` module, you will need to convert it to *point* type "
-"using the Elan :ref:`Population module <population>` or the ``Centroids`` tool "
-"native to QGIS."
+"The ``buildings`` layer obtained will be *polygon* type, not *point* type and "
+"has no *population* attribute. You will need to use one of the "
+"Elan :ref:`Population <population>` modules to get the format required by the "
+"``Sewer network module``."
 
-#: ../../preparation.rst:89
+#: ../../preparation.rst:90
 msgid ""
 "Si votre zone d'étude est située dans l'hémisphère Sud, Open Buildings peut "
 "constituer une alternative intéressante à OpenStreetMap pour les bâtiments. Pour "
@@ -267,15 +276,18 @@ msgstr ""
 "can be an interesting alternative to OpenStreetMap for the buildings. For more "
 "details: https://sites.research.google/gr/open-buildings/."
 
-#: ../../preparation.rst:93
-msgid "Utilisation des modules ``Routes et bâtiments`` et ``Population``"
-msgstr "Using the ``Roads and Buildings`` and ``Population`` modules"
+#: ../../preparation.rst:94
+msgid ""
+"Utilisation des modules ``Routes et bâtiments``, ``Population`` et ``Projection "
+"sur routes``"
+msgstr ""
+"Using the ``Roads and Buildings``, ``Population`` and ``Snap on roads`` modules"
 
-#: ../../preparation.rst:98
+#: ../../preparation.rst:99
 msgid "Module ``Routes et bâtiments``"
 msgstr "``Roads and Buildings`` module"
 
-#: ../../preparation.rst:100
+#: ../../preparation.rst:101
 msgid ""
 "Le module ``Routes et bâtiments`` permet l'extraction des entités routes et "
 "bâtiments se trouvant dans une zone définie par l'utilisateur (couche de type "
@@ -289,7 +301,7 @@ msgstr ""
 "cartographic data on a global scale. OpenStreetMap is an open, collaborative "
 "tool."
 
-#: ../../preparation.rst:105
+#: ../../preparation.rst:106
 msgid ""
 "La qualité des données OpenStreetMap est variable selon les zones du globe : "
 "elle peut être d'une qualité moindre par rapport à des données nationales (moins "
@@ -303,7 +315,7 @@ msgstr ""
 "and buildings`` module can sometime be a save of time compared to national data "
 "(download, post-processing)."
 
-#: ../../preparation.rst:110
+#: ../../preparation.rst:111
 msgid ""
 "Bon à savoir : un très léger décalage en termes de georéférencement peut "
 "caractériser les données extraites à partir d'OpenStreetMap."
@@ -311,11 +323,12 @@ msgstr ""
 "Good to know : a very slight discrepancy in terms of georeferencing can "
 "characterize data extracted from OpenStreetMap."
 
-#: ../../preparation.rst:112 ../../preparation.rst:167
+#: ../../preparation.rst:113 ../../preparation.rst:161 ../../preparation.rst:192
+#: ../../preparation.rst:237
 msgid "**Utilisation du module**"
 msgstr "**Using the module**"
 
-#: ../../preparation.rst:114
+#: ../../preparation.rst:115
 msgid ""
 "**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner "
 "``Routes et bâtiments``."
@@ -323,7 +336,7 @@ msgstr ""
 "**1.** Search for ``elan`` in the Processing Toolbox and select ``Roads and "
 "Buildings``."
 
-#: ../../preparation.rst:119
+#: ../../preparation.rst:120
 msgid ""
 "**2.** Indiquer la couche *polygone* qui délimite la zone à extraire (bulle 1), "
 "cocher *Reprojection des couches dans le SCR du projet* (bulle 2) puis exécuter "
@@ -332,125 +345,172 @@ msgstr ""
 "**2.** Specify the *polygon* layer that defines the extraction area (marker 1), "
 "tick *Reproject layers to the project's CRS* (marker 2), then run (marker 3)."
 
-#: ../../preparation.rst:124
-msgid "**3.** Après exécution du module, vous disposez de **cinq sorties** :"
-msgstr "**3.** After executing the module, you will have **five outputs**:"
+#: ../../preparation.rst:125
+msgid "**3.** Après exécution du module, vous disposez de **trois sorties** :"
+msgstr "**3.** After executing the module, you will have **three outputs**:"
 
-#: ../../preparation.rst:126
+#: ../../preparation.rst:127
 msgid ""
 "``Bâtiments`` : couche de type *polygone* avec les bâtiments tels que définis "
 "dans OpenStreetMap"
 msgstr ""
 "``Buildings``: *polygon* layer with the buildings as defined in OpenStreetMap"
 
-#: ../../preparation.rst:128
+#: ../../preparation.rst:129
 msgid ""
 "``Bâtiments fusionnés`` : couche de type *polygone* obtenue après fusion des "
 "bâtiments adjacents"
 msgstr ""
 "``Merged Buildings``: *polygon* layer obtained after merging adjacent buildings"
 
-#: ../../preparation.rst:130
-msgid ""
-"``Centroïdes des bâtiments`` : couche de type *point* qui contient les "
-"centroïdes de la couche ``Bâtiments``"
-msgstr ""
-"``Building Centroids``: *point* layer containing the centroids of the "
-"``Buildings`` layer"
-
-#: ../../preparation.rst:132
-msgid ""
-"``Centroïdes des bâtiments fusionnés`` : couche de type *point* qui contient les "
-"centroïdes de la couche ``Bâtiments fusionnés``"
-msgstr ""
-"``Merged Building Centroids``: *point* layer containing the centroids of the "
-"``Merged Buildings`` layer"
-
-#: ../../preparation.rst:134
+#: ../../preparation.rst:131
 msgid ""
 "``Routes`` : couche de type *ligne* avec les routes telles que définies "
 "OpenStreetMap"
 msgstr "``Roads``: *line string* layer with the roads as defined in OpenStreetMap"
 
-#: ../../preparation.rst:136
+#: ../../preparation.rst:133
 msgid ""
-"Les couches **bâtiments** peuvent constituer des entrées pour le **module** "
+"Les couches **bâtiments** peuvent constituer des entrées pour les **modules** "
 "``Population``."
 msgstr ""
-"**Building** layers can be used as inputs for the ``Population`` **module**."
+"**Building** layers can be used as inputs for the ``Population`` **modules**."
 
-#: ../../preparation.rst:138
+#: ../../preparation.rst:135
 msgid ""
-"Les couches **centroïdes et routes** peuvent être utilisées en entrée du "
-"**module** ``Réseau``."
-msgstr ""
-"**Centroid and road** layers can be used as inputs for the ``Sewer network`` "
-"**module**."
+"La couche **routes** peuvent être utilisée en entrée du **module** ``Réseau``."
+msgstr "**Road** layer can be used as input for the ``Sewer network`` **module**."
 
-#: ../../preparation.rst:141
+#: ../../preparation.rst:140
 msgid ""
 "Lorsque vous lancez le module, vous pouvez laisser l'option par défaut de *Créer "
-"une couche temporaire* pour les cinq sorties et n'enregistrer que celles dont "
+"une couche temporaire* pour les trois sorties et n'enregistrer que celles dont "
 "vous avez besoin / celles qui vous donnent le plus satisfaction au regard de "
 "votre connaissance du terrain et de la problématique."
 msgstr ""
 "When you run the module, you can keep the default option *Create temporary "
-"layer* for the five outputs and only save those you need or those that best "
+"layer* for the three outputs and only save those you need or those that best "
 "match your knowledge of the field and the issue involved."
 
-#: ../../preparation.rst:144
+#: ../../preparation.rst:143
 msgid "Par exemple :"
 msgstr "For example:"
 
-#: ../../preparation.rst:152
-msgid "Module ``Population``"
-msgstr "``Population`` module"
-
-#: ../../preparation.rst:154
+#: ../../preparation.rst:151
 msgid ""
-"Le module ``Population`` permet de **répartir un nombre connu d'individus au "
-"sein des bâtiments de la zone**. La répartition se fait **en appliquant la "
-"méthode surfacique** qui considère l'emprise des bâtiments : plus un bâtiment "
-"occupe une surface importante, plus le nombre d'individus associé sera lui aussi "
-"important."
+"Modules ``Population`` : ``Population (répartition uniforme)`` et ``Population "
+"(répartition surfacique)``"
 msgstr ""
-"The ``Population`` module allows the **distribution of a known number of "
-"individuals among the buildings of the area**. The distribution is done **using "
-"the surface method**, which takes into account building footprint: the larger "
-"the building footprint, the greater the number of individuals assigned."
+"``Population`` modules : ``Population (uniform distribution)`` et ``Population "
+"(areametric)``"
 
-#: ../../preparation.rst:158
-msgid "Pour plus d'informations sur la méthode de répartition utilisée :"
-msgstr "For more information on the distribution method used:"
-
-#: ../../preparation.rst:160
+#: ../../preparation.rst:153
 msgid ""
-"*Lwin et al., (2009). A GIS Approach to Estimation of Building Population for "
-"Micro-spatial Analysis. Transactions in GIS, 13(4):401-414, doi: 10.1111/"
-"j.1467-9671.2009.01171.x*"
+"Les modules ``Population`` permettent d'assigner à chaque bâtiment (polygone) un "
+"nombre d'habitants via un attribut *population* et de réduire chaque bâtiment en "
+"un point (son centroïde). Ils se distinguent l'un de l'autre dans la modalité de "
+"répartition (nombre fixe ou variable d'habitants par bâtiment). Selon votre "
+"besoin, vous pouvez utiliser soit l'un, soit l'autre des modules ``Population``."
 msgstr ""
-"*Lwin et al., (2009). A GIS Approach to Estimation of Building Population for "
-"Micro-spatial Analysis. Transactions in GIS, 13(4):401-414, doi: 10.1111/"
-"j.1467-9671.2009.01171.x*"
+"The ``Population`` modules allow to assign a number of inhabitants to each "
+"building of your *polygon* layer via a *population* attribute and to reduce each "
+"building to one point (its centroid). They differ from one another in the "
+"distribution method (fixed or variable number of inhabitants per building). "
+"According to your need, you can use either one or the other of the `Population`` "
+"modules."
+
+#: ../../preparation.rst:157
+msgid "Module ``Population (répartition uniforme)``"
+msgstr "``Population (uniform distribution)`` module"
+
+#: ../../preparation.rst:159
+msgid ""
+"Le module ``Population (répartition uniforme)`` permet de **d'associer à chaque "
+"bâtiment le même nombre d'habitants** (nombre moyen d'habitants par bâtiment)."
+msgstr ""
+"The ``Population (uniform distribution)`` module allows to **assign to each "
+"building the same number of inhabitants** (mean number of inhabitants per "
+"building)."
 
 #: ../../preparation.rst:163
 msgid ""
-"Si vous souhaitez considérer un **nombre moyen d'individus par bâtiment** "
-"identique pour chacun d'entre eux, **utilisez directement le module** ``Réseau`` "
-"où vous préciserez le nombre moyen d'individus par bâtiment qui est à considérer."
-msgstr ""
-"If you wish to assign the **same average number of individuals per building** "
-"for all, use the ``Sewer network`` module directly: there you can specify the "
-"average number to be considered."
-
-#: ../../preparation.rst:171
-msgid ""
 "**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner "
-"``Population``."
+"``Population (répartition uniforme)``."
 msgstr ""
-"**1.** Search for ``elan`` in the Processing Toolbox and select ``Population``."
+"**1.** Search for ``elan`` in the Processing Toolbox and select ``Population "
+"(uniform distribution)``."
+
+#: ../../preparation.rst:168
+msgid ""
+"**2.** Renseigner la couche de bâtiments (bulle 1), indiquer un nombre moyen "
+"d'habitants par bâtiment (bulle 2), enregistrer dans un fichier (bulle 3) puis "
+"exécuter (bulle 4)."
+msgstr ""
+"**2.** Select the building layer (marker 1), specify a mean number of "
+"inhabitants per building (marker 2), set an output file (marker 3), then run "
+"(marker 4)."
+
+#: ../../preparation.rst:171 ../../preparation.rst:205
+msgid "La couche de bâtiments doit être de type *polygone*."
+msgstr "The building layer must be *polygon* type."
 
 #: ../../preparation.rst:176
+msgid ""
+"**3.** Après exécution du module, vous disposez **d'une couche de type point** "
+"avec les **centroïdes des bâtiments** de la zone. A chaque centroïde est associé "
+"un nombre identique d'individus (**attribut population**) qui correspond au "
+"nombre moyen d'habitants par bâtiment renseigné. A ce stade, vous pouvez éditer "
+"la couche et ajuster manuellement ce nombre pour certains bâtiments si vous le "
+"souhaitez (immeuble par exemple)."
+msgstr ""
+"**3.** After running the module, you will have **a point layer** with the "
+"**centroids of the buildings** in the area. The same number of inhabitants is "
+"associated to each centroid (**population attribute**). It corresponds to the "
+"specified mean number of inhabitants per building. At this stage, you can edit "
+"the layer and manually adjust this number for some buildings if you want to "
+"(apartment building for example)."
+
+#: ../../preparation.rst:182
+msgid "Module ``Population (répartition surfacique)``"
+msgstr "``Population (areametric distribution)`` module"
+
+#: ../../preparation.rst:184
+msgid ""
+"Le module ``Population (répartition surfacique)`` permet de **répartir un nombre "
+"connu d'individus au sein des bâtiments de la zone**. La répartition se fait "
+"**en appliquant la méthode surfacique** qui considère l'emprise des bâtiments : "
+"plus un bâtiment occupe une surface importante, plus le nombre d'individus "
+"associé sera lui aussi important."
+msgstr ""
+"The ``Population (areametric distribution)`` module allows the **distribution of "
+"a known number of individuals among the buildings of the area**. The "
+"distribution is done **using the surface method**, which takes into account "
+"building footprint: the larger the building footprint, the greater the number of "
+"individuals assigned."
+
+#: ../../preparation.rst:188
+msgid "Pour plus d'informations sur la méthode de répartition utilisée :"
+msgstr "For more information on the distribution method used:"
+
+#: ../../preparation.rst:190
+msgid ""
+"*Lwin et al., (2009). A GIS Approach to Estimation of Building Population for "
+"Micro-spatial Analysis. Transactions in GIS, 13(4):401-414, doi: 10.1111/"
+"j.1467-9671.2009.01171.x*"
+msgstr ""
+"*Lwin et al., (2009). A GIS Approach to Estimation of Building Population for "
+"Micro-spatial Analysis. Transactions in GIS, 13(4):401-414, doi: 10.1111/"
+"j.1467-9671.2009.01171.x*"
+
+#: ../../preparation.rst:196
+msgid ""
+"**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner "
+"``Population (répartition surfacique)``."
+msgstr ""
+"**1.** Search for ``elan`` in the Processing Toolbox and select ``Population "
+"(areametric distribution)``."
+
+#: ../../preparation.rst:201
 msgid ""
 "**2.** Indiquer une valeur de population (bulle 1), renseigner la couche de "
 "bâtiments (bulle 2), enregistrer dans un fichier (bulle 3) puis exécuter (bulle "
@@ -459,11 +519,7 @@ msgstr ""
 "**2.** Enter a population value (marker 1), select the building layer (marker "
 "2), set an output file (marker 3), then run (marker 4)."
 
-#: ../../preparation.rst:180
-msgid "La couche de bâtiments doit être de type *polygone*."
-msgstr "The building layer must be *polygon* type."
-
-#: ../../preparation.rst:185
+#: ../../preparation.rst:210
 msgid ""
 "**3.** Après exécution du module, vous disposez **d'une couche de type point** "
 "avec les **centroïdes des bâtiments** de la zone. A chaque centroïde est associé "
@@ -475,17 +531,18 @@ msgstr ""
 "**population attribute** that can be accessed in the attribute table of the "
 "layer."
 
-#: ../../preparation.rst:190
+#: ../../preparation.rst:215
 msgid ""
 "Pour **répartir plus finement la population** (par exemple par quartiers), "
-"sélectionner les entités d'un quartier avant de lancer le module ``Population`` "
-"et après avoir indiqué la couche, cocher **Entités sélectionnés uniquement**."
+"sélectionner les entités d'un quartier avant de lancer l'un des modules "
+"``Population`` et après avoir indiqué la couche, cocher **Entités sélectionnés "
+"uniquement**."
 msgstr ""
 "To **distribute the population more precisely** (for example, by neighborhoods), "
-"select the entities of one neighborhood before running the ``Population`` "
-"module, and after selecting the layer, tick **Selected features only**."
+"select the entities of one neighborhood before running one of the ``Population`` "
+"modules, and after selecting the layer, tick **Selected features only**."
 
-#: ../../preparation.rst:193
+#: ../../preparation.rst:218
 msgid ""
 "Répéter autant de fois que de quartiers de la zone. Puis utiliser l'outil "
 "``Fusionner des couches vecteur`` de QGIS pour obtenir une seule et unique "
@@ -495,11 +552,129 @@ msgstr ""
 "``Merge vector layers`` tool to obtain a single layer (input for the ``Sewer "
 "network`` module)."
 
-#: ../../preparation.rst:198
+#: ../../preparation.rst:224
+msgid "Module ``Projection sur routes``"
+msgstr "``Snap on roads`` module"
+
+#: ../../preparation.rst:226
+msgid ""
+"Le module ``Projection sur routes`` permet de **projeter les centroïdes des "
+"bâtiments à connecter sur la route la plus proche** (au niveau d'un noeud) dans "
+"la limite d'une distance fixée par l'utilisateur (40 m par défaut)."
+msgstr ""
+"The ``Snap on roads`` module allow to **snap centroids of the buildings to "
+"connect on the nearest road** (at a vertex) within a maximum distance specified "
+"by the user (40 m by default)."
+
+#: ../../preparation.rst:229
+msgid "Cette étape facultative présente **3 avantages majeurs** :"
+msgstr "This optional step has **3 major advantages**:"
+
+#: ../../preparation.rst:231
+msgid ""
+"**réduire le nombre de centroïdes** à considérer lors du prédimensionnement du "
+"réseau puisque les centroïdes projetés à un même noeud sont fusionnés entre eux, "
+"ce qui implique une **réduction du temps de calcul**"
+msgstr ""
+"**reduce the number of centroids** to consider during preliminary sizing of the "
+"sewer network as centroids snapped on a same vertex are merged, which leads to a "
+"**reduction of the computation time**"
+
+#: ../../preparation.rst:233
+msgid ""
+"**tracer uniquement les artères principales** du réseau lors du "
+"prédimensionnement"
+msgstr "**pre-design only main arteries** of the sewer network"
+
+#: ../../preparation.rst:235
+msgid ""
+"**centrer le prédimensionnement sur ce qui relève du domaine public** "
+"(canalisations et stations de pompage / relèvement)"
+msgstr ""
+"**focus preliminary sizing on public infrastructures** (pipes and lifting / "
+"pumping stations)"
+
+#: ../../preparation.rst:239
+msgid ""
+"**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner "
+"``Projection sur routes``."
+msgstr ""
+"**1.** Search for ``elan`` in the Processing Toolbox and select ``Snap on "
+"roads``."
+
+#: ../../preparation.rst:244
+msgid ""
+"**2.** Renseigner la couche de routes (bulle 1) et celle de bâtiments (bulle 2), "
+"indiquer le champ correspondant à la population (bulle 3), si besoin ajuster la "
+"valeur par défaut de la distance maximale à la route autorisée (bulle 4) puis "
+"exécuter (bulle 5)."
+msgstr ""
+"**2.** Select the road layer (landmark 1) and the building layer (landmark 2), "
+"specify the field corresponding to population (landmark 3), if needed adjust the "
+"default value for maximum distance authorized for snapping (landmark 4), then "
+"run (landmark 5)."
+
+#: ../../preparation.rst:250
+msgid ""
+"**3.** Après exécution du module, vous disposez de **deux sorties** temporaires "
+"que vous pouvez ensuite enregistrer comme expliqué :ref:`plus haut <save-temp>`"
+msgstr ""
+"**3.** After running the module, you have **two temporary outputs** that you can "
+"then save as explained :ref:`above <save-temp>`"
+
+#: ../../preparation.rst:252
+msgid ""
+"``Centroïdes projetés`` : couche de type *point* avec les centroïdes projetés "
+"sur les routes (pour ceux où la condition de distance à la route est respectée). "
+"Chaque centroïde est caractérisé par 2 attributs :"
+msgstr ""
+"``Snapped centroids``: *point* layer with the building centroids snapped on "
+"roads (for those matching the specified maximum distance to roads). Each "
+"centroid is characterized by 2 attributes:"
+
+#: ../../preparation.rst:-1
+msgid "couche de type"
+msgstr "layer type"
+
+#: ../../preparation.rst:253
+msgid "*count* le nombre de bâtiments représentés par ce centroïde,"
+msgstr "*count* the number of buildings represented by this centroid,"
+
+#: ../../preparation.rst:254
+msgid "*population* le nombre total d'habitants au niveau de ce centroïde."
+msgstr "*population* the total number of inhabitants at this centroid."
+
+#: ../../preparation.rst:256
+msgid ""
+"``Lignes de projection`` : couche de type *ligne* avec les lignes de projection "
+"entre les centroïdes initiaux et ceux obtenus après projection"
+msgstr ""
+"``Projection lines``: *line string* layer with the projection lines between the "
+"initial centroids and the ones after snapping on roads"
+
+#: ../../preparation.rst:258
+msgid ""
+"La couche de **centroïdes** peut être utilisée en entrée du module ``Réseau``."
+msgstr ""
+"**Centroid** layer can be used as inputs for the ``Sewer network`` **module**."
+
+#: ../../preparation.rst:260
+msgid ""
+"La couche de **lignes** est uniquement disponible pour servir la compréhension "
+"de l'utilisateur et lui permettre d'envisager des ajustements (ajout de tronçons "
+"de routes, suppression de bâtiments, modification de la distance maximale à la "
+"route autorisée par exemple)."
+msgstr ""
+"The **lines** layer is available only to help the user in understanding and "
+"enable him to consider adjustments (addition of road segments, deletion "
+"buildings, change the maximum distance to road authorized for snapping for "
+"example)."
+
+#: ../../preparation.rst:264
 msgid "Entrées du module ``Hydraulique``"
 msgstr "Inputs for the ``Hydraulic`` module"
 
-#: ../../preparation.rst:201
+#: ../../preparation.rst:267
 msgid "Cette section est en cours de construction."
 msgstr "This section is under construction."
 
@@ -1023,3 +1198,35 @@ msgstr "This section is under construction."
 #~ msgstr ""
 #~ "The geopackage *couches_intermediaires.gpkg* contains all intermediate layers "
 #~ "that were necessary to obtain these 5 layers."
+
+#~ msgid ""
+#~ "``MNT`` : le MNT ou DEM en anglais (Digital Elevation Model), est *a priori* "
+#~ "disponible sur l'ensemble des territoires du monde à une maille de 30 m via "
+#~ "différentes plateformes."
+#~ msgstr ""
+#~ "``DEM``: the DEM (Digital Elevation Model) is generally available worldwide "
+#~ "at 30 m resolution via various platforms."
+
+#~ msgid ""
+#~ "``Centroïdes des bâtiments`` : couche de type *point* qui contient les "
+#~ "centroïdes de la couche ``Bâtiments``"
+#~ msgstr ""
+#~ "``Building Centroids``: *point* layer containing the centroids of the "
+#~ "``Buildings`` layer"
+
+#~ msgid ""
+#~ "``Centroïdes des bâtiments fusionnés`` : couche de type *point* qui contient "
+#~ "les centroïdes de la couche ``Bâtiments fusionnés``"
+#~ msgstr ""
+#~ "``Merged Building Centroids``: *point* layer containing the centroids of the "
+#~ "``Merged Buildings`` layer"
+
+#~ msgid ""
+#~ "Si vous souhaitez considérer un **nombre moyen d'individus par bâtiment** "
+#~ "identique pour chacun d'entre eux, **utilisez directement le module** "
+#~ "``Réseau`` où vous préciserez le nombre moyen d'individus par bâtiment qui "
+#~ "est à considérer."
+#~ msgstr ""
+#~ "If you wish to assign the **same average number of individuals per building** "
+#~ "for all, use the ``Sewer network`` module directly: there you can specify the "
+#~ "average number to be considered."

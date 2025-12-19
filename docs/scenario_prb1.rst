@@ -60,15 +60,11 @@ Utilisation du module
 .. image:: _static/boite-outils-icone.png
      :width: 193
 
-**2.** **Renseigner les 4 couches géographiques**. 
+**2.** **Renseigner les 4 couches géographiques**. Vérifier que le champ autodétecté pour ``Population (champ)`` est correct.
 
 .. tip::
     Pour les exutoires, vous pouvez sélectionner au préalable celui ou ceux que vous souhaitez considérer parmi l'ensemble des possibilités envisagées puis cocher *Entités sélectionnées uniquement* dans le module.
     Cette option est également proposée pour les routes et les bâtiments à considérer.
-
-Si le nombre d'individus par bâtiment est connu et renseigné dans un attribut (*population* par exemple), 
-l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus par bâtiment sera considéré 
-(valeur ajustable selon votre contexte).
 
 .. note::
     Si vous avez eu recours au module ``Population`` pour préparer vos données géographiques, l'attribut à indiquer est *population*.
@@ -78,19 +74,11 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 
 **3.** Faire coulisser l'ascenseur à l'aide de la souris (et non de la molette, cela risque de changer les valeurs des paramètres à votre insu) et **ajuster les différents paramètres** (encart 5) afin que le pré-dimensionnement du réseau soit le plus adapté à votre contexte : 
 
-* ``nombre moyen de personnes par foyer`` : à renseigner dans le cas où la population n'est pas discrétisée à l'échelle du bâtiment.
-
-* ``volume moyen d'eaux usées produit par jour par personne`` : [m3].
-
-* ``coefficient de pointe journalier`` : [m3/j].
-
-* ``pente minimale permettant l'autocurrage`` : [m/m].
+* ``volume moyen d'eaux usées produit par jour par personne`` : [m³].
 
 * ``profondeur max autorisée de canalisation`` : [m], dépend du contexte géologique.
 
 * ``profondeur min autorisée de canalisation`` : [m], généralement conditionnée par le risque de gel.
-
-* ``rugosité canalisation`` : [μm], dépend du matériau utilisé pour les canalisations.
 
 * ``diamètre autorisé sous pression`` : [m], un seul diamètre autorisé.
 
@@ -100,6 +88,15 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
     Il a été constaté que **les modifications des profondeurs max et min autorisées ne sont actuellement pas prises 
     en compte** (valeurs bloquées aux valeurs par défaut 0.25 m et 8 m). Le bug doit d'abord être corrigé sur pysewer
     avant que la correction puisse être intégrée à Elan.
+
+.. note::
+    Vous pouvez également ajuster d'autres paramètres en déroulant la section *Paramètres avancés*. Parmi eux :
+
+    * ``coefficient de pointe journalier`` : [m³/j].
+
+    * ``pente minimale permettant l'autocurrage`` : [m/m].
+    
+    * ``rugosité canalisation`` : [μm], dépend du matériau utilisé pour les canalisations.
 
 **4.** Indiquer un emplacement et un nom pour la couche .gpkg en sortie (bulle 6) puis exécuter (bulle 7).
 
@@ -138,15 +135,15 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
 
 .. _set-concentrations:
 
-* ``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour chaque exutoire), *débit de pointe* [m3/j], *débit moyen journalier* [m3/j], *habitants raccordés* [nb], *profondeur tranchée* [m], *profondeur canas entrantes* [m], *diamètres entrants* [m].
+* ``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour chaque exutoire), *débit de pointe* [m³/j], *débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur tranchée* [m], *profondeur canas entrantes* [m], *diamètres entrants* [m].
 
 .. note::
     En sortie de module ``Réseau``, la couche STEU compte aussi des attributs non renseignés : *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL]. Ces attributs sont à renseigner manuellement 
     pour chaque exutoire selon vos contraintes de rejet. Ils servent d'entrées pour le module ``Procédés``. Certains peuvent être renseignés à *NULL*.
 
-* ``Stations de relevage`` : *altitude terrain* [m], *débit de pointe* [m3/s], *débit moyen journalier* [m3/j], *habitants raccordés* [nb], *profondeur canas entrantes* [m], *charge hydrostatique* [m].
+* ``Stations de relevage`` : *altitude terrain* [m], *débit de pointe* [m³/s], *débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur canas entrantes* [m], *charge hydrostatique* [m].
 
-* ``Stations de pompage`` : *altitude terrain* [m], *débit de pointe* [m3/s], *débit moyen journalier* [m3/j], *habitants raccordés* [nb], *profondeur canas entrantes* [m], *charge hydrostatique* [m].
+* ``Stations de pompage`` : *altitude terrain* [m], *débit de pointe* [m³/s], *débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur canas entrantes* [m], *charge hydrostatique* [m].
 
 .. note::
     ``Stations de pompage`` peut indiquer des charges hydrostatiques négatives pour certaines des stations pré-dimensionnées. Il ne s'agit pas d'une erreur :
@@ -158,7 +155,7 @@ l'indiquer dans l'encart mis en évidence. Sinon, un nombre moyen d'individus pa
             .. image:: _static/siphon.png
                 :width: 700
 
-* ``Canalisations`` : *longueur* [m], *profil de terrain* [liste de points échantillonnés tous les 10 m], *avec pompe* [booléen], *sous pression* [booléen], *profils de canalisations* [liste de points échantillonnés tous les 10 m], *profondeur moyenne tranchée* [m], *diamètre* [m], *débit de pointe* [m3/s], *coordonnées STEU* [identifiant STEU exutoire].
+* ``Canalisations`` : *longueur* [m], *profil de terrain* [liste de points échantillonnés tous les 10 m], *avec pompe* [booléen], *sous pression* [booléen], *profils de canalisations* [liste de points échantillonnés tous les 10 m], *profondeur moyenne tranchée* [m], *diamètre* [m], *débit de pointe* [m³/s], *coordonnées STEU* [identifiant STEU exutoire].
 
 * ``Informations sur le réseau`` : *nombre bâtiments* [nb], *longueur réseau sous pression* [mètre linéaire], *longueur réseau gravitaire* [mètre linéaire], *nombre stations pompage* [nb], *nombre stations relevage* [nb], *date simulation* [datetime].
 
@@ -369,7 +366,7 @@ Chaque entité possède de nombreux attributs :
     * **description filière** : détails de la filière pré-dimensionnée (procédé étage 1 - ... - procédé étage n). 
     * **coordonnées gps** : identifiant STEU pour laquelle la filière a été pré-dimensionnée.
     * **taux de charge MES par étape de traitement** [%] : taux de charge en MES par étage [taux étage 1,..., taux étage n].
-    * **taux de charge DBO5 par étape de traitement** [%] : taux de charge en DBO5 par étage [taux étage 1,..., taux étage n].
+    * **taux de charge DBO5 par étape de traitement** [%] : taux de charge en DBO₅ par étage [taux étage 1,..., taux étage n].
     * **taux de charge NTK par étape de traitement** [%] : taux de charge en NTK par étage [taux étage 1,..., taux étage n].
     * **taux de charge DCO par étape de traitement** [%] : taux de charge en DCO par étage [taux étage 1,..., taux étage n].
     * **taux de charge hydraulique par étape de traitement** [%] : taux de charge hydraulique par étage [taux étage 1,..., taux étage n].
@@ -386,19 +383,19 @@ Chaque entité possède de nombreux attributs :
 
     * **profondeur non saturée par étage** [m] : détail de la profondeur non saturée pour chaque étage [profondeur non saturée étage 1,..., profondeur non saturée étage n]. 
     * **concentration MES effluent** [mg/L] : concentration en MES en sortie de filière de traitement.
-    * **concentration DBO5 effluent** [mg/L] : concentration en DBO5 en sortie de filière de traitement.
+    * **concentration DBO5 effluent** [mg/L] : concentration en DBO₅ en sortie de filière de traitement.
     * **concentration NTK effluent** [mg/L] : concentration en NTK en sortie de filière de traitement.
     * **concentration DCO effluent** [mg/L] : concentration en DCO en sortie de filière de traitement.
     * **concentration NT effluent** [mg/L] : concentration en NT en sortie de filière de traitement.
-    * **concentration N-NO3 effluent** [mg/L] : concentration en N-NO3 en sortie de filière de traitement.
+    * **concentration N-NO3 effluent** [mg/L] : concentration en N-NO₃ en sortie de filière de traitement.
     * **concentration PT effluent** [mg/L] : concentration en PT en sortie de filière de traitement.
     * **concentration e.coli** [UFC/100mL] : concentration en e.coli en sortie de filière de traitement.
     * **déviation MES** [mg/L] : déviation de la concentration en MES dans l'effluent par rapport au niveau de rejet.
-    * **déviation DBO5** [mg/L] : déviation de la concentration en DBO5 dans l'effluent par rapport au niveau de rejet.
+    * **déviation DBO5** [mg/L] : déviation de la concentration en DBO₅ dans l'effluent par rapport au niveau de rejet.
     * **déviation NTK** [mg/L] : déviation de la concentration en NTK dans l'effluent par rapport au niveau de rejet.
     * **déviation DCO** [mg/L] : déviation de la concentration en DCO dans l'effluent par rapport au niveau de rejet.
     * **déviation NT** [mg/L] : déviation de la concentration en NT dans l'effluent par rapport au niveau de rejet.
-    * **déviation N-NO3** [mg/L] : déviation de la concentration en N-NO3 dans l'effluent par rapport au niveau de rejet.
+    * **déviation N-NO3** [mg/L] : déviation de la concentration en N-NO₃ dans l'effluent par rapport au niveau de rejet.
     * **déviation PT** [mg/L] : déviation de la concentration en PT dans l'effluent par rapport au niveau de rejet.
     * **déviation e.coli** [mg/L] : déviation de la concentration en e.coli dans l'effluent par rapport au niveau de rejet.
 
@@ -406,11 +403,11 @@ Chaque entité possède de nombreux attributs :
     conformité de la filière par rapport aux niveaux de rejets renseignés en entrée de module : vert = conforme, rouge = non conforme.
 
     * **MES normalisé** [-] : valeur normalisée de la concentration en MES dans l'effluent par rapport au niveau de rejet exigé.
-    * **DBO5 normalisé** [-] : valeur normalisée de la concentration en DBO5 dans l'effluent par rapport au niveau de rejet exigé.
+    * **DBO5 normalisé** [-] : valeur normalisée de la concentration en DBO₅ dans l'effluent par rapport au niveau de rejet exigé.
     * **NTK normalisé** [-] : valeur normalisée de la concentration en NTK dans l'effluent par rapport au niveau de rejet exigé.
     * **DCO normalisé** [-] : valeur normalisée de la concentration en DCO dans l'effluent par rapport au niveau de rejet exigé.
     * **NT normalisé** [-] : valeur normalisée de la concentration en NT dans l'effluent par rapport au niveau de rejet exigé.
-    * **N-NO3 normalisé** [-] : valeur normalisée de la concentration en N-NO3 dans l'effluent par rapport au niveau de rejet exigé.
+    * **N-NO3 normalisé** [-] : valeur normalisée de la concentration en N-NO₃ dans l'effluent par rapport au niveau de rejet exigé.
     * **PT normalisé** [-] : valeur normalisée de la concentration en PT dans l'effluent par rapport au niveau de rejet exigé.
     * **e.coli normalisé** [-] : valeur normalisée de la concentration en e.coli dans l'effluent par rapport au niveau de rejet exigé.
     * **surface normalisée** [-] : valeur normalisée de la surface totale de la filière par rapport à la surface disponible.
@@ -442,15 +439,88 @@ n'est pas au maximum de sa charge en termes de polluants dans la configuration a
 ---------------------------------------------------
 
 Parmi les filières proposées, certaines permettent d'atteindre les niveaux de rejets imposés (déviations en vert), d'autres non (déviations en rouge), avec des contraintes
-de surface qui leur sont propre et qui peuvent excéder la surface disponible (surface totale en rouge si une surface disponible a été renseignée).
+de surface qui leur sont propres et qui peuvent excéder la surface disponible (surface totale en rouge si une surface disponible a été renseignée).
+
+Des représentations graphiques ont été intégrées à Elan pour mieux visualiser les attributs des différentes filières et ainsi identifier plus facilement leurs points forts 
+et leurs points faibles respectifs. 
+
+Pour afficher ces représentations graphiques, il faut au préalable :
+
+* Avoir installé **l'extension Data Plotly** comme expliqué dans :ref:`Installation des extensions QGIS tierces <extensions-tierces>`.
+
+* Disposer d'une couche ``Couche de filières`` (sortie du module ``Procédés``).
+
+* Si votre couche ``Couche de filières`` contient plusieurs exutoires, avoir sélectionné l'un d'entre eux.
+
+.. important::
+    Le radar plot et le bar plot visent à **comparer les différentes filières possibles pour un exutoire**. Si votre couche ``Couche de filières`` contient plusieurs exutoires
+    et que vous oubliez d'un sélectionner un, un message d'erreur apparaitra lorsque vous essayerez d'afficher un des deux graphiques.
+
+.. _plots:
+
+Radar plot
+^^^^^^^^^^
 
 Le respect des niveaux de rejet imposés et de la surface disponible sont deux critères assez évidents qui vous permettront de pré-sélectionner une filière par exutoire.
+Le radar plot intégré à Elan permet de visualiser graphiquement les différentes filières sur la base de ces critères et ainsi faciliter leur comparaison.
 
-Les taux de charge en polluants et le taux de charge hydraulique peuvent également vous aider dans le choix des filières pré-sélectionnées.
+Pour l'afficher :
 
-.. note::
-   Des représentations graphiques (bar plot et radar plot) pour mieux visualiser les attributs des différentes filières retenues seront bientôt disponibles
-   en sortie de module ``Procédés``. Il sera ainsi plus simple d'identifier leurs points forts et leurs points faibles respectifs.
+**1.** Cliquer sur votre couche ``Couche de filières`` dans l'onglet *Couches* (bulle 1).
+
+**2.** Appuyer sur le bouton en forme de radar plot (bulle 2).
+
+**3.** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous *Boîte à outils de traitements*, bulle 3).
+
+.. image:: _static/afficher-radarplot.png
+    :width: 700
+
+**4.** Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique.
+
+.. image:: _static/radarplot.png
+    :width: 700
+
+Les axes du radar plot coïncident avec les contraintes renseignées par l'utilisateur dans la couche ``STEU`` éditée en sortie de module ``Réseau``. Dans cet exemple, 
+l'utilisateur a indiqué des contraintes (niveaux de rejet) sur 4 polluants (MES, DCO, DBO₅ et NTK) et une contrainte de surface avec une couche polygone en entrée de 
+module ``Procédés``.
+
+Le seuil en pointillés représente les contraintes : un point sous le seuil indique que la contrainte sur cet axe est respectée, tandis qu'un point au-dessus du seuil traduit
+une non conformité de la filière sur ce critère.
+
+Par défaut, toutes les filières proposées pour l'exutoire apparaissent sur le radar plot. Si vous souhaitez en voir uniquement certaines, il vous suffit de les sélectionner
+dans la table attributaire puis de cliquer de nouveau sur le bouton radar plot.
+
+Bar plot
+^^^^^^^^
+
+Les taux de charge en polluants et le taux de charge hydraulique peuvent également vous aider dans le choix des filières pré-sélectionnées. C'est le bar plot intégré à Elan 
+qui vous permettra de visualiser de manière graphique ces attributs.
+
+Pour l'afficher :
+
+**1.** Cliquer sur votre couche ``Couche de filières`` dans l'onglet *Couches* (bulle 1).
+
+**2.** Appuyer sur le bouton en forme de bar plot (bulle 2).
+
+**3.** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous *Boîte à outils de traitements*, bulle 3).
+
+.. image:: _static/afficher-barplot.png
+    :width: 700
+
+**4.**  Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique.
+
+.. image:: _static/barplot.png
+    :width: 700
+
+Pour chaque filière, le graphique permet de voir par étage les taux de charge en MES, DBO₅, NTK et DCO ainsi que le taux de charge hydraulique. Une filière 1 étage apparait avec
+un seul "bloc" avec l'ensemble des taux de charge "stage 1" (couleurs d'intensité maximale), tandis qu'une filière 3 étages contient 3 "blocs" avec les taux de charge "stage 1", "stage 2" 
+et "stage 3" (intensité de couleur décroissante : maximale pour "stage 1" et minimale pour "stage 3").
+
+Le bar plot vous permet d'identifier le ou les éléments qui ont été limitants dans l'optimisation de la filière (taux à 100 %) et d'avoir une appréciation rapide de la marge
+de manoeuvre (ou non marge de manoeuvre) possible pour une filière en cas de changement de contexte (augmentation de la population par exemple).
+
+Par défaut, toutes les filières proposées pour l'exutoire apparaissent sur le bar plot. Si vous souhaitez en voir uniquement certaines, il vous suffit de les sélectionner
+dans la table attributaire puis de cliquer de nouveau sur le bouton bar plot.
 
 .. _creer-scenario:
 

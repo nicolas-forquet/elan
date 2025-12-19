@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-01 10:26+0100\n"
-"PO-Revision-Date: 2025-12-01 10:29+0100\n"
+"POT-Creation-Date: 2025-12-15 11:41+0100\n"
+"PO-Revision-Date: 2025-12-15 11:44+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -125,7 +125,7 @@ msgstr "Currently, Elan is not compatible with Mac."
 msgid "Installation de l'extension"
 msgstr "Installing plugin"
 
-#: ../../installation.rst:70
+#: ../../installation.rst:70 ../../installation.rst:183
 msgid "**1.** Ouvrir le gestionnaire d'extensions."
 msgstr "**1.** Open the plugin manager."
 
@@ -139,7 +139,7 @@ msgstr ""
 "(landmark 3) and click on ``Install plugin`` at the bottom of the plugin "
 "description (landmark 4)."
 
-#: ../../installation.rst:80
+#: ../../installation.rst:80 ../../installation.rst:193
 msgid ""
 "**3.** La mention ``Extension installée avec succès`` apparaît au sommet de la "
 "fenêtre. Fermer le gestionnaire d'extensions."
@@ -316,11 +316,75 @@ msgstr ""
 "Dependencies may be subject to version upgrades. In such cases, perform ``RESET "
 "SETTINGS`` and then reinstall the dependencies as explained above."
 
-#: ../../installation.rst:161
+#: ../../installation.rst:160
+msgid ""
+"Lorsqu'une nouvelle version d'Elan est installée, il est également nécessaire de "
+"réinstaller *pysewer* et *wetlandoptimizer*."
+msgstr ""
+"When a new version of Elan is installed, *pysewer* and *wetlandoptimizer* should "
+"also be reinstalled."
+
+#: ../../installation.rst:165
+msgid "Installation des extensions QGIS tierces"
+msgstr "Installing the third-party QGIS plugins"
+
+#: ../../installation.rst:167
+msgid ""
+"Certaines fonctionnalités d'Elan reposent sur d'autres extensions QGIS. Cette "
+"section détaille lesquelles et la manière de les installer."
+msgstr ""
+"Some Elan features rely on third-party QGIS plugins. This section specifies "
+"which ones and how to install them."
+
+#: ../../installation.rst:170
+msgid "Question du centralisé/décentralisé : Data Plotly"
+msgstr "Centralized/decentralized question: Data Plotly"
+
+#: ../../installation.rst:172
+msgid ""
+"**Data Plotly** est une extension QGIS qui permet la création de graphiques "
+"interactifs dans l'environnement QGIS. Elle se base sur la librairie Plotly et "
+"l'API Python. Data Plotly rassemble une importante communauté et évolue grâce "
+"aux contributions de celle-ci. Le développement d'Elan a permis de contribuer à "
+"Data Plotly en ajoutant un nouveau type de graphique : le graphique radar."
+msgstr ""
+"**Data Plotly** is a QGIS plugin that allows the creation of interactive plots "
+"in QGIS environment. It is based on the Plotly library and the Python API. Data "
+"Plotly gathers a large community and evolves thanks to its contributions. The "
+"development of Elan provided an opportunity to contribute to Data Plotly by "
+"adding a new type of plot : the radar plot."
+
+#: ../../installation.rst:176
+msgid "Lien GitLab : https://github.com/ghtmtt/DataPlotly"
+msgstr "GitLab link : https://github.com/ghtmtt/DataPlotly"
+
+#: ../../installation.rst:178
+msgid "Son installation se fait via le gestionnaire d'extensions QGIS."
+msgstr "Its installation is done via the QGIS plugin manager."
+
+#: ../../installation.rst:181
+msgid ""
+"**Data Plotly est nécessaire pour pouvoir visualiser de manière graphique les "
+"sorties du module** ``Procédés``."
+msgstr ""
+"**Data Plotly is required to be able to view the** ``Processes`` **outputs "
+"graphically**."
+
+#: ../../installation.rst:188
+msgid ""
+"**2.** Dans `Toutes` (bulle 1), chercher \"Data Plotly\" (bulle 2). Sélectionner "
+"le plugin (bulle 3) puis cliquer sur ``Installer l'extension`` en bas du "
+"descriptif de l'extension (bulle 4)."
+msgstr ""
+"**2.** In `All` (landmark 1), search \"Data Plotly\" (landmark 2). Select the "
+"plugin (landmark 3) and click on ``Install plugin`` at the bottom of the plugin "
+"description (landmark 4)."
+
+#: ../../installation.rst:198
 msgid "Question des déversements par temps de pluie : pysheds"
 msgstr "Stormwater overflows question: pysheds"
 
-#: ../../installation.rst:163
+#: ../../installation.rst:200
 msgid ""
 "**pysheds** est une bibliothèque open-source Python développée par `l'UT Austin "
 "<https://www.utexas.edu/>`_, une université américaine (Texas)."
@@ -328,7 +392,7 @@ msgstr ""
 "**pysheds** is an open-source Python library developed by `UT Austin <https://"
 "www.utexas.edu/>`_, a U.S. university (Texas)."
 
-#: ../../installation.rst:165
+#: ../../installation.rst:202
 msgid ""
 "Elle permet de délimiter rapidement des bassins versants topographiques par "
 "analyse du modèle numérique de terrain (MNT). Son installation se fait "
@@ -337,13 +401,13 @@ msgstr ""
 "It allows rapid delineation of topographic catchments by analyzing a Digital "
 "Elevation Model (DEM). Its installation is done directly from the command line."
 
-#: ../../installation.rst:169
+#: ../../installation.rst:206
 msgid ""
 "**pysheds doit avoir été installé pour pouvoir utiliser le module** ``Bassins "
 "versants urbains``."
 msgstr "**pysheds must be installed to use the** ``Urban Catchment`` **module**."
 
-#: ../../installation.rst:171
+#: ../../installation.rst:208
 msgid ""
 "**1.** Ouvrir un terminal. Par exemple, sur Windows ouvrir l'application "
 "`OSGeo4W Shell`."
@@ -351,10 +415,10 @@ msgstr ""
 "**1.** Open a terminal. For example, on Windows open the `OSGeo4W Shell` "
 "application."
 
-#: ../../installation.rst:173
+#: ../../installation.rst:210
 msgid "**2.** Exécuter la commande suivante :"
 msgstr "**2.** Run the following command:"
 
-#: ../../installation.rst:179
+#: ../../installation.rst:216
 msgid "**3.** Fermer le terminal."
 msgstr "**3.** Close the terminal."

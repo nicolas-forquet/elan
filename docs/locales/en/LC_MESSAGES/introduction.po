@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-01 10:26+0100\n"
-"PO-Revision-Date: 2025-12-01 10:30+0100\n"
+"POT-Creation-Date: 2025-12-15 11:41+0100\n"
+"PO-Revision-Date: 2025-12-15 11:44+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -185,47 +185,73 @@ msgstr "**Data pre-processing**"
 
 #: ../../introduction.rst:64
 msgid ""
-"``Routes et bâtiments`` qui permet **d'extraire les données** `OpenStreetMap "
-"<https://www.openstreetmap.org>`_ de la zone d'intérêt définie par "
-"l'utilisateur."
+"``Routes et bâtiments`` qui permet **d'extraire les données de type routes et "
+"de type bâtiments** `OpenStreetMap <https://www.openstreetmap.org>`_ sur la "
+"zone d'intérêt définie par l'utilisateur."
 msgstr ""
 "``Roads and buildings`` that allows **the extraction of** `OpenStreetMap "
-"<https://www.openstreetmap.org>`_ **data** for the user-defined area of "
-"interest."
+"<https://www.openstreetmap.org>`_ **roads and buildings data** for the user-"
+"defined area of interest."
 
 #: ../../introduction.rst:65
 msgid ""
-"``Population`` qui est utilisable pour **répartir un nombre connu "
-"d'habitants** au sein d'un ensemble de bâtiments."
+"``Population (répartition uniforme)`` pour **assigner un nombre identique "
+"d'habitants** à chaque bâtiment sur la base d'un nombre moyen d'habitants par "
+"bâtiment."
 msgstr ""
-"``Population`` that **distributes a known number of inhabitants** among a set "
-"of buildings."
+"``Population (uniform distribution)`` to **assign the same number of "
+"inhabitants** to each building based on a mean number of inhabitants per "
+"building."
 
 #: ../../introduction.rst:66
 msgid ""
+"``Population (répartition surfacique)`` qui est une alternative à ``Population "
+"(répartition uniforme)`` et permet de **d'ajuster le nombre d'habitants selon "
+"la surface du bâtiment** (nombre d'habitants différent d'un bâtiment à un "
+"autre) sur la base d'un total d'habitants connu."
+msgstr ""
+"``Population (areametric distribution)`` which is an alternative to "
+"``Population (uniform distribution)`` and enables to **adjust the number of "
+"inhabitants according to building footprint** (number of inhabitants that "
+"varies from one building to another) based on a known total population."
+
+#: ../../introduction.rst:67
+msgid ""
+"``Projection sur routes`` qui est utilisable pour **projeter le centroïde de "
+"chaque bâtiment sur la route la plus proche** et ainsi simplifier le pré-"
+"dimensionnement du réseau."
+msgstr ""
+"``Snap on roads`` that can be used to **snap each building centroid on the "
+"nearest road** and thus facilitate sewer pre-sizing."
+
+#: ../../introduction.rst:68
+msgid ""
 "``Bassins versants urbains`` pour **identifier les différents bassins versants "
-"urbains** drainés par un réseau unitaire connu."
+"urbains** drainés par un réseau unitaire connu à l'aide de :ref:`pysheds "
+"<pysheds>`."
 msgstr ""
 "``Urban Catchment`` that **identifies the various urban catchment areas** "
-"drained by a known combined sewer network."
+"drained by a known combined sewer network using :ref:`pysheds <pysheds>`."
 
-#: ../../introduction.rst:69
+#: ../../introduction.rst:71
 msgid ""
-"L'utilisation de ces modules est facultative. Elle permet, si l'utilisateur en "
-"a besoin, de préparer les données SIG requises en entrées des modules de type "
-"\"Processus\" : ``Routes et bâtiments`` et ``Population`` pour le module "
-"``Réseau``, ``Bassins versants urbains`` pour le module ``Hydraulique``."
+"L'utilisation de ces modules permet, si l'utilisateur en a besoin, de préparer "
+"les données SIG requises en entrées des modules de type \"Processus\" : - "
+"``Routes et bâtiments``, ``Population (répartition uniforme)``, ``Population "
+"(répartition surfacique)`` et ``Projection sur routes`` pour le module "
+"``Réseau``, - ``Bassins versants urbains`` pour le module ``Hydraulique``."
 msgstr ""
-"The use of these modules is optional. It allows, if the user needs it, the "
-"preparation of the GIS data required as inputs for the “Processings” type "
-"modules: ``Roads and Buildings`` and ``Population`` for the ``Sewer network`` "
-"module, ``Urban Catchment`` for the ``Hydraulic`` module."
+"The use of these modules allows, if the user needs it, the preparation of the "
+"GIS data required as inputs for the “Processings” type modules: - ``Roads and "
+"Buildings``, ``Population (uniform distribution)``, ``Population (areametric "
+"distribution)`` and ``Projection on roads`` for the ``Sewer network`` module, "
+"- ``Urban Catchment`` for the ``Hydraulic`` module."
 
-#: ../../introduction.rst:72
+#: ../../introduction.rst:75
 msgid "**Processus**"
 msgstr "**Processings**"
 
-#: ../../introduction.rst:73
+#: ../../introduction.rst:76
 msgid ""
 "``Réseau`` pour **tracer un réseau d'assainissement** strict (réseau "
 "séparatif, eaux usées uniquement) dans une zone sans réseau à l'aide "
@@ -235,7 +261,7 @@ msgstr ""
 "sewer system, wastewater only) in an area without an existing network, "
 "using :ref:`pysewer <pysewer>`."
 
-#: ../../introduction.rst:74
+#: ../../introduction.rst:77
 msgid ""
 "``Procédés`` qui permet de **pré-dimensionner des filières de traitement** des "
 "eaux usées de type filtres plantés de végétaux à l'aide "
@@ -245,7 +271,7 @@ msgstr ""
 "the constructed wetlands type, using :ref:`wetlandoptimizer "
 "<wetlandoptimizer>`."
 
-#: ../../introduction.rst:75
+#: ../../introduction.rst:78
 msgid ""
 "``Hydraulique`` qui intervient dans **l'estimation des volumes produits** par "
 "les différents bassins versants urbains d'une zone."
@@ -253,22 +279,22 @@ msgstr ""
 "``Hydraulic`` for **estimating the volumes generated** by the different urban "
 "catchments in an area."
 
-#: ../../introduction.rst:79
+#: ../../introduction.rst:82
 msgid ""
 "Le module ``Réseau`` est utilisé pour la question du centralisé/décentralisé."
 msgstr ""
 "The ``Sewer network`` module is used for the centralized/decentralized "
 "question."
 
-#: ../../introduction.rst:81
+#: ../../introduction.rst:84
 msgid "Le module ``Hydraulique`` pour celle des déversements par temps de pluie."
 msgstr "The ``Hydraulic`` module for the stormwater overflows one."
 
-#: ../../introduction.rst:83
+#: ../../introduction.rst:86
 msgid "Le module ``Procédés`` peut être sollicité pour les deux problématiques."
 msgstr "The ``Processes`` module can be used for both issues."
 
-#: ../../introduction.rst:85
+#: ../../introduction.rst:88
 msgid ""
 "``Créer un scénario`` qui est à l'interface des modules de types *Processus* "
 "et *Analyse* et permet de créer des objets scénarios qui pourront ensuite être "
@@ -278,11 +304,11 @@ msgstr ""
 "modules type and allows you to create scenario objects that can then be "
 "assessed and compared."
 
-#: ../../introduction.rst:87
+#: ../../introduction.rst:90
 msgid "**Exploration des résultats**"
 msgstr "**Results Exploration**"
 
-#: ../../introduction.rst:88
+#: ../../introduction.rst:91
 msgid ""
 "``Profils de canalisations`` qui permet de **visualiser le profil souterrain "
 "des canalisations (vue longitudinale)**."
@@ -290,7 +316,7 @@ msgstr ""
 "``Longitudinal sewer profile`` for **visualizing the underground profile of "
 "pipes (longitudinal view)**."
 
-#: ../../introduction.rst:91
+#: ../../introduction.rst:94
 msgid ""
 "L'utilisation de ce module est facultative. Elle permet, si l'utilisateur le "
 "souhaite, d'approfondir les résultats obtenus en sortie de module ``Réseau``."
@@ -298,11 +324,11 @@ msgstr ""
 "The use of this module is optional. It allows, if the user wishes, a more in-"
 "depth examination of the results obtained from the ``Sewer network`` module."
 
-#: ../../introduction.rst:93
+#: ../../introduction.rst:96
 msgid "**Analyse**"
 msgstr "**Analysis**"
 
-#: ../../introduction.rst:94
+#: ../../introduction.rst:97
 msgid ""
 "``Évaluation`` qui permet **d'évaluer un scénario sur plusieurs paramètres** "
 "(économique, technicité, robustesse)."
@@ -310,7 +336,7 @@ msgstr ""
 "``Assessment`` that **assesses a scenario according to several parameters** "
 "(economic, technical feasibility, robustness)."
 
-#: ../../introduction.rst:95
+#: ../../introduction.rst:98
 msgid ""
 "``Comparaison`` pour **mener une analyse multicritère sur un ensemble de "
 "scénarios** et les comparer selon différents critères priorisés par "
@@ -320,11 +346,11 @@ msgstr ""
 "scenarios** and comparing them according to different criteria, based on user-"
 "defined prioritization."
 
-#: ../../introduction.rst:100
+#: ../../introduction.rst:103
 msgid "Un outil qui mutualise différents travaux de recherche"
 msgstr "A tool that combines different research projects"
 
-#: ../../introduction.rst:102
+#: ../../introduction.rst:105
 msgid ""
 "Elan vise à **rendre plus largement accessible les résultats de travaux de "
 "recherche** menés indépendamment sur un aspect spécifique des problématiques "
@@ -336,7 +362,7 @@ msgstr ""
 "aspect of the issues addressed, ELAN allows to combine them to consider these "
 "two urban water management issues in their entirety and complexity."
 
-#: ../../introduction.rst:105
+#: ../../introduction.rst:108
 msgid ""
 "Les travaux de recherche identifiés et intégrés à la version actuelle de "
 "l'outil ont été développés par :"
@@ -344,7 +370,7 @@ msgstr ""
 "The research identified and integrated into the current version of the tool "
 "has been developed by:"
 
-#: ../../introduction.rst:115
+#: ../../introduction.rst:118
 msgid ""
 "Parmi les futures intégrations à Elan, ont été identifiés les travaux "
 "d'hydrologie urbaine menés conjointement par :"
@@ -352,11 +378,12 @@ msgstr ""
 "Among the future integrations into Elan is the urban hydrology research "
 "conducted jointly by:"
 
-#: ../../introduction.rst:125
-msgid "Le développement de l'outil en lui-même mobilise deux acteurs :"
-msgstr "The development of the tool itself involves:"
+#: ../../introduction.rst:128
+msgid ""
+"Le développement de l'outil en lui-même mobilise actuellement deux acteurs :"
+msgstr "The development of the tool itself currently involves:"
 
-#: ../../introduction.rst:135
+#: ../../introduction.rst:138
 msgid "Ce projet est développé grâce aux financements de :"
 msgstr "This project is made possible through funding from:"
 
@@ -366,3 +393,10 @@ msgstr "This project is made possible through funding from:"
 #~ msgstr ""
 #~ "The Petite Anse case is used as an example throughout the explanations "
 #~ "related to the centralized/decentralized question."
+
+#~ msgid ""
+#~ "``Population`` qui est utilisable pour **répartir un nombre connu "
+#~ "d'habitants** au sein d'un ensemble de bâtiments."
+#~ msgstr ""
+#~ "``Population`` that **distributes a known number of inhabitants** among a "
+#~ "set of buildings."
