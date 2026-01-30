@@ -540,8 +540,8 @@ d'entrée pour différents polluants. Pour cet exemple, les valeurs pré-remplie
 
      * MES : 288 mg/L
      * DBO₅ : 265 mg/L 
-     * NTK :  67 mg/L 
-     * DCO :  646 mg/L
+     * NTK : 67 mg/L 
+     * DCO : 646 mg/L
      * N-NO₃ : 3 mg/L
      * PT : 9,4 mg/L
      * e.coli : 0 UFC/100mL
