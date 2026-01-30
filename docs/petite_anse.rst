@@ -286,8 +286,8 @@ En appliquant le module à une zone élargie pour inclure les possibles connexio
 Les couches peuvent ensuite être éditées ce qui vous permet de retranscrire votre connaissance du terrain (routes non empruntables ou au contraire, ajout de chemins envisageables,
 sélection fine des bâtiments à raccorder ou non). Cette étape contribue à améliorer la pertinence des résultats obtenus en sortie de module ``Réseau``.
 
-Étape 4 : Répartir la population au sein des bâtiments et transformer les polygones en points
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Étape 4 : Répartir la population au sein des bâtiments et réduire les polygones à leurs centroïdes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 La population de Petite Anse est estimée à 1100 individus dont 150 sur la partie haute et 950 sur la partie basse.
 
@@ -393,7 +393,7 @@ Le scénario que nous allons créer dans ce pas à pas va considérer un raccord
 
 * Indiquer les 4 couches géographiques (bulles 1 à 4). **Bien cocher Entité(s) sélectionnée(s) uniquement pour considérer uniquement la STEU au Sud de la zone.**
 
-* Vérifier que l'attribut *population* de la couche bâtiments est correctement autodétecté pour au niveau de l'entrée *Population (champ)*.
+* Vérifier que l'attribut *population* de la couche bâtiments est correctement autodétecté au niveau de l'entrée *Population (champ)*.
 
 .. image:: _static/etape2a.png
     :width: 678
