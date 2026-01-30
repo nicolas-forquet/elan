@@ -532,9 +532,23 @@ Pour explorer le pré-dimensionnement proposé par le module ``Réseau``, vous p
 
 Étape 2 : Pré-dimensionner la ou les STEU (module ``Procédés``)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**1. Ajuster les concentrations en entrée de STEU dans la couche** ``STEU``
+
+Parmi les attributs de la couche ``STEU`` en sortie de module ``Réseau`` se trouvent les concentrations
+d'entrée pour différents polluants. Pour cet exemple, les valeurs pré-remplies par défaut seront conservées, soient :
+
+     * MES : 288 mg/L
+     * DBO₅ : 265 mg/L 
+     * NTK :  67 mg/L 
+     * DCO :  646 mg/L
+     * N-NO₃ : 3 mg/L
+     * PT : 9,4 mg/L
+     * e.coli : 0 UFC/100mL
+
 .. _specify-C:
 
-**1. Renseigner les contraintes de rejet dans la couche** ``STEU``
+**2. Renseigner les contraintes de rejet dans la couche** ``STEU``
 
 Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone sont les suivants :
 
@@ -556,7 +570,7 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 
 .. _define-surface:
 
-**2. Délimitation de la surface disponible** (facultatif)
+**3. Délimitation de la surface disponible** (facultatif)
 
 * Créer une nouvelle couche (.gpkg ou .shp) de type *polygone*.
 
@@ -576,7 +590,7 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 .. image:: _static/save.png
      :width: 196
 
-**3. Utilisation du module** ``Procédés``
+**4. Utilisation du module** ``Procédés``
 
 * Cherche ``elan`` dans la *Boîte à outils de traitements* et sélectionner ``Procédés`` (bulles 1 et 2).
 
@@ -584,17 +598,17 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 
 * Indiquer la couche ``STEU`` dont vous avez renseigné les attributs (bulle 4) et la couche ``surface-dispo`` que vous venez de créer (bulle 5).
 
-.. image:: _static/ex-procedes.png
-     :width: 700
+* Vérifier que les champs identifiés pour les coordonnées GPS et le débit journalier sont corrects. 
 
-* Vérifier que les champs identifiés pour les niveaux de rejets et le débit journalier sont corrects.
+.. note::
+     Vous pouvez aussi vérifier pour les champs de types concentration d'entrée et niveau de rejet en dépliant *Paramètres avancés*.
 
 * Indiquer un nom et un emplacement pour l'enregistrement du fichier de sortie (bulle 6), puis exécuter (bulle 7).
 
-.. image:: _static/ex-procedes-suite.png
+.. image:: _static/ex-procedes.png
      :width: 576
 
-**4. Consultation des caractéristiques des filières de traitement pré-dimensionnées**
+**5. Consultation des caractéristiques des filières de traitement pré-dimensionnées**
 
 Après exécution du module, vous obtenez un visuel de ce type (couche *point*) :
 
