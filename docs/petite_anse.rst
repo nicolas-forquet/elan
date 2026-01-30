@@ -269,7 +269,7 @@ sélection fine des bâtiments à raccorder ou non) et **contribue donc à obten
 
 **Récupération des bâtiments**
 
-En appliquant ``Routes et bâtiments`` à la zone définie :ref:`plus haut <zone>`, voici les sorties obtenues pour les bâtiments :
+En appliquant :ref:`Routes et bâtiments <routes>` à la zone définie :ref:`plus haut <zone>`, voici les sorties obtenues pour les bâtiments :
 
 .. image:: _static/sorties-b.png
      :width: 700
