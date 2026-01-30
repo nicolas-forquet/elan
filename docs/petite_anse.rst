@@ -393,7 +393,7 @@ Le scénario que nous allons créer dans ce pas à pas va considérer un raccord
 
 * Indiquer les 4 couches géographiques (bulles 1 à 4). **Bien cocher Entité(s) sélectionnée(s) uniquement pour considérer uniquement la STEU au Sud de la zone.**
 
-* Vérifier que l'attribut *population* de la couche bâtiments est correctement autodétecté au niveau de l'entrée *Population (champ)*.
+* Vérifier que l'attribut *population* de la couche bâtiments est correctement autodétecté au niveau de l'entrée *Population (champ)* (encart en bas).
 
 .. image:: _static/etape2a.png
     :width: 678
