@@ -396,7 +396,7 @@ Le scénario que nous allons créer dans ce pas à pas va considérer un raccord
 * Vérifier que l'attribut *population* de la couche bâtiments est correctement autodétecté au niveau de l'entrée *Population (champ)* (encart en bas).
 
 .. image:: _static/etape2a.png
-    :width: 678
+    :width: 700
 
 * Laisser les valeurs par défaut pour les différents paramètres techniques.
 
@@ -606,7 +606,7 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 * Indiquer un nom et un emplacement pour l'enregistrement du fichier de sortie (bulle 6), puis exécuter (bulle 7).
 
 .. image:: _static/ex-procedes.png
-     :width: 576
+     :width: 700
 
 **5. Consultation des caractéristiques des filières de traitement pré-dimensionnées**
 
