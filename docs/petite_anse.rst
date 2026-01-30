@@ -238,16 +238,6 @@ Vous obtenez une sortie de ce type :
 .. image:: _static/suppr-batiments.png
      :width: 683
 
-**7.** Pour obtenir des points à partir des polygones obtenus (contrainte liée module ``Réseau`` ), utiliser l'outil ``Centroïdes`` de QGIS.
-
-.. image:: _static/centroides.png
-     :width: 700
-
-Vous obtenez une sortie de ce type : 
-
-.. image:: _static/sortie-centroides.png
-     :width: 400
-
 **Récupération des routes**
 
 **1.** Lancer le plugin BD TOPO® Extractor.
@@ -283,8 +273,6 @@ En appliquant ``Routes et bâtiments`` à la zone définie :ref:`plus haut <zone
 
 .. image:: _static/sorties-b.png
      :width: 700
-.. image:: _static/sorties-c.png
-     :width: 700
 
 **Récupération des routes**
 
@@ -298,10 +286,14 @@ En appliquant le module à une zone élargie pour inclure les possibles connexio
 Les couches peuvent ensuite être éditées ce qui vous permet de retranscrire votre connaissance du terrain (routes non empruntables ou au contraire, ajout de chemins envisageables,
 sélection fine des bâtiments à raccorder ou non). Cette étape contribue à améliorer la pertinence des résultats obtenus en sortie de module ``Réseau``.
 
-Étape 4 : Répartir la population au sein des bâtiments (facultatif)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Étape 4 : Répartir la population au sein des bâtiments et transformer les polygones en points
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 La population de Petite Anse est estimée à 1100 individus dont 150 sur la partie haute et 950 sur la partie basse.
+
+Dans cet exemple, la population sera distribuée selon une répartition surfacique : le nombre d'individus associé à chaque 
+bâtiment est fonction de son emprise au sol. C'est donc le module ``Population (répartition surfacique)`` qui sera utilisé
+et non le module ``Population (répartition uniforme)``.
 
 **Préalable** : Une couche de type *polygone* avec les bâtiments à raccorder obtenue avec le module ``Routes et bâtiments``
 et post-traitée (suppression/ajout de certains bâtiments selon la connaissance terrain de la zone).
@@ -353,16 +345,16 @@ Sélectionner la couche (bulle 1) et ouvrir la table attributaire (bulle 2).
 .. image:: _static/table-sortie-population-fusion.png
     :width: 700
 
-La couche obtenue contient bien les centroides des bâtiments de la zone haute et de la zone basse et pour chaque centroïde, l'attribut *population* est renseigné.
-Cette couche peut être utilisée en entrée de module ``Réseau``.
+La couche obtenue contient bien les centroïdes des bâtiments de la zone haute et de la zone basse et pour chaque centroïde, l'attribut *population* est renseigné.
+Cette couche respecte les conditions pour être utilisée en entrée de module ``Réseau``.
 
 .. _couches-prb1: 
 
 .. note::
     Au sein de la couche *entrees_reseau.gpkg* mise à disposition dans la rubrique suivante, vous trouverez plusieurs couches :
     
-     - *buildings_osm_population* a été générée en suivant le processus suivant : module ``Routes et bâtiments``, post-traitement manuel (sélection plus fine des bâtiments à raccorder), module ``Population``;
-     - *buildings_ign_population* a été obtenue en utilisant le plugin BD TOPO® Extractor suivi d'un post-traitement manuel puis d'une utilisation du module ``Population``;
+     - *buildings_osm_population* a été générée en suivant le processus suivant : module ``Routes et bâtiments``, post-traitement manuel (sélection plus fine des bâtiments à raccorder), module ``Population (répartition surfacique)``;
+     - *buildings_ign_population* a été obtenue en utilisant le plugin BD TOPO® Extractor suivi d'un post-traitement manuel puis d'une utilisation du module ``Population (répartition surfacique)``;
 
      Les deux couches peuvent être utilisées en entrées du module ``Réseau``. La couche se basant sur les données IGN contient plus de 
      bâtiments (meilleure qualité de données) et fournira donc des résultats a priori plus pertinents.
@@ -401,14 +393,14 @@ Le scénario que nous allons créer dans ce pas à pas va considérer un raccord
 
 * Indiquer les 4 couches géographiques (bulles 1 à 4). **Bien cocher Entité(s) sélectionnée(s) uniquement pour considérer uniquement la STEU au Sud de la zone.**
 
-* Si vous souhaitez travailler en considérant un nombre variable d'habitants par bâtiment, indiquer l'attribut correspondant à la population parmi les attributs de votre couche bâtiments (menu déroulant) pour *Nombre d'habitants*. Sinon laisser le champ vide.
+* Vérifier que l'attribut *population* de la couche bâtiments est correctement autodétecté pour au niveau de l'entrée *Population (champ)*.
 
 .. image:: _static/etape2a.png
     :width: 678
 
 * Laisser les valeurs par défaut pour les différents paramètres techniques.
 
-* Sélectionner les 6 premiers diamètres (0,1 à 0,4) parmi les options possibles pour les diamètres gravitaires (bulle 5).
+* Sélectionner toutes les options possibles pour les diamètres gravitaires (bulle 5).
 
 * Sélectionner un nom et un emplacement pour le fichier (bulle 6).
 
