@@ -31,8 +31,6 @@ extensions = [
     'sphinxcontrib.mermaid'
 ]
 
-mermaid_params = ['--theme', 'neutral']
-
 templates_path = ["_templates"]
 exclude_patterns = []
 figure_language_filename = '{root}.{language}{ext}'
