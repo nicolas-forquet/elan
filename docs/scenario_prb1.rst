@@ -48,7 +48,7 @@ Utilisation du module
 **1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Réseau``.
 
 .. image:: _static/start-reseau.png
-    :width: 353
+    :width: 303
 
 .. tip::
     Pour afficher le panneau ``Boîte à outils de traitements`` s'il n'apparaît pas dans votre espace de travail : *Vue* - *Panneaux* - *Boîte à outils de traitements*.
@@ -196,7 +196,7 @@ Utilisation du module
 **1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Profils de canalisations``.
 
 .. image:: _static/start-profils.png
-    :width: 372
+    :width: 300
 
 **2.** Renseigner la couche de canalisations (bulle 1), choisir un emplacement et un nom pour le fichier de sortie (bulle 2) avant d'exécuter (bulle 3).
 
@@ -330,7 +330,7 @@ Utilisation du module
 **1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Procédés``.
 
 .. image:: _static/start-procedes.png
-    :width: 356
+    :width: 303
 
 **2.** Indiquer si votre zone se situe en climat *Tempéré* ou *Tropical* (bulle 1). Ce choix impacte le pré-dimensionnement des filières en termes de surface et de volume (surface et volume réduits en climat tropical).
 
@@ -551,7 +551,7 @@ Utilisation du module
 **2.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Créer un scénario``.
 
 .. image:: _static/start-scenario.png
-    :width: 353
+    :width: 299
 
 
 **3.** Nommer votre scénario (bulle 1), indiquer la couche ``Canalisations`` à considérer (bulle 2), renseigner la couche ``Couche de filières`` et 

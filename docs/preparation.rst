@@ -25,6 +25,7 @@ Si vous disposez de ces 4 couches, vous pouvez vous rendre directement à la pag
 Sinon, poursuivez ici pour quelques astuces et explications sur l'obtention et la préparation des données géographiques requises.
 
 **Pour la couche** ``STEU``, le plus simple est de ``Créer une nouvelle couche`` de type *point* et de l'éditer de sorte à indiquer tous les emplacements possibles comme exutoires (1 point = 1 exutoire possible).
+Voir :ref:`ici <set-exutoires>` pour un exemple.
 
 **Pour les autres couches** : 
 
@@ -51,7 +52,7 @@ En contexte français (Hexagone et Outre-Mer)
         * Choisir les couches ``Bâtiment`` et ``Tronçon de route``.
 
 .. attention::
-    La couche ``bâtiments`` obtenue est de type *polygone* et non *point*. Elle doit donc être transformée via un des modules :ref:`Population <population>` intégré à Elan.
+    La couche ``bâtiments`` obtenue est de type *polygone* et non *point*. Elle doit donc être transformée via un des modules :ref:`Population <population>` intégrés à Elan.
 
 En contexte international
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -115,7 +116,7 @@ OpenStreetMap est un outil ouvert et collaboratif.
 **1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Routes et bâtiments``.
 
 .. image:: _static/start-r+b.png
-      :width: 352
+      :width: 307
 
 **2.** Indiquer la couche *polygone* qui délimite la zone à extraire (bulle 1), cocher *Reprojection des couches dans le SCR du projet* (bulle 2) puis exécuter (bulle 3).
 
