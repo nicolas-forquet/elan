@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-30 16:40+0100\n"
-"PO-Revision-Date: 2026-01-30 16:54+0100\n"
+"POT-Creation-Date: 2026-02-03 14:41+0100\n"
+"PO-Revision-Date: 2026-02-03 14:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -1013,11 +1013,11 @@ msgstr ""
 "The outflow concentration targets to be met for a plant located south of the "
 "area are as follows:"
 
-#: ../../petite_anse.rst:555 ../../petite_anse.rst:670
+#: ../../petite_anse.rst:555 ../../petite_anse.rst:683
 msgid "MES : 35 mg/L"
 msgstr "TSS: 35 mg/L"
 
-#: ../../petite_anse.rst:556 ../../petite_anse.rst:671
+#: ../../petite_anse.rst:556 ../../petite_anse.rst:684
 msgid "DBO₅ : 35 mg/L"
 msgstr "BOD₅: 35 mg/L"
 
@@ -1025,7 +1025,7 @@ msgstr "BOD₅: 35 mg/L"
 msgid "NTK : 20 mg/L"
 msgstr "TKN: 20 mg/L"
 
-#: ../../petite_anse.rst:558 ../../petite_anse.rst:672
+#: ../../petite_anse.rst:558 ../../petite_anse.rst:685
 msgid "DCO : 125 mg/L"
 msgstr "COD: 125 mg/L"
 
@@ -1138,50 +1138,72 @@ msgid "Cliquer que l'icône Ouvrir la table attributaire (bulle 2)."
 msgstr "Click the Open attribute table icon (marker 2)."
 
 #: ../../petite_anse.rst:630
-msgid "Étape 3 : Pré-sélectionner une filière par exutoire"
-msgstr "Step 3: Pre-selecting a treatment train for each discharge point"
+msgid "Étape 3 : Pré-sélectionner une filière pour l'exutoire"
+msgstr "Step 3: Pre-selecting a treatment train for the discharge point"
 
 #: ../../petite_anse.rst:632
 msgid ""
-"Ici, 6 filières permettent d'atteindre les niveaux de rejets imposés "
-"(déviations en vert) :"
+"Pour vous aider à pré-sélectionner une filière, vous pouvez afficher le radar "
+"plot et le bar plot où figurent l'ensemble des filières possibles pour cet "
+"exutoire (voir :ref:`ici <selection>` pour plus de détails)."
+msgstr ""
+"To help you to pre-select a treatment train, you can display graphical "
+"représentations (radar plot and bar plot) where all possible treatment trains "
+"for this discharge point are represented (see :ref:`here <selection>` for more "
+"details)."
+
+#: ../../petite_anse.rst:635
+msgid "**Radar plot**"
+msgstr "**Radar plot**"
+
+#: ../../petite_anse.rst:640
+msgid ""
+"Ici, les 6 filières permettent d'atteindre les niveaux de rejets imposés "
+"(déviations en vert dans la table attributaire, points sous le seuil de 1 sur "
+"le radar plot) :"
 msgstr ""
 "Here, 6 treatment trains meet the required outflow concentrations (deviations "
-"in green):"
+"in green in the attribute table, dots below threshold 1 on the radar plot):"
 
-#: ../../petite_anse.rst:634
+#: ../../petite_anse.rst:642
 msgid "VdNS1-VdNS2"
 msgstr "VdNS1-VdNS2"
 
-#: ../../petite_anse.rst:635
+#: ../../petite_anse.rst:643
 msgid "VdNS1-VdNS2-VdNS2"
 msgstr "VdNS1-VdNS2-VdNS2"
 
-#: ../../petite_anse.rst:636
+#: ../../petite_anse.rst:644
 msgid "VdNSS-VdNS2"
 msgstr "VdNSS-VdNS2"
 
-#: ../../petite_anse.rst:637
+#: ../../petite_anse.rst:645
 msgid "VdNSS-VdNS2-VdNS2"
 msgstr "VdNSS-VdNS2-VdNS2"
 
-#: ../../petite_anse.rst:638
+#: ../../petite_anse.rst:646
 msgid "VdNS1"
 msgstr "VdNS1"
 
-#: ../../petite_anse.rst:639
+#: ../../petite_anse.rst:647
 msgid "VdNSS"
 msgstr "VdNSS"
 
-#: ../../petite_anse.rst:641
+#: ../../petite_anse.rst:649
 msgid ""
-"La surface totale apparaît en rouge pour la filière VdNS1-VdNS2-VdNS2 car elle "
-"est supérieure à la surface disponible."
+"La surface totale apparaît en rouge pour la filière VdNS1-VdNS2-VdNS2 (table "
+"attributaire) car elle est supérieure à la surface disponible (point au dessus "
+"du seuil de 1 sur le radar plot)."
 msgstr ""
-"The total surface appears in red for the VdNS1–VdNS2–VdNS2 train, as it exceeds "
-"the available surface area."
+"The total surface appears in red for the VdNS1–VdNS2–VdNS2 train (attribute "
+"table) as it exceeds the available surface area (dot above threshold 1 on the "
+"radar plot)."
 
-#: ../../petite_anse.rst:643
+#: ../../petite_anse.rst:651
+msgid "**Bar plot**"
+msgstr "**Bar plot**"
+
+#: ../../petite_anse.rst:656
 msgid ""
 "Les filières à étage unique (VdNS1 et VdNSS) permettent ici d'atteindre les "
 "niveaux de rejets et sont généralement moins coûteuses que les filières multi-"
@@ -1193,7 +1215,7 @@ msgstr ""
 "stage treatment trains. Given the pollutant loading rates and the hydraulic "
 "loading rate, they could be two promising treatment trains options."
 
-#: ../../petite_anse.rst:647
+#: ../../petite_anse.rst:660
 msgid ""
 "Un premier scénario pourrait donc être : le réseau d'assainissement obtenu à "
 "l'étape 1 couplé à une filière VdNS1. Le couplage avec une filière VdNSS "
@@ -1203,11 +1225,11 @@ msgstr ""
 "coupled with a VdNS1 train. Pairing it with a VdNSS train could form a second "
 "scenario."
 
-#: ../../petite_anse.rst:652
+#: ../../petite_anse.rst:665
 msgid "Étape 4 : Créer un objet scénario (module ``Créer un scénario``)"
 msgstr "Step 4: Creation of a scenario item (``Create a scenario`` module)"
 
-#: ../../petite_anse.rst:654
+#: ../../petite_anse.rst:667
 msgid ""
 "Une fois que le couplage réseau/filière constitutif d'un scénario est "
 "identifié, vous pouvez créer un objet scénario à l'aide du module ``Créer un "
@@ -1221,12 +1243,12 @@ msgstr ""
 "then be useful to assess this scenario and compare it to other possible "
 "scenarios."
 
-#: ../../petite_anse.rst:660
+#: ../../petite_anse.rst:673
 msgid ""
 "Exercice : Création d'un second scénario pour :ref:`Petite Anse <petite-anse>`"
 msgstr "Exercise: Creating a second scenario for :ref:`Petite-Anse <petite-anse>`"
 
-#: ../../petite_anse.rst:662
+#: ../../petite_anse.rst:675
 msgid ""
 "Pour mettre en pratique le contenu de cette page, vous pouvez essayez de suivre "
 "les différentes étapes décrites mais cette fois-ci en considérant 2 "
@@ -1236,7 +1258,7 @@ msgstr ""
 "this time considering 2 possible discharge point locations: one in the South of "
 "the area and one in the North."
 
-#: ../../petite_anse.rst:668
+#: ../../petite_anse.rst:681
 msgid ""
 "Les niveaux de rejet pour l'emplacement au Nord de la zone sont moins "
 "contraignants (pas de contrainte sur l'azote) :"
@@ -1244,7 +1266,7 @@ msgstr ""
 "The outflow concentration targets for the northern location are less strict (no "
 "nitrogen constraint):"
 
-#: ../../petite_anse.rst:675
+#: ../../petite_anse.rst:688
 msgid ""
 "L'aspect itératif de la définition d'un scénario est brièvement mentionné mais "
 "n'est pas détaillé dans ce pas à pas. Il s'agit d'une pratique possible (voire "
@@ -1253,7 +1275,7 @@ msgstr ""
 "The iterative nature of scenario definition is not detailed in this step-by-"
 "step, but it is a possible practice (if not unavoidable)."
 
-#: ../../petite_anse.rst:677
+#: ../../petite_anse.rst:690
 msgid ""
 "Par exemple : si vous jugez que certains bâtiments sont trop \"coûteux\" à "
 "raccorder (plus de 40 mètre linéaire pour un bâtiment), vous pouvez éditer la "

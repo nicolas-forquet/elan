@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-30 11:30+0100\n"
-"PO-Revision-Date: 2026-01-30 11:34+0100\n"
+"PO-Revision-Date: 2026-02-03 14:51+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -1391,7 +1391,7 @@ msgstr ""
 
 #: ../../scenario_prb1.rst:447
 msgid "Pour afficher ces représentations graphiques, il faut au préalable :"
-msgstr "To use these graphical représentations, you need to:"
+msgstr "To use these graphical representations, you need to:"
 
 #: ../../scenario_prb1.rst:449
 msgid ""
