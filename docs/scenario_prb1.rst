@@ -66,13 +66,10 @@ Utilisation du module
     Pour les exutoires, vous pouvez sélectionner au préalable celui ou ceux que vous souhaitez considérer parmi l'ensemble des possibilités envisagées puis cocher *Entités sélectionnées uniquement* dans le module.
     Cette option est également proposée pour les routes et les bâtiments à considérer.
 
-.. note::
-    Si vous avez eu recours au module ``Population`` pour préparer vos données géographiques, l'attribut à indiquer est *population*.
+.. image:: _static/entrees-reseau.png
+    :width: 688
 
-.. image:: _static/couches-reseau.png
-    :width: 680
-
-**3.** Faire coulisser l'ascenseur à l'aide de la souris (et non de la molette, cela risque de changer les valeurs des paramètres à votre insu) et **ajuster les différents paramètres** (encart 5) afin que le pré-dimensionnement du réseau soit le plus adapté à votre contexte : 
+**3.** **Ajuster les différents paramètres** (encart 5) afin que le pré-dimensionnement du réseau soit le plus adapté à votre contexte : 
 
 * ``volume moyen d'eaux usées produit par jour par personne`` : [m³].
 
@@ -99,9 +96,6 @@ Utilisation du module
     * ``rugosité canalisation`` : [μm], dépend du matériau utilisé pour les canalisations.
 
 **4.** Indiquer un emplacement et un nom pour la couche .gpkg en sortie (bulle 6) puis exécuter (bulle 7).
-
-.. image:: _static/entrees-reseau.png
-    :width: 697
 
 .. _sorties-reseau:
 
@@ -217,7 +211,7 @@ Visualisation
 **1.** Pour afficher un profil de canalisations dans un plan xz, commencer par ouvrir l'outil **Profil d'élévation** : *Vue* - *Profil d'élévation*.
 
 .. image:: _static/start-profil-elevation.png
-    :width: 556
+    :width: 700
 
 **2.** Dans la fenêtre *Profil d'élévation*, cocher les couches que vous souhaitez voir apparaître sur votre coupe. Par exemple : ``Stations de relevage``, ``Stations de pompage``, ``Profil de terrain``, ``Profil de canalisations`` et ``Canalisation 3D`` (bulle 1).
 
@@ -343,17 +337,17 @@ Pour plus d'informations sur la bonne prise en compte du climat tropical lors du
 
 **3.** Renseigner la couche STEU (bulle 2) et éventuellement la couche de surfaces disponibles (bulle 3).
 
-**4.** Assurez vous que les champs détectés pour les 10 attributs sont bien corrects : coordonnées GPS, niveaux de rejet et débit journalier (encart 4). 
+**4.** Assurez vous que les champs détectés pour les coordonnées GPS et le débit journalier sont bien corrects (encart 4). 
 
-**5.** Pour le nombre d'étages maximum, nous vous conseillons de laisser la valeur 3 qui est la valeur par défaut.
+.. note::
+    En dépliant *Paramètres avancés*, vous pouvez également vous assurer que les concentrations d'entrée et les niveaux de rejet pour les différents polluants ont bien été auto-détectés.
+
+**5.** Pour le nombre d'étages maximum, nous vous conseillons de laisser la valeur 3 qui est la valeur par défaut (encart 4).
 
 **6.** Choisir un emplacement et un nom pour le fichier de sortie (bulle 5) avant d'exécuter (bulle 6).
 
 .. image:: _static/use-procedes.png
-    :width: 571
-
-.. image:: _static/use-procedes2.png
-    :width: 568
+    :width: 693
 
 .. _sortie-procedes:
 
