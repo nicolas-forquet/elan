@@ -626,10 +626,18 @@ Pour consulter les attributs de cette couche :
 .. image:: _static/attributs-procedes-ex.png
      :width: 700
 
-Étape 3 : Pré-sélectionner une filière par exutoire
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Étape 3 : Pré-sélectionner une filière pour l'exutoire
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Ici, 6 filières permettent d'atteindre les niveaux de rejets imposés (déviations en vert) :
+Pour vous aider à pré-sélectionner une filière, vous pouvez afficher le radar plot et le bar plot où figurent
+l'ensemble des filières possibles pour cet exutoire (voir :ref:`ici <selection>` pour plus de détails). 
+
+**Radar plot**
+
+.. image:: _static/pa_radarplot.png
+     :width: 700
+
+Ici, les 6 filières permettent d'atteindre les niveaux de rejets imposés (déviations en vert dans la table attributaire, points sous le seuil de 1 sur le radar plot) :
     
     * VdNS1-VdNS2
     * VdNS1-VdNS2-VdNS2
@@ -638,7 +646,12 @@ Ici, 6 filières permettent d'atteindre les niveaux de rejets imposés (déviati
     * VdNS1
     * VdNSS
 
-La surface totale apparaît en rouge pour la filière VdNS1-VdNS2-VdNS2 car elle est supérieure à la surface disponible.
+La surface totale apparaît en rouge pour la filière VdNS1-VdNS2-VdNS2 (table attributaire) car elle est supérieure à la surface disponible (point au dessus du seuil de 1 sur le radar plot).
+
+**Bar plot**
+
+.. image:: _static/pa_barplot.png
+     :width: 700
 
 Les filières à étage unique (VdNS1 et VdNSS) permettent ici d'atteindre les niveaux de rejets et sont généralement moins 
 coûteuses que les filières multi-étages. Au vu des taux de charge en polluants et du taux de charge hydraulique, elles 
