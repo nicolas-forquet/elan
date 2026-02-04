@@ -219,7 +219,7 @@ Visualisation
 **1.** Pour afficher un profil de canalisations dans un plan xz, commencer par ouvrir l'outil **Profil d'élévation** : *Vue* - *Profil d'élévation*.
 
 .. image:: _static/start-profil-elevation.png
-    :width: 700
+    :width: 556
 
 **2.** Dans la fenêtre *Profil d'élévation*, cocher les couches que vous souhaitez voir apparaître sur votre coupe. Par exemple : ``Stations de relevage``, ``Stations de pompage``, ``Profil de terrain``, ``Profil de canalisations`` et ``Canalisation 3D`` (bulle 1).
 
