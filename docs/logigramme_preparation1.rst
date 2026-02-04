@@ -19,5 +19,8 @@ Le logigramme ici présenté vise à vous guider pour préparer vos données ava
 
 Il est interactif : vous pouvez zoomer et cliquer sur certains blocs pour être renvoyé aux rubriques correspondantes dans la documentation. 
 
+.. attention::
+    Utiliser le mode clair pour une meilleure lisibilité du logigramme.
+
 .. mermaid:: preparation_flowchart.mmd
     :zoom:
