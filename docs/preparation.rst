@@ -34,13 +34,9 @@ Sinon, poursuivez ici pour quelques astuces et explications sur l'obtention et l
 En contexte français (Hexagone et Outre-Mer)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _rge-alti:
-
 * ``MNT``: raster téléchargeable par département sur le site `Géoservices de l'IGN <https://geoservices.ign.fr/>`_ 
     * MNT à 25 m : `BD ALTI® 25M <https://geoservices.ign.fr/bdalti>`_
     * MNT à 5 m voire 1 m : `RGE ALTI® <https://geoservices.ign.fr/rgealti>`_
-
-.. _ign-topo:
 
 * ``routes`` et ``bâtiments``: couches téléchargeables par département sur le site Géoservices de l'IGN `BD TOPO® <https://geoservices.ign.fr/bdtopo>`_.
 
@@ -156,6 +152,8 @@ Modules ``Population`` : ``Population (répartition uniforme)`` et ``Population 
 Les modules ``Population`` permettent d'assigner à chaque bâtiment (polygone) un nombre d'habitants via un attribut *population* et de réduire chaque bâtiment en un point (son centroïde).
 Ils se distinguent l'un de l'autre dans la modalité de répartition (nombre fixe ou variable d'habitants par bâtiment). Selon votre besoin, vous pouvez utiliser soit l'un, soit l'autre des modules ``Population``.
 
+.. _uniforme:
+
 Module ``Population (répartition uniforme)``
 """"""""""""""""""""""""""""""""""""""""""""
 
@@ -180,6 +178,7 @@ Le module ``Population (répartition uniforme)`` permet de **d'associer à chaqu
 A chaque centroïde est associé un nombre identique d'individus (**attribut population**) qui correspond au nombre moyen d'habitants par bâtiment renseigné.
 A ce stade, vous pouvez éditer la couche et ajuster manuellement ce nombre pour certains bâtiments si vous le souhaitez (immeuble par exemple).
 
+.. _surfacique:
 
 Module ``Population (répartition surfacique)``
 """"""""""""""""""""""""""""""""""""""""""""""

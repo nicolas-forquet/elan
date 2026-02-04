@@ -5,7 +5,7 @@ flowchart TB
     A1 --> A2 --> A3
     B1["Je charge mon MNT dans QGIS"]
     B2[Je suis en contexte français ?]
-    B3[<a href="https://elan-gis.org/fr/preparation.html#rge-alti">Je télécharge le MNT à 5 m sur *RGE Alti*</a>]
+    B3[<a href="https://elan-gis.org/fr/petite_anse.html#rge-alti">Je télécharge le MNT à 5 m sur *RGE Alti*</a>]
     B4[<a href="https://elan-gis.org/fr/preparation.html#alaska-edu">Je cherche sur *alaska.edu* pour trouver du MNT à 12,5 m</a>]
     A3 -- oui --> B1
     A3 -- non --> B2
@@ -35,7 +35,7 @@ flowchart TB
     C3 -- non --> C7
     D1["Je sais où trouver mes couches vecteurs (routes et bâtiments) dans mon contexte local ?"]
     D2[Je suis en contexte français ?]
-    D3[<a href="https://elan-gis.org/fr/preparation.html#ign-topo">J'utilise *BD TOPO extractor* pour récupérer les routes et les bâtiments</a>]
+    D3[<a href="https://elan-gis.org/fr/petite_anse.html#ign-topo">J'utilise *BD TOPO extractor* pour récupérer les routes et les bâtiments</a>]
     D4[Ma zone est située dans l'hémisphère Sud ?]
     D5[<a href="https://elan-gis.org/fr/preparation.html#open-buildings">Je télécharge mes bâtiments sur *Open Buildings*</a>]
     D6[<a href="https://elan-gis.org/fr/petite_anse.html#creer-zone">Je créé une couche polygone qui délimite ma zone d'étude</a>]
@@ -70,14 +70,14 @@ flowchart TB
     G1["Une répartition uniforme de la population me convient (nombre moyen d'habitant/bâtiment) ?"]
     G2[Je fais des recherches]
     G3[J'estime un nombre d'habitant/bâtiment en fonction du nombre de bâtiments de ma couche]
-    G4[<a href="https://elan-gis.org/fr/preparation.html#population">J'utilise le module *Population répartition uniforme* d'Elan</a>]
+    G4[<a href="https://elan-gis.org/fr/preparation.html#uniforme">J'utilise le module *Population répartition uniforme* d'Elan</a>]
     G5[J'obtiens une couche de bâtiments sous forme de centroïdes avec un attribut population]
     G6["Je souhaite un pré-dimensionnement uniquement des artères principales du réseau (plus rapide) ?"]
     G7[<a href="https://elan-gis.org/fr/preparation.html#projection">J'utilise le module *Projection sur routes* d'Elan</a>]
     F6 -- oui --> G1
     F6 -- non --> G2 --> G1
     G1 -- oui --> G3 --> G4 --> G5
-    H1[<a href="https://elan-gis.org/fr/preparation.html#population">J'utilise le module *Population répartition surfacique* d'Elan pour avoir un nombre ajusté d'habitants par bâtiment</a>]
+    H1[<a href="https://elan-gis.org/fr/preparation.html#surfacique">J'utilise le module *Population répartition surfacique* d'Elan pour avoir un nombre ajusté d'habitants par bâtiment</a>]
     H2["Je vérifie que mes centroïdes sont bien dans le bon SCR (SCR du projet)"]
     H3[Je connais mes contraintes de dimensionnement ? <br/> - consommation moyenne d'eau/habitant/jour <br/> - profondeur min et max autorisées <br/> - diamètres possibles]
     H4[Je fais des recherches/des hypothèses]
