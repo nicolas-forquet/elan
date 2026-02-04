@@ -89,7 +89,7 @@ Utilisation du module
 .. note::
     Vous pouvez également ajuster d'autres paramètres en déroulant la section *Paramètres avancés*. Parmi eux :
 
-    * ``coefficient de pointe journalier`` : [m³/j].
+    * ``coefficient de pointe journalier`` : [m³/s].
 
     * ``pente minimale permettant l'autocurrage`` : [m/m].
     
