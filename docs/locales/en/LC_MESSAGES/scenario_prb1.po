@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-30 11:30+0100\n"
-"PO-Revision-Date: 2026-02-03 14:51+0100\n"
+"POT-Creation-Date: 2026-02-04 10:54+0100\n"
+"PO-Revision-Date: 2026-02-04 11:23+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -60,8 +60,8 @@ msgid "Étape 1 : Tracer le réseau d'assainissement (module ``Réseau``)"
 msgstr ""
 "Step 1: Pre-designing the sanitation sewer network (``Sewer network`` Module)"
 
-#: ../../scenario_prb1.rst:24 ../../scenario_prb1.rst:189
-#: ../../scenario_prb1.rst:302 ../../scenario_prb1.rst:535
+#: ../../scenario_prb1.rst:24 ../../scenario_prb1.rst:191
+#: ../../scenario_prb1.rst:304 ../../scenario_prb1.rst:538
 msgid "Préalable"
 msgstr "Prerequisite"
 
@@ -126,8 +126,8 @@ msgstr ""
 "If you do not have these layers, see the page :ref:`Obtaining and preparing "
 "geographic data <preparation>` for tips and explanations."
 
-#: ../../scenario_prb1.rst:45 ../../scenario_prb1.rst:194
-#: ../../scenario_prb1.rst:328 ../../scenario_prb1.rst:544
+#: ../../scenario_prb1.rst:45 ../../scenario_prb1.rst:196
+#: ../../scenario_prb1.rst:331 ../../scenario_prb1.rst:547
 msgid "Utilisation du module"
 msgstr "Using the module"
 
@@ -155,7 +155,7 @@ msgid ""
 "**2.** **Renseigner les 4 couches géographiques**. Vérifier que le champ "
 "autodétecté pour ``Population (champ)`` est correct."
 msgstr ""
-"**2.** **Fill in the four gis layers**. Make sure- the detected field for the "
+"**2.** **Fill in the four gis layers**. Make sure the detected field for the "
 "``Population (field)`` is correct."
 
 #: ../../scenario_prb1.rst:66
@@ -169,47 +169,35 @@ msgstr ""
 "to consider among all the possible options and then tick *Selected features "
 "only* in the module. This option is also available for roads and buildings."
 
-#: ../../scenario_prb1.rst:70
+#: ../../scenario_prb1.rst:72
 msgid ""
-"Si vous avez eu recours au module ``Population`` pour préparer vos données "
-"géographiques, l'attribut à indiquer est *population*."
+"**3.** **Ajuster les différents paramètres** (encart 5) afin que le pré-"
+"dimensionnement du réseau soit le plus adapté à votre contexte :"
 msgstr ""
-"If you used the ``Population`` module to prepare your geographic data, "
-"*population* is the attribute to specify here."
+"**3.** **Adjust the various parameters** (insert 5) in order to get the "
+"preliminary sizing of the network best suited to your context:"
 
-#: ../../scenario_prb1.rst:75
-msgid ""
-"**3.** Faire coulisser l'ascenseur à l'aide de la souris (et non de la molette, "
-"cela risque de changer les valeurs des paramètres à votre insu) et **ajuster "
-"les différents paramètres** (encart 5) afin que le pré-dimensionnement du "
-"réseau soit le plus adapté à votre contexte :"
-msgstr ""
-"**3.** Scroll down (not with mouse wheel, this might change some parameter "
-"values without your knowledge) and **adjust the various parameters** (insert 5) "
-"in order to get the preliminary sizing of the network best suited to your "
-"context:"
-
-#: ../../scenario_prb1.rst:77
+#: ../../scenario_prb1.rst:74
 msgid "``volume moyen d'eaux usées produit par jour par personne`` : [m³]."
 msgstr "``average daily production of wastewater per person`` : [m³]."
 
-#: ../../scenario_prb1.rst:79
+#: ../../scenario_prb1.rst:76
 msgid ""
 "``profondeur max autorisée de canalisation`` : [m], dépend du contexte "
 "géologique."
 msgstr "``maximum sewer depth``: [m], depends on the geological context."
 
-#: ../../scenario_prb1.rst:81
+#: ../../scenario_prb1.rst:78
 msgid ""
 "``profondeur min autorisée de canalisation`` : [m], généralement conditionnée "
 "par le risque de gel."
 msgstr "``minimum sewer depth``: [m], generally conditioned by the risk of frost."
 
-#: ../../scenario_prb1.rst:83
+#: ../../scenario_prb1.rst:80
 msgid "``diamètre autorisé sous pression`` : [m], un seul diamètre autorisé."
 msgstr "``pressurized diameter``: [m], only one permitted diameter."
 
-#: ../../scenario_prb1.rst:85
+#: ../../scenario_prb1.rst:82
 msgid ""
 "``diamètres autorisés en gravitaire`` : [m], à choisir parmi les options "
 "proposées (0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.6, 0.8 ou 1.0). Les 9 options "
@@ -219,7 +207,7 @@ msgstr ""
 "0.2, 0.25, 0.3, 0.4, 0.6, 0.8 and 1.0). All 9 options may be considered, or "
 "only a subset of them."
 
-#: ../../scenario_prb1.rst:88
+#: ../../scenario_prb1.rst:85
 msgid ""
 "Il a été constaté que **les modifications des profondeurs max et min autorisées "
 "ne sont actuellement pas prises en compte** (valeurs bloquées aux valeurs par "
@@ -230,7 +218,7 @@ msgstr ""
 "are currently not taken into account (values stuck at 8 m and 0.25 m). The bug "
 "must be first corrected on pysewer before integration into Elan."
 
-#: ../../scenario_prb1.rst:93
+#: ../../scenario_prb1.rst:90
 msgid ""
 "Vous pouvez également ajuster d'autres paramètres en déroulant la section "
 "*Paramètres avancés*. Parmi eux :"
@@ -238,21 +226,21 @@ msgstr ""
 "You can also adjust other parameters pulling down the *Advanced Parameters* "
 "menu. Among them:"
 
-#: ../../scenario_prb1.rst:95
+#: ../../scenario_prb1.rst:92
 msgid "``coefficient de pointe journalier`` : [m³/j]."
 msgstr "``peak load coefificient``: [m³/day]."
 
-#: ../../scenario_prb1.rst:97
+#: ../../scenario_prb1.rst:94
 msgid "``pente minimale permettant l'autocurrage`` : [m/m]."
 msgstr "``minimum slope for sewer self-cleaning``: [m/m]."
 
-#: ../../scenario_prb1.rst:99
+#: ../../scenario_prb1.rst:96
 msgid ""
 "``rugosité canalisation`` : [μm], dépend du matériau utilisé pour les "
 "canalisations."
 msgstr "``pipe roughness``: [μm], depends on the material used for the pipes."
 
-#: ../../scenario_prb1.rst:101
+#: ../../scenario_prb1.rst:98
 msgid ""
 "**4.** Indiquer un emplacement et un nom pour la couche .gpkg en sortie (bulle "
 "6) puis exécuter (bulle 7)."
@@ -260,7 +248,7 @@ msgstr ""
 "**4.** Indicate a location and name for the output .gpkg layer (marker 6), then "
 "run (marker 7)."
 
-#: ../../scenario_prb1.rst:108
+#: ../../scenario_prb1.rst:102
 msgid ""
 "**5.** Après exécution du module, vous disposez de **1 fichier au format .gpkg "
 "qui contient 7 couches** :"
@@ -268,7 +256,7 @@ msgstr ""
 "**5.** After running the module, you obtain **1 .gpkg file containing 7 "
 "layers**:"
 
-#: ../../scenario_prb1.rst:110
+#: ../../scenario_prb1.rst:104
 msgid ""
 "``STEU`` (carré jaune) : couche de type *point* avec le ou les exutoires "
 "considérés pour la simulation."
@@ -276,14 +264,14 @@ msgstr ""
 "``WWTP`` (yellow square): *point* layer with the discharge point(s) considered "
 "for the simulation."
 
-#: ../../scenario_prb1.rst:112
+#: ../../scenario_prb1.rst:106
 msgid ""
 "``Bâtiments`` : couche de type *point* avec les bâtiments pris en compte pour "
 "la simulation."
 msgstr ""
 "``Buildings`` : *point* layer with buildings considered for the simulation."
 
-#: ../../scenario_prb1.rst:114
+#: ../../scenario_prb1.rst:108
 msgid ""
 "``Routes`` : couche de type *ligne* avec les routes considérées comme "
 "empruntables lors de la simulation."
@@ -291,7 +279,7 @@ msgstr ""
 "``Roads`` : *line* layer with the roads taken into account during the "
 "simulation."
 
-#: ../../scenario_prb1.rst:116
+#: ../../scenario_prb1.rst:110
 msgid ""
 "``Stations de relevage`` (triangle vert) : couche de type *point* qui contient "
 "les stations de relevage du réseau d'assainissement pré-dimensionné."
@@ -299,7 +287,7 @@ msgstr ""
 "``Lifting stations`` (green triangle): *point* layer containing the lifting "
 "stations of the pre-designed sewer network."
 
-#: ../../scenario_prb1.rst:118
+#: ../../scenario_prb1.rst:112
 msgid ""
 "``Stations de pompage`` (triangle rouge) : couche de type *point* qui contient "
 "les stations de pompage du réseau d'assainissement pré-dimensionné (stations "
@@ -308,13 +296,13 @@ msgstr ""
 "``Pumping stations`` (red triangle): *point* layer containing the pumping "
 "stations of the pre-designed sewer network (both private and non-private)."
 
-#: ../../scenario_prb1.rst:120
+#: ../../scenario_prb1.rst:114
 msgid ""
 "``Canalisations`` : couche de type *ligne* qui contient les canalisations pré-"
 "dimensionnées."
 msgstr "``Sewer pipes``: *line* layer containing the pre-dimensioned sewer pipes."
 
-#: ../../scenario_prb1.rst:122
+#: ../../scenario_prb1.rst:116
 msgid ""
 "``Informations sur le réseau`` : couche non géométrique qui regroupe "
 "différentes métriques sous forme d'attributs."
@@ -322,7 +310,7 @@ msgstr ""
 "``Network information``: non-geometric layer gathering various metrics as "
 "attributes."
 
-#: ../../scenario_prb1.rst:126
+#: ../../scenario_prb1.rst:120
 msgid ""
 "Les couches ``STEU``, ``Bâtiments`` et ``Routes`` permettent de garder trace "
 "des éléments fournis en entrée de simulation. Cela s'avère particulièrement "
@@ -337,11 +325,11 @@ msgstr ""
 "of an iterative process (finer selection of buildings to connect, adding and/or "
 "deleting possible roads)."
 
-#: ../../scenario_prb1.rst:134
+#: ../../scenario_prb1.rst:128
 msgid "**Chaque couche vecteur est caractérisée par des attributs.**"
 msgstr "**Each vector layer is characterized by attributes.**"
 
-#: ../../scenario_prb1.rst:138
+#: ../../scenario_prb1.rst:132
 msgid ""
 "``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour "
 "chaque exutoire), *débit de pointe* [m³/s], *débit moyen journalier* [m³/j], "
@@ -353,27 +341,58 @@ msgstr ""
 "*inflow trench depths* [m], *inflow diameters* [m], *trench depth* [m], "
 "*inhabitants connected* [number]."
 
+#: ../../scenario_prb1.rst:135
+msgid ""
+"En sortie de module ``Réseau``, la couche STEU compte aussi des attributs qui "
+"serviront d'entrées pour le module ``Procédés`` :"
+msgstr ""
+"At the ``Sewer network`` module output, the WWTP layer also has attributes that "
+"will be used as entries for the ``Processes`` module:"
+
+#: ../../scenario_prb1.rst:137
+msgid ""
+"des **niveaux de rejets** : *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/"
+"L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* "
+"[mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet "
+"e.coli* [UFC/100mL]."
+msgstr ""
+"**outflow concentration targets**: *TSS outflow concentration target* [mg/L], "
+"*BOD₅ outflow concentration target* [mg/L], *TKN outflow concentration target* "
+"[mg/L], *COD outflow concentration target* [mg/L], *NO₃-N outflow concentration "
+"target* [mg/L], *TN outflow concentration target* [mg/L], *TP outflow "
+"concentration target* [mg/L], *e.coli outflow concentration target* [UFC/100mL]."
+
+#: ../../scenario_prb1.rst:139
+msgid ""
+"Ces attributs sont à renseigner manuellement pour chaque exutoire selon vos "
+"contraintes de rejet. Certains peuvent être renseignés à *NULL*."
+msgstr ""
+"These attributes are to be filled manually for each discharge point according "
+"to your outflow concentration targets. Some of them can be set at *NULL*."
+
 #: ../../scenario_prb1.rst:141
 msgid ""
-"En sortie de module ``Réseau``, la couche STEU compte aussi des attributs non "
-"renseignés : *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau "
-"rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], "
-"*niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/"
-"100mL]. Ces attributs sont à renseigner manuellement pour chaque exutoire selon "
-"vos contraintes de rejet. Ils servent d'entrées pour le module ``Procédés``. "
-"Certains peuvent être renseignés à *NULL*."
+"des **concentrations d'entrée** de STEU : *concentration entrée MES* [mg/L], "
+"*concentration entrée DBO5* [mg/L], *concentration entrée NTK* [mg/L], "
+"*concentration entrée DCO* [mg/L], *concentration entrée N-NO3* [mg/L], "
+"*concentration entrée NT* [mg/L], *concentration entrée PT* [mg/L], "
+"*concentration entrée e.coli* [UFC/100mL]."
 msgstr ""
-"In the ``Sewer network`` module output, the WWTP layer also contains attributes "
-"that are not filled in: *TSS outflow concentration target* [mg/L], *BOD₅ "
-"outflow concentration target* [mg/L], *TKN outflow concentration target* [mg/"
-"L], *COD outflow concentration target* [mg/L], *NO3-N outflow concentration "
-"target* [mg/L], *TN outflow concentration target* [mg/L], *TP outflow "
-"concentration target* [mg/L], *e.coli outflow concentration target* [UFC/"
-"100mL]. These attributes are to be filled manually for each discharge point "
-"according to your discharge requirements. They serve as inputs for the "
-"``Processes`` module. Some of them may be set to *NULL*."
+"**inflow concentrations**: *TSS inflow concentration* [mg/L], *BOD₅ inflow "
+"concentration* [mg/L], *TKN inflow concentration* [mg/L], *COD inflow "
+"concentrationt* [mg/L], *NO₃-N inflow concentration* [mg/L], *TN inflow "
+"concentration* [mg/L], *TP inflow concentration* [mg/L], *inflow concentration* "
+"[UFC/100mL]."
 
-#: ../../scenario_prb1.rst:144
+#: ../../scenario_prb1.rst:143
+msgid ""
+"Ces attributs sont pré-renseignés avec des valeurs par défaut. Ils peuvent être "
+"édités pour s'ajuster au mieux au cas utilisateur. Tous doivent être renseignés."
+msgstr ""
+"These attributes are pre-filled with default values. They can be edited to "
+"better suit the user case. All of them must have a numerical value."
+
+#: ../../scenario_prb1.rst:146
 msgid ""
 "``Stations de relevage`` : *altitude terrain* [m], *débit de pointe* [m³/s], "
 "*débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur canas "
@@ -383,7 +402,7 @@ msgstr ""
 "daily flow* [m³/day], *inhabitants connected* [number], *inflow trench depths* "
 "[m], *total static head* [m]."
 
-#: ../../scenario_prb1.rst:146
+#: ../../scenario_prb1.rst:148
 msgid ""
 "``Stations de pompage`` : *altitude terrain* [m], *débit de pointe* [m³/s], "
 "*débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur canas "
@@ -393,7 +412,7 @@ msgstr ""
 "daily flow* [m³/day], *inhabitants connected* [number], *inflow trench depths* "
 "[m], *total static head* [m]."
 
-#: ../../scenario_prb1.rst:149
+#: ../../scenario_prb1.rst:151
 msgid ""
 "``Stations de pompage`` peut indiquer des charges hydrostatiques négatives pour "
 "certaines des stations pré-dimensionnées. Il ne s'agit pas d'une erreur : cela "
@@ -406,7 +425,7 @@ msgstr ""
 "pressurized section end point is lower than its starting point. In other "
 "terms : the pumping station acts as a siphon."
 
-#: ../../scenario_prb1.rst:153
+#: ../../scenario_prb1.rst:155
 msgid ""
 "Par exemple, la station de pompage est ici caractérisée par une charge "
 "hydrostatique de -19,25 m."
@@ -414,7 +433,7 @@ msgstr ""
 "For example, here the pumping station is characterized by a total static head "
 "of -19.25 m."
 
-#: ../../scenario_prb1.rst:158
+#: ../../scenario_prb1.rst:160
 msgid ""
 "``Canalisations`` : *longueur* [m], *profil de terrain* [liste de points "
 "échantillonnés tous les 10 m], *avec pompe* [booléen], *sous pression* "
@@ -427,7 +446,7 @@ msgstr ""
 "points sampled every 10 m], *mean trench depth* [m], *diameter* [m], *peak "
 "flow* [m³/s], *WWTP coordinates* [WWTP discharge point identifier]."
 
-#: ../../scenario_prb1.rst:160
+#: ../../scenario_prb1.rst:162
 msgid ""
 "``Informations sur le réseau`` : *nombre bâtiments* [nb], *longueur réseau sous "
 "pression* [mètre linéaire], *longueur réseau gravitaire* [mètre linéaire], "
@@ -439,11 +458,11 @@ msgstr ""
 "stations number* [count], *lifting stations number* [count], *simulation "
 "datetime* [datetime]."
 
-#: ../../scenario_prb1.rst:162
+#: ../../scenario_prb1.rst:164
 msgid "**Plusieurs styles sont proposés pour la couche** ``Canalisations``."
 msgstr "**Several styles are available for the** ``Sewer pipes`` **layer**."
 
-#: ../../scenario_prb1.rst:164
+#: ../../scenario_prb1.rst:166
 msgid ""
 "**Diamètres** : symbologie catégorisée sur l'attribut *diamètre* pour "
 "visualiser la répartition des diamètres au sein du réseau."
@@ -451,7 +470,7 @@ msgstr ""
 "**Diameters**: categorized symbology on the *diameter* attribute to visualize "
 "the distribution of diameters within the sewer network."
 
-#: ../../scenario_prb1.rst:166
+#: ../../scenario_prb1.rst:168
 msgid ""
 "**Débit de pointe** : symbologie catégorisée sur l'attribut *débit de pointe* "
 "pour visionner la variation du débit de pointe selon les tronçons réseau."
@@ -459,7 +478,7 @@ msgstr ""
 "**Peak flow**: categorized symbology on the *peak flow* attribute to view "
 "variation in peak flow along the sewer network segments."
 
-#: ../../scenario_prb1.rst:168
+#: ../../scenario_prb1.rst:170
 msgid ""
 "**Gravitaire** : symbologie catégorisée sur l'attribut *sous pression* pour "
 "distinguer facilement les sections gravitaires des sections pressurisées. Il "
@@ -469,7 +488,7 @@ msgstr ""
 "easily distinguish gravity-driven sections from pressurized sections. This is "
 "the default style in the ``Sewer network`` module output."
 
-#: ../../scenario_prb1.rst:170
+#: ../../scenario_prb1.rst:172
 msgid ""
 "**Profondeur** : symbologie catégorisée sur l'attribut *profondeur moyenne "
 "tranchée* pour mieux visualiser les variations de profondeur au sein du réseau."
@@ -477,7 +496,7 @@ msgstr ""
 "**Depth**: categorized symbology on the *mean trench depth* attribute to better "
 "visualize variations in depth within the sewer network."
 
-#: ../../scenario_prb1.rst:172
+#: ../../scenario_prb1.rst:174
 msgid ""
 "**Sens d'écoulement** : symbologie avec flèches pour mieux appréhender le sens "
 "d'écoulement à l'intérieur du réseau."
@@ -485,7 +504,7 @@ msgstr ""
 "**Flow direction**: symbology with arrows to better understand the flow "
 "direction inside the sewer network."
 
-#: ../../scenario_prb1.rst:174
+#: ../../scenario_prb1.rst:176
 msgid ""
 "**Sous-réseaux** : symbologie catégorisée sur l'attribut *coordonnées STEU* "
 "pour bien identifier les différents réseaux dans le cas de figure où la zone "
@@ -495,7 +514,7 @@ msgstr ""
 "clearly identify the different networks in case the area is connected to "
 "several plants (decentralized management)."
 
-#: ../../scenario_prb1.rst:177
+#: ../../scenario_prb1.rst:179
 msgid ""
 "Si, pour enregistrer les sorties de simulation, vous passez par un couche "
 "temporaire que vous enregistrez ensuite, les mises en forme proposées "
@@ -508,11 +527,11 @@ msgstr ""
 "preserved. Only saving a file directly when launching the module and saving it "
 "in your QGIS project ensures that they are retained."
 
-#: ../../scenario_prb1.rst:183
+#: ../../scenario_prb1.rst:185
 msgid "Exploration des résultats (module ``Profils de canalisations``)"
 msgstr "Results exploration (``Longitudinal sewer profile`` module)"
 
-#: ../../scenario_prb1.rst:185
+#: ../../scenario_prb1.rst:187
 msgid ""
 "Pour explorer le pré-dimensionnement proposé par le module ``Réseau``, en plus "
 "des différents styles proposés pour la couche ``Canalisations``, le module "
@@ -526,11 +545,11 @@ msgstr ""
 "QGIS’s *Elevation Profile* tool allow you to view the underground profile of a "
 "sequence of pipes."
 
-#: ../../scenario_prb1.rst:191
+#: ../../scenario_prb1.rst:193
 msgid "Disposer d'une couche ``Canalisations`` issue du module ``Réseau``."
 msgstr "Have a ``Sewer pipes`` layer generated by the ``Sewer network`` module."
 
-#: ../../scenario_prb1.rst:196
+#: ../../scenario_prb1.rst:198
 msgid ""
 "**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner "
 "``Profils de canalisations``."
@@ -538,7 +557,7 @@ msgstr ""
 "**1.** Search for ``elan`` in the Processing Toolbox and select ``Longitudinal "
 "sewer profile``."
 
-#: ../../scenario_prb1.rst:201
+#: ../../scenario_prb1.rst:203
 msgid ""
 "**2.** Renseigner la couche de canalisations (bulle 1), choisir un emplacement "
 "et un nom pour le fichier de sortie (bulle 2) avant d'exécuter (bulle 3)."
@@ -546,13 +565,13 @@ msgstr ""
 "**2.** Provide the sewer pipes layer (marker 1), choose a location and a name "
 "for the output file (marker 2), then run (marker 3)."
 
-#: ../../scenario_prb1.rst:206
+#: ../../scenario_prb1.rst:208
 msgid ""
 "**3.** En sortie de module, vous obtenez **1 fichier .gpkg qui contient 3 "
 "couches** :"
 msgstr "**3.** The module generates **1 .gpkg file containing 3 layers**:"
 
-#: ../../scenario_prb1.rst:208
+#: ../../scenario_prb1.rst:210
 msgid ""
 "``Profil de terrain`` : couche de type *point* qui contient un échantillonnage "
 "des valeurs du MNT (altitude du profil de terrain) le long des canalisations."
@@ -560,7 +579,7 @@ msgstr ""
 "``Land profile``: *point* layer containing a sampling of DEM values (ground "
 "elevation) along the pipe profile."
 
-#: ../../scenario_prb1.rst:210
+#: ../../scenario_prb1.rst:212
 msgid ""
 "``Profil de canalisations`` : couche de type *point* dont les points se "
 "supperposent à ceux de ``Profil de terrain`` dans le plan xy, mais qui "
@@ -569,7 +588,7 @@ msgstr ""
 "``Sewer profile``: *point* layer whose points overlap with those of the ``Land "
 "profile`` layer in the XY plane, but correspond to pipe elevation."
 
-#: ../../scenario_prb1.rst:212
+#: ../../scenario_prb1.rst:214
 msgid ""
 "``Canalisations 3D`` : couche de type *ligne Z* créée à partir d'un "
 "échantillonnage de la couche ``Canalisations`` (conservation des styles et des "
@@ -578,11 +597,11 @@ msgstr ""
 "``3D pipes``: *Z-enabled line* layer created from a sampling of the ``Sewer "
 "pipes`` layer (retains styles and attributes)."
 
-#: ../../scenario_prb1.rst:215
+#: ../../scenario_prb1.rst:217
 msgid "Visualisation"
 msgstr "Visualization"
 
-#: ../../scenario_prb1.rst:217
+#: ../../scenario_prb1.rst:219
 msgid ""
 "**1.** Pour afficher un profil de canalisations dans un plan xz, commencer par "
 "ouvrir l'outil **Profil d'élévation** : *Vue* - *Profil d'élévation*."
@@ -590,7 +609,7 @@ msgstr ""
 "**1.** To display a pipe profile in an XZ plane, start by opening the "
 "*Elevation Profile* tool: *View → Elevation Profile*."
 
-#: ../../scenario_prb1.rst:222
+#: ../../scenario_prb1.rst:224
 msgid ""
 "**2.** Dans la fenêtre *Profil d'élévation*, cocher les couches que vous "
 "souhaitez voir apparaître sur votre coupe. Par exemple : ``Stations de "
@@ -601,7 +620,7 @@ msgstr ""
 "your section. For example: ``Lifting stations``, ``Pumping stations``, ``Land "
 "profile``, ``Sewer profile`` and ``3D pipes`` (marker 1)."
 
-#: ../../scenario_prb1.rst:224
+#: ../../scenario_prb1.rst:226
 msgid ""
 "**3.** Sélectionner les canalisations dont vous souhaitez afficher le profil "
 "souterrain. Pour cela :"
@@ -609,15 +628,15 @@ msgstr ""
 "**3.** Select the pipes whose underground profile you want to display. To do "
 "this:"
 
-#: ../../scenario_prb1.rst:226
+#: ../../scenario_prb1.rst:228
 msgid "Sélectionner la couche ``Canalisations 3D`` (bulle 2)."
 msgstr "Select the ``3D pipes`` layer (marker 2)."
 
-#: ../../scenario_prb1.rst:228
+#: ../../scenario_prb1.rst:230
 msgid "Activer l'accrochage (bulle 3a) sur la couche active (bulle 3b)."
 msgstr "Enable snapping (marker 3a) on the active layer (marker 3b)."
 
-#: ../../scenario_prb1.rst:231
+#: ../../scenario_prb1.rst:233
 msgid ""
 "Si *Accrochage* n'est pas visible : activez-le via *Vue - Barres d'outils - "
 "Accrochage*."
@@ -625,35 +644,35 @@ msgstr ""
 "If *Enable Snapping* is not visible : enable it via *View → Toolbars → Snapping "
 "Toolbar*."
 
-#: ../../scenario_prb1.rst:233
+#: ../../scenario_prb1.rst:235
 msgid "Activer le tracé (bulle 4)."
 msgstr "Enable tracing (marker 4)."
 
-#: ../../scenario_prb1.rst:235
+#: ../../scenario_prb1.rst:237
 msgid ""
 "Dans la fenêtre *Profil d'élévation*, cliquer sur l'icône *Dessiner une courbe* "
 "(bulle 5)."
 msgstr ""
 "In the *Elevation Profile* window, click the *Capture Curve* icon (marker 5)."
 
-#: ../../scenario_prb1.rst:237
+#: ../../scenario_prb1.rst:239
 msgid "Cliquer sur le premier point (bulle 6)."
 msgstr "Click the first point (marker 6)."
 
-#: ../../scenario_prb1.rst:239
+#: ../../scenario_prb1.rst:241
 msgid "Cliquer sur le dernier point (bulle 7)."
 msgstr "Click the last point (marker 7)."
 
-#: ../../scenario_prb1.rst:241
+#: ../../scenario_prb1.rst:243
 msgid "Puis cliquer droit pour activer le tracé entre ces deux points (bulle 7)."
 msgstr ""
 "Then right-click to activate the trace between these two points (marker 7)."
 
-#: ../../scenario_prb1.rst:246
+#: ../../scenario_prb1.rst:248
 msgid "**4.** Votre profil s'affiche dans la fenêtre profil d'élévation."
 msgstr "**4.** Your profile will then appear in the *Elevation Profile* window."
 
-#: ../../scenario_prb1.rst:251
+#: ../../scenario_prb1.rst:253
 msgid ""
 "Cette vue montre le relief du terrain et le profil de canalisations "
 "échantillonnées. Elle permet de bien visualiser les chutes au niveau des "
@@ -666,11 +685,11 @@ msgstr ""
 "distinguish between gravity and pressurized sections, nor does it omit points "
 "arriving from other alignments at manholes."
 
-#: ../../scenario_prb1.rst:255
+#: ../../scenario_prb1.rst:257
 msgid "**5.** En décochant ``Canalisations 3D``, vous obtenez cette vue."
 msgstr "**5.** By unchecking ``Sewer profile``, you obtain this view."
 
-#: ../../scenario_prb1.rst:260
+#: ../../scenario_prb1.rst:262
 msgid ""
 "Ici les chutes au niveaux des regards ne sont pas représentées (discontinutés "
 "dans le tracé). En revanche, les sections en refoulement (en rouge) se "
@@ -682,15 +701,15 @@ msgstr ""
 "gravity sections (in blue), and points arriving from other alignments do not "
 "interfere with interpretation of the profile."
 
-#: ../../scenario_prb1.rst:264
+#: ../../scenario_prb1.rst:266
 msgid "**6.** Vous pouvez également obtenir une vue en fonction des diamètres."
 msgstr "**6.** You can also obtain a view by diameters."
 
-#: ../../scenario_prb1.rst:269
+#: ../../scenario_prb1.rst:271
 msgid "Pour cela :"
 msgstr "To do this:"
 
-#: ../../scenario_prb1.rst:271
+#: ../../scenario_prb1.rst:273
 msgid ""
 "Cliquer droit sur ``Canalisations 3D`` dans la fenêtre *Profil d'élévation* "
 "puis cliquer sur *Propriétés*."
@@ -698,32 +717,32 @@ msgstr ""
 "Right-click on ``3D pipes`` in the *Elevation Profile* window and select "
 "*Properties*."
 
-#: ../../scenario_prb1.rst:276
+#: ../../scenario_prb1.rst:278
 msgid ""
 "Dans la fenêtre qui s'ouvre, cliquer sur *Style* (en bas) et sélectionner "
 "*Diamètres*."
 msgstr ""
 "In the window that opens, click *Style* (at the bottom) and select *Diameters*."
 
-#: ../../scenario_prb1.rst:282
+#: ../../scenario_prb1.rst:284
 msgid ""
 "Vous pouvez également obtenir cette vue en fonction des diamètres en passant "
 "par le panneau *Couches* :"
 msgstr "You can also obtain the diameter-based view from the *Layers* panel:"
 
-#: ../../scenario_prb1.rst:284
+#: ../../scenario_prb1.rst:286
 msgid "Cliquer droit sur ``Canalisations 3D``."
 msgstr "Right-click on ``3D pipes``."
 
-#: ../../scenario_prb1.rst:285
+#: ../../scenario_prb1.rst:287
 msgid "*Styles*."
 msgstr "Go to *Styles*."
 
-#: ../../scenario_prb1.rst:286
+#: ../../scenario_prb1.rst:288
 msgid "Choisir *Diamètres*."
 msgstr "Choose *Diameters*."
 
-#: ../../scenario_prb1.rst:287
+#: ../../scenario_prb1.rst:289
 msgid ""
 "Décocher puis recocher la couche ``Canalisations 3D`` dans la fenêtre *Profil "
 "d'élévation* pour que le nouveau style s'applique."
@@ -731,11 +750,11 @@ msgstr ""
 "Untick and then retick the ``3D pipes`` layer in the *Elevation Profile* window "
 "so the new style is applied."
 
-#: ../../scenario_prb1.rst:292
+#: ../../scenario_prb1.rst:294
 msgid "Étape 2 : Pré-dimensionner la ou les STEU (module ``Procédés``)"
 msgstr "Step 2: Preliminary sizing of the WWTP(s) (``Processes`` module)"
 
-#: ../../scenario_prb1.rst:294
+#: ../../scenario_prb1.rst:296
 msgid ""
 "Pour compléter votre scénario, il reste à pré-dimensionner la ou les stations "
 "qui constituent les points exutoires de votre réseau d'assainissement."
@@ -743,7 +762,7 @@ msgstr ""
 "To complete your scenario, the next step is to size the wastewater treatment "
 "plant(s) that serve as discharge points of your sewer network."
 
-#: ../../scenario_prb1.rst:296
+#: ../../scenario_prb1.rst:298
 msgid ""
 "Le module ``Procédés`` permet, pour chaque station, de **tester et pré-"
 "dimensionner différentes filières de traitement de filtres plantés de végétaux "
@@ -753,7 +772,7 @@ msgstr ""
 "**test and pre-size different treatment trains based on constructed wetlands "
 "(CW)**."
 
-#: ../../scenario_prb1.rst:298
+#: ../../scenario_prb1.rst:300
 msgid ""
 "Les filières peuvent être constituées de **1 à n étages de traitement** (au "
 "maximum, n = 3) et impliquer **différents procédés** : :download:`filtre à "
@@ -769,7 +788,7 @@ msgstr ""
 "(VdNS2), :download:`French vertical flow treatment wetland with a saturated "
 "bottom layer <_static/en/CARIBSAN_Fiche03_V1-ENG.pdf>` (VdNSS)."
 
-#: ../../scenario_prb1.rst:304
+#: ../../scenario_prb1.rst:306
 msgid ""
 "**1.** Avoir installé **la librairie wetlandoptimizer** comme expliqué "
 "dans :ref:`Installation des dépendances <dependances>`."
@@ -777,7 +796,7 @@ msgstr ""
 "**1.** To have installed the **wetlandoptimizer library** as explained "
 "in :ref:`Installing external dependencies <dependances>`."
 
-#: ../../scenario_prb1.rst:306
+#: ../../scenario_prb1.rst:308
 msgid ""
 "**2.** Disposer **d'une couche de type point avec le ou les emplacements de "
 "stations envisagés**."
@@ -785,22 +804,30 @@ msgstr ""
 "**2.** Have **a point layer with the location(s) of the possible wastewater "
 "treatment plants**."
 
-#: ../../scenario_prb1.rst:308
-msgid ""
-"Cette couche doit contenir **10 attributs** : *coordonnées gps*, *niveau rejet "
-"MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau "
-"rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], "
-"*niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL], *débit journalier* "
-"[m3/j]."
-msgstr ""
-"This layer must contain **10 attributes**: *gps coordinates*, *TSS outflow "
-"concentration target* [mg/L], *BOD₅ outflow concentration target* [mg/L], *TKN "
-"outflow concentration target* [mg/L], *COD outflow concentration target* [mg/"
-"L], *NO₃-N outflow concentration target* [mg/L], *TN outflow concentration "
-"target* [mg/L], *TP outflow concentration target* [mg/L], *e.coli outflow "
-"concentration target* [UFC/100mL], *average daily flow* [m3/j]."
-
 #: ../../scenario_prb1.rst:310
+msgid ""
+"Cette couche doit contenir a minima les **18 attributs** suivants : "
+"*coordonnées gps*, *débit journalier* [m3/j], *concentration entrée MES* [mg/"
+"L], *concentration entrée DBO5* [mg/L], *concentration entrée NTK* [mg/L], "
+"*concentration entrée DCO* [mg/L], *concentration entrée N-NO3* [mg/L], "
+"*concentration entrée NT* [mg/L], *concentration entrée PT* [mg/L], "
+"*concentration entrée e.coli* [UFC/100mL], *niveau rejet MES* [mg/L], *niveau "
+"rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], "
+"*niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/"
+"L], *niveau rejet e.coli* [UFC/100mL]."
+msgstr ""
+"This layer must contain a minima **18 attributes**: *gps coordinates*, *average "
+"daily flow* [m3/j], *TSS inflow concentration* [mg/L], *BOD₅ inflow "
+"concentration* [mg/L], *TKN inflow concentration* [mg/L], *COD inflow "
+"concentration* [mg/L], *NO₃-N inflow concentration* [mg/L], *TN inflow "
+"concentration* [mg/L], *TP inflow concentration* [mg/L], *e.coli inflow "
+"concentration* [UFC/100mL], *TSS outflow concentration target* [mg/L], *BOD₅ "
+"outflow concentration target* [mg/L], *TKN outflow concentration target* [mg/"
+"L], *COD outflow concentration target* [mg/L], *NO₃-N outflow concentration "
+"target* [mg/L], *TN outflow concentration target* [mg/L], *TP outflow "
+"concentration target* [mg/L], *e.coli outflow concentration target* [UFC/100mL]."
+
+#: ../../scenario_prb1.rst:312
 msgid ""
 "Pour les **niveaux de rejet**, **3 doivent obligatoirement être renseignés** "
 "avec une valeur numérique strictement supérieure à 0 : **niveau rejet MES** [mg/"
@@ -814,7 +841,7 @@ msgstr ""
 "concentration target* [mg/L]. The others can be set to *NULL* depending on your "
 "context (all or some of them)."
 
-#: ../../scenario_prb1.rst:314
+#: ../../scenario_prb1.rst:316
 msgid ""
 "Les niveaux de rejets relatifs au phosphore total (PT) et aux pathogènes "
 "(e.coli) ne sont actuellement pas pris en compte dans l'optimisation réalisée "
@@ -826,19 +853,22 @@ msgstr ""
 "e.coli (default values considered: *NULL*). This will be integrated in a future "
 "version."
 
-#: ../../scenario_prb1.rst:317
+#: ../../scenario_prb1.rst:319
 msgid ""
 "Cette couche peut-être obtenue en **sortie de module** ``Réseau``. Le débit "
 "journalier et les coordonnées GPS sont alors renseignés. Les attributs relatifs "
 "aux niveaux de rejet sont présents mais à renseigner manuellement selon votre "
-"contexte."
+"contexte. Les concentrations d'entrée sont pré-remplies avec des valeurs par "
+"défaut mais peuvent être éditées pour mieux coller à votre contexte."
 msgstr ""
 "This layer can be obtained as **output from the** ``Sewer network`` **module**. "
 "In that case, average daily flow and GPS coordinates are automatically filled. "
 "The outflow concentration targets attributes are present but must be filled "
-"manually according to your discharge requirements."
+"manually according to your discharge requirements. Inflow concentrations are "
+"pre-filled with default values but they can be edited to better suit your "
+"context."
 
-#: ../../scenario_prb1.rst:320
+#: ../../scenario_prb1.rst:323
 msgid ""
 "**3.** Avoir délimité et enregistré les **surfaces disponibles pour chaque "
 "station** au sein d'une couche de type *polygone*."
@@ -846,7 +876,7 @@ msgstr ""
 "**3.** Have defined and saved the **available surface areas for each wastewater "
 "treatment plant** in a *polygon* layer."
 
-#: ../../scenario_prb1.rst:322
+#: ../../scenario_prb1.rst:325
 msgid ""
 "Ce point est **facultatif** et n'intervient pas dans le pré-dimensionnement : "
 "il permet de vous aider à identifier quelles filières, parmi celles qui "
@@ -857,14 +887,14 @@ msgstr ""
 "identify which treatment trains, among those that meet your discharge "
 "constraints, are also compatible with your surface area constraints."
 
-#: ../../scenario_prb1.rst:330
+#: ../../scenario_prb1.rst:333
 msgid ""
 "**1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner "
 "``Procédés``."
 msgstr ""
 "**1.** Search for ``elan`` in the Processing Toolbox and select ``Processes``."
 
-#: ../../scenario_prb1.rst:335
+#: ../../scenario_prb1.rst:338
 msgid ""
 "**2.** Indiquer si votre zone se situe en climat *Tempéré* ou *Tropical* (bulle "
 "1). Ce choix impacte le pré-dimensionnement des filières en termes de surface "
@@ -875,7 +905,7 @@ msgstr ""
 "surface area and volume (smaller surface area and volume under tropical "
 "climate)."
 
-#: ../../scenario_prb1.rst:338
+#: ../../scenario_prb1.rst:341
 msgid ""
 "Choisissez *Tropical* si la température minimale est supérieure ou égale à 18°C "
 "toute l'année."
@@ -883,7 +913,7 @@ msgstr ""
 "Choose *Tropical* if the minimum temperature is greater than or equal to 18 °C "
 "all year round."
 
-#: ../../scenario_prb1.rst:340
+#: ../../scenario_prb1.rst:343
 msgid ""
 "Pour plus d'informations sur la bonne prise en compte du climat tropical lors "
 "du dimensionnement de filtres plantés de végétaux :"
@@ -891,7 +921,7 @@ msgstr ""
 "For more information on proper consideration of tropical climate in the design "
 "of constructed wetlands:"
 
-#: ../../scenario_prb1.rst:342
+#: ../../scenario_prb1.rst:345
 msgid ""
 "*Lombard-Latune et Molle (2017). Les filtres plantés de végétaux pour le "
 "traitement des eaux usées domestiques en milieu tropical : Guide de "
@@ -902,7 +932,7 @@ msgstr ""
 "treatment under tropical climate: Guideline to design tropicalized systems. "
 "Guides and protocols. 72 pages. Agence française de la biodiversité.*"
 
-#: ../../scenario_prb1.rst:344
+#: ../../scenario_prb1.rst:347
 msgid ""
 "**3.** Renseigner la couche STEU (bulle 2) et éventuellement la couche de "
 "surfaces disponibles (bulle 3)."
@@ -910,23 +940,33 @@ msgstr ""
 "**3.** Provide the WWTP layer (marker 2) and, optionally, the available surface "
 "areas layer (marker 3)."
 
-#: ../../scenario_prb1.rst:346
+#: ../../scenario_prb1.rst:349
 msgid ""
-"**4.** Assurez vous que les champs détectés pour les 10 attributs sont bien "
-"corrects : coordonnées GPS, niveaux de rejet et débit journalier (encart 4)."
+"**4.** Assurez vous que les champs détectés pour les coordonnées GPS et le "
+"débit journalier sont bien corrects (encart 4)."
 msgstr ""
-"**4.** Make sure the detected fields for the 10 attributes are correct: GPS "
-"coordinates, outflow concentration targets, and daily inflow (insert 4)."
+"**4.** Make sure the detected fields for GPS coordinates and daily inflow are "
+"correct (insert 4)."
 
-#: ../../scenario_prb1.rst:348
+#: ../../scenario_prb1.rst:352
+msgid ""
+"En dépliant *Paramètres avancés*, vous pouvez également vous assurer que les "
+"concentrations d'entrée et les niveaux de rejet pour les différents polluants "
+"ont bien été auto-détectés."
+msgstr ""
+"Unfolding *Advanced parameters*, you can also make sure that inflow "
+"concentrations and outflow concentration targets for the various pollutants "
+"were correctly auto-detected."
+
+#: ../../scenario_prb1.rst:354
 msgid ""
 "**5.** Pour le nombre d'étages maximum, nous vous conseillons de laisser la "
-"valeur 3 qui est la valeur par défaut."
+"valeur 3 qui est la valeur par défaut (encart 4)."
 msgstr ""
 "**5.** For the maximum number of stages, we recommend leaving the default value "
-"of 3."
+"of 3 (insert 4)."
 
-#: ../../scenario_prb1.rst:350
+#: ../../scenario_prb1.rst:356
 msgid ""
 "**6.** Choisir un emplacement et un nom pour le fichier de sortie (bulle 5) "
 "avant d'exécuter (bulle 6)."
@@ -934,7 +974,7 @@ msgstr ""
 "**6.** Choose a save location and name for the output file (marker 5) and then "
 "run (marker 6)."
 
-#: ../../scenario_prb1.rst:360
+#: ../../scenario_prb1.rst:363
 msgid ""
 "**7.** Après exécution du module, vous obtenez une couche nommée ``Couche de "
 "filières`` (couche de type *point*)."
@@ -942,7 +982,7 @@ msgstr ""
 "**7.** After execution, you obtain a layer called ``Treatment trains layer`` "
 "(*point* layer)."
 
-#: ../../scenario_prb1.rst:362
+#: ../../scenario_prb1.rst:365
 msgid ""
 "Cette couche contient toutes les filières de traitement testées lors de "
 "l'optimisation (une entité = une filière de traitement). Chaque entité possède "
@@ -952,11 +992,11 @@ msgstr ""
 "feature = a treatment train). Each feature is characterized by various "
 "attributes:"
 
-#: ../../scenario_prb1.rst:365
+#: ../../scenario_prb1.rst:368
 msgid "**id filière** : identifiant numérique de la filière pré-dimensionnée."
 msgstr "**pathway id**: numerical identifier of the pre-sized treatment train."
 
-#: ../../scenario_prb1.rst:366
+#: ../../scenario_prb1.rst:369
 msgid ""
 "**description filière** : détails de la filière pré-dimensionnée (procédé étage "
 "1 - ... - procédé étage n)."
@@ -964,7 +1004,7 @@ msgstr ""
 "**stages names**: details of the treatment train (process stage 1 - … - process "
 "stage n)."
 
-#: ../../scenario_prb1.rst:367
+#: ../../scenario_prb1.rst:370
 msgid ""
 "**coordonnées gps** : identifiant STEU pour laquelle la filière a été pré-"
 "dimensionnée."
@@ -972,7 +1012,7 @@ msgstr ""
 "**gps coordinates**: WWTP identifier for which the treatment train was pre-"
 "sized."
 
-#: ../../scenario_prb1.rst:368
+#: ../../scenario_prb1.rst:371
 msgid ""
 "**taux de charge MES par étape de traitement** [%] : taux de charge en MES par "
 "étage [taux étage 1,..., taux étage n]."
@@ -980,7 +1020,7 @@ msgstr ""
 "**TSS loading per treatment stage** [%]: TSS loading rate per stage [stage 1, "
 "…, stage n]."
 
-#: ../../scenario_prb1.rst:369
+#: ../../scenario_prb1.rst:372
 msgid ""
 "**taux de charge DBO5 par étape de traitement** [%] : taux de charge en DBO₅ "
 "par étage [taux étage 1,..., taux étage n]."
@@ -988,7 +1028,7 @@ msgstr ""
 "**BOD5 loading per treatment stage** [%]: BOD₅ loading rate per stage [stage 1, "
 "…, stage n]."
 
-#: ../../scenario_prb1.rst:370
+#: ../../scenario_prb1.rst:373
 msgid ""
 "**taux de charge NTK par étape de traitement** [%] : taux de charge en NTK par "
 "étage [taux étage 1,..., taux étage n]."
@@ -996,7 +1036,7 @@ msgstr ""
 "**TKN loading per treatment stage** [%]: TKN loading rate per stage [stage 1, "
 "…, stage n]."
 
-#: ../../scenario_prb1.rst:371
+#: ../../scenario_prb1.rst:374
 msgid ""
 "**taux de charge DCO par étape de traitement** [%] : taux de charge en DCO par "
 "étage [taux étage 1,..., taux étage n]."
@@ -1004,7 +1044,7 @@ msgstr ""
 "**COD loading per treatment stage** [%]: COD loading rate per stage [stage 1, "
 "…, stage n]."
 
-#: ../../scenario_prb1.rst:372
+#: ../../scenario_prb1.rst:375
 msgid ""
 "**taux de charge hydraulique par étape de traitement** [%] : taux de charge "
 "hydraulique par étage [taux étage 1,..., taux étage n]."
@@ -1012,7 +1052,7 @@ msgstr ""
 "**hydraulic loading rate** [%]: hydraulic loading rate per stage [stage 1, …, "
 "stage n]."
 
-#: ../../scenario_prb1.rst:373
+#: ../../scenario_prb1.rst:376
 msgid ""
 "**surface disponible** [m²] : calculée à partir de la couche *polygone* "
 "indiquée lors du lancement du module (couche optionnelle)."
@@ -1020,7 +1060,7 @@ msgstr ""
 "**available surface** [m²]: calculated from the *polygon* layer provided when "
 "launching the module (optional layer)."
 
-#: ../../scenario_prb1.rst:374
+#: ../../scenario_prb1.rst:377
 msgid ""
 "**surface totale** [m²] : surface de l'ensemble de la filière (somme des "
 "surfaces des étages 1 à n)."
@@ -1028,7 +1068,7 @@ msgstr ""
 "**total surface** [m²]: total surface of the treatment train (sum of surface "
 "areas of stages 1 to n)."
 
-#: ../../scenario_prb1.rst:376
+#: ../../scenario_prb1.rst:379
 msgid ""
 "La valeur de la surface totale conditionne sa mise en forme : si elle est "
 "**inférieure ou égale à la surface disponible**, la case est **verte** ; "
@@ -1038,7 +1078,7 @@ msgstr ""
 "equal to the available surface area**, the cell appears green; **otherwise**, "
 "it appears **red**."
 
-#: ../../scenario_prb1.rst:378
+#: ../../scenario_prb1.rst:381
 msgid ""
 "**surface par étage de traitement** [m²] : détail des surfaces pour chaque "
 "étage [surface étage 1,..., surface étage n]."
@@ -1046,7 +1086,7 @@ msgstr ""
 "**surface per treatment stage** [m²]: details of surface areas for each stage "
 "[stage 1, …, stage n]."
 
-#: ../../scenario_prb1.rst:379
+#: ../../scenario_prb1.rst:382
 msgid ""
 "**volume total** [m3] : volume de l'ensemble de la filière (somme des volumes "
 "des étages 1 à n)."
@@ -1054,7 +1094,7 @@ msgstr ""
 "**total volume** [m³]: total volume of the treatment train (sum of volumes of "
 "stages 1 to n)."
 
-#: ../../scenario_prb1.rst:380
+#: ../../scenario_prb1.rst:383
 msgid ""
 "**profondeur saturée par étage** [m] : détail de la profondeur saturée pour "
 "chaque étage [profondeur saturée étage 1,..., profondeur saturée étage n]."
@@ -1062,14 +1102,14 @@ msgstr ""
 "**saturated depth per stage** [m]: details of saturated depth for each stage "
 "[saturated depth stage1,..., saturated depth stage n]."
 
-#: ../../scenario_prb1.rst:382
+#: ../../scenario_prb1.rst:385
 msgid ""
 "Cette profondeur est nulle pour les procédés VdNS1 et VdNS2 qui sont dépourvus "
 "de couche saturée."
 msgstr ""
 "This value is zero for VdNS1 and VdNS2 processes, which have no saturated layer."
 
-#: ../../scenario_prb1.rst:384
+#: ../../scenario_prb1.rst:387
 msgid ""
 "**profondeur non saturée par étage** [m] : détail de la profondeur non saturée "
 "pour chaque étage [profondeur non saturée étage 1,..., profondeur non saturée "
@@ -1078,7 +1118,7 @@ msgstr ""
 "**unsaturated depth per stage** [m]: details of unsaturated depth for each "
 "stage [unsaturated depth stage1,..., unsaturated depth stage n]."
 
-#: ../../scenario_prb1.rst:385
+#: ../../scenario_prb1.rst:388
 msgid ""
 "**concentration MES effluent** [mg/L] : concentration en MES en sortie de "
 "filière de traitement."
@@ -1086,7 +1126,7 @@ msgstr ""
 "**TSS outflow concentration** [mg/L]: TSS concentration at the outlet of the "
 "treatment train."
 
-#: ../../scenario_prb1.rst:386
+#: ../../scenario_prb1.rst:389
 msgid ""
 "**concentration DBO5 effluent** [mg/L] : concentration en DBO₅ en sortie de "
 "filière de traitement."
@@ -1094,7 +1134,7 @@ msgstr ""
 "**BOD5 outflow concentration** [mg/L]: BOD₅ concentration at the outlet of the "
 "treatment train."
 
-#: ../../scenario_prb1.rst:387
+#: ../../scenario_prb1.rst:390
 msgid ""
 "**concentration NTK effluent** [mg/L] : concentration en NTK en sortie de "
 "filière de traitement."
@@ -1102,7 +1142,7 @@ msgstr ""
 "**TKN outflow concentration** [mg/L]: TKN concentration at the outlet of the "
 "treatment train."
 
-#: ../../scenario_prb1.rst:388
+#: ../../scenario_prb1.rst:391
 msgid ""
 "**concentration DCO effluent** [mg/L] : concentration en DCO en sortie de "
 "filière de traitement."
@@ -1110,7 +1150,7 @@ msgstr ""
 "**COD outflow concentration** [mg/L]: COD concentration at the outlet of the "
 "treatment train."
 
-#: ../../scenario_prb1.rst:389
+#: ../../scenario_prb1.rst:392
 msgid ""
 "**concentration NT effluent** [mg/L] : concentration en NT en sortie de filière "
 "de traitement."
@@ -1118,7 +1158,7 @@ msgstr ""
 "**TN outflow concentration** [mg/L]: TN concentration at the outlet of the "
 "treatment train."
 
-#: ../../scenario_prb1.rst:390
+#: ../../scenario_prb1.rst:393
 msgid ""
 "**concentration N-NO3 effluent** [mg/L] : concentration en N-NO₃ en sortie de "
 "filière de traitement."
@@ -1126,7 +1166,7 @@ msgstr ""
 "**NO3-N outflow concentration** [mg/L]: NO₃-N concentration at the outlet of "
 "the treatment train."
 
-#: ../../scenario_prb1.rst:391
+#: ../../scenario_prb1.rst:394
 msgid ""
 "**concentration PT effluent** [mg/L] : concentration en PT en sortie de filière "
 "de traitement."
@@ -1134,7 +1174,7 @@ msgstr ""
 "**TP outflow concentration** [mg/L]: TP concentration at the outlet of the "
 "treatment train."
 
-#: ../../scenario_prb1.rst:392
+#: ../../scenario_prb1.rst:395
 msgid ""
 "**concentration e.coli** [UFC/100mL] : concentration en e.coli en sortie de "
 "filière de traitement."
@@ -1142,7 +1182,7 @@ msgstr ""
 "**e.coli outflow concentration** [UFC/100mL]: e-coli concentration at the "
 "outlet of the treatment train."
 
-#: ../../scenario_prb1.rst:393
+#: ../../scenario_prb1.rst:396
 msgid ""
 "**déviation MES** [mg/L] : déviation de la concentration en MES dans l'effluent "
 "par rapport au niveau de rejet."
@@ -1150,7 +1190,7 @@ msgstr ""
 "**TSS deviation** [mg/L] : deviation of TSS outflow concentration relative to "
 "target."
 
-#: ../../scenario_prb1.rst:394
+#: ../../scenario_prb1.rst:397
 msgid ""
 "**déviation DBO5** [mg/L] : déviation de la concentration en DBO₅ dans "
 "l'effluent par rapport au niveau de rejet."
@@ -1158,7 +1198,7 @@ msgstr ""
 "**DBO5 deviation** [mg/L] : deviation of BOD₅ outflow concentration relative to "
 "target."
 
-#: ../../scenario_prb1.rst:395
+#: ../../scenario_prb1.rst:398
 msgid ""
 "**déviation NTK** [mg/L] : déviation de la concentration en NTK dans l'effluent "
 "par rapport au niveau de rejet."
@@ -1166,7 +1206,7 @@ msgstr ""
 "**TKN deviation** [mg/L] : deviation of TKN outflow concentration relative to "
 "target."
 
-#: ../../scenario_prb1.rst:396
+#: ../../scenario_prb1.rst:399
 msgid ""
 "**déviation DCO** [mg/L] : déviation de la concentration en DCO dans l'effluent "
 "par rapport au niveau de rejet."
@@ -1174,7 +1214,7 @@ msgstr ""
 "**COD deviation** [mg/L] : deviation of COD outflow concentration relative to "
 "target."
 
-#: ../../scenario_prb1.rst:397
+#: ../../scenario_prb1.rst:400
 msgid ""
 "**déviation NT** [mg/L] : déviation de la concentration en NT dans l'effluent "
 "par rapport au niveau de rejet."
@@ -1182,7 +1222,7 @@ msgstr ""
 "**TN deviation** [mg/L] : deviation of TN outflow concentration relative to "
 "target."
 
-#: ../../scenario_prb1.rst:398
+#: ../../scenario_prb1.rst:401
 msgid ""
 "**déviation N-NO3** [mg/L] : déviation de la concentration en N-NO₃ dans "
 "l'effluent par rapport au niveau de rejet."
@@ -1190,7 +1230,7 @@ msgstr ""
 "**NO3-N deviation** [mg/L] : deviation of NO₃-N outflow concentration relative "
 "to target."
 
-#: ../../scenario_prb1.rst:399
+#: ../../scenario_prb1.rst:402
 msgid ""
 "**déviation PT** [mg/L] : déviation de la concentration en PT dans l'effluent "
 "par rapport au niveau de rejet."
@@ -1198,7 +1238,7 @@ msgstr ""
 "**TP deviation** [mg/L] : deviation of TP outflow concentration relative to "
 "target."
 
-#: ../../scenario_prb1.rst:400
+#: ../../scenario_prb1.rst:403
 msgid ""
 "**déviation e.coli** [mg/L] : déviation de la concentration en e.coli dans "
 "l'effluent par rapport au niveau de rejet."
@@ -1206,7 +1246,7 @@ msgstr ""
 "**COD deviation** [mg/L] : deviation of COD outflow concentration relative to "
 "target."
 
-#: ../../scenario_prb1.rst:402
+#: ../../scenario_prb1.rst:405
 msgid ""
 "Les déviations sont mises en formes : en vert si inférieures ou égales à 0, en "
 "rouge si supérieures à 0. Elles renseignent sur la conformité de la filière par "
@@ -1218,7 +1258,7 @@ msgstr ""
 "compliance with outflow concentration target specified as inputs: green = "
 "compliant, red = non-compliant."
 
-#: ../../scenario_prb1.rst:405
+#: ../../scenario_prb1.rst:408
 msgid ""
 "**MES normalisé** [-] : valeur normalisée de la concentration en MES dans "
 "l'effluent par rapport au niveau de rejet exigé."
@@ -1226,7 +1266,7 @@ msgstr ""
 "**TSS normalized** [-] : normalized value of TSS achieved outflow concentration "
 "relative to target."
 
-#: ../../scenario_prb1.rst:406
+#: ../../scenario_prb1.rst:409
 msgid ""
 "**DBO5 normalisé** [-] : valeur normalisée de la concentration en DBO₅ dans "
 "l'effluent par rapport au niveau de rejet exigé."
@@ -1234,7 +1274,7 @@ msgstr ""
 "**DBO5 normalized** [-] : normalized value of BOD₅ achieved outflow "
 "concentration relative to target."
 
-#: ../../scenario_prb1.rst:407
+#: ../../scenario_prb1.rst:410
 msgid ""
 "**NTK normalisé** [-] : valeur normalisée de la concentration en NTK dans "
 "l'effluent par rapport au niveau de rejet exigé."
@@ -1242,7 +1282,7 @@ msgstr ""
 "**TKN normalized** [-] : normalized value of TKN achieved outflow concentration "
 "relative to target."
 
-#: ../../scenario_prb1.rst:408
+#: ../../scenario_prb1.rst:411
 msgid ""
 "**DCO normalisé** [-] : valeur normalisée de la concentration en DCO dans "
 "l'effluent par rapport au niveau de rejet exigé."
@@ -1250,7 +1290,7 @@ msgstr ""
 "**COD normalized** [-] : normalized value of COD achieved outflow concentration "
 "relative to target."
 
-#: ../../scenario_prb1.rst:409
+#: ../../scenario_prb1.rst:412
 msgid ""
 "**NT normalisé** [-] : valeur normalisée de la concentration en NT dans "
 "l'effluent par rapport au niveau de rejet exigé."
@@ -1258,7 +1298,7 @@ msgstr ""
 "**TN normalized** [-] : normalized value of TN achieved outflow concentration "
 "relative to target."
 
-#: ../../scenario_prb1.rst:410
+#: ../../scenario_prb1.rst:413
 msgid ""
 "**N-NO3 normalisé** [-] : valeur normalisée de la concentration en N-NO₃ dans "
 "l'effluent par rapport au niveau de rejet exigé."
@@ -1266,7 +1306,7 @@ msgstr ""
 "**NO3-N normalized** [-] : normalized value of N-NO₃ achieved outflow "
 "concentration relative to target."
 
-#: ../../scenario_prb1.rst:411
+#: ../../scenario_prb1.rst:414
 msgid ""
 "**PT normalisé** [-] : valeur normalisée de la concentration en PT dans "
 "l'effluent par rapport au niveau de rejet exigé."
@@ -1274,7 +1314,7 @@ msgstr ""
 "**TP normalized** [-] : normalized value of TP achieved outflow concentration "
 "relative to target."
 
-#: ../../scenario_prb1.rst:412
+#: ../../scenario_prb1.rst:415
 msgid ""
 "**e.coli normalisé** [-] : valeur normalisée de la concentration en e.coli dans "
 "l'effluent par rapport au niveau de rejet exigé."
@@ -1282,7 +1322,7 @@ msgstr ""
 "**e.coli normalized** [-] : normalized value of e.coli achieved outflow "
 "concentration relative to target."
 
-#: ../../scenario_prb1.rst:413
+#: ../../scenario_prb1.rst:416
 msgid ""
 "**surface normalisée** [-] : valeur normalisée de la surface totale de la "
 "filière par rapport à la surface disponible."
@@ -1290,7 +1330,7 @@ msgstr ""
 "**surface normalized** [-] : normalized value of required surface relative to "
 "available surface area."
 
-#: ../../scenario_prb1.rst:415
+#: ../../scenario_prb1.rst:418
 msgid ""
 "Si la valeur normalisée est inférieure ou égale à 1, alors elle respecte la "
 "contrainte indiquée (niveau de rejet ou surface disponible). Sinon, elle "
@@ -1300,7 +1340,7 @@ msgstr ""
 "satisfied (outflow concentration target or available surface area). If not, it "
 "exceeds this constraint."
 
-#: ../../scenario_prb1.rst:418
+#: ../../scenario_prb1.rst:421
 msgid ""
 "Pour les paramètres facultatifs (niveau de rejet de certains polluants, surface "
 "disponible), s'ils ne sont pas renseignés, leurs déviation et valeur normalisée "
@@ -1310,7 +1350,7 @@ msgstr ""
 "available surface area), if no value is specified, their deviation and "
 "normalized values are not calculated (*NULL*)."
 
-#: ../../scenario_prb1.rst:423
+#: ../../scenario_prb1.rst:426
 msgid ""
 "Parmi les entités de la couche ``Couche de filières``, seules les filières de "
 "traitement affichant des déviations \"vertes\" permettent d'atteindre les "
@@ -1320,7 +1360,7 @@ msgstr ""
 "\"green\" deviations meet the outflow concentration targets specified as inputs "
 "of the module."
 
-#: ../../scenario_prb1.rst:425
+#: ../../scenario_prb1.rst:428
 msgid ""
 "La **succession de procédés** (*descriptif filière*) varie d'une filière de "
 "traitement à une autre."
@@ -1328,7 +1368,7 @@ msgstr ""
 "The **sequence of processes** (*stages names*) differs from one treatment train "
 "to another."
 
-#: ../../scenario_prb1.rst:427
+#: ../../scenario_prb1.rst:430
 msgid ""
 "Pour chaque filière de traitement, en plus des **concentrations de sortie "
 "atteintes** dans l'effluent, des **caractéristiques géométriques** sont "
@@ -1346,7 +1386,7 @@ msgstr ""
 "pollutants and *hydraulic loading rate* per stage) and *compliance indicators* "
 "based on specified constraints (*deviations*, *normalized values*)."
 
-#: ../../scenario_prb1.rst:432
+#: ../../scenario_prb1.rst:435
 msgid ""
 "Les taux de charge par étage de traitement peuvent constituer des indicateurs "
 "intéressants selon les projections futures faites pour la zone et ainsi "
@@ -1361,11 +1401,11 @@ msgstr ""
 "better to choose a treatment train that is not already operating at maximum "
 "pollutant loads in the current configuration."
 
-#: ../../scenario_prb1.rst:439
+#: ../../scenario_prb1.rst:442
 msgid "Étape 3 : Pré-sélectionner une filière par exutoire"
 msgstr "Step 3: Pre-selecting a treatment train for each discharge point"
 
-#: ../../scenario_prb1.rst:441
+#: ../../scenario_prb1.rst:444
 msgid ""
 "Parmi les filières proposées, certaines permettent d'atteindre les niveaux de "
 "rejets imposés (déviations en vert), d'autres non (déviations en rouge), avec "
@@ -1378,7 +1418,7 @@ msgstr ""
 "their own surface requirements that can exceeds the available surface area "
 "(total surface in red if avaible surface was specified)."
 
-#: ../../scenario_prb1.rst:444
+#: ../../scenario_prb1.rst:447
 msgid ""
 "Des représentations graphiques ont été intégrées à Elan pour mieux visualiser "
 "les attributs des différentes filières et ainsi identifier plus facilement "
@@ -1389,11 +1429,11 @@ msgstr ""
 "easier to identify the respective strengths and weaknesses of each suggested "
 "treatment trains."
 
-#: ../../scenario_prb1.rst:447
+#: ../../scenario_prb1.rst:450
 msgid "Pour afficher ces représentations graphiques, il faut au préalable :"
 msgstr "To use these graphical representations, you need to:"
 
-#: ../../scenario_prb1.rst:449
+#: ../../scenario_prb1.rst:452
 msgid ""
 "Avoir installé **l'extension Data Plotly** comme expliqué "
 "dans :ref:`Installation des extensions QGIS tierces <extensions-tierces>`."
@@ -1401,12 +1441,12 @@ msgstr ""
 "Have installed the Data Plotly plugin as explained in :ref:`Installing QGIS "
 "third-party plugins <extensions-tierces>`."
 
-#: ../../scenario_prb1.rst:451
+#: ../../scenario_prb1.rst:454
 msgid ""
 "Disposer d'une couche ``Couche de filières`` (sortie du module ``Procédés``)."
 msgstr "Have a layer ``Treatment trains layer`` (output of the Processes module)."
 
-#: ../../scenario_prb1.rst:453
+#: ../../scenario_prb1.rst:456
 msgid ""
 "Si votre couche ``Couche de filières`` contient plusieurs exutoires, avoir "
 "sélectionné l'un d'entre eux."
@@ -1414,7 +1454,7 @@ msgstr ""
 "If your ``Treatment trains layer`` layer has several discharge points, to have "
 "selected one of them."
 
-#: ../../scenario_prb1.rst:456
+#: ../../scenario_prb1.rst:459
 msgid ""
 "Le radar plot et le bar plot visent à **comparer les différentes filières "
 "possibles pour un exutoire**. Si votre couche ``Couche de filières`` contient "
@@ -1426,11 +1466,11 @@ msgstr ""
 "contains multiple discharge points and you forget to select only one of them, "
 "an error message will appear when trying to visualize one of the two plots."
 
-#: ../../scenario_prb1.rst:462
+#: ../../scenario_prb1.rst:465
 msgid "Radar plot"
 msgstr "Radar plot"
 
-#: ../../scenario_prb1.rst:464
+#: ../../scenario_prb1.rst:467
 msgid ""
 "Le respect des niveaux de rejet imposés et de la surface disponible sont deux "
 "critères assez évidents qui vous permettront de pré-sélectionner une filière "
@@ -1444,35 +1484,35 @@ msgstr ""
 "visualize the several treatment trains based on these criteria and thus "
 "facilitate their comparison."
 
-#: ../../scenario_prb1.rst:467 ../../scenario_prb1.rst:499
+#: ../../scenario_prb1.rst:470 ../../scenario_prb1.rst:502
 msgid "Pour l'afficher :"
 msgstr "To do this:"
 
-#: ../../scenario_prb1.rst:469 ../../scenario_prb1.rst:501
+#: ../../scenario_prb1.rst:472 ../../scenario_prb1.rst:504
 msgid ""
 "**1.** Cliquer sur votre couche ``Couche de filières`` dans l'onglet *Couches* "
 "(bulle 1)."
 msgstr ""
 "**1.** Click on your layer ``Treatment trains layer`` in the *Layers* panel "
-"(landmark 1)."
+"(marker 1)."
 
-#: ../../scenario_prb1.rst:471
+#: ../../scenario_prb1.rst:474
 msgid "**2.** Appuyer sur le bouton en forme de radar plot (bulle 2)."
-msgstr "**2.** Click on the button with a radar plot icon (landmark 2)."
+msgstr "**2.** Click on the button with a radar plot icon (marker 2)."
 
-#: ../../scenario_prb1.rst:473 ../../scenario_prb1.rst:505
+#: ../../scenario_prb1.rst:476 ../../scenario_prb1.rst:508
 msgid ""
 "**3.** Une fenêtre *DataPlotly* s'ouvre en bas à droite de votre écran (sous "
 "*Boîte à outils de traitements*, bulle 3)."
 msgstr ""
 "**3.** A *DataPlotly* window pops up in the lower right side of you screen "
-"(below *Processing Toolbox*, landmark 3)."
+"(below *Processing Toolbox*, marker 3)."
 
-#: ../../scenario_prb1.rst:478
+#: ../../scenario_prb1.rst:481
 msgid "**4.** Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique."
 msgstr "**4.** You can expand or move the window to better see the plot."
 
-#: ../../scenario_prb1.rst:483
+#: ../../scenario_prb1.rst:486
 msgid ""
 "Les axes du radar plot coïncident avec les contraintes renseignées par "
 "l'utilisateur dans la couche ``STEU`` éditée en sortie de module ``Réseau``. "
@@ -1487,7 +1527,7 @@ msgstr ""
 "surface available to implement a treatment train (polygon layer given as input "
 "for the ``Processes`` module)."
 
-#: ../../scenario_prb1.rst:487
+#: ../../scenario_prb1.rst:490
 msgid ""
 "Le seuil en pointillés représente les contraintes : un point sous le seuil "
 "indique que la contrainte sur cet axe est respectée, tandis qu'un point au-"
@@ -1497,7 +1537,7 @@ msgstr ""
 "indicates that the constraint for the axis is satisfied when a point above "
 "traduces a non-compliance of the treatment train for this criteria."
 
-#: ../../scenario_prb1.rst:490
+#: ../../scenario_prb1.rst:493
 msgid ""
 "Par défaut, toutes les filières proposées pour l'exutoire apparaissent sur le "
 "radar plot. Si vous souhaitez en voir uniquement certaines, il vous suffit de "
@@ -1508,11 +1548,11 @@ msgstr ""
 "appear on the radar plot. If you want to see only some of them, you just have "
 "to select them in the attribute table and click again on the radar plot button."
 
-#: ../../scenario_prb1.rst:494
+#: ../../scenario_prb1.rst:497
 msgid "Bar plot"
 msgstr "Bar plot"
 
-#: ../../scenario_prb1.rst:496
+#: ../../scenario_prb1.rst:499
 msgid ""
 "Les taux de charge en polluants et le taux de charge hydraulique peuvent "
 "également vous aider dans le choix des filières pré-sélectionnées. C'est le bar "
@@ -1523,16 +1563,16 @@ msgstr ""
 "selecting appropriate treatment trains. The bar plot integrated to Elan allows "
 "you to graphically visualize these attributes."
 
-#: ../../scenario_prb1.rst:503
+#: ../../scenario_prb1.rst:506
 msgid "**2.** Appuyer sur le bouton en forme de bar plot (bulle 2)."
-msgstr "**2.** Click on the button with a bar plot icon (landmark 2)."
+msgstr "**2.** Click on the button with a bar plot icon (marker 2)."
 
-#: ../../scenario_prb1.rst:510
+#: ../../scenario_prb1.rst:513
 msgid ""
 "**4.**  Vous pouvez la déplacer ou l'agrandir pour mieux voir le graphique."
 msgstr "**4.** You can expand or move the window to better see the plot."
 
-#: ../../scenario_prb1.rst:515
+#: ../../scenario_prb1.rst:518
 msgid ""
 "Pour chaque filière, le graphique permet de voir par étage les taux de charge "
 "en MES, DBO₅, NTK et DCO ainsi que le taux de charge hydraulique. Une filière 1 "
@@ -1550,7 +1590,7 @@ msgstr ""
 "and \"stage 3\" (colors of decreasing intensity : maximum for \"stage 1\" and "
 "minimum for \"stage 3\")."
 
-#: ../../scenario_prb1.rst:519
+#: ../../scenario_prb1.rst:522
 msgid ""
 "Le bar plot vous permet d'identifier le ou les éléments qui ont été limitants "
 "dans l'optimisation de la filière (taux à 100 %) et d'avoir une appréciation "
@@ -1563,7 +1603,7 @@ msgstr ""
 "the treatment train is adaptative or not in case of evolution of the context "
 "(increase of population for instance)."
 
-#: ../../scenario_prb1.rst:522
+#: ../../scenario_prb1.rst:525
 msgid ""
 "Par défaut, toutes les filières proposées pour l'exutoire apparaissent sur le "
 "bar plot. Si vous souhaitez en voir uniquement certaines, il vous suffit de les "
@@ -1574,11 +1614,11 @@ msgstr ""
 "appear on the bar plot. If you want to see only some of them, you just have to "
 "select them in the attribute table and click again on the bar plot button."
 
-#: ../../scenario_prb1.rst:528
+#: ../../scenario_prb1.rst:531
 msgid "Étape 4 : Créer un objet scénario (module ``Créer un scénario``)"
 msgstr "Step 4: Creation of a scenario item (``Create a scenario`` module)"
 
-#: ../../scenario_prb1.rst:530
+#: ../../scenario_prb1.rst:533
 msgid ""
 "Le module ``Créer un scénario`` vous permet de créer un objet scénario "
 "contenant à la fois le pré-dimensionnement d'un réseau et celui des filières "
@@ -1588,7 +1628,7 @@ msgstr ""
 "pre-sizing of the sewer network and of its associated treatment trains (1 per "
 "discharge points)."
 
-#: ../../scenario_prb1.rst:532
+#: ../../scenario_prb1.rst:535
 msgid ""
 "Il prend la forme d'un géopackage. C'est sur la base de ce géopackage que le "
 "scénario pourra ensuite être évalué par le module ``Evaluation``."
@@ -1596,12 +1636,12 @@ msgstr ""
 "The scenario item is a geopackage. Based on this file, the scenario could then "
 "be assessed by the ``Assessment`` module."
 
-#: ../../scenario_prb1.rst:537
+#: ../../scenario_prb1.rst:540
 msgid "**1.** Disposer d'une couche ``Canalisations`` issue du module ``Réseau``."
 msgstr ""
 "**1.** Have a ``Sewer pipes`` layer generated by the ``Sewer network`` module."
 
-#: ../../scenario_prb1.rst:539
+#: ../../scenario_prb1.rst:542
 msgid ""
 "**2.** Avoir pré-dimensionné des filières pour chacun des exutoires de cette "
 "couche ``Canalisations`` avec le module ``Procédés`` (couche ``Couche de "
@@ -1611,7 +1651,7 @@ msgstr ""
 "discharge points considered in this `Sewer pipes`` layer using the "
 "``Processes`` module (``Treatment trains layer`` layer)"
 
-#: ../../scenario_prb1.rst:541
+#: ../../scenario_prb1.rst:544
 msgid ""
 "**3.** Avoir choisi une possibilité de filière pour chaque exutoire parmi "
 "toutes celles pré-dimensionnées."
@@ -1619,7 +1659,7 @@ msgstr ""
 "**3.** To have chosen one treatment train option for each discharge points "
 "among all the pre-sized ones."
 
-#: ../../scenario_prb1.rst:546
+#: ../../scenario_prb1.rst:549
 msgid ""
 "**1.** Ouvrir la table attributaire de votre ``Couche de filières`` et "
 "sélectionner une filière par exutoire. Par exemple ici, la filière VdNS1 (1 "
@@ -1630,7 +1670,7 @@ msgstr ""
 "train (1 unique treatment train selected because only 1 discharge point in this "
 "scenario)."
 
-#: ../../scenario_prb1.rst:551
+#: ../../scenario_prb1.rst:554
 msgid ""
 "**2.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner "
 "``Créer un scénario``."
@@ -1638,7 +1678,7 @@ msgstr ""
 "**2.** Search ``elan`` in the *Processing Toolbox* and select ``Create a "
 "scenario``."
 
-#: ../../scenario_prb1.rst:557
+#: ../../scenario_prb1.rst:560
 msgid ""
 "**3.** Nommer votre scénario (bulle 1), indiquer la couche ``Canalisations`` à "
 "considérer (bulle 2), renseigner la couche ``Couche de filières`` et **cocher "
@@ -1650,7 +1690,7 @@ msgstr ""
 "**compulsory tick** ``Selected features only`` (marker 3) to consider only the "
 "pre-selected treatment train(s)."
 
-#: ../../scenario_prb1.rst:560
+#: ../../scenario_prb1.rst:563
 msgid ""
 "**4.** Indiquer un nom et un emplacement pour le fichier de sortie (bulle 4) "
 "puis exécuter (bulle 5)."
@@ -1658,21 +1698,21 @@ msgstr ""
 "**4.** State a name and a save location for the output file (marker 4), then "
 "run (marker 5)."
 
-#: ../../scenario_prb1.rst:565
+#: ../../scenario_prb1.rst:568
 msgid ""
 "**5.** En sortie de module, vous obtenez **1 fichier.gpkg qui contient 9 "
 "couches** :"
 msgstr "**5.** The module generates **1 .gpkg file with 9 layers**:"
 
-#: ../../scenario_prb1.rst:567
+#: ../../scenario_prb1.rst:570
 msgid "7 couches issues du module ``Réseau``."
 msgstr "7 layers from the ``Sewer network`` module."
 
-#: ../../scenario_prb1.rst:568
+#: ../../scenario_prb1.rst:571
 msgid "1 couche ``Couche de filières`` avec les filières retenues."
 msgstr "1 ``Treatment trains layer`` layer with the selected treatment trains."
 
-#: ../../scenario_prb1.rst:569
+#: ../../scenario_prb1.rst:572
 msgid ""
 "1 couche sans géométrie ``metadata`` qui contient un identifiant unique pour la "
 "comparaison postérieure à d'autres scénarios."
@@ -1680,7 +1720,7 @@ msgstr ""
 "1 non geometric layer ``metadata`` with a unique identifier for later "
 "comparison with other scenarios."
 
-#: ../../scenario_prb1.rst:572
+#: ../../scenario_prb1.rst:575
 msgid ""
 "**Le géopackage de sortie ne s'ouvre pas dans le projet**. Il est juste "
 "enregistré à l'emplacement indiqué, prêt à être chargé dans un nouveau projet à "
@@ -2183,3 +2223,29 @@ msgstr ""
 #~ "plugin <extensions-tierces>`. - Have a layer ``Treatment trains layer`` "
 #~ "(output of the ``Processes`` module). - If your ``Treatment trains layer`` "
 #~ "layer has several discharge points, to have selected one of them."
+
+#~ msgid ""
+#~ "Si vous avez eu recours au module ``Population`` pour préparer vos données "
+#~ "géographiques, l'attribut à indiquer est *population*."
+#~ msgstr ""
+#~ "If you used the ``Population`` module to prepare your geographic data, "
+#~ "*population* is the attribute to specify here."
+
+#~ msgid ""
+#~ "En sortie de module ``Réseau``, la couche STEU compte aussi des attributs "
+#~ "non renseignés : *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], "
+#~ "*niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* "
+#~ "[mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet "
+#~ "e.coli* [UFC/100mL]. Ces attributs sont à renseigner manuellement pour "
+#~ "chaque exutoire selon vos contraintes de rejet. Ils servent d'entrées pour "
+#~ "le module ``Procédés``. Certains peuvent être renseignés à *NULL*."
+#~ msgstr ""
+#~ "In the ``Sewer network`` module output, the WWTP layer also contains "
+#~ "attributes that are not filled in: *TSS outflow concentration target* [mg/"
+#~ "L], *BOD₅ outflow concentration target* [mg/L], *TKN outflow concentration "
+#~ "target* [mg/L], *COD outflow concentration target* [mg/L], *NO3-N outflow "
+#~ "concentration target* [mg/L], *TN outflow concentration target* [mg/L], *TP "
+#~ "outflow concentration target* [mg/L], *e.coli outflow concentration target* "
+#~ "[UFC/100mL]. These attributes are to be filled manually for each discharge "
+#~ "point according to your discharge requirements. They serve as inputs for the "
+#~ "``Processes`` module. Some of them may be set to *NULL*."

@@ -132,13 +132,16 @@ Utilisation du module
 * ``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour chaque exutoire), *débit de pointe* [m³/s], *débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur tranchée* [m], *profondeur canas entrantes* [m], *diamètres entrants* [m].
 
 .. note::
-    En sortie de module ``Réseau``, la couche STEU compte aussi des attributs qui serviront d'entrées pour le module ``Procédés`` : 
+    En sortie de module ``Réseau``, la couche STEU compte aussi des attributs qui serviront d'entrées pour le module ``Procédés`` :
 
-        - des **niveaux de rejets** : *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL]. 
+        * des **niveaux de rejets** : *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL].
+
         Ces attributs sont à renseigner manuellement pour chaque exutoire selon vos contraintes de rejet. Certains peuvent être renseignés à *NULL*.
 
-        - des **concentrations d'entrée** de STEU : *concentration entrée MES* [mg/L], *concentration entrée DBO5* [mg/L], *concentration entrée NTK* [mg/L], *concentration entrée DCO* [mg/L], *concentration entrée N-NO3* [mg/L], *concentration entrée NT* [mg/L], *concentration entrée PT* [mg/L], *concentration entrée e.coli* [UFC/100mL].
-        Ces attributs sont pré-renseignés avec des valeurs par défaut. Ils peuvent être édités pour s'ajuster au mieux au cas utilisateur. Tous doivent être renseignés. 
+        * des **concentrations d'entrée** de STEU : *concentration entrée MES* [mg/L], *concentration entrée DBO5* [mg/L], *concentration entrée NTK* [mg/L], *concentration entrée DCO* [mg/L], *concentration entrée N-NO3* [mg/L], *concentration entrée NT* [mg/L], *concentration entrée PT* [mg/L], *concentration entrée e.coli* [UFC/100mL].
+
+        Ces attributs sont pré-renseignés avec des valeurs par défaut. Ils peuvent être édités pour s'ajuster au mieux au cas utilisateur. Tous doivent être renseignés.
+        
 
 * ``Stations de relevage`` : *altitude terrain* [m], *débit de pointe* [m³/s], *débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur canas entrantes* [m], *charge hydrostatique* [m].
 
