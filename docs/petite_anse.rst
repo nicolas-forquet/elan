@@ -535,6 +535,7 @@ Pour explorer le pré-dimensionnement proposé par le module ``Réseau``, vous p
 
 Étape 2 : Pré-dimensionner la ou les STEU (module ``Procédés``)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _specify-C:
 
 **1. Ajuster les concentrations en entrée de STEU dans la couche** ``STEU``
 
@@ -548,8 +549,6 @@ d'entrée pour différents polluants. Pour cet exemple, les valeurs pré-remplie
      * N-NO₃ : 3 mg/L
      * PT : 9,4 mg/L
      * e.coli : 0 UFC/100mL
-
-.. _specify-C:
 
 **2. Renseigner les contraintes de rejet dans la couche** ``STEU``
 
