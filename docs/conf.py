@@ -28,7 +28,7 @@ language = "fr"
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['sphinxcontrib.mermaid']
-mermaid_init_js = ""
+mermaid_d3_zoom = True
 templates_path = ["_templates"]
 exclude_patterns = []
 figure_language_filename = '{root}.{language}{ext}'

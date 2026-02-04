@@ -9,7 +9,6 @@ Il est interactif : vous pouvez zoomer et cliquer sur certains blocs pour être 
     Utiliser le mode clair pour une meilleure lisibilité du logigramme.
 
 .. mermaid:: global_flowchart.mmd
-    :zoom:
 
 **Légende**
 
