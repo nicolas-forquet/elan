@@ -5,9 +5,6 @@ Le logigramme ici présenté vise à vous donner une vue d'ensemble du flux de t
 
 Il est interactif : vous pouvez zoomer et cliquer sur certains blocs pour être renvoyé aux rubriques correspondantes dans la documentation.
 
-.. attention::
-    Utiliser le mode clair pour une meilleure lisibilité du logigramme.
-
 .. mermaid:: global_flowchart.mmd
 
 **Légende**

@@ -22,7 +22,4 @@ Ce logigramme vise à vous guider à la création de scénarios sur votre zone d
 
 Il est interactif : vous pouvez zoomer et cliquer sur certains blocs pour être renvoyé aux rubriques correspondantes dans la documentation.
 
-.. attention::
-    Utiliser le mode clair pour une meilleure lisibilité du logigramme.
-
 .. mermaid:: create_scenario_flowchart.mmd
