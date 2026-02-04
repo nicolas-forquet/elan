@@ -76,6 +76,7 @@ Elan est structuré en **plusieurs groupement de modules**.
     * ``Réseau`` pour **tracer un réseau d'assainissement** strict (réseau séparatif, eaux usées uniquement) dans une zone sans réseau à l'aide de :ref:`pysewer <pysewer>`.
     * ``Procédés`` qui permet de **pré-dimensionner des filières de traitement** des eaux usées de type filtres plantés de végétaux à l'aide de :ref:`wetlandoptimizer <wetlandoptimizer>`.
     * ``Hydraulique`` qui intervient dans **l'estimation des volumes produits** par les différents bassins versants urbains d'une zone.
+    * ``Créer un scénario`` qui est à l'interface des modules de types *Processus* et *Analyse* et permet de créer des objets scénarios qui pourront ensuite être évalués et comparés.
 
 .. note::
 
@@ -84,8 +85,6 @@ Elan est structuré en **plusieurs groupement de modules**.
     Le module ``Hydraulique`` pour celle des déversements par temps de pluie.
 
     Le module ``Procédés`` peut être sollicité pour les deux problématiques.
-
-* ``Créer un scénario`` qui est à l'interface des modules de types *Processus* et *Analyse* et permet de créer des objets scénarios qui pourront ensuite être évalués et comparés.
 
 * **Exploration des résultats**
     * ``Profils de canalisations`` qui permet de **visualiser le profil souterrain des canalisations (vue longitudinale)**.
