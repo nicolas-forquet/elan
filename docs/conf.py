@@ -30,10 +30,11 @@ language = "fr"
 extensions = ['sphinxcontrib.mermaid']
 mermaid_d3_zoom = True
 mermaid_init_js = """
-mermaid.initialize({
-    theme: "neutral",
-    securityLevel: "loose"
-});
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    mermaid.initialize({startOnLoad:true, theme:'dark'});
+} else {
+    mermaid.initialize({startOnLoad:true, theme:'default'});
+}
 """ 
 templates_path = ["_templates"]
 exclude_patterns = []
