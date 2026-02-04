@@ -29,6 +29,12 @@ language = "fr"
 
 extensions = ['sphinxcontrib.mermaid']
 mermaid_d3_zoom = True
+mermaid_init_js = """
+mermaid.initialize({
+    theme: "neutral",
+    securityLevel: "loose"
+});
+""" 
 templates_path = ["_templates"]
 exclude_patterns = []
 figure_language_filename = '{root}.{language}{ext}'
