@@ -132,8 +132,13 @@ Utilisation du module
 * ``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour chaque exutoire), *débit de pointe* [m³/s], *débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur tranchée* [m], *profondeur canas entrantes* [m], *diamètres entrants* [m].
 
 .. note::
-    En sortie de module ``Réseau``, la couche STEU compte aussi des attributs non renseignés : *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL]. Ces attributs sont à renseigner manuellement 
-    pour chaque exutoire selon vos contraintes de rejet. Ils servent d'entrées pour le module ``Procédés``. Certains peuvent être renseignés à *NULL*.
+    En sortie de module ``Réseau``, la couche STEU compte aussi des attributs qui serviront d'entrées pour le module ``Procédés`` : 
+
+        - des **niveaux de rejets** : *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL]. 
+        Ces attributs sont à renseigner manuellement pour chaque exutoire selon vos contraintes de rejet. Certains peuvent être renseignés à *NULL*.
+
+        - des **concentrations d'entrée** de STEU : *concentration entrée MES* [mg/L], *concentration entrée DBO5* [mg/L], *concentration entrée NTK* [mg/L], *concentration entrée DCO* [mg/L], *concentration entrée N-NO3* [mg/L], *concentration entrée NT* [mg/L], *concentration entrée PT* [mg/L], *concentration entrée e.coli* [UFC/100mL].
+        Ces attributs sont pré-renseignés avec des valeurs par défaut. Ils peuvent être édités pour s'ajuster au mieux au cas utilisateur. Tous doivent être renseignés. 
 
 * ``Stations de relevage`` : *altitude terrain* [m], *débit de pointe* [m³/s], *débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur canas entrantes* [m], *charge hydrostatique* [m].
 
@@ -299,7 +304,7 @@ Préalable
 
 **2.** Disposer **d'une couche de type point avec le ou les emplacements de stations envisagés**.
 
-Cette couche doit contenir **10 attributs** : *coordonnées gps*, *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL], *débit journalier* [m3/j]. 
+Cette couche doit contenir a minima les **18 attributs** suivants : *coordonnées gps*, *débit journalier* [m3/j], *concentration entrée MES* [mg/L], *concentration entrée DBO5* [mg/L], *concentration entrée NTK* [mg/L], *concentration entrée DCO* [mg/L], *concentration entrée N-NO3* [mg/L], *concentration entrée NT* [mg/L], *concentration entrée PT* [mg/L], *concentration entrée e.coli* [UFC/100mL], *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL]. 
 
 Pour les **niveaux de rejet**, **3 doivent obligatoirement être renseignés** avec une valeur numérique strictement supérieure à 0 : **niveau rejet MES** [mg/L], **niveau rejet DBO5** [mg/L], **niveau rejet DCO** [mg/L]. 
 Les autres peuvent être renseignés à *NULL* selon votre contexte (tout ou partie d'entre eux).
@@ -310,6 +315,7 @@ Les autres peuvent être renseignés à *NULL* selon votre contexte (tout ou par
 
 Cette couche peut-être obtenue en **sortie de module** ``Réseau``. Le débit journalier et les coordonnées GPS sont alors renseignés. 
 Les attributs relatifs aux niveaux de rejet sont présents mais à renseigner manuellement selon votre contexte.
+Les concentrations d'entrée sont pré-remplies avec des valeurs par défaut mais peuvent être éditées pour mieux coller à votre contexte.
 
 **3.** Avoir délimité et enregistré les **surfaces disponibles pour chaque station** au sein d'une couche de type *polygone*. 
 
