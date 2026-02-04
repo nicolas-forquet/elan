@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.7.925-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-04 10:54+0100\n"
-"PO-Revision-Date: 2026-02-04 13:49+0100\n"
+"POT-Creation-Date: 2026-02-04 14:51+0100\n"
+"PO-Revision-Date: 2026-02-04 14:52+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -227,7 +227,7 @@ msgstr ""
 "menu. Among them:"
 
 #: ../../scenario_prb1.rst:92
-msgid "``coefficient de pointe journalier`` : [m³/j]."
+msgid "``coefficient de pointe journalier`` : [m³/s]."
 msgstr "``peak load coefficient``: [m³/s]."
 
 #: ../../scenario_prb1.rst:94

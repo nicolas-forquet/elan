@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.10.92-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-04 10:50+0100\n"
-"PO-Revision-Date: 2026-02-04 10:58+0100\n"
+"POT-Creation-Date: 2026-02-04 14:51+0100\n"
+"PO-Revision-Date: 2026-02-04 14:52+0100\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -26,26 +26,25 @@ msgstr "Global workflow centralized / decentralized question"
 
 #: ../../logigramme_global1.rst:4
 msgid ""
-"Le logigramme ici présenté vise à vous donner une vue d'ensemble du flux "
-"de traitement pour traiter la question du centralisé / décentralisé : "
+"Le logigramme ici présenté vise à vous donner une vue d'ensemble du flux de "
+"traitement pour traiter la question du centralisé / décentralisé : "
 "principales étapes, modules impliqués et interaction entre eux."
 msgstr ""
-"This flowchart aims to give you an overview of the workflow to address "
-"the centralized / decentralized question : main steps, modules involved "
-"and the interaction between them."
+"This flowchart aims to give you an overview of the workflow to address the "
+"centralized / decentralized question : main steps, modules involved and the "
+"interaction between them."
 
 #: ../../logigramme_global1.rst:6
 msgid ""
-"Il est interactif : vous pouvez zoomer et cliquer sur certains blocs "
-"pour être renvoyé aux rubriques correspondantes dans la documentation."
+"Il est interactif : vous pouvez zoomer et cliquer sur certains blocs pour "
+"être renvoyé aux rubriques correspondantes dans la documentation."
 msgstr ""
 "It is interactive: you can zoom in and click on certain blocks to be "
 "redirected to the corresponding sections in the documentation."
 
-#: ../../logigramme_global1.rst:9
-msgid "Utiliser le mode clair pour une meilleure lisibilité du logigramme."
-msgstr "Use light mode to better read the flowchart."
-
-#: ../../logigramme_global1.rst:14
+#: ../../logigramme_global1.rst:10
 msgid "**Légende**"
 msgstr "Legend"
+
+#~ msgid "Utiliser le mode clair pour une meilleure lisibilité du logigramme."
+#~ msgstr "Use light mode to better read the flowchart."
