@@ -159,6 +159,29 @@ Son installation se fait via Elan.
 
     Lorsqu'une nouvelle version d'Elan est installée, il est également nécessaire de réinstaller *pysewer* et *wetlandoptimizer*.
 
+.. _pysheds:
+
+Question des déversements par temps de pluie : pysheds
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* **pysheds** est une bibliothèque open-source Python développée par `l'UT Austin <https://www.utexas.edu/>`_, une université américaine (Texas).
+
+Elle permet de délimiter rapidement des bassins versants topographiques par analyse du modèle numérique de terrain (MNT). 
+Son installation se fait directement en ligne de commande. 
+
+.. important::
+    **pysheds doit avoir été installé pour pouvoir utiliser le module** ``Bassins versants urbains``.
+
+**1.** Ouvrir un terminal. Par exemple, sur Windows ouvrir l'application `OSGeo4W Shell`.
+
+**2.** Exécuter la commande suivante :
+
+.. code-block:: python
+
+  pip install pysheds
+
+**3.** Fermer le terminal.
+
 .. _extensions-tierces:
 
 Installation des extensions QGIS tierces
@@ -191,26 +214,3 @@ Son installation se fait via le gestionnaire d'extensions QGIS.
      :width: 700
 
 **3.** La mention ``Extension installée avec succès`` apparaît au sommet de la fenêtre. Fermer le gestionnaire d'extensions.
-
-.. _pysheds:
-
-Question des déversements par temps de pluie : pysheds
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-* **pysheds** est une bibliothèque open-source Python développée par `l'UT Austin <https://www.utexas.edu/>`_, une université américaine (Texas).
-
-Elle permet de délimiter rapidement des bassins versants topographiques par analyse du modèle numérique de terrain (MNT). 
-Son installation se fait directement en ligne de commande. 
-
-.. important::
-    **pysheds doit avoir été installé pour pouvoir utiliser le module** ``Bassins versants urbains``.
-
-**1.** Ouvrir un terminal. Par exemple, sur Windows ouvrir l'application `OSGeo4W Shell`.
-
-**2.** Exécuter la commande suivante :
-
-.. code-block:: python
-
-  pip install pysheds
-
-**3.** Fermer le terminal.
