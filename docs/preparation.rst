@@ -28,16 +28,15 @@ Sinon, poursuivez ici pour quelques astuces et explications sur l'obtention et l
 
 **Pour les autres couches** : 
 
+.. tip::
+    Définir le Système de Coordonnées de Référence (SCR) du projet à partir de la couche de MNT et créer vos couches vecteurs dans ce système.
+
 En contexte français (Hexagone et Outre-Mer)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _rge-alti:
 
 * ``MNT``: raster téléchargeable par département sur le site `Géoservices de l'IGN <https://geoservices.ign.fr/>`_ 
     * MNT à 25 m : `BD ALTI® 25M <https://geoservices.ign.fr/bdalti>`_
     * MNT à 5 m voire 1 m : `RGE ALTI® <https://geoservices.ign.fr/rgealti>`_
-
-.. _ign-topo:
 
 * ``routes`` et ``bâtiments``: couches téléchargeables par département sur le site Géoservices de l'IGN `BD TOPO® <https://geoservices.ign.fr/bdtopo>`_.
 
@@ -51,7 +50,7 @@ En contexte français (Hexagone et Outre-Mer)
         * Choisir les couches ``Bâtiment`` et ``Tronçon de route``.
 
 .. attention::
-    La couche ``bâtiments`` obtenue est de type *polygone* et non *point*. Elle doit donc être transformée via un des modules :ref:`Population <population>` intégré à Elan.
+    La couche ``bâtiments`` obtenue est de type *polygone* et non *point*. Elle doit donc être transformée via un des modules :ref:`Population <population>` intégrés à Elan.
 
 En contexte international
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -115,7 +114,7 @@ OpenStreetMap est un outil ouvert et collaboratif.
 **1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Routes et bâtiments``.
 
 .. image:: _static/start-r+b.png
-      :width: 352
+      :width: 307
 
 **2.** Indiquer la couche *polygone* qui délimite la zone à extraire (bulle 1), cocher *Reprojection des couches dans le SCR du projet* (bulle 2) puis exécuter (bulle 3).
 
@@ -153,6 +152,8 @@ Modules ``Population`` : ``Population (répartition uniforme)`` et ``Population 
 Les modules ``Population`` permettent d'assigner à chaque bâtiment (polygone) un nombre d'habitants via un attribut *population* et de réduire chaque bâtiment en un point (son centroïde).
 Ils se distinguent l'un de l'autre dans la modalité de répartition (nombre fixe ou variable d'habitants par bâtiment). Selon votre besoin, vous pouvez utiliser soit l'un, soit l'autre des modules ``Population``.
 
+.. _uniforme:
+
 Module ``Population (répartition uniforme)``
 """"""""""""""""""""""""""""""""""""""""""""
 
@@ -177,6 +178,7 @@ Le module ``Population (répartition uniforme)`` permet de **d'associer à chaqu
 A chaque centroïde est associé un nombre identique d'individus (**attribut population**) qui correspond au nombre moyen d'habitants par bâtiment renseigné.
 A ce stade, vous pouvez éditer la couche et ajuster manuellement ce nombre pour certains bâtiments si vous le souhaitez (immeuble par exemple).
 
+.. _surfacique:
 
 Module ``Population (répartition surfacique)``
 """"""""""""""""""""""""""""""""""""""""""""""

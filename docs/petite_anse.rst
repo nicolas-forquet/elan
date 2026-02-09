@@ -46,6 +46,8 @@ Pour identifier la zone, afficher le fond de carte `OpenStreetMap <https://www.o
 Étape 1 : Se procurer le Modèle Numérique de Terrain (MNT)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. _rge-alti:
+
 **1.** Télécharger le `MNT à 5 m de la Martinique <https://data.geopf.fr/telechargement/download/RGEALTI/RGEALTI_2-0_1M_ASC_WGS84UTM20-MART87_D972_2015-10-21/RGEALTI_2-0_1M_ASC_WGS84UTM20-MART87_D972_2015-10-21.7z>`_ sur RGE ALTI®.
 
 .. image:: _static/mnt972.png
@@ -178,6 +180,7 @@ Ici quatre dalles recouvrent la zone : RGEALTI_MTQ_0705_1600_MNT_WGS84UTM20_MART
 
 Étape 3 : Récupérer les routes et bâtiments - obtention avec le plugin de l'IGN (option 1)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _ign-topo:
 
 **Préalable :** Installer l'extension `BD TOPO® Extractor <https://plugins.qgis.org/plugins/bd_topo_extractor/>`_ via le gestionnaire d'extensions QGIS.
 
@@ -238,16 +241,6 @@ Vous obtenez une sortie de ce type :
 .. image:: _static/suppr-batiments.png
      :width: 683
 
-**7.** Pour obtenir des points à partir des polygones obtenus (contrainte liée module ``Réseau`` ), utiliser l'outil ``Centroïdes`` de QGIS.
-
-.. image:: _static/centroides.png
-     :width: 700
-
-Vous obtenez une sortie de ce type : 
-
-.. image:: _static/sortie-centroides.png
-     :width: 400
-
 **Récupération des routes**
 
 **1.** Lancer le plugin BD TOPO® Extractor.
@@ -279,11 +272,9 @@ sélection fine des bâtiments à raccorder ou non) et **contribue donc à obten
 
 **Récupération des bâtiments**
 
-En appliquant ``Routes et bâtiments`` à la zone définie :ref:`plus haut <zone>`, voici les sorties obtenues pour les bâtiments :
+En appliquant :ref:`Routes et bâtiments <routes>` à la zone définie :ref:`plus haut <zone>`, voici les sorties obtenues pour les bâtiments :
 
 .. image:: _static/sorties-b.png
-     :width: 700
-.. image:: _static/sorties-c.png
      :width: 700
 
 **Récupération des routes**
@@ -298,10 +289,14 @@ En appliquant le module à une zone élargie pour inclure les possibles connexio
 Les couches peuvent ensuite être éditées ce qui vous permet de retranscrire votre connaissance du terrain (routes non empruntables ou au contraire, ajout de chemins envisageables,
 sélection fine des bâtiments à raccorder ou non). Cette étape contribue à améliorer la pertinence des résultats obtenus en sortie de module ``Réseau``.
 
-Étape 4 : Répartir la population au sein des bâtiments (facultatif)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Étape 4 : Répartir la population au sein des bâtiments et réduire les polygones à leurs centroïdes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 La population de Petite Anse est estimée à 1100 individus dont 150 sur la partie haute et 950 sur la partie basse.
+
+Dans cet exemple, la population sera distribuée selon une répartition surfacique : le nombre d'individus associé à chaque 
+bâtiment est fonction de son emprise au sol. C'est donc le module ``Population (répartition surfacique)`` qui sera utilisé
+et non le module ``Population (répartition uniforme)``.
 
 **Préalable** : Une couche de type *polygone* avec les bâtiments à raccorder obtenue avec le module ``Routes et bâtiments``
 et post-traitée (suppression/ajout de certains bâtiments selon la connaissance terrain de la zone).
@@ -353,16 +348,16 @@ Sélectionner la couche (bulle 1) et ouvrir la table attributaire (bulle 2).
 .. image:: _static/table-sortie-population-fusion.png
     :width: 700
 
-La couche obtenue contient bien les centroides des bâtiments de la zone haute et de la zone basse et pour chaque centroïde, l'attribut *population* est renseigné.
-Cette couche peut être utilisée en entrée de module ``Réseau``.
+La couche obtenue contient bien les centroïdes des bâtiments de la zone haute et de la zone basse et pour chaque centroïde, l'attribut *population* est renseigné.
+Cette couche respecte les conditions pour être utilisée en entrée de module ``Réseau``.
 
 .. _couches-prb1: 
 
 .. note::
     Au sein de la couche *entrees_reseau.gpkg* mise à disposition dans la rubrique suivante, vous trouverez plusieurs couches :
     
-     - *buildings_osm_population* a été générée en suivant le processus suivant : module ``Routes et bâtiments``, post-traitement manuel (sélection plus fine des bâtiments à raccorder), module ``Population``;
-     - *buildings_ign_population* a été obtenue en utilisant le plugin BD TOPO® Extractor suivi d'un post-traitement manuel puis d'une utilisation du module ``Population``;
+     - *buildings_osm_population* a été générée en suivant le processus suivant : module ``Routes et bâtiments``, post-traitement manuel (sélection plus fine des bâtiments à raccorder), module ``Population (répartition surfacique)``;
+     - *buildings_ign_population* a été obtenue en utilisant le plugin BD TOPO® Extractor suivi d'un post-traitement manuel puis d'une utilisation du module ``Population (répartition surfacique)``;
 
      Les deux couches peuvent être utilisées en entrées du module ``Réseau``. La couche se basant sur les données IGN contient plus de 
      bâtiments (meilleure qualité de données) et fournira donc des résultats a priori plus pertinents.
@@ -401,14 +396,14 @@ Le scénario que nous allons créer dans ce pas à pas va considérer un raccord
 
 * Indiquer les 4 couches géographiques (bulles 1 à 4). **Bien cocher Entité(s) sélectionnée(s) uniquement pour considérer uniquement la STEU au Sud de la zone.**
 
-* Si vous souhaitez travailler en considérant un nombre variable d'habitants par bâtiment, indiquer l'attribut correspondant à la population parmi les attributs de votre couche bâtiments (menu déroulant) pour *Nombre d'habitants*. Sinon laisser le champ vide.
+* Vérifier que l'attribut *population* de la couche bâtiments est correctement autodétecté au niveau de l'entrée *Population (champ)* (encart en bas).
 
 .. image:: _static/etape2a.png
-    :width: 678
+    :width: 700
 
 * Laisser les valeurs par défaut pour les différents paramètres techniques.
 
-* Sélectionner les 6 premiers diamètres (0,1 à 0,4) parmi les options possibles pour les diamètres gravitaires (bulle 5).
+* Sélectionner toutes les options possibles pour les diamètres gravitaires (bulle 5).
 
 * Sélectionner un nom et un emplacement pour le fichier (bulle 6).
 
@@ -542,7 +537,20 @@ Pour explorer le pré-dimensionnement proposé par le module ``Réseau``, vous p
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _specify-C:
 
-**1. Renseigner les contraintes de rejet dans la couche** ``STEU``
+**1. Ajuster les concentrations en entrée de STEU dans la couche** ``STEU``
+
+Parmi les attributs de la couche ``STEU`` en sortie de module ``Réseau`` se trouvent les concentrations
+d'entrée pour différents polluants. Pour cet exemple, les valeurs pré-remplies par défaut seront conservées, soient :
+
+     * MES : 288 mg/L
+     * DBO₅ : 265 mg/L 
+     * NTK : 67 mg/L 
+     * DCO : 646 mg/L
+     * N-NO₃ : 3 mg/L
+     * PT : 9,4 mg/L
+     * e.coli : 0 UFC/100mL
+
+**2. Renseigner les contraintes de rejet dans la couche** ``STEU``
 
 Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone sont les suivants :
 
@@ -564,7 +572,7 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 
 .. _define-surface:
 
-**2. Délimitation de la surface disponible** (facultatif)
+**3. Délimitation de la surface disponible** (facultatif)
 
 * Créer une nouvelle couche (.gpkg ou .shp) de type *polygone*.
 
@@ -584,7 +592,7 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 .. image:: _static/save.png
      :width: 196
 
-**3. Utilisation du module** ``Procédés``
+**4. Utilisation du module** ``Procédés``
 
 * Cherche ``elan`` dans la *Boîte à outils de traitements* et sélectionner ``Procédés`` (bulles 1 et 2).
 
@@ -592,17 +600,17 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 
 * Indiquer la couche ``STEU`` dont vous avez renseigné les attributs (bulle 4) et la couche ``surface-dispo`` que vous venez de créer (bulle 5).
 
-.. image:: _static/ex-procedes.png
-     :width: 700
+* Vérifier que les champs identifiés pour les coordonnées GPS et le débit journalier sont corrects. 
 
-* Vérifier que les champs identifiés pour les niveaux de rejets et le débit journalier sont corrects.
+.. note::
+     Vous pouvez aussi vérifier pour les champs de types concentration d'entrée et niveau de rejet en dépliant *Paramètres avancés*.
 
 * Indiquer un nom et un emplacement pour l'enregistrement du fichier de sortie (bulle 6), puis exécuter (bulle 7).
 
-.. image:: _static/ex-procedes-suite.png
-     :width: 576
+.. image:: _static/ex-procedes.png
+     :width: 700
 
-**4. Consultation des caractéristiques des filières de traitement pré-dimensionnées**
+**5. Consultation des caractéristiques des filières de traitement pré-dimensionnées**
 
 Après exécution du module, vous obtenez un visuel de ce type (couche *point*) :
 
@@ -620,10 +628,18 @@ Pour consulter les attributs de cette couche :
 .. image:: _static/attributs-procedes-ex.png
      :width: 700
 
-Étape 3 : Pré-sélectionner une filière par exutoire
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Étape 3 : Pré-sélectionner une filière pour l'exutoire
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Ici, 6 filières permettent d'atteindre les niveaux de rejets imposés (déviations en vert) :
+Pour vous aider à pré-sélectionner une filière, vous pouvez afficher le radar plot et le bar plot où figurent
+l'ensemble des filières possibles pour cet exutoire (voir :ref:`ici <selection>` pour plus de détails). 
+
+**Radar plot**
+
+.. image:: _static/pa_radarplot.png
+     :width: 700
+
+Ici, les 6 filières permettent d'atteindre les niveaux de rejets imposés (déviations en vert dans la table attributaire, points sous le seuil de 1 sur le radar plot) :
     
     * VdNS1-VdNS2
     * VdNS1-VdNS2-VdNS2
@@ -632,7 +648,12 @@ Ici, 6 filières permettent d'atteindre les niveaux de rejets imposés (déviati
     * VdNS1
     * VdNSS
 
-La surface totale apparaît en rouge pour la filière VdNS1-VdNS2-VdNS2 car elle est supérieure à la surface disponible.
+La surface totale apparaît en rouge pour la filière VdNS1-VdNS2-VdNS2 (table attributaire) car elle est supérieure à la surface disponible (point au dessus du seuil de 1 sur le radar plot).
+
+**Bar plot**
+
+.. image:: _static/pa_barplot.png
+     :width: 700
 
 Les filières à étage unique (VdNS1 et VdNSS) permettent ici d'atteindre les niveaux de rejets et sont généralement moins 
 coûteuses que les filières multi-étages. Au vu des taux de charge en polluants et du taux de charge hydraulique, elles 

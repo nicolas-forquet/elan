@@ -5,7 +5,7 @@ flowchart TB
     A1 --> A2 --> A3
     B1["I load my DEM into my project"]
     B2[Am I in French context?]
-    B3[<a href="https://elan-gis.org/en/preparation.html#rge-alti">I download 5m DEM on *RGE Alti*</a>]
+    B3[<a href="https://elan-gis.org/en/petite_anse.html#rge-alti">I download 5m DEM on *RGE Alti*</a>]
     B4[<a href="https://elan-gis.org/en/preparation.html#alaska-edu">I search on *alaska.edu* to find 12.5m DEM</a>]
     A3 -- yes --> B1
     A3 -- no --> B2
@@ -35,7 +35,7 @@ flowchart TB
     C3 -- no --> C7
     D1["Do I know where to find my vector layers (roads and buildings) in my local context?"]
     D2[Am I in French context?]
-    D3[<a href="https://elan-gis.org/en/preparation.html#ign-topo">I use *BD TOPO extractor* to retrieve roads and buildings</a>]
+    D3[<a href="https://elan-gis.org/en/petite_anse.html#ign-topo">I use *BD TOPO extractor* to retrieve roads and buildings</a>]
     D4[Is my area in the southern hemisphere?]
     D5[<a href="https://elan-gis.org/en/preparation.html#open-buildings">I download my buildings on *Open Buildings*</a>]
     D6[<a href="https://elan-gis.org/en/petite_anse.html#creer-zone">I create a polygon layer to define the study area</a>]
@@ -70,14 +70,14 @@ flowchart TB
     G1["Does a uniform distribution of the population within the area suits me (same number of inhabitants/building)?"]
     G2[I do some research]
     G3[I estimate a mean number of inhabitants/building based on the number of buildings I have in my layer]
-    G4[<a href="https://elan-gis.org/en/preparation.html#population">I use the Elan *Population uniform distribution module*</a>]
+    G4[<a href="https://elan-gis.org/en/preparation.html#uniforme">I use the Elan *Population uniform distribution module*</a>]
     G5[I get a building layer as centroids with a population attribute]
     G6["Do I want to pre-size only main arteries of the sewer network (faster)?"]
     G7[<a href="https://elan-gis.org/en/preparation.html#projection">I use the Elan *Snap on roads* module</a>]
     F6 -- yes --> G1
     F6 -- no --> G2 --> G1
     G1 -- yes --> G3 --> G4 --> G5
-    H1[<a href="https://elan-gis.org/en/preparation.html#population">I use the Elan *Population areametric distribution* module to get a number of inhabitants adjusted to buildings footprint</a>]
+    H1[<a href="https://elan-gis.org/en/preparation.html#surfacique">I use the Elan *Population areametric distribution* module to get a number of inhabitants adjusted to buildings footprint</a>]
     H2["I check if my centroids layer is in the correct CRS (project CRS)"]
     H3[Do I know my sizing constraints? <br/> - average production of wastewater/day/person <br/> - min and max sewer depths <br/> - possible diameters]
     H4[I do research / make hypotheses]

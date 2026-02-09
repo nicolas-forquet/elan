@@ -27,12 +27,15 @@ language = "fr"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = [
-    'sphinxcontrib.mermaid'
-]
-
-mermaid_params = ['--theme', 'neutral']
-
+extensions = ['sphinxcontrib.mermaid']
+mermaid_d3_zoom = True
+mermaid_init_js = """
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    mermaid.initialize({startOnLoad:true, theme:'dark'});
+} else {
+    mermaid.initialize({startOnLoad:true, theme:'default'});
+}
+""" 
 templates_path = ["_templates"]
 exclude_patterns = []
 figure_language_filename = '{root}.{language}{ext}'

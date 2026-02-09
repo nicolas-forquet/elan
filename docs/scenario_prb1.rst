@@ -48,7 +48,7 @@ Utilisation du module
 **1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Réseau``.
 
 .. image:: _static/start-reseau.png
-    :width: 353
+    :width: 303
 
 .. tip::
     Pour afficher le panneau ``Boîte à outils de traitements`` s'il n'apparaît pas dans votre espace de travail : *Vue* - *Panneaux* - *Boîte à outils de traitements*.
@@ -66,13 +66,10 @@ Utilisation du module
     Pour les exutoires, vous pouvez sélectionner au préalable celui ou ceux que vous souhaitez considérer parmi l'ensemble des possibilités envisagées puis cocher *Entités sélectionnées uniquement* dans le module.
     Cette option est également proposée pour les routes et les bâtiments à considérer.
 
-.. note::
-    Si vous avez eu recours au module ``Population`` pour préparer vos données géographiques, l'attribut à indiquer est *population*.
+.. image:: _static/entrees-reseau.png
+    :width: 688
 
-.. image:: _static/couches-reseau.png
-    :width: 680
-
-**3.** Faire coulisser l'ascenseur à l'aide de la souris (et non de la molette, cela risque de changer les valeurs des paramètres à votre insu) et **ajuster les différents paramètres** (encart 5) afin que le pré-dimensionnement du réseau soit le plus adapté à votre contexte : 
+**3.** **Ajuster les différents paramètres** (encart 5) afin que le pré-dimensionnement du réseau soit le plus adapté à votre contexte : 
 
 * ``volume moyen d'eaux usées produit par jour par personne`` : [m³].
 
@@ -92,16 +89,13 @@ Utilisation du module
 .. note::
     Vous pouvez également ajuster d'autres paramètres en déroulant la section *Paramètres avancés*. Parmi eux :
 
-    * ``coefficient de pointe journalier`` : [m³/j].
+    * ``coefficient de pointe journalier`` : [m³/s].
 
     * ``pente minimale permettant l'autocurrage`` : [m/m].
     
     * ``rugosité canalisation`` : [μm], dépend du matériau utilisé pour les canalisations.
 
 **4.** Indiquer un emplacement et un nom pour la couche .gpkg en sortie (bulle 6) puis exécuter (bulle 7).
-
-.. image:: _static/entrees-reseau.png
-    :width: 697
 
 .. _sorties-reseau:
 
@@ -135,11 +129,19 @@ Utilisation du module
 
 .. _set-concentrations:
 
-* ``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour chaque exutoire), *débit de pointe* [m³/j], *débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur tranchée* [m], *profondeur canas entrantes* [m], *diamètres entrants* [m].
+* ``STEU`` : *altitude terrain* [m], *coordonnées gps* (identifiant unique pour chaque exutoire), *débit de pointe* [m³/s], *débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur tranchée* [m], *profondeur canas entrantes* [m], *diamètres entrants* [m].
 
 .. note::
-    En sortie de module ``Réseau``, la couche STEU compte aussi des attributs non renseignés : *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL]. Ces attributs sont à renseigner manuellement 
-    pour chaque exutoire selon vos contraintes de rejet. Ils servent d'entrées pour le module ``Procédés``. Certains peuvent être renseignés à *NULL*.
+    En sortie de module ``Réseau``, la couche STEU compte aussi des attributs qui serviront d'entrées pour le module ``Procédés`` :
+
+        * des **niveaux de rejets** : *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL].
+
+        Ces attributs sont à renseigner manuellement pour chaque exutoire selon vos contraintes de rejet. Certains peuvent être renseignés à *NULL*.
+
+        * des **concentrations d'entrée** de STEU : *concentration entrée MES* [mg/L], *concentration entrée DBO5* [mg/L], *concentration entrée NTK* [mg/L], *concentration entrée DCO* [mg/L], *concentration entrée N-NO3* [mg/L], *concentration entrée NT* [mg/L], *concentration entrée PT* [mg/L], *concentration entrée e.coli* [UFC/100mL].
+
+        Ces attributs sont pré-renseignés avec des valeurs par défaut. Ils peuvent être édités pour s'ajuster au mieux au cas utilisateur. Tous doivent être renseignés.
+        
 
 * ``Stations de relevage`` : *altitude terrain* [m], *débit de pointe* [m³/s], *débit moyen journalier* [m³/j], *habitants raccordés* [nb], *profondeur canas entrantes* [m], *charge hydrostatique* [m].
 
@@ -196,7 +198,7 @@ Utilisation du module
 **1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Profils de canalisations``.
 
 .. image:: _static/start-profils.png
-    :width: 372
+    :width: 300
 
 **2.** Renseigner la couche de canalisations (bulle 1), choisir un emplacement et un nom pour le fichier de sortie (bulle 2) avant d'exécuter (bulle 3).
 
@@ -305,7 +307,7 @@ Préalable
 
 **2.** Disposer **d'une couche de type point avec le ou les emplacements de stations envisagés**.
 
-Cette couche doit contenir **10 attributs** : *coordonnées gps*, *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL], *débit journalier* [m3/j]. 
+Cette couche doit contenir a minima les **18 attributs** suivants : *coordonnées gps*, *débit journalier* [m3/j], *concentration entrée MES* [mg/L], *concentration entrée DBO5* [mg/L], *concentration entrée NTK* [mg/L], *concentration entrée DCO* [mg/L], *concentration entrée N-NO3* [mg/L], *concentration entrée NT* [mg/L], *concentration entrée PT* [mg/L], *concentration entrée e.coli* [UFC/100mL], *niveau rejet MES* [mg/L], *niveau rejet DBO5* [mg/L], *niveau rejet NTK* [mg/L], *niveau rejet DCO* [mg/L], *niveau rejet N-NO3* [mg/L], *niveau rejet NT* [mg/L], *niveau rejet PT* [mg/L], *niveau rejet e.coli* [UFC/100mL]. 
 
 Pour les **niveaux de rejet**, **3 doivent obligatoirement être renseignés** avec une valeur numérique strictement supérieure à 0 : **niveau rejet MES** [mg/L], **niveau rejet DBO5** [mg/L], **niveau rejet DCO** [mg/L]. 
 Les autres peuvent être renseignés à *NULL* selon votre contexte (tout ou partie d'entre eux).
@@ -316,6 +318,7 @@ Les autres peuvent être renseignés à *NULL* selon votre contexte (tout ou par
 
 Cette couche peut-être obtenue en **sortie de module** ``Réseau``. Le débit journalier et les coordonnées GPS sont alors renseignés. 
 Les attributs relatifs aux niveaux de rejet sont présents mais à renseigner manuellement selon votre contexte.
+Les concentrations d'entrée sont pré-remplies avec des valeurs par défaut mais peuvent être éditées pour mieux coller à votre contexte.
 
 **3.** Avoir délimité et enregistré les **surfaces disponibles pour chaque station** au sein d'une couche de type *polygone*. 
 
@@ -330,7 +333,7 @@ Utilisation du module
 **1.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Procédés``.
 
 .. image:: _static/start-procedes.png
-    :width: 356
+    :width: 303
 
 **2.** Indiquer si votre zone se situe en climat *Tempéré* ou *Tropical* (bulle 1). Ce choix impacte le pré-dimensionnement des filières en termes de surface et de volume (surface et volume réduits en climat tropical).
 
@@ -343,17 +346,17 @@ Pour plus d'informations sur la bonne prise en compte du climat tropical lors du
 
 **3.** Renseigner la couche STEU (bulle 2) et éventuellement la couche de surfaces disponibles (bulle 3).
 
-**4.** Assurez vous que les champs détectés pour les 10 attributs sont bien corrects : coordonnées GPS, niveaux de rejet et débit journalier (encart 4). 
+**4.** Assurez vous que les champs détectés pour les coordonnées GPS et le débit journalier sont bien corrects (encart 4). 
 
-**5.** Pour le nombre d'étages maximum, nous vous conseillons de laisser la valeur 3 qui est la valeur par défaut.
+.. note::
+    En dépliant *Paramètres avancés*, vous pouvez également vous assurer que les concentrations d'entrée et les niveaux de rejet pour les différents polluants ont bien été auto-détectés.
+
+**5.** Pour le nombre d'étages maximum, nous vous conseillons de laisser la valeur 3 qui est la valeur par défaut (encart 4).
 
 **6.** Choisir un emplacement et un nom pour le fichier de sortie (bulle 5) avant d'exécuter (bulle 6).
 
 .. image:: _static/use-procedes.png
-    :width: 571
-
-.. image:: _static/use-procedes2.png
-    :width: 568
+    :width: 693
 
 .. _sortie-procedes:
 
@@ -551,7 +554,7 @@ Utilisation du module
 **2.** Chercher ``elan`` dans la boîte à outils de traitements et sélectionner ``Créer un scénario``.
 
 .. image:: _static/start-scenario.png
-    :width: 353
+    :width: 299
 
 
 **3.** Nommer votre scénario (bulle 1), indiquer la couche ``Canalisations`` à considérer (bulle 2), renseigner la couche ``Couche de filières`` et 
