@@ -1,12 +1,16 @@
-.. _tutorial2:
-
-Exemple de Rührsdorf
+Rührsdorf (Autriche)
 ====================
+
+Rührsdorf est un village situé en Basse-Autriche sur les bords du Danube. Il a été choisi comme exemple pour ce tutoriel en contexte international car il fait partie des zones testées lors de la première phase du beta-programme Elan. 
+
+Le cas de Rührsdorf a été beta-testé par BOKU de l'Université de Vienne dans le cadre du projet D_CLEAN de l'INTERREG Danube Region (Improving Water Quality in the Danube River Basin: Nature-Based Solutions for Sustainable Wastewater and Stormwater Management in Small Settlements; Project Number DRP0300962; duration 04/2025-03/2028).
+
+Rührsdorf est actuellement connecté au village voisin de Rossatz où les eaux sont traitées avant rejet dans le Danube. Le réseau d'assainissement qui les relie est vieillissant et doit être renouvelé. Cette opportunité vient questionner le choix historique du centralisé. Plusieurs scénarios sont envisagés :
+- maintien de la situation actuelle,
+- création d'une station de traitement avec des procédés de type solutions fondées sur la nature sur place (2 emplacements possibles).
 
 Obtention et préparation des données géographiques
 --------------------------------------------------
-
-.. _basemap:
 
 Préalable : Afficher un fond de carte (ici OpenStreetMap)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
