@@ -594,7 +594,7 @@ Les niveaux de rejet à respecter dans le cas d'une station au Sud de la zone so
 
 **4. Utilisation du module** ``Procédés``
 
-* Cherche ``elan`` dans la *Boîte à outils de traitements* et sélectionner ``Procédés`` (bulles 1 et 2).
+* Chercher ``elan`` dans la *Boîte à outils de traitements* et sélectionner ``Procédés`` (bulles 1 et 2).
 
 * Choisir *Tropical* pour le climat (bulle 3).
 
