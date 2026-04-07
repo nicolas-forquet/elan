@@ -25,7 +25,7 @@ DOWNLOAD_ERROR_MSG = ""
 EXTERNAL_LIRBARIES_DIR = DIR_PLUGIN_ROOT / "external_libraries"
 
 WETLANDOPTIMIZER_COMMIT_HASH = "cbb4ad058c2bae04fdb0cbc8f98c1f2cf84125be"  # pragma: allowlist secret
-PYSEWER_COMMIT_HASH = "c6cd52c8ba1c00f9ebcb91cc75bec50d8a4f72e2"  # pragma: allowlist secret
+PYSEWER_COMMIT_HASH = "b5524b36bc6777f00b8ff732b8fe37bd7e477355"  # pragma: allowlist secret
 
 
 def downloadEnded():
@@ -47,7 +47,7 @@ def installPysewer():
 
     installLibrary(
         "pysewer",
-        f"https://github.com/Djedouas/pysewer/archive/{PYSEWER_COMMIT_HASH}.zip",
+        f"https://github.com/ddspot/pysewer/archive/{PYSEWER_COMMIT_HASH}.zip",
     )
 
 
