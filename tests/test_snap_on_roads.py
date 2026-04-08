@@ -25,6 +25,7 @@ def test_snap_on_roads(elan_processing, tmp_path):
         "MAX_DISTANCE_TO_ROAD": 1000,
         "OUTPUT_AGGREGATED": str(tmp_path / "snap_on_roads_centroids_generated_output.gpkg"),
         "OUTPUT_LINES": str(tmp_path / "snap_on_roads_lines_generated_output.gpkg"),
+        "LINE_LENGTH_SPLIT": 15,
     }
 
     res = elan_processing.run(test_snap_on_roads_alg, snap_on_roads_param)

@@ -13,6 +13,7 @@ from collections import defaultdict
 
 import geopandas as gpd
 import pandas as pd
+from qgis import processing
 from qgis.core import (
     Qgis,
     QgsFeature,
@@ -22,6 +23,7 @@ from qgis.core import (
     QgsGeometry,
     QgsProcessingAlgorithm,
     QgsProcessingException,
+    QgsProcessingParameterDefinition,
     QgsProcessingParameterDistance,
     QgsProcessingParameterFeatureSink,
     QgsProcessingParameterFeatureSource,
@@ -44,6 +46,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
     ROADS_INPUT_DATA = "ROADS_INPUT_DATA"
     OUTPUT_AGGREGATED = "OUTPUT_AGGREGATED"
     OUTPUT_LINES = "OUTPUT_LINES"
+    LINE_LENGTH_SPLIT = "LINE_LENGTH_SPLIT"
 
     def createInstance(self):
         """Return an instance of this class"""
@@ -120,6 +123,11 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             "</ul>"
         )
 
+    def addAdvancedParameter(self, param: QgsProcessingParameterDefinition):
+        """Add a parameter in the advanced section of the UI"""
+        param.setFlags(Qgis.ProcessingParameterFlag.Advanced)
+        self.addParameter(param)
+
     def initAlgorithm(self, configuration=None):  # pylint: disable=unused-argument
         """
         Here we define the inputs and output of the algorithm, along
@@ -168,6 +176,15 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             )
         )
 
+        self.addAdvancedParameter(
+            QgsProcessingParameterDistance(
+                self.LINE_LENGTH_SPLIT,
+                self.tr("Maximal length lines (m)"),
+                defaultValue=15,
+                parentParameterName=self.ROADS_INPUT_DATA,
+            )
+        )
+
     def getFieldsFromDataFrame(self, df) -> QgsFields:
         """
         Get fields
@@ -206,15 +223,21 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
 
         max_distance_value = self.parameterAsInt(parameters, self.MAX_DISTANCE_TO_ROAD, context)
         population_value = self.parameterAsString(parameters, self.POPULATION_FIELD, context)
-        roads_source = self.parameterAsSource(parameters, self.ROADS_INPUT_DATA, context)
+        roads_source = self.parameterAsVectorLayer(parameters, self.ROADS_INPUT_DATA, context)
         buildings_source = self.parameterAsSource(parameters, self.BUILDINGS_INPUT_DATA, context)
+        line_length = self.parameterAsDouble(parameters, self.LINE_LENGTH_SPLIT, context)
 
         if roads_source is None:
             raise QgsProcessingException(self.invalidSourceError(parameters, self.ROADS_INPUT_DATA))
         if buildings_source is None:
             raise QgsProcessingException(self.invalidSourceError(parameters, self.BUILDINGS_INPUT_DATA))
 
+        # split the roads with native processing
+        res = processing.run(
+            "native:splitlinesbylength", {"INPUT": roads_source, "LENGTH": line_length, "OUTPUT": "TEMPORARY_OUTPUT"}
+        )
         # Create GeoDataFrame from roads_source and buildings_source
+        roads_source = res["OUTPUT"]
         roads_gdf = gpd.GeoDataFrame.from_features(roads_source.getFeatures())
         roads_gdf.set_crs(roads_source.sourceCrs().authid(), inplace=True)
         buildings_gdf = gpd.GeoDataFrame.from_features(buildings_source.getFeatures())
