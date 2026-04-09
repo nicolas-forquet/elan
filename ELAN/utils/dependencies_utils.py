@@ -6,7 +6,6 @@ Utils functions for managing pysewer and wetlandoptimizer install and its depend
 
 import argparse
 import shutil
-import site
 import subprocess
 import sys
 import tempfile
