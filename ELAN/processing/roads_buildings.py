@@ -158,7 +158,7 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
         Here is where the processing itself takes place.
         """
 
-        multistep_feedback = QgsProcessingMultiStepFeedback(7, feedback)
+        multistep_feedback = QgsProcessingMultiStepFeedback(4, feedback)
         multistep_feedback.setCurrentStep(1)
         multistep_feedback.setProgressText(self.tr("Downloading data..."))
 
@@ -284,7 +284,7 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
             ld.layerSortKey = 0
 
         # Merge buildings
-        multistep_feedback.setCurrentStep(5)
+        multistep_feedback.setCurrentStep(3)
         multistep_feedback.setProgressText(self.tr("Merging buildings..."))
         merged_buildings_dest = processing.run(
             "native:dissolve",
@@ -303,7 +303,7 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
             ld.layerSortKey = 1
 
         # Clip the roads inside the input polygons
-        multistep_feedback.setCurrentStep(3)
+        multistep_feedback.setCurrentStep(4)
         multistep_feedback.setProgressText(self.tr("Clipping roads..."))
         roads_clipped_dest = processing.run(
             "native:clip",
