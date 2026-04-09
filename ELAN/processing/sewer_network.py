@@ -15,6 +15,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import typing
 from pathlib import Path
 
 import processing
@@ -24,6 +25,7 @@ from qgis.core import (
     Qgis,
     QgsCategorizedSymbolRenderer,
     QgsCoordinateTransformContext,
+    QgsFeature,
     QgsFeatureRequest,
     QgsGraduatedSymbolRenderer,
     QgsLineSymbol,
@@ -39,6 +41,7 @@ from qgis.core import (
     QgsProcessingParameterString,
     QgsProject,
     QgsProviderRegistry,
+    QgsRasterLayer,
     QgsReadWriteContext,
     QgsSymbol,
     QgsVectorFileWriter,
@@ -386,6 +389,14 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 raise QgsProcessingException(self.tr("Error during DEM pre-processing."))
         else:
             dem_layer_uri = dem_layer.source()
+
+        # If there is a sinks layer, verify that the features are all within the DEM.
+        # Because of the previous checks, the CRSs are the same, and the DEM
+        # has no NO_DATA value (so it is effectively a rectangle).
+        if sinks_source is not None:
+            for sink_feature in typing.cast(list[QgsFeature], sinks_source.getFeatures()):
+                if not dem_layer.extent().contains(sink_feature.geometry().asPoint()):
+                    raise QgsProcessingException(self.tr("At least one WWTP is not inside the DEM"))
 
         diameters_index = parameters[self.DIAMETERS]
         diameters_value = [float(self.DIAMETERS_VALUE[i]) for i in diameters_index]
