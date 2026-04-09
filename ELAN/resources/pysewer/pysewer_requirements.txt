@@ -1,3 +1,8 @@
+# earthpy uses pkg_resources, but it was deprecated, and has been removed
+# since 2025-11-30, so we need to pin setuptools to an old version
+# while waiting for earthpy to upgrade.
+setuptools<82
+
 geopandas
 networkx
 scipy
