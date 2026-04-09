@@ -26,6 +26,7 @@ def test_snap_on_roads(elan_processing, tmp_path):
         "OUTPUT_AGGREGATED": str(tmp_path / "snap_on_roads_centroids_generated_output.gpkg"),
         "OUTPUT_LINES": str(tmp_path / "snap_on_roads_lines_generated_output.gpkg"),
         "LINE_LENGTH_SPLIT": 15,
+        "SPLIT_ROADS": str(tmp_path / "snap_on_roads_split_generated_output.gpkg"),
     }
 
     res = elan_processing.run(test_snap_on_roads_alg, snap_on_roads_param)
@@ -33,12 +34,16 @@ def test_snap_on_roads(elan_processing, tmp_path):
     ref_path = str(test_data_dir_snap_on_roads / "snap_on_roads_reference_output.gpkg.zip")
     gen_centroids_path = str(tmp_path / "snap_on_roads_centroids_generated_output.gpkg")
     gen_lines_path = str(tmp_path / "snap_on_roads_lines_generated_output.gpkg")
-
+    gen_split_roads = str(tmp_path / "snap_on_roads_split_generated_output.gpkg")
+    assert_same_layers(
+        load_layer(ref_path, "snap_on_roads_lines_reference_output"),
+        load_layer(gen_lines_path, "snap_on_roads_lines_generated_output"),
+    )
     assert_same_layers(
         load_layer(ref_path, "snap_on_roads_centroids_reference_output"),
         load_layer(gen_centroids_path, "snap_on_roads_centroids_generated_output"),
     )
     assert_same_layers(
-        load_layer(ref_path, "snap_on_roads_lines_reference_output"),
-        load_layer(gen_lines_path, "snap_on_roads_lines_generated_output"),
+        load_layer(ref_path, "snap_on_roads_split_reference_output"),
+        load_layer(gen_split_roads, "snap_on_roads_split_generated_output"),
     )

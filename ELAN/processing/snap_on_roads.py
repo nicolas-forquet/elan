@@ -13,7 +13,7 @@ from collections import defaultdict
 
 import geopandas as gpd
 import pandas as pd
-from qgis import processing
+import processing
 from qgis.core import (
     Qgis,
     QgsFeature,
@@ -23,11 +23,13 @@ from qgis.core import (
     QgsGeometry,
     QgsProcessingAlgorithm,
     QgsProcessingException,
+    QgsProcessingMultiStepFeedback,
     QgsProcessingParameterDefinition,
     QgsProcessingParameterDistance,
     QgsProcessingParameterFeatureSink,
     QgsProcessingParameterFeatureSource,
     QgsProcessingParameterField,
+    QgsProcessingUtils,
 )
 from qgis.PyQt.QtCore import QMetaType
 from shapely.geometry import LineString, Point
@@ -47,6 +49,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
     OUTPUT_AGGREGATED = "OUTPUT_AGGREGATED"
     OUTPUT_LINES = "OUTPUT_LINES"
     LINE_LENGTH_SPLIT = "LINE_LENGTH_SPLIT"
+    SPLIT_ROADS = "SPLIT_ROADS"
 
     def createInstance(self):
         """Return an instance of this class"""
@@ -169,13 +172,18 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
                 Qgis.ProcessingSourceType.VectorLine,
             )
         )
-
+        self.addParameter(
+            QgsProcessingParameterFeatureSink(
+                self.SPLIT_ROADS,
+                self.tr("Split roads - Output layer"),
+                Qgis.ProcessingSourceType.VectorLine,
+            )
+        )
         self.addParameter(
             QgsProcessingParameterFeatureSink(
                 self.OUTPUT_LINES, self.tr("Projection lines - Output layer"), Qgis.ProcessingSourceType.VectorLine
             )
         )
-
         self.addAdvancedParameter(
             QgsProcessingParameterDistance(
                 self.LINE_LENGTH_SPLIT,
@@ -220,11 +228,14 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         """
         Here is where the processing itself takes place.
         """
+        multistep_feedback = QgsProcessingMultiStepFeedback(2, feedback)
 
         max_distance_value = self.parameterAsInt(parameters, self.MAX_DISTANCE_TO_ROAD, context)
         population_value = self.parameterAsString(parameters, self.POPULATION_FIELD, context)
         roads_source = self.parameterAsVectorLayer(parameters, self.ROADS_INPUT_DATA, context)
         buildings_source = self.parameterAsSource(parameters, self.BUILDINGS_INPUT_DATA, context)
+        split_roads = self.parameterAsVectorLayer(parameters, self.SPLIT_ROADS, context)
+
         line_length = self.parameterAsDouble(parameters, self.LINE_LENGTH_SPLIT, context)
 
         if roads_source is None:
@@ -233,11 +244,23 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             raise QgsProcessingException(self.invalidSourceError(parameters, self.BUILDINGS_INPUT_DATA))
 
         # split the roads with native processing
-        res = processing.run(
-            "native:splitlinesbylength", {"INPUT": roads_source, "LENGTH": line_length, "OUTPUT": "TEMPORARY_OUTPUT"}
-        )
-        # Create GeoDataFrame from roads_source and buildings_source
-        roads_source = res["OUTPUT"]
+        multistep_feedback.setCurrentStep(1)
+        multistep_feedback.setProgressText(self.tr("Split the roads"))
+        split_roads = processing.run(
+            "native:splitlinesbylength",
+            {
+                "INPUT": roads_source,
+                "LENGTH": line_length,
+                "OUTPUT": parameters[self.SPLIT_ROADS],
+            },
+            context=context,
+            feedback=multistep_feedback,
+            is_child_algorithm=True,
+        )["OUTPUT"]
+        if context.willLoadLayerOnCompletion(split_roads):
+            ld = context.layerToLoadOnCompletionDetails(split_roads)
+            ld.name = self.tr("Split roads - Output layer")
+
         roads_gdf = gpd.GeoDataFrame.from_features(roads_source.getFeatures())
         roads_gdf.set_crs(roads_source.sourceCrs().authid(), inplace=True)
         buildings_gdf = gpd.GeoDataFrame.from_features(buildings_source.getFeatures())
@@ -248,21 +271,19 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             buildings_gdf, roads_gdf, population_value, max_distance=max_distance_value
         )
         # Create output layer
-
         roads_crs = roads_source.sourceCrs()
-
         # get fields
         aggregated_fields = self.getFieldsFromDataFrame(aggregated)
         lines_fields = self.getFieldsFromDataFrame(lines)
         # Create layer with sink
-
+        multistep_feedback.setCurrentStep(2)
+        multistep_feedback.setProgressText(self.tr("Snap the roads"))
         (aggregated_sink, aggregeted_dest_id) = self.parameterAsSink(
             parameters, self.OUTPUT_AGGREGATED, context, aggregated_fields, Qgis.WkbType.Point, roads_crs
         )
         (lines_sink, lines_dest_id) = self.parameterAsSink(
             parameters, self.OUTPUT_LINES, context, lines_fields, Qgis.WkbType.LineString, roads_crs
         )
-
         # Fill the layer
         aggregated_sink = self.fillSinkWithDataFrame(aggregated, aggregated_fields, aggregated_sink)
         lines_sink = self.fillSinkWithDataFrame(lines, lines_fields, lines_sink)
@@ -272,7 +293,11 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         if lines_sink is None:
             raise QgsProcessingException(self.invalidSinkError(parameters, self.OUTPUT_LINES))
 
-        return {self.OUTPUT_AGGREGATED: aggregeted_dest_id, self.OUTPUT_LINES: lines_dest_id}
+        return {
+            self.SPLIT_ROADS: split_roads,
+            self.OUTPUT_AGGREGATED: aggregeted_dest_id,
+            self.OUTPUT_LINES: lines_dest_id,
+        }
 
 
 def explode_multilines(gdf):
