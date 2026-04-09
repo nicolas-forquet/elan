@@ -14,6 +14,7 @@
 import json
 import multiprocessing
 import sys
+from math import ceil
 from pathlib import Path
 from typing import Any, Optional
 
@@ -383,13 +384,13 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
                 output_feature.setGeometry(wwtp_feature.geometry())
                 output_feature["name_stages"] = "-".join(pathway_result.name_stages)
                 output_feature["pathway_id"] = pathway_result.id
-                output_feature["available_surface"] = optimization_result.available_surface
+                output_feature["available_surface"] = ceil(optimization_result.available_surface)
                 output_feature["sink_coords"] = wwtp_feature[sink_coords_field_name]
-                output_feature["total_volume"] = pathway_result.total_volume
-                output_feature["total_surface"] = pathway_result.total_surface
+                output_feature["total_volume"] = round(pathway_result.total_volume, 0)
+                output_feature["total_surface"] = ceil(pathway_result.total_surface)
                 output_feature["depth_stages_unsat"] = json.dumps(pathway_result.unsaturated_depth_stages)
                 output_feature["depth_stages_sat"] = json.dumps(pathway_result.saturated_depth_stages)
-                output_feature["surface_stages"] = json.dumps(pathway_result.surface_stages)
+                output_feature["surface_stages"] = json.dumps(ceil(pathway_result.surface_stages[0]))
                 output_feature["TSS_loading_stages"] = json.dumps(pathway_result.TSS_loading_stages)
                 output_feature["BOD5_loading_stages"] = json.dumps(pathway_result.BOD5_loading_stages)
                 output_feature["TKN_loading_stages"] = json.dumps(pathway_result.TKN_loading_stages)
@@ -397,14 +398,14 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
                 output_feature["hydraulic_loading_rate_stages"] = json.dumps(
                     pathway_result.hydraulic_loading_rate_stages
                 )
-                output_feature["TSS_concentration"] = pathway_result.TSS_concentration
-                output_feature["BOD5_concentration"] = pathway_result.BOD5_concentration
-                output_feature["TKN_concentration"] = pathway_result.TKN_concentration
-                output_feature["COD_concentration"] = pathway_result.COD_concentration
-                output_feature["NO3N_concentration"] = pathway_result.NO3N_concentration
-                output_feature["TN_concentration"] = pathway_result.TN_concentration
-                output_feature["TP_concentration"] = pathway_result.TP_concentration
-                output_feature["ecoli_concentration"] = pathway_result.ecoli_concentration
+                output_feature["TSS_concentration"] = round(pathway_result.TSS_concentration, 0)
+                output_feature["BOD5_concentration"] = round(pathway_result.BOD5_concentration, 0)
+                output_feature["TKN_concentration"] = round(pathway_result.TKN_concentration, 0)
+                output_feature["COD_concentration"] = round(pathway_result.COD_concentration, 0)
+                output_feature["NO3N_concentration"] = round(pathway_result.NO3N_concentration, 0)
+                output_feature["TN_concentration"] = round(pathway_result.TN_concentration, 0)
+                output_feature["TP_concentration"] = round(pathway_result.TP_concentration, 0)
+                output_feature["ecoli_concentration"] = round(pathway_result.ecoli_concentration, 0)
                 output_feature["TSS_deviation"] = pathway_result.TSS_deviation
                 output_feature["BOD5_deviation"] = pathway_result.BOD5_deviation
                 output_feature["TKN_deviation"] = pathway_result.TKN_deviation
