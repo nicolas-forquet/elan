@@ -23,17 +23,19 @@ from qgis.core import (
     QgsGeometry,
     QgsProcessingAlgorithm,
     QgsProcessingException,
+    QgsProcessingLayerPostProcessorInterface,
     QgsProcessingMultiStepFeedback,
     QgsProcessingParameterDefinition,
     QgsProcessingParameterDistance,
     QgsProcessingParameterFeatureSink,
     QgsProcessingParameterFeatureSource,
     QgsProcessingParameterField,
-    QgsProcessingUtils,
+    QgsVectorLayer,
 )
 from qgis.PyQt.QtCore import QMetaType
 from shapely.geometry import LineString, Point
 
+from ELAN.processing.utils import getLocalizedStylesDirectory
 from ELAN.utils.tr import Translatable
 
 
@@ -50,6 +52,10 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
     OUTPUT_LINES = "OUTPUT_LINES"
     LINE_LENGTH_SPLIT = "LINE_LENGTH_SPLIT"
     SPLIT_ROADS = "SPLIT_ROADS"
+
+    def __init__(self):
+        super().__init__()
+        self.post_processor = AggregatedRoadsPostProcessor()
 
     def createInstance(self):
         """Return an instance of this class"""
@@ -292,6 +298,9 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             raise QgsProcessingException(self.invalidSinkError(parameters, self.OUTPUT_AGGREGATED))
         if lines_sink is None:
             raise QgsProcessingException(self.invalidSinkError(parameters, self.OUTPUT_LINES))
+        # Load qml alias
+        if context.willLoadLayerOnCompletion(aggregeted_dest_id):
+            context.layerToLoadOnCompletionDetails(aggregeted_dest_id).setPostProcessor(self.post_processor)
 
         return {
             self.SPLIT_ROADS: split_roads,
@@ -339,7 +348,7 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
     vertex_sindex = vertex_gdf.sindex
 
     # Containers
-    aggregation = defaultdict(lambda: {"geometry": None, "count": 0, f"{value_field}": 0.0})
+    aggregation = defaultdict(lambda: {"geometry": None, "building_count": 0, f"{value_field}": 0.0})
     projection_lines = []
     building_records = []
 
@@ -364,7 +373,7 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
             key = (round(nearest_pt.x, 6), round(nearest_pt.y, 6))
             pt = vertex_index[key]
             aggregation[key]["geometry"] = pt
-            aggregation[key]["count"] += 1
+            aggregation[key]["building_count"] += 1
             aggregation[key][str(value_field)] += value
 
             # Record projection line
@@ -383,3 +392,16 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
     status_gdf = gpd.GeoDataFrame(building_records, crs=buildings_gdf.crs)
 
     return aggregated_gdf, lines_gdf
+
+
+class AggregatedRoadsPostProcessor(QgsProcessingLayerPostProcessorInterface, Translatable):
+    """Post process layer to set attribute table conditionnal formatting"""
+
+    def postProcessLayer(self, layer, context, feedback):
+        if not isinstance(layer, QgsVectorLayer) or not layer.isValid():
+            return
+
+        styles_dir = getLocalizedStylesDirectory()
+        if styles_dir is None:
+            return
+        layer.loadNamedStyle(str(styles_dir / "aggregated_roads.qml"))
