@@ -1227,42 +1227,42 @@ La couche canas dispose de 6 styles différents sélectionnables par le menu con
 <context>
     <name>SnapOnRoadsAlgorithm</name>
     <message>
-        <location filename="../../processing/snap_on_roads.py" line="67"/>
+        <location filename="../../processing/snap_on_roads.py" line="81"/>
         <source>Snap on roads</source>
         <translation>Projection sur routes</translation>
     </message>
     <message>
-        <location filename="../../processing/snap_on_roads.py" line="74"/>
+        <location filename="../../processing/snap_on_roads.py" line="88"/>
         <source>Data pre-processing</source>
         <translation>Préparation des données</translation>
     </message>
     <message>
-        <location filename="../../processing/snap_on_roads.py" line="140"/>
+        <location filename="../../processing/snap_on_roads.py" line="159"/>
         <source>Building population field</source>
         <translation>Champ population du bâtiment</translation>
     </message>
     <message>
-        <location filename="../../processing/snap_on_roads.py" line="129"/>
+        <location filename="../../processing/snap_on_roads.py" line="148"/>
         <source>Road layer</source>
         <translation>Couche route</translation>
     </message>
     <message>
-        <location filename="../../processing/snap_on_roads.py" line="134"/>
+        <location filename="../../processing/snap_on_roads.py" line="153"/>
         <source>Building layer</source>
         <translation>Couche bâtiment</translation>
     </message>
     <message>
-        <location filename="../../processing/snap_on_roads.py" line="165"/>
+        <location filename="../../processing/snap_on_roads.py" line="190"/>
         <source>Projection lines - Output layer</source>
         <translation>Lignes de projection - Couche de sortie</translation>
     </message>
     <message>
-        <location filename="../../processing/snap_on_roads.py" line="157"/>
+        <location filename="../../processing/snap_on_roads.py" line="176"/>
         <source>Projected centroids - Output layer</source>
         <translation>Centroïdes projetés - Couche de sortie</translation>
     </message>
     <message>
-        <location filename="../../processing/snap_on_roads.py" line="93"/>
+        <location filename="../../processing/snap_on_roads.py" line="107"/>
         <source>This module projects building centroids onto the nearest road vertices within auser-defined maximum distance.
 The purpose of this spatial operation is to reduce the number of pumping stationsor connection points that are not relevant from an urban perspective -specifically those representing private lateral connections between individualbuildings and the public road network.
 By snapping buildings to the closest road vertex within a specified distance, the scriptprevents these private connections from being counted as distinct infrastructure needs. This step helps isolate connections that actually relate to the publicnetwork and simplifies subsequent analysis.&lt;h2&gt;Inputs:&lt;/h2&gt;&lt;ul&gt;    &lt;li&gt;Building layer: centroid locations of buildings&lt;/li&gt;    &lt;li&gt;Road layer: road geometry used for snapping&lt;/li&gt;    &lt;li&gt;Building population field: field from the buildings layer with the population attribute&lt;/li&gt;    &lt;li&gt;Maximum distance to road for snapping: maximum search distance for snapping         buildings to roads&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;Outputs:&lt;/h2&gt;&lt;ul&gt;&lt;h3&gt;Building features are preserved, with a new status column:&lt;/h3&gt;    &lt;li&gt;Projected: successfully snapped to a nearby road&lt;/li&gt;    &lt;li&gt;Not projected: no road found within the specified distance&lt;/li&gt;&lt;h3&gt;Centroids that fall on the same road vertex are merged, with:&lt;/h3&gt;    &lt;li&gt;Population values aggregated by sum&lt;/li&gt;    &lt;li&gt;A new column recording how many buildings were projected to that vertex&lt;/li&gt;&lt;/ul&gt;</source>
@@ -1281,9 +1281,44 @@ Cette étape permet d’isoler les raccordements réellement liés au réseau pu
 &lt;ul&gt;&lt;li&gt;Valeurs de population agrégées par somme&lt;/li&gt;&lt;li&gt;Une nouvelle colonne indique le nombre de bâtiments projetés sur ce sommet&lt;/li&gt;&lt;/ul&gt;</translation>
     </message>
     <message>
-        <location filename="../../processing/snap_on_roads.py" line="149"/>
+        <location filename="../../processing/snap_on_roads.py" line="168"/>
         <source>Maximum distance to road for snapping (m)</source>
         <translation>Distance maximale à la route pour la projection (m)</translation>
+    </message>
+    <message>
+        <location filename="../../processing/snap_on_roads.py" line="266"/>
+        <source>Split roads - Output layer</source>
+        <translation>Routes segmentées - Couche de sortie</translation>
+    </message>
+    <message>
+        <location filename="../../processing/snap_on_roads.py" line="195"/>
+        <source>Maximal length lines (m)</source>
+        <translation>Longueur maximale des tronçons (m)</translation>
+    </message>
+    <message>
+        <location filename="../../processing/snap_on_roads.py" line="252"/>
+        <source>Split the roads</source>
+        <translation>Segmentation des routes</translation>
+    </message>
+    <message>
+        <location filename="../../processing/snap_on_roads.py" line="282"/>
+        <source>Snap the roads</source>
+        <translation>Projection sur routes</translation>
+    </message>
+    <message>
+        <location filename="../../processing/snap_on_roads.py" line="271"/>
+        <source>Error when splitting the roads</source>
+        <translation>Erreur lors de la découpe des routes</translation>
+    </message>
+    <message>
+        <location filename="../../processing/snap_on_roads.py" line="278"/>
+        <source>Failed to remove the field added by splitlinesbylength</source>
+        <translation>Échec de suppression du champ ajouté par splitlinesbylength</translation>
+    </message>
+    <message>
+        <location filename="../../processing/snap_on_roads.py" line="292"/>
+        <source>CRS mismatch between buildings and roads</source>
+        <translation>Les SCR ne correspondent pas entre les routes et les bâtiments</translation>
     </message>
 </context>
 <context>
