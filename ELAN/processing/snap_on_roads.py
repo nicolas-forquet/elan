@@ -30,6 +30,7 @@ from qgis.core import (
     QgsProcessingParameterFeatureSink,
     QgsProcessingParameterFeatureSource,
     QgsProcessingParameterField,
+    QgsProcessingUtils,
     QgsVectorLayer,
 )
 from qgis.PyQt.QtCore import QMetaType
@@ -267,10 +268,14 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             ld = context.layerToLoadOnCompletionDetails(split_roads)
             ld.name = self.tr("Split roads - Output layer")
 
-        roads_gdf = gpd.GeoDataFrame.from_features(roads_source.getFeatures())
-        roads_gdf.set_crs(roads_source.sourceCrs().authid(), inplace=True)
-        buildings_gdf = gpd.GeoDataFrame.from_features(buildings_source.getFeatures())
-        buildings_gdf.set_crs(buildings_source.sourceCrs().authid(), inplace=True)
+        if split_roads is not None:
+            layer = QgsProcessingUtils.mapLayerFromString(split_roads, context)
+            split_roads_layer = layer if isinstance(layer, QgsVectorLayer) else None
+            roads_gdf = gpd.GeoDataFrame.from_features(split_roads_layer.getFeatures())
+            if roads_gdf is not None:
+                roads_gdf.set_crs(split_roads_layer.sourceCrs().authid(), inplace=True)
+                buildings_gdf = gpd.GeoDataFrame.from_features(buildings_source.getFeatures())
+                buildings_gdf.set_crs(buildings_source.sourceCrs().authid(), inplace=True)
 
         # Call snap_buildings_to_road_vertices script
         aggregated, lines = snap_buildings_to_road_vertices(
