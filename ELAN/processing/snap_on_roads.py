@@ -353,7 +353,7 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
     vertex_sindex = vertex_gdf.sindex
 
     # Containers
-    aggregation = defaultdict(lambda: {"geometry": None, "building_count": 0, f"{value_field}": 0.0})
+    aggregation = defaultdict(lambda: {"geometry": None, "building_count": 0, f"{value_field}": 0.0, "status": None})
     projection_lines = []
     building_records = []
 
@@ -361,7 +361,6 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
         centroid = row.geometry.centroid
         value = row[value_field]
 
-        # Find nearest vertex within threshold
         possible_idx = list(vertex_sindex.intersection(centroid.buffer(max_distance).bounds))
         candidates = vertex_gdf.iloc[possible_idx]
 
@@ -369,27 +368,31 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
         min_dist = float("inf")
         for _, v_row in candidates.iterrows():
             dist = centroid.distance(v_row.geometry)
-            if dist < min_dist and dist <= max_distance:
+            if dist < min_dist:
                 nearest_pt = v_row.geometry
                 min_dist = dist
 
-        if nearest_pt:
+        if nearest_pt is not None and min_dist <= max_distance:
             # Snap and aggregate
             key = (round(nearest_pt.x, 6), round(nearest_pt.y, 6))
             pt = vertex_index[key]
             aggregation[key]["geometry"] = pt
             aggregation[key]["building_count"] += 1
+            aggregation[key]["status"] = "snapped"
             aggregation[key][str(value_field)] += value
-
-            # Record projection line
             projection_lines.append(LineString([(centroid.x, centroid.y), (pt.x, pt.y)]))
-
-            # Record individual building
             building_records.append({**row.drop("geometry"), "geometry": pt, "status": "snapped"})
 
         else:
-            # Not snapped
-            building_records.append({**row.drop("geometry"), "geometry": centroid, "status": "not_snapped"})
+            # Not snap and aggregate: too far
+            key = (round(centroid.x, 6), round(centroid.y, 6))
+
+            aggregation[key]["geometry"] = centroid
+            aggregation[key]["building_count"] = 1
+            aggregation[key]["status"] = "not snapped"
+            aggregation[key][str(value_field)] = value
+
+            building_records.append({**row.drop("geometry"), "geometry": centroid, "status": "not snapped"})
 
     # Build outputs
     aggregated_gdf = gpd.GeoDataFrame(list(aggregation.values()), crs=buildings_gdf.crs)
