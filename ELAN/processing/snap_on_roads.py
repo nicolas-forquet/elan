@@ -378,10 +378,10 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
             pt = vertex_index[key]
             aggregation[key]["geometry"] = pt
             aggregation[key]["building_count"] += 1
-            aggregation[key]["status"] = "snapped"
+            aggregation[key]["status"] = True
             aggregation[key][str(value_field)] += value
             projection_lines.append(LineString([(centroid.x, centroid.y), (pt.x, pt.y)]))
-            building_records.append({**row.drop("geometry"), "geometry": pt, "status": "snapped"})
+            building_records.append({**row.drop("geometry"), "geometry": pt, "status": True})
 
         else:
             # Not snap and aggregate: too far
@@ -389,10 +389,10 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
 
             aggregation[key]["geometry"] = centroid
             aggregation[key]["building_count"] = 1
-            aggregation[key]["status"] = "not snapped"
+            aggregation[key]["status"] = False
             aggregation[key][str(value_field)] = value
 
-            building_records.append({**row.drop("geometry"), "geometry": centroid, "status": "not snapped"})
+            building_records.append({**row.drop("geometry"), "geometry": centroid, "status": False})
 
     # Build outputs
     aggregated_gdf = gpd.GeoDataFrame(list(aggregation.values()), crs=buildings_gdf.crs)
