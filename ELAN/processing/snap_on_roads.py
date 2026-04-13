@@ -213,6 +213,8 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
                 qgs_type = QMetaType.Type.Int
             elif dtype == "float":
                 qgs_type = QMetaType.Type.Double
+            elif dtype == "bool":
+                qgs_type = QMetaType.Type.Bool
             else:
                 qgs_type = QMetaType.Type.QString
             fields.append(QgsField(col, qgs_type))
@@ -237,26 +239,20 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         """
         multistep_feedback = QgsProcessingMultiStepFeedback(2, feedback)
 
-        max_distance_value = self.parameterAsInt(parameters, self.MAX_DISTANCE_TO_ROAD, context)
-        population_value = self.parameterAsString(parameters, self.POPULATION_FIELD, context)
-        roads_source = self.parameterAsVectorLayer(parameters, self.ROADS_INPUT_DATA, context)
+        threshold_distance_value = self.parameterAsInt(parameters, self.MAX_DISTANCE_TO_ROAD, context)
         buildings_source = self.parameterAsSource(parameters, self.BUILDINGS_INPUT_DATA, context)
-        split_roads = self.parameterAsVectorLayer(parameters, self.SPLIT_ROADS, context)
-
         line_length = self.parameterAsDouble(parameters, self.LINE_LENGTH_SPLIT, context)
 
-        if roads_source is None:
-            raise QgsProcessingException(self.invalidSourceError(parameters, self.ROADS_INPUT_DATA))
         if buildings_source is None:
             raise QgsProcessingException(self.invalidSourceError(parameters, self.BUILDINGS_INPUT_DATA))
 
         # split the roads with native processing
-        multistep_feedback.setCurrentStep(1)
+        multistep_feedback.setCurrentStep(0)
         multistep_feedback.setProgressText(self.tr("Split the roads"))
         split_roads = processing.run(
             "native:splitlinesbylength",
             {
-                "INPUT": roads_source,
+                "INPUT": parameters[self.ROADS_INPUT_DATA],
                 "LENGTH": line_length,
                 "OUTPUT": parameters[self.SPLIT_ROADS],
             },
@@ -268,29 +264,50 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
             ld = context.layerToLoadOnCompletionDetails(split_roads)
             ld.name = self.tr("Split roads - Output layer")
 
-        if split_roads is not None:
-            layer = QgsProcessingUtils.mapLayerFromString(split_roads, context)
-            split_roads_layer = layer if isinstance(layer, QgsVectorLayer) else None
-            roads_gdf = gpd.GeoDataFrame.from_features(split_roads_layer.getFeatures())
-            if roads_gdf is not None:
-                roads_gdf.set_crs(split_roads_layer.sourceCrs().authid(), inplace=True)
-                buildings_gdf = gpd.GeoDataFrame.from_features(buildings_source.getFeatures())
-                buildings_gdf.set_crs(buildings_source.sourceCrs().authid(), inplace=True)
+        if (split_roads_layer := QgsProcessingUtils.mapLayerFromString(split_roads, context)) is None or not isinstance(
+            split_roads_layer, QgsVectorLayer
+        ):
+            raise QgsProcessingException(self.tr("Error when splitting the roads"))
+
+        # Remove the last field possibly added by the splitlinesbylength algorithm
+        if (order_field_idx := split_roads_layer.fields().indexFromName("order")) != -1:
+            if (
+                split_roads_data_provider := split_roads_layer.dataProvider()
+            ) is None or not split_roads_data_provider.deleteAttributes([order_field_idx]):
+                raise QgsProcessingException(self.tr("Failed to remove the field added by splitlinesbylength"))
+            split_roads_layer.updateFields()
+
+        multistep_feedback.setCurrentStep(1)
+        multistep_feedback.setProgressText(self.tr("Snap the roads"))
+
+        roads_crs = split_roads_layer.crs()
+        buildings_crs = buildings_source.sourceCrs()
+        roads_gdf = gpd.GeoDataFrame.from_features(split_roads_layer.getFeatures())
+        roads_gdf.set_crs(roads_crs.authid(), inplace=True)
+        buildings_gdf = gpd.GeoDataFrame.from_features(buildings_source.getFeatures())
+        buildings_gdf.set_crs(buildings_crs.authid(), inplace=True)
+
+        if buildings_crs != roads_crs:
+            raise QgsProcessingException(self.tr("CRS mismatch between buildings and roads"))
 
         # Call snap_buildings_to_road_vertices script
-        aggregated, lines = snap_buildings_to_road_vertices(
-            buildings_gdf, roads_gdf, population_value, max_distance=max_distance_value
+        aggregated, lines = snapBuildingsToRoadVertices(
+            buildings_gdf,
+            roads_gdf,
+            self.parameterAsString(parameters, self.POPULATION_FIELD, context),
+            threshold_distance=threshold_distance_value,
         )
         # Create output layer
-        roads_crs = roads_source.sourceCrs()
-        # get fields
         aggregated_fields = self.getFieldsFromDataFrame(aggregated)
         lines_fields = self.getFieldsFromDataFrame(lines)
         # Create layer with sink
-        multistep_feedback.setCurrentStep(2)
-        multistep_feedback.setProgressText(self.tr("Snap the roads"))
         (aggregated_sink, aggregeted_dest_id) = self.parameterAsSink(
-            parameters, self.OUTPUT_AGGREGATED, context, aggregated_fields, Qgis.WkbType.Point, roads_crs
+            parameters,
+            self.OUTPUT_AGGREGATED,
+            context,
+            aggregated_fields,
+            Qgis.WkbType.Point,
+            buildings_source.sourceCrs(),
         )
         (lines_sink, lines_dest_id) = self.parameterAsSink(
             parameters, self.OUTPUT_LINES, context, lines_fields, Qgis.WkbType.LineString, roads_crs
@@ -307,6 +324,8 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         if context.willLoadLayerOnCompletion(aggregeted_dest_id):
             context.layerToLoadOnCompletionDetails(aggregeted_dest_id).setPostProcessor(self.post_processor)
 
+        multistep_feedback.setProgress(100)
+
         return {
             self.SPLIT_ROADS: split_roads,
             self.OUTPUT_AGGREGATED: aggregeted_dest_id,
@@ -314,7 +333,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         }
 
 
-def explode_multilines(gdf):
+def explodeMultilines(gdf):
     """
     Explodes MultiLineStrings into individual LineStrings.
     """
@@ -322,7 +341,7 @@ def explode_multilines(gdf):
     return gdf[gdf.geometry.type == "LineString"].reset_index(drop=True)
 
 
-def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_distance=500):
+def snapBuildingsToRoadVertices(buildings_gdf, roads_gdf, population_field_name, threshold_distance=500):
     """
     Snap centroids to road vertices, aggregate population at each vertex,
     and return individual building status and projection lines.
@@ -335,7 +354,7 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
     if buildings_gdf.crs != roads_gdf.crs:
         raise ValueError("CRS mismatch between buildings and roads")
 
-    roads_gdf = explode_multilines(roads_gdf)
+    roads_gdf = explodeMultilines(roads_gdf)
     roads_gdf = roads_gdf[roads_gdf.geometry.is_valid]
 
     # Extract all road vertices
@@ -353,33 +372,34 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
     vertex_sindex = vertex_gdf.sindex
 
     # Containers
-    aggregation = defaultdict(lambda: {"geometry": None, "building_count": 0, f"{value_field}": 0.0, "status": None})
+    aggregation = defaultdict(
+        lambda: {"geometry": None, "building_count": 0, f"{population_field_name}": 0.0, "status": None}
+    )
     projection_lines = []
     building_records = []
 
     for _, row in buildings_gdf.iterrows():
         centroid = row.geometry.centroid
-        value = row[value_field]
+        value = row[population_field_name]
 
-        possible_idx = list(vertex_sindex.intersection(centroid.buffer(max_distance).bounds))
+        possible_idx = list(vertex_sindex.intersection(centroid.buffer(threshold_distance).bounds))
         candidates = vertex_gdf.iloc[possible_idx]
 
         nearest_pt = None
-        min_dist = float("inf")
+        opti_distance = float("inf")
         for _, v_row in candidates.iterrows():
             dist = centroid.distance(v_row.geometry)
-            if dist < min_dist:
+            if dist < opti_distance:
                 nearest_pt = v_row.geometry
-                min_dist = dist
-
-        if nearest_pt is not None and min_dist <= max_distance:
+                opti_distance = dist
+        if nearest_pt is not None and opti_distance <= threshold_distance:
             # Snap and aggregate
             key = (round(nearest_pt.x, 6), round(nearest_pt.y, 6))
             pt = vertex_index[key]
             aggregation[key]["geometry"] = pt
             aggregation[key]["building_count"] += 1
             aggregation[key]["status"] = True
-            aggregation[key][str(value_field)] += value
+            aggregation[key][population_field_name] += value
             projection_lines.append(LineString([(centroid.x, centroid.y), (pt.x, pt.y)]))
             building_records.append({**row.drop("geometry"), "geometry": pt, "status": True})
 
@@ -390,26 +410,27 @@ def snap_buildings_to_road_vertices(buildings_gdf, roads_gdf, value_field, max_d
             aggregation[key]["geometry"] = centroid
             aggregation[key]["building_count"] = 1
             aggregation[key]["status"] = False
-            aggregation[key][str(value_field)] = value
+            aggregation[key][population_field_name] = value
 
             building_records.append({**row.drop("geometry"), "geometry": centroid, "status": False})
 
     # Build outputs
     aggregated_gdf = gpd.GeoDataFrame(list(aggregation.values()), crs=buildings_gdf.crs)
+    aggregated_gdf[population_field_name] = aggregated_gdf[population_field_name].round(1)
     lines_gdf = gpd.GeoDataFrame(geometry=projection_lines, crs=buildings_gdf.crs)
-    status_gdf = gpd.GeoDataFrame(building_records, crs=buildings_gdf.crs)
 
     return aggregated_gdf, lines_gdf
 
 
 class AggregatedRoadsPostProcessor(QgsProcessingLayerPostProcessorInterface, Translatable):
-    """Post process layer to set attribute table conditionnal formatting"""
+    """Post process layer to set its style QML file"""
 
     def postProcessLayer(self, layer, context, feedback):
+        """Load the layer style"""
         if not isinstance(layer, QgsVectorLayer) or not layer.isValid():
             return
 
         styles_dir = getLocalizedStylesDirectory()
         if styles_dir is None:
             return
-        layer.loadNamedStyle(str(styles_dir / "aggregated_roads.qml"))
+        layer.loadNamedStyle(str(styles_dir / "aggregated_buildings.qml"))

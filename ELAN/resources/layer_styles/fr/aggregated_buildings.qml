@@ -287,6 +287,7 @@
   <aliases>
     <alias field="building_count" name="Nombre de bâtiments" index="0"/>
     <alias field="population" name="" index="1"/>
+    <alias field="status" name="statut" index="2"/>
   </aliases>
   <splitPolicies>
     <policy policy="DefaultValue" field="building_count"/>
