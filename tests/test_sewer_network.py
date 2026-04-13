@@ -209,3 +209,40 @@ def test_error_wwtp_outside_dem(elan_processing):
 
     with pytest.raises(QgsProcessingException, match=re.compile(r"At least one WWTP is not inside the DEM")):
         elan_processing.run(test_sewer_network_alg, sewer_network_param)
+
+
+def test_error_missing_population_field(elan_processing):
+    """
+    Test with an input buildings layer without the specified population field.
+    The processing must fail.
+    """
+
+    from ELAN.processing.sewer_network import SewerNetworkAlgorithm
+
+    test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "sewer_network"
+    test_sewer_network_alg = SewerNetworkAlgorithm()
+
+    sewer_network_param = {
+        "SINKS": str(test_data_dir / "sewer_network_steu_input_outside_dem.gpkg.zip"),
+        "OUTPUT_GPKG": "nothing.gpkg",
+        "DEM_FILE_PATH": str(test_data_dir / "sewer_network_mnt_input.tif"),
+        "ROADS_INPUT_DATA": str(test_data_dir / "sewer_network_roads_input.gpkg.zip"),
+        "BUILDINGS_INPUT_DATA": str(test_data_dir / "sewer_network_buildings_population_input.gpkg.zip"),
+        "POPULATION_ATTRIBUTE_NAME": "absent_field_name",
+        "PUMP_PENALTY": 1000,
+        "MAX_CONNECTION_LENGTH": 30,
+        "CLUSTERING": "None",
+        "DAILY_WASTEWATER_PERSON": 0.164,
+        "PEAK_FACTOR": 2.3,
+        "MIN_SLOPE": -0.01,
+        "TMAX": 8,
+        "TMIN": 0.25,
+        "ROUGHNESS": 0.13,
+        "PRESSURIZED_DIAMETER": 0.2,
+        "DIAMETERS": [0, 1, 2, 3, 4, 5],
+    }
+
+    with pytest.raises(
+        QgsProcessingException, match=re.compile(r"The field 'absent_field_name' is not present in the buildings layer")
+    ):
+        elan_processing.run(test_sewer_network_alg, sewer_network_param)
