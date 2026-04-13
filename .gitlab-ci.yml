@@ -75,8 +75,14 @@ pylint:
 # -- TEST JOBS --------------------------------------------------------------------------
 
 test:
-  image: qgis/qgis:3.40.6
+  image: $QGIS_IMAGE
   stage: 🤞 test
+  parallel:
+    matrix:
+      - QGIS_IMAGE:
+          - qgis/qgis:3.40
+          - qgis/qgis:3.44
+          - qgis/qgis:4.0
   rules:
     - changes:
       - .gitlab-ci.yml
@@ -87,7 +93,7 @@ test:
     - source .venv/bin/activate
     - pip install -r requirements/testing.txt
     - pip install -r requirements/elan.txt
-    - QT_QPA_PLATFORM=offscreen PYTHONPATH=. python ${PROJECT_FOLDER}/utils/dependencies_utils.py --install-all
+    - QT_QPA_PLATFORM=offscreen PYTHONPATH=.${PYTHONPATH:+:${PYTHONPATH}} python ${PROJECT_FOLDER}/utils/dependencies_utils.py --install-all
   script:
     - python3 -m pytest --qgis_disable_gui
   coverage: '/(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
