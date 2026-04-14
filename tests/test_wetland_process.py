@@ -137,9 +137,10 @@ def test_wetland_process_with_null_objectives(elan_processing, tmp_path):
     assert test_wetland_process_alg.name() == "elanwetlandprocess"
     assert test_wetland_process_alg.groupId() == "elanprocessings"
 
+    gen_path = tmp_path / "wetland_process_generated_output.gpkg"
     wetland_process_param = {
         "CLIMATE": 0,
-        "TREATMENT": str(tmp_path / "wetland_process_generated_output.gpkg"),
+        "TREATMENT": str(gen_path),
         "AVAILABLE_SURFACE": None,
         "SINK_COORDS": "sink_coords",
         "STAGES_MAX": 3,
@@ -162,15 +163,12 @@ def test_wetland_process_with_null_objectives(elan_processing, tmp_path):
     with pytest.raises(QgsProcessingException, match="These target values can't be NULL: TSS, BOD5"):
         elan_processing.run(test_wetland_process_alg, wetland_process_param)
 
-    wetland_process_param["SINKS"] = str(test_data_dir / "wetland_process_steu_with_null_objectives_3.gpkg.zip")
-
     # Authorized NULL values
+    wetland_process_param["SINKS"] = str(test_data_dir / "wetland_process_steu_with_null_objectives_3.gpkg.zip")
     res = elan_processing.run(test_wetland_process_alg, wetland_process_param)
     assert list(res.keys()) == ["TREATMENT"]
 
     ref_path = test_data_dir / "wetland_process_reference_output_with_null_objectives_3.gpkg.zip"
-    gen_path = tmp_path / "wetland_process_generated_output.gpkg"
-
     assert_same_layers(
         load_layer(ref_path, "wetland_process_generated_output"),
         load_layer(gen_path, "wetland_process_generated_output"),
