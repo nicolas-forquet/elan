@@ -5,7 +5,7 @@ Utils functions for tests
 from pathlib import Path
 from typing import Optional
 
-from qgis.core import QgsProject, QgsVectorLayer
+from qgis.core import Qgis, QgsProject, QgsVectorLayer
 
 
 def assert_same_layers(
@@ -65,14 +65,15 @@ def assert_same_layers(
             )
 
     # geometry for each feature (based on fid)
+    precision = 8 if layer_a.crs().type() == Qgis.CrsType.Geographic2d else 3
     if check_geom:
         fid_idx = layer_a.fields().indexFromName("fid")
         assert fid_idx != -1, "a 'fid' field is required to check the geometries"
         fids = layer_a.uniqueValues(fid_idx)
         for fid in fids:
-            geom_a = next(layer_a.getFeatures(f'"fid" = {fid}')).geometry().asWkt()
-            geom_b = next(layer_b.getFeatures(f'"fid" = {fid}')).geometry().asWkt()
-            assert geom_a == geom_b
+            geom_a = next(layer_a.getFeatures(f'"fid" = {fid}')).geometry().asWkt(precision)
+            geom_b = next(layer_b.getFeatures(f'"fid" = {fid}')).geometry().asWkt(precision)
+            assert geom_a == geom_b, f"{geom_a=}\n{geom_b=}"
 
 
 def load_layer(gpkg_path: str | Path, layer_name: str) -> QgsVectorLayer:
