@@ -398,22 +398,38 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
                 output_feature["hydraulic_loading_rate_stages"] = json.dumps(
                     pathway_result.hydraulic_loading_rate_stages
                 )
-                output_feature["TSS_concentration"] = round(pathway_result.TSS_concentration)
-                output_feature["BOD5_concentration"] = round(pathway_result.BOD5_concentration)
-                output_feature["TKN_concentration"] = round(pathway_result.TKN_concentration)
-                output_feature["COD_concentration"] = round(pathway_result.COD_concentration)
-                output_feature["NO3N_concentration"] = round(pathway_result.NO3N_concentration)
-                output_feature["TN_concentration"] = round(pathway_result.TN_concentration)
-                output_feature["TP_concentration"] = round(pathway_result.TP_concentration)
-                output_feature["ecoli_concentration"] = round(pathway_result.ecoli_concentration)
-                output_feature["TSS_deviation"] = pathway_result.TSS_deviation
-                output_feature["BOD5_deviation"] = pathway_result.BOD5_deviation
-                output_feature["TKN_deviation"] = pathway_result.TKN_deviation
-                output_feature["COD_deviation"] = pathway_result.COD_deviation
-                output_feature["NO3N_deviation"] = pathway_result.NO3N_deviation
-                output_feature["TN_deviation"] = pathway_result.TN_deviation
-                output_feature["TP_deviation"] = pathway_result.TP_deviation
-                output_feature["ecoli_deviation"] = pathway_result.ecoli_deviation
+                output_feature["TSS_concentration"] = round(pathway_result.TSS_concentration, 1)
+                output_feature["BOD5_concentration"] = round(pathway_result.BOD5_concentration, 1)
+                output_feature["TKN_concentration"] = round(pathway_result.TKN_concentration, 1)
+                output_feature["COD_concentration"] = round(pathway_result.COD_concentration, 1)
+                output_feature["NO3N_concentration"] = round(pathway_result.NO3N_concentration, 1)
+                output_feature["TN_concentration"] = round(pathway_result.TN_concentration, 1)
+                output_feature["TP_concentration"] = round(pathway_result.TP_concentration, 1)
+                output_feature["ecoli_concentration"] = round(pathway_result.ecoli_concentration, 1)
+                output_feature["TSS_deviation"] = (
+                    round(pathway_result.TSS_deviation, 1) if pathway_result.TSS_deviation is not None else None
+                )
+                output_feature["BOD5_deviation"] = (
+                    round(pathway_result.BOD5_deviation, 1) if pathway_result.BOD5_deviation is not None else None
+                )
+                output_feature["TKN_deviation"] = (
+                    round(pathway_result.TKN_deviation, 1) if pathway_result.TKN_deviation is not None else None
+                )
+                output_feature["COD_deviation"] = (
+                    round(pathway_result.COD_deviation, 1) if pathway_result.COD_deviation is not None else None
+                )
+                output_feature["NO3N_deviation"] = (
+                    round(pathway_result.NO3N_deviation, 1) if pathway_result.NO3N_deviation is not None else None
+                )
+                output_feature["TN_deviation"] = (
+                    round(pathway_result.TN_deviation, 1) if pathway_result.TN_deviation is not None else None
+                )
+                output_feature["TP_deviation"] = (
+                    round(pathway_result.TP_deviation, 1) if pathway_result.TP_deviation is not None else None
+                )
+                output_feature["ecoli_deviation"] = (
+                    round(pathway_result.ecoli_deviation, 1) if pathway_result.ecoli_deviation is not None else None
+                )
 
                 # Normalized concentration values
                 TSS_obj, BOD5_obj, TKN_obj, COD_obj, NO3N_obj, TN_obj, TP_obj, ecoli_obj = optimization_result.Cobj
