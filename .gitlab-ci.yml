@@ -119,6 +119,11 @@ test:linux:
 
 test:windows:
   stage: 🤞 test
+  parallel:
+    matrix:
+      - QGIS_VERSION:
+          - qgis
+          - qgis-ltr
   tags:
     - saas-windows-medium-amd64
   rules:
@@ -128,12 +133,15 @@ test:windows:
       - tests/**/*
   before_script:
     - Invoke-WebRequest -Uri "https://download.osgeo.org/osgeo4w/osgeo4w-setup-v2.exe" -OutFile "osgeo4w-setup-v2.exe"
-    - Start-Process -FilePath "osgeo4w-setup-v2.exe" -ArgumentList "--advanced --autoaccept --delete-orphans --no-desktop --quiet-mode --upgrade-also --site https://download.osgeo.org/osgeo4w/v2 --packages python3-core,python3-pip,python3-qgis,qgis-ltr" -Wait
+    - |
+        $packages = "python3-core,python3-pip,python3-qgis,$env:QGIS_VERSION"
+        $arguments = "--advanced --autoaccept --delete-orphans --no-desktop --quiet-mode --upgrade-also --site https://download.osgeo.org/osgeo4w/v2 --packages $packages"
+        Start-Process -FilePath "osgeo4w-setup-v2.exe" -ArgumentList $arguments -Wait
     - Remove-Item -Path .\osgeo4w-setup-v2.exe -Force
   script:
     - $env:OSGEO4W_ROOT='C:\OSGeo4W'
     - $env:PATH="$env:OSGEO4W_ROOT\bin;$env:OSGEO4W_ROOT\apps\Python312\Scripts;$env:PATH"
-    - $env:QGIS_PATH="$env:OSGEO4W_ROOT\apps\qgis-ltr"
+    - $env:QGIS_PATH="$env:OSGEO4W_ROOT\apps\$env:QGIS_VERSION"
     - $env:PYTHONHOME="$env:OSGEO4W_ROOT\apps\Python312"
     - $env:PYTHONPATH="$env:QGIS_PATH\python;$env:QGIS_PATH\python\plugins;."
     - Get-Command python
