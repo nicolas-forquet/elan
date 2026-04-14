@@ -276,12 +276,6 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             area_measurement.setSourceCrs(sinks_source_crs, QgsCoordinateTransformContext())
             area_measurement.setEllipsoid(sinks_source_crs.ellipsoidAcronym())
 
-        treatment_sink, treatment_dest = self.parameterAsSink(
-            parameters, self.TREATMENT, context, outputFields(), Qgis.WkbType.Point, sinks_source_crs
-        )
-        if treatment_sink is None:
-            raise QgsProcessingException(self.invalidSinkError(parameters, self.TREATMENT))
-
         # Get the names of every field from WWTP layer
         TSS_in_field_name = self.getWwtpFieldName(sinks_source, parameters, self.TSS_IN, context)
         BOD5_in_field_name = self.getWwtpFieldName(sinks_source, parameters, self.BOD5_IN, context)
@@ -375,6 +369,13 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         # Launch optimizations on every WWTP in parallel
         with multiprocessing.Pool() as pool:
             optimizations_results = pool.map(run_optimization, optimizations_parameters)
+
+        # Prepare output layer
+        treatment_sink, treatment_dest = self.parameterAsSink(
+            parameters, self.TREATMENT, context, outputFields(), Qgis.WkbType.Point, sinks_source_crs
+        )
+        if treatment_sink is None:
+            raise QgsProcessingException(self.invalidSinkError(parameters, self.TREATMENT))
 
         # Loop each result and add features
         for optimization_result, wwtp_feature in zip(optimizations_results, wwtp_features):
