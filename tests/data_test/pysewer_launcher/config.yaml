@@ -1,0 +1,23 @@
+'# default settings': null
+'# preprocessing': null
+export:
+  file_format: gpkg
+optimization:
+  daily_wastewater_person: 0.164
+  diameters:
+  - 1.0
+  inhabitants_dwelling_attribute_name: population
+  min_slope: -0.01
+  peak_factor: 2.3
+  pressurized_diameter: 0.2
+  roughness: 0.13
+  tmax: 8.0
+  tmin: 0.25
+preprocessing:
+  buildings_input_data: ./tests/data_test/sewer_network/sewer_network_buildings_population_input.gpkg
+  clustering: 0.0
+  dem_file_path: ./tests/data_test/sewer_network/sewer_network_mnt_input.tif
+  dx: 5.0
+  max_connection_length: 30.0
+  pump_penalty: 1000.0
+  roads_input_data: ./tests/data_test/sewer_network/sewer_network_roads_input.gpkg
