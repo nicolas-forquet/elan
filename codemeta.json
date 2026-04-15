@@ -113,7 +113,7 @@
     "relatedLink": "https://elan-gis.org",
     "schema:releaseNotes": "Changelogs: Sewer network module: WWTP layer now contains default inflow concentrations values;\nBugfixes: \n- Sewer network module: missing units on some parameters;\n- Processes plots: make sure unwanted labels are not plotted;\n- Processes module: fix inversion of target NTK and DCO;\n- Add \"population\" as a default field where needed.",
     "softwareRequirements": [
-        "https://qgis.org/download/", 
+        "https://qgis.org/download/",
         "https://plugins.qgis.org/plugins/DataPlotly/"
     ],
     "version": "2025.12.18",
