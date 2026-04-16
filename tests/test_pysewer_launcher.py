@@ -4,7 +4,6 @@ test_sewer_network
 
 # pylint: disable=import-outside-toplevel, invalid-name
 
-import re
 from unittest.mock import patch
 
 import pytest
@@ -125,17 +124,16 @@ def test_run(tmp_path):
 
     test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "pysewer_launcher"
     test_data_dir_sewer = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "sewer_network"
-    output_path = str(tmp_path / "OUTPUT_PATH.gpkg")
-    sinks_path = str(test_data_dir_sewer / "sewer_network_steu_input.gpkg")
-    filename_yaml = str(test_data_dir / "config.yaml.template")
+    output_path = tmp_path / "OUTPUT_PATH.gpkg"
+    sinks_path = test_data_dir_sewer / "sewer_network_steu_input.gpkg"
+    yaml_template_path = test_data_dir / "config.yaml.template"
 
     placeholders_yml = {
         "buildings_input_data": str(test_data_dir_sewer / "sewer_network_buildings_population_input.gpkg"),
         "dem_file_path": str(test_data_dir_sewer / "sewer_network_mnt_input.tif"),
         "roads_input_data": str(test_data_dir_sewer / "sewer_network_roads_input.gpkg"),
     }
-    with open(filename_yaml) as f:
-        content = f.read()
+    content = yaml_template_path.read_text()
     for key, value in placeholders_yml.items():
         content = content.replace(f"{{{{{key}}}}}", value)
     tmp_yaml = tmp_path / "config_template.yaml"
