@@ -12,6 +12,7 @@
 # pylint: disable=no-member, broad-except, consider-using-f-string
 
 import math
+from json import JSONDecodeError
 
 import processing
 import requests
@@ -191,8 +192,25 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
         >;
         out skel qt;
         """
-        response = requests.get(overpass_url, params={"data": overpass_query}, timeout=100)
-        data = response.json()
+        try_nb, max_try = 1, 5
+        while try_nb <= max_try:
+            response = requests.get(overpass_url, params={"data": overpass_query}, timeout=100)
+            try:
+                data = response.json()
+                break
+            except JSONDecodeError as err:
+                try_nb += 1
+                if "timeout" in response.text:
+                    if try_nb > max_try:
+                        raise QgsProcessingException(self.tr("Maximum number of attempts reached, exiting.")) from err
+                    multistep_feedback.pushInfo(
+                        self.tr("OpenStreetMap server timeout, retrying ({}/{})").format(try_nb, max_try)
+                    )
+                else:
+                    raise QgsProcessingException(
+                        self.tr("JSON decode error: {}\nRecieved: {}").format(err, response.text)
+                    ) from err
+
         all_tags = set()
         osm_elements = data["elements"]
         for element in osm_elements:

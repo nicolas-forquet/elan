@@ -6,6 +6,7 @@ test_roads_buildings
 
 import json
 import re
+from unittest import mock
 from zipfile import ZipFile
 
 import pytest
@@ -14,6 +15,8 @@ from qgis.core import (
     QgsFeature,
     QgsGeometry,
     QgsProcessingException,
+    QgsProcessingFeedback,
+    QgsProcessingMultiStepFeedback,
     QgsProject,
     QgsVectorLayer,
 )
@@ -162,3 +165,119 @@ def test_error_empty_polygon(elan_processing):
         elan_processing.run(
             roads_buildings_alg, {"POLYGON": QgsVectorLayer("Polygon?crs=EPSG:4326", "test_null", "memory")}
         )
+
+
+def test_timeout(elan_processing, mocker, tmp_path):
+    """
+    Verify that OpenStreeMap server timeout is handled.
+    Try 4 times: the first 3 times are timetouts, and the last try succeeds.
+    """
+
+    from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
+
+    roads_buildings_alg = RoadsBuildingsAlgorithm()
+
+    # 1st mock response from request: timeout
+    mock_response_1 = mocker.Mock()
+    mock_response_1.json.side_effect = json.JSONDecodeError("", "", 0)
+    mock_response_1.text = "some text and timeout"
+
+    # 2nd mock response from request: timeout
+    mock_response_2 = mocker.Mock()
+    mock_response_2.json.side_effect = json.JSONDecodeError("", "", 0)
+    mock_response_2.text = "timeout"
+
+    # 3rd mock response from request: timeout
+    mock_response_3 = mocker.Mock()
+    mock_response_3.json.side_effect = json.JSONDecodeError("", "", 0)
+    mock_response_3.text = "timeout and some text"
+
+    # 4th mock response from request: ok (here en empty elements dict, but valid expected json)
+    mock_response_4 = mocker.Mock()
+    mock_response_4.json.return_value = {"elements": []}
+
+    mocker.patch(
+        "ELAN.processing.roads_buildings.requests.get",
+        side_effect=[mock_response_1, mock_response_2, mock_response_3, mock_response_4],
+    )
+
+    spy_feedback = SpyMultiStepFeedback()
+    mocker.patch("ELAN.processing.roads_buildings.QgsProcessingMultiStepFeedback", return_value=spy_feedback)
+
+    test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "roads_buildings"
+    roads_buildings_param = {
+        "POLYGON": str(test_data_dir / "buildings_roads_input.gpkg.zip"),
+        "BUILDINGS_OUTPUT": str(tmp_path / "buildings_generated_output.gpkg"),
+        "MERGED_BUILDINGS_OUTPUT": str(tmp_path / "buildings_merged_generated_output.gpkg"),
+        "ROADS_OUTPUT": str(tmp_path / "roads_generated_output.gpkg"),
+    }
+
+    elan_processing.run(roads_buildings_alg, roads_buildings_param)
+
+    # Verification of the messages
+    spy_feedback.spy.pushInfo.assert_has_calls(
+        [
+            mocker.call("OpenStreetMap server timeout, retrying (2/5)"),
+            mocker.call("OpenStreetMap server timeout, retrying (3/5)"),
+            mocker.call("OpenStreetMap server timeout, retrying (4/5)"),
+        ]
+    )
+    assert len(spy_feedback.spy.mock_calls) == 6  # The 3 last calls are intermediate info from child processings
+
+
+def test_error_max_timeout(elan_processing, mocker, tmp_path):
+    """
+    An error is raised and the processing ends if the maximum number of
+    OpenStreetMap timeouts is reached.
+    """
+
+    from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
+
+    roads_buildings_alg = RoadsBuildingsAlgorithm()
+
+    spy_feedback = SpyMultiStepFeedback()
+    mocker.patch("ELAN.processing.roads_buildings.QgsProcessingMultiStepFeedback", return_value=spy_feedback)
+
+    test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "roads_buildings"
+    roads_buildings_param = {
+        "POLYGON": str(test_data_dir / "buildings_roads_input.gpkg.zip"),
+        "BUILDINGS_OUTPUT": str(tmp_path / "buildings_generated_output.gpkg"),
+        "MERGED_BUILDINGS_OUTPUT": str(tmp_path / "buildings_merged_generated_output.gpkg"),
+        "ROADS_OUTPUT": str(tmp_path / "roads_generated_output.gpkg"),
+    }
+
+    # Every response made will be a timeout
+    mock_response = mocker.Mock()
+    mock_response.json.side_effect = json.JSONDecodeError("", "", 0)
+    mock_response.text = "some text and timeout"
+    mocker.patch("ELAN.processing.roads_buildings.requests.get", return_value=mock_response)
+
+    with pytest.raises(QgsProcessingException, match=re.compile("Maximum number of attempts reached, exiting.")):
+        elan_processing.run(roads_buildings_alg, roads_buildings_param)
+
+    spy_feedback.spy.pushInfo.assert_has_calls(
+        [
+            mocker.call("OpenStreetMap server timeout, retrying (2/5)"),
+            mocker.call("OpenStreetMap server timeout, retrying (3/5)"),
+            mocker.call("OpenStreetMap server timeout, retrying (4/5)"),
+            mocker.call("OpenStreetMap server timeout, retrying (5/5)"),
+        ]
+    )
+    assert len(spy_feedback.spy.mock_calls) == 4
+
+
+class SpyMultiStepFeedback(QgsProcessingMultiStepFeedback):  # pylint: disable=too-few-public-methods
+    """
+    Need for a custom spy feedback because of child algorithms and SIP
+    which can't accept Mocks
+    """
+
+    def __init__(self):
+        self.__feedback = QgsProcessingFeedback()
+        super().__init__(4, self.__feedback)
+        self.spy = mock.Mock()  # internal Mock
+
+    def pushInfo(self, info):
+        """We record the call in the internal Mock"""
+        self.spy.pushInfo(info)
+        super().pushInfo(info)
