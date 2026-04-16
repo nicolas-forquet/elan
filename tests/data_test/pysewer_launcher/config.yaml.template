@@ -14,10 +14,10 @@ optimization:
   tmax: 8.0
   tmin: 0.25
 preprocessing:
-  buildings_input_data: ./tests/data_test/sewer_network/sewer_network_buildings_population_input.gpkg
+  buildings_input_data: {{buildings_input_data}}
   clustering: 0.0
-  dem_file_path: ./tests/data_test/sewer_network/sewer_network_mnt_input.tif
+  dem_file_path: {{dem_file_path}}
   dx: 5.0
   max_connection_length: 30.0
   pump_penalty: 1000.0
-  roads_input_data: ./tests/data_test/sewer_network/sewer_network_roads_input.gpkg
+  roads_input_data: {{roads_input_data}}
