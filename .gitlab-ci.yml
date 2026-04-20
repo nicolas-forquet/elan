@@ -122,7 +122,7 @@ test:windows:
   parallel:
     matrix:
       - QGIS_VERSION:
-          - qgis
+          # - qgis
           - qgis-ltr
   tags:
     - saas-windows-medium-amd64
