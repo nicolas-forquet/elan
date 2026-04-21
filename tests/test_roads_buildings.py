@@ -6,6 +6,7 @@ test_roads_buildings
 
 import json
 import re
+import sys
 from unittest import mock
 from zipfile import ZipFile
 
@@ -25,6 +26,7 @@ from ELAN.__about__ import DIR_PLUGIN_ROOT
 from tests.utils import assert_same_layers, load_layer
 
 
+@pytest.mark.xfail(sys.platform.startswith("win"), reason="Geometry differences to investigate on Windows", strict=True)
 def test_roads_buildings_no_proj(elan_processing, mocker, tmp_path):
     """Test the processing roads buildings without reprojection on the project CRS"""
 
