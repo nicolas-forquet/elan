@@ -10,6 +10,7 @@
 """
 
 import json
+from typing import cast
 
 import processing
 from qgis.core import (
@@ -33,6 +34,7 @@ from ELAN.utils.tr import Translatable
 
 
 class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
+    """ELAN processing to create 3D layers to be viewed with QGIS elevation profile"""
 
     INPUT_LAYER = "INPUT_LAYER"
     OUTPUT_GPKG = "OUTPUT_GPKG"
@@ -49,6 +51,7 @@ class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
         ]
 
     def createInstance(self):
+        """Returns an instance of this class"""
         return TrenchProfileAlgorithm()
 
     def name(self):
@@ -156,19 +159,21 @@ class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
         multistep_feedback.setCurrentStep(0)
 
         feature_count = input_source.featureCount()
-        for i, feature in enumerate(input_source.getFeatures()):
+        for i, feature in enumerate(input_source.getFeatures()):  # type: ignore
+            feature = cast(
+                QgsFeature, feature
+            )  # type hint because getFeatures() iterator has an incomplete python type
             multistep_feedback.setProgress(i / feature_count * 100)
-            feature: QgsFeature  # type hint because getFeatures() iterator has an incomplete python type
             try:
                 trench_profile = json.loads(feature.attribute("trench_depth_profile"))
                 profile = json.loads(feature.attribute("profile"))
-            except KeyError:
+            except KeyError as e:
                 raise QgsProcessingException(
                     self.tr(
                         "Necessary attributes not found, "
                         "the sewer pipes layer needs to be issued from the sewer network module."
                     )
-                )
+                ) from e
 
             # If pressurized then reconstruct the path of the trench from the profile
             if feature["pressurized"]:
@@ -180,7 +185,8 @@ class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
             feature_geometry = feature.geometry()
 
             # List of pairs [dist, QgsPoint] where dist = distance from the begining of the line, but
-            # with QgsPoint a XYZ point where XY are computed with geometry interpolation and Z is from "trench_depth_profile".
+            # with QgsPoint a XYZ point where XY are computed with geometry interpolation
+            # and Z is from "trench_depth_profile".
             z_points = [
                 [distance, QgsPoint(point.x(), point.y(), z)]
                 for point, z, distance in [
@@ -197,7 +203,8 @@ class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
             ]
 
             # Set the Z of each point in the points list.
-            # We go through each point, and compute its Z by interpolating from the Z values of its surrounding points from z_points.
+            # We go through each point, and compute its Z by interpolating from the Z values of its surrounding
+            # points from z_points.
             i, j = 0, 0
             while j < len(points):
                 dist, point = points[j]

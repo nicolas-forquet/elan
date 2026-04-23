@@ -41,7 +41,6 @@ from qgis.core import (
     QgsProcessingParameterString,
     QgsProject,
     QgsProviderRegistry,
-    QgsRasterLayer,
     QgsReadWriteContext,
     QgsSymbol,
     QgsVectorFileWriter,
