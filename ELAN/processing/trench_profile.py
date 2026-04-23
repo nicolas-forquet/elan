@@ -164,6 +164,13 @@ class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
                 QgsFeature, feature
             )  # type hint because getFeatures() iterator has an incomplete python type
             multistep_feedback.setProgress(i / feature_count * 100)
+
+            # The idea here is to create a LineStringZ composed of every point from the original line
+            # and every new point created with the "trench_depth_profile" list.
+            feature_geometry = feature.geometry()
+            if feature_geometry.length() < 1e-3:
+                continue
+
             try:
                 trench_profile = json.loads(feature.attribute("trench_depth_profile"))
                 profile = json.loads(feature.attribute("profile"))
@@ -179,10 +186,6 @@ class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
             if feature["pressurized"]:
                 tmin = profile[0][1] - trench_profile[0][1]
                 trench_profile = [[dist, z - tmin] for dist, z in profile]
-
-            # The idea here is to create a LineStringZ composed of every point from the original line
-            # and every new point created with the "trench_depth_profile" list.
-            feature_geometry = feature.geometry()
 
             # List of pairs [dist, QgsPoint] where dist = distance from the begining of the line, but
             # with QgsPoint a XYZ point where XY are computed with geometry interpolation
