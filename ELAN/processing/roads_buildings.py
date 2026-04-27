@@ -11,13 +11,14 @@
 
 # pylint: disable=no-member, broad-except, consider-using-f-string
 
+import json
 import math
 from json import JSONDecodeError
 
 import processing
-import requests
 from qgis.core import (
     Qgis,
+    QgsBlockingNetworkRequest,
     QgsCoordinateReferenceSystem,
     QgsCoordinateTransform,
     QgsCoordinateTransformContext,
@@ -38,7 +39,8 @@ from qgis.core import (
     QgsProject,
     QgsVectorLayer,
 )
-from qgis.PyQt.QtCore import QMetaType
+from qgis.PyQt.QtCore import QMetaType, QUrl
+from qgis.PyQt.QtNetwork import QNetworkRequest
 
 from ELAN.utils.tr import Translatable
 
@@ -179,8 +181,11 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
         if rect.area() > 0.1:  # in degree squared it corresponds to an entire French department
             raise QgsProcessingException(self.tr("The extent of the extraction area is too big"))
 
-        bbox = f"{rect.yMinimum()},{rect.xMinimum()},{rect.yMaximum()},{rect.xMaximum()}"
-        overpass_url = "http://overpass-api.de/api/interpreter"
+        bbox = (
+            f"{round(rect.yMinimum(), 5)},{round(rect.xMinimum(), 5)},"
+            f"{round(rect.yMaximum(), 5)},{round(rect.xMaximum(), 5)}"
+        )
+        overpass_url = "https://overpass-api.de/api/interpreter"
         overpass_query = f"""
         [out:json]
         [timeout:90];
@@ -193,14 +198,17 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
         out skel qt;
         """
         try_nb, max_try = 1, 5
+        qreq = QNetworkRequest(QUrl(overpass_url))
+        request = QgsBlockingNetworkRequest()
         while try_nb <= max_try:
-            response = requests.get(overpass_url, params={"data": overpass_query}, timeout=100)
+            request.post(qreq, f"data={overpass_query}".encode())
+            reply = request.reply().content().data().decode()
             try:
-                data = response.json()
+                data = json.loads(reply)
                 break
             except JSONDecodeError as err:
                 try_nb += 1
-                if "timeout" in response.text:
+                if "timeout" in reply:
                     if try_nb > max_try:
                         raise QgsProcessingException(self.tr("Maximum number of attempts reached, exiting.")) from err
                     multistep_feedback.pushInfo(
@@ -208,7 +216,7 @@ class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
                     )
                 else:
                     raise QgsProcessingException(
-                        self.tr("JSON decode error: {}\nRecieved: {}").format(err, response.text)
+                        self.tr("JSON decode error: {}\nRecieved: {}").format(err, reply)
                     ) from err
 
         all_tags = set()

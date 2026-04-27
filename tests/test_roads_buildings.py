@@ -4,7 +4,6 @@ test_roads_buildings
 
 # pylint: disable=import-outside-toplevel, invalid-name, too-many-locals
 
-import json
 import re
 import sys
 from unittest import mock
@@ -26,7 +25,9 @@ from ELAN.__about__ import DIR_PLUGIN_ROOT
 from tests.utils import assert_same_layers, load_layer
 
 
-@pytest.mark.xfail(sys.platform.startswith("win"), reason="Geometry differences to investigate on Windows", strict=True)
+@pytest.mark.xfail(
+    sys.platform.startswith("win"), reason="Geometry differences to investigate on Windows", strict=True
+)  # FIXME
 def test_roads_buildings_no_proj(elan_processing, mocker, tmp_path):
     """Test the processing roads buildings without reprojection on the project CRS"""
 
@@ -48,14 +49,13 @@ def test_roads_buildings_no_proj(elan_processing, mocker, tmp_path):
     osm_zip_path = test_data_dir / "osm_roads_buildings.zip"
     assert osm_zip_path.exists()
     assert tmp_path.exists()
-    json_osm_text = ""
     with ZipFile(osm_zip_path) as osm_zip:
         with osm_zip.open("osm_roads_buildings.json") as osm_json:
-            json_osm_text = osm_json.read().decode()
+            json_osm_text = osm_json.read()
 
-    mock_response = mocker.Mock()
-    mock_response.json.return_value = json.loads(json_osm_text)
-    mocker.patch("ELAN.processing.roads_buildings.requests.get", return_value=mock_response)
+    mock_request = mocker.Mock()
+    mock_request.reply.return_value.content.return_value.data.return_value = json_osm_text
+    mocker.patch("ELAN.processing.roads_buildings.QgsBlockingNetworkRequest", return_value=mock_request)
     res = elan_processing.run(roads_buildings_alg, roads_buildings_param)
 
     assert list(res.keys()) == ["BUILDINGS_OUTPUT", "MERGED_BUILDINGS_OUTPUT", "ROADS_OUTPUT"]
@@ -101,14 +101,13 @@ def test_roads_buildings_proj(elan_processing, mocker, tmp_path):
     osm_zip_path = test_data_dir / "osm_roads_buildings.zip"
     assert osm_zip_path.exists()
     assert tmp_path.exists()
-    json_osm_text = ""
     with ZipFile(osm_zip_path) as osm_zip:
         with osm_zip.open("osm_roads_buildings.json") as osm_json:
-            json_osm_text = osm_json.read().decode()
+            json_osm_text = osm_json.read()
 
-    mock_response = mocker.Mock()
-    mock_response.json.return_value = json.loads(json_osm_text)
-    mocker.patch("ELAN.processing.roads_buildings.requests.get", return_value=mock_response)
+    mock_request = mocker.Mock()
+    mock_request.reply.return_value.content.return_value.data.return_value = json_osm_text
+    mocker.patch("ELAN.processing.roads_buildings.QgsBlockingNetworkRequest", return_value=mock_request)
     res = elan_processing.run(roads_buildings_alg, roads_buildings_param)
 
     assert list(res.keys()) == ["BUILDINGS_OUTPUT", "MERGED_BUILDINGS_OUTPUT", "ROADS_OUTPUT"]
@@ -180,28 +179,15 @@ def test_timeout(elan_processing, mocker, tmp_path):
     roads_buildings_alg = RoadsBuildingsAlgorithm()
 
     # 1st mock response from request: timeout
-    mock_response_1 = mocker.Mock()
-    mock_response_1.json.side_effect = json.JSONDecodeError("", "", 0)
-    mock_response_1.text = "some text and timeout"
+    mock_request = mocker.Mock()
+    mock_request.reply.return_value.content.return_value.data.return_value.decode.side_effect = [
+        "some text and timeout",
+        "timeout and some text",
+        "timeout",
+        '{"elements": []}',
+    ]
 
-    # 2nd mock response from request: timeout
-    mock_response_2 = mocker.Mock()
-    mock_response_2.json.side_effect = json.JSONDecodeError("", "", 0)
-    mock_response_2.text = "timeout"
-
-    # 3rd mock response from request: timeout
-    mock_response_3 = mocker.Mock()
-    mock_response_3.json.side_effect = json.JSONDecodeError("", "", 0)
-    mock_response_3.text = "timeout and some text"
-
-    # 4th mock response from request: ok (here en empty elements dict, but valid expected json)
-    mock_response_4 = mocker.Mock()
-    mock_response_4.json.return_value = {"elements": []}
-
-    mocker.patch(
-        "ELAN.processing.roads_buildings.requests.get",
-        side_effect=[mock_response_1, mock_response_2, mock_response_3, mock_response_4],
-    )
+    mocker.patch("ELAN.processing.roads_buildings.QgsBlockingNetworkRequest", return_value=mock_request)
 
     spy_feedback = SpyMultiStepFeedback()
     mocker.patch("ELAN.processing.roads_buildings.QgsProcessingMultiStepFeedback", return_value=spy_feedback)
@@ -230,7 +216,7 @@ def test_timeout(elan_processing, mocker, tmp_path):
 def test_error_max_timeout(elan_processing, mocker, tmp_path):
     """
     An error is raised and the processing ends if the maximum number of
-    OpenStreetMap timeouts is reached.
+    OpenStreetMap timeouts is reached, or if other JSON decode errors are encountered.
     """
 
     from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
@@ -249,10 +235,9 @@ def test_error_max_timeout(elan_processing, mocker, tmp_path):
     }
 
     # Every response made will be a timeout
-    mock_response = mocker.Mock()
-    mock_response.json.side_effect = json.JSONDecodeError("", "", 0)
-    mock_response.text = "some text and timeout"
-    mocker.patch("ELAN.processing.roads_buildings.requests.get", return_value=mock_response)
+    mock_request = mocker.Mock()
+    mock_request.reply.return_value.content.return_value.data.return_value.decode.return_value = "some text and timeout"
+    mocker.patch("ELAN.processing.roads_buildings.QgsBlockingNetworkRequest", return_value=mock_request)
 
     with pytest.raises(QgsProcessingException, match=re.compile("Maximum number of attempts reached, exiting.")):
         elan_processing.run(roads_buildings_alg, roads_buildings_param)
@@ -266,6 +251,14 @@ def test_error_max_timeout(elan_processing, mocker, tmp_path):
         ]
     )
     assert len(spy_feedback.spy.mock_calls) == 4
+
+    # Every response made will be a JSON decode error
+    mock_request.reply.return_value.content.return_value.data.return_value.decode.return_value = "not a json string"
+    with pytest.raises(
+        QgsProcessingException,
+        match=re.escape("JSON decode error: Expecting value: line 1 column 1 (char 0)\nRecieved: not a json string"),
+    ):
+        elan_processing.run(roads_buildings_alg, roads_buildings_param)
 
 
 class SpyMultiStepFeedback(QgsProcessingMultiStepFeedback):  # pylint: disable=too-few-public-methods

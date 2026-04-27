@@ -26,13 +26,12 @@ def test_all_processings(elan_processing, mocker, tmp_path):
 
     # Mock OSM response
     osm_zip_path = test_data_dir / "osm_roads_buildings.zip"
-    json_osm_text = ""
     with ZipFile(osm_zip_path) as osm_zip:
         with osm_zip.open("osm_roads_buildings.json") as osm_json:
-            json_osm_text = osm_json.read().decode()
-    mock_response = mocker.Mock()
-    mock_response.json.return_value = json.loads(json_osm_text)
-    mocker.patch("ELAN.processing.roads_buildings.requests.get", return_value=mock_response)
+            json_osm_text = osm_json.read()
+    mock_request = mocker.Mock()
+    mock_request.reply.return_value.content.return_value.data.return_value = json_osm_text
+    mocker.patch("ELAN.processing.roads_buildings.QgsBlockingNetworkRequest", return_value=mock_request)
     # To reproject output layer onto correct CRS we have to set the project CRS
     mocker.patch(
         "ELAN.processing.roads_buildings.QgsProject.crs", return_value=QgsCoordinateReferenceSystem("EPSG:32620")
