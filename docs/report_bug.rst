@@ -93,8 +93,8 @@ Votre ticket apparait dans la liste des éléments de travail. Vous pouvez le co
 Vous aurez très prochainement un retour de notre part dans les commentaires du ticket.
 
 .. important::
-   Une fois le bug résolu, n'oubliez pas de fermer le ticket ! Cliquez sur les 3 points verticaux en haut à droite du ticket et choisissez "Fermer ticket".
-   
+   Une fois le bug résolu, n'oubliez pas de fermer le ticket ! Cliquez sur les 3 points verticaux en haut à droite (à côté de *Modifier*) du ticket et choisissez *Fermer issue*.
+
    .. image:: _static/close_issue.png
      :width: 284
 
