@@ -57,5 +57,8 @@ Contenu
    
    petite_anse
 
+.. toctree::
+   :caption: Remontée de bugs
+
    
 
