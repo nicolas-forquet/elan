@@ -93,7 +93,10 @@ Votre ticket apparait dans la liste des éléments de travail. Vous pouvez le co
 Vous aurez très prochainement un retour de notre part dans les commentaires du ticket.
 
 .. important::
-   Une fois le bug résolu, n'oubliez pas de fermer le ticket !
+   Une fois le bug résolu, n'oubliez pas de fermer le ticket ! Cliquez sur les 3 points verticaux en haut à droite du ticket et choisissez "Fermer ticket".
+   
+   .. image:: _static/close_issue.png
+     :width: 284
 
 .. note::
    Si vous ne souhaitez pas créer de compte Gitlab, vous pouvez nous signaler le bug par mail : elan.support@listes.inrae.fr avec l'ensemble des éléments listés dans le point 3. Mais c'est dommage de ne pas en faire profiter d'autres utilisateurs ! 
