@@ -23,7 +23,7 @@ Pour cela :
 
 Plusieurs cas possibles :
 
-1. **Le bug a été reporté et résolu** (ticket fermé, statut mis en évidence avec les encarts jaunes dans l'image précédente), vous n'avez plus qu'à appliquer la solution indiquée dans le ticket. 
+1. **Le bug a été reporté et résolu** (ticket fermé, statut mis en évidence avec les encarts jaunes dans l'image précédente). Vous n'avez plus qu'à appliquer la solution indiquée dans le ticket. 
 2. **Il est en cours de résolution** (ticket ouvert), vous pouvez apporter de nouveaux éléments et nous aider à mieux le comprendre. 
 3. **C'est un nouveau bug**. Il faut donc lui créer un ticket dédié.
 
@@ -78,14 +78,14 @@ Pour signaler un nouveau bug, vous allez créer un ticket. Pour cela :
 .. important::
    Le ticket doit être rempli en anglais pour profiter à l'ensemble de la communauté.
 
-Voici un exemple de ticket qui nous permettra de vous aider :
+Voici un exemple de ticket qui respecte les indications et qui nous permettra donc de vous aider :
 
 .. image:: _static/exemple_ticket_consignes_ok.png
      :width: 750
 
-**4.** Créer l'incident.
+**4.** Créer l'incident (en bas à droite).
 
-Votre ticket apparait dans la liste des éléments de travail. Vous pouvez le consulter en cliquant dessus.
+Votre ticket apparait dans la liste des éléments de travail. Vous pouvez le consulter en cliquant dessus. Par exemple :
 
 .. image:: _static/apercu_ticket.png
      :width: 750
