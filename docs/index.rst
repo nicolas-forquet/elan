@@ -60,5 +60,7 @@ Contenu
 .. toctree::
    :caption: Remontée de bugs
 
+   report_bug.rst
+
    
 
