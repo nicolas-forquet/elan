@@ -9,196 +9,230 @@ msgstr ""
 "Project-Id-Version: ELAN 2025.12.918-beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-17 09:35+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
+"PO-Revision-Date: 2026-06-17 10:59+0200\n"
+"Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.17.0\n"
+"X-Generator: Poedit 3.9\n"
 
 #: ../../report_bug.rst:2
 msgid "Comment faire ?"
-msgstr ""
+msgstr "How to do?"
 
 #: ../../report_bug.rst:4
 msgid ""
-"Le plus simple est de le signaler sur la page GitLab du projet Elan : "
-"https://gitlab.com/elan7835313/elan"
+"Le plus simple est de le signaler sur la page GitLab du projet Elan : https://"
+"gitlab.com/elan7835313/elan"
 msgstr ""
+"The easiest is to report bugs on the Elan GitLab page: https://gitlab.com/"
+"elan7835313/elan"
 
 #: ../../report_bug.rst:6
 msgid ""
-"GitLab est un logiciel libre de forge, i.e. une plateforme web de travail"
-" collaboratif destinée à développer et partager des applications "
-"informatiques, basé sur Git, un logiciel qui permet le versioning. C'est "
-"sur cette plateforme que nous développons Elan et via laquelle vous "
-"pouvez accéder au code source du plugin si vous le souhaitez."
+"GitLab est un logiciel libre de forge, i.e. une plateforme web de travail "
+"collaboratif destinée à développer et partager des applications informatiques, "
+"basé sur Git, un logiciel qui permet le versioning. C'est sur cette plateforme "
+"que nous développons Elan et via laquelle vous pouvez accéder au code source "
+"du plugin si vous le souhaitez."
 msgstr ""
+"GitLab is an open software forge, i.e. a web-based collaborative plateform for "
+"developing and sharing computer applications, based on Git, a software that "
+"enables versioning. We use this platform to develop Elan and it is where you "
+"can access the source code of the plugin if you wish."
 
 #: ../../report_bug.rst:9
 msgid "Consulter les bugs déjà signalés"
-msgstr ""
+msgstr "Look at the bugs already reported"
 
 #: ../../report_bug.rst:11
 msgid ""
-"D'autres utilisateurs ont peut-être déjà rencontré le même bug : "
-"consultez les tickets sur le GitLab du projet Elan (ouverts et fermés car"
-" le bug a peut-être déjà été résolu)."
+"D'autres utilisateurs ont peut-être déjà rencontré le même bug : consultez les "
+"tickets sur le GitLab du projet Elan (ouverts et fermés car le bug a peut-être "
+"déjà été résolu)."
 msgstr ""
+"Other users may have already encountered the same bug: look at the issue items "
+"on the Elan GitLab (opened and closed because the bug may have already been "
+"solved)."
 
 #: ../../report_bug.rst:13
 msgid "Pour cela :"
-msgstr ""
+msgstr "For this:"
 
 #: ../../report_bug.rst:15
 msgid ""
-"Aller dans *Planification* - *Eléments de travail* à gauche de "
-"l'interface (bulle 1)."
+"Aller dans *Planification* - *Eléments de travail* à gauche de l'interface "
+"(bulle 1)."
 msgstr ""
+"Go to *Plan* - *Work items* on the sidebar on the left of the interface "
+"(marker 1)."
 
 #: ../../report_bug.rst:17
 msgid ""
-"Enlever les filtres dans la barre de recherche s'il y en a et appuyer sur"
-" la loupe à l'extrémité de la barre (bulle 2)."
+"Enlever les filtres dans la barre de recherche s'il y en a et appuyer sur la "
+"loupe à l'extrémité de la barre (bulle 2)."
 msgstr ""
+"Remove filters in the search bar if there are some and click on the magnifier "
+"at the end of the bar (marker 2)."
 
 #: ../../report_bug.rst:19
 msgid "Consulter la liste des bugs reportés (bulle 3)."
-msgstr ""
+msgstr "Look at the list of the reported bugs (marker 3)."
 
 #: ../../report_bug.rst:24
 msgid "Plusieurs cas possibles :"
-msgstr ""
+msgstr "Several cases are possible:"
 
 #: ../../report_bug.rst:26
 msgid ""
-"**Le bug a été reporté et résolu** (ticket fermé, statut mis en évidence "
-"avec les encarts jaunes dans l'image précédente). Vous n'avez plus qu'à "
-"appliquer la solution indiquée dans le ticket."
+"**Le bug a été reporté et résolu** (ticket fermé, statut mis en évidence avec "
+"les encarts jaunes dans l'image précédente). Vous n'avez plus qu'à appliquer "
+"la solution indiquée dans le ticket."
 msgstr ""
+"**The bug has been reported and solved** (closed item, status evidenced by the "
+"yellow boxes in previous screenshot). You only have to apply the solution "
+"explained in the issue item."
 
 #: ../../report_bug.rst:27
 msgid ""
-"**Il est en cours de résolution** (ticket ouvert), vous pouvez apporter "
-"de nouveaux éléments et nous aider à mieux le comprendre."
+"**Il est en cours de résolution** (ticket ouvert), vous pouvez apporter de "
+"nouveaux éléments et nous aider à mieux le comprendre."
 msgstr ""
+"**It is being worked** (open item), you can add new elements and comments to "
+"help us to better understand the bug."
 
 #: ../../report_bug.rst:28
 msgid "**C'est un nouveau bug**. Il faut donc lui créer un ticket dédié."
-msgstr ""
+msgstr "**It is a new bug**. You need to create a dedicated issue item."
 
 #: ../../report_bug.rst:31
 msgid "Signaler un nouveau bug"
-msgstr ""
+msgstr "Report a new bug"
 
 #: ../../report_bug.rst:34
 msgid "Créer un compte GitLab et se connecter"
-msgstr ""
+msgstr "Create a GitLab account and sign in"
 
 #: ../../report_bug.rst:36
 msgid ""
-"Pour créer un compte GitLab : https://gitlab.com/users/sign_up (requis si"
-" vous êtes dans le cas 2 ou 3)."
+"Pour créer un compte GitLab : https://gitlab.com/users/sign_up (requis si vous "
+"êtes dans le cas 2 ou 3)."
 msgstr ""
+"To create a GitLab account: https://gitlab.com/users/sign_up (needed if you "
+"are in case 2 or 3)."
 
 #: ../../report_bug.rst:38
 msgid ""
 "Une fois votre compte créé, vous pouvez vous connecter depuis la page du "
-"projet Elan (un code de sécurité vous sera envoyé par mail après que vous"
-" ayez entré votre mot de passe)."
+"projet Elan (un code de sécurité vous sera envoyé par mail après que vous ayez "
+"entré votre mot de passe)."
 msgstr ""
+"Once your account created, you can sign in from the Elan page (you will "
+"receive a security code by email after entering your password)."
 
 #: ../../report_bug.rst:46
 msgid ""
-"Une fois connecté, votre avatar apparaît en haut à droite à la place du "
-"bouton \"Se connecter\"."
+"Une fois connecté, votre avatar apparaît en haut à droite à la place du bouton "
+"\"Se connecter\"."
 msgstr ""
+"Once connected, your avatar appears at the top right corner instead of the "
+"\"Sign in\" button."
 
 #: ../../report_bug.rst:52
 msgid "Ouvrir un nouveau ticket"
-msgstr ""
+msgstr "Open a new issue item"
 
 #: ../../report_bug.rst:54
 msgid "Pour signaler un nouveau bug, vous allez créer un ticket. Pour cela :"
-msgstr ""
+msgstr "To report a new bug, you have to create a new issue item. For this:"
 
 #: ../../report_bug.rst:56
 msgid "**1.** Aller dans *Planification* - *Eléments de travail*"
-msgstr ""
+msgstr "**1.** Go to *Plan* - *Work items*"
 
 #: ../../report_bug.rst:61
 msgid "**2.** Créer un nouvel élément (en haut à droite de l'écran)."
-msgstr ""
+msgstr "**2.** Create a new item (at the top right of the screen)."
 
 #: ../../report_bug.rst:66
 msgid "**3.** Remplir le ticket **en anglais** avec :"
-msgstr ""
+msgstr "**3.** Fill the issue item **in English** with:"
 
 #: ../../report_bug.rst:68
 msgid "Type : Incident"
-msgstr ""
+msgstr "Type : Incident"
 
 #: ../../report_bug.rst:69
 msgid "Label : bug"
-msgstr ""
+msgstr "Label : bug"
 
 #: ../../report_bug.rst:70
 msgid "Un titre explicite"
-msgstr ""
+msgstr "An explicit title"
 
 #: ../../report_bug.rst:71
 msgid ""
-"Une description précise de la démarche qui vous a conduit au bug "
-"(préciser la version de QGIS sur laquelle vous travaillez et la version "
-"d'Elan que vous utilisez)"
+"Une description précise de la démarche qui vous a conduit au bug (préciser la "
+"version de QGIS sur laquelle vous travaillez et la version d'Elan que vous "
+"utilisez)"
 msgstr ""
+"A detailed description of the steps that led you to the bug (please mention "
+"the QGIS version you are working with and the Elan version you are using)"
 
 #: ../../report_bug.rst:72
 msgid "Avec des captures d'écrans (copier coller les images dans la description)"
-msgstr ""
+msgstr "With screenshots (copy paste images in the description)"
 
 #: ../../report_bug.rst:73
 msgid ""
-"Et les données SIG que vous avez utilisé (ajout de pièces jointes avec "
-"l'icône trombone)"
-msgstr ""
+"Et les données SIG que vous avez utilisé (ajout de pièces jointes avec l'icône "
+"trombone)"
+msgstr "And the GIS data you used (add attachments with the paper clip icon)"
 
 #: ../../report_bug.rst:79
 msgid ""
 "Le ticket doit être rempli en anglais pour profiter à l'ensemble de la "
 "communauté."
-msgstr ""
+msgstr "The item must be created in English to benefit the entire community."
 
 #: ../../report_bug.rst:81
 msgid ""
-"Voici un exemple de ticket qui respecte les indications et qui nous "
-"permettra donc de vous aider :"
+"Voici un exemple de ticket qui respecte les indications et qui nous permettra "
+"donc de vous aider :"
 msgstr ""
+"Here is an exemple of an issue item that complies with the indications and "
+"that will therefore allow us to help you:"
 
 #: ../../report_bug.rst:86
 msgid "**4.** Créer l'incident (en bas à droite)."
-msgstr ""
+msgstr "**4.** Create issue (at the bottom right)."
 
 #: ../../report_bug.rst:88
 msgid ""
-"Votre ticket apparait dans la liste des éléments de travail. Vous pouvez "
-"le consulter en cliquant dessus. Par exemple :"
+"Votre ticket apparait dans la liste des éléments de travail. Vous pouvez le "
+"consulter en cliquant dessus. Par exemple :"
 msgstr ""
+"Your item appears in the list of work items. You can view it by clicking on "
+"it. For example:"
 
 #: ../../report_bug.rst:93
 msgid ""
-"Vous aurez très prochainement un retour de notre part dans les "
-"commentaires du ticket."
+"Vous aurez très prochainement un retour de notre part dans les commentaires du "
+"ticket."
 msgstr ""
+"You will have soon a response from us in the comments of the item you created."
 
 #: ../../report_bug.rst:96
 msgid ""
-"Si vous ne souhaitez pas créer de compte Gitlab, vous pouvez nous "
-"signaler le bug par mail : elan.support@listes.inrae.fr avec l'ensemble "
-"des éléments listés dans le point 3. Mais c'est dommage de ne pas en "
-"faire profiter d'autres utilisateurs !"
+"Si vous ne souhaitez pas créer de compte Gitlab, vous pouvez nous signaler le "
+"bug par mail : elan.support@listes.inrae.fr avec l'ensemble des éléments "
+"listés dans le point 3. Mais c'est dommage de ne pas en faire profiter "
+"d'autres utilisateurs !"
 msgstr ""
-
+"If you prefer not to create a GitLab account, you can report the bug by email "
+"at: elan.support@listes.inrae.fr with all the elements listed in point 3. But "
+"it is unfortunate not to share it with other users !"
