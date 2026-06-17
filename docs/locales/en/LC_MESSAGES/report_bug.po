@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELAN 2025.12.918-beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 09:35+0200\n"
-"PO-Revision-Date: 2026-06-17 10:59+0200\n"
+"POT-Creation-Date: 2026-06-17 11:03+0200\n"
+"PO-Revision-Date: 2026-06-17 11:04+0200\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -27,10 +27,10 @@ msgstr "How to do?"
 #: ../../report_bug.rst:4
 msgid ""
 "Le plus simple est de le signaler sur la page GitLab du projet Elan : https://"
-"gitlab.com/elan7835313/elan"
+"gitlab.com/elan7835313/elan."
 msgstr ""
 "The easiest is to report bugs on the Elan GitLab page: https://gitlab.com/"
-"elan7835313/elan"
+"elan7835313/elan."
 
 #: ../../report_bug.rst:6
 msgid ""
@@ -151,8 +151,8 @@ msgid "Pour signaler un nouveau bug, vous allez créer un ticket. Pour cela :"
 msgstr "To report a new bug, you have to create a new issue item. For this:"
 
 #: ../../report_bug.rst:56
-msgid "**1.** Aller dans *Planification* - *Eléments de travail*"
-msgstr "**1.** Go to *Plan* - *Work items*"
+msgid "**1.** Aller dans *Planification* - *Eléments de travail*."
+msgstr "**1.** Go to *Plan* - *Work items*."
 
 #: ../../report_bug.rst:61
 msgid "**2.** Créer un nouvel élément (en haut à droite de l'écran)."

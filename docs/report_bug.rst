@@ -1,7 +1,7 @@
 Comment faire ?
 ===============
 
-Le plus simple est de le signaler sur la page GitLab du projet Elan : https://gitlab.com/elan7835313/elan
+Le plus simple est de le signaler sur la page GitLab du projet Elan : https://gitlab.com/elan7835313/elan.
 
 GitLab est un logiciel libre de forge, i.e. une plateforme web de travail collaboratif destinée à développer et partager des applications informatiques, basé sur Git, un logiciel qui permet le versioning. C'est sur cette plateforme que nous développons Elan et via laquelle vous pouvez accéder au code source du plugin si vous le souhaitez.
 
@@ -53,7 +53,7 @@ Ouvrir un nouveau ticket
 
 Pour signaler un nouveau bug, vous allez créer un ticket. Pour cela :
 
-**1.** Aller dans *Planification* - *Eléments de travail* 
+**1.** Aller dans *Planification* - *Eléments de travail*. 
 
 .. image:: _static/issues.png
      :width: 712
