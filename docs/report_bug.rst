@@ -41,7 +41,7 @@ Une fois votre compte créé, vous pouvez vous connecter depuis la page du proje
      :width: 750
 
 .. image:: _static/connexion.png
-     :width: 552
+     :width: 568
 
 Une fois connecté, votre avatar apparaît en haut à droite à la place du bouton "Se connecter".
 
@@ -56,12 +56,12 @@ Pour signaler un nouveau bug, vous allez créer un ticket. Pour cela :
 **1.** Aller dans *Planification* - *Eléments de travail*. 
 
 .. image:: _static/issues.png
-     :width: 712
+     :width: 709
 
 **2.** Créer un nouvel élément (en haut à droite de l'écran). 
 
 .. image:: _static/new_issue.png
-     :width: 282
+     :width: 252
 
 **3.** Remplir le ticket **en anglais** avec :
 
@@ -88,7 +88,7 @@ Voici un exemple de ticket qui respecte les indications et qui nous permettra do
 Votre ticket apparait dans la liste des éléments de travail. Vous pouvez le consulter en cliquant dessus. Par exemple :
 
 .. image:: _static/apercu_ticket.png
-     :width: 750
+     :width: 709
 
 Vous aurez très prochainement un retour de notre part dans les commentaires du ticket.
 
