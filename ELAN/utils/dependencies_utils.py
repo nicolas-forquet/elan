@@ -24,8 +24,8 @@ DOWNLOAD_ERROR_MSG = ""
 
 EXTERNAL_LIRBARIES_DIR = DIR_PLUGIN_ROOT / "external_libraries"
 
-WETLANDOPTIMIZER_COMMIT_HASH = "cbb4ad058c2bae04fdb0cbc8f98c1f2cf84125be"
-PYSEWER_COMMIT_HASH = "c6cd52c8ba1c00f9ebcb91cc75bec50d8a4f72e2"
+WETLANDOPTIMIZER_COMMIT_HASH = "cbb4ad058c2bae04fdb0cbc8f98c1f2cf84125be"  # pragma: allowlist secret
+PYSEWER_COMMIT_HASH = "c6cd52c8ba1c00f9ebcb91cc75bec50d8a4f72e2"  # pragma: allowlist secret
 
 
 def downloadEnded():

@@ -28,14 +28,16 @@ def assert_same_layers(
     """
 
     # feature count
-    assert layer_a.featureCount() == layer_b.featureCount()
+    assert (
+        layer_a.featureCount() == layer_b.featureCount()
+    ), f"{layer_a.featureCount()} features in layer_a but {layer_b.featureCount()} features in layer_b"
 
     # field names
     layer_a_field_names = layer_a.fields().names()
     layer_b_field_names = layer_b.fields().names()
-    assert layer_a_field_names == layer_b_field_names, (
-        f"layer_a field names: {layer_a_field_names} " f"but layer_b field names: {layer_b_field_names}"
-    )
+    assert (
+        layer_a_field_names == layer_b_field_names
+    ), f"layer_a field names: {layer_a_field_names} but layer_b field names: {layer_b_field_names}"
 
     # field types
     layer_a_field_types = [field.type() for field in layer_a.fields()]

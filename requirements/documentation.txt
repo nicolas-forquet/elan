@@ -4,4 +4,3 @@
 piccolo_theme
 sphinx-intl
 sphinxcontrib-mermaid
-

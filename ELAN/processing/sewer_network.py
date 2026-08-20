@@ -41,7 +41,6 @@ from qgis.core import (
     QgsProcessingParameterString,
     QgsProject,
     QgsProviderRegistry,
-    QgsRasterLayer,
     QgsReadWriteContext,
     QgsSymbol,
     QgsVectorFileWriter,
@@ -79,7 +78,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
     DIAMETERS = "DIAMETERS"
     OUTPUT_GPKG = "OUTPUT_GPKG"
     SINKS = "SINKS"
-    DIAMETERS_VALUE = ["0.1", "0.15", "0.2", " 0.25", "0.3", "0.4", "0.6", "0.8", "1"]
+    DIAMETERS_VALUE = ["0.1", "0.15", "0.2", "0.25", "0.3", "0.4", "0.6", "0.8", "1"]
 
     def __init__(self):
         super().__init__()
@@ -254,6 +253,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             QgsProcessingParameterNumber(
                 self.TMAX,
                 self.tr("Maximum sewer depth [m]"),
+                Qgis.ProcessingNumberParameterType.Double,
                 defaultValue=8,  # max trench depth allowed
             )
         )
@@ -332,8 +332,14 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 self.tr("The DEM must have a single band ({} band(s) found)").format(band_count)
             )
 
+        # Check if population_attribute_name is present in the buildings fields
+        population_attribute_name_idx = buildings_source.fields().indexFromName(population_attribute_name)
+        if population_attribute_name_idx == -1:
+            raise QgsProcessingException(
+                self.tr("The field '{}' is not present in the buildings layer").format(population_attribute_name)
+            )
         # Check NULL values in population_attribute_name
-        if NULL in buildings_source.uniqueValues(buildings_source.fields().indexFromName(population_attribute_name)):
+        if NULL in buildings_source.uniqueValues(population_attribute_name_idx):
             raise QgsProcessingException(
                 self.tr("There is one or more NULL values in the field ") + population_attribute_name
             )
@@ -401,8 +407,6 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         diameters_index = parameters[self.DIAMETERS]
         diameters_value = [float(self.DIAMETERS_VALUE[i]) for i in diameters_index]
         data = {
-            "# default settings": None,
-            "# preprocessing": None,
             "preprocessing": {
                 "dem_file_path": dem_layer_uri,
                 "roads_input_data": roads_layer_source,
@@ -467,22 +471,28 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             feedback.pushInfo(self.tr("Launching pysewer..."))
 
         with subprocess.Popen(**kwargs) as pysewer_process:
+            errs = ""
             while (return_code := pysewer_process.poll()) is None:
-                time.sleep(0.1)
+                try:
+                    _, errs = pysewer_process.communicate(timeout=0.1)
+                except subprocess.TimeoutExpired:
+                    pass
                 if feedback is not None and feedback.isCanceled():
                     pysewer_process.terminate()
                     pysewer_process.wait()
                     raise QgsProcessingException(self.tr("Processing stopped by user"))
 
             if return_code is not None and return_code != 0:
-                if pysewer_process.stderr is not None:
-                    error_message = pysewer_process.stderr.read()
-                    if "ModuleNotFoundError" in error_message:
+                if errs != "":
+                    if "ModuleNotFoundError" in errs:
                         raise QgsProcessingException(
                             self.tr("pysewer is not installed, go to ELAN settings to check/install.")
                         )
-                    raise QgsProcessingException(error_message)
+                    raise QgsProcessingException(errs)
                 raise QgsProcessingException(self.tr("Unexpected error while running pysewer"))
+
+        if not Path(output_layer_path).exists():
+            raise QgsProcessingException(self.tr("Output GPKG from pysewer not found"))
 
         if feedback is not None:
             feedback.pushInfo(self.tr("Post-processing and layer styles creation..."))

@@ -18,3 +18,4 @@ joblib
 threadpoolctl
 click
 attrs
+narwhals
