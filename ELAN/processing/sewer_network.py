@@ -467,21 +467,24 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             feedback.pushInfo(self.tr("Launching pysewer..."))
 
         with subprocess.Popen(**kwargs) as pysewer_process:
+            errs = ""
             while (return_code := pysewer_process.poll()) is None:
-                time.sleep(0.1)
+                try:
+                    _, errs = pysewer_process.communicate(timeout=0.1)
+                except subprocess.TimeoutExpired:
+                    pass
                 if feedback is not None and feedback.isCanceled():
                     pysewer_process.terminate()
                     pysewer_process.wait()
                     raise QgsProcessingException(self.tr("Processing stopped by user"))
 
             if return_code is not None and return_code != 0:
-                if pysewer_process.stderr is not None:
-                    error_message = pysewer_process.stderr.read()
-                    if "ModuleNotFoundError" in error_message:
+                if errs != "":
+                    if "ModuleNotFoundError" in errs:
                         raise QgsProcessingException(
                             self.tr("pysewer is not installed, go to ELAN settings to check/install.")
                         )
-                    raise QgsProcessingException(error_message)
+                    raise QgsProcessingException(errs)
                 raise QgsProcessingException(self.tr("Unexpected error while running pysewer"))
 
         if feedback is not None:
