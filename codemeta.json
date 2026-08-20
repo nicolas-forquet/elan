@@ -116,6 +116,6 @@
         "https://qgis.org/download/",
         "https://plugins.qgis.org/plugins/DataPlotly/"
     ],
-    "version": "2026.8.20",
+    "version": "2026.8.20-beta",
     "issueTracker": "https://gitlab.com/elan7835313/elan/-/issues"
 }

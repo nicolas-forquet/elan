@@ -27,7 +27,7 @@ Unreleased
 - and that other one too
 -->
 
-## 2026.8.20 - 2026-08-20
+## 2026.8.20-beta - 2026-08-20
 
 ### Added
 
