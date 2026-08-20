@@ -27,7 +27,19 @@ Unreleased
 - and that other one too
 -->
 
-## 2025.12.918-beta - 2025-12-18
+## 2026.8.20 - 2026-08-20
+
+### Added
+
+- Documentation update
+- More testing (QGIS versions, Windows CI, pysewer launcher...)
+- Snap on roads: add road segmentation
+
+### Fixed
+
+- Sewer network module: disallow WWTP outside DEM
+
+## 2025.12.18 - 2025-12-18
 
 ### Changed
 
