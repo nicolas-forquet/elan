@@ -29,8 +29,9 @@ try:
     from ELAN.processing.provider import ELANProvider
 
     PROCESSINGS_AVAILABLE = True
-except ImportError:
+except ImportError as exc:
     PROCESSINGS_AVAILABLE = False
+    IMPORT_ERROR_EXC = exc
 
 
 site.addsitedir(str(EXTERNAL_LIRBARIES_DIR))
@@ -114,6 +115,9 @@ class ELANPlugin(Translatable):
                 button=True,
                 button_text=self.tr("How to fix it..."),
                 button_connect=self.showDocumentation,
+            )
+            PlgLogger.log(
+                message=str(IMPORT_ERROR_EXC),  # pylint: disable=used-before-assignment
             )
             self.provider = None
 
