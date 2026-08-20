@@ -114,7 +114,14 @@ def mla_main_run(
     # The available databases are usually larger than the study period of interest. At this step, the data that correspond to the study period will
     # be extracted from the full databases.
 
-    (rain_time, rain_intensity, obs_time, obs_flow, obs_weir, full_study_period,) = MIG_TOOLBOX.USE_PERIOD(
+    (
+        rain_time,
+        rain_intensity,
+        obs_time,
+        obs_flow,
+        obs_weir,
+        full_study_period,
+    ) = MIG_TOOLBOX.USE_PERIOD(
         rain_file,
         rain_time_col_name,
         rain_intensity_col_name,
