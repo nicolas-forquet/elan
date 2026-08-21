@@ -271,7 +271,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 self.ROUGHNESS,
                 self.tr("Pipe roughness [µm]"),
                 Qgis.ProcessingNumberParameterType.Double,
-                defaultValue=0.13,  # roughness coefficient
+                defaultValue=0.013,  # roughness coefficient
             )
         )
 

@@ -49,7 +49,7 @@ def test_sewer_network(elan_processing, tmp_path):
         "MIN_SLOPE": -0.01,
         "TMAX": 8,
         "TMIN": 0.25,
-        "ROUGHNESS": 0.13,
+        "ROUGHNESS": 0.013,
         "PRESSURIZED_DIAMETER": 0.2,
         "DIAMETERS": [0, 1, 2, 3, 4, 5],
     }
@@ -95,7 +95,7 @@ def test_sewer_network_with_empty_outputs(elan_processing, tmp_path):
         "MIN_SLOPE": -0.01,
         "TMAX": 8,
         "TMIN": 0.25,
-        "ROUGHNESS": 0.13,
+        "ROUGHNESS": 0.013,
         "PRESSURIZED_DIAMETER": 0.2,
         "DIAMETERS": [0, 1, 2, 3, 4, 5],
     }
@@ -202,7 +202,7 @@ def test_error_wwtp_outside_dem(elan_processing):
         "MIN_SLOPE": -0.01,
         "TMAX": 8,
         "TMIN": 0.25,
-        "ROUGHNESS": 0.13,
+        "ROUGHNESS": 0.013,
         "PRESSURIZED_DIAMETER": 0.2,
         "DIAMETERS": [0, 1, 2, 3, 4, 5],
     }
@@ -237,7 +237,7 @@ def test_error_missing_population_field(elan_processing):
         "MIN_SLOPE": -0.01,
         "TMAX": 8,
         "TMIN": 0.25,
-        "ROUGHNESS": 0.13,
+        "ROUGHNESS": 0.013,
         "PRESSURIZED_DIAMETER": 0.2,
         "DIAMETERS": [0, 1, 2, 3, 4, 5],
     }

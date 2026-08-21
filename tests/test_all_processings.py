@@ -89,7 +89,7 @@ def test_all_processings(elan_processing, mocker, tmp_path):
         "TMIN": 0.25,
         "INFLOW_TRENCH_DEPTH": 0,
         "MIN_TRENCH_DEPTH": 0,
-        "ROUGHNESS": 0.13,
+        "ROUGHNESS": 0.013,
         "PRESSURIZED_DIAMETER": 0.2,
         "DIAMETERS": [0, 1, 2, 3, 4, 5],
     }
