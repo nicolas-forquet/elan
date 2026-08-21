@@ -13,6 +13,7 @@ import tempfile
 import time
 from importlib import util as importutil
 from pathlib import Path
+from typing import Any
 
 from qgis.core import QgsApplication, QgsFileDownloader, QgsZipUtils
 from qgis.PyQt.QtCore import QUrl
@@ -107,7 +108,7 @@ def installLibrary(library_name: str, library_url: str):  # pylint:disable=too-m
 
     EXTERNAL_LIRBARIES_DIR.mkdir(exist_ok=True)
 
-    if (qgsApplication := QgsApplication.instance()) is None:
+    if (qgs_aplication := QgsApplication.instance()) is None:
         raise RuntimeError("QgsApplication not found")
 
     with tempfile.TemporaryDirectory() as temp_dir:
@@ -121,7 +122,7 @@ def installLibrary(library_name: str, library_url: str):  # pylint:disable=too-m
         start_time = time.time()
         while not DOWNLOAD_ERROR_MSG and not DOWNLOAD_ENDED and not time.time() - start_time > timeout:
             time.sleep(1)
-            qgsApplication.processEvents()
+            qgs_aplication.processEvents()
         if not DOWNLOAD_ENDED:
             if time.time() - start_time > timeout:
                 raise RuntimeError(f"Download timeout! (timeout is set to {timeout} seconds)")
@@ -134,7 +135,9 @@ def installLibrary(library_name: str, library_url: str):  # pylint:disable=too-m
         if not res:
             raise RuntimeError("Unzip error")
 
-        interpreter_path = getInterpreterPath()
+        if (interpreter_path := getInterpreterPath()) is None:
+            raise RuntimeError("No python interpreter found")
+
         cmd_args = [
             interpreter_path,
             "-m",
@@ -144,7 +147,7 @@ def installLibrary(library_name: str, library_url: str):  # pylint:disable=too-m
             "-t",
             EXTERNAL_LIRBARIES_DIR,
         ]
-        run_options = {
+        run_options: dict[str, Any] = {
             "check": True,
             "capture_output": True,
             "text": True,
@@ -185,6 +188,10 @@ def wetlandoptimizerInstalled():
 
 
 def removeDependencies():
+    """
+    Delete the EXTERNAL_LIRBARIES_DIR
+    """
+
     if EXTERNAL_LIRBARIES_DIR.exists():
         shutil.rmtree(EXTERNAL_LIRBARIES_DIR)
 
@@ -194,10 +201,8 @@ def removeDependencies():
 
 
 if __name__ == "__main__":
-    """
-    If this file is exectuted, this is a CLI to install Elan dependencies.
-    Useful in CI/CD to be called before executing tests.
-    """
+    # If this file is exectuted, this is a CLI to install ELAN dependencies.
+    # Useful in CI/CD to be called before executing tests.
 
     parser = argparse.ArgumentParser(description="install libraries")
     parser.add_argument(
