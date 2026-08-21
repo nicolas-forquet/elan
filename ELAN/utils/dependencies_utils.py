@@ -6,6 +6,7 @@ Utils functions for managing pysewer and wetlandoptimizer install and its depend
 
 import argparse
 import shutil
+import site
 import subprocess
 import sys
 import tempfile
@@ -171,6 +172,8 @@ def installLibrary(library_name: str, library_url: str):  # pylint:disable=too-m
         except Exception as e:
             removeDependencies()
             raise RuntimeError(f"Unknown error: {e}") from e
+
+    site.addsitedir(str(EXTERNAL_LIRBARIES_DIR))
 
 
 def wetlandoptimizerInstalled():

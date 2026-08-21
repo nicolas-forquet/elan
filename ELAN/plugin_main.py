@@ -34,7 +34,8 @@ except ImportError as exc:
     IMPORT_ERROR_EXC = exc
 
 
-site.addsitedir(str(EXTERNAL_LIRBARIES_DIR))
+if EXTERNAL_LIRBARIES_DIR.exists():
+    site.addsitedir(str(EXTERNAL_LIRBARIES_DIR))
 
 
 class ELANPlugin(Translatable):
