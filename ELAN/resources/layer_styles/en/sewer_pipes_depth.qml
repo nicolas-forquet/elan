@@ -147,8 +147,8 @@
   <renderer-v2 type="RuleRenderer" forceraster="0" enableorderby="0" referencescale="-1" symbollevels="0">
     <rules key="{148d04c3-aedf-45a0-909b-4bd706e1f1d3}">
       <rule label="&lt; 1m" key="{a05a6e01-ee59-41ea-b955-09aeba3e749f}" symbol="0" filter="not &quot;pressurized&quot; and &quot;mean_td&quot; &lt; 1"/>
-      <rule label="1 à 3m" key="{1bc43135-49ad-4d74-9aaa-b7a88ba1400f}" symbol="1" filter="not &quot;pressurized&quot; and &quot;mean_td&quot; >= 1 and &quot;mean_td&quot; &lt; 3"/>
-      <rule label="3 à 5m" key="{bebb51f0-5a31-4e93-8b71-39ddb15117c9}" symbol="2" filter="not &quot;pressurized&quot; and &quot;mean_td&quot; >= 3 and &quot;mean_td&quot; &lt; 5"/>
+      <rule label="1 to 3m" key="{1bc43135-49ad-4d74-9aaa-b7a88ba1400f}" symbol="1" filter="not &quot;pressurized&quot; and &quot;mean_td&quot; >= 1 and &quot;mean_td&quot; &lt; 3"/>
+      <rule label="3 to 5m" key="{bebb51f0-5a31-4e93-8b71-39ddb15117c9}" symbol="2" filter="not &quot;pressurized&quot; and &quot;mean_td&quot; >= 3 and &quot;mean_td&quot; &lt; 5"/>
       <rule label="> 5m" key="{47149564-a88c-45f0-8aa1-fdead55f634b}" symbol="3" filter="not &quot;pressurized&quot; and &quot;mean_td&quot; >= 5"/>
       <rule label="pressurized" key="{0a2aab73-61bd-45da-ac3d-1505742e465a}" symbol="4" filter="&quot;pressurized&quot;"/>
     </rules>
