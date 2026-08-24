@@ -303,7 +303,11 @@ class ProcessPlots(Translatable):
         # and if a feature gives a NULL value on this evaluation, it will be skipped, even if there is a
         # value for the radar fields.
         main_panel.y_combo.setExpression("")
+
+        # Need to reset the layer_comb box to pre-fill the y_fields_combo data
+        main_panel.layer_combo.setLayer(None)
         main_panel.layer_combo.setLayer(layer)
+
         main_panel.plot_combo.setCurrentIndex(main_panel.plot_combo.findData("radar"))
         main_panel.selected_feature_check.setChecked(layer.selectedFeatureCount() > 0)
         main_panel.y_combo_radar_label.setField('"name_stages"')
