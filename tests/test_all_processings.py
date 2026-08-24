@@ -2,7 +2,6 @@
 test_all_processings
 """
 
-import json
 from zipfile import ZipFile
 
 from qgis.core import QgsCoordinateReferenceSystem
