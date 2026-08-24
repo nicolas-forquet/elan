@@ -114,7 +114,6 @@ def installLibrary(library_name: str, library_url: str):  # pylint:disable=too-m
         downloader = QgsFileDownloader(QUrl(library_url), zipfile)
         downloader.downloadCanceled.connect(lambda: downloadError("canceled"))
         downloader.downloadError.connect(downloadError)
-        downloader.downloadExited.connect(lambda: downloadError("exited"))
         downloader.downloadCompleted.connect(downloadEnded)
         downloader.startDownload()
         timeout = 60  # secs
