@@ -669,12 +669,15 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             ):
                 raise RuntimeError(self.tr("Error with WWTP style"))
 
-        # Adapt this style to the data.
+        # The following styles depends on the data. If there is no data, return here.
+        canas_layer = QgsVectorLayer(output_layer_path + "|layername=sewer_pipes", "", "ogr")
+        if canas_layer.featureCount() == 0:
+            return
+
         # We don't use QgsVectorLayer.loadNamedStyle to load the QML file because
         # with a GPKG provider, if the style is not found, the default style is loaded
         # so we get the wrong style!
         # To get around this, we load and read the XML Dom Document.
-        canas_layer = QgsVectorLayer(output_layer_path + "|layername=sewer_pipes", "", "ogr")
         doc = QDomDocument()
         with (styles_dir / "sewer_pipes_peak_flow.qml").open() as style_file:
             doc.setContent(style_file.read())
