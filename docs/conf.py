@@ -17,7 +17,7 @@ sys.path.insert(0, path.abspath(".."))
 
 from ELAN import __about__
 
-project = "ELAN"
+project = "Elan"
 copyright = datetime.now().strftime("%Y") + ", REVERSAAL et Oslandia"
 author = "REVERSAAL (INRAE) et Oslandia"
 
@@ -27,7 +27,7 @@ language = "fr"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinxcontrib.mermaid']
+extensions = ["sphinxcontrib.mermaid"]
 mermaid_d3_zoom = True
 mermaid_init_js = """
 if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -35,10 +35,10 @@ if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 } else {
     mermaid.initialize({startOnLoad:true, theme:'default'});
 }
-""" 
+"""
 templates_path = ["_templates"]
 exclude_patterns = []
-figure_language_filename = '{root}.{language}{ext}'
+figure_language_filename = "{root}.{language}{ext}"
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -52,7 +52,7 @@ html_static_path = ["_static"]
 
 
 def setup(app):
-    # Get latest version of ELAN
+    # Get latest version of Elan
     CHANGELOG_REGEXP = r"(?<=##)\s*\[*(v?0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)\]?(\(.*\))?(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?\]*\s-\s*([\d\-/]{10})(.*?)(?=##|\Z)"
     match = re.search(
         pattern=CHANGELOG_REGEXP,

@@ -141,7 +141,7 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
             "The available area influences the formatting of the attribute table, compared "
             "with the treatment system total needed surface.\n\n"
             "<em>Warning</em>\n"
-            "TP and e.coli are not completely ready for this version of ELAN."
+            "TP and e.coli are not completely ready for this version of Elan."
         )
 
     def initAlgorithm(self, configuration=None):  # pylint: disable=unused-argument
@@ -257,7 +257,7 @@ class WetlandProcessAlgorithm(QgsProcessingAlgorithm, Translatable):
         # Add EXTERNAL_LIRBARIES_DIR if not already in site directory
         if not wetlandoptimizerInstalled():
             raise QgsProcessingException(
-                self.tr("The wetlandoptimizer library is not installed.\nGo to ELAN settings to install it.")
+                self.tr("The wetlandoptimizer library is not installed.\nGo to Elan settings to install it.")
             )
 
         sinks_source = self.parameterAsSource(parameters, self.SINKS, context)

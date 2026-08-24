@@ -34,7 +34,7 @@ from ELAN.utils.tr import Translatable
 
 
 class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
-    """ELAN processing to create 3D layers to be viewed with QGIS elevation profile"""
+    """Elan processing to create 3D layers to be viewed with QGIS elevation profile"""
 
     INPUT_LAYER = "INPUT_LAYER"
     OUTPUT_GPKG = "OUTPUT_GPKG"

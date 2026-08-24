@@ -1,4 +1,4 @@
-"""Test ELAN plugin loading, initialization, and unloading"""
+"""Test Elan plugin loading, initialization, and unloading"""
 
 from qgis.utils import iface
 

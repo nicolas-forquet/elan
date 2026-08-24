@@ -57,7 +57,7 @@ from ELAN.utils.tr import Translatable
 
 
 class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
-    """ELAN processing to launch pysewer and load its outputs"""
+    """Elan processing to launch pysewer and load its outputs"""
 
     OUTPUT_DIR = "OUTPUT_DIR"
     DEM_FILE_PATH = "DEM_FILE_PATH"
@@ -146,7 +146,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
             "The input layers must have the same CRS."
             "<h2>Prerequisites:</h2>"
             "This sewer pipe module uses Pysewer. "
-            "It must be installed either locally or through the ELAN plugin settings."
+            "It must be installed either locally or through the Elan plugin settings."
             "<h2>Outputs:</h2>"
             "6 geographic layers are created:\n"
             "<ul>"
@@ -486,7 +486,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 if errs != "":
                     if "ModuleNotFoundError" in errs:
                         raise QgsProcessingException(
-                            self.tr("pysewer is not installed, go to ELAN settings to check/install.")
+                            self.tr("pysewer is not installed, go to Elan settings to check/install.")
                         )
                     raise QgsProcessingException(errs)
                 raise QgsProcessingException(self.tr("Unexpected error while running pysewer"))
