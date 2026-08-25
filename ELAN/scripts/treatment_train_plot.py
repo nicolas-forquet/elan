@@ -104,7 +104,6 @@ class ProcessPlots(Translatable):
 
         if (layer := cast(QgisInterface, iface).activeLayer()) is None:
             return
-
         missing_fields = ""
         if isinstance(layer, QgsVectorLayer):
             fields_to_check = set(self.normalized_fields).union(set(self.loading_fields))
@@ -198,7 +197,6 @@ class ProcessPlots(Translatable):
         """
         Control DataPlotly interface to create a bar plot of all polluants in the active treatment train layer.
         """
-
         if (layer := self.get_active_layer()) is None:
             return
 
@@ -306,10 +304,16 @@ class ProcessPlots(Translatable):
         # value for the radar fields.
         main_panel.y_combo.setExpression("")
 
+        # Need to reset the layer_comb box to pre-fill the y_fields_combo data
+        main_panel.layer_combo.setLayer(None)
         main_panel.layer_combo.setLayer(layer)
+
         main_panel.plot_combo.setCurrentIndex(main_panel.plot_combo.findData("radar"))
         main_panel.selected_feature_check.setChecked(layer.selectedFeatureCount() > 0)
         main_panel.y_combo_radar_label.setField('"name_stages"')
+
+        # Temporary fix (#57)
+        main_panel.x_combo.setField('"name_stages"')
         main_panel.y_fields_combo.deselectAllOptions()
         for normalized_field in normalized_fields_without_null_values:
             main_panel.y_fields_combo.setItemCheckState(
