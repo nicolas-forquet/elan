@@ -127,7 +127,7 @@ class DlgSettings(QWidget, FORM_CLASS, Translatable):
     def resetDependencies(self):
         if (
             QMessageBox.question(
-                self, self.tr("Reset dependencies"), self.tr("Do you really want to delete all ELAN dependencies?")
+                self, self.tr("Reset dependencies"), self.tr("Do you really want to delete all Elan dependencies?")
             )
             == QMessageBox.StandardButton.No
         ):

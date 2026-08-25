@@ -193,7 +193,7 @@ def removeDependencies():
 
 if __name__ == "__main__":
     """
-    If this file is exectuted, this is a CLI to install ELAN dependencies.
+    If this file is exectuted, this is a CLI to install Elan dependencies.
     Useful in CI/CD to be called before executing tests.
     """
 

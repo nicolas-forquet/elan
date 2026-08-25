@@ -69,7 +69,7 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
 
     class PysewerToGpkgSpecs:
         """
-        Class to transform the GeoDataFrame to our needs for ELAN:
+        Class to transform the GeoDataFrame to our needs for Elan:
           - remove unwanted columns
           - still create a layer even if the GeoDataFrame is empty
           - handle fid specific field

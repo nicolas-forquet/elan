@@ -56,7 +56,7 @@ class ELANProvider(QgsProcessingProvider, Translatable):
         :return: provider name
         :rtype: str
         """
-        return self.tr("ELAN")
+        return self.tr("Elan")
 
     def longName(self) -> str:
         """Longer version of the provider name, which can include
@@ -66,7 +66,7 @@ class ELANProvider(QgsProcessingProvider, Translatable):
         :return: provider long name
         :rtype: str
         """
-        return self.tr("ELAN - Tools")
+        return self.tr("Elan - Tools")
 
     def icon(self) -> QIcon:
         """QIcon used for your provider inside the Processing toolbox menu.

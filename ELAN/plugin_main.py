@@ -108,7 +108,7 @@ class ELANPlugin(Translatable):
             registry.addProvider(self.provider)
         else:
             PlgLogger.log(
-                message=self.tr("Error importing dependencies. ELAN processing modules are disabled."),
+                message=self.tr("Error importing dependencies. Elan processing modules are disabled."),
                 log_level=2,
                 push=True,
                 duration=60,

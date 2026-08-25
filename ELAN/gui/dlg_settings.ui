@@ -49,7 +49,7 @@
          <item>
           <widget class="QPushButton" name="pysewerInstallBtn">
            <property name="text">
-            <string>Install pysewer in ELAN specific environment
+            <string>Install pysewer in Elan specific environment
 (need an internet connection)</string>
            </property>
           </widget>
@@ -73,7 +73,7 @@
          <item>
           <widget class="QPushButton" name="wetlandoptimizerInstallBtn">
            <property name="text">
-            <string>Install wetlandoptimizer in ELAN specific environment
+            <string>Install wetlandoptimizer in Elan specific environment
 (need an internet connection)</string>
            </property>
           </widget>

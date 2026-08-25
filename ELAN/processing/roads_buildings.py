@@ -46,7 +46,7 @@ from ELAN.utils.tr import Translatable
 
 
 class RoadsBuildingsAlgorithm(QgsProcessingAlgorithm, Translatable):
-    """ELAN processing to extract OSM roads and buildings from a polygon zone"""
+    """Elan processing to extract OSM roads and buildings from a polygon zone"""
 
     POLYGON = "POLYGON"
     BUILDINGS_OUTPUT = "BUILDINGS_OUTPUT"

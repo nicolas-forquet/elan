@@ -1,5 +1,5 @@
 """
-Fixtures for ELAN testing
+Fixtures for Elan testing
 """
 
 import site
@@ -22,7 +22,7 @@ def set_external_lib_path():
 @pytest.fixture(scope="function")
 def elan_processing(mocker, qgis_processing):
     """
-    This is a fixture to do things that prepare testing ELAN processings.
+    This is a fixture to do things that prepare testing Elan processings.
 
     Returns the processing module to call the run method
     """
