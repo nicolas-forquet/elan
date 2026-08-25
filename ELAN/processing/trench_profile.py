@@ -168,7 +168,8 @@ class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
             # The idea here is to create a LineStringZ composed of every point from the original line
             # and every new point created with the "trench_depth_profile" list.
             feature_geometry = feature.geometry()
-            if feature_geometry.length() < 1e-3:
+            feature_length = feature_geometry.length()
+            if feature_length < 1e-3:
                 continue
 
             try:
@@ -193,7 +194,8 @@ class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
             z_points = [
                 [distance, QgsPoint(point.x(), point.y(), z)]
                 for point, z, distance in [
-                    [feature_geometry.interpolate(distance).asPoint(), z, distance] for distance, z in trench_profile
+                    [feature_geometry.interpolate(min(distance, feature_length)).asPoint(), z, distance]
+                    for distance, z in trench_profile
                 ]
             ]
 
@@ -234,16 +236,16 @@ class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
             epsilon = 1e-9
             trench_profile[0][0] += epsilon
             trench_profile[-1][0] -= epsilon
-            for interpolate_distance, z in trench_profile:
-                point = feature.geometry().interpolate(interpolate_distance).asPoint()
+            for distance, z in trench_profile:
+                point = feature.geometry().interpolate(min(distance, feature_length)).asPoint()
                 pointz = QgsPoint(point.x(), point.y(), z)
                 output_feature = QgsFeature()
                 output_feature.setGeometry(QgsGeometry.fromPoint(pointz))
                 output_trench_sink.addFeature(output_feature)
 
             # for DEM profile, simply create a point feature for each element in "profile" attribute.
-            for interpolate_distance, z in profile:
-                point = feature.geometry().interpolate(interpolate_distance).asPoint()
+            for distance, z in profile:
+                point = feature.geometry().interpolate(min(distance, feature_length)).asPoint()
                 pointz = QgsPoint(point.x(), point.y(), z)
                 output_feature = QgsFeature()
                 output_feature.setGeometry(QgsGeometry.fromPoint(pointz))
