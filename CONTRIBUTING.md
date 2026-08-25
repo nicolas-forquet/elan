@@ -1,11 +1,32 @@
 # How to contribute to Elan?
 
-We are open to any new contribution! We will try to give you a prompt feedback, review and merge your MR.
-To simplify the process, we invite you to read and follow these guidelines.
+First off, thanks for taking time to contribute!
+
+All types of contributions are encouraged and valued. See the [Table of Contents](#table-of-contents) for different ways to help and details about how this project handles them. Please make sure to read the relevant section before making your contribution. It will make it a lot easier for us maintainers and smooth out the experience for all involved. The community looks forward to your contributions. :tada:
+
+We will try to give you a prompt feedback, review and merge your MR.
 
 If you are making major changes to the code, you are encouraged to open an issue first to discuss the best way to integrate your code.
 
-## Tooling
+## Table of Contents
+
+- [Code of Conduct](#code-of-conduct)
+
+## Code of Conduct
+
+This project does not yet have Code of Conduct. :construction:
+
+## I Have a Question
+
+## I Want To Contribute
+
+### Reporting Bugs
+
+### Suggesting Enhancements
+
+### Making Changes
+
+#### Tooling
 
 This project is configured with the following tools:
 
@@ -17,7 +38,7 @@ Code rules are enforced with [pre-commit](https://pre-commit.com/) hooks.
 
 Static code analysis is based on: [PyLint](https://pylint.readthedocs.io/en/stable/index.html).
 
-## CI/CD jobs
+#### CI/CD jobs
 
 Each MR will execute a CI pipeline. The CI will check:
  - the syntax and the format of the code
@@ -27,7 +48,7 @@ In order for a MR to be merged, the CI must pass completely. However, it is poss
 
 Through the following sections, **we will see how to check and correct them beforehand**.
 
-### Check and correct automatically CI issues with pre-commit
+##### Check and correct automatically CI issues with pre-commit
 
 Pre-commit is a tool that allows to run a set of checks and corrections before each commit (and push). This tool is not mandatory but highly recommended to simplify the development workflow.
 
@@ -50,7 +71,7 @@ Then you have to install pre-commit:
 
 If you want to commit without pre-commit verifications, you need to add the `-n` (or `--no-verify`) flag to the command `git commit`.
 
-## Tests
+#### Tests
 
 The tests are executed using pytest.
 
