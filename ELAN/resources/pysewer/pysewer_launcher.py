@@ -60,7 +60,7 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
     import geopandas as gpd
     import pandas as pd
     from pysewer import ModelDomain
-    from pysewer.config.settings import load_config
+    from pysewer.config.manager import set_config
     from pysewer.export import write_gdf_to_gpkg
     from pysewer.helper import get_edge_gdf, get_node_gdf, get_sewer_info
     from pysewer.optimization import calculate_hydraulic_parameters, estimate_peakflow
@@ -199,7 +199,7 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
             self.gdf["TP_obj"] = float("nan")
             self.gdf["ecoli_obj"] = float("nan")
 
-    custom_config = load_config(filename)
+    custom_config = set_config(filename)
     # Instantiate the model domain
     test_model_domain = ModelDomain(
         dem=custom_config.preprocessing.dem_file_path,
@@ -226,7 +226,7 @@ def run(filename: pathlib.Path, output_path: pathlib.Path, sinks_path: Optional[
     g = estimate_peakflow(
         layout,
         inhabitants_dwelling_attribute_name=custom_config.optimization.inhabitants_dwelling_attribute_name,
-        default_inhabitants_dwelling=custom_config.optimization.default_inhabitants_dwelling,
+        inhabitants_dwelling=custom_config.optimization.inhabitants_dwelling,
         daily_wastewater_person=custom_config.optimization.daily_wastewater_person,
     )
     g = calculate_hydraulic_parameters(

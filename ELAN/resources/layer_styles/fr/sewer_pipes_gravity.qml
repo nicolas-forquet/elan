@@ -146,8 +146,8 @@
   </elevation>
   <renderer-v2 referencescale="-1" enableorderby="0" symbollevels="0" type="RuleRenderer" forceraster="0">
     <rules key="{1b1ad79a-9e7b-4658-a3ce-6f61137e2f1e}">
-      <rule symbol="0" label="Gravitaire" filter="not &quot;needs_pump&quot;" key="{a5bb7a90-4bf2-4351-9a6a-0e0b7e983bc4}"/>
-      <rule symbol="1" label="Pressurisé" filter="&quot;needs_pump&quot;" key="{c159e10d-3dfd-4d23-bfae-cc5f111868fc}"/>
+      <rule symbol="0" label="Gravitaire" filter="not &quot;pressurized&quot;" key="{a5bb7a90-4bf2-4351-9a6a-0e0b7e983bc4}"/>
+      <rule symbol="1" label="Pressurisé" filter="&quot;pressurized&quot;" key="{c159e10d-3dfd-4d23-bfae-cc5f111868fc}"/>
     </rules>
     <symbols>
       <symbol alpha="1" name="0" is_animated="0" force_rhr="0" type="line" clip_to_extent="1" frame_rate="10">
@@ -414,13 +414,6 @@
         </config>
       </editWidget>
     </field>
-    <field name="needs_pump" configurationFlags="NoFlag">
-      <editWidget type="TextEdit">
-        <config>
-          <Option/>
-        </config>
-      </editWidget>
-    </field>
     <field name="sink_coords" configurationFlags="NoFlag">
       <editWidget type="TextEdit">
         <config>
@@ -471,7 +464,6 @@
     <alias field="fid" name="" index="0"/>
     <alias field="distance" name="longueur" index="1"/>
     <alias field="profile" name="profil de terrain" index="2"/>
-    <alias field="needs_pump" name="avec pompe" index="3"/>
     <alias field="sink_coords" name="coordonnées STEU" index="4"/>
     <alias field="pressurized" name="pressurisé" index="5"/>
     <alias field="trench_depth_profile" name="profil de canalisations" index="6"/>
@@ -483,7 +475,6 @@
     <policy field="fid" policy="Duplicate"/>
     <policy field="distance" policy="Duplicate"/>
     <policy field="profile" policy="Duplicate"/>
-    <policy field="needs_pump" policy="Duplicate"/>
     <policy field="sink_coords" policy="Duplicate"/>
     <policy field="pressurized" policy="Duplicate"/>
     <policy field="trench_depth_profile" policy="Duplicate"/>
@@ -495,7 +486,6 @@
     <policy field="fid" policy="Duplicate"/>
     <policy field="distance" policy="Duplicate"/>
     <policy field="profile" policy="Duplicate"/>
-    <policy field="needs_pump" policy="Duplicate"/>
     <policy field="sink_coords" policy="Duplicate"/>
     <policy field="pressurized" policy="Duplicate"/>
     <policy field="trench_depth_profile" policy="Duplicate"/>
@@ -507,7 +497,6 @@
     <default field="fid" applyOnUpdate="0" expression=""/>
     <default field="distance" applyOnUpdate="0" expression=""/>
     <default field="profile" applyOnUpdate="0" expression=""/>
-    <default field="needs_pump" applyOnUpdate="0" expression=""/>
     <default field="sink_coords" applyOnUpdate="0" expression=""/>
     <default field="pressurized" applyOnUpdate="0" expression=""/>
     <default field="trench_depth_profile" applyOnUpdate="0" expression=""/>
@@ -519,7 +508,6 @@
     <constraint field="fid" constraints="3" notnull_strength="1" exp_strength="0" unique_strength="1"/>
     <constraint field="distance" constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0"/>
     <constraint field="profile" constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0"/>
-    <constraint field="needs_pump" constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0"/>
     <constraint field="sink_coords" constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0"/>
     <constraint field="pressurized" constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0"/>
     <constraint field="trench_depth_profile" constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0"/>
@@ -531,7 +519,6 @@
     <constraint field="fid" desc="" exp=""/>
     <constraint field="distance" desc="" exp=""/>
     <constraint field="profile" desc="" exp=""/>
-    <constraint field="needs_pump" desc="" exp=""/>
     <constraint field="sink_coords" desc="" exp=""/>
     <constraint field="pressurized" desc="" exp=""/>
     <constraint field="trench_depth_profile" desc="" exp=""/>
@@ -548,7 +535,6 @@
       <column hidden="0" name="fid" width="-1" type="field"/>
       <column hidden="0" name="distance" width="-1" type="field"/>
       <column hidden="0" name="profile" width="666" type="field"/>
-      <column hidden="0" name="needs_pump" width="-1" type="field"/>
       <column hidden="0" name="pressurized" width="-1" type="field"/>
       <column hidden="0" name="trench_depth_profile" width="292" type="field"/>
       <column hidden="0" name="mean_td" width="-1" type="field"/>
@@ -593,7 +579,6 @@ def my_form_open(dialog, layer, feature):
     <field name="fid" editable="1"/>
     <field name="id" editable="1"/>
     <field name="mean_td" editable="1"/>
-    <field name="needs_pump" editable="1"/>
     <field name="peak_flow" editable="1"/>
     <field name="pressurized" editable="1"/>
     <field name="private_sewer" editable="1"/>
@@ -610,7 +595,6 @@ def my_form_open(dialog, layer, feature):
     <field name="fid" labelOnTop="0"/>
     <field name="id" labelOnTop="0"/>
     <field name="mean_td" labelOnTop="0"/>
-    <field name="needs_pump" labelOnTop="0"/>
     <field name="peak_flow" labelOnTop="0"/>
     <field name="pressurized" labelOnTop="0"/>
     <field name="private_sewer" labelOnTop="0"/>
@@ -627,7 +611,6 @@ def my_form_open(dialog, layer, feature):
     <field name="fid" reuseLastValue="0"/>
     <field name="id" reuseLastValue="0"/>
     <field name="mean_td" reuseLastValue="0"/>
-    <field name="needs_pump" reuseLastValue="0"/>
     <field name="peak_flow" reuseLastValue="0"/>
     <field name="pressurized" reuseLastValue="0"/>
     <field name="private_sewer" reuseLastValue="0"/>

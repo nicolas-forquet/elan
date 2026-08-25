@@ -10,7 +10,7 @@ optimization:
   min_slope: -0.01
   peak_factor: 2.3
   pressurized_diameter: 0.2
-  roughness: 0.13
+  roughness: 0.013
   tmax: 8.0
   tmin: 0.25
 preprocessing:
