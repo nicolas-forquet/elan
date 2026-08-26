@@ -15,6 +15,7 @@ def test_all_processings(elan_processing, mocker, tmp_path):
         PopulationAreametricAlgorithm,
         RoadsBuildingsAlgorithm,
         SewerNetworkAlgorithm,
+        SnapOnRoadsAlgorithm,
         TrenchProfileAlgorithm,
     )
 
@@ -59,6 +60,25 @@ def test_all_processings(elan_processing, mocker, tmp_path):
         "OUTPUT_CENTROIDES_LAYER": str(tmp_path / "population_generated_output.gpkg"),
     }
     res = elan_processing.run(test_population_alg, population_param)
+    assert res != {}
+
+    ########################## Snap on roads #####################################################
+
+    test_snap_on_roads_alg = SnapOnRoadsAlgorithm()
+    test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "snap_on_roads"
+
+    snap_on_roads_param = {
+        "ROADS_INPUT_DATA": str(tmp_path / "roads_generated_output.gpkg"),
+        "BUILDINGS_INPUT_DATA": str(tmp_path / "population_generated_output.gpkg"),
+        "POPULATION_FIELD": "population",
+        "MAX_DISTANCE_TO_ROAD": 1000,
+        "OUTPUT_AGGREGATED": str(tmp_path / "snap_on_roads_centroids_generated_output.gpkg"),
+        "OUTPUT_LINES": str(tmp_path / "snap_on_roads_lines_generated_output.gpkg"),
+        "LINE_LENGTH_SPLIT": 15,
+        "SPLIT_ROADS": str(tmp_path / "snap_on_roads_split_generated_output.gpkg"),
+    }
+    res = elan_processing.run(test_snap_on_roads_alg, snap_on_roads_param)
+    assert res != {}
 
     ########################## Sewer Network #####################################################
 
@@ -67,8 +87,8 @@ def test_all_processings(elan_processing, mocker, tmp_path):
 
     sinks_path = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "processings" / "sewer_network_steu.gpkg"
     dem_file_path = str(test_data_dir / "sewer_network_mnt_input.tif")
-    roads_input_path = str(tmp_path / "roads_generated_output.gpkg")
-    buildings_input_path = str(tmp_path / "population_generated_output.gpkg")
+    roads_input_path = str(tmp_path / "snap_on_roads_split_generated_output.gpkg")
+    buildings_input_path = str(tmp_path / "snap_on_roads_centroids_generated_output.gpkg")
 
     sewer_network_param = {
         "SINKS": sinks_path,
@@ -93,6 +113,7 @@ def test_all_processings(elan_processing, mocker, tmp_path):
         "DIAMETERS": [0, 1, 2, 3, 4, 5],
     }
     res = elan_processing.run(test_sewer_network_alg, sewer_network_param)
+    assert res != {}
 
     ########################## Trench Profile #####################################################
 
@@ -104,3 +125,4 @@ def test_all_processings(elan_processing, mocker, tmp_path):
         "OUTPUT_GPKG": str(tmp_path / "trench_profile_generated_output.gpkg"),
     }
     res = elan_processing.run(trench_profile_alg, trench_profile_param)
+    assert res == {}
