@@ -8,6 +8,8 @@ Did you make sure your bug is not a duplicate ?
 
 ### Elan version used
 
+### Operating system (Windows or Linux)
+
 ### Bug description
 
 <!-- Describe what happens and what should happen instead. -->
