@@ -350,7 +350,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         if not same_crs:
             raise QgsProcessingException(self.tr("All input layers must have the same CRS."))
 
-        # Check MNT contains buildings and roads
+        # Check DEM contains buildings and roads
         if not dem_layer.extent().contains(buildings_source.sourceExtent()):
             raise QgsProcessingException(self.tr("At least one building is not inside the DEM"))
         if not dem_layer.extent().contains(roads_source.sourceExtent()):
