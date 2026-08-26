@@ -263,6 +263,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
                 self.tr("Minimum sewer depth [m]"),
                 Qgis.ProcessingNumberParameterType.Double,
                 defaultValue=0.25,  # min trench depth allowed
+                minValue=0,
             )
         )
 
