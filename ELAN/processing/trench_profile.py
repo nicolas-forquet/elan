@@ -164,14 +164,16 @@ class TrenchProfileAlgorithm(QgsProcessingAlgorithm, Translatable):
                 QgsFeature, feature
             )  # type hint because getFeatures() iterator has an incomplete python type
             multistep_feedback.setProgress(i / feature_count * 100)
-
-            # The idea here is to create a LineStringZ composed of every point from the original line
-            # and every new point created with the "trench_depth_profile" list.
             feature_geometry = feature.geometry()
+
+            # Skip invalid features created by pysewer (see #59)
+            feature_geometry.removeDuplicateNodes(1e-6)
             feature_length = feature_geometry.length()
             if feature_length < 1e-3:
                 continue
 
+            # The idea here is to create a LineStringZ composed of every point from the original line
+            # and every new point created with the "trench_depth_profile" list.
             try:
                 trench_profile = json.loads(feature.attribute("trench_depth_profile"))
                 profile = json.loads(feature.attribute("profile"))
