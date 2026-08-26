@@ -405,9 +405,8 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         # Because of the previous checks, the CRSs are the same, and the DEM
         # has no NO_DATA value (so it is effectively a rectangle).
         if sinks_source is not None:
-            for sink_feature in typing.cast(list[QgsFeature], sinks_source.getFeatures()):
-                if not dem_layer.extent().contains(sink_feature.geometry().asPoint()):
-                    raise QgsProcessingException(self.tr("At least one WWTP is not inside the DEM"))
+            if not dem_layer.extent().contains(sinks_source.sourceExtent()):
+                raise QgsProcessingException(self.tr("At least one WWTP is not inside the DEM"))
 
         diameters_index = parameters[self.DIAMETERS]
         diameters_value = [float(self.DIAMETERS_VALUE[i]) for i in diameters_index]
