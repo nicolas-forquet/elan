@@ -7,7 +7,6 @@ from zipfile import ZipFile
 from qgis.core import QgsCoordinateReferenceSystem
 
 from ELAN.__about__ import DIR_PLUGIN_ROOT
-from ELAN.external_dependencies.skimage.transform._warps import rescale
 
 
 def test_all_processings(elan_processing, mocker, tmp_path):
