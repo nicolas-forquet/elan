@@ -86,20 +86,9 @@ pylint:
 
 # -- TEST JOBS --------------------------------------------------------------------------
 
-test:linux:
+.test:linux:
   image: $QGIS_IMAGE
   stage: 🤞 test
-  parallel:
-    matrix:
-      - QGIS_IMAGE:
-          - qgis/qgis:3.40
-          - qgis/qgis:3.44
-          - qgis/qgis:4.2
-  rules:
-    - changes:
-      - .gitlab-ci.yml
-      - ${PROJECT_FOLDER}/**/*
-      - tests/**/*
   before_script:
     - python3 -m venv --system-site-packages .venv
     - source .venv/bin/activate
@@ -117,6 +106,45 @@ test:linux:
         coverage_format: cobertura
         path: coverage.xml
 
+# QGIS latest
+test:linux:4.2:
+  extends: .test:linux
+  rules:
+    - changes:
+        - .gitlab-ci.yml
+        - ${PROJECT_FOLDER}/**/*
+        - tests/**/*
+  variables:
+    QGIS_IMAGE: qgis/qgis:4.2
+
+# QGIS LTR
+test:linux:3.44:
+  extends: .test:linux
+  needs:
+    - test:linux:4.2
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      changes:
+        - .gitlab-ci.yml
+        - ${PROJECT_FOLDER}/**/*
+        - tests/**/*
+  variables:
+    QGIS_IMAGE: qgis/qgis:3.44
+
+# Oldest QGIS version supported by Elan
+test:linux:3.40:
+  extends: .test:linux
+  needs:
+    - test:linux:3.44
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      changes:
+        - .gitlab-ci.yml
+        - ${PROJECT_FOLDER}/**/*
+        - tests/**/*
+  variables:
+    QGIS_IMAGE: qgis/qgis:3.40
+
 test:windows:
   stage: 🤞 test
   parallel:
@@ -126,11 +154,14 @@ test:windows:
           - qgis-ltr
   tags:
     - saas-windows-medium-amd64
+  needs:
+    - test:linux:4.2
   rules:
-    - changes:
-      - .gitlab-ci.yml
-      - ${PROJECT_FOLDER}/**/*
-      - tests/**/*
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      changes:
+        - .gitlab-ci.yml
+        - ${PROJECT_FOLDER}/**/*
+        - tests/**/*
   before_script:
     - Invoke-WebRequest -Uri "https://download.osgeo.org/osgeo4w/osgeo4w-setup-v2.exe" -OutFile "osgeo4w-setup-v2.exe"
     - |
