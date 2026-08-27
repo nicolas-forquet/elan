@@ -226,7 +226,7 @@ def test_error_buildings_outside_dem(elan_processing):
         "SINKS": None,
         "OUTPUT_GPKG": "nothing.gpkg",
         "DEM_FILE_PATH": str(test_data_dir / "sewer_network_mnt_input.tif"),
-        "ROADS_INPUT_DATA": str(test_data_dir / "sewer_network_roads_input.gpkg.zip"),
+        "ROADS_INPUT_DATA": str(test_data_dir / "sewer_network_roads_input_outside_dem.gpkg.zip"),
         "BUILDINGS_INPUT_DATA": str(test_data_dir / "sewer_network_buildings_population_input_outside_dem.gpkg.zip"),
         "POPULATION_ATTRIBUTE_NAME": "population",
         "PUMP_PENALTY": 1000,
