@@ -350,7 +350,7 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         if not same_crs:
             raise QgsProcessingException(self.tr("All input layers must have the same CRS."))
 
-        # Check Buildings and Boads layers contains datas:
+        # Check Buildings and Roads layers contains datas:
         if buildings_source.sourceExtent().isEmpty():
             raise QgsProcessingException(self.tr("Buildings layer is empty"))
         if roads_source.sourceExtent().isEmpty():
