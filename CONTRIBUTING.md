@@ -10,7 +10,19 @@ If you are making major changes to the code, you are encouraged to open an issue
 
 ## Table of Contents
 
-- [Code of Conduct](#code-of-conduct)
+- [How to contribute to Elan?](#how-to-contribute-to-elan)
+  - [Table of Contents](#table-of-contents)
+  - [Code of Conduct](#code-of-conduct)
+  - [I Have a Question](#i-have-a-question)
+  - [I Want To Contribute](#i-want-to-contribute)
+    - [Reporting Bugs](#reporting-bugs)
+    - [Suggesting Enhancements](#suggesting-enhancements)
+    - [Making Changes](#making-changes)
+      - [Tooling](#tooling)
+      - [CI/CD jobs](#cicd-jobs)
+        - [Check and correct automatically CI issues with pre-commit](#check-and-correct-automatically-ci-issues-with-pre-commit)
+      - [Tests](#tests)
+      - [Documentation](#documentation)
 
 ## Code of Conduct
 
@@ -18,13 +30,45 @@ This project does not yet have Code of Conduct. :construction:
 
 ## I Have a Question
 
+> If you want to ask a question, we assume that you have read the available [Documentation](https://elan-gis.org).
+
+Before you ask a question, it is best to search for existing [Issues](https://gitlab.com/elan7835313/elan/-/work_items?sort=created_date&state=opened&first_page_size=20) that might help you. If you wish to report a bug, please refer to the section [Reporting Bugs](#reporting-bugs).
+
+If you still feel the need to ask a question and need clarification, we recommend the following:
+
+- Open an [Issue](https://gitlab.com/elan7835313/elan/-/work_items/new?type=Issue&initialCreationContext=list-route).
+- Provide as much context as you can about what you're running into.
+- Provide elan and QGIS versions.
+
 ## I Want To Contribute
 
 ### Reporting Bugs
 
+If you find a bug, please report it by [creating an issue](https://gitlab.com/elan7835313/elan/-/work_items/new?type=Issue&initialCreationContext=list-route) and using the bug report template that can be found by selecting the appropriate template in the issue window.
+
 ### Suggesting Enhancements
 
+If you have an idea for an enhancement, please open an issue with the following details:
+
+- A clear and descriptive title.
+- A detailed description of the proposed enhancement.
+- Any relevant use cases or examples.
+- Why you believe this enhancement would be beneficial.
+
 ### Making Changes
+
+We welcome pull requests for bug fixes, new features, and documentation improvements. To submit a pull request, you must be member of the project and follow these steps:
+
+1. Create an issue
+2. Select create a merge request and create a dedicated branch
+3. Make your changes
+4. Commit your changes
+5. Push the branch
+6. Mark your merge request as ready
+
+To be added as a member of the *elan* project, please [contact the owners of the repository](mailto:elan.support@listes.inrae.fr)
+
+Elan has been developed using the following coding standards, please follow theses guidelines to ensure consistency and quality across the codebase:
 
 #### Tooling
 
@@ -92,7 +136,7 @@ To launch tests matching a regular expression:
 
 `$ pytest -k sewer_network`
 
-## Documentation
+#### Documentation
 
 The documentation is generated using Sphinx and is automatically generated through the CI and published on Pages.
 
