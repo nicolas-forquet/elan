@@ -66,11 +66,10 @@ def test_sewer_network(elan_processing, tmp_path):
         assert_same_layers(load_layer(ref_path, name), load_layer(gen_path, name))
 
 
-def test_sewer_network_with_empty_outputs(elan_processing, tmp_path):
+def test_sewer_network_with_empty_buildings(elan_processing, tmp_path):
     """
-    We don't put any building feature in the input buildings layer
-    so that no pump is created, only one sewer, and we must have
-    no error but empty output layers with their structure (fields)
+    Test with an input buildings layer empty.
+    The processing must fail.
     """
 
     from ELAN.processing.sewer_network import SewerNetworkAlgorithm
@@ -84,7 +83,7 @@ def test_sewer_network_with_empty_outputs(elan_processing, tmp_path):
         "SINKS": None,
         "OUTPUT_GPKG": str(tmp_path / "sewer_network_generated_output.gpkg"),
         "DEM_FILE_PATH": str(test_data_dir / "sewer_network_mnt_no_output.tif"),
-        "ROADS_INPUT_DATA": str(test_data_dir / "sewer_network_roads_no_output.gpkg.zip"),
+        "ROADS_INPUT_DATA": str(test_data_dir / "sewer_network_roads_input.gpkg.zip"),
         "BUILDINGS_INPUT_DATA": str(test_data_dir / "sewer_network_buildings_empty.gpkg.zip"),
         "POPULATION_ATTRIBUTE_NAME": "population",
         "PUMP_PENALTY": 1000,
@@ -100,16 +99,45 @@ def test_sewer_network_with_empty_outputs(elan_processing, tmp_path):
         "DIAMETERS": [0, 1, 2, 3, 4, 5],
     }
 
-    res = elan_processing.run(test_sewer_network_alg, sewer_network_param)
-    assert list(res.keys()) == ["OUTPUT_GPKG"]
+    with pytest.raises(QgsProcessingException, match=re.compile(r"Buildings layer is empty")):
+        elan_processing.run(test_sewer_network_alg, sewer_network_param)
 
-    ref_path = test_data_dir / "sewer_network_reference_output_with_empty_outputs.gpkg.zip"
-    gen_path = tmp_path / "sewer_network_generated_output.gpkg"
 
-    layers = ["pumping_stations", "lifting_stations", "sewer_pipes", "roads", "buildings", "sinks_layer"]
+def test_sewer_network_with_empty_roads(elan_processing, tmp_path):
+    """
+    Test with an input roads layer empty.
+    The processing must fail.
+    """
 
-    for name in layers:
-        assert_same_layers(load_layer(ref_path, name), load_layer(gen_path, name))
+    from ELAN.processing.sewer_network import SewerNetworkAlgorithm
+
+    test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "sewer_network"
+    test_sewer_network_alg = SewerNetworkAlgorithm()
+    assert test_sewer_network_alg.name() == "elansewernetwork"
+    assert test_sewer_network_alg.groupId() == "elanprocessings"
+
+    sewer_network_param = {
+        "SINKS": None,
+        "OUTPUT_GPKG": str(tmp_path / "sewer_network_generated_output.gpkg"),
+        "DEM_FILE_PATH": str(test_data_dir / "sewer_network_mnt_no_output.tif"),
+        "ROADS_INPUT_DATA": str(test_data_dir / "sewer_network_roads_empty.gpkg.zip"),
+        "BUILDINGS_INPUT_DATA": str(test_data_dir / "sewer_network_buildings_population_input.gpkg.zip"),
+        "POPULATION_ATTRIBUTE_NAME": "population",
+        "PUMP_PENALTY": 1000,
+        "MAX_CONNECTION_LENGTH": 30,
+        "CLUSTERING": "None",
+        "DAILY_WASTEWATER_PERSON": 0.164,
+        "PEAK_FACTOR": 2.3,
+        "MIN_SLOPE": -0.01,
+        "TMAX": 8,
+        "TMIN": 0.25,
+        "ROUGHNESS": 0.013,
+        "PRESSURIZED_DIAMETER": 0.2,
+        "DIAMETERS": [0, 1, 2, 3, 4, 5],
+    }
+
+    with pytest.raises(QgsProcessingException, match=re.compile(r"Roads layer is empty")):
+        elan_processing.run(test_sewer_network_alg, sewer_network_param)
 
 
 def test_error_null_population_fields(elan_processing):
