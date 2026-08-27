@@ -351,6 +351,18 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         if not same_crs:
             raise QgsProcessingException(self.tr("All input layers must have the same CRS."))
 
+        # Check Buildings and Roads layers contains datas:
+        if buildings_source.sourceExtent().isEmpty():
+            raise QgsProcessingException(self.tr("Buildings layer is empty"))
+        if roads_source.sourceExtent().isEmpty():
+            raise QgsProcessingException(self.tr("Roads layer is empty"))
+
+        # Check DEM contains buildings and roads
+        if not dem_layer.extent().contains(buildings_source.sourceExtent()):
+            raise QgsProcessingException(self.tr("At least one building is not inside the DEM"))
+        if not dem_layer.extent().contains(roads_source.sourceExtent()):
+            raise QgsProcessingException(self.tr("At least one road is not inside the DEM"))
+
         # Create temporary layers with buildings and roads input features
         if (buildings_layer := buildings_source.materialize(QgsFeatureRequest())) is None:
             raise QgsProcessingException(self.tr("Error when creating buildings layer"))
@@ -400,9 +412,8 @@ class SewerNetworkAlgorithm(QgsProcessingAlgorithm, Translatable):
         # Because of the previous checks, the CRSs are the same, and the DEM
         # has no NO_DATA value (so it is effectively a rectangle).
         if sinks_source is not None:
-            for sink_feature in typing.cast(list[QgsFeature], sinks_source.getFeatures()):
-                if not dem_layer.extent().contains(sink_feature.geometry().asPoint()):
-                    raise QgsProcessingException(self.tr("At least one WWTP is not inside the DEM"))
+            if not dem_layer.extent().contains(sinks_source.sourceExtent()):
+                raise QgsProcessingException(self.tr("At least one WWTP is not inside the DEM"))
 
         diameters_index = parameters[self.DIAMETERS]
         diameters_value = [float(self.DIAMETERS_VALUE[i]) for i in diameters_index]
