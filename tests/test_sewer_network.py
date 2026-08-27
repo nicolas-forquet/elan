@@ -248,7 +248,7 @@ def test_error_buildings_outside_dem(elan_processing):
 
 def test_error_roads_outside_dem(elan_processing):
     """
-    Test with an input buildings layer without the specified population field.
+    Test with an input roads layer with roads outside the DEM.
     The processing must fail.
     """
 
