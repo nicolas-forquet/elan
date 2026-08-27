@@ -184,7 +184,7 @@ def test_all_processings_bis(elan_processing, mocker, tmp_path):
     test_sewer_network_alg = SewerNetworkAlgorithm()
 
     sinks_path = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "processings" / "sewer_network_steu.gpkg"
-    dem_file_path = str(test_data_dir / "sewer_network_mnt_input.tif")
+    dem_file_path = str(test_data_dir / "sewer_network_mnt_input.tif.zip")
     roads_input_path = str(tmp_path / "roads_generated_output.gpkg")
     buildings_input_path = str(tmp_path / "population_generated_output.gpkg")
 
