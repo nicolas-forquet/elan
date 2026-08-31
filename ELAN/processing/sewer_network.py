@@ -14,7 +14,6 @@
 import subprocess
 import sys
 import tempfile
-import typing
 from pathlib import Path
 
 import processing
@@ -24,7 +23,6 @@ from qgis.core import (
     Qgis,
     QgsCategorizedSymbolRenderer,
     QgsCoordinateTransformContext,
-    QgsFeature,
     QgsFeatureRequest,
     QgsGraduatedSymbolRenderer,
     QgsLineSymbol,
