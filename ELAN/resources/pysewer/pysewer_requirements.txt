@@ -9,3 +9,4 @@ threadpoolctl
 click
 attrs
 narwhals
+cloudpickle
