@@ -175,20 +175,20 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         self.addParameter(
             QgsProcessingParameterFeatureSink(
                 self.OUTPUT_AGGREGATED,
-                self.tr("Projected centroids - Output layer"),
+                self.tr("Projected centroids"),
                 Qgis.ProcessingSourceType.VectorLine,
             )
         )
         self.addParameter(
             QgsProcessingParameterFeatureSink(
                 self.SPLIT_ROADS,
-                self.tr("Split roads - Output layer"),
+                self.tr("Split roads"),
                 Qgis.ProcessingSourceType.VectorLine,
             )
         )
         self.addParameter(
             QgsProcessingParameterFeatureSink(
-                self.OUTPUT_LINES, self.tr("Projection lines - Output layer"), Qgis.ProcessingSourceType.VectorLine
+                self.OUTPUT_LINES, self.tr("Projection lines"), Qgis.ProcessingSourceType.VectorLine
             )
         )
         self.addAdvancedParameter(
@@ -262,7 +262,7 @@ class SnapOnRoadsAlgorithm(QgsProcessingAlgorithm, Translatable):
         )["OUTPUT"]
         if context.willLoadLayerOnCompletion(split_roads):
             ld = context.layerToLoadOnCompletionDetails(split_roads)
-            ld.name = self.tr("Split roads - Output layer")
+            ld.name = self.tr("Split roads")
 
         if (split_roads_layer := QgsProcessingUtils.mapLayerFromString(split_roads, context)) is None or not isinstance(
             split_roads_layer, QgsVectorLayer

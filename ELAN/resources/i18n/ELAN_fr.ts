@@ -1458,19 +1458,19 @@ Cette étape permet d’isoler les raccordements réellement liés au réseau pu
     </message>
     <message>
         <location filename="../../processing/snap_on_roads.py" line="178" />
-        <source>Projected centroids - Output layer</source>
-        <translation>Centroïdes projetés - Couche de sortie</translation>
+        <source>Projected centroids</source>
+        <translation>Centroïdes projetés</translation>
     </message>
     <message>
         <location filename="../../processing/snap_on_roads.py" line="265" />
         <location filename="../../processing/snap_on_roads.py" line="185" />
-        <source>Split roads - Output layer</source>
-        <translation>Routes segmentées - Couche de sortie</translation>
+        <source>Split roads</source>
+        <translation>Routes segmentées</translation>
     </message>
     <message>
         <location filename="../../processing/snap_on_roads.py" line="191" />
-        <source>Projection lines - Output layer</source>
-        <translation>Lignes de projection - Couche de sortie</translation>
+        <source>Projection lines</source>
+        <translation>Lignes de projection</translation>
     </message>
     <message>
         <location filename="../../processing/snap_on_roads.py" line="197" />
