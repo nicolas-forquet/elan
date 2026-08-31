@@ -155,7 +155,7 @@ test:windows:
   tags:
     - saas-windows-medium-amd64
   needs:
-    - test:linux:4.2
+    - test:linux:3.40
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       changes:
