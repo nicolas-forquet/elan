@@ -26,5 +26,5 @@ Did you make sure your bug is not a duplicate ?
 
 ### Comments 
 
-/label ~"type::bug"
+/label "bug"
 /type "incident"
