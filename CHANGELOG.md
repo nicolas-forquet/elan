@@ -27,7 +27,25 @@ Unreleased
 - and that other one too
 -->
 
-## 2026.8.20-beta - 2026-08-20
+## 2026.9.91-beta - 2026-09-01
+
+### Added
+
+- New module: Grouping
+- More testing (new area to test modules sequencing)
+
+### Changed
+
+- Sewer network module: pysewer update to 0.2.0
+- Sewer network module: check that input features are not outside the DEM
+
+### Fixed
+
+- Wetlandoptimizer detection
+- Radar plot not showing up
+- Typos
+
+## 2026.8.20 - 2026-08-20
 
 ### Added
 
