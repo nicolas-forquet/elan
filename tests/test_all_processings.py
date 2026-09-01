@@ -125,4 +125,99 @@ def test_all_processings(elan_processing, mocker, tmp_path):
         "OUTPUT_GPKG": str(tmp_path / "trench_profile_generated_output.gpkg"),
     }
     res = elan_processing.run(trench_profile_alg, trench_profile_param)
-    assert res == {}
+
+
+def test_all_processings_bis(elan_processing, mocker, tmp_path):
+
+    from ELAN.processing.provider import (
+        PopulationAreametricAlgorithm,
+        RoadsBuildingsAlgorithm,
+        SewerNetworkAlgorithm,
+        TrenchProfileAlgorithm,
+    )
+
+    ########################## Roads and Buildings #####################################################
+
+    test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "bis_all_processings"
+    roads_buildings_alg = RoadsBuildingsAlgorithm()
+
+    # Mock OSM response
+    osm_zip_path = test_data_dir / "osm_roads_buildings.zip"
+    with ZipFile(osm_zip_path) as osm_zip:
+        with osm_zip.open("osm_roads_buildings.json") as osm_json:
+            json_osm_text = osm_json.read()
+    mock_request = mocker.Mock()
+    mock_request.reply.return_value.content.return_value.data.return_value = json_osm_text
+    mocker.patch("ELAN.processing.roads_buildings.QgsBlockingNetworkRequest", return_value=mock_request)
+    # To reproject output layer into correct CRS we have to set the project CRS
+    mocker.patch(
+        "ELAN.processing.roads_buildings.QgsProject.crs", return_value=QgsCoordinateReferenceSystem("IGNF:LAMB93")
+    )
+    roads_buildings_param = {
+        "POLYGON": str(test_data_dir / "buildings_roads_input.gpkg.zip"),
+        "BUILDINGS_OUTPUT": str(tmp_path / "buildings_generated_output.gpkg"),
+        "CENTROID_BUILDINGS_OUTPUT": str(tmp_path / "buildings_centroids_generated_output.gpkg"),
+        "MERGED_BUILDINGS_OUTPUT": str(tmp_path / "buildings_merged_generated_output.gpkg"),
+        "CENTROID_MERGED_BUILDINGS_OUTPUT": str(tmp_path / "buildings_centroids_merged_generated_output.gpkg"),
+        "ROADS_OUTPUT": str(tmp_path / "roads_generated_output.gpkg"),
+        "PROJ": True,
+    }
+    res = elan_processing.run(roads_buildings_alg, roads_buildings_param)
+    assert res != {}
+
+    ########################## Population #####################################################
+
+    test_population_alg = PopulationAreametricAlgorithm()
+    test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "bis_all_processings"
+
+    population_param = {
+        "INPUT_POPULATION_TOT": 1100,
+        "INPUT_POLYGON_LAYER": str(tmp_path / "buildings_merged_generated_output.gpkg"),  # from previous module
+        "OUTPUT_CENTROIDES_LAYER": str(tmp_path / "population_generated_output.gpkg"),
+    }
+    res = elan_processing.run(test_population_alg, population_param)
+
+    ########################## Sewer Network #####################################################
+
+    test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "bis_all_processings"
+    test_sewer_network_alg = SewerNetworkAlgorithm()
+
+    sinks_path = str(test_data_dir / "sewer_network_steu_input.gpkg.zip")
+    dem_file_path = str(test_data_dir / "sewer_network_mnt_input.tif")
+    roads_input_path = str(tmp_path / "roads_generated_output.gpkg")
+    buildings_input_path = str(tmp_path / "population_generated_output.gpkg")
+
+    sewer_network_param = {
+        "SINKS": sinks_path,
+        "OUTPUT_GPKG": str(tmp_path / "sewer_network_generated_output.gpkg"),
+        "DEM_FILE_PATH": dem_file_path,
+        "ROADS_INPUT_DATA": roads_input_path,
+        "BUILDINGS_INPUT_DATA": buildings_input_path,
+        "INHABITANTS_DWELLING_ATTRIBUTE_NAME": "population",
+        "PUMP_PENALTY": 1000,
+        "MAX_CONNECTION_LENGTH": 30,
+        "CLUSTERING": "None",
+        "DEFAULT_INHABITANTS_DWELLING": 3,
+        "DAILY_WASTEWATER_PERSON": 0.164,
+        "PEAK_FACTOR": 2.3,
+        "MIN_SLOPE": -0.01,
+        "TMAX": 8,
+        "TMIN": 0.25,
+        "INFLOW_TRENCH_DEPTH": 0,
+        "MIN_TRENCH_DEPTH": 0,
+        "ROUGHNESS": 0.013,
+        "PRESSURIZED_DIAMETER": 0.2,
+        "DIAMETERS": [0, 1, 2, 3, 4, 5],
+    }
+    res = elan_processing.run(test_sewer_network_alg, sewer_network_param)
+
+    ########################## Trench Profile #####################################################
+
+    trench_profile_alg = TrenchProfileAlgorithm()
+    test_data_dir = DIR_PLUGIN_ROOT.parent / "tests" / "data_test" / "bis_all_processings"
+
+    trench_profile_param = {
+        "INPUT_LAYER": str(tmp_path / "sewer_network_generated_output.gpkg|layername=sewer_pipes"),
+        "OUTPUT_GPKG": str(tmp_path / "trench_profile_generated_output.gpkg"),
+    }
+    res = elan_processing.run(trench_profile_alg, trench_profile_param)
