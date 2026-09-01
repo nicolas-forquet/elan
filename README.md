@@ -69,11 +69,11 @@ Development currently involves:
 
 ## Citation
 
-If you use Elan, please cite the one of the following ressources:
+If you use Elan, please cite one of the following ressources:
 
 > Gabrielle Favreau, Pascal Molle, Jacky Volpes, Sophie Aubier, Nicolas Forquet. Elan: urban water planning scenarios for sustainable cities. 2025, [⟨swh:1:dir:030cd3725e459e734780e346165112efd75fbbdd⟩](https://archive.softwareheritage.org/browse/directory/030cd3725e459e734780e346165112efd75fbbdd/). [⟨doi:10.17180/94zw-ef97⟩](https://doi.org/10.17180/94ZW-EF97)
 
-> Gabrielle Favreau, Nicolas Forquet, Jacky Volpes, Sophie Aubier, Pascal Molle. Elan: a GIS tool for scenario-based integrated urban water management using nature-based solutions. 2026. SoftwareX 35, 102925. [doi:10.1016/j.softx.2026.102925](https://doi.org/10.1016/j.softx.2026.102925)
+> Gabrielle Favreau, Nicolas Forquet, Jacky Volpes, Sophie Aubier, Pascal Molle. Elan: a GIS tool for scenario-based integrated urban water management using nature-based solutions. 2026. SoftwareX 35, 102925. [⟨doi:10.1016/j.softx.2026.102925⟩](https://doi.org/10.1016/j.softx.2026.102925)
 
 ## Acknowledgments
 
