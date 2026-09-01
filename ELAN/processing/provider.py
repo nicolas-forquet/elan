@@ -10,6 +10,7 @@ from qgis.PyQt.QtGui import QIcon
 from ELAN.__about__ import DIR_PLUGIN_ROOT, __experimental__, __version__
 from ELAN.processing.assessment import AssessmentAlgorithm
 from ELAN.processing.comparison import ComparisonAlgorithm
+from ELAN.processing.grouping import GroupingAlgorithm
 from ELAN.processing.hydraulic import HydraulicAlgorithm, HydraulicUrbanCatchmentAlgorithm
 from ELAN.processing.population import PopulationAreametricAlgorithm, PopulationUniformAlgorithm
 from ELAN.processing.roads_buildings import RoadsBuildingsAlgorithm
@@ -33,6 +34,7 @@ class ELANProvider(QgsProcessingProvider, Translatable):
         self.addAlgorithm(SewerNetworkAlgorithm())
         self.addAlgorithm(TrenchProfileAlgorithm())
         self.addAlgorithm(ScenarioAlgorithm())
+        self.addAlgorithm(GroupingAlgorithm())
 
         if __experimental__:
             self.addAlgorithm(AssessmentAlgorithm())
