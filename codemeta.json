@@ -87,7 +87,7 @@
             "givenName": "Larissa"
         }
     ],
-    "dateModified": "2026-08-20",
+    "dateModified": "2026-09-01",
     "datePublished": "2025-03-14",
     "description": "Elan is a QGIS decision-support plugin that aims to facilitate integrated urban water management by nature-based solutions. Using this plugin, the user can create and compare different urban water management scenarios (wastewater and stormwater) to support informed decision making. Elan has been developped from 2021.",
     "downloadUrl": "https://gitlab.com/elan7835313/elan/-/releases",
@@ -111,11 +111,11 @@
     ],
     "programmingLanguage": "Python 3",
     "relatedLink": "https://elan-gis.org",
-    "schema:releaseNotes": "## Added\n- Documentation update\n- More testing (QGIS versions, Windows CI, pysewer launcher...)\n- Snap on roads: add road segmentation\n\n## Fixed\n- Sewer network module: disallow WWTP outside DEM",
+    "schema:releaseNotes": "## Added\n- New module: Grouping\n- More testing (new area to test modules sequencing)\n\n## Changed\n- Sewer network module: pysewer update to 0.2.0\n- Sewer network module: check that input features are not outside the DEM\n\n## Fixed\n- Wetlandoptimizer detection\n- Radar plot not showing up\n- Typos",
     "softwareRequirements": [
         "https://qgis.org/download/",
         "https://plugins.qgis.org/plugins/DataPlotly/"
     ],
-    "version": "2026.8.20-beta",
+    "version": "2026.9.1",
     "issueTracker": "https://gitlab.com/elan7835313/elan/-/issues"
 }
